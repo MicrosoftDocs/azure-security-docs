@@ -1,12 +1,12 @@
 ---
 title: Built-in policy definitions for Key Vault
 description: Lists Azure Policy built-in policy definitions for Key Vault. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 07/10/2020
-ms.topic: sample
+ms.date: 09/16/2020
+ms.topic: reference
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: key-vault
-ms.custom: subject-policy-samples
+ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in definitions for Key Vault
 
@@ -20,11 +20,11 @@ the link in the **Version** column to view the source on the
 
 ## Key Vault (service)
 
-[!INCLUDE [azure-policy-samples-service-keyvault-control](../../includes/policy/samples/byrp/microsoft.keyvault.md)]
+[!INCLUDE [azure-policy-reference-service-keyvault-control](../../includes/policy/reference/byrp/microsoft.keyvault.md)]
 
 ## Key Vault (objects)
 
-[!INCLUDE [azure-policy-samples-service-keyvault-data](../../includes/policy/samples/byrp/microsoft.keyvault.data.md)]
+[!INCLUDE [azure-policy-reference-service-keyvault-data](../../includes/policy/reference/byrp/microsoft.keyvault.data.md)]
 
 ## Next steps
 
