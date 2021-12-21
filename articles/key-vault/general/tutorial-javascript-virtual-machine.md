@@ -1,24 +1,24 @@
 ---
-title: Tutorial - Use Azure Key Vault with a virtual machine in Python | Microsoft Docs
-description: In this tutorial, you configure a virtual machine a Python application to read a secret from your key vault.
+title: Tutorial - Use Azure Key Vault with a virtual machine in JavaScript | Microsoft Docs
+description: In this tutorial, you configure a virtual machine a JavaScript application to read a secret from your key vault.
 author: msmbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 07/20/2020
+ms.date: 12/10/2021
 ms.author: mbaldwin
-ms.devlang: python
-ms.custom: mvc, devx-track-python, devx-track-azurecli
+ms.devlang: javascript
+ms.custom: mvc, devx-track-js, devx-track-azurecli
 
 # Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
 
 ---
 
-# Tutorial: Use Azure Key Vault with a virtual machine in Python
+# Tutorial: Use Azure Key Vault with a virtual machine in JavaScript
 
 Azure Key Vault helps you to protect keys, secrets, and certificates, such as API keys and database connection strings.
 
-In this tutorial, you set up a Python application to read information from Azure Key Vault by using managed identities for Azure resources. You learn how to:
+In this tutorial, you set up a Node.js application to read information from Azure Key Vault by using managed identities for Azure resources. You learn how to:
 
 > [!div class="checklist"]
 > * Create a key vault
@@ -113,43 +113,83 @@ To log into a Linux VM, you can use the ssh command with the \<publicIpAddress\>
 ssh azureuser@<PublicIpAddress>
 ```
 
-## Install Python libraries on the VM
+## Install Node.js and npm libraries on the VM
 
-On the virtual machine, install the two Python libraries we'll be using in our Python script: `azure-keyvault-secrets` and `azure.identity`.  
+On the virtual machine, install the two npm libraries we'll be using in our JavaScript script: [@azure/keyvault-secrets](https://www.npmjs.com/package/@azure/keyvault-secrets) and [@azure/identity](https://www.npmjs.com/package/@azure/identity).  
 
-On a Linux VM, for instance, you can install these using `pip3`:
+1. In the SSH terminal, install Node.js and npm with the following commands:
+
+    ```bash
+    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - && \
+        sudo apt-get install -y nodejs
+    ```
+
+1. Create an app directory and initialize the Node.js package:
+
+    ```bash
+    mkdir app && cd app && npm init -y
+    ```
+
+1. Install the Azure service packages using `npm`:
+
+    ```bash
+    npm install @azure/keyvault-secrets @azure/identity
+    ```
+
+## Create and edit the sample JavaScript file
+
+1. On the virtual machine in the `app` directory, create a JavaScript file called **index.js**. 
+
+    ```bash
+    touch index.js
+    ```
+
+1. Open the file with the [Nano](https://www.nano-editor.org/dist/latest/cheatsheet.html) text editor:
+
+    ```bash
+    nano index.js
+    ```
+
+1. Copy the following code, replacing \<your-unique-keyvault-name\> with the name of your key vault, and paste into the Nano editor:
+
+    ```javascript
+    // index.js
+    
+    const { SecretClient } = require("@azure/keyvault-secrets");
+    const { DefaultAzureCredential } = require("@azure/identity");
+    
+    // Your Azure Key Vault name and secret name
+    const keyVaultName = "<your-unique-keyvault-name>";
+    const keyVaultUri = `https://${keyVaultName}.vault.azure.net`;
+    const secretName = "mySecret";
+    
+    // Authenticate to Azure
+    const credential = new DefaultAzureCredential();
+    const client = new SecretClient(keyVaultUri, credential);
+    
+    // Get Secret with Azure SDK for JS
+    const getSecret = async (secretName) => {
+    
+        return (await client.getSecret(secretName)).value;
+    }
+    
+    getSecret("mySecret").then(secretValue => {
+        console.log(`The value of secret 'mySecret' in '${keyVaultName}' is: '${secretValue}'`);
+    }).catch(err => {
+        console.log(err);
+    })
+    ```
+
+1. Save the file with <kbd>Ctrl</kbd> + <kbd>x</kbd>. 
+1. When asked `Save modified buffer?`, enter <kbd>y</kbd>.
+1. When asked `File Name to Write: index.js`, enter <kbd>Enter</kbd>.
+
+## Run the sample Node.js app
+
+Lastly, run **index.js**. If all has gone well, it should return the value of your secret:
 
 ```bash
-pip3 install azure-keyvault-secrets
-
-pip3 install azure.identity
-```
-
-## Create and edit the sample Python script
-
-On the virtual machine, create a Python file called **sample.py**. Edit the file to contain the following code, replacing \<your-unique-keyvault-name\> with the name of your key vault:
-
-```python
-from azure.keyvault.secrets import SecretClient
-from azure.identity import DefaultAzureCredential
-
-keyVaultName = "<your-unique-keyvault-name>"
-KVUri = f"https://{keyVaultName}.vault.azure.net"
-secretName = "mySecret"
-
-credential = DefaultAzureCredential()
-client = SecretClient(vault_url=KVUri, credential=credential)
-retrieved_secret = client.get_secret(secretName)
-
-print(f"The value of secret '{secretName}' in '{keyVaultName}' is: '{retrieved_secret.value}'")
-```
-
-## Run the sample Python app
-
-Lastly, run **sample.py**. If all has gone well, it should return the value of your secret:
-
-```bash
-python3 sample.py
+node index.js
 
 The value of secret 'mySecret' in '<your-unique-keyvault-name>' is: 'Success!'
 ```
