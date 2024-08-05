@@ -118,12 +118,12 @@ sections:
       - question: |
           Can an application connect to Dedicated HSM from a different virtual network in or across regions?
         answer: |
-          Yes, you need to use [virtual network peering](../virtual-network/virtual-network-peering-overview.md) within a region to establish connectivity across virtual networks. For cross-region connectivity, you must use [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+          Yes, you need to use [virtual network peering](/azure/virtual-network/virtual-network-peering-overview) within a region to establish connectivity across virtual networks. For cross-region connectivity, you must use [VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
           
       - question: |
           Can I synchronize Dedicated HSM with on-premises HSMs?
         answer: |
-          Yes, you can sync on-premises HSMs with Dedicated HSM. [Point-to-point VPN or point-to-site](../vpn-gateway/vpn-gateway-about-vpngateways.md) connectivity can be used to establish connectivity with your on-premises network.
+          Yes, you can sync on-premises HSMs with Dedicated HSM. [Point-to-point VPN or point-to-site](/azure/vpn-gateway/vpn-gateway-about-vpngateways) connectivity can be used to establish connectivity with your on-premises network.
           
       - question: |
           Can I encrypt data used by other Azure services using keys stored in Dedicated HSM?

@@ -13,7 +13,7 @@ ms.author: mbaldwin
 
 # How to peer payment HSM virtual networks
 
-Peering allows you to seamlessly connect two or more virtual networks, so they appear as a single network for connectivity purposes. For full details, see [Virtual network peering](../virtual-network/virtual-network-peering-overview.md).
+Peering allows you to seamlessly connect two or more virtual networks, so they appear as a single network for connectivity purposes. For full details, see [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview).
 
 The `fastpathenabled` tag must be enabled on any virtual networks that the Payment HSM uses, peered or otherwise. For instance, to peer a virtual network of a payment HSM with a virtual network of a VM, you must first add the `fastpathenabled` tag to the latter.  Unfortunately, adding the `fastpathenabled` tag through the Azure portal is insufficient—it must be done from the commandline.
 

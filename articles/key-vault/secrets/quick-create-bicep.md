@@ -128,5 +128,5 @@ Remove-AzResourceGroup -Name exampleRG
 In this quickstart, you created a key vault and a secret using Bicep and then validated the deployment. To learn more about Key Vault and Bicep, continue on to the articles below.
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
-- Learn more about [Bicep](../../azure-resource-manager/bicep/overview.md)
+- Learn more about [Bicep](/azure/azure-resource-manager/bicep/overview)
 - Review the [Key Vault security overview](../general/security-features.md)

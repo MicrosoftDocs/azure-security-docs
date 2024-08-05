@@ -40,9 +40,9 @@ The following table describes what is supported for each network features config
 |Features |Basic network features |
 | :------------------- | -------------------: |
 |Delegated subnet per virtual network | 1 |
-|[Network Security Groups](../virtual-network/network-security-groups-overview.md) on payment HSMs on Azure-delegated subnets | No |
-|[User-defined routes (UDRs)](../virtual-network/virtual-networks-udr-overview.md#user-defined) on payment HSMs on Azure-delegated subnets | No |
-|Connectivity to [private endpoints](../private-link/private-endpoint-overview.md) | No |
+|[Network Security Groups](/azure/virtual-network/network-security-groups-overview) on payment HSMs on Azure-delegated subnets | No |
+|[User-defined routes (UDRs)](/azure/virtual-network/virtual-networks-udr-overview#user-defined) on payment HSMs on Azure-delegated subnets | No |
+|Connectivity to [private endpoints](/azure/private-link/private-endpoint-overview) | No |
 |Load balancers for payment HSMs on Azure traffic | No |
 |Dual stack (IPv4 and IPv6) virtual network | IPv4 only supported |
 

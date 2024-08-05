@@ -76,7 +76,7 @@ items:
   - name: TLS offload library
     href: tls-offload-library.md
   - name: Key management in Azure
-    href: ../../security/fundamentals/key-management.md
+    href: /azure/security/fundamentals/key-management
   - name: Azure PowerShell
     href: /powershell/azure#key_vault
   - name: Azure CLI

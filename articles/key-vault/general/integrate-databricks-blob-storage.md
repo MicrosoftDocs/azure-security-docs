@@ -38,7 +38,7 @@ az storage account create --name contosoblobstorage5 --resource-group contosoRes
 
 ![Console output of the above command. ID is highlighted in green for end-user to see.](../media/databricks-command-output-1.png)
 
-Before you can create a container to upload the blob to, you'll need to assign the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) role to yourself. For this example, the role will be assigned to the storage account you've made earlier.
+Before you can create a container to upload the blob to, you'll need to assign the [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) role to yourself. For this example, the role will be assigned to the storage account you've made earlier.
 
 ```azurecli
 az role assignment create --role "Storage Blob Data Contributor" --assignee t-trtr@microsoft.com --scope "/subscriptions/{subscription-id}/resourceGroups/contosoResourceGroup5/providers/Microsoft.Storage/storageAccounts/contosoblobstorage5
@@ -121,4 +121,4 @@ df.show()
 
 Make sure your Key Vault is recoverable:
 > [!div class="nextstepaction"]
-> [Clean up your resources](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-powershell)
+> [Clean up your resources](/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-powershell)

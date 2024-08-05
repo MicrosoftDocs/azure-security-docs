@@ -192,7 +192,7 @@ Applications that use a key vault must authenticate by using a token from Micros
 
 The application must present both these values to Microsoft Entra ID, to get a token. How an application is configured to get a token will depend on the application. For the [Key Vault sample application](https://www.microsoft.com/download/details.aspx?id=45343), the application owner sets these values in the app.config file.
 
-For detailed steps on registering an application with Microsoft Entra ID you should review the articles titled [Integrating applications with Microsoft Entra ID](../../active-directory/develop/quickstart-register-app.md), [Use portal to create a Microsoft Entra application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md), and [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
+For detailed steps on registering an application with Microsoft Entra ID you should review the articles titled [Integrating applications with Microsoft Entra ID](/azure/active-directory/develop/quickstart-register-app), [Use portal to create a Microsoft Entra application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal), and [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 To register an application in Microsoft Entra ID:
 

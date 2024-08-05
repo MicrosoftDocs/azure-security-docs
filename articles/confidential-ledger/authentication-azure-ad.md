@@ -76,7 +76,7 @@ The Microsoft Entra service endpoint used for authentication is also called *Mic
 
 The easiest way to access Azure confidential ledger with user authentication is to use the Azure confidential ledger SDK and set the `Federated Authentication` property of the Azure confidential ledger connection string to `true`. The first time the SDK is used to send a request to the service the user will be presented with a sign-in form to enter the Microsoft Entra credentials. Following a successful authentication the request will be sent to Azure confidential ledger.
 
-Applications that don't use the Azure confidential ledger SDK can still use the [Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md) instead of implementing the Microsoft Entra service security protocol client. See [Enable your Web Apps to sign-in users and call APIs with the Microsoft identity platform for developers](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2).
+Applications that don't use the Azure confidential ledger SDK can still use the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) instead of implementing the Microsoft Entra service security protocol client. See [Enable your Web Apps to sign-in users and call APIs with the Microsoft identity platform for developers](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2).
 
 If your application is intended to serve as front-end and authenticate users for an Azure confidential ledger cluster, the application must be granted delegated permissions on Azure confidential ledger.
 
@@ -87,7 +87,7 @@ Applications that use Azure confidential ledger authenticate by using a token fr
 For detailed steps on registering an Azure confidential ledger application with Microsoft Entra ID, review these articles:
 
 - [How to register an Azure confidential ledger application with Microsoft Entra ID](register-application.md)
-- [Use portal to create a Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md)
+- [Use portal to create a Microsoft Entra application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal)
 - [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 At the end of registration, the application owner gets the following values:
@@ -113,7 +113,7 @@ This flow is called the[OAuth2 token exchange flow](https://tools.ietf.org/html/
 
 - [How to register an Azure confidential ledger application with Microsoft Entra ID](register-application.md)
 - [Overview of Microsoft Azure confidential ledger](overview.md)
-- [Integrating applications with Microsoft Entra ID](../active-directory/develop/quickstart-register-app.md)
-- [Use portal to create a Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md)
+- [Integrating applications with Microsoft Entra ID](/azure/active-directory/develop/quickstart-register-app)
+- [Use portal to create a Microsoft Entra application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal)
 - [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 - [Authenticating Azure confidential ledger nodes](authenticate-ledger-nodes.md)

@@ -46,13 +46,13 @@ Platform metrics and the Activity log are collected and stored automatically, bu
 
 Resource Logs aren't collected and stored until you create a diagnostic setting and route them to one or more locations.
 
-See [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/essentials/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for *Key Vault* are listed in [Key Vault monitoring data reference](monitor-key-vault-reference.md#resource-logs).
+See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/essentials/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for *Key Vault* are listed in [Key Vault monitoring data reference](monitor-key-vault-reference.md#resource-logs).
 
 To create a diagnostic setting for your key vault, see [Enable Key Vault logging](howto-logging.md). The metrics and logs you can collect are discussed in the following sections.
 
 [!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
-You can analyze metrics for Key Vault with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](../../azure-monitor/essentials/analyze-metrics.md) for details on using this tool.
+You can analyze metrics for Key Vault with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics) for details on using this tool.
 
 For a list of available metrics for Key Vault, see [Azure Key Vault monitoring data reference](monitor-key-vault-reference.md#metrics).
 
@@ -66,9 +66,9 @@ For the available resource log categories, their associated Log Analytics tables
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../../azure-monitor/essentials/resource-logs-schema.md) 
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/essentials/resource-logs-schema) 
 
-The [Activity log](../../azure-monitor/essentials/activity-log.md) is a type of platform log for Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
+The [Activity log](/azure/azure-monitor/essentials/activity-log) is a type of platform log for Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
 For a list of the types of resource logs collected for Key Vault, see [Monitoring Key Vault data reference](monitor-key-vault-reference.md#resource-logs)  
 
@@ -80,7 +80,7 @@ For a list of the tables used by Azure Monitor Logs and queryable by Log Analyti
 
 [!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
-Here are some queries that you can enter into the **Log search** bar to help you monitor your Key Vault resources. These queries work with the [new language](../../azure-monitor/logs/log-query-overview.md).
+Here are some queries that you can enter into the **Log search** bar to help you monitor your Key Vault resources. These queries work with the [new language](/azure/azure-monitor/logs/log-query-overview).
 
 - Are there any clients using old TLS version (<1.2)?
 

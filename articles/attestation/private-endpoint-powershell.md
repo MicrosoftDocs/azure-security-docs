@@ -22,7 +22,7 @@ In this quickstart, you'll create a private endpoint for Azure Attestation and d
 
 ## Prerequisites
 
-* Learn about [Azure Private Link](../private-link/private-link-overview.md)
+* Learn about [Azure Private Link](/azure/private-link/private-link-overview)
 * [Set up Azure Attestation with Azure PowerShell](./quickstart-powershell.md)
 
 ## Create a resource group

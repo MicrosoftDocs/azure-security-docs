@@ -41,7 +41,7 @@ For more information on login options via the CLI, see [sign in with Azure CLI](
 
 ## Example
 
-In this example, we're developing an application that uses an RSA 2,048-bit key for sign operations. Our application runs in an Azure virtual machine (VM) with a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md). Both the RSA key used for signing is stored in our managed HSM.
+In this example, we're developing an application that uses an RSA 2,048-bit key for sign operations. Our application runs in an Azure virtual machine (VM) with a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview). Both the RSA key used for signing is stored in our managed HSM.
 
 We have identified following roles who manage, deploy, and audit our application:
 
@@ -83,7 +83,7 @@ The following table summarizes the role assignments to teams and resources to ac
 
 The three team roles need access to other resources along with managed HSM permissions. To deploy VMs (or the Web Apps feature of Azure App Service), developers and operators need `Contributor` access to those resource types. Auditors need read access to the Storage account where the managed HSM logs are stored.
 
-To assign management plane roles (Azure RBAC) you can use Azure portal or any of the other management interfaces such as Azure CLI or Azure PowerShell. To assign managed HSM data plane roles you must use Azure CLI. For more information on management plane roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md). For more information on Managed HSM data plane roles, see [Local RBAC built-in roles for Managed HSM](built-in-roles.md).
+To assign management plane roles (Azure RBAC) you can use Azure portal or any of the other management interfaces such as Azure CLI or Azure PowerShell. To assign managed HSM data plane roles you must use Azure CLI. For more information on management plane roles, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles). For more information on Managed HSM data plane roles, see [Local RBAC built-in roles for Managed HSM](built-in-roles.md).
 
 The Azure CLI snippets in this section are built with the following assumptions:
 
@@ -127,13 +127,13 @@ az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Cr
 
 This tutorial only shows actions relevant to the access control for most part. Other actions and operations related to deploying application in your VM, turning on encryption with customer managed key for a storage account, creating managed HSM are not shown here to keep the example focused on access control and role management.
 
-Our example describes a simple scenario. Real-life scenarios can be more complex. You can adjust permissions to your key vault based on your needs. We assumed the security team provides the key and secret references (URIs and thumbprints), which are used by the DevOps staff in their applications. Developers and operators don't require any data plane access. We focused on how to secure your key vault. Give similar consideration when you secure [your VMs](https://azure.microsoft.com/services/virtual-machines/security/), [storage accounts](../../storage/blobs/security-recommendations.md), and other Azure resources.
+Our example describes a simple scenario. Real-life scenarios can be more complex. You can adjust permissions to your key vault based on your needs. We assumed the security team provides the key and secret references (URIs and thumbprints), which are used by the DevOps staff in their applications. Developers and operators don't require any data plane access. We focused on how to secure your key vault. Give similar consideration when you secure [your VMs](https://azure.microsoft.com/services/virtual-machines/security/), [storage accounts](/azure/storage/blobs/security-recommendations), and other Azure resources.
 
 ## Resources
 
-- [Azure RBAC documentation](../../role-based-access-control/overview.md)
-- [Azure RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md)
-- [Manage Azure RBAC with Azure CLI](../../role-based-access-control/role-assignments-cli.md)
+- [Azure RBAC documentation](/azure/role-based-access-control/overview)
+- [Azure RBAC: Built-in roles](/azure/role-based-access-control/built-in-roles)
+- [Manage Azure RBAC with Azure CLI](/azure/role-based-access-control/role-assignments-cli)
 
 ## Next steps
 

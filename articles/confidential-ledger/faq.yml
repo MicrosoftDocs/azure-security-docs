@@ -25,7 +25,7 @@ sections:
       - question: |
           What makes Azure confidential ledger much more secure?
         answer: |
-          As its name suggests, the ledger utilizes the [Azure Confidential Computing platform](../confidential-computing/index.yml) and the [Confidential Consortium Framework](https://www.microsoft.com/research/project/confidential-consortium-framework) to provide a high integrity solution that is tamper-protected and evident. One ledger spans across three or more identical instances, each of which run in a dedicated, fully attested hardware-backed enclave. The ledger's integrity is maintained through a consensus-based blockchain.
+          As its name suggests, the ledger utilizes the [Azure Confidential Computing platform](/azure/confidential-computing/) and the [Confidential Consortium Framework](https://www.microsoft.com/research/project/confidential-consortium-framework) to provide a high integrity solution that is tamper-protected and evident. One ledger spans across three or more identical instances, each of which run in a dedicated, fully attested hardware-backed enclave. The ledger's integrity is maintained through a consensus-based blockchain.
           
       - question: |
           When writing to the Azure confidential ledger, do I need to store write receipts?

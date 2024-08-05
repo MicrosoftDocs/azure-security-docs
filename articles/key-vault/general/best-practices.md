@@ -31,7 +31,7 @@ Encryption keys and secrets like certificates, connection strings, and passwords
 Recommendations for controlling access to your vault are as follows:
 - Lock down access to your subscription, resource group, and key vaults using role-based access control (RBAC) permission model for data plane.
   - Assign RBAC roles at Key Vault scope for applications, services, and workloads requiring persistent access to Key Vault
-  - Assign just-in-time eligible RBAC roles for operators, administrators, and other user accounts requiring privileged access to Key Vault using [Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md) 
+  - Assign just-in-time eligible RBAC roles for operators, administrators, and other user accounts requiring privileged access to Key Vault using [Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-configure) 
     - Require at least one approver
     - Enforce multi-factor authentication
 - Restrict network access with [Private Link](private-link-service.md), [firewall and virtual networks](network-security.md)

@@ -50,7 +50,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    az provider register --name Microsoft.Attestation
    ```
 
-   For more information about Azure resource providers, and how to configure and manage them, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
+   For more information about Azure resource providers, and how to configure and manage them, see [Azure resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types).
 
    > [!NOTE]
    > You only need to register a resource provider once for a subscription.

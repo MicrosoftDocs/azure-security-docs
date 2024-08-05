@@ -22,7 +22,7 @@ ms.author: mbaldwin
 To complete this article:
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- User would need to have an Azure built-in role assigned, recommended role **contributor**. [Learn more here](../../role-based-access-control/role-assignments-portal.yml)
+- User would need to have an Azure built-in role assigned, recommended role **contributor**. [Learn more here](/azure/role-based-access-control/role-assignments-portal)
 
 ## Review the template
 
@@ -172,7 +172,7 @@ More Azure Key Vault template samples can be found in [Azure Quickstart Template
 
 ## Deploy the template
 
-You can use [Azure portal](../../azure-resource-manager/templates/deploy-portal.md), Azure PowerShell, Azure CLI, or REST API. To learn about deployment methods, see [Deploy templates](../../azure-resource-manager/templates/deploy-powershell.md).
+You can use [Azure portal](/azure/azure-resource-manager/templates/deploy-portal), Azure PowerShell, Azure CLI, or REST API. To learn about deployment methods, see [Deploy templates](/azure/azure-resource-manager/templates/deploy-powershell).
 
 ## Review deployed resources
 
@@ -241,5 +241,5 @@ Write-Host "Press [ENTER] to continue..."
 In this quickstart, you created a key vault and a key using an ARM template, and validated the deployment. To learn more about Key Vault and Azure Resource Manager, see these articles.
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
-- Learn more about [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
+- Learn more about [Azure Resource Manager](/azure/azure-resource-manager/management/overview)
 - Review the [Key Vault security overview](../general/security-features.md)

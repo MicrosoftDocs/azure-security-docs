@@ -44,7 +44,7 @@ When you create a key vault in an Azure subscription, it's automatically associa
 - **User-only**: The user accesses the key vault from any application registered in the tenant. Examples of this type of access include Azure PowerShell and the Azure portal. For this scenario to work, the `objectId` of the user must be specified in the access policy and the `applicationId` must _not_ be specified or must be `null`.
 - **Application-plus-user** (sometimes referred as _compound identity_): The user is required to access the key vault from a specific application _and_ the application must use the on-behalf-of authentication (OBO) flow to impersonate the user. For this scenario to work, both `applicationId` and `objectId` must be specified in the access policy. The `applicationId` identifies the required application and the `objectId` identifies the user. Currently, this option isn't available for data plane Azure RBAC.
 
-In all types of access, the application authenticates with Microsoft Entra ID. The application uses any [supported authentication method](../../active-directory/develop/authentication-vs-authorization.md) based on the application type. The application acquires a token for a resource in the plane to grant access. The resource is an endpoint in the management or data plane, based on the Azure environment. The application uses the token and sends a REST API request to Key Vault. To learn more, review the [whole authentication flow](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
+In all types of access, the application authenticates with Microsoft Entra ID. The application uses any [supported authentication method](/azure/active-directory/develop/authentication-vs-authorization) based on the application type. The application acquires a token for a resource in the plane to grant access. The resource is an endpoint in the management or data plane, based on the Azure environment. The application uses the token and sends a REST API request to Key Vault. To learn more, review the [whole authentication flow](/azure/active-directory/develop/v2-oauth2-auth-code-flow).
 
 The model of a single mechanism for authentication to both planes has several benefits:
 
@@ -58,15 +58,15 @@ For more information, see [Key Vault authentication fundamentals](authentication
 
 Access to a key vault is controlled through two interfaces: the **management plane** and the **data plane**. The management plane is where you manage Key Vault itself. Operations in this plane include creating and deleting key vaults, retrieving Key Vault properties, and updating access policies. The data plane is where you work with the data stored in a key vault. You can add, delete, and modify keys, secrets, and certificates.
 
-Both planes use [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md) for authentication. For authorization, the management plane uses [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) and the data plane uses a [Key Vault access policy](./assign-access-policy-portal.md) and [Azure RBAC for Key Vault data plane operations](./rbac-guide.md).
+Both planes use [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) for authentication. For authorization, the management plane uses [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) and the data plane uses a [Key Vault access policy](./assign-access-policy-portal.md) and [Azure RBAC for Key Vault data plane operations](./rbac-guide.md).
 
-To access a key vault in either plane, all callers (users or applications) must have proper authentication and authorization. Authentication establishes the identity of the caller. Authorization determines which operations the caller can execute. Authentication with Key Vault works in conjunction with [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md), which is responsible for authenticating the identity of any given **security principal**.
+To access a key vault in either plane, all callers (users or applications) must have proper authentication and authorization. Authentication establishes the identity of the caller. Authorization determines which operations the caller can execute. Authentication with Key Vault works in conjunction with [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis), which is responsible for authenticating the identity of any given **security principal**.
 
 A security principal is an object that represents a user, group, service, or application that's requesting access to Azure resources. Azure assigns a unique **object ID** to every security principal.
 
 - A **user** security principal identifies an individual who has a profile in Microsoft Entra ID.
 - A **group** security principal identifies a set of users created in Microsoft Entra ID. Any roles or permissions assigned to the group are granted to all of the users within the group.
-- A **service principal** is a type of security principal that identifies an application or service, which is to say, a piece of code rather than a user or group. A service principal's object ID is known as its **client ID** and acts like its username. The service principal's **client secret** or **certificate** acts like its password. Many Azure Services supports assigning [Managed Identity](../../active-directory/managed-identities-azure-resources/overview.md) with automated management of **client ID** and **certificate**. Managed identity is the most secure and recommended option for authenticating within Azure.
+- A **service principal** is a type of security principal that identifies an application or service, which is to say, a piece of code rather than a user or group. A service principal's object ID is known as its **client ID** and acts like its username. The service principal's **client secret** or **certificate** acts like its password. Many Azure Services supports assigning [Managed Identity](/azure/active-directory/managed-identities-azure-resources/overview) with automated management of **client ID** and **certificate**. Managed identity is the most secure and recommended option for authenticating within Azure.
 
 For more information about authentication to Key Vault, see [Authenticate to Azure Key Vault](authentication.md).
 
@@ -74,11 +74,11 @@ For more information about authentication to Key Vault, see [Authenticate to Azu
 
 Key Vault provides support for Microsoft Entra Conditional Access policies. By using Conditional Access policies, you can apply the right access controls to Key Vault when needed to keep your organization secure and stay out of your user's way when not needed.
 
-For more information, see [Conditional Access overview](../../active-directory/conditional-access/overview.md)
+For more information, see [Conditional Access overview](/azure/active-directory/conditional-access/overview)
 
 ## Privileged access
 
-Authorization determines which operations the caller can perform. Authorization in Key Vault uses [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) on management plane and either Azure RBAC or Azure Key Vault access policies on data plane.
+Authorization determines which operations the caller can perform. Authorization in Key Vault uses [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) on management plane and either Azure RBAC or Azure Key Vault access policies on data plane.
 
 Access to vaults takes place through two interfaces or planes. These planes are the management plane and the data plane.
 
@@ -102,7 +102,7 @@ When you create a key vault in a resource group, you manage access by using Micr
 - **Resource group**: An Azure role assigned at the resource group level applies to all resources in that resource group.
 - **Specific resource**: An Azure role assigned for a specific resource applies to that resource. In this case, the resource is a specific key vault.
 
-There are several predefined roles. If a predefined role doesn't fit your needs, you can define your own role. For more information, see [Azure RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md).
+There are several predefined roles. If a predefined role doesn't fit your needs, you can define your own role. For more information, see [Azure RBAC: Built-in roles](/azure/role-based-access-control/built-in-roles).
 
 > [!IMPORTANT]
 > When using the Access Policy permission model, if a user has `Contributor`, `Key Vault Contributor` or other role with `Microsoft.KeyVault/vaults/write` permissions to a key vault management plane, the user can grant themselves access to the data plane by setting a Key Vault access policy. You should tightly control who has `Contributor` role access to your key vaults with the Access Policy permission model to ensure that only authorized persons can access and manage your key vaults, keys, secrets, and certificates. It is recommended to use the new **Role Based Access Control (RBAC) permission model** to avoid this issue. With the RBAC permission model, permission management is limited to 'Owner' and 'User Access Administrator' roles, which allows separation of duties between roles for security operations and general administrative operations.
@@ -134,4 +134,4 @@ You should also take regular back ups of your vault on update/delete/create of o
 - [Azure Key Vault security baseline](security-baseline.md)
 - [Azure Key Vault best practices](security-baseline.md)
 - [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md)
-- [Azure RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md)
+- [Azure RBAC: Built-in roles](/azure/role-based-access-control/built-in-roles)

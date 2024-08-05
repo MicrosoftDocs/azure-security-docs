@@ -83,7 +83,7 @@ What's logged:
 
 ## Access your logs
 
-Managed HSM logs are stored in the **insights-logs-auditevent** container in the storage account that you provided. To view the logs, you have to download blobs. For information on Azure Storage, see [Create, download, and list blobs with Azure CLI](../../storage/blobs/storage-quickstart-blobs-cli.md).
+Managed HSM logs are stored in the **insights-logs-auditevent** container in the storage account that you provided. To view the logs, you have to download blobs. For information on Azure Storage, see [Create, download, and list blobs with Azure CLI](/azure/storage/blobs/storage-quickstart-blobs-cli).
 
 Individual blobs are stored as text, formatted as a JSON. Let's look at an example log entry. The example below shows the log entry when a request to create a full backup is sent to the managed HSM.
 

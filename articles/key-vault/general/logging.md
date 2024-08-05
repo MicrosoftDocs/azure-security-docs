@@ -196,7 +196,7 @@ For understanding how to analyze logs, see [Sample Kusto log queries](./monitor-
 ## Next steps
 
 - [How to enable Key Vault logging](howto-logging.md)
-- [Azure monitor](../../azure-monitor/index.yml)
+- [Azure monitor](/azure/azure-monitor/)
 - For a tutorial that uses Azure Key Vault in a .NET web application, see [Use Azure Key Vault from a web application](tutorial-net-create-vault-azure-web-app.md).
 - For programming references, see [the Azure Key Vault developer's guide](developers-guide.md).
 - For a list of Azure PowerShell 1.0 cmdlets for Azure Key Vault, see [Azure Key Vault cmdlets](/powershell/module/az.keyvault/#key_vault).

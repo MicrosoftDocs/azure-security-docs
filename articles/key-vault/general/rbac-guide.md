@@ -19,13 +19,13 @@ ms.author: mbaldwin
 > [!NOTE]
 > Azure App Service certificate configuration through Azure Portal does not support Key Vault RBAC permission model. You can use Azure PowerShell, Azure CLI, ARM template deployments with **Key Vault Certificate User** role assignment for App Service global identity, for example Microsoft Azure App Service' in public cloud.
 
-Azure role-based access control (Azure RBAC) is an authorization system built on [Azure Resource Manager](../../azure-resource-manager/management/overview.md) that provides centralized access management of Azure resources.
+Azure role-based access control (Azure RBAC) is an authorization system built on [Azure Resource Manager](/azure/azure-resource-manager/management/overview) that provides centralized access management of Azure resources.
 
 Azure RBAC allows users to manage keys, secrets, and certificates permissions, and provides one place to manage all permissions across all key vaults.
 
 The Azure RBAC model allows users to set permissions on different scope levels: management group, subscription, resource group, or individual resources.  Azure RBAC for key vault also allows users to have separate permissions on individual keys, secrets, and certificates.
 
-For more information, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
+For more information, see [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview).
 
 ## Best Practices for individual keys, secrets, and certificates role assignments
 
@@ -52,11 +52,11 @@ More about Azure Key Vault management guidelines, see:
 | Key Vault Crypto Officer | Perform any action on the keys of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
 | Key Vault Crypto Service Encryption User | Read metadata of keys and perform wrap/unwrap operations. Only works for key vaults that use the 'Azure role-based access control' permission model. | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
 | Key Vault Crypto User  | Perform cryptographic operations using keys. Only works for key vaults that use the 'Azure role-based access control' permission model. | 12338af0-0e69-4776-bea7-57ae8d297424 |
-| Key Vault Crypto Service Release User | Release keys for [Azure Confidential Computing](../../confidential-computing/concept-skr-attestation.md) and equivalent environments. Only works for key vaults that use the 'Azure role-based access control' permission model.
+| Key Vault Crypto Service Release User | Release keys for [Azure Confidential Computing](/azure/confidential-computing/concept-skr-attestation) and equivalent environments. Only works for key vaults that use the 'Azure role-based access control' permission model.
 | Key Vault Secrets Officer| Perform any action on the secrets of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
 | Key Vault Secrets User | Read secret contents including secret portion of a certificate with private key. Only works for key vaults that use the 'Azure role-based access control' permission model. | 4633458b-17de-408a-b874-0445c86b69e6 |
 
-For more information about Azure built-in roles definitions, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
+For more information about Azure built-in roles definitions, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
 
 ### Managing built-in Key Vault data plane role assignments
 
@@ -72,12 +72,12 @@ The new Azure RBAC permission model for key vault provides alternative to the va
 
 You must have an Azure subscription. If you don't, you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-To manage role assignments, you must have `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [Key Vault Data Access Administrator](../../role-based-access-control/built-in-roles.md#key-vault-data-access-administrator) (with restricted permissions to only assign/remove specific Key Vault roles), [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator), or [Owner](../../role-based-access-control/built-in-roles.md#owner).
+To manage role assignments, you must have `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [Key Vault Data Access Administrator](/azure/role-based-access-control/built-in-roles#key-vault-data-access-administrator) (with restricted permissions to only assign/remove specific Key Vault roles), [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator), or [Owner](/azure/role-based-access-control/built-in-roles#owner).
 
 ### Enable Azure RBAC permissions on Key Vault
 
 > [!NOTE]
-> Changing the permission model requires unrestricted 'Microsoft.Authorization/roleAssignments/write' permission, which is part of the [Owner](../../role-based-access-control/built-in-roles.md#owner) and [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) roles. Classic subscription administrator roles like 'Service Administrator' and 'Co-Administrator', or restricted 'Key Vault Data Access Administrator' cannot be used to change permission model.
+> Changing the permission model requires unrestricted 'Microsoft.Authorization/roleAssignments/write' permission, which is part of the [Owner](/azure/role-based-access-control/built-in-roles#owner) and [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) roles. Classic subscription administrator roles like 'Service Administrator' and 'Co-Administrator', or restricted 'Key Vault Data Access Administrator' cannot be used to change permission model.
 
 1. Enable Azure RBAC permissions on new key vault:
 
@@ -103,7 +103,7 @@ To create a role assignment using the Azure CLI, use the [az role assignment](/c
 az role assignment create --role {role-name-or-id} --assignee {assignee-upn}> --scope {scope}
 ```
 
-For full details, see [Assign Azure roles using Azure CLI](../../role-based-access-control/role-assignments-cli.md).
+For full details, see [Assign Azure roles using Azure CLI](/azure/role-based-access-control/role-assignments-cli).
 
 # [Azure PowerShell](#tab/azurepowershell)
 
@@ -117,11 +117,11 @@ New-AzRoleAssignment -RoleDefinitionName {role-name} -SignInName {assignee-upn} 
 New-AzRoleAssignment -RoleDefinitionName Reader -ApplicationId {application-id} -Scope {scope}
 ```
 
-For full details, see [Assign Azure roles using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+For full details, see [Assign Azure roles using Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
 
 # [Azure portal](#tab/azure-portal)
 
-To assign roles using the Azure portal, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).  In the Azure portal, the Azure role assignments screen is available for all resources on the Access control (IAM) tab.
+To assign roles using the Azure portal, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).  In the Azure portal, the Azure role assignments screen is available for all resources on the Access control (IAM) tab.
 
 ---
 
@@ -137,7 +137,7 @@ To assign roles using the Azure portal, see [Assign Azure roles using the Azure 
 
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
     
     | Setting | Value |
     | --- | --- |
@@ -152,7 +152,7 @@ To assign roles using the Azure portal, see [Assign Azure roles using the Azure 
 az role assignment create --role "Key Vault Reader" --assignee {i.e user@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}
 ```
 
-For full details, see [Assign Azure roles using Azure CLI](../../role-based-access-control/role-assignments-cli.md).
+For full details, see [Assign Azure roles using Azure CLI](/azure/role-based-access-control/role-assignments-cli).
 
 # [Azure PowerShell](#tab/azurepowershell)
 
@@ -163,7 +163,7 @@ New-AzRoleAssignment -RoleDefinitionName 'Key Vault Reader' -SignInName {assigne
 #Assign by Service Principal ApplicationId
 New-AzRoleAssignment -RoleDefinitionName 'Key Vault Reader' -ApplicationId {application-id} -Scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}
 ```
-For full details, see [Assign Azure roles using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+For full details, see [Assign Azure roles using Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
 
 ---
 
@@ -176,7 +176,7 @@ Above role assignment provides ability to list key vault objects in key vault.
 1. Go to Key Vault \> Access control (IAM) tab
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
     
     | Setting | Value |
     | --- | --- |
@@ -191,7 +191,7 @@ Above role assignment provides ability to list key vault objects in key vault.
 az role assignment create --role "Key Vault Secrets Officer" --assignee {assignee-upn} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
 ```
 
-For full details, see [Assign Azure roles using Azure CLI](../../role-based-access-control/role-assignments-cli.md).
+For full details, see [Assign Azure roles using Azure CLI](/azure/role-based-access-control/role-assignments-cli).
 
 # [Azure PowerShell](#tab/azurepowershell)
 
@@ -203,7 +203,7 @@ New-AzRoleAssignment -RoleDefinitionName 'Key Vault Secrets Officer' -SignInName
 New-AzRoleAssignment -RoleDefinitionName 'Key Vault Secrets Officer' -ApplicationId {application-id} -Scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
 ```
 
-For full details, see [Assign Azure roles using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+For full details, see [Assign Azure roles using Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
 
 ---
 
@@ -222,7 +222,7 @@ For full details, see [Assign Azure roles using Azure PowerShell](../../role-bas
 
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
     
     | Setting | Value |
     | --- | --- |
@@ -238,7 +238,7 @@ For full details, see [Assign Azure roles using Azure PowerShell](../../role-bas
 az role assignment create --role "Key Vault Secrets Officer" --assignee {i.e user@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}/secrets/RBACSecret
 ```
 
-For full details, see [Assign Azure roles using Azure CLI](../../role-based-access-control/role-assignments-cli.md).
+For full details, see [Assign Azure roles using Azure CLI](/azure/role-based-access-control/role-assignments-cli).
 
 # [Azure PowerShell](#tab/azurepowershell)
 
@@ -250,7 +250,7 @@ New-AzRoleAssignment -RoleDefinitionName 'Key Vault Secrets Officer' -SignInName
 New-AzRoleAssignment -RoleDefinitionName 'Key Vault Secrets Officer' -ApplicationId {i.e 8ee5237a-816b-4a72-b605-446970e5f156} -Scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}/secrets/RBACSecret
 ```
 
-For full details, see [Assign Azure roles using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+For full details, see [Assign Azure roles using Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
 
 ---
 
@@ -342,13 +342,13 @@ New-AzRoleDefinition -InputFile role.json
 
 # [Azure portal](#tab/azure-portal)
 
-See [Create or update Azure custom roles using the Azure portal](../../role-based-access-control/custom-roles-portal.md).
+See [Create or update Azure custom roles using the Azure portal](/azure/role-based-access-control/custom-roles-portal).
 
 ---
 
 For more Information about how to create custom roles, see:
 
-[Azure custom roles](../../role-based-access-control/custom-roles.md)
+[Azure custom roles](/azure/role-based-access-control/custom-roles)
 
 ## Frequently Asked Questions
 
@@ -357,7 +357,7 @@ No. RBAC permission model allows you to assign access to individual objects in K
 
 ## Learn more
 
-- [Azure RBAC Overview](../../role-based-access-control/overview.md)
-- [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml)
-- [Custom Roles Tutorial](../../role-based-access-control/tutorial-custom-role-cli.md)
+- [Azure RBAC Overview](/azure/role-based-access-control/overview)
+- [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal)
+- [Custom Roles Tutorial](/azure/role-based-access-control/tutorial-custom-role-cli)
 - [Azure Key Vault best practices](best-practices.md)

@@ -116,7 +116,7 @@ akvrotation-fnapp        akvrotation       eastus      Microsoft.Web/sites
 akvrotation-fnapp        akvrotation       eastus      Microsoft.insights/components
 ```
 
-For information on how to create a function app and use managed identity to access Key Vault, see [Create a function app from the Azure portal](../../azure-functions/functions-create-function-app-portal.md), [How to use managed identity for App Service and Azure Functions](../../app-service/overview-managed-identity.md), and [Assign a Key Vault access policy using the Azure portal](../general/assign-access-policy-portal.md).
+For information on how to create a function app and use managed identity to access Key Vault, see [Create a function app from the Azure portal](/azure/azure-functions/functions-create-function-app-portal), [How to use managed identity for App Service and Azure Functions](/azure/app-service/overview-managed-identity), and [Assign a Key Vault access policy using the Azure portal](../general/assign-access-policy-portal.md).
 
 ### Rotation function
 Deployed in previous step function uses an event to trigger the rotation of a secret by updating Key Vault and the SQL database. 
@@ -251,5 +251,5 @@ When the application opens in the browser, you will see the **Generated Secret V
 - Tutorial: [Rotation for resources with two sets of credentials](tutorial-rotation-dual.md)
 - Overview: [Monitoring Key Vault with Azure Event Grid](../general/event-grid-overview.md)
 - How to: [Receive email when a key vault secret changes](../general/event-grid-logicapps.md)
-- [Azure Event Grid event schema for Azure Key Vault](../../event-grid/event-schema-key-vault.md)
+- [Azure Event Grid event schema for Azure Key Vault](/azure/event-grid/event-schema-key-vault)
 

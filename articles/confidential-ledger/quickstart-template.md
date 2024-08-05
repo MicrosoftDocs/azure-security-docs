@@ -67,7 +67,7 @@ Azure resources defined in the template:
 
 1. Select **Purchase**. After the confidential ledger resource has been deployed successfully, you will receive a notification.
 
-The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
+The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](/azure/azure-resource-manager/templates/deploy-powershell).
 
 ## Review deployed resources
 

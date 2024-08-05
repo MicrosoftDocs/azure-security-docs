@@ -21,8 +21,8 @@ ms.custom: devx-track-azurecli
 > Support for Managed Storage Account Keys in **Azure CLI was removed in version 2.54**, you must use **Azure CLI version 2.53.1 or former** for commands in this tutorial.
 
 > [!IMPORTANT]
-> We recommend using Azure Storage integration with Microsoft Entra ID, Microsoft's cloud-based identity and access management service. Microsoft Entra integration is available for [Azure blobs, queues, and tables](../../storage/blobs/authorize-access-azure-active-directory.md), and provides OAuth2 token-based access to Azure Storage (just like Azure Key Vault). 
-> Microsoft Entra ID allows you to authenticate your client application by using an application or user identity, instead of storage account credentials. You can use an [Microsoft Entra managed identity](../../active-directory/managed-identities-azure-resources/index.yml) when you run on Azure. Managed identities remove the need for client authentication and storing credentials in or with your application. Use below solution only when Microsoft Entra authentication is not possible.
+> We recommend using Azure Storage integration with Microsoft Entra ID, Microsoft's cloud-based identity and access management service. Microsoft Entra integration is available for [Azure blobs, queues, and tables](/azure/storage/blobs/authorize-access-azure-active-directory), and provides OAuth2 token-based access to Azure Storage (just like Azure Key Vault). 
+> Microsoft Entra ID allows you to authenticate your client application by using an application or user identity, instead of storage account credentials. You can use an [Microsoft Entra managed identity](/azure/active-directory/managed-identities-azure-resources/) when you run on Azure. Managed identities remove the need for client authentication and storing credentials in or with your application. Use below solution only when Microsoft Entra authentication is not possible.
 
 An Azure storage account uses credentials comprising an account name and a key. The key is auto-generated and serves as a password, rather than an as a cryptographic key. Key Vault manages storage account keys by periodically regenerating them in storage account and provides shared access signature tokens for delegated access to resources in your storage account.
 
@@ -40,7 +40,7 @@ When you use the managed storage account key feature, consider the following poi
 
 ## Service principal application ID
 
-A Microsoft Entra tenant provides each registered application with a [service principal](../../active-directory/develop/developer-glossary.md#service-principal-object). The service principal serves as the Application ID, which is used during authorization setup for access to other Azure resources via Azure role-base access control (Azure RBAC).
+A Microsoft Entra tenant provides each registered application with a [service principal](/azure/active-directory/develop/developer-glossary#service-principal-object). The service principal serves as the Application ID, which is used during authorization setup for access to other Azure resources via Azure role-base access control (Azure RBAC).
 
 Key Vault is a Microsoft application that's pre-registered in all Microsoft Entra tenants. Key Vault is registered under the same Application ID in each Azure cloud.
 
@@ -56,7 +56,7 @@ To complete this guide, you must first do the following steps:
 
 - [Install the Azure CLI](/cli/azure/install-azure-cli).
 - [Create a key vault](quick-create-cli.md)
-- [Create an Azure storage account](../../storage/common/storage-account-create.md?tabs=azure-cli). The storage account name must use only lowercase letters and numbers. The length of the name must be between 3 and 24 characters.
+- [Create an Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-cli). The storage account name must use only lowercase letters and numbers. The length of the name must be between 3 and 24 characters.
       
 ## Manage storage account keys
 

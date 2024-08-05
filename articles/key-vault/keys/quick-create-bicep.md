@@ -23,7 +23,7 @@ ms.date: 01/30/2024
 To complete this article:
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- User would need to have an Azure built-in role assigned, recommended role **contributor**. [Learn more here](../../role-based-access-control/role-assignments-portal.yml)
+- User would need to have an Azure built-in role assigned, recommended role **contributor**. [Learn more here](/azure/role-based-access-control/role-assignments-portal)
 
 ## Review the Bicep file
 
@@ -217,5 +217,5 @@ Write-Host "Press [ENTER] to continue..."
 In this quickstart, you created a key vault and a key using a Bicep file, and validated the deployment. To learn more about Key Vault and Azure Resource Manager, see these articles.
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
-- Learn more about [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
+- Learn more about [Azure Resource Manager](/azure/azure-resource-manager/management/overview)
 - Review the [Key Vault security overview](../general/security-features.md)

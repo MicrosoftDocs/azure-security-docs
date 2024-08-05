@@ -95,7 +95,7 @@ To support [soft delete now on by default](#soft-delete-on-by-default), two chan
 
 ### Azure TLS certificate changes
 
-Microsoft is updating Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs). This change is being made because the current CA certificates don't comply with one of the CA/Browser Forum Baseline requirements.  For full details, see [Azure TLS Certificate Changes](../../security/fundamentals/tls-certificate-changes.md).
+Microsoft is updating Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs). This change is being made because the current CA certificates don't comply with one of the CA/Browser Forum Baseline requirements.  For full details, see [Azure TLS Certificate Changes](/azure/security/fundamentals/tls-certificate-changes).
 
 ## June 2020
 
@@ -113,14 +113,14 @@ Private endpoints now available in preview. Azure Private Link Service enables y
 
 - Release of the next-generation Azure Key Vault SDKs. For examples of their use, see the Azure Key Vault secret quickstarts for [Python](../secrets/quick-create-python.md), [.NET](../secrets/quick-create-net.md), [Java](../secrets/quick-create-java.md), and [Node.js](../secrets/quick-create-node.md)
 - New Azure policies to manage key vault certificates. See the [Azure Policy built-in definitions for Key Vault](../policy-reference.md).
-- Azure Key Vault Virtual Machine extension now generally available.  See [Key Vault virtual machine extension for Linux](../../virtual-machines/extensions/key-vault-linux.md) and [Key Vault virtual machine extension for Windows](../../virtual-machines/extensions/key-vault-windows.md).
-- Event-driven secrets management for Azure Key Vault now available in Azure Event Grid. For more information, see [the Event Grid schema for events in Azure Key Vault](../../event-grid/event-schema-key-vault.md), and learn how to [Receive and respond to key vault notifications with Azure Event Grid](event-grid-tutorial.md).
+- Azure Key Vault Virtual Machine extension now generally available.  See [Key Vault virtual machine extension for Linux](/azure/virtual-machines/extensions/key-vault-linux) and [Key Vault virtual machine extension for Windows](/azure/virtual-machines/extensions/key-vault-windows).
+- Event-driven secrets management for Azure Key Vault now available in Azure Event Grid. For more information, see [the Event Grid schema for events in Azure Key Vault](/azure/event-grid/event-schema-key-vault), and learn how to [Receive and respond to key vault notifications with Azure Event Grid](event-grid-tutorial.md).
 
 ## 2018
 
 New features and integrations released this year:
 
-- Integration with Azure Functions. For an example scenario leveraging [Azure Functions](../../azure-functions/index.yml) for key vault operations, see [Automate the rotation of a secret](../secrets/tutorial-rotation.md).
+- Integration with Azure Functions. For an example scenario leveraging [Azure Functions](/azure/azure-functions/) for key vault operations, see [Automate the rotation of a secret](../secrets/tutorial-rotation.md).
 - [Integration with Azure Databricks](./integrate-databricks-blob-storage.md). With this, Azure Databricks now supports two types of secret scopes: Azure Key Vault-backed and Databricks-backed. For more information, see [Create an Azure Key Vault-backed secret scope](/azure/databricks/security/secrets/secret-scopes#--create-an-azure-key-vault-backed-secret-scope)
 - [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md).
 

@@ -6,7 +6,7 @@ ms.date: 07/20/2023
 ms.author: mbaldwin
 ---
 
-This article documents a simplified EBNF grammar for secure key release policy, which itself is modeled on [Azure Policy](../articles/governance/policy/index.yml). For a complete example of a secure key release policy, see the [confidential VM key release policy](https://raw.githubusercontent.com/Azure/confidential-computing-cvm/main/cvm_deployment/key/skr-policy.json).
+This article documents a simplified EBNF grammar for secure key release policy, which itself is modeled on [Azure Policy](/azure/governance/policy/). For a complete example of a secure key release policy, see the [confidential VM key release policy](https://raw.githubusercontent.com/Azure/confidential-computing-cvm/main/cvm_deployment/key/skr-policy.json).
 
 ```json
 (* string and number from JSON *)
@@ -76,7 +76,7 @@ A Claim Condition is a JSON object that identifies a claim name, a condition for
 } 
 ```
 
-In the first iteration, the only allowed condition is "equals" but future iterations may allow for other operators [similar to Azure Policy](../articles/governance/policy/concepts/definition-structure.md) (see the section on Conditions). If a specified claim isn't present, its condition is considered to haven't been met.
+In the first iteration, the only allowed condition is "equals" but future iterations may allow for other operators [similar to Azure Policy](/azure/governance/policy/concepts/definition-structure) (see the section on Conditions). If a specified claim isn't present, its condition is considered to haven't been met.
 
 Claim names allow "dot notation" to enable JSON object navigation, for example:
 

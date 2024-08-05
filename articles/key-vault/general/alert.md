@@ -210,4 +210,4 @@ Use the tools that you set up in this article to actively monitor the health of 
 
 - [Monitor Key Vault](monitor-key-vault.md)
 - [Monitoring Key Vault data reference](monitor-key-vault-reference.md)
-- [Create a log query alert for an Azure resource](../../azure-monitor//alerts/tutorial-log-alert.md)
+- [Create a log query alert for an Azure resource](/azure/azure-monitor/alerts/tutorial-log-alert)

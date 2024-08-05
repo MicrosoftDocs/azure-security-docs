@@ -16,7 +16,7 @@ This article defines some basic concepts related to Microsoft Azure Attestation.
 
 ## JSON Web Token (JWTs)
 
-[JSON Web Token (JWT)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) is an open standard [RFC7519](https://tools.ietf.org/html/rfc7519) method for securely transmitting information between parties as a JavaScript Object Notation (JSON) object. This information can be verified and trusted because it is digitally signed. JWTs can be signed using a secret or a public/private key pair.
+[JSON Web Token (JWT)](/azure/active-directory/develop/security-tokens#json-web-tokens-and-claims) is an open standard [RFC7519](https://tools.ietf.org/html/rfc7519) method for securely transmitting information between parties as a JavaScript Object Notation (JSON) object. This information can be verified and trusted because it is digitally signed. JWTs can be signed using a secret or a public/private key pair.
 
 ## JSON Web Key (JWK)
 
@@ -24,7 +24,7 @@ This article defines some basic concepts related to Microsoft Azure Attestation.
 
 ## Attestation provider
 
-Attestation provider belongs to Azure resource provider named Microsoft.Attestation. The resource provider is a service endpoint that provides Azure Attestation REST contract and is deployed using [Azure Resource Manager](../azure-resource-manager/management/overview.md). Each attestation provider honors a specific, discoverable policy. Attestation providers get created with a default policy for each attestation type (note that VBS enclave has no default policy). See [examples of an attestation policy](policy-examples.md) for more details on the default policy for SGX.
+Attestation provider belongs to Azure resource provider named Microsoft.Attestation. The resource provider is a service endpoint that provides Azure Attestation REST contract and is deployed using [Azure Resource Manager](/azure/azure-resource-manager/management/overview). Each attestation provider honors a specific, discoverable policy. Attestation providers get created with a default policy for each attestation type (note that VBS enclave has no default policy). See [examples of an attestation policy](policy-examples.md) for more details on the default policy for SGX.
 
 ## Attestation request
 

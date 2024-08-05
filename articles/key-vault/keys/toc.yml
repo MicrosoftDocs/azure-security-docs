@@ -93,7 +93,7 @@ items:
   - name: Secure key release policy grammar
     href: policy-grammar.md
   - name: Key management in Azure
-    href: ../../security/fundamentals/key-management.md
+    href: /azure/security/fundamentals/key-management
   - name: Multitenancy and Azure Key Vault
     href: /azure/architecture/guide/multitenant/service/key-vault
   - name: Azure PowerShell

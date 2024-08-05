@@ -82,7 +82,7 @@ Create your VM subnet using either Azure CLI or Azure PowerShell. You can use th
 
 # [Azure CLI](#tab/azure-cli)
 
-Create a VM on your new subnet, using the Azure CLI [az vm create](/cli/azure/vm#az-vm-create) command. (In this example we create a Linux VM, but you could also create a Windows VM by augmenting the instructions found at [Create a Windows virtual machine with the Azure CLI](../virtual-machines/windows/quick-create-cli.md) with the details below.)  
+Create a VM on your new subnet, using the Azure CLI [az vm create](/cli/azure/vm#az-vm-create) command. (In this example we create a Linux VM, but you could also create a Windows VM by augmenting the instructions found at [Create a Windows virtual machine with the Azure CLI](/azure/virtual-machines/windows/quick-create-cli) with the details below.)  
 
 ```azurecli-interactive
 az vm create \
@@ -105,7 +105,7 @@ To create a VM on your new subnet, first set your credentials with the [Get-Cred
 $cred = Get-Credential
 ```
 
-Now create your VM using the Azure PowerShell [New-AzVm](/powershell/module/az.compute/new-azvm) command. (In this example we create a Linux VM, but you could also create a Windows VM by augmenting the instructions found at [Create a Windows virtual machine with the Azure PowerShell](../virtual-machines/windows/quick-create-powershell.md) with the details below.)  
+Now create your VM using the Azure PowerShell [New-AzVm](/powershell/module/az.compute/new-azvm) command. (In this example we create a Linux VM, but you could also create a Windows VM by augmenting the instructions found at [Create a Windows virtual machine with the Azure PowerShell](/azure/virtual-machines/windows/quick-create-powershell) with the details below.)  
 
 ```azurepowershell-interactive
 New-AzVm `

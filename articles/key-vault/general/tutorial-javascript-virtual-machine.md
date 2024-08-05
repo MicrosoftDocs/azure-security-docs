@@ -22,7 +22,7 @@ In this tutorial, you set up a Node.js application to read information from Azur
 > * Create a key vault
 > * Store a secret in Key Vault
 > * Create an Azure Linux virtual machine
-> * Enable a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for the virtual machine
+> * Enable a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) for the virtual machine
 > * Grant the required permissions for the console application to read data from Key Vault
 > * Retrieve a secret from Key Vault
 
@@ -58,9 +58,9 @@ Create a VM called **myVM** using one of the following methods:
 
 | Linux | Windows |
 |--|--|
-| [Azure CLI](../../virtual-machines/linux/quick-create-cli.md) | [Azure CLI](../../virtual-machines/windows/quick-create-cli.md) |
-| [PowerShell](../../virtual-machines/linux/quick-create-powershell.md) | [PowerShell](../../virtual-machines/windows/quick-create-powershell.md) |
-| [Azure portal](../../virtual-machines/linux/quick-create-portal.md) | [The Azure portal](../../virtual-machines/windows/quick-create-portal.md) |
+| [Azure CLI](/azure/virtual-machines/linux/quick-create-cli) | [Azure CLI](/azure/virtual-machines/windows/quick-create-cli) |
+| [PowerShell](/azure/virtual-machines/linux/quick-create-powershell) | [PowerShell](/azure/virtual-machines/windows/quick-create-powershell) |
+| [Azure portal](/azure/virtual-machines/linux/quick-create-portal) | [The Azure portal](/azure/virtual-machines/windows/quick-create-portal) |
 
 To create a Linux VM using the Azure CLI, use the [az vm create](/cli/azure/vm) command.  The following example adds a user account named *azureuser*. The `--generate-ssh-keys` parameter is used to automatically generate an SSH key, and put it in the default key location (*~/.ssh*). 
 
@@ -102,7 +102,7 @@ az keyvault set-policy --name "<your-unique-keyvault-name>" --object-id "<system
 
 ## Log in to the VM
 
-To sign in to the virtual machine, follow the instructions in [Connect and sign in to an Azure virtual machine running Linux](../../virtual-machines/linux-vm-connect.md) or [Connect and sign in to an Azure virtual machine running Windows](../../virtual-machines/windows/connect-logon.md).
+To sign in to the virtual machine, follow the instructions in [Connect and sign in to an Azure virtual machine running Linux](/azure/virtual-machines/linux-vm-connect) or [Connect and sign in to an Azure virtual machine running Windows](/azure/virtual-machines/windows/connect-logon).
 
 
 To log into a Linux VM, you can use the ssh command with the \<publicIpAddress\> given in the [Create a virtual machine](#create-a-virtual-machine) step:

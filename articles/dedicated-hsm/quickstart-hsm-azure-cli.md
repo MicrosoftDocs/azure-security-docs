@@ -31,7 +31,7 @@ This article describes how to create and manage an Azure Dedicated HSM by using 
 
 ## Create a resource group
 
-An [Azure resource group](../azure-resource-manager/management/overview.md) is a logical container for deploying and managing Azure resources as a group. If you don't already have a resource group for the dedicated HSM, create one by using the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group named `myRG` in the `westus` Azure region:
+An [Azure resource group](/azure/azure-resource-manager/management/overview) is a logical container for deploying and managing Azure resources as a group. If you don't already have a resource group for the dedicated HSM, create one by using the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group named `myRG` in the `westus` Azure region:
 
 ```azurecli-interactive
 az group create --name myRG --location westus

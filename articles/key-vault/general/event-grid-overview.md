@@ -19,9 +19,9 @@ Applications can react to these events using modern serverless architectures, wi
 
 ## Key Vault events and schemas
 
-Event Grid uses [event subscriptions](../../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. Key Vault events contain all the information you need to respond to changes in your data. You can identify a Key Vault event because the eventType property starts with "Microsoft.KeyVault".
+Event Grid uses [event subscriptions](/azure/event-grid/concepts#event-subscriptions) to route event messages to subscribers. Key Vault events contain all the information you need to respond to changes in your data. You can identify a Key Vault event because the eventType property starts with "Microsoft.KeyVault".
 
-For more information, see the [Key Vault event schema](../../event-grid/event-schema-key-vault.md).
+For more information, see the [Key Vault event schema](/azure/event-grid/event-schema-key-vault).
 
 > [!WARNING]
 > Notification events are triggered only on new versions of secrets, keys and certificates, and you must first subscribe to the event on your key vault in order to receive these notifications.
@@ -38,8 +38,8 @@ Applications that handle Key Vault events should follow a few recommended practi
 ## Next steps
 
 - [Azure Key Vault overview](overview.md)
-- [Azure Event Grid overview](../../event-grid/overview.md)
+- [Azure Event Grid overview](/azure/event-grid/overview)
 - How to: [Route Key Vault Events to Automation Runbook](event-grid-tutorial.md).
 - How to: [Receive email when a key vault secret changes](event-grid-logicapps.md)
-- [Azure Event Grid event schema for Azure Key Vault](../../event-grid/event-schema-key-vault.md)
-- [Azure Automation overview](../../automation/index.yml)
+- [Azure Event Grid event schema for Azure Key Vault](/azure/event-grid/event-schema-key-vault)
+- [Azure Automation overview](/azure/automation/)

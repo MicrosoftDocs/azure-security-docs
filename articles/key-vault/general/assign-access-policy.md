@@ -55,7 +55,7 @@ For more information on creating groups in Microsoft Entra ID using the Azure CL
 
 1. To run Azure CLI commands locally, install the [Azure CLI](/cli/azure/install-azure-cli).
  
-    To run commands directly in the cloud, use the [Azure Cloud Shell](../../cloud-shell/overview.md).
+    To run commands directly in the cloud, use the [Azure Cloud Shell](/azure/cloud-shell/overview).
 
 1. Local CLI only: sign in to Azure using `az login`:
 
@@ -107,7 +107,7 @@ For more information on creating groups in Microsoft Entra ID using Azure PowerS
 
 1. To run commands locally, install [Azure PowerShell](/powershell/azure/install-azure-powershell) if you haven't already.
 
-    To run commands directly in the cloud, use the [Azure Cloud Shell](../../cloud-shell/overview.md).
+    To run commands directly in the cloud, use the [Azure Cloud Shell](/azure/cloud-shell/overview).
 
 1. Local PowerShell only:
 

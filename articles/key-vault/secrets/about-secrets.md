@@ -88,7 +88,7 @@ You can specify more application-specific metadata in the form of tags. Key Vaul
 
 ## Next steps
 
-- [Key management in Azure](../../security/fundamentals/key-management.md)
+- [Key management in Azure](/azure/security/fundamentals/key-management)
 - [Best practices for secrets management in Key Vault](secrets-best-practices.md)
 - [About Key Vault](../general/overview.md)
 - [About keys, secrets, and certificates](../general/about-keys-secrets-certificates.md)

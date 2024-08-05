@@ -12,7 +12,7 @@ ms.topic: how-to
 
 # Integrate Azure Managed HSM with Azure Policy
 
-[Azure Policy](../../governance/policy/index.yml) is a governance tool that gives users the ability to audit and manage their Azure environment at scale. Azure Policy provides the ability to place guardrails on Azure resources to ensure they're compliant with assigned policy rules. It allows users to perform audit, real-time enforcement, and remediation of their Azure environment. The results of audits performed by policy will be available to users in a compliance dashboard where they'll be able to see a drill-down of which resources and components are compliant and which aren't.  For more information, see the [Overview of the Azure Policy service](../../governance/policy/overview.md).
+[Azure Policy](/azure/governance/policy/) is a governance tool that gives users the ability to audit and manage their Azure environment at scale. Azure Policy provides the ability to place guardrails on Azure resources to ensure they're compliant with assigned policy rules. It allows users to perform audit, real-time enforcement, and remediation of their Azure environment. The results of audits performed by policy will be available to users in a compliance dashboard where they'll be able to see a drill-down of which resources and components are compliant and which aren't.  For more information, see the [Overview of the Azure Policy service](/azure/governance/policy/overview).
 
 Example Usage Scenarios:
 
@@ -84,7 +84,7 @@ Policy assignments have concrete values defined for policy definitions' paramete
 - Azure Key Vault Managed HSM Keys should have more than the specified number of days before expiration
 - Azure Key Vault Managed HSM keys using elliptic curve cryptography should have the specified curve names
 
-You can also do this operation using the Azure CLI. See [Create a policy assignment to identify non-compliant resources with Azure CLI](../../governance/policy/assign-policy-azurecli.md).
+You can also do this operation using the Azure CLI. See [Create a policy assignment to identify non-compliant resources with Azure CLI](/azure/governance/policy/assign-policy-azurecli).
 
 ### Test your setup
 
@@ -98,6 +98,6 @@ If there are no compliance results of a pool after one day. Check if the role as
 ## Next Steps
 
 - [Logging and frequently asked questions for Azure policy for key vault](../general/troubleshoot-azure-policy-for-key-vault.md)
-- Learn more about the [Azure Policy service](../../governance/policy/overview.md)
-- See Key Vault samples: [Key Vault built-in policy definitions](../../governance/policy/samples/built-in-policies.md#key-vault)
+- Learn more about the [Azure Policy service](/azure/governance/policy/overview)
+- See Key Vault samples: [Key Vault built-in policy definitions](/azure/governance/policy/samples/built-in-policies#key-vault)
 - Learn about [Microsoft cloud security benchmark on Key vault](/security/benchmark/azure/baselines/key-vault-security-baseline)

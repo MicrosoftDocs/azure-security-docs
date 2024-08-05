@@ -17,7 +17,7 @@ Azure Private Link Service enables you to access Azure Services (for example, Az
 
 An Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can connect to an instance of an Azure resource, giving you the highest level of granularity in access control.
 
-For more information, see [What is Azure Private Link?](../../private-link/private-link-overview.md)
+For more information, see [What is Azure Private Link?](/azure/private-link/private-link-overview)
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ Your private endpoint uses a private IP address in your virtual network.
 
 ## Establish a private link connection to Key Vault using the Azure portal
 
-First, create a virtual network by following the steps in [Create a virtual network using the Azure portal](../../virtual-network/quick-create-portal.md)
+First, create a virtual network by following the steps in [Create a virtual network using the Azure portal](/azure/virtual-network/quick-create-portal)
 
 You can then either create a new key vault, or establish a private link connection to an existing key vault.
 
@@ -184,7 +184,7 @@ nslookup {KEY VAULT NAME}.privatelink.vaultcore.azure.net
 
 You should validate that the resources within the same subnet of the private endpoint resource are connecting to your key vault over a private IP address, and that they have the correct private DNS zone integration.
 
-First, create a virtual machine by following the steps in [Create a Windows virtual machine in the Azure portal](../../virtual-machines/windows/quick-create-portal.md)
+First, create a virtual machine by following the steps in [Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal)
 
 In the "Networking" tab:
 
@@ -232,14 +232,14 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 * Check to make sure you have a Private DNS Zone resource. 
     1. You must have a Private DNS Zone resource with the exact name: privatelink.vaultcore.azure.net. 
-    2. To learn how to set this up please see the following link. [Private DNS Zones](../../dns/private-dns-privatednszone.md)
+    2. To learn how to set this up please see the following link. [Private DNS Zones](/azure/dns/private-dns-privatednszone)
     
 * Check to make sure the Private DNS Zone is linked to the Virtual Network. This may be the issue if you're still getting the public IP address returned. 
     1. If the Private Zone DNS isn't linked to the virtual network, the DNS query originating from the virtual network will return the public IP address of the key vault. 
     2. Navigate to the Private DNS Zone resource in the Azure portal and select the virtual network links option. 
     4. The virtual network that will perform calls to the key vault must be listed. 
     5. If it's not there, add it. 
-    6. For detailed steps, see the following document [Link Virtual Network to Private DNS Zone](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network)
+    6. For detailed steps, see the following document [Link Virtual Network to Private DNS Zone](/azure/dns/private-dns-getstarted-portal#link-the-virtual-network)
 
 * Check to make sure the Private DNS Zone isn't missing an A record for the key vault. 
     1. Navigate to the Private DNS Zone page. 
@@ -255,18 +255,18 @@ Aliases:  <your-key-vault-name>.vault.azure.net
     5. Verify that this is the correct IP address that is specified in the A record.
 
 * If you're connecting from an on-premises resource to a Key Vault, ensure you have all required conditional forwarders in the on-premises environment enabled.
-    1. Review [Azure Private Endpoint DNS configuration](../../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration) for the zones needed, and make sure you have conditional forwarders for both `vault.azure.net` and `vaultcore.azure.net` on your on-premises DNS.
-    2. Ensure that you have conditional forwarders for those zones that route to an [Azure Private DNS Resolver](../../dns/dns-private-resolver-overview.md) or some other DNS platform with access to Azure resolution.
+    1. Review [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns#azure-services-dns-zone-configuration) for the zones needed, and make sure you have conditional forwarders for both `vault.azure.net` and `vaultcore.azure.net` on your on-premises DNS.
+    2. Ensure that you have conditional forwarders for those zones that route to an [Azure Private DNS Resolver](/azure/dns/dns-private-resolver-overview) or some other DNS platform with access to Azure resolution.
 
 ## Limitations and Design Considerations
 
-**Limits**: See [Azure Private Link limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#private-link-limits)
+**Limits**: See [Azure Private Link limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#private-link-limits)
 
 **Pricing**: See [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 
-**Limitations**: See [Azure Private Link service: Limitations](../../private-link/private-link-service-overview.md#limitations)
+**Limitations**: See [Azure Private Link service: Limitations](/azure/private-link/private-link-service-overview#limitations)
 
 ## Next Steps
 
-- Learn more about [Azure Private Link](../../private-link/private-link-service-overview.md)
+- Learn more about [Azure Private Link](/azure/private-link/private-link-service-overview)
 - Learn more about [Azure Key Vault](overview.md)

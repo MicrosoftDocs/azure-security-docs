@@ -25,8 +25,8 @@ For more information about how objects in Key Vault are versioned, see [Key Vaul
 This feature enables end-to-end zero-touch rotation for encryption at rest for Azure services with customer-managed key (CMK) stored in Azure Key Vault. Please refer to specific Azure service documentation to see if the service covers end-to-end rotation. 
 
 For more information about data encryption in Azure, see:
-- [Azure Encryption at Rest](../../security/fundamentals/encryption-atrest.md#azure-encryption-at-rest-components)
-- [Azure services data encryption support table](../../security/fundamentals/encryption-models.md#supporting-services)
+- [Azure Encryption at Rest](/azure/security/fundamentals/encryption-atrest#azure-encryption-at-rest-components)
+- [Azure services data encryption support table](/azure/security/fundamentals/encryption-models#supporting-services)
 
 ## Pricing
 
@@ -146,7 +146,7 @@ Configuration of expiry notification for Event Grid key near expiry event. In ca
 :::image type="content" source="../media/keys/key-rotation/key-rotation-5.png" alt-text="Configure Notification":::
 
 For more information about Event Grid notifications in Key Vault, see
-[Azure Key Vault as Event Grid source](../../event-grid/event-schema-key-vault.md?tabs=event-grid-event-schema)
+[Azure Key Vault as Event Grid source](/azure/event-grid/event-schema-key-vault?tabs=event-grid-event-schema)
 
 ## Configure key rotation with ARM template
 
@@ -264,7 +264,7 @@ Once the built-in policy is assigned, it can take up to 24 hours to complete the
 
 - [Monitoring Key Vault with Azure Event Grid](../general/event-grid-overview.md)
 - [Use an Azure RBAC to control access to keys, certificates and secrets](../general/rbac-guide.md)
-- [Azure Data Encryption At Rest](../../security/fundamentals/encryption-atrest.md)
-- [Azure Storage Encryption](../../storage/common/storage-service-encryption.md)
-- [Azure Disk Encryption](../../virtual-machines/disk-encryption.md)
+- [Azure Data Encryption At Rest](/azure/security/fundamentals/encryption-atrest)
+- [Azure Storage Encryption](/azure/storage/common/storage-service-encryption)
+- [Azure Disk Encryption](/azure/virtual-machines/disk-encryption)
 - [Automatic key rotation for transparent data encryption](/azure/azure-sql/database/transparent-data-encryption-byok-key-rotation#automatic-key-rotation)

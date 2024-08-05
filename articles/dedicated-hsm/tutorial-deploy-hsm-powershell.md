@@ -24,7 +24,7 @@ A typical, high availability, multi-region deployment architecture is as follows
 
 :::image type="content" source="media/tutorial-deploy-hsm-powershell/high-availability.png" lightbox="media/tutorial-deploy-hsm-powershell/high-availability.png" alt-text="A diagram illustrating a multi-region deployment.":::
 
-This tutorial focuses on a pair of HSMs and the required [ExpressRoute gateway](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) (see Subnet 1 above) being integrated into an existing virtual network (see VNET 1 above). All other resources are standard Azure resources. The same integration process can be used for HSMs in subnet 4 on VNET 3 above.
+This tutorial focuses on a pair of HSMs and the required [ExpressRoute gateway](/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager) (see Subnet 1 above) being integrated into an existing virtual network (see VNET 1 above). All other resources are standard Azure resources. The same integration process can be used for HSMs in subnet 4 on VNET 3 above.
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
@@ -43,7 +43,7 @@ The following instructions assume that you've already navigated to the Azure por
 
 ## Provisioning a Dedicated HSM
 
-Provisioning the HSMs and integrating into an existing virtual network via [ExpressRoute gateway](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) is validated using the ssh command-line tool to ensure reachability and basic availability of the HSM device for any further configuration activities. The following commands will use a Resource Manager template to create the HSM resources and associated networking resources.
+Provisioning the HSMs and integrating into an existing virtual network via [ExpressRoute gateway](/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager) is validated using the ssh command-line tool to ensure reachability and basic availability of the HSM device for any further configuration activities. The following commands will use a Resource Manager template to create the HSM resources and associated networking resources.
 
 ### Validating Feature Registration
 
@@ -59,7 +59,7 @@ The command should return a status of "Registered" before you proceed any furthe
 
 ### Creating HSM resources
 
-An HSM device is provisioned into a customers' virtual network, which requires a subnet. A dependency for the HSM to enable communication between the virtual network and physical device is an [ExpressRoute gateway](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md), and finally a virtual machine is required to access the HSM device using the Thales client software.
+An HSM device is provisioned into a customers' virtual network, which requires a subnet. A dependency for the HSM to enable communication between the virtual network and physical device is an [ExpressRoute gateway](/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager), and finally a virtual machine is required to access the HSM device using the Thales client software.
 
 You can create a Dedicated HSM resource using an ARM template based on the following example. You must update the parameters by replacing the lines containing "value":"" with your preferred resource names.
 

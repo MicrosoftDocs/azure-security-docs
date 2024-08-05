@@ -167,6 +167,6 @@ As an example, here are some use cases of using certificates to secure communica
 - [About keys, secrets, and certificates](../general/about-keys-secrets-certificates.md)
 - [About keys](../keys/about-keys.md)
 - [About secrets](../secrets/about-secrets.md)
-- [Key management in Azure](../../security/fundamentals/key-management.md)
+- [Key management in Azure](/azure/security/fundamentals/key-management)
 - [Authentication, requests, and responses](../general/authentication-requests-and-responses.md)
 - [Key Vault developer's guide](../general/developers-guide.md)

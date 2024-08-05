@@ -11,7 +11,7 @@ ms.topic: conceptual
 ---
 # Authentication in Azure Key Vault
 
-Authentication with Key Vault works in conjunction with [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md), which is responsible for authenticating the identity of any given **security principal**.
+Authentication with Key Vault works in conjunction with [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis), which is responsible for authenticating the identity of any given **security principal**.
 
 A security principal is an object that represents a user, group, service, or application that's requesting access to Azure resources. Azure assigns a unique **object ID** to every security principal.
 
@@ -27,9 +27,9 @@ For applications, there are two ways to obtain a service principal:
 
     With managed identity, Azure internally manages the application's service principal and automatically authenticates the application with other Azure services. Managed identity is available for applications deployed to a variety of services.
 
-    For more information, see the [Managed identity overview](../../active-directory/managed-identities-azure-resources/overview.md). Also see [Azure services that support managed identity](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md), which links to articles that describe how to enable managed identity for specific services (such as App Service, Azure Functions, Virtual Machines, etc.).
+    For more information, see the [Managed identity overview](/azure/active-directory/managed-identities-azure-resources/overview). Also see [Azure services that support managed identity](/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities), which links to articles that describe how to enable managed identity for specific services (such as App Service, Azure Functions, Virtual Machines, etc.).
 
-* If you cannot use managed identity, you instead **register** the application with your Microsoft Entra tenant, as described on [Quickstart: Register an application with the Azure identity platform](../../active-directory/develop/quickstart-register-app.md). Registration also creates a second application object that identifies the app across all tenants.
+* If you cannot use managed identity, you instead **register** the application with your Microsoft Entra tenant, as described on [Quickstart: Register an application with the Azure identity platform](/azure/active-directory/develop/quickstart-register-app). Registration also creates a second application object that identifies the app across all tenants.
 
 ## Configure the Key Vault firewall
 
@@ -89,4 +89,4 @@ More information about best practices and developer examples, see [Authenticate 
 - [Key Vault access policy troubleshooting](troubleshooting-access-issues.md)
 - [Key Vault REST API error codes](rest-error-codes.md)
 
-- [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
+- [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)

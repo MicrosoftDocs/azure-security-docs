@@ -14,8 +14,8 @@ ms.author: mbaldwin
 # About Azure Key Vault managed storage account keys (Legacy)
 
 > [!IMPORTANT]
-> We recommend using Azure Storage integration with Microsoft Entra ID, Microsoft's cloud-based identity and access management service. Microsoft Entra integration is available for [Azure blobs and queues](../../storage/blobs/authorize-access-azure-active-directory.md), and provides OAuth2 token-based access to Azure Storage (just like Azure Key Vault). 
-> Microsoft Entra ID allows you to authenticate your client application by using an application or user identity, instead of storage account credentials. You can use an [Microsoft Entra managed identity](../../active-directory/managed-identities-azure-resources/index.yml) when you run on Azure. Managed identities remove the need for client authentication and storing credentials in or with your application. Use below solution only when Microsoft Entra authentication is not possible.
+> We recommend using Azure Storage integration with Microsoft Entra ID, Microsoft's cloud-based identity and access management service. Microsoft Entra integration is available for [Azure blobs and queues](/azure/storage/blobs/authorize-access-azure-active-directory), and provides OAuth2 token-based access to Azure Storage (just like Azure Key Vault). 
+> Microsoft Entra ID allows you to authenticate your client application by using an application or user identity, instead of storage account credentials. You can use an [Microsoft Entra managed identity](/azure/active-directory/managed-identities-azure-resources/) when you run on Azure. Managed identities remove the need for client authentication and storing credentials in or with your application. Use below solution only when Microsoft Entra authentication is not possible.
 
 An Azure storage account uses credentials comprising an account name and a key. The key is auto-generated and serves as a password, rather than an as a cryptographic key. Key Vault manages storage account keys by periodically regenerating them in storage account and provides shared access signature tokens for delegated access to resources in your storage account.
 
@@ -23,7 +23,7 @@ You can use the Key Vault managed storage account key feature to list (sync) key
 
 ## Azure Storage account key management
 
-Key Vault can manage [Azure storage account](../../storage/common/storage-account-overview.md) keys:
+Key Vault can manage [Azure storage account](/azure/storage/common/storage-account-overview) keys:
 
 - Internally, Key Vault can list (sync) keys with an Azure storage account. 
 - Key Vault regenerates (rotates) the keys periodically.
@@ -31,7 +31,7 @@ Key Vault can manage [Azure storage account](../../storage/common/storage-accoun
 - Key Vault manages keys of both storage accounts and classic storage accounts.
 
 For more information, see:
-- [Storage account access keys](../../storage/common/storage-account-keys-manage.md)
+- [Storage account access keys](/azure/storage/common/storage-account-keys-manage)
 - [Storage account keys management in Azure Key Vault](../secrets/overview-storage-keys.md)
 
 

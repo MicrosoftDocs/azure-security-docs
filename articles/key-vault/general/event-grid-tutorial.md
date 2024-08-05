@@ -178,7 +178,7 @@ Verify that your Event Grid subscription is properly configured. This test assum
 
 ### You can't create an event subscription
 
-Reregister Event Grid and the key vault provider in your Azure subscription resource providers. See [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
+Reregister Event Grid and the key vault provider in your Azure subscription resource providers. See [Azure resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types).
 
 ## Next steps
 
@@ -191,7 +191,7 @@ Learn more:
 
 - Overview: [Monitoring Key Vault with Azure Event Grid](event-grid-overview.md)
 - How to: [Receive email when a key vault secret changes](event-grid-logicapps.md)
-- [Azure Event Grid event schema for Azure Key Vault](../../event-grid/event-schema-key-vault.md)
+- [Azure Event Grid event schema for Azure Key Vault](/azure/event-grid/event-schema-key-vault)
 - [Azure Key Vault overview](overview.md)
-- [Azure Event Grid overview](../../event-grid/overview.md)
-- [Azure Automation overview](../../automation/index.yml)
+- [Azure Event Grid overview](/azure/event-grid/overview)
+- [Azure Automation overview](/azure/automation/)

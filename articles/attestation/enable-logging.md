@@ -30,15 +30,15 @@ To complete this tutorial, you will need an Azure Attestation provider. You can 
 
 You will also need a destination for your logs. This can be an existing or new Azure storage account and/or Log Analytics workspace. You can create a new Azure storage account using one of these methods: 
 
-- [Create a storage account using the Azure CLI](../storage/common/storage-account-create.md)
-- [Create a storage account using Azure PowerShell](../storage/common/storage-account-create.md)
-- [Create a storage account using the Azure portal](../storage/common/storage-account-create.md)
+- [Create a storage account using the Azure CLI](/azure/storage/common/storage-account-create)
+- [Create a storage account using Azure PowerShell](/azure/storage/common/storage-account-create)
+- [Create a storage account using the Azure portal](/azure/storage/common/storage-account-create)
 
 You can create a new Log Analytics workspace using one of these methods: 
 
-- [Create a Log Analytics workspace using the Azure CLI](../azure-monitor/logs/quick-create-workspace.md)
-- [Create a Log Analytics workspace using Azure PowerShell](../azure-monitor/logs/quick-create-workspace.md)
-- [Create a Log Analytics workspace the Azure portal](../azure-monitor/logs/quick-create-workspace.md)
+- [Create a Log Analytics workspace using the Azure CLI](/azure/azure-monitor/logs/quick-create-workspace)
+- [Create a Log Analytics workspace using Azure PowerShell](/azure/azure-monitor/logs/quick-create-workspace)
+- [Create a Log Analytics workspace the Azure portal](/azure/azure-monitor/logs/quick-create-workspace)
 
  ## Enable logging 
 

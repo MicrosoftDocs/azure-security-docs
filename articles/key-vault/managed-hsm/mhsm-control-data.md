@@ -88,9 +88,9 @@ Azure Key Vault Managed HSM uses the following types of security controls:
 
 #### Physical security controls
 
-The core of Managed HSM is the hardware security module (HSM). An HSM is a specialized, hardened, tamper-resistant, high-entropy, dedicated cryptographic processor that is validated to the FIPS 140-2 Level 3 standard. All components of the HSM are further covered in hardened epoxy and a metal casing to keep your keys safe from an attacker. The HSMs are housed in racks of servers across several datacenters, regions, and geographies. These geographically dispersed datacenters comply with key industry standards such as [ISO/IEC 27001:2013](/azure/compliance/offerings/offering-iso-27001) and [NIST SP 800-53](../../governance/policy/samples/nist-sp-800-53-r4.md) for security and reliability.
+The core of Managed HSM is the hardware security module (HSM). An HSM is a specialized, hardened, tamper-resistant, high-entropy, dedicated cryptographic processor that is validated to the FIPS 140-2 Level 3 standard. All components of the HSM are further covered in hardened epoxy and a metal casing to keep your keys safe from an attacker. The HSMs are housed in racks of servers across several datacenters, regions, and geographies. These geographically dispersed datacenters comply with key industry standards such as [ISO/IEC 27001:2013](/azure/compliance/offerings/offering-iso-27001) and [NIST SP 800-53](/azure/governance/policy/samples/nist-sp-800-53-r4) for security and reliability.
 
-Microsoft designs, builds, and operates datacenters in a way that strictly controls physical access to the areas where your keys and data are stored. Additional layers of [physical security](../../security/fundamentals/physical-security.md), such as tall fences made of concrete and steel, dead-bolt steel doors, thermal alarm systems, closed-circuit live camera monitoring, 24x7 security personnel, need-to-access basis with approval per floor, rigorous staff training, biometrics, background checks, and access request and approval are mandated. The HSM devices and related servers are locked in a cage, and cameras film the front and back of the servers.
+Microsoft designs, builds, and operates datacenters in a way that strictly controls physical access to the areas where your keys and data are stored. Additional layers of [physical security](/azure/security/fundamentals/physical-security), such as tall fences made of concrete and steel, dead-bolt steel doors, thermal alarm systems, closed-circuit live camera monitoring, 24x7 security personnel, need-to-access basis with approval per floor, rigorous staff training, biometrics, background checks, and access request and approval are mandated. The HSM devices and related servers are locked in a cage, and cameras film the front and back of the servers.
 
 #### Technical security controls
 
@@ -100,7 +100,7 @@ Several layers of technical controls in Managed HSM further protect your key mat
 
   Enclaves are secured portions of the hardware's processor and memory. You can't view data or code inside the enclave, even with a debugger. If untrusted code tries to change content in the enclave memory, Intel SGX disables the environment and denies the operation.
 
-  These unique capabilities help you protect your cryptographic key material from being accessible or visible as clear text. Also, [Azure confidential computing](../../confidential-computing/overview.md) offers solutions to enable the isolation of your sensitive data while it's being processed in the cloud.
+  These unique capabilities help you protect your cryptographic key material from being accessible or visible as clear text. Also, [Azure confidential computing](/azure/confidential-computing/overview) offers solutions to enable the isolation of your sensitive data while it's being processed in the cloud.
 
 - **Security domain**: A [security domain](./security-domain.md) is an encrypted blob that contains extremely sensitive cryptographic information. The security domain contains artifacts like the HSM backup, user credentials, the signing key, and the data encryption key that's unique to your managed HSM.
 
@@ -131,16 +131,16 @@ These administrative security controls are in place in Azure Key Vault Managed H
 
 - **Data defense**. You have Microsoft’s strong commitment to challenge government requests and to [defend your data](https://blogs.microsoft.com/on-the-issues/2020/11/19/defending-your-data-edpb-gdpr/).
 - **Contractual obligations**. It offers control obligations for security and customer data protection as discussed in [Microsoft Trust Center](https://www.microsoft.com/trust-center?rtc=1).
-- **[Cross-region replication](../../availability-zones/cross-region-replication-azure.md)**. You can use multi region replication in Managed HSM to deploy HSMs in a secondary region.
+- **[Cross-region replication](/azure/availability-zones/cross-region-replication-azure)**. You can use multi region replication in Managed HSM to deploy HSMs in a secondary region.
 - **Disaster recovery**. Azure offers an end-to-end backup and disaster recovery solution that is simple, secure, scalable, and cost-effective:
-  - [Business continuity management program](../../availability-zones/business-continuity-management-program.md)
-  - [Azure Site Recovery](../../site-recovery/index.yml)
-  - [Azure Backup](../../backup/index.yml)
+  - [Business continuity management program](/azure/availability-zones/business-continuity-management-program)
+  - [Azure Site Recovery](/azure/site-recovery/)
+  - [Azure Backup](/azure/backup/)
   - [Azure well-architected framework](/azure/architecture/framework/)
 - **[Microsoft Security Response Center](https://www.microsoft.com/msrc) (MSRC)**. Managed HSM service administration is tightly integrated with MSRC.
   - Security monitoring for unexpected administrative operations with full 24/7 security response
 - **[Cloud resilient and secure supply chain](https://azure.microsoft.com/blog/advancing-reliability-through-a-resilient-cloud-supply-chain/)**. Managed HSM advances reliability through a resilient cloud supply chain.
-- **[Regulatory compliance built-in initiative](../../governance/policy/samples/built-in-initiatives.md#regulatory-compliance)**. Compliance in Azure Policy provides built-in initiative definitions to view a list of the controls and compliance domains based on responsibility (Customer, Microsoft, Shared). For Microsoft-responsible controls, we provide additional details of our audit results based on third-party attestation and our implementation details to achieve that compliance.
+- **[Regulatory compliance built-in initiative](/azure/governance/policy/samples/built-in-initiatives#regulatory-compliance)**. Compliance in Azure Policy provides built-in initiative definitions to view a list of the controls and compliance domains based on responsibility (Customer, Microsoft, Shared). For Microsoft-responsible controls, we provide additional details of our audit results based on third-party attestation and our implementation details to achieve that compliance.
 - **[Audit reports](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3)**. Resources to help information security and compliance professionals understand cloud features, and to verify technical compliance and control requirements
 - **Assume breach philosophy**. We assume that any component could be compromised at any time, and we design and test appropriately. We do regular Red Team/Blue Team exercises ([attack simulation](/compliance/assurance/assurance-monitoring-and-testing)).
 

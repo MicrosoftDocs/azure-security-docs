@@ -173,7 +173,7 @@ You can find more Key Vault templates here: [Key Vault Resource Manager referenc
 ## Deploy the templates
 
 You can use the Azure portal to deploy the preceding templates by using the **Build your own template in editor** option as described here:
-[Deploy resources from a custom template](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
+[Deploy resources from a custom template](/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template).
 
 You can also save the preceding templates to files and use these commands:  [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) and [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create):
 
@@ -211,7 +211,7 @@ Write-Host "Press [ENTER] to continue..."
 ## Resources
 
 - Read an [Overview of Azure Key Vault](../general/overview.md).
-- Learn more about [Azure Resource Manager](../../azure-resource-manager/management/overview.md).
+- Learn more about [Azure Resource Manager](/azure/azure-resource-manager/management/overview).
 - Review the [Azure Key Vault security overview](security-features.md)
 
 ## Next steps

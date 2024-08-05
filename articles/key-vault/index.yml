@@ -58,7 +58,7 @@ conceptualContent:
         - url: ./keys/about-keys.md
           itemType: overview
           text:  About keys
-        - url: ../security/fundamentals/encryption-atrest.md
+        - url: /azure/security/fundamentals/encryption-atrest
           itemType: overview
           text:  Data Encryption
         - url: ./keys/quick-create-portal.md
@@ -140,22 +140,22 @@ conceptualContent:
 
     - title: Key Vault with Virtual Machines
       links:
-        - url: ../virtual-machines/extensions/key-vault-windows.md
+        - url: /azure/virtual-machines/extensions/key-vault-windows
           itemType: overview
           text: Key Vault VM extension - Windows
-        - url: ../virtual-machines/extensions/key-vault-linux.md
+        - url: /azure/virtual-machines/extensions/key-vault-linux
           itemType: overview
           text: Key Vault VM extension - Linux
         - url: /azure/developer/ansible/key-vault-configure-vm-security
           itemType: overview
           text: Key Vault with Linux VMs in Ansible
-        - url: ../virtual-machines/windows/disk-encryption-key-vault.yml
+        - url: /azure/virtual-machines/windows/disk-encryption-key-vault
           itemType: overview
           text: Key Vault with Azure Disk Encryption - Windows
-        - url: ../virtual-machines/linux/disk-encryption-key-vault.md
+        - url: /azure/virtual-machines/linux/disk-encryption-key-vault
           itemType: overview
           text: Key Vault with Azure Disk Encryption - Linux
-        - url: ../virtual-machine-scale-sets/disk-encryption-key-vault.md
+        - url: /azure/virtual-machine-scale-sets/disk-encryption-key-vault
           itemType: overview
           text: Key Vault with Virtual Machine Scale Sets
     - title: Key Vault Integration
@@ -163,10 +163,10 @@ conceptualContent:
         - url: /azure/devops/pipelines/library/variable-groups?tabs=yaml#link-secrets-from-an-azure-key-vault
           itemType: overview
           text: Azure Dev Ops - Reference Key Vault secrets in Azure Pipelines
-        - url: ../app-service/app-service-key-vault-references.md
+        - url: /azure/app-service/app-service-key-vault-references
           itemType: overview
           text: App Services - Reference Key Vault secrets in App Services
-        - url: ../app-service/configure-ssl-app-service-certificate.md#store-certificate-in-azure-key-vault
+        - url: /azure/app-service/configure-ssl-app-service-certificate#store-certificate-in-azure-key-vault
           itemType: overview
           text: App Services - Maintain App Service certificates in Key Vault
         - url: /azure/aks/developer-best-practices-pod-security#use-azure-key-vault-with-secrets-store-csi-driver

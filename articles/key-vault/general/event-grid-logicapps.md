@@ -13,7 +13,7 @@ ms.author: mbaldwin
 ---
 # Use Logic Apps to receive email about status changes of key vault secrets
 
-In this guide, you will learn how to respond to Azure Key Vault events that are received via [Azure Event Grid](../../event-grid/index.yml) by using [Azure Logic Apps](../../logic-apps/index.yml). By the end, you will have an Azure logic app set up to send a notification email every time a secret is created in Azure Key Vault.
+In this guide, you will learn how to respond to Azure Key Vault events that are received via [Azure Event Grid](/azure/event-grid/) by using [Azure Logic Apps](/azure/logic-apps/). By the end, you will have an Azure logic app set up to send a notification email every time a secret is created in Azure Key Vault.
 
 For an overview of Azure Key Vault / Azure Event Grid integration, see [Monitoring Key Vault with Azure Event Grid](event-grid-overview.md).
 
@@ -22,7 +22,7 @@ For an overview of Azure Key Vault / Azure Event Grid integration, see [Monitori
 - An email account from any email provider that is supported by Azure Logic Apps (such as Office 365 Outlook). This email account is used to send the event notifications. For a complete list of supported Logic App connectors, see the [Connectors overview](/connectors)
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - A key vault in your Azure Subscription. You can quickly create a new key vault by following the steps in [Set and retrieve a secret from Azure Key Vault using Azure CLI](../secrets/quick-create-cli.md).
-- Registered Event Grid as a resource provider, see the [Resource providers registrations](../../azure-resource-manager/management/resource-providers-and-types.md)
+- Registered Event Grid as a resource provider, see the [Resource providers registrations](/azure/azure-resource-manager/management/resource-providers-and-types)
 
 ## Create a Logic App via Event Grid
 
@@ -83,6 +83,6 @@ When the secret is created, an email will be received at the configured addresse
 
 - Overview: [Monitoring Key Vault with Azure Event Grid](event-grid-overview.md)
 - How to: [Route key vault notifications to Azure Automation](event-grid-tutorial.md).
-- [Azure Event Grid event schema for Azure Key Vault](../../event-grid/event-schema-key-vault.md)
-- Learn more about [Azure Event Grid](../../event-grid/index.yml).
-- Learn more about the [Logic Apps feature of Azure App Service](../../logic-apps/index.yml).
+- [Azure Event Grid event schema for Azure Key Vault](/azure/event-grid/event-schema-key-vault)
+- Learn more about [Azure Event Grid](/azure/event-grid/).
+- Learn more about the [Logic Apps feature of Azure App Service](/azure/logic-apps/).

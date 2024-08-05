@@ -133,7 +133,7 @@ You can configure the multi-subscription and key vault Overview or Failures work
 
 ## Troubleshooting
 
-For general troubleshooting guidance, refer to the dedicated workbook-based insights [troubleshooting article](../azure-monitor/insights/troubleshoot-workbooks.md).
+For general troubleshooting guidance, refer to the dedicated workbook-based insights [troubleshooting article](/azure/azure-monitor/insights/troubleshoot-workbooks).
 
 This section will help you with the diagnosis and troubleshooting of some of the common issues you may encounter when using Key Vault insights. 
 
@@ -169,4 +169,4 @@ You can edit the existing workbook with edit mode, and then save your work as a 
 
 ## Next steps
 
-Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../azure-monitor/visualize/workbooks-overview.md).
+Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview).

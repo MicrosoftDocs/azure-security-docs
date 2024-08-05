@@ -12,7 +12,7 @@ ms.topic: how-to
 
 # Integrate Azure Key Vault with Azure Policy
 
-[Azure Policy](../../governance/policy/index.yml) is a governance tool that gives users the ability to audit and manage their Azure environment at scale. Azure Policy provides the ability to place guardrails on Azure resources to ensure they're compliant with assigned policy rules. It allows users to perform audit, real-time enforcement, and remediation of their Azure environment. The results of audits performed by policy will be available to users in a compliance dashboard where they'll be able to see a drill down of which resources and components are compliant and which aren't.  For more information, see the [Overview of the Azure Policy service](../../governance/policy/overview.md).
+[Azure Policy](/azure/governance/policy/) is a governance tool that gives users the ability to audit and manage their Azure environment at scale. Azure Policy provides the ability to place guardrails on Azure resources to ensure they're compliant with assigned policy rules. It allows users to perform audit, real-time enforcement, and remediation of their Azure environment. The results of audits performed by policy will be available to users in a compliance dashboard where they'll be able to see a drill down of which resources and components are compliant and which aren't.  For more information, see the [Overview of the Azure Policy service](/azure/governance/policy/overview).
 
 Example Usage Scenarios:
 
@@ -27,17 +27,17 @@ Example Usage Scenarios:
 
 When enforcing a policy, you can determine its effect over the resulting evaluation. Each policy definition allows you to choose one of multiple effects. Therefore, policy enforcement may behave differently depending on the type of operation you're evaluating. In general, the effects for policies that integrate with Key Vault include:
 
-- [**Audit**](../../governance/policy/concepts/effects.md#audit): when the effect of a policy is set to `Audit`, the policy won't cause any breaking changes to your environment. It will only alert you to components such as certificates that don't comply with the policy definitions within a specified scope, by marking these components as non-compliant in the policy compliance dashboard. Audit is default if no policy effect is selected.
+- [**Audit**](/azure/governance/policy/concepts/effects#audit): when the effect of a policy is set to `Audit`, the policy won't cause any breaking changes to your environment. It will only alert you to components such as certificates that don't comply with the policy definitions within a specified scope, by marking these components as non-compliant in the policy compliance dashboard. Audit is default if no policy effect is selected.
 
-- [**Deny**](../../governance/policy/concepts/effects.md#deny): when the effect of a policy is set to `Deny`, the policy will block the creation of new components such as certificates as well as block new versions of existing components that don't comply with the policy definition. Existing non-compliant resources within a key vault aren't affected. The 'audit' capabilities will continue to operate.
+- [**Deny**](/azure/governance/policy/concepts/effects#deny): when the effect of a policy is set to `Deny`, the policy will block the creation of new components such as certificates as well as block new versions of existing components that don't comply with the policy definition. Existing non-compliant resources within a key vault aren't affected. The 'audit' capabilities will continue to operate.
 
-- [**Disabled**](../../governance/policy/concepts/effects.md#disabled): when the effect of a policy is set to `Disabled`, the policy will still be evaluated but enforcement won't take effect, thus being compliant for the condition with `Disabled` effect. This is useful to disable the policy for a specific condition as opposed to all conditions.
+- [**Disabled**](/azure/governance/policy/concepts/effects#disabled): when the effect of a policy is set to `Disabled`, the policy will still be evaluated but enforcement won't take effect, thus being compliant for the condition with `Disabled` effect. This is useful to disable the policy for a specific condition as opposed to all conditions.
  
-- [**Modify**](../../governance/policy/concepts/effects.md#modify): when the effect of a policy is set to `Modify`, you can perform addition of resource tags, such as adding the `Deny` tag to  a network. This is useful to disable access to a public network for Azure Key Vault managed HSM. It's necessary to [configure a manage identity](../../governance/policy/how-to/remediate-resources.md?tabs=azure-portal#configure-the-managed-identity) for the policy definition via the `roleDefinitionIds` parameter to utilize the `Modify` effect.
+- [**Modify**](/azure/governance/policy/concepts/effects#modify): when the effect of a policy is set to `Modify`, you can perform addition of resource tags, such as adding the `Deny` tag to  a network. This is useful to disable access to a public network for Azure Key Vault managed HSM. It's necessary to [configure a manage identity](/azure/governance/policy/how-to/remediate-resources?tabs=azure-portal#configure-the-managed-identity) for the policy definition via the `roleDefinitionIds` parameter to utilize the `Modify` effect.
 
-- [**DeployIfNotExists**](../../governance/policy/concepts/effects.md#deployifnotexists): when the effect of a policy is set to `DeployIfNotExists`, a deployment template is executed when the condition is met. This can be used to configure diagnostic settings for Key Vault to log analytics workspace. It's necessary to [configure a manage identity](../../governance/policy/how-to/remediate-resources.md?tabs=azure-portal#configure-the-managed-identity) for the policy definition via the `roleDefinitionIds` parameter to utilize the `DeployIfNotExists` effect.
+- [**DeployIfNotExists**](/azure/governance/policy/concepts/effects#deployifnotexists): when the effect of a policy is set to `DeployIfNotExists`, a deployment template is executed when the condition is met. This can be used to configure diagnostic settings for Key Vault to log analytics workspace. It's necessary to [configure a manage identity](/azure/governance/policy/how-to/remediate-resources?tabs=azure-portal#configure-the-managed-identity) for the policy definition via the `roleDefinitionIds` parameter to utilize the `DeployIfNotExists` effect.
 
-- [**AuditIfNotExists**](../../governance/policy/concepts/effects.md#deployifnotexists): when the effect of a policy is set to `AuditIfNotExists`, you can identify resources that lack the properties specified in the details of the policy condition. This is useful to identify key vaults that have no resource logs enabled. It's necessary to [configure a manage identity](../../governance/policy/how-to/remediate-resources.md?tabs=azure-portal#configure-the-managed-identity) for the policy definition via the `roleDefinitionIds` parameter to utilize the `DeployIfNotExists` effect.
+- [**AuditIfNotExists**](/azure/governance/policy/concepts/effects#deployifnotexists): when the effect of a policy is set to `AuditIfNotExists`, you can identify resources that lack the properties specified in the details of the policy condition. This is useful to identify key vaults that have no resource logs enabled. It's necessary to [configure a manage identity](/azure/governance/policy/how-to/remediate-resources?tabs=azure-portal#configure-the-managed-identity) for the policy definition via the `roleDefinitionIds` parameter to utilize the `DeployIfNotExists` effect.
 
 ## Available Built-In Policy Definitions
 
@@ -267,12 +267,12 @@ If the compliance results show up as "Not Started" it may be due to the followin
 - There are no key vaults with certificates within the scope of the policy assignment.
 
 > [!NOTE]
-> Azure Policy [Resource Provider modes](../../governance/policy/concepts/definition-structure.md#resource-provider-modes), such as those for Azure Key Vault, provide information about compliance on the [Component Compliance](../../governance/policy/how-to/get-compliance-data.md#component-compliance)
+> Azure Policy [Resource Provider modes](/azure/governance/policy/concepts/definition-structure#resource-provider-modes), such as those for Azure Key Vault, provide information about compliance on the [Component Compliance](/azure/governance/policy/how-to/get-compliance-data#component-compliance)
 > page.
 
 ## Next Steps
 
 - [Logging and frequently asked questions for Azure policy for Key Vault](troubleshoot-azure-policy-for-key-vault.md)
-- Learn more about the [Azure Policy service](../../governance/policy/overview.md)
-- See Key Vault samples: [Key Vault built-in policy definitions](../../governance/policy/samples/built-in-policies.md#key-vault)
+- Learn more about the [Azure Policy service](/azure/governance/policy/overview)
+- See Key Vault samples: [Key Vault built-in policy definitions](/azure/governance/policy/samples/built-in-policies#key-vault)
 - Learn about [Microsoft cloud security benchmark on Key Vault](/security/benchmark/azure/baselines/key-vault-security-baseline)

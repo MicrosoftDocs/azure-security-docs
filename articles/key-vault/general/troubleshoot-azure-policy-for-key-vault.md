@@ -15,7 +15,7 @@ This article guides you how to troubleshoot general errors that might occur when
 
 ## About Azure policy for Key Vault
 
-[Azure Policy](../../governance/policy/index.yml) is a governance tool that gives users the ability to audit and manage their Azure environment at scale. Azure Policy allows you to place guardrails on Azure resources to ensure they're compliant with assigned policy rules. It allows users to perform audit, real-time enforcement, and remediation of their Azure environment. The results of audits performed by policy will be available to users in a compliance dashboard where they will be able to see a drill-down of which resources and components are compliant and which are not.
+[Azure Policy](/azure/governance/policy/) is a governance tool that gives users the ability to audit and manage their Azure environment at scale. Azure Policy allows you to place guardrails on Azure resources to ensure they're compliant with assigned policy rules. It allows users to perform audit, real-time enforcement, and remediation of their Azure environment. The results of audits performed by policy will be available to users in a compliance dashboard where they will be able to see a drill-down of which resources and components are compliant and which are not.
 
 ### Logging
 
@@ -24,7 +24,7 @@ In order to monitor how policy evaluations are conducted, you can review the Key
 When you enable logging, a new container called **AzurePolicyEvaluationDetails** will be automatically created to collect policy related logging information in your specified storage account.
 
 > [!NOTE]
-> You should strictly regulate access to monitoring data, particularly log files, as they can contain sensitive information. Learn about applying [built-in monitoring Azure role](../../azure-monitor/roles-permissions-security.md) and limiting access.
+> You should strictly regulate access to monitoring data, particularly log files, as they can contain sensitive information. Learn about applying [built-in monitoring Azure role](/azure/azure-monitor/roles-permissions-security) and limiting access.
 
 Individual blobs are stored as text, formatted as a JSON blob.
 
@@ -141,5 +141,5 @@ Data plane policies that evaluate secret creation wouldn't be applicable on [sec
 
 ## Next steps
 
-* Learn how to [Troubleshoot errors with using Azure Policy](../../governance/policy/troubleshoot/general.md)
+* Learn how to [Troubleshoot errors with using Azure Policy](/azure/governance/policy/troubleshoot/general)
 * Learn about [Azure Policy known issues](https://github.com/azure/azure-policy#known-issues)

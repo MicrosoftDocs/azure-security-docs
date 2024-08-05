@@ -17,7 +17,7 @@ ms.collection:
 ---
 # About Azure Key Vault
 
-Azure Key Vault is one of several [key management solutions in Azure](../../security/fundamentals/key-management.md), and helps solve the following problems:
+Azure Key Vault is one of several [key management solutions in Azure](/azure/security/fundamentals/key-management), and helps solve the following problems:
 
 - **Secrets Management** - Azure Key Vault can be used to Securely store and tightly control access to tokens, passwords, certificates, API keys, and other secrets
 - **Key Management** - Azure Key Vault can be used as a Key Management solution. Azure Key Vault makes it easy to create and control the encryption keys used to encrypt your data.
@@ -70,14 +70,14 @@ In addition, Azure Key Vaults allow you to segregate application secrets. Applic
 ### Integrate with other Azure services
 
 As a secure store in Azure, Key Vault has been used to simplify scenarios like:
--  [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md)
+-  [Azure Disk Encryption](/azure/security/fundamentals/encryption-overview)
 -  The [always encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) and [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) functionality in SQL server and Azure SQL Database
-- [Azure App Service](../../app-service/configure-ssl-certificate.md).
+- [Azure App Service](/azure/app-service/configure-ssl-certificate).
 
 Key Vault itself can integrate with storage accounts, event hubs, and log analytics.
 
 ## Next steps
-- [Key management in Azure](../../security/fundamentals/key-management.md)
+- [Key management in Azure](/azure/security/fundamentals/key-management)
 - Learn more about [keys, secrets, and certificates](about-keys-secrets-certificates.md)
 - [Quickstart: Create an Azure Key Vault using the CLI](../secrets/quick-create-cli.md)
 - [Authentication, requests, and responses](../general/authentication-requests-and-responses.md)

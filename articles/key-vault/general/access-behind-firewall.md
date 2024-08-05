@@ -25,7 +25,7 @@ Depending on your configuration and environment, there are some variations.
 
 ## Ports
 
-All traffic to a key vault for all three functions (authentication, management, and data plane access) goes over HTTPS: port 443. However, there will occasionally be HTTP (port 80) traffic for CRL. Clients that support OCSP shouldn't reach CRL, but may occasionally reach CRL endpoints listed [here](../../security/fundamentals/azure-ca-details.md#certificate-downloads-and-revocation-lists).  
+All traffic to a key vault for all three functions (authentication, management, and data plane access) goes over HTTPS: port 443. However, there will occasionally be HTTP (port 80) traffic for CRL. Clients that support OCSP shouldn't reach CRL, but may occasionally reach CRL endpoints listed [here](/azure/security/fundamentals/azure-ca-details#certificate-downloads-and-revocation-lists).  
 
 ## Authentication
 
@@ -37,7 +37,7 @@ Key vault client applications will need to access Microsoft Entra endpoints for 
 | User or service principal using a work or school account with Microsoft Entra ID (for example, user@contoso.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Microsoft Azure operated by 21Vianet:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government:**<br> login.microsoftonline.us:443<br><br>**Azure Germany:**<br> login.microsoftonline.de:443 |
 | User or service principal using a work or school account, plus Active Directory Federation Services (AD FS) or other federated endpoint (for example, user@contoso.com) |All endpoints for a work or school account, plus AD FS or other federated endpoints |
 
-There are other possible complex scenarios. Refer to [Microsoft Entra authentication Flow](../../active-directory/develop/authentication-vs-authorization.md), [Integrating Applications with Microsoft Entra ID](../../active-directory/develop/how-to-integrate.md), and [Active Directory Authentication Protocols](/previous-versions/azure/dn151124(v=azure.100)) for additional information.  
+There are other possible complex scenarios. Refer to [Microsoft Entra authentication Flow](/azure/active-directory/develop/authentication-vs-authorization), [Integrating Applications with Microsoft Entra ID](/azure/active-directory/develop/how-to-integrate), and [Active Directory Authentication Protocols](/previous-versions/azure/dn151124(v=azure.100)) for additional information.  
 
 ## Key Vault management
 

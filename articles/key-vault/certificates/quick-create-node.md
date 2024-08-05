@@ -325,7 +325,7 @@ This code uses the following [Key Vault Certificate classes and methods](/javasc
 
 ## Integrating with App Configuration
 
-The Azure SDK provides a helper method, [parseKeyVaultCertificateIdentifier](/javascript/api/@azure/keyvault-certificates#parseKeyVaultCertificateIdentifier_string_), to parse the given Key Vault certificate ID, which is necessary if you use [App Configuration](../../azure-app-configuration/index.yml) references to Key Vault. App Config stores the Key Vault certificate ID. You need the _parseKeyVaultCertificateIdentifier_ method to parse that ID to get the certificate name. Once you have the certificate name, you can get the current certificate using code from this quickstart. 
+The Azure SDK provides a helper method, [parseKeyVaultCertificateIdentifier](/javascript/api/@azure/keyvault-certificates#parseKeyVaultCertificateIdentifier_string_), to parse the given Key Vault certificate ID, which is necessary if you use [App Configuration](/azure/azure-app-configuration/) references to Key Vault. App Config stores the Key Vault certificate ID. You need the _parseKeyVaultCertificateIdentifier_ method to parse that ID to get the certificate name. Once you have the certificate name, you can get the current certificate using code from this quickstart. 
 
 ## Next steps
 

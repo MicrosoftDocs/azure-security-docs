@@ -14,12 +14,12 @@ ms.author: mbaldwin
 
 In this article you'll learn how to integrate your Azure confidential ledger application with Microsoft Entra ID, by registering it with the Microsoft identity platform.  
 
-The Microsoft identity platform performs identity and access management (IAM) only for registered applications. Whether it's a client application like a web or mobile app, or it's a web API that backs a client app, registering it establishes a trust relationship between your application and the identity provider, the Microsoft identity platform. [Learn more about the Microsoft identity platform](../active-directory/develop/v2-overview.md).
+The Microsoft identity platform performs identity and access management (IAM) only for registered applications. Whether it's a client application like a web or mobile app, or it's a web API that backs a client app, registering it establishes a trust relationship between your application and the identity provider, the Microsoft identity platform. [Learn more about the Microsoft identity platform](/azure/active-directory/develop/v2-overview).
 
 ## Prerequisites
 
 - An Azure account with an active subscription and permission to manage applications in Microsoft Entra ID. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A Microsoft Entra tenant. [Learn how to set up a tenant](../active-directory/develop/quickstart-create-new-tenant.md).
+- A Microsoft Entra tenant. [Learn how to set up a tenant](/azure/active-directory/develop/quickstart-create-new-tenant).
 - An application that calls Azure confidential ledger.
 
 ## Register an application
@@ -89,11 +89,11 @@ To configure application settings based on the platform or device you're targeti
 
 ### Redirect URI restrictions
 
-There are some restrictions on the format of the redirect URIs you add to an app registration. For details about these restrictions, see [Redirect URI (reply URL) restrictions and limitations](../active-directory/develop/reply-url.md).
+There are some restrictions on the format of the redirect URIs you add to an app registration. For details about these restrictions, see [Redirect URI (reply URL) restrictions and limitations](/azure/active-directory/develop/reply-url).
 
 ## Add credentials
 
-Credentials are used by [confidential client applications](../active-directory/develop/msal-client-applications.md) that access a web API. Examples of confidential clients are web apps, other web APIs, or service-type and daemon-type applications. Credentials allow your application to authenticate as itself, requiring no interaction from a user at runtime.
+Credentials are used by [confidential client applications](/azure/active-directory/develop/msal-client-applications) that access a web API. Examples of confidential clients are web apps, other web APIs, or service-type and daemon-type applications. Credentials allow your application to authenticate as itself, requiring no interaction from a user at runtime.
 
 You can add both certificates and client secrets (a string) as credentials to your confidential client app registration.
 
@@ -101,7 +101,7 @@ You can add both certificates and client secrets (a string) as credentials to yo
 
 ### Add a certificate
 
-Sometimes called a _public key_, a certificate is the recommended credential type because they're considered more secure than client secrets. For more information about using a certificate as an authentication method in your application, see [Microsoft identity platform application authentication certificate credentials](../active-directory/develop/active-directory-certificate-credentials.md).
+Sometimes called a _public key_, a certificate is the recommended credential type because they're considered more secure than client secrets. For more information about using a certificate as an authentication method in your application, see [Microsoft identity platform application authentication certificate credentials](/azure/active-directory/develop/active-directory-certificate-credentials).
 
 1. In the Azure portal, in **App registrations**, select your application.
 1. Select **Certificates & secrets** > **Certificates** > **Upload certificate**.
@@ -123,13 +123,13 @@ Client secrets are considered less secure than certificate credentials. Applicat
 1. Select **Add**.
 1. _Record the secret's value_ for use in your client application code. This secret value is _never displayed again_ after you leave this page.
 
-For application security recommendations, see [Microsoft identity platform best practices and recommendations](../active-directory/develop/identity-platform-integration-checklist.md#security).
+For application security recommendations, see [Microsoft identity platform best practices and recommendations](/azure/active-directory/develop/identity-platform-integration-checklist#security).
 
 ## Next steps
 
 - [Azure confidential ledger authentication with Microsoft Entra ID](authentication-azure-ad.md)
 - [Overview of Microsoft Azure confidential ledger](overview.md)
-- [Integrating applications with Microsoft Entra ID](../active-directory/develop/quickstart-register-app.md)
-- [Use portal to create a Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md)
+- [Integrating applications with Microsoft Entra ID](/azure/active-directory/develop/quickstart-register-app)
+- [Use portal to create a Microsoft Entra application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal)
 - [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 - [Authenticating Azure confidential ledger nodes](authenticate-ledger-nodes.md)

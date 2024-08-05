@@ -18,7 +18,7 @@ This article provide the information necessary to migrate from a key vault from 
 
 ## Access policies to Azure roles mapping
 
-Azure RBAC has several Azure built-in roles that you can assign to users, groups, service principals, and managed identities. If the built-in roles don't meet the specific needs of your organization, you can create your own [Azure custom roles](../../role-based-access-control/custom-roles.md).
+Azure RBAC has several Azure built-in roles that you can assign to users, groups, service principals, and managed identities. If the built-in roles don't meet the specific needs of your organization, you can create your own [Azure custom roles](/azure/role-based-access-control/custom-roles).
 
 Key Vault built-in roles for keys, certificates, and secrets access management:
 - Key Vault Administrator
@@ -31,7 +31,7 @@ Key Vault built-in roles for keys, certificates, and secrets access management:
 - Key Vault Secrets Officer
 - Key Vault Secrets User
 
-For more information about existing built-in roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md)
+For more information about existing built-in roles, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles)
 
 Vault access policies can be assigned with individually selected permissions or with predefined permission templates.
 
@@ -89,12 +89,12 @@ In general, it's best practice to have one key vault per application and manage 
 There are many differences between Azure RBAC and vault access policy permission model. In order, to avoid outages during migration, below steps are recommended.
  
 1. **Identify and assign roles**: identify built-in roles based on mapping table above and create custom roles when needed. Assign roles at scopes, based on scopes mapping guidance. For more information on how to assign roles to key vault, see [Provide access to Key Vault with an Azure role-based access control](rbac-guide.md)
-1. **Validate roles assignment**: role assignments in Azure RBAC can take several minutes to propagate. For guide how to check role assignments, see [List roles assignments at scope](../../role-based-access-control/role-assignments-list-portal.yml#list-role-assignments-for-a-user-at-a-scope)
+1. **Validate roles assignment**: role assignments in Azure RBAC can take several minutes to propagate. For guide how to check role assignments, see [List roles assignments at scope](/azure/role-based-access-control/role-assignments-list-portal#list-role-assignments-for-a-user-at-a-scope)
 1. **Configure monitoring and alerting on key vault**: it's important to enable logging and setup alerting for access denied exceptions. For more information, see [Monitoring and alerting for Azure Key Vault](./alert.md)
 1. **Set Azure role-based access control permission model on Key Vault**: enabling Azure RBAC permission model will invalidate all existing access policies. If an error, permission model can be switched back with all existing access policies remaining untouched.
 
 > [!NOTE]
-> Changing permission model requires 'Microsoft.Authorization/roleAssignments/write' permission, which is part of [Owner](../../role-based-access-control/built-in-roles.md#owner) and [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) roles. Classic subscription administrator roles like 'Service Administrator' and 'Co-Administrator' are not supported.
+> Changing permission model requires 'Microsoft.Authorization/roleAssignments/write' permission, which is part of [Owner](/azure/role-based-access-control/built-in-roles#owner) and [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) roles. Classic subscription administrator roles like 'Service Administrator' and 'Co-Administrator' are not supported.
 
 > [!NOTE]
 > When Azure RBAC permission model is enabled, all scripts which attempt to update access policies will fail. It is important to update those scripts to use Azure RBAC.
@@ -136,6 +136,6 @@ For more information, see
 
 ## Learn more
 
-- [Azure RBAC Overview](../../role-based-access-control/overview.md)
-- [Custom Roles Tutorial](../../role-based-access-control/tutorial-custom-role-cli.md)
-- [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)
+- [Azure RBAC Overview](/azure/role-based-access-control/overview)
+- [Custom Roles Tutorial](/azure/role-based-access-control/tutorial-custom-role-cli)
+- [Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure)

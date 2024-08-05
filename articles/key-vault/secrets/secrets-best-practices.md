@@ -23,7 +23,7 @@ Examples of secrets that should be stored in Key Vault:
 - Access keys (Redis Cache, Azure Event Hubs, Azure Cosmos DB)
 - SSH keys
 
-Any other sensitive information, like IP addresses, service names, and other configuration settings, should be stored in [Azure App Configuration](../../azure-app-configuration/overview.md) rather than in Key Vault.
+Any other sensitive information, like IP addresses, service names, and other configuration settings, should be stored in [Azure App Configuration](/azure/azure-app-configuration/overview) rather than in Key Vault.
 
 Each individual key vault defines security boundaries for secrets. For a single key vault per application, per region, per environment, we recommend that you provide granular isolation of secrets for an application.
 
@@ -60,10 +60,10 @@ Key Vault was originally created with throttling limits specified in [Azure Key 
 For more information about throttling guidance, see [Azure Key Vault throttling guidance](../general/overview-throttling.md).
 
 ## Monitoring
-To monitor access to your secrets and their lifecycle, turn on Key Vault logging. Use [Azure Monitor](../../azure-monitor/overview.md) to monitor all secrets activities in all your vaults in one place. Or use [Azure Event Grid](../../event-grid/overview.md) to monitor the lifecycle of secrets, because it has easy integration with Azure Logic Apps and Azure Functions.
+To monitor access to your secrets and their lifecycle, turn on Key Vault logging. Use [Azure Monitor](/azure/azure-monitor/overview) to monitor all secrets activities in all your vaults in one place. Or use [Azure Event Grid](/azure/event-grid/overview) to monitor the lifecycle of secrets, because it has easy integration with Azure Logic Apps and Azure Functions.
 
 For more information, see:
-- [Azure Key Vault as Event Grid source](../../event-grid/event-schema-key-vault.md?tabs=event-grid-event-schema.md)
+- [Azure Key Vault as Event Grid source](/azure/event-grid/event-schema-key-vault?tabs=event-grid-event-schema.md)
 - [Azure Key Vault logging](../general/logging.md)
 - [Monitoring and alerting for Azure Key Vault](../general/alert.md)
 

@@ -130,5 +130,5 @@ az keyvault key rotate --hsm-name <hsm-name> --name <key-name>
 ## Resources
 
 - [Managed HSM role management](role-management.md)
-- [Azure Data Encryption At Rest](../../security/fundamentals/encryption-atrest.md)
-- [Azure Storage Encryption](../../storage/common/storage-service-encryption.md)
+- [Azure Data Encryption At Rest](/azure/security/fundamentals/encryption-atrest)
+- [Azure Storage Encryption](/azure/storage/common/storage-service-encryption)

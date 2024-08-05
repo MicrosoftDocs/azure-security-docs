@@ -70,7 +70,7 @@ You can now deploy the ARM template:
 
 1. Select **Purchase**. After the Managed HSM has been deployed successfully, you get a notification:
 
-The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../../azure-resource-manager/templates/deploy-powershell.md).
+The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](/azure/azure-resource-manager/templates/deploy-powershell).
 
 ## Validate the deployment
 

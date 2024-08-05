@@ -25,7 +25,7 @@ What is logged:
   * Creating, modifying, or deleting these keys or secrets.
   * Signing, verifying, encrypting, decrypting, wrapping and unwrapping keys, getting secrets, and listing keys and secrets (and their versions).
 * Unauthenticated requests that result in a 401 response. Examples are requests that lack a bearer token, are malformed or expired, or have an invalid token.  
-* Azure Event Grid notification events for the following conditions: expired, near expiration, and changed vault access policy (the new version event isn't logged). Events are logged even if there's an event subscription created on the key vault. For more information, see [Azure Key Vault as Event Grid source](../../event-grid/event-schema-key-vault.md).
+* Azure Event Grid notification events for the following conditions: expired, near expiration, and changed vault access policy (the new version event isn't logged). Events are logged even if there's an event subscription created on the key vault. For more information, see [Azure Key Vault as Event Grid source](/azure/event-grid/event-schema-key-vault).
 
 ## Prerequisites
 
@@ -37,14 +37,14 @@ To complete this tutorial, you'll need an Azure key vault. You can create a new 
 You'll also need a destination for your logs.  The destination can be an existing or new Azure storage account and/or Log Analytics workspace.
 
 You can create a new Azure storage account using one of these methods:
-  - [Create a storage account using the Azure CLI](../../storage/common/storage-account-create.md?tabs=azure-cli)
-  - [Create a storage account using Azure PowerShell](../../storage/common/storage-account-create.md?tabs=azure-powershell)
-  - [Create a storage account using the Azure portal](../../storage/common/storage-account-create.md?tabs=azure-portal)
+  - [Create a storage account using the Azure CLI](/azure/storage/common/storage-account-create?tabs=azure-cli)
+  - [Create a storage account using Azure PowerShell](/azure/storage/common/storage-account-create?tabs=azure-powershell)
+  - [Create a storage account using the Azure portal](/azure/storage/common/storage-account-create?tabs=azure-portal)
 
 You can create a new Log Analytics workspace using one of these methods:
-  - [Create a Log Analytics workspace using the Azure CLI](../../azure-monitor/logs/quick-create-workspace.md?tabs=azure-cli)
-  - [Create a Log Analytics workspace using Azure PowerShell](../../azure-monitor/logs/quick-create-workspace.md?tabs=azure-powershell)
-  - [Create a Log Analytics workspace the Azure portal](../../azure-monitor/logs/quick-create-workspace.md?tabs=azure-portal)
+  - [Create a Log Analytics workspace using the Azure CLI](/azure/azure-monitor/logs/quick-create-workspace?tabs=azure-cli)
+  - [Create a Log Analytics workspace using Azure PowerShell](/azure/azure-monitor/logs/quick-create-workspace?tabs=azure-powershell)
+  - [Create a Log Analytics workspace the Azure portal](/azure/azure-monitor/logs/quick-create-workspace?tabs=azure-portal)
 
 ## Connect to your Key Vault subscription
 

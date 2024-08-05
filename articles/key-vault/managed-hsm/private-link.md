@@ -17,10 +17,10 @@ Azure Private Link Service enables you to access Azure Services (for example, Ma
 
 An Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can connect to an instance of an Azure resource, giving you the highest level of granularity in access control.
 
-For more information, see [What is Azure Private Link?](../../private-link/private-link-overview.md)
+For more information, see [What is Azure Private Link?](/azure/private-link/private-link-overview)
 
 > [!NOTE]
-> Managed HSM does not currently support IP rules or [Virtual Network Service Endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) 
+> Managed HSM does not currently support IP rules or [Virtual Network Service Endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) 
 > 
 ## Prerequisites
 
@@ -124,7 +124,7 @@ nslookup {HSM NAME}.privatelink.managedhsm.azure.net
 
 You should validate that the resources within the same subnet of the private endpoint resource are connecting to your HSM over a private IP address, and that they have the correct private DNS zone integration.
 
-First, create a virtual machine by following the steps in [Create a Windows virtual machine in the Azure portal](../../virtual-machines/windows/quick-create-portal.md)
+First, create a virtual machine by following the steps in [Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal)
 
 In the "Networking" tab:
 
@@ -171,14 +171,14 @@ Aliases:  <your-hsm-name>.managed.azure.net
 
 * Check to make sure you have a Private DNS Zone resource. 
     1. You must have a Private DNS Zone resource with the exact name: privatelink.managedhsm.azure.net. 
-    2. To learn how to set this up please see the following link. [Private DNS Zones](../../dns/private-dns-privatednszone.md)
+    2. To learn how to set this up please see the following link. [Private DNS Zones](/azure/dns/private-dns-privatednszone)
     
 * Check to make sure the Private DNS Zone is linked to the Virtual Network. This may be the issue if you are still getting the public IP address returned. 
     1. If the Private Zone DNS is not linked to the virtual network, the DNS query originating from the virtual network will return the public IP address of the HSM. 
     2. Navigate to the Private DNS Zone resource in the Azure portal and click the virtual network links option. 
     4. The virtual network that will perform calls to the HSM must be listed. 
     5. If it's not there, add it. 
-    6. For detailed steps, see the following document [Link Virtual Network to Private DNS Zone](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network)
+    6. For detailed steps, see the following document [Link Virtual Network to Private DNS Zone](/azure/dns/private-dns-getstarted-portal#link-the-virtual-network)
 
 * Check to make sure the Private DNS Zone is not missing an A record for the HSM. 
     1. Navigate to the Private DNS Zone page. 
@@ -204,9 +204,9 @@ Aliases:  <your-hsm-name>.managed.azure.net
 
 **Default Number of Managed HSM with Private Endpoints per Subscription**: 400.
 
-For more, see [Azure Private Link service: Limitations](../../private-link/private-link-service-overview.md#limitations)
+For more, see [Azure Private Link service: Limitations](/azure/private-link/private-link-service-overview#limitations)
 
 ## Next Steps
 
-- Learn more about [Azure Private Link](../../private-link/private-link-service-overview.md)
+- Learn more about [Azure Private Link](/azure/private-link/private-link-service-overview)
 - Learn more about [Managed HSM](overview.md)

@@ -21,7 +21,7 @@ sections:
       - question: |
           What is Trusted Hardware Identity Management (THIM) and its role in enclave attestation?
         answer: |
-          Trusted Hardware Identity Management (THIM) fetches the Azure security baseline for the [Azure Confidential computing (ACC)](../confidential-computing/overview.md) nodes from Intel and caches the data. Azure Attestation also uses the cached information in validating Trusted Execution Environments (TEEs).  
+          Trusted Hardware Identity Management (THIM) fetches the Azure security baseline for the [Azure Confidential computing (ACC)](/azure/confidential-computing/overview) nodes from Intel and caches the data. Azure Attestation also uses the cached information in validating Trusted Execution Environments (TEEs).  
           
           THIM is recommended for the following reasons:
              - Offers high availability 

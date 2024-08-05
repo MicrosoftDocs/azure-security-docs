@@ -91,7 +91,7 @@ More Azure Key Vault template samples can be found in [Azure Quickstart Template
 
     ![ARM template, Key Vault integration, deploy portal notification](../media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
 
-The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../../azure-resource-manager/templates/deploy-powershell.md).
+The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](/azure/azure-resource-manager/templates/deploy-powershell).
 
 ## Review deployed resources
 
@@ -157,5 +157,5 @@ Write-Host "Press [ENTER] to continue..."
 In this quickstart, you created a key vault and a secret using an ARM template, and validated the deployment. To learn more about Key Vault and Azure Resource Manager, continue on to the articles below.
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
-- Learn more about [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
+- Learn more about [Azure Resource Manager](/azure/azure-resource-manager/management/overview)
 - Review the [Key Vault security overview](../general/security-features.md)

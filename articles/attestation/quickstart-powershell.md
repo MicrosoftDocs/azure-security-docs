@@ -46,7 +46,7 @@ Set-AzContext -Subscription <subscription id>
 
 ## Register Microsoft.Attestation resource provider
 
-Register the Microsoft.Attestation resource provider in subscription. For more information about Azure resource providers and how to configure and manage resources providers, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md). Registering a resource provider is required only once for a subscription.
+Register the Microsoft.Attestation resource provider in subscription. For more information about Azure resource providers and how to configure and manage resources providers, see [Azure resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types). Registering a resource provider is required only once for a subscription.
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.Attestation

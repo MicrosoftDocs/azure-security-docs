@@ -30,10 +30,10 @@ The Managed Application can be found in the Azure Marketplace here: [Blob Storag
 Once the required fields are filled and the application is deployed, the following resources are created under a Managed Resource Group:
 
 - [Confidential Ledger](overview.md)
-- [Service Bus Queue](./../service-bus-messaging/service-bus-messaging-overview.md) with [Sessions](./../service-bus-messaging/message-sessions.md) enabled
-- [Storage Account](./../storage/common/storage-account-overview.md) (Publisher owned storage account used to store digest logic and audit history)
-- [Function App](./../azure-functions/functions-overview.md)
-- [Application Insights](./../azure-monitor/app/app-insights-overview.md)
+- [Service Bus Queue](/azure/service-bus-messaging/service-bus-messaging-overview) with [Sessions](/azure/service-bus-messaging/message-sessions) enabled
+- [Storage Account](/azure/storage/common/storage-account-overview) (Publisher owned storage account used to store digest logic and audit history)
+- [Function App](/azure/azure-functions/functions-overview)
+- [Application Insights](/azure/azure-monitor/app/app-insights-overview)
 
 ## Connecting a storage account to the managed application
 
@@ -226,9 +226,9 @@ You can delete the Managed Application to clean up and remove all associated res
 
 For more information about managed applications and the deployed resources, see the following links:
 
-- [Managed Applications](./../azure-resource-manager/managed-applications/overview.md)
-- [Azure Service Queue Sessions](./../service-bus-messaging/message-sessions.md)
-- [Azure Storage Events](./../storage/blobs/storage-blob-event-overview.md)
+- [Managed Applications](/azure/azure-resource-manager/managed-applications/overview)
+- [Azure Service Queue Sessions](/azure/service-bus-messaging/message-sessions)
+- [Azure Storage Events](/azure/storage/blobs/storage-blob-event-overview)
 
 ## Next steps
 

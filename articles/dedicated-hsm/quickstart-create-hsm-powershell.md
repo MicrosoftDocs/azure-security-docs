@@ -40,7 +40,7 @@ This article describes how you can create an Azure Dedicated HSM using the
 
 ## Create a resource group
 
-Create an [Azure resource group](../azure-resource-manager/management/overview.md) using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet. A resource group is a logical container in which Azure resources are deployed and managed as a group.
+Create an [Azure resource group](/azure/azure-resource-manager/management/overview) using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet. A resource group is a logical container in which Azure resources are deployed and managed as a group.
 
 The following example creates a resource group with the specified name and in the specified location.
 

@@ -43,7 +43,7 @@ Let's get started!
 
 This guide is intended to help you fixing connections to key vault that originate from application code. Examples are applications and scripts that execute in Azure Virtual Machines, Azure Service Fabric clusters, Azure App Service, Azure Kubernetes Service (AKS), and similar others. This guide is also applicable to accesses performed in the Azure portal web-base user interface, where the browser accesses your key vault directly.
 
-By definition of private links, the application, script or portal must be running on machine, cluster, or environment connected to the Virtual Network where the [Private Endpoint resource](../../private-link/private-endpoint-overview.md) was deployed.
+By definition of private links, the application, script or portal must be running on machine, cluster, or environment connected to the Virtual Network where the [Private Endpoint resource](/azure/private-link/private-endpoint-overview) was deployed.
 
 If the application, script or portal is running on an arbitrary Internet-connected network, this guide is NOT applicable, and likely private links cannot be used. This limitation is also applicable to commands executed in the Azure Cloud Shell, because they run in a remote Azure machine provided on-demand instead of the user browser.
 
@@ -244,7 +244,7 @@ If the DNS resolution is not working as described in previous section, there mig
 
 ### Confirm that the required Private DNS Zone resource exists
 
-Your Azure subscription must have a [Private DNS Zone](../../dns/private-dns-privatednszone.md) resource with this exact name:
+Your Azure subscription must have a [Private DNS Zone](/azure/dns/private-dns-privatednszone) resource with this exact name:
 
 `privatelink.vaultcore.azure.net`
 
@@ -252,13 +252,13 @@ You can check for the presence of this resource by going to the subscription pag
 
 Normally this resource is created automatically when you create a Private Endpoint using a common procedure. But there are cases where this resource is not created automatically and you have to do it manually. This resource might have been accidentally deleted as well.
 
-If you don't have this resource, create a new Private DNS Zone resource in your subscription. Remember that the name must be exactly `privatelink.vaultcore.azure.net`, without spaces or additional dots. If you specify the wrong name, the name resolution explained in this article will not work. For more information on how to create this resource, see [Create an Azure private DNS zone using the Azure portal](../../dns/private-dns-getstarted-portal.md). If you follow that page, you can skip Virtual Network creation because at this point you should have one already. You can also skip validation procedures with Virtual Machines.
+If you don't have this resource, create a new Private DNS Zone resource in your subscription. Remember that the name must be exactly `privatelink.vaultcore.azure.net`, without spaces or additional dots. If you specify the wrong name, the name resolution explained in this article will not work. For more information on how to create this resource, see [Create an Azure private DNS zone using the Azure portal](/azure/dns/private-dns-getstarted-portal). If you follow that page, you can skip Virtual Network creation because at this point you should have one already. You can also skip validation procedures with Virtual Machines.
 
 ### Confirm that the Private DNS Zone is linked to the Virtual Network
 
 It is not enough to have a Private DNS Zone. It must also be linked to the Virtual Network that contains the Private Endpoint. If the Private DNS Zone is not linked to the correct Virtual Network, any DNS resolution from that Virtual Network will ignore the Private DNS Zone.
 
-Open the Private DNS Zone resource and click the **Virtual network links** option in the left menu. This will show a list of links, each with the name of a Virtual Network in your subscription. The Virtual Network that contains the Private Endpoint resource must be listed here. If it's not there, add it. For detailed steps, see [Link the virtual network](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network). You can leave "Enable auto registration" unchecked - that feature is not related to private links.
+Open the Private DNS Zone resource and click the **Virtual network links** option in the left menu. This will show a list of links, each with the name of a Virtual Network in your subscription. The Virtual Network that contains the Private Endpoint resource must be listed here. If it's not there, add it. For detailed steps, see [Link the virtual network](/azure/dns/private-dns-getstarted-portal#link-the-virtual-network). You can leave "Enable auto registration" unchecked - that feature is not related to private links.
 
 Once the Private DNS Zone is linked to the Virtual Network, DNS requests originating from the Virtual Network will look for names in the Private DNS Zone. This is required for correct address resolution performed at Virtual Machines connected to the Virtual Network where the Private Endpoint was created.
 

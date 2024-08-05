@@ -82,12 +82,12 @@ See [Key types, algorithms, and operations](about-keys-details.md) for details a
 
 | When to use | Examples |
 |--------------|-------------|
-| Azure server-side data encryption for integrated resource providers with customer-managed keys | - [Server-side encryption using customer-managed keys in Azure Key Vault](../../security/fundamentals/encryption-models.md#server-side-encryption-using-customer-managed-keys-in-azure-key-vault) |
-| Client-side data encryption | - [Client-Side Encryption with Azure Key Vault](../../storage/common/storage-client-side-encryption.md?tabs=dotnet)|
+| Azure server-side data encryption for integrated resource providers with customer-managed keys | - [Server-side encryption using customer-managed keys in Azure Key Vault](/azure/security/fundamentals/encryption-models#server-side-encryption-using-customer-managed-keys-in-azure-key-vault) |
+| Client-side data encryption | - [Client-Side Encryption with Azure Key Vault](/azure/storage/common/storage-client-side-encryption?tabs=dotnet)|
 | Keyless TLS | - Use key [Client Libraries](../general/client-libraries.md#client-libraries-per-language-and-object) |
 
 ## Next steps
-- [Key management in Azure](../../security/fundamentals/key-management.md)
+- [Key management in Azure](/azure/security/fundamentals/key-management)
 - [About Key Vault](../general/overview.md)
 - [About Managed HSM](../managed-hsm/overview.md)
 - [About secrets](../secrets/about-secrets.md)

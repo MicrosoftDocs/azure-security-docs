@@ -26,7 +26,7 @@ The tutorial shows you how to:
 > * Add a secret to the key vault.
 > * Retrieve a secret from the key vault.
 > * Create an Azure virtual machine.
-> * Enable a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for the Virtual Machine.
+> * Enable a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) for the Virtual Machine.
 > * Assign permissions to the VM identity.
 
 Before you begin, read [Key Vault basic concepts](basic-concepts.md). 
@@ -72,9 +72,9 @@ Create a Windows or Linux virtual machine using one of the following methods:
 
 | Windows | Linux |
 |--|--|
-| [Azure CLI](../../virtual-machines/windows/quick-create-cli.md) | [Azure CLI](../../virtual-machines/linux/quick-create-cli.md) |  
-| [PowerShell](../../virtual-machines/windows/quick-create-powershell.md) | [PowerShell](../../virtual-machines/linux/quick-create-powershell.md) |
-| [Azure portal](../../virtual-machines/windows/quick-create-portal.md) | [Azure portal](../../virtual-machines/linux/quick-create-portal.md) |
+| [Azure CLI](/azure/virtual-machines/windows/quick-create-cli) | [Azure CLI](/azure/virtual-machines/linux/quick-create-cli) |  
+| [PowerShell](/azure/virtual-machines/windows/quick-create-powershell) | [PowerShell](/azure/virtual-machines/linux/quick-create-powershell) |
+| [Azure portal](/azure/virtual-machines/windows/quick-create-portal) | [Azure portal](/azure/virtual-machines/linux/quick-create-portal) |
 
 ## Assign an identity to the VM
 Create a system-assigned identity for the virtual machine with the following example:
@@ -116,7 +116,7 @@ xxxxxxxx-xx-xxxxxx   xxxxxxxx-xxxx-xxxx   SystemAssigned
 
 ## Sign in to the virtual machine
 
-To sign in to the virtual machine, follow the instructions in [Connect and sign in to an Azure Windows virtual machine](../../virtual-machines/windows/connect-logon.md) or [Connect and sign in to an Azure Linux virtual machine](../../virtual-machines/linux-vm-connect.md).
+To sign in to the virtual machine, follow the instructions in [Connect and sign in to an Azure Windows virtual machine](/azure/virtual-machines/windows/connect-logon) or [Connect and sign in to an Azure Linux virtual machine](/azure/virtual-machines/linux-vm-connect).
 
 ## Set up the console app
 
