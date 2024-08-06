@@ -107,7 +107,7 @@
         "v-thepet",
         "v-thpra"
       ],
-      "breadcrumb_path": "~/breadcrumb/azure-security/toc.yml",
+      "breadcrumb_path": "/azure/breadcrumb/azure-security/toc.json",
       "_op_documentIdPathDepotMapping": {
         "articles/iot-central/": {}
       },
