@@ -20,11 +20,11 @@ the link in the **Version** column to view the source on the
 
 ## Key Vault (service)
 
-[!INCLUDE [azure-policy-reference-service-keyvault-control](../../includes/policy/reference/byrp/microsoft.keyvault.md)]
+[!INCLUDE [azure-policy-reference-service-keyvault-control](~/azure-docs-pr/includes/policy/reference/byrp/microsoft.keyvault.md)]
 
 ## Key Vault (objects)
 
-[!INCLUDE [azure-policy-reference-service-keyvault-data](../../includes/policy/reference/byrp/microsoft.keyvault.data.md)]
+[!INCLUDE [azure-policy-reference-service-keyvault-data](~/azure-docs-pr/includes/policy/reference/byrp/microsoft.keyvault.data.md)]
 
 ## Next steps
 
