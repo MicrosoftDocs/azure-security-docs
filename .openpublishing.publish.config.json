@@ -3,6 +3,10 @@
     {
       "docset_name": "azure-security",
       "build_source_folder": ".",
+      "xref_query_tags": [
+        "/dotnet",
+        "/python"
+      ],
       "build_output_subfolder": "azure-security",
       "locale": "en-us",
       "monikers": [],
@@ -16,8 +20,6 @@
   "notification_subscribers": [],
   "sync_notification_subscribers": [],
   "branches_to_filter": [],
-  "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/azure-security-docs",
-  "git_repository_branch_open_to_public_contributors": "main",
   "need_preview_pull_request": true,
   "dependent_repositories": [
     {
@@ -25,8 +27,58 @@
       "url": "https://github.com/Microsoft/templates.docs.msft",
       "branch": "main",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "quickstart-templates",
+      "url": "https://github.com/Azure/azure-quickstart-templates",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "reusable-content",
+      "url": "https://github.com/MicrosoftDocs/reusable-content",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-dev-docs-pr",
+      "url": "https://github.com/MicrosoftDocs/azure-dev-docs-pr",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "terraform_samples",
+      "url": "https://github.com/Azure/terraform",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-typescript-e2e-apps",
+      "url": "https://github.com/Azure-Samples/azure-typescript-e2e-apps",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-key-vault-dotnet-quickstart",
+      "url": "https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-sdk-for-net",
+      "url": "https://github.com/Azure/azure-sdk-for-net/",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-docs-pr",
+      "url": "https://github.com/MicrosoftDocs/azure-docs-pr/",
+      "branch": "main",
+      "branch_mapping": {}
     }
   ],
+  "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/azure-security-docs",
+  "git_repository_branch_open_to_public_contributors": "main",
   "branch_target_mapping": {},
   "targets": {}
 }

@@ -1,3 +1,23 @@
-- name: '<please enter product name here>'
-  tocHref: /
-  topicHref: /
+items:
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Attestation
+    tocHref: /azure/attestation/
+    topicHref: /azure/attestation/
+  - name: Confidential Ledger
+    tocHref: /azure/confidential-ledger/
+    topicHref: /azure/confidential-ledger/
+  - name: Dedicated HSM
+    tocHref: /azure/dedicated-hsm/
+    topicHref: /azure/dedicated-hsm/
+  - name: Defender for Cloud
+    tocHref: /azure/defender-for-cloud/
+    topicHref: /azure/defender-for-cloud/
+  - name: Key Vault
+    tocHref: /azure/key-vault/
+    topicHref: /azure/key-vault/
+  - name: Payment HSM
+    tocHref: /azure/payment-hsm/
+    topicHref: /azure/payment-hsm/
