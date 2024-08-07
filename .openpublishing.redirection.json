@@ -1,4 +1,9 @@
 {
   "redirections": [
+    {
+      "source_path_from_root": "/articles/confidential-ledger/register-ledger-service-principal.md",
+      "redirect_url": "/azure/confidential-ledger/overview",
+      "redirect_document_id": false
+    }
   ]
 }
