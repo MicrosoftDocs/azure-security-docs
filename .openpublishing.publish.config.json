@@ -69,6 +69,12 @@
       "url": "https://github.com/Azure/azure-sdk-for-net/",
       "branch": "main",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-docs-pr",
+      "url": "https://github.com/MicrosoftDocs/azure-docs-pr/",
+      "branch": "main",
+      "branch_mapping": {}
     }
   ],
   "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/azure-security-docs",
