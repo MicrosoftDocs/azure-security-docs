@@ -196,6 +196,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/key-vault/general/move-region.md",
+      "redirect_url": "/azure/operational-excellence/relocation-key-vault",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/key-vault/key-vault-ovw-security-worlds.md",
       "redirect_url": "/azure/key-vault/general/overview-security-worlds",
       "redirect_document_id": false
@@ -514,6 +519,6 @@
       "source_path_from_root": "/articles/key-vault/general/assign-access-policy-powershell.md",
       "redirect_url": "/azure/key-vault/general/assign-access-policy",
       "redirect_document_id": false
-    }
+    },
   ]
 }
