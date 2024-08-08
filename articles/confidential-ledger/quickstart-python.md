@@ -58,11 +58,11 @@ pip install azure.confidentialledger
 
 ### Create a resource group
 
-[!INCLUDE [Create a resource group](../../includes/confidential-ledger-rg-create.md)]
+[!INCLUDE [Create a resource group](./includes/confidential-ledger-rg-create.md)]
 
 ### Register the microsoft.ConfidentialLedger resource provider
 
-[!INCLUDE [Register the microsoft.ConfidentialLedger resource provider](../../includes/confidential-ledger-register-rp.md)]
+[!INCLUDE [Register the microsoft.ConfidentialLedger resource provider](./includes/confidential-ledger-register-rp.md)]
 
 ## Create your Python app
 
