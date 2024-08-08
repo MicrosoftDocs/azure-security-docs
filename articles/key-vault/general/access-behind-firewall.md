@@ -11,6 +11,7 @@ ms.date: 01/30/2024
 ms.author: mbaldwin
 
 ---
+
 # Access Azure Key Vault behind a firewall
 
 ## What ports, hosts, or IP addresses should I open to enable my key vault client application behind a firewall to access key vault?
