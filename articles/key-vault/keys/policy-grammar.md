@@ -13,4 +13,4 @@ ms.date: 03/21/2022
  
 # Azure Key Vault secure key release policy grammar
 
-[!INCLUDE [Policy grammar](../../../includes/key-management-policy-grammar.md)]
+[!INCLUDE [Policy grammar](../includes/key-management-policy-grammar.md)]
