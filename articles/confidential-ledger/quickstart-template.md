@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ### Register the resource provider
 
-[!INCLUDE [Register the microsoft.ConfidentialLedger resource provider](../../includes/confidential-ledger-register-rp.md)]
+[!INCLUDE [Register the microsoft.ConfidentialLedger resource provider](./includes/confidential-ledger-register-rp.md)]
 
 ### Obtain your principal ID
 

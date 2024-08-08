@@ -12,4 +12,4 @@ ms.date: 02/20/2024
  
 # Azure Managed HSM secure key release policy grammar
 
-[!INCLUDE [Policy grammar](../../../includes/key-management-policy-grammar.md)]
+[!INCLUDE [Policy grammar](../includes/key-management-policy-grammar.md)]
