@@ -51,6 +51,7 @@ Run the following Azure CLI commands:
 az group create --name quickstart-rg --location eastus
 az keyvault create --name quickstart-kv --resource-group quickstart-rg
 ```
+Key Vault names are globally unique so it is possible that the name is already taken. You may need to choose a unique value for your Key Vault name.
 
 ### Create a new Go module and install packages
 
@@ -73,7 +74,7 @@ import (
     "context"
     "fmt"
     "log"
-
+    "os"
     "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
     "github.com/Azure/azure-sdk-for-go/sdk/keyvault/azsecrets"
 )
@@ -81,7 +82,7 @@ import (
 func main() {
     mySecretName := "secretName01"
     mySecretValue := "secretValue"
-    vaultURI := os.Getenv("AZURE_KEY_VAULT_URI")
+    vaultURI := fmt.Sprintf("https://%s.vault.azure.net/", os.Getenv("KEY_VAULT_NAME"))
 
     // Create a credential using the NewDefaultAzureCredential type.
     cred, err := azidentity.NewDefaultAzureCredential(nil)
