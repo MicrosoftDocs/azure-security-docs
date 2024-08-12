@@ -32,6 +32,7 @@ This article summarizes what's new in Microsoft Defender for Cloud. It includes 
 |Date | Category | Update|
 |--|--|--|
 | August 1 | GA | [Enable Microsoft Defender for SQL servers on machines at scale](#enable-microsoft-defender-for-sql-servers-on-machines-at-scale) |
+| August 15 | GA | [Deprecating Preview security incidents in Defender for Cloud portal](#Deprecating-Preview-security-incidents-in-Defender-for-Cloud-portal) |
 
 ### Enable Microsoft Defender for SQL servers on machines at scale
 
@@ -40,6 +41,36 @@ August 1, 2024
 You can now enable Microsoft Defender for SQL servers on machines at scale. This feature allows you to enable Microsoft Defender for SQL on multiple servers at once, saving time and effort. 
 
 Learn how to [enable Microsoft Defender for SQL servers on machines at scale](enable-defender-sql-at-scale.md).
+
+### Deprecating Preview security incidents in Defender for Cloud portal
+
+Announcement date: Aug 15, 2024
+
+Estimated date for change: Sep 15 2024
+
+The following security incidents are set to be deprecated in Defender for Cloud portal:
+- Security incident detected anomalous geographical location activity (Preview)
+- Security incident detected suspicious app service activity (Preview)
+- Security incident detected suspicious Key Vault activity (Preview)
+- Security incident detected suspicious Azure toolkits activity (Preview)
+- Security incident detected on the same resource (Preview)
+- Security incident detected suspicious IP activity (Preview)
+- Security incident detected suspicious user activity (Preview)
+- Security incident detected suspicious service principal activity (Preview)
+- Security incident detected suspicious SAS activity (Preview)
+- Security incident detected suspicious account activity (Preview)
+- Security incident detected suspicious crypto mining activity (Preview)
+- Security incident detected suspicious fileless attack activity (Preview)
+- Security incident detected suspicious Kubernetes cluster activity (Preview)
+- Security incident detected suspicious storage activity (Preview)
+- Security incident detected suspicious crypto mining activity (Preview)
+- Security incident detected suspicious data exfiltration activity (Preview)
+- Security incident detected suspicious Kubernetes cluster activity (Preview)
+- Security incident detected suspicious DNS activity (Preview)
+- Security incident detected suspicious SQL activity (Preview)
+- Security incident detected suspicious DDOS activity (Preview) 
+The incidents security value will be available through the Microsoft Defender XDR portal. 
+Learn more about [alerts and incidents in Defender XDR](https://review.learn.microsoft.com/en-us/azure/defender-for-cloud/concept-integration-365).
 
 ## July 2024
 
