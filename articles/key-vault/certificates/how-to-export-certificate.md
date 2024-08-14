@@ -5,7 +5,7 @@ services: key-vault
 author: msmbaldwin
 tags: azure-key-vault
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: how-to
 ms.custom: mvc

@@ -4,7 +4,7 @@ description: This article describes how to integrate Key Vault with DigiCert cer
 services: key-vault
 author: msmbaldwin
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: how-to
 ms.date: 01/30/2024
