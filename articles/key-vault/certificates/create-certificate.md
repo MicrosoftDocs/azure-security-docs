@@ -4,7 +4,7 @@ description: Learn about different options to create or import a Key Vault certi
 services: key-vault
 author: msmbaldwin
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/30/2024
