@@ -14,7 +14,7 @@ ms.author: mbaldwin
 
 Azure Key Vault offers two authorization systems: Azure role-based access control (Azure RBAC), and an access policy model. Azure RBAC is the default and recommended authorization system for Azure Key Vault. For a comparison of the two methods of authorization, see [Azure role-based access control (Azure RBAC) vs. access policies](rbac-access-policy.md).
 
-This article provide the information necessary to migrate from a key vault from access policy authorization to an Azure RBAC model.
+This article provides the information necessary to migrate a key vault from an access policy model to an Azure RBAC model.
 
 ## Access policies to Azure roles mapping
 
@@ -86,6 +86,7 @@ In general, it's best practice to have one key vault per application and manage 
 - **Applications**: there are scenarios when application would need to share secret with other application. Using vault access polices separate key vault had to be created to avoid giving access to all secrets. Azure RBAC allows assign role with scope for individual secret instead using single key vault.
 
 ## Vault access policy to Azure RBAC migration steps
+
 There are many differences between Azure RBAC and vault access policy permission model. In order, to avoid outages during migration, below steps are recommended.
  
 1. **Identify and assign roles**: identify built-in roles based on mapping table above and create custom roles when needed. Assign roles at scopes, based on scopes mapping guidance. For more information on how to assign roles to key vault, see [Provide access to Key Vault with an Azure role-based access control](rbac-guide.md)
@@ -93,8 +94,13 @@ There are many differences between Azure RBAC and vault access policy permission
 1. **Configure monitoring and alerting on key vault**: it's important to enable logging and setup alerting for access denied exceptions. For more information, see [Monitoring and alerting for Azure Key Vault](./alert.md)
 1. **Set Azure role-based access control permission model on Key Vault**: enabling Azure RBAC permission model will invalidate all existing access policies. If an error, permission model can be switched back with all existing access policies remaining untouched.
 
-> [!NOTE]
-> Changing permission model requires 'Microsoft.Authorization/roleAssignments/write' permission, which is part of [Owner](/azure/role-based-access-control/built-in-roles#owner) and [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) roles. Classic subscription administrator roles like 'Service Administrator' and 'Co-Administrator' are not supported.
+## Prerequisites
+
+Changing a key vault's permission model requires two permissions:
+- The 'Microsoft.Authorization/roleAssignments/write' permission, which is included in the [Owner role](/azure/role-based-access-control/built-in-roles#owner) and [User Access Administrator role](/azure/role-based-access-control/built-in-roles#user-access-administrator).
+- The 'Microsoft.KeyVault/vaults/write' permission, which is included in the [Key Vault Contributor role](/azure/role-based-access-control/built-in-roles/security#key-vault-contributor).
+
+Classic subscription administrator roles like 'Service Administrator' and 'Co-Administrator' are not supported.
 
 > [!NOTE]
 > When Azure RBAC permission model is enabled, all scripts which attempt to update access policies will fail. It is important to update those scripts to use Azure RBAC.

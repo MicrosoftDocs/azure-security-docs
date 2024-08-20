@@ -4,7 +4,7 @@ description: Learn how to create, retrieve, and delete certificates from an Azur
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 11/14/2022
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.devlang: csharp
