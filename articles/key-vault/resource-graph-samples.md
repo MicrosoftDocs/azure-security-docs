@@ -5,7 +5,7 @@ ms.date: 07/07/2022
 ms.topic: sample
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.custom: subject-resourcegraph-sample
 ---
 # Azure Resource Graph sample queries for Azure Key Vault
