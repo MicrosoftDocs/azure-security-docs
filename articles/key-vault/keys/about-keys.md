@@ -55,7 +55,7 @@ Key Vault supports RSA and EC keys. Managed HSM supports RSA, EC, and symmetric 
 |--|--|--|
 |**EC-HSM**: Elliptic Curve key | Supported (P-256, P-384, P-521, secp256k1/P-256K)| Supported (P-256, secp256k1/P-256K, P-384, P-521)|
 |**RSA-HSM**: RSA key|Supported (2048-bit, 3072-bit, 4096-bit)|Supported (2048-bit, 3072-bit, 4096-bit)|
-|**oct-HSM**: Symmetric key|Not supported|Supported (128-bit, 192-bit, 256-bit)|
+|**oct-HSM**: Symmetric key|Not supported|Supported (128-bit, 192-bit, 256-bit[default if not specified])|
 |||
 
 ### Software-protected keys
