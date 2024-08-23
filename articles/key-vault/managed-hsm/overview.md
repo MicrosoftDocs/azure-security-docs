@@ -6,7 +6,7 @@ ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: overview
 ms.date: 08/30/2024
-ms.author: mbaldwin
+ms.author: mbaldwin; nkondamudi
 author: msmbaldwin
 ms.collection:
   - zerotrust-extra
@@ -17,7 +17,7 @@ ms.collection:
 # What is Azure Key Vault Managed HSM?
 
 > [!IMPORTANT]
-> We are upgrading Azure Key Vault Managed HSM firmware to FIPS 140-3 level 3. See full details at [Updating Managed HSM Firmware for Enhanced Security and Compliance](firmware-update.md).
+> We are updating our HSM fleet to a FIPS 140-3 level 3 validated firmware for both Azure Key Vault Managed HSM and Azure Key Vault Premium. See full details at [Updating Managed HSM Firmware for Enhanced Security and Compliance](firmware-update.md).
 
 Azure Key Vault Managed HSM (Hardware Security Module) is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using **FIPS 140-2 Level 3** validated HSMs. It is one of several [key management solutions in Azure](/azure/security/fundamentals/key-management).
 
