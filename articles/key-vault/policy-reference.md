@@ -5,7 +5,7 @@ ms.date: 02/06/2024
 ms.topic: reference
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in definitions for Key Vault

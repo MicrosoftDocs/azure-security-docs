@@ -97,6 +97,8 @@ items:
 
 - name: Resources
   items:
+  - name: Firmware updates
+    href: firmware-update.md
   - name: Third party solutions
     href: third-party-solutions.md
   - name: Build your skills with Microsoft Learn training

@@ -1,6 +1,6 @@
 ---
 author: msmbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.topic: include
 ms.date: 03/25/2022
 ms.author: msmbaldwin

@@ -1,13 +1,12 @@
 ---
 title: Azure Managed HSM Overview - Azure Managed HSM | Microsoft Docs
 description: Azure Managed HSM is a cloud service that safeguards your cryptographic keys for cloud applications.
-services: key-vault
-
+services: azure-key-vault
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: overview
-ms.date: 01/30/2024
-ms.author: mbaldwin
+ms.date: 08/30/2024
+ms.author: mbaldwin; nkondamudi
 author: msmbaldwin
 ms.collection:
   - zerotrust-extra
@@ -17,9 +16,12 @@ ms.collection:
 ---
 # What is Azure Key Vault Managed HSM?
 
+> [!IMPORTANT]
+> We are updating our HSM fleet to a FIPS 140-3 level 3 validated firmware for both Azure Key Vault Managed HSM and Azure Key Vault Premium. See full details at [Updating Managed HSM Firmware for Enhanced Security and Compliance](firmware-update.md).
+
 Azure Key Vault Managed HSM (Hardware Security Module) is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using **FIPS 140-2 Level 3** validated HSMs. It is one of several [key management solutions in Azure](/azure/security/fundamentals/key-management).
 
-For pricing information, please see Managed HSM Pools section on [Azure Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/). For supported key types, see [About keys](../keys/about-keys.md).
+For pricing information, see Managed HSM Pools section on [Azure Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/). For supported key types, see [About keys](../keys/about-keys.md).
 
 The term "Managed HSM instance" is synonymous with "Managed HSM pool". To avoid confusion, we use "Managed HSM instance" throughout these articles.
 
@@ -29,10 +31,9 @@ The term "Managed HSM instance" is synonymous with "Managed HSM pool". To avoid 
 
 ### Fully managed, highly available, single-tenant HSM as a service
 
-- **Fully managed**: HSM provisioning, configuration, patching, and maintenance is handled by the service.
-- **Highly available**: Each HSM cluster consists of multiple HSM partitions. If the hardware fails, member partitions for your HSM cluster will be automatically migrated to healthy nodes. For more information, see [Managed HSM Service Level Agreement](https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/)
+- **Fully managed**: The service handles HSM provisioning, configuration, patching, and maintenance.
+- **Highly available**: Each HSM cluster consists of multiple HSM partitions. If the hardware fails, member partitions for your HSM cluster are automatically migrated to healthy nodes. For more information, see [Managed HSM Service Level Agreement](https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/)
 - **Single-tenant**: Each Managed HSM instance is dedicated to a single customer and consists of a cluster of multiple HSM partitions. Each HSM cluster uses a separate customer-specific security domain that cryptographically isolates each customer's HSM cluster.
-
 
 ### Access control, enhanced data protection & compliance
 
@@ -45,12 +46,12 @@ The term "Managed HSM instance" is synonymous with "Managed HSM pool". To avoid 
 
 ### Integrated with Azure and Microsoft PaaS/SaaS services
 
-- Generate (or import using [BYOK](hsm-protected-keys-byok.md)) keys and use them to encrypt your data at rest in Azure services such as [Azure Storage](/azure/storage/common/customer-managed-keys-overview), [Azure SQL](/azure/azure-sql/database/transparent-data-encryption-byok-overview), [Azure Information Protection](/azure/information-protection/byok-price-restrictions), and [Customer Key for Microsoft 365](/microsoft-365/compliance/customer-key-set-up). For a more complete list of Azure services which work with Managed HSM, see [Data Encryption Models](/azure/security/fundamentals/encryption-models#supporting-services).
+- Generate (or import using [BYOK](hsm-protected-keys-byok.md)) keys and use them to encrypt your data at rest in Azure services such as [Azure Storage](/azure/storage/common/customer-managed-keys-overview), [Azure SQL](/azure/azure-sql/database/transparent-data-encryption-byok-overview), [Azure Information Protection](/azure/information-protection/byok-price-restrictions), and [Customer Key for Microsoft 365](/microsoft-365/compliance/customer-key-set-up). For a more complete list of Azure services that work with Managed HSM, see [Data Encryption Models](/azure/security/fundamentals/encryption-models#supporting-services).
 
 ### Uses same API and management interfaces as Key Vault
 
-- Easily migrate your existing applications that use a vault (a multi-tenant) to use Managed HSMs.
-- Use same application development and deployment patterns for all your applications irrespective of key management solution in use: multi-tenant vaults or single-tenant Managed HSMs.
+- Easily migrate your existing applications that use a vault (a multitenant) to use Managed HSMs.
+- Use same application development and deployment patterns for all your applications irrespective of key management solution in use: Multitenant vaults or single-tenant Managed HSMs.
 
 ### Import keys from your on-premises HSMs
 
