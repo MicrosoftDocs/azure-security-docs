@@ -3,7 +3,7 @@ title: Create and retrieve attributes of a managed key in Azure Key Vault – Az
 description: Quickstart showing how to set and retrieve a managed key from Azure Key Vault using Azure PowerShell
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 01/30/2024
+ms.date: 08/25/2024
 ms.topic: quickstart
 ms.service: azure-key-vault
 ms.subservice: keys
@@ -12,13 +12,13 @@ ms.custom: devx-track-azurepowershell, mode-api
 ---
 # Quickstart: Provision and activate a Managed HSM using PowerShell
 
-In this quickstart, you will create and activate an Azure Key Vault Managed HSM (Hardware Security Module) with PowerShell. Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using **FIPS  140-2 Level 3** validated HSMs. For more information on Managed HSM, you may review the [Overview](overview.md). 
+In this quickstart, you create and activate an Azure Key Vault Managed HSM (Hardware Security Module) with PowerShell. Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using **FIPS  140-2 Level 3** validated HSMs. For more information on Managed HSM, you may review the [Overview](overview.md).
 
-If you choose to install and use PowerShell locally, this tutorial requires Azure PowerShell module version 1.0.0 or later. Type `$PSVersionTable.PSVersion` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+## Prerequisites
 
-```azurepowershell-interactive
-Connect-AzAccount
-```
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+[!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/azure-powershell/azure-powershell-requirements-no-header.md)]
 
 ## Create a resource group
 
@@ -30,13 +30,13 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "eastus2"
 
 ## Get your principal ID
 
-To create a Managed HSM, you will need your Microsoft Entra principal ID.  To obtain your ID, use the Azure PowerShell [Get-AzADUser](/powershell/module/az.resources/get-azaduser) cmdlet, passing your email address to the "UserPrincipalName" parameter:
+To create a Managed HSM, you need your Microsoft Entra principal ID.  To obtain your ID, use the Azure PowerShell [Get-AzADUser](/powershell/module/az.resources/get-azaduser) cmdlet, passing your email address to the "UserPrincipalName" parameter:
 
 ```azurepowershell-interactive
 Get-AzADUser -UserPrincipalName "<your@email.address>"
 ```
 
-Your principal ID will be returned in the format, "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx".
+Your principal ID is returned in the format, "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx".
 
 ## Create a Managed HSM
 
@@ -46,7 +46,7 @@ Creating a Managed HSM is a two-step process:
 
 ### Provision a Managed HSM
 
-Use the Azure PowerShell [New-AzKeyVaultManagedHsm](/powershell/module/az.keyvault/new-azkeyvaultmanagedhsm) cmdlet to create a new Managed HSM. You will need to provide some information:
+Use the Azure PowerShell [New-AzKeyVaultManagedHsm](/powershell/module/az.keyvault/new-azkeyvaultmanagedhsm) cmdlet to create a new Managed HSM. You need to provide some information:
 
 - Managed HSM name: A string of 3 to 24 characters that can contain only numbers (0-9), letters (a-z, A-Z), and hyphens (-)
 
@@ -66,7 +66,7 @@ New-AzKeyVaultManagedHsm -Name "your-unique-managed-hsm-name" -ResourceGroupName
 The output of this cmdlet shows properties of the newly created Managed HSM. Take note of these two properties:
 
 - **Name**: The name you provided for the Managed HSM.
-- **HsmUri**: In the example, this is https://&lt;your-unique-managed-hsm-name&gt;.managedhsm.azure.net/. Applications that use your vault through its REST API must use this URI.
+- **HsmUri**: In the example, the HsmUri is https://&lt;your-unique-managed-hsm-name&gt;.managedhsm.azure.net/. Applications that use your vault through its REST API must use this URI.
 
 At this point, your Azure account is the only one authorized to perform any operations on this new HSM.
 
