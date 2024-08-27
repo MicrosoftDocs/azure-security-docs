@@ -6,16 +6,14 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: quickstart
-ms.date: 01/30/2024
+ms.date: 08/25/2024
 ms.author: mbaldwin
 ms.custom: mode-api, devx-track-azurepowershell
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
 # Quickstart: Create a key vault using PowerShell
 
-Azure Key Vault is a cloud service that provides a secure store for [keys](../keys/index.yml), [secrets](../secrets/index.yml), and [certificates](../certificates/index.yml). For more information on Key Vault, see [About Azure Key Vault](overview.md); for more information on what can be stored in a key vault, see [About keys, secrets, and certificates](about-keys-secrets-certificates.md).
-
-In this quickstart, you create a key vault with [Azure PowerShell](/powershell/azure/).
+In this quickstart, you create a key vault with [Azure PowerShell](/powershell/azure/). Azure Key Vault is a cloud service that provides a secure store for [keys](../keys/index.yml), [secrets](../secrets/index.yml), and [certificates](../certificates/index.yml). For more information on Key Vault, see [About Azure Key Vault](overview.md); for more information on what can be stored in a key vault, see [About keys, secrets, and certificates](about-keys-secrets-certificates.md).
 
 ## Prerequisites
 
