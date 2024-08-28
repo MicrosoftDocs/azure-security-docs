@@ -119,7 +119,7 @@ Open the *pom.xml* file in your text editor. Add the following dependency elemen
 
 #### Grant access to your key vault
 
-[!INCLUDE [Using RBAC to provide access to a key vault](../includes/key-vault-quickstart-rbac.md)]
+[!INCLUDE [Using RBAC to provide access to a key vault](../includes/rbac/upn-certificate-officer-cli.md)]
 
 #### Set environment variables
 
