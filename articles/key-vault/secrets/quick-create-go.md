@@ -47,7 +47,7 @@ For purposes of this quickstart, you use the [azidentity](https://pkg.go.dev/git
 
 [!INCLUDE [Create a resource group and key vault](../includes/key-vault-rg-kv-creation.md)]
 
-#### Grant access to your key vault
+### Grant access to your key vault
 
 [!INCLUDE [Using RBAC to provide access to a key vault](../includes/rbac/upn-secrets-officer-cli.md)]
 

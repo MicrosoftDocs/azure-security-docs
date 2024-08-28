@@ -44,12 +44,14 @@ Follow this guide to learn how to use the [azkeys](https://aka.ms/azsdk/go/keyva
 
 [!INCLUDE [Create a resource group and key vault](../includes/key-vault-rg-kv-creation.md)]
 
-#### Grant access to your key vault
+### Grant access to your key vault
 
 [!INCLUDE [Using RBAC to provide access to a key vault](../includes/rbac/upn-crypto-officer-cli.md)]
 
 
-1. Create a new Go module and install packages
+### Create a new Go module and install packages
+
+Run the following Go commands:
 
     ```azurecli
     go mod init quickstart-keys
