@@ -1,5 +1,5 @@
 ---
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.topic: include
 ms.date: 07/07/2022
 author: msmbaldwin

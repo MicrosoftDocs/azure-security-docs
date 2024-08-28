@@ -58,21 +58,21 @@ The complete definitions of the claims are available in the section A.3.2 TD Quo
 
 **tdx_rtmr3** - A 96-character hexadecimal string that represents a byte array of length 48 containing the runtime extendable measurement register.
 
-**tdx_mrconfigid** - A 96-character hexadecimal string that represents a byte array of length 48 containing the software-defined ID for non-owner-defined configuration of the TDX, e.g., runtime or Operating System (OS) configuration.
+**tdx_mrconfigid** - A 96-character hexadecimal string that represents a byte array of length 48 containing the software-defined ID for non-owner-defined configuration of the TDX, for example, runtime or Operating System (OS) configuration.
 
 **tdx_mrowner** - A 96-character hexadecimal string that represents a byte array of length 48 containing the software-defined ID for the TDX's owner.
 
-**tdx_mrownerconfig** - A 96-character hexadecimal string that represents a byte array of length 48 containing the software-defined ID for owner-defined configuration of the TDX, e.g., specific to the workload rather than the runtime or OS.
+**tdx_mrownerconfig** - A 96-character hexadecimal string that represents a byte array of length 48 containing the software-defined ID for owner-defined configuration of the TDX, for example, specific to the workload rather than the runtime or OS.
 
-**tdx_report_data** - A 128-character hexadecimal string that represents a byte array of length 64.  In this context, the TDX has the flexibility to include 64 bytes of custom data in a TDX Report.  For instance, this space can be used to hold a nonce, a public key, or a hash of a larger block of data.
+**tdx_report_data** - A 128-character hexadecimal string that represents a byte array of length 64. In this context, the TDX has the flexibility to include 64 bytes of custom data in a TDX Report. For instance, this space can be used to hold a nonce, a public key, or a hash of a larger block of data.
 
-**tdx_seam_attributes** - A 16 character hexadecimal string that represents a byte array of length 8 containing additional configuration of the TDX module.
+**tdx_seam_attributes** - A 16 character hexadecimal string that represents a byte array of length 8 containing more configuration of the TDX module.
 
 **tdx_tee_tcb_svn** - A 32 character hexadecimal string that represents a byte array of length 16 describing the Trusted Computing Base (TCB) Security Version Numbers (SVNs) of TDX.
 
 **tdx_xfam** - A 16 character hexadecimal string that represents a byte array of length 8 containing a mask of CPU extended features that the TDX is allowed to use.
 
-**tdx_seamsvn** - A number that represents the Intel TDX module SVN.  The complete definition of the claim is available in section 3.1 SEAM_SIGSTRUCT: INTEL® TDX MODULE SIGNATURE STRUCTURE of [Intel® TDX Loader Interface Specification](https://cdrdv2.intel.com/v1/dl/getContent/733584)
+**tdx_seamsvn** - A number that represents the Intel TDX module SVN.The complete definition of the claim is available in section 3.1 SEAM_SIGSTRUCT: INTEL® TDX MODULE SIGNATURE STRUCTURE of [Intel® TDX Loader Interface Specification](https://cdrdv2.intel.com/v1/dl/getContent/733584)
 
 **tdx_td_attributes** - A 16 character hexadecimal string that represents a byte array of length 8.  These are the attributes associated with the Trust Domain (TD).  The complete definitions of the claims mentioned below are available in the section A.3.4.  TD Attributes of  [Intel® TDX DCAP Quoting Library API](https://download.01.org/intel-sgx/latest/dcap-latest/linux/docs/Intel_TDX_DCAP_Quoting_Library_API.pdf) specification.
 
