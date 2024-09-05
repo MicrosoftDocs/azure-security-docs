@@ -1,0 +1,38 @@
+### YamlMime:ZonePivotGroups
+groups:
+- id: azure-confidential-ledger-programming-languages
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-typescript
+    title: TypeScript
+  - id: programming-language-portal
+    title: Azure portal
+# Owner: pauljewell
+- id: k8s-host
+  title: Host of the target Kubernetes clusters
+  prompt: Where are your Kubernetes clusters running?
+  pivots:
+  - id: defender-for-container-aks
+    title: Azure (AKS)
+  - id: defender-for-container-arc
+    title: On-premises / IaaS (Arc)
+  - id: defender-for-container-eks
+    title: AWS (EKS)
+  - id: defender-for-container-gke
+    title: GCP (GKE)
+# Owner: mikeray
+- id: programming-languages-set-functions-nodejs
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-typescript
+    title: TypeScript
