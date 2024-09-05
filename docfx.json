@@ -7,14 +7,9 @@
           "**/*.yml"
         ],
         "exclude": [
-          "iot-edge/**",
-          "ai-services/document-intelligence/**",
           "**/_themes/**",
           "**/includes/**",
-          "**/obj/**",
-          "**/*.graffle",
-          "machine-learning/**",
-          "machine-learning/v1/**"
+          "**/obj/**"
         ],
         "src": "articles",
         "dest": "."
@@ -25,6 +20,13 @@
         ],
         "src": "breadcrumb/azure-security",
         "dest": "breadcrumb/azure-security"
+      },
+      {
+        "files": [
+          "zone-pivot-groups.yml"
+        ],
+        "src": "zone-pivots",
+        "dest": "zone-pivots/azure-security"
       }
     ],
     "resource": [
@@ -37,12 +39,8 @@
           "**/*.svg"
         ],
         "exclude": [
-          "iot-edge/**",
-          "ai-services/document-intelligence/**",
           "**/_themes/**",
-          "**/obj/**",
-          "machine-learning/**",
-          "machine-learning/v1/**"
+          "**/obj/**"
         ],
         "src": "articles",
         "dest": "."
@@ -127,7 +125,8 @@
         "Certification"
       ],
       "uhfHeaderId": "azure",
-      "ms.suite": "office"
+      "ms.suite": "office",
+      "zone_pivot_group_filename": "zone-pivots/azure-security/zone-pivot-groups.yml"
     },
     "fileMetadata": {
       "adobe-target": {
