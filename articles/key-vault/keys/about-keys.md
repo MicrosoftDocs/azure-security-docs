@@ -17,7 +17,7 @@ Azure Key Vault provides two types of resources to store and manage cryptographi
 
 |Resource type|Key protection methods|Data-plane endpoint base URL|
 |--|--|--|
-| **Vaults** | Software-protected<br/><br/>and<br/><br/>HSM-protected (with Premium SKU)</li></ul> | https://{vault-name}.vault.azure.net |
+| **Vaults** | Software-protected and HSM-protected (HSM key types in Premium SKU) | https://{vault-name}.vault.azure.net |
 | **Managed HSMs** | HSM-protected | https://{hsm-name}.managedhsm.azure.net |
 ||||
 
@@ -36,7 +36,7 @@ Cryptographic keys in Key Vault are represented as JSON Web Key [JWK] objects. T
 
 The base JWK/JWA specifications are also extended to enable key types unique to the Azure Key Vault and Managed HSM implementations. 
 
-HSM Keys in vaults are protected; Software keys are not protected by HSMs.
+HSM Keys in vaults are protected by HSMs; Software keys aren't protected by HSMs.
 
 - Keys stored in vaults benefit from robust protection using **[FIPS 140 validated HSM](/azure/key-vault/keys/about-keys#compliance)**. There are two distinct HSM platforms available: 1, which protects key versions with **FIPS 140-2 Level 2**, and 2, which protects keys with **FIPS 140-2 Level 3** HSMs depending on when the key was created. All new keys and key versions are now created using platform 2 (except UK geo). To determine which HSM Platform is protecting a key version, get it's [hsmPlatform](about-keys-details.md#key-attributes). 
 - Managed HSM uses **FIPS 140-2 Level 3** validated HSM modules to protect your keys. Each HSM pool is an isolated single-tenant instance with its own [security domain](../managed-hsm/security-domain.md) providing complete cryptographic isolation from all other HSMs sharing the same hardware infrastructure. Managed HSM keys are protected in single-tenant HSM-pools. You can import an RSA, EC, and symmetric key, in soft form or by exporting from a supported HSM device. You can also generate keys in HSM pools. When you import HSM keys using the method described in the [BYOK (bring your own key) specification](../keys/byok-specification.md), it enables secure transportation key material into Managed HSM pools. 
