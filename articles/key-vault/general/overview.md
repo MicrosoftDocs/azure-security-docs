@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: overview
-ms.date: 01/30/2024
+ms.date: 09/06/2024
 ms.author: mbaldwin
 ms.collection:
   - zerotrust-extra
@@ -41,7 +41,7 @@ Access to a key vault requires proper authentication and authorization before a 
 
 Authentication is done via Microsoft Entra ID. Authorization may be done via Azure role-based access control (Azure RBAC) or Key Vault access policy. Azure RBAC can be used for both management of the vaults and to access data stored in a vault, while key vault access policy can only be used when attempting to access data stored in a vault.
 
-Azure Key Vaults may be either software-protected or, with the Azure Key Vault Premium tier, hardware-protected by hardware security modules (HSMs). Software-protected keys, secrets, and certificates are safeguarded by Azure, using industry-standard algorithms and key lengths.  For situations where you require added assurance, you can import or generate keys in HSMs that never leave the HSM boundary. Azure Key Vault uses [Federal Information Processing Standard 140 validated HSMs](/azure/key-vault/keys/about-keys#compliance). You can use HSM vendor provided tools to move a key from your HSM to Azure Key Vault.
+Azure key vaults are encrypted at rest with a key stored in hardware security modules (HSMs). Keys, secrets, and certificates are safeguarded by Azure, using industry-standard algorithms and key lengths and software cryptographic modules. For added assurance, you can generate or import keys in HSMs (type RSA-HSM, EC-HSM, or OCT-HSM) that never leave the HSM boundary. Azure Key Vault uses [Federal Information Processing Standard 140 validated software cryptographic modules and HSMs](/azure/key-vault/keys/about-keys#compliance). You can use HSM vendor provided tools to move a key from your HSM to Azure Key Vault.
 
 Finally, Azure Key Vault is designed so that Microsoft doesn't see or extract your data.
 
