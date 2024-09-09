@@ -6,7 +6,7 @@ author: msmbaldwin
 
 ms.service: azure-payment-hsm
 ms.topic: article
-ms.date: 01/30/2024
+ms.date: 09/09/2024
 ms.author: mbaldwin
 ms.custom: references_regions metadata
 ---
@@ -37,7 +37,7 @@ Microsoft works with Thales to ensure that customers meet the prerequisites befo
 
 ## Firmware and license support
 
-The HSM base firmware installed is Thales payShield10K base software version 1.4a 1.8.3. Versions less than 1.4a 1.8.3. are not supported. Customers must ensure that they only upgrade to a firmware version that meets their compliance requirements.
+The HSM base firmware installed is Thales payShield10K base software version 1.8a. Customer can upgrade or downgrade the firmware based on their needs. Versions less than 1.4a is not supported. Customers must ensure that they only upgrade or downgrade to a firmware version that meets their compliance requirements.
 
 The licenses included in Azure payment HSM:
 
@@ -52,7 +52,7 @@ The licenses included in Azure payment HSM:
 - Remote payShield Manager
 - Hosted HSM
 
-Customer set up the performance level (60CPS, 250 CPS, 2500 CPS) and LMK (1 LMK, 2LMK) when HSM is created.
+Customer set up the performance level (60CPS, 250 CPS, 2500 CPS) and LMK (1LMK, 2LMK) when HSM is created.
 
 Customers are responsible for applying payShield security patches and upgrading payShield firmware for their provisioned HSMs as needed. If customers have questions or require assistance, they should work with Thales support.
 
@@ -101,7 +101,7 @@ Microsoft support can be contacted by creating a support ticket through the Azur
 
 ## Thales support
 
-Thales will provide payment application-level support including client software, HSM configuration and backup, and HSM operation support.
+Thales provides payment application-level support including client software, HSM configuration and backup, and HSM operation support.
 
 All Azure Payment HSM customers have an Enhanced Support Plan with Thales. The [Thales Welcome Pack for Authentication and Encryption Products](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=1d2bac074f13f340102400818110c7d9&sysparm_article=KB0019882) is an important reference for customers, as it explains the Thales support plan, scope, and responsiveness.
 
