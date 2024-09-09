@@ -353,12 +353,12 @@
     {
       "source_path_from_root": "/articles/defender-for-cloud/adaptive-application-controls.md",
       "redirect_url": "/azure/defender-for-cloud/tutorial-enable-servers-plan",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/defender-for-cloud/enable-adaptive-application-controls.md",
       "redirect_url": "/azure/defender-for-cloud/tutorial-enable-servers-plan",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/defender-for-cloud/adaptive-network-hardening.md",
