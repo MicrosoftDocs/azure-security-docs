@@ -84,9 +84,9 @@ The following standards are available in Defender for Cloud:
 | PCI DSS | NIST Cybersecurity Framework (CSF) | ISO/IEC 27001|
 | RMIT Malaysia | NIST SP 800-172 | ISO/IEC 27002|
 | SOC 2 | PCI DSS | ISO/IEC 27017|
-| SWIFT CSP CSCF | | NIST Cybersecurity Framework (CSF)|
-| UK OFFICIAL and UK NHS | | NIST SP 800-53 |
-| | | NIST SP 800-171|
+| Spanish ENS | | NIST Cybersecurity Framework (CSF)|
+| SWIFT CSP CSCF | | NIST SP 800-53 |
+| UK OFFICIAL and UK NHS| | NIST SP 800-171|
 | | | NIST SP 800-172|
 | | | PCI DSS|
 | | | Sarbanes Oxley Act (SOX)|
