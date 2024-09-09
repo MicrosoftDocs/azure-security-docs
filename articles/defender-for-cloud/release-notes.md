@@ -46,6 +46,8 @@ Organizations that wish to check their Azure environments for compliance with th
 
 The ENS standard applies to the entire public sector in Spain, as well as to suppliers collaborating with the Administration. It establishes basic principles, requirements, and security measures to protect information and services processed electronically. The goal is to ensure access, confidentiality, integrity, traceability, authenticity, availability, and data preservation.
 
+Check out the [full list of supported compliance standards](concept-regulatory-compliance-standards.md#available-compliance-standards).
+
 
 ### Remediate system updates and patches recommendations on your machines
 
@@ -264,7 +266,7 @@ Those standards included CIS Google Kubernetes Engine (GKE) Benchmark, ISO/IEC 2
 
 Those preview standards are now generally available (GA).
 
-Check out the [full list of supported compliance standards](concept-regulatory-compliance-standards.md#available-compliance-standards)
+Check out the [full list of supported compliance standards](concept-regulatory-compliance-standards.md#available-compliance-standards).
 
 ### Inventory experience improvement
 
