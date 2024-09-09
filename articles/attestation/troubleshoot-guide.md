@@ -12,7 +12,7 @@ ms.custom:
 
 # Microsoft Azure Attestation troubleshooting guide
 
-Error handling in Azure Attestation is implemented following [Microsoft REST API guidelines](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#7102-error-condition-responses). The error response returned by Azure Attestation APIs contains HTTP status code and name/value pairs with the names “code” and “message”. The value of “code” is human-readable and is an indicator of the type of error. The value of “message” intends to aid the user and provides error details.
+Error handling in Azure Attestation is implemented following [Microsoft REST API guidelines](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#7102-error-condition-responses). The error response returned by Azure Attestation APIs contains HTTP status code and name/value pairs with the names "code" and "message". The value of "code" is human-readable and is an indicator of the type of error. The value of "message" intends to aid the user and provides error details.
 
 If your issue isn't addressed in this article, you can also submit an Azure support request on the [Azure support page](https://azure.microsoft.com/support/options/).
 
@@ -88,7 +88,7 @@ G:\Az\security\Attestation\src\AttestationServices\Instance\Enclave\api.cpp(840)
 **Troubleshooting steps**
 Users can evaluate enclave evidence against an SGX attestation policy before configuring the same.
 
-Send a request to attest API by providing policy text in “draftPolicyForAttestation” parameter. The AttestSgxEnclave API will use this policy document during the attest call and this can be used to test attestation policies before they are consumed. The attestation token generated when this field is present will be unsecured.
+Send a request to attest API by providing policy text in "draftPolicyForAttestation" parameter. The AttestSgxEnclave API will use this policy document during the attest call and this can be used to test attestation policies before they are consumed. The attestation token generated when this field is present will be unsecured.
 
 See [attestation policy examples](./policy-examples.md)
 

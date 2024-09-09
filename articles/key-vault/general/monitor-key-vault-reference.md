@@ -6,7 +6,7 @@ ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ---
 # Azure Key Vault monitoring data reference
 
