@@ -349,6 +349,21 @@
       "source_path_from_root": "/articles/defender-for-cloud/enable-permissions-management#feature-matrix",
       "redirect_url": "/azure/defender-for-cloud/permissions-management#feature-matrix",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/adaptive-application-controls.md",
+      "redirect_url": "/azure/defender-for-cloud/tutorial-enable-servers-plan",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/enable-adaptive-application-controls.md",
+      "redirect_url": "/azure/defender-for-cloud/tutorial-enable-servers-plan",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/adaptive-network-hardening.md",
+      "redirect_url": "/azure/defender-for-cloud/tutorial-enable-servers-plan",
+      "redirect_document_id": true
     }
   ]
 }
