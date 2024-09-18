@@ -57,7 +57,7 @@ Purge Protection can be turned on via [CLI](./key-vault-recovery.md?tabs=azure-c
 
 ### Permitted purge
 
-Permanently deleting, purging, a key vault is possible via a POST operation on the proxy resource and requires special privileges. Generally, only the subscription owner will be able to purge a key vault. The POST operation triggers the immediate and irrecoverable deletion of that vault. 
+Permanently deleting, purging, a key vault is possible via a POST operation on the proxy resource and requires special privileges. In general, only the subscription owner or a user with the ["Key Vault Purge Operator" RBAC role](rbac-guide.md#azure-built-in-roles-for-key-vault-data-plane-operations) will be able to purge a key vault. The POST operation triggers the immediate and irrecoverable deletion of that vault.
 
 Exceptions are:
 - When the Azure subscription has been marked as *undeletable*. In this case, only the service can then perform the actual deletion, and does so as a scheduled process. 
