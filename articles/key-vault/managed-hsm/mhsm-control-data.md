@@ -58,7 +58,7 @@ Key Vault supports two types of containers:
 
   - Managed HSM supports only HSM-backed keys.
 
-For more information, see [Azure Key Vault Concepts](../general/basic-concepts.md) and [Azure Key Vault REST API overview](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/key-vault/general/about-keys-secrets-certificates.md).
+For more information, see [Azure Key Vault Concepts](../general/basic-concepts.md) and [Azure Key Vault REST API overview](/rest/api/keyvault/).
 
 ## What is Azure Key Vault Managed HSM?
 
