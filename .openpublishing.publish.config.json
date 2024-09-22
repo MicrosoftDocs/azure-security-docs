@@ -3,16 +3,18 @@
     {
       "docset_name": "azure-security",
       "build_source_folder": ".",
+      "build_output_subfolder": "azure-security",
+      "locale": "en-us",
+      "monikers": [],
+      "moniker_ranges": [],
       "xref_query_tags": [
         "/dotnet",
         "/python"
       ],
-      "build_output_subfolder": "azure-security",
-      "locale": "en-us",
-      "monikers": [],
       "open_to_public_contributors": true,
       "type_mapping": {
-        "Conceptual": "Content"
+        "Conceptual": "Content",
+        "ZonePivotGroups": "Toc"
       },
       "build_entry_point": "docs"
     }
@@ -20,6 +22,8 @@
   "notification_subscribers": [],
   "sync_notification_subscribers": [],
   "branches_to_filter": [],
+  "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/azure-security-docs",
+  "git_repository_branch_open_to_public_contributors": "main",
   "need_preview_pull_request": true,
   "dependent_repositories": [
     {
@@ -77,8 +81,6 @@
       "branch_mapping": {}
     }
   ],
-  "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/azure-security-docs",
-  "git_repository_branch_open_to_public_contributors": "main",
   "branch_target_mapping": {},
   "targets": {}
 }

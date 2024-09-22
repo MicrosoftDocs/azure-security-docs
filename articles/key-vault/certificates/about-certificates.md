@@ -4,7 +4,7 @@ description: Get an overview of the Azure Key Vault REST interface and certifica
 services: key-vault
 author: msmbaldwin
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: overview
 ms.date: 01/30/2024

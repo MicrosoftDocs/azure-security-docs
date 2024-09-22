@@ -4,10 +4,10 @@ description: This article describes how to integrate Key Vault with DigiCert cer
 services: key-vault
 author: msmbaldwin
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: how-to
-ms.date: 01/30/2024
+ms.date: 08/25/2024
 ms.author: mbaldwin 
 ms.custom: devx-track-azurepowershell
 ---
@@ -35,7 +35,6 @@ To complete the procedures in this article, you need to have:
    - [Create a key vault by using the Azure portal](../general/quick-create-portal.md)
 *	An activated DigiCert CertCentral account. [Sign up](https://www.digicert.com/account/signup/) for your CertCentral account.
 *	Administrator-level permissions in your accounts.
-
 
 ### Before you begin
 
@@ -100,19 +99,14 @@ DigicertCA is now in the certificate authority list.
     -   **Phone number of Administrator**: The phone number of administrator of the Global Sign account.
 
 1. Select **Create**.
-   
-GlobalSignCA is now in the certificate authority list.
 
+GlobalSignCA is now in the certificate authority list.
 
 ### Azure PowerShell
 
 You can use Azure PowerShell to create and manage Azure resources by using commands or scripts. Azure hosts Azure Cloud Shell, an interactive shell environment that you can use through the Azure portal in a browser.
 
-If you choose to install and use PowerShell locally, you need Azure AZ PowerShell module 1.0.0 or later to complete the procedures here. Type `$PSVersionTable.PSVersion` to determine the version. If you need to upgrade, see [Install Azure AZ PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure:
-
-```azurepowershell-interactive
-Connect-AzAccount
-```
+[!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/azure-powershell/azure-powershell-requirements-no-header.md)]
 
 1.  Create an Azure resource group by using [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. 
 

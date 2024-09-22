@@ -4,7 +4,7 @@ description: Learn how to create and merge a CSR in Azure Key Vault.
 services: key-vault
 author: msmbaldwin
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 01/30/2024

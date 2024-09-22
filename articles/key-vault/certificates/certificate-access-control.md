@@ -4,7 +4,7 @@ description: Overview of Azure Key Vault certificates access control
 services: key-vault
 author: sebansal
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: overview
 ms.date: 01/30/2024

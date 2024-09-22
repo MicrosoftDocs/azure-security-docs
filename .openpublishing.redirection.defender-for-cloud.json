@@ -344,6 +344,26 @@
       "source_path_from_root": "/articles/defender-for-cloud/how-to-migrate-to-built-in.md",
       "redirect_url": "/azure/defender-for-cloud/how-to-transition-to-built-in",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/enable-permissions-management#feature-matrix",
+      "redirect_url": "/azure/defender-for-cloud/permissions-management#feature-matrix",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/adaptive-application-controls.md",
+      "redirect_url": "/azure/defender-for-cloud/prepare-deprecation-log-analytics-mma-agent#feature-functionality",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/enable-adaptive-application-controls.md",
+      "redirect_url": "/azure/defender-for-cloud/prepare-deprecation-log-analytics-mma-agent#feature-functionality",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/adaptive-network-hardening.md",
+      "redirect_url": "/azure/defender-for-cloud/prepare-deprecation-log-analytics-mma-agent#feature-functionality",
+      "redirect_document_id": true
     }
   ]
 }

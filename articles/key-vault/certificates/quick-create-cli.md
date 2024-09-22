@@ -2,7 +2,7 @@
 title: Quickstart - Set & view Azure Key Vault certificates with Azure CLI
 description: Quickstart showing how to set and retrieve a certificate from Azure Key Vault using Azure CLI
 author: msmbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli, mode-api
