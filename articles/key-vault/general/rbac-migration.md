@@ -20,14 +20,16 @@ This article provides the information necessary to migrate a key vault from an a
 
 Azure RBAC has several Azure built-in roles that you can assign to users, groups, service principals, and managed identities. If the built-in roles don't meet the specific needs of your organization, you can create your own [Azure custom roles](/azure/role-based-access-control/custom-roles).
 
-Key Vault built-in roles for keys, certificates, and secrets access management:
+[Key Vault built-in roles](rbac-guide.md#azure-built-in-roles-for-key-vault-data-plane-operations) for keys, certificates, and secrets access management:
 - Key Vault Administrator
 - Key Vault Reader
+- Key Vault Purge Operator
 - Key Vault Certificates Officer
 - Key Vault Certificate User
 - Key Vault Crypto Officer
 - Key Vault Crypto User
 - Key Vault Crypto Service Encryption User
+- Key Vault Crypto Service Release User
 - Key Vault Secrets Officer
 - Key Vault Secrets User
 
