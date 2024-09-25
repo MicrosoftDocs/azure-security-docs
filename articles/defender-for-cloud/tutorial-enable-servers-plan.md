@@ -118,6 +118,11 @@ The ability to enable or disable Defender for Servers at the resource level is a
 
 After enabling the plan, you have the ability to [configure the features of the plan](configure-servers-coverage.md) to suit your needs.
 
+> [!NOTE]
+> You can't scope Defender for Servers P2 at resource level, you can only scope Defender for Servers P1.
+> For example you can choose to have only a subset of servers onboarded in Defender for Servers P1 or you can have Defender for Servers P2 enabled for the whole subscription and a subset of resources set to use Defender for Servers P1.
+> Billing will respect the plan level of each ressource.
+
 ### Enable Defender for Servers at the resource level at scale
 
 Use the following base script file to customize it for your specific needs.
