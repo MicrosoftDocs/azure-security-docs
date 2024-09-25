@@ -36,8 +36,6 @@ The HSMs are distributed across Microsoft’s data centers and can be easily pro
 * West Europe
 * UK South
 * UK West
-* Australia East
-* Australia Southeast
 * Switzerland North
 * Switzerland West
 * US Gov Virginia
