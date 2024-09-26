@@ -229,7 +229,7 @@ You manage a key vault used by multiple teams that contains 100 certificates, an
 
     ![Screenshot that shows where you can choose to restrict the scope to only a single resource group within a subscription.](../media/policy-img6.png)
 
-1. Click on the parameters tab at the top of the screen in order to specify the maximum validity period in months that you want. If you need to input the parameters, you can uncheck 'Only show parameters that need input or review' option. Select **audit** or **deny** for the effect of the policy following the guidance in the sections above. Then select the review + create button. 
+1. Click on the parameters tab at the top of the screen in order to specify the maximum validity period in months that you want. If you need to input the parameters, you can uncheck 'Only show parameters that need input or review' option. Select **audit** or **deny** for the effect of the policy following the guidance in the sections above. Then select the review + create button.
 
     ![Screenshot that shows the Parameters tab where you can specify the maximum validity period in months that you want.](../media/policy-img7.png)
 
@@ -239,15 +239,13 @@ You manage a key vault used by multiple teams that contains 100 certificates, an
 
     ![Screenshot that shows the Compliance tab where you can select the policy assignment you want to view compliance results for.](../media/policy-img8.png)
 
-1. From this page you can filter results by compliant or non-compliant vaults. Here you can see a list of non-compliant key vaults within the scope of the policy assignment. A vault is considered non-compliant if any of the components (certificates) in the vault are non-compliant. You can select an individual vault to view the individual non-compliant components (certificates). 
+1. From this page you can filter results by compliant or non-compliant vaults. Here you can see a list of non-compliant key vaults within the scope of the policy assignment. A vault is considered non-compliant if any of the components (certificates) in the vault are non-compliant. You can select an individual vault to view the individual non-compliant components (certificates).
 
-    ![Screenshot that shows a list of non-compliant Key Vaults within the scope of the policy assignment.](../media/policy-img9.png)
-
-1. View the name of the components within a vault that are non-compliant
+2. View the name of the components within a vault that are non-compliant
 
     ![Screenshot that shows where you can view the name of the components within a vault that are non-compliant.](../media/policy-img10.png)
 
-1. If you need to check whether users are being denied the ability to create resources within the key vault, you can click on the **Component Events (preview)** tab to view a summary of denied certificate operations with the requestor and timestamps of requests.
+3. If you need to check whether users are being denied the ability to create resources within the key vault, you can click on the **Component Events (preview)** tab to view a summary of denied certificate operations with the requestor and timestamps of requests.
 
     ![Overview of how Azure Key Vault works](../media/policy-img11.png)
 
