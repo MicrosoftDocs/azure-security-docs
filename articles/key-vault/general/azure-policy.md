@@ -20,7 +20,7 @@ Example Usage Scenarios:
 - You currently don't have a solution to perform an audit across your organization, or you're conducting manual audits of your environment by asking individual teams within your organization to report their compliance. You're looking for a way to automate this task, perform audits in real time, and guarantee the accuracy of the audit.
 - You want to enforce your company security policies and stop individuals from creating self-signed certificates, but you don't have an automated way to block their creation.
 - You want to relax some requirements for your test teams, but you want to maintain tight controls over your production environment. You need a simple automated way to separate enforcement of your resources.
-- You want to be sure that you can roll-back enforcement of new policies in the event ofif there is a live-site issue. You need a one-click solution to turn off enforcement of the policy.
+- You want to be sure that you can roll back enforcement of new policies in the event that there is a live-site issue. You need a one-click solution to turn off enforcement of the policy.
 - You're relying on a third-party solution for auditing your environment and you want to use an internal Microsoft offering.
 
 ## Types of policy effects and guidance
