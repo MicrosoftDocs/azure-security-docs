@@ -12,7 +12,7 @@ ms.topic: how-to
 
 # Integrate Azure Key Vault with Azure Policy
 
-[Azure Policy](/azure/governance/policy/) is a governance tool that gives users the ability to audit and manage their Azure environment at scale. Azure Policy provides the ability to place guardrails on Azure resources to ensure they're compliant with assigned policy rules. It allows users to perform audit, real-time enforcement, and remediation of their Azure environment. The results of audits performed by policy will be available to users in a compliance dashboard where they'll be able to see a drill down of which resources and components are compliant and which aren't.  For more information, see the [Overview of the Azure Policy service](/azure/governance/policy/overview).
+[Azure Policy](/azure/governance/policy/) is a governance tool that gives users the ability to audit and manage their Azure environment at scale, allowing them to place guardrails on Azure resources to ensure they're compliant with assigned policy rules. It allows users to perform audit, real-time enforcement, and remediation of their Azure environment. The results of audits performed by policy are available to users in a compliance dashboard where they can see to see a drill-down of which resources and components are compliant and which aren't. For more information, see the [Overview of the Azure Policy service](/azure/governance/policy/overview).
 
 Example Usage Scenarios:
 
@@ -20,16 +20,16 @@ Example Usage Scenarios:
 - You currently don't have a solution to perform an audit across your organization, or you're conducting manual audits of your environment by asking individual teams within your organization to report their compliance. You're looking for a way to automate this task, perform audits in real time, and guarantee the accuracy of the audit.
 - You want to enforce your company security policies and stop individuals from creating self-signed certificates, but you don't have an automated way to block their creation.
 - You want to relax some requirements for your test teams, but you want to maintain tight controls over your production environment. You need a simple automated way to separate enforcement of your resources.
-- You want to be sure that you can roll-back enforcement of new policies in the event of a live-site issue. You need a one-click solution to turn off enforcement of the policy.
-- You're relying on a 3rd party solution for auditing your environment and you want to use an internal Microsoft offering.
+- You want to be sure that you can roll-back enforcement of new policies in the event ofif there is a live-site issue. You need a one-click solution to turn off enforcement of the policy.
+- You're relying on a third-party solution for auditing your environment and you want to use an internal Microsoft offering.
 
 ## Types of policy effects and guidance
 
 When enforcing a policy, you can determine its effect over the resulting evaluation. Each policy definition allows you to choose one of multiple effects. Therefore, policy enforcement may behave differently depending on the type of operation you're evaluating. In general, the effects for policies that integrate with Key Vault include:
 
-- [**Audit**](/azure/governance/policy/concepts/effects#audit): when the effect of a policy is set to `Audit`, the policy won't cause any breaking changes to your environment. It will only alert you to components such as certificates that don't comply with the policy definitions within a specified scope, by marking these components as non-compliant in the policy compliance dashboard. Audit is default if no policy effect is selected.
+- [**Audit**](/azure/governance/policy/concepts/effects#audit): when the effect of a policy is set to `Audit`, the policy won't cause any breaking changes to your environment. It will only alert you to components such as certificates that don't comply with the policy definitions within a specified scope, by marking these components as noncompliant in the policy compliance dashboard. Audit is default if no policy effect is selected.
 
-- [**Deny**](/azure/governance/policy/concepts/effects#deny): when the effect of a policy is set to `Deny`, the policy will block the creation of new components such as certificates as well as block new versions of existing components that don't comply with the policy definition. Existing non-compliant resources within a key vault aren't affected. The 'audit' capabilities will continue to operate.
+- [**Deny**](/azure/governance/policy/concepts/effects#deny): when the effect of a policy is set to `Deny`, the policy blocks the creation of new components (such as certificates) and blocks new versions of existing components that don't comply with the policy definition. Existing noncompliant resources within a key vault aren't affected. The 'audit' capabilities continue to operate.
 
 - [**Disabled**](/azure/governance/policy/concepts/effects#disabled): when the effect of a policy is set to `Disabled`, the policy will still be evaluated but enforcement won't take effect, thus being compliant for the condition with `Disabled` effect. This is useful to disable the policy for a specific condition as opposed to all conditions.
  
@@ -72,7 +72,7 @@ Reduce the risk of data leakage by restricting public network access, enabling [
 
 #### Deletion Protection
 
-Prevent permanent data loss of your key vault and its objects by enabling [soft-delete and purge protection](soft-delete-overview.md). While soft-delete allows you to recover an accidentally deleted key vault for a configurable retention period, purge protection protects you from insider attacks by enforcing a mandatory retention period for soft-deleted key vaults. Purge protection can only be enabled once soft-delete is enabled. No one inside your organization or Microsoft will be able to purge your key vaults during the soft delete retention period.
+Prevent permanent data loss of your key vault and its objects by enabling [soft-delete and purge protection](soft-delete-overview.md). While soft-delete allows you to recover an accidentally deleted key vault for a configurable retention period, purge protection protects you from insider attacks by enforcing a mandatory retention period for soft-deleted key vaults. Purge protection can only be enabled once soft-delete is enabled. No one inside your organization or Microsoft can purge your key vaults during the soft delete retention period.
 
 | Policy | Effects |
 |--|--|
@@ -86,8 +86,8 @@ Drive the enabling of resource logs to recreate activity trails to use for inves
 
 | Policy | Effects |
 |--|--|
-| [Deploy diagnostic settings for Key Vaults to an Event Hub](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fed7c8c13-51e7-49d1-8a43-8490431a0da2) | DeployIfNotExists _(Default)_
-| [Deploy - Configure diagnostic settings for Key Vault managed HSMs to an Event Hub](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6d2c800-5230-4a40-bff3-8268b4987d42) | DeployIfNotExists _(Default)_, Disabled
+| [Deploy diagnostic settings for Key Vaults to Event Hubs](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fed7c8c13-51e7-49d1-8a43-8490431a0da2) | DeployIfNotExists _(Default)_
+| [Deploy - Configure diagnostic settings for Key Vault managed HSMs to Event Hubs](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6d2c800-5230-4a40-bff3-8268b4987d42) | DeployIfNotExists _(Default)_, Disabled
 | [Deploy - Configure diagnostic settings for Key Vaults to Log Analytics workspace](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F951af2fa-529b-416e-ab6e-066fd85ac459) | DeployIfNotExists _(Default)_, Disabled
 | [Resource logs in Key Vaults should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf820ca0-f99e-4f3e-84fb-66e913812d21) | AuditIfNotExists _(Default)_, Disabled
 | [Resource logs in Key Vault managed HSMs should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa2a5b911-5617-447e-a49e-59dbe0e0434b) | AuditIfNotExists _(Default)_, Disabled
@@ -109,16 +109,16 @@ Promote the use of short-lived certificates to mitigate undetected attacks, by m
 
 #### Certificate Authority
 
-Audit or enforce the selection of a specific certificate authority to issue your certificates either relying on one of Azure Key Vault's integrated certificate authorities (Digicert or GlobalSign), or a non-integrated certificate authority of your preference. You can also audit or deny the creation of self-signed certificates.
+Audit or enforce the selection of a specific certificate authority to issue your certificates either relying on one of Azure Key Vault's integrated certificate authorities (Digicert or GlobalSign), or a nonintegrated certificate authority of your preference. You can also audit or deny the creation of self-signed certificates.
 
 | Policy | Effects |
 |--|--|
 | [Certificates should be issued by the specified integrated certificate authority](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8e826246-c976-48f6-b03e-619bb92b3d82) | Audit (_Default_), Deny, Disabled
-| [Certificates should be issued by the specified non-integrated certificate authority](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa22f4a40-01d3-4c7d-8071-da157eeff341) | Audit (_Default_), Deny, Disabled
+| [Certificates should be issued by the specified nonintegrated certificate authority](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa22f4a40-01d3-4c7d-8071-da157eeff341) | Audit (_Default_), Deny, Disabled
 
 #### Certificate Attributes
 
-Restrict the type of your key vault's certificates to be RSA, ECC, or HSM-backed. If you use elliptic curve cryptography or ECC certificates, you can customize and select curve names such as P-256, P-256K, P-384, and P-521. If you use RSA certificates, you can choose a minimum key size for your certificates to be 2048 bits, 3072 bits, or 4096 bits.
+Restrict the type of your key vault's certificates to be RSA, ECC, or HSM-backed. If you use elliptic curve cryptography or ECC certificates, you can customize and select curve names such as P-256, P-256K, P-384, and P-521. If you use RSA certificates, you can choose a minimum key size for your certificates to be 2,048 bits, 3,072 bits, or 4,096 bits.
 
 | Policy | Effects |
 |--|--|
