@@ -5,17 +5,20 @@ ms.service: azure-payment-hsm
 author: msmbaldwin
 ms.author: mbaldwin
 ms.topic: tutorial
-ms.custom:
-ms.date: 01/31/2024
+ms.date: 09/09/2024
 ---
 
 # What's new for Azure Payment HSM
 
 Here's what's new with Azure Payment HSM. New features and improvements are also announced on the [Azure updates Key Vault channel](https://azure.microsoft.com/updates/?category=security&query=payment%20hsm).
 
+## September 2024
+
+Azure Payment HSM upgraded the base firmware to 1.8a. Refer the [Thales payShield 10K](https://cpl.thalesgroup.com/encryption/hardware-security-modules/payment-hsms/payshield-10k) release notes for new features and bug fixes in the firmware1.8a release.
+
 ## May 2023
 
-Azure Payment HSM now supports two host IP network interfaces from payShield 10K. By using two host network interfaces, customers can now have a maximum of 128 concurrent connections.
+Azure Payment HSM now supports two host IP network interfaces from payShield 10K. Customers using two host network interfaces can now have a maximum of 128 concurrent connections.
 
 It's important to note that there are no changes to the payment HSM resource creation process, as the two host network interfaces are created by default when the PHSM is set up. Additionally, customers can only create these host network interfaces within the same virtual network, but they can use either static or dynamic IP addresses for the host interfaces.
 

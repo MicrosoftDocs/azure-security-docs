@@ -1,6 +1,6 @@
 ---
 author: msmbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.custom: devx-track-azurepowershell
 ms.topic: include
 ms.date: 04/04/2024

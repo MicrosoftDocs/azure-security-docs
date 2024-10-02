@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.author: mbaldwin
 services: azure-monitor 
 ms.topic: conceptual
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.date: 01/20/2023
 ms.custom: subject-monitoring
 
