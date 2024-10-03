@@ -15,7 +15,7 @@ ms.date: 02/20/2024
 This article covers two recovery features of Azure Key Vault, soft delete and purge protection. This document provides an overview of these features, and shows you how to manage them through the Azure portal, Azure CLI, and Azure PowerShell.
 
 > [!IMPORTANT]
-> If a key vault does not have soft-delete protection enabled, deleting a key deletes it permanently. Customers are strongly encouraged to turn on soft delete enforcement for their vaults via [Azure Policy](https://learn.microsoft.com/en-us/azure/key-vault/policy-reference).
+> If a key vault does not have soft-delete protection enabled, deleting a key deletes it permanently. Customers are strongly encouraged to turn on soft delete enforcement for their vaults via [Azure Policy](../policy-reference.md).
 
 For more information about Key Vault, see
 - [Key Vault overview](overview.md)
