@@ -82,8 +82,8 @@ landingContent:
             url: /python/api/overview/azure/keyvault-keys-readme
           - text: Java Client library
             url: https://azure.github.io/azure-sdk-for-java/keyvault.html
-          - text: Node.js Client library
-            url: /javascript/api/overview/azure/key-vault-index
+          - text: Javascript Client library
+            url: /javascript/api/overview/azure/key-vault?view=azure-node-latest
 
 
 
