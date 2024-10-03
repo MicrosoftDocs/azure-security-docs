@@ -40,7 +40,7 @@ For more information about Key Vault, see
 **Soft delete** is designed to prevent accidental deletion of your key vault and keys, secrets, and certificates stored inside key vault. Think of soft-delete like a recycle bin. When you delete a key vault or a key vault object, it will remain recoverable for a user configurable retention period or a default of 90 days. Key vaults in the soft deleted state can also be **purged** which means they are permanently deleted. This allows you to recreate key vaults and key vault objects with the same name. Both recovering and deleting key vaults and objects require elevated access policy permissions. **Once soft delete has been enabled, it cannot be disabled.**
 
 > [!IMPORTANT]
-> You must enable soft-delete on your key vaults immediately. The ability to opt out of soft-delete is deprecated and will be removed in February 2025. See full details [here](soft-delete-change.md)
+> The ability to opt out of soft-delete is deprecated and will be removed. See full details [here](soft-delete-change.md)
 
 It is important to note that **key vault names are globally unique**, so you won't be able to create a key vault with the same name as a key vault in the soft deleted state. Similarly, the names of keys, secrets, and certificates are unique within a key vault. You won't be able to create a secret, key, or certificate with the same name as another in the soft deleted state.
 
