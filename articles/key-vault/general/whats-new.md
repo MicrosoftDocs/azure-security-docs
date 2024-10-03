@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: reference
-ms.date: 01/30/2024
+ms.date: 10/03/2024
 ms.author: mbaldwin
 
 #Customer intent: As an Azure Key Vault administrator, I want to react to soft-delete being turned on for all key vaults.
@@ -87,11 +87,7 @@ To support [soft delete now on by default](#soft-delete-on-by-default), two chan
 ## July 2020
 
 > [!WARNING]
-> These two updates have the potential to impact Azure Key Vault implementations.
-
-### Soft delete on by default
-
-**Soft-delete is required to be enabled for all key vaults**, both new and pre-existing. Over the next few months the ability to opt out of soft delete will be deprecated. For full details on this potentially breaking change, and steps to find affected key vaults and update them beforehand, see the article [Soft-delete will be enabled on all key vaults](soft-delete-change.md).
+> This update has the potential to impact Azure Key Vault implementations.
 
 ### Azure TLS certificate changes
 
