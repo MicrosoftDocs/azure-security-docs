@@ -83,10 +83,8 @@
     items:
     - name: Monitor with Azure Event Grid
       href: event-grid-overview.md
-  - name: Soft-delete
-    items:
-    - name: Azure Key Vault soft-delete
-      href: soft-delete-overview.md
+  - name: Azure Key Vault soft-delete
+    href: soft-delete-overview.md
   - name: Authentication, requests and responses
     href: authentication-requests-and-responses.md
   - name: Azure Key Vault throttling guidance
