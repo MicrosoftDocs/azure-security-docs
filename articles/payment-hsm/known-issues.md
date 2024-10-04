@@ -20,9 +20,11 @@ Sporadic problems have been observed with the PS10K HSM, where the error log ind
 
 If Azure Payment HSM customers observe the fan too fast error and want to do a hard-reboot to the unit, contact Microsoft support.
 
-## Shared memory error logged in hosted HSM post reboot
+See details in [Thales support portal KB0026952](https://supportportal.thalesgroup.com/csm?sys_kb_id=6fe423cec319259063ec26359901310c&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=18143570dba96d544f917828f496190c&sysparm_article=KB0026952).
 
-*Full details of this issue are at [Thales support portal KB0026952](https://supportportal.thalesgroup.com/csm?sys_kb_id=6fe423cec319259063ec26359901310c&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=18143570dba96d544f917828f496190c&sysparm_article=KB0026952) (sign-in required).*
+## Shared memory error logged in Hosted HSM after reboot
+
+*Full details of this issue are at [Thales support portal KB0026952](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=ae8f0d9283b41a10fc177e126daad306&sysparm_article=KB0028943) (sign-in required).*
 
 After a reboot, either manual or as a result of a firmware upgrade, some Hosted HSMs have experienced the following shared memory permission errors:
 
@@ -38,7 +40,9 @@ It's important to note that this issue is limited in scope. The problem only aff
 
 The impact of this problem is minimal. While it does cause entries to appear in the payShield error log, it does not affect the operation of the payShield 10k in any way. Essentially, the issue is confined to log entries and does not compromise the functionality or performance of the system.
 
-A fix is currently being worked on and will be released in a future payShield firmware. In the meanwhile, a workaround exists and is documented in [Thales support portal KB0026952](https://supportportal.thalesgroup.com/csm?sys_kb_id=6fe423cec319259063ec26359901310c&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=18143570dba96d544f917828f496190c&sysparm_article=KB0026952) (sign-in required).
+A fix is currently being worked on and will be released in a future payShield firmware.
+
+See details, and a interim workaround for thi issue, at [Thales support portal KB0028943](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=ae8f0d9283b41a10fc177e126daad306&sysparm_article=KB0028943) (sign-in required).
 
 ## Next steps
 
