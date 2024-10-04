@@ -53,11 +53,11 @@ Follow this guide to learn how to use the [azkeys](https://aka.ms/azsdk/go/keyva
 
 Run the following Go commands:
 
-    ```azurecli
-    go mod init quickstart-keys
-    go get -u github.com/Azure/azure-sdk-for-go/sdk/azidentity
-    go get -u github.com/Azure/azure-sdk-for-go/sdk/keyvault/azkeys
-    ```
+```azurecli
+go mod init quickstart-keys
+go get -u github.com/Azure/azure-sdk-for-go/sdk/azidentity
+go get -u github.com/Azure/azure-sdk-for-go/sdk/keyvault/azkeys
+```
 
 
 ## Create the sample code
