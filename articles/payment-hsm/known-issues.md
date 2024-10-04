@@ -42,7 +42,7 @@ The impact of this problem is minimal. While it does cause entries to appear in 
 
 A fix is currently being worked on and will be released in a future payShield firmware.
 
-See details, and a interim workaround for thi issue, at [Thales support portal KB0028943](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=ae8f0d9283b41a10fc177e126daad306&sysparm_article=KB0028943) (sign-in required).
+For more information, and a workaround, see [Thales support portal KB0028943](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=ae8f0d9283b41a10fc177e126daad306&sysparm_article=KB0028943) (sign-in required).
 
 ## Next steps
 
