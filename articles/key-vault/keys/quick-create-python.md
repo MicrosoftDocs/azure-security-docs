@@ -90,7 +90,7 @@ This quickstart is using the Azure Identity library with Azure CLI or Azure Powe
 
 ### Grant access to your key vault
 
-[!INCLUDE [Using RBAC to provide access to a key vault](../includes/key-vault-quickstart-rbac.md)]
+[!INCLUDE [Using RBAC to provide access to a key vault](../includes/rbac/upn-crypto-officer-cli.md)]
 
 ## Create the sample code
 
