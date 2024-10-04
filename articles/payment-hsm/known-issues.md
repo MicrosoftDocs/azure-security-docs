@@ -24,8 +24,6 @@ See details in [Thales support portal KB0026952](https://supportportal.thalesgro
 
 ## Shared memory error logged in Hosted HSM after reboot
 
-*Full details of this issue are at [Thales support portal KB0026952](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=ae8f0d9283b41a10fc177e126daad306&sysparm_article=KB0028943) (sign-in required).*
-
 After a reboot, either manual or as a result of a firmware upgrade, some Hosted HSMs have experienced the following shared memory permission errors:
 
 ```bash
