@@ -52,11 +52,11 @@ Follow this guide to learn how to use the [azcertificates](https://aka.ms/azsdk/
 
 Run the following Go commands:
 
-    ```azurecli
-    go mod init quickstart-go-kvcerts
-    go get github.com/Azure/azure-sdk-for-go/sdk/keyvault/azcertificates
-    go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
-    ```
+```azurecli
+go mod init quickstart-go-kvcerts
+go get github.com/Azure/azure-sdk-for-go/sdk/keyvault/azcertificates
+go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
+```
 
 ## Create the sample code
 
