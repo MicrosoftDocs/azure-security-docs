@@ -25,30 +25,32 @@ Follow this guide to learn how to use the [azcertificates](https://aka.ms/azsdk/
 - **Go installed**: Version 1.18 or [above](https://go.dev/dl/)
 - [Azure CLI](/cli/azure/install-azure-cli)
 
-## Set up your environment
+### Sign in to the Azure portal
 
-
-1. Sign into Azure.
+1. In the Azure CLI, run the following command:
 
     ```azurecli
     az login
     ```
 
-1. Create a new resource group.
+    If the Azure CLI can open your default browser, it will do so on the Azure portal sign-in page.
 
-    ```azurecli
-    az group create --name myResourceGroup  --location eastus
-    ```
+    If the page doesn't open automatically, go to [https://aka.ms/devicelogin](https://aka.ms/devicelogin), and then enter the authorization code that's displayed in your terminal.
 
-1. Deploy a new key vault instance.
+1. Sign in to the Azure portal with your account credentials.
 
-    ```azurecli
-    az keyvault create --name <keyVaultName> --resource-group myResourceGroup
-    ```
 
-    Replace `<keyVaultName>` with a name that's unique across all of Azure. You typically use your personal or company name along with other numbers and identifiers.
+### Create a resource group and key vault
 
-1. Create a new Go module and install packages
+[!INCLUDE [Create a resource group and key vault](../includes/key-vault-rg-kv-creation.md)]
+
+### Grant access to your key vault
+
+[!INCLUDE [Using RBAC to provide access to a key vault](../includes/rbac/upn-certificate-officer-cli.md)]
+
+### Create a new Go module and install packages
+
+Run the following Go commands:
 
     ```azurecli
     go mod init quickstart-go-kvcerts
