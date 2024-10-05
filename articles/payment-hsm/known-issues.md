@@ -20,7 +20,7 @@ Sporadic problems have been observed with the PS10K HSM, where the error log ind
 
 If Azure Payment HSM customers observe the fan too fast error and want to do a hard-reboot to the unit, contact Microsoft support.
 
-See details in [Thales support portal KB0026952](https://supportportal.thalesgroup.com/csm?sys_kb_id=6fe423cec319259063ec26359901310c&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=18143570dba96d544f917828f496190c&sysparm_article=KB0026952). If you have questions regarding the issue or workaround, open a support ticket with Thales.
+See details in [Thales support portal KB0026952](https://supportportal.thalesgroup.com/csm?sys_kb_id=6fe423cec319259063ec26359901310c&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=18143570dba96d544f917828f496190c&sysparm_article=KB0026952). 
 
 ## Shared memory error logged in Hosted HSM after reboot
 
@@ -40,7 +40,7 @@ The impact of this problem is minimal. While it does cause entries to appear in 
 
 A fix is currently being worked on and will be released in a future payShield firmware.
 
-For more information and a workaround, see [Thales support portal KB0028943](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=ae8f0d9283b41a10fc177e126daad306&sysparm_article=KB0028943) (sign-in required).
+For more information and a workaround, see [Thales support portal KB0028943](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=ae8f0d9283b41a10fc177e126daad306&sysparm_article=KB0028943) (sign-in required). If you have questions regarding the issue or workaround, open a support ticket with Thales.
 
 ## Next steps
 
