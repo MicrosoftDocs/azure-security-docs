@@ -37,7 +37,7 @@ Microsoft works with Thales to ensure that customers meet the prerequisites befo
 
 ## Firmware and license support
 
-The HSM base firmware installed is Thales payShield10K base software version 1.8a. Customer can upgrade or downgrade the firmware based on their needs. Versions less than 1.4a is not supported. Customers must ensure that they only upgrade or downgrade to a firmware version that meets their compliance requirements.
+The HSM base firmware installed is Thales payShield10K base software version 1.9a. Customer can upgrade or downgrade the firmware based on their needs. Versions less than 1.4a is not supported. Customers must ensure that they only upgrade or downgrade to a firmware version that meets their compliance requirements.
 
 The licenses included in Azure payment HSM:
 
