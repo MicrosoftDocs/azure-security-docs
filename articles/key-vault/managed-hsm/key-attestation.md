@@ -42,7 +42,7 @@ Download the following Python scripts required for key attestation
 
 ### Get attestation data
 
-Get attestation data for a specific key from the HSM using the the Azure CLI [az rest](/cli/azure/reference-index?view=azure-cli-latest#az-rest) command. The JSON file contains key properties, attestation blob and all certificates required for key attestation.
+Get attestation data for a specific key from the HSM using the the Azure CLI [az rest](/cli/azure/reference-index#az-rest) command. The JSON file contains key properties, attestation blob and all certificates required for key attestation.
 
 Usage:
 
