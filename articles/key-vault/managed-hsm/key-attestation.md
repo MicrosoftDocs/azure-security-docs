@@ -1,5 +1,5 @@
 ---
-title: Validate Azure Managed HSM keys with key Attestation
+title: Validate Azure Managed HSM keys with key attestation
 description: Validate cryptographic key integrity in Azure Managed HSM with key attestation, ensuring compliance and protection against unauthorized access.
 services: key-vault
 author: msmbaldwin
@@ -12,9 +12,9 @@ ms.author: mbaldwin
 
 ---
 
-# Validate Azure Managed HSM keys with key Attestation
+# Validate Azure Managed HSM keys with key attestation
 
-Key Attestation is a functionality of Azure Managed HSM. It enables a way to validate the integrity and authenticity of cryptographic keys stored within the hardware security module (HSM). It allows organizations to verify that keys were generated and stored within a trusted, FIPS 140-3 Level 3 certified HSM without ever leaving the FIPS boundary. By providing cryptographic proof that the keys are securely handled, key attestation enhances trust in key management processes, enabling compliance with stringent security standards and regulations. This feature is especially valuable in scenarios where customers need assurance that their keys are protected from unauthorized access, even from cloud providers.
+Key attestation is a functionality of Azure Managed HSM. It enables a way to validate the integrity and authenticity of cryptographic keys stored within the hardware security module (HSM). It allows organizations to verify that keys were generated and stored within a trusted, FIPS 140-3 Level 3 certified HSM without ever leaving the FIPS boundary. By providing cryptographic proof that the keys are securely handled, key attestation enhances trust in key management processes, enabling compliance with stringent security standards and regulations. This feature is especially valuable in scenarios where customers need assurance that their keys are protected from unauthorized access, even from cloud providers.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ Key Attestation is a functionality of Azure Managed HSM. It enables a way to val
 - Python version: Python 3.8.10 or higher.
 - Permissions: Crypto user of the Managed HSM or a custom role with `getkey` permission.
 
-## Key Attestation process
+## Key attestation process
 
 The key attestation process has six steps:
 
@@ -42,7 +42,7 @@ Download the following Python scripts required for key attestation
 
 ### Get attestation data
 
-Get attestation data for a specific key from the HSM using the the Azure CLI [az rest](/cli/azure/reference-index#az-rest) command. The JSON file contains key properties, attestation blob and all certificates required for key attestation.
+Get attestation data for a specific key from the HSM using the Azure CLI [az rest](/cli/azure/reference-index#az-rest) command. The JSON file contains key properties, attestation blob and all certificates required for key attestation.
 
 Usage:
 
