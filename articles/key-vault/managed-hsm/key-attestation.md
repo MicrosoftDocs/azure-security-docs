@@ -26,7 +26,8 @@ Key Attestation is a functionality of Azure Managed HSM. It enables a way to val
 ## Key Attestation process
 
 The key attestation process has six steps:
-- Downloading the Python scripts from our HSM vendor Marvell's website and our GitHub repo
+
+- Downloading the Python scripts from Marvell's website and our GitHub repo
 - Retrieving key attestation data from the HSM via Azure CLI
 - Extracting attestation blob and certificates
 - Verifying the key's authenticity with a certificate chain
@@ -41,41 +42,34 @@ Download the following Python scripts required for key attestation
 
 ### Get attestation data
 
-Get attestation data for a specific key from the HSM using the Az Cli command below. The JSON file contains key properties, attestation blob and all certificates required for key attestation.
+Get attestation data for a specific key from the HSM using the the Azure CLI [az rest](/cli/azure/reference-index?view=azure-cli-latest#az-rest) command. The JSON file contains key properties, attestation blob and all certificates required for key attestation.
 
 Usage:
 
-```python
+```azurecli
 az rest --method get --uri  https://<poolname>.managedhsm.azure.net/keys/<poolname>/<keyname>/<keyversion>?api-version=7.6-preview.1 --resource https://managedhsm.azure.net > attestation.json
 ```
 
 Example:  
 
-```python
+```azurecli
 az rest --method get --uri  https://ContosoHSM.managedhsm.azure.net/keys/ContosoHSM/RSA2048key?api-version=7.6-preview.1 --resource https://managedhsm.azure.net? > ContosoHSMattestation.json
 ```
 
 ### Extract attestation blob and certificates
 
 Extract attestation blob and certificates from the JSON file from above step. Asymmetric keys will have two binary files as an output with -pri and -pub suffix. Symmetric keys will just have one binary file -pri suffix.
-Usage: 
 
-```python
-python3 extract_files.py --attestation_json_file <attestation.json> --cert_bundle <cert_file.pem>  --attestation_binary_file <attest_data.dat>
-```
+Usage: `python3 extract_files.py --attestation_json_file <attestation.json> --cert_bundle <cert_file.pem>  --attestation_binary_file <attest_data.dat>`
 
-Example: 
-
-```python
-python3 extract_files.py --attestation_json_file attestation.json --cert_bundle cert_file.pem  --attestation_binary_file attest_data.dat
-```
+Example: `python3 extract_files.py --attestation_json_file attestation.json --cert_bundle cert_file.pem  --attestation_binary_file attest_data.dat`
 
 ### Verify the key's authenticity with a certificate chain
 
 The python script validate_certificate_chains.py constructs a certificate chain to confirm that the key is signed by Marvell, the HSM vendor's root. Additionally, the script verifies that the key is signed with a Microsoft-signed certificate
 
-Usage: python3 validate_certificate_chains.py --cert_bundle_file <cert_bundle cert_file.pem>  --marvel_parittion_certificate <marvell_issued_partition_certificate.pem> --microsoft_parittion_certificate <microsoft_issued_partition_certificate.pem>
- 
+Usage: `python3 validate_certificate_chains.py --cert_bundle_file <cert_bundle cert_file.pem>  --marvel_parittion_certificate <marvell_issued_partition_certificate.pem> --microsoft_parittion_certificate <microsoft_issued_partition_certificate.pem>`
+
 Example:
 
 ```python
@@ -85,6 +79,7 @@ python3 validate_certificate_chains.py --cert_bundle_file cert_bundle cert_file.
 ### Verify the attestation data file
 
 Python script verify_attest.py enables you to verify the attestation data file (.dat). This needs to be done twice once for Marvell cert and the other for Microsoft Cert.
+
 Usage: `python3 verify_attest.py <partition.cert> <attestation.dat>`
 
 Example:
