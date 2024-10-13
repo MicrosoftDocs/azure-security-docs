@@ -49,6 +49,8 @@ items:
     href: azure-policy.md
   - name: Authorize Azure Resource Manager
     href: authorize-azure-resource-manager.md
+  - name: Validate Azure Managed HSM keys with key Attestation
+    href: key-attestation.md
 
 - name: Concepts 
   items:

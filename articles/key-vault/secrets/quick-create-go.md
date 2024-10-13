@@ -43,15 +43,13 @@ For purposes of this quickstart, you use the [azidentity](https://pkg.go.dev/git
 
 1. Sign in to the Azure portal with your account credentials.
 
-### Create a resource group and key vault instance
+### Create a resource group and key vault
 
-Run the following Azure CLI commands:
+[!INCLUDE [Create a resource group and key vault](../includes/key-vault-rg-kv-creation.md)]
 
-```azurecli
-az group create --name quickstart-rg --location eastus
-az keyvault create --name quickstart-kv --resource-group quickstart-rg
-```
-Key Vault names are globally unique so it is possible that the name is already taken. You may need to choose a unique value for your Key Vault name.
+### Grant access to your key vault
+
+[!INCLUDE [Using RBAC to provide access to a key vault](../includes/rbac/upn-secrets-officer-cli.md)]
 
 ### Create a new Go module and install packages
 
