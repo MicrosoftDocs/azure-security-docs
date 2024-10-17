@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create an Azure confidential ledger using Terraform'
 description: In this quickstart, you create an Azure resource group, a random string, and an Azure confidential ledger with a specified role and type, all in a specified location.
-ms.date: 10/17/2024
+ms.date: 10/18/2024
 ms.service: azure-confidential-ledger
 ms.topic: quickstart
 ms.custom: devx-track-terraform
