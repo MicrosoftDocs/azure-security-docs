@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create an Azure confidential ledger using Terraform'
 description: In this quickstart, you create an Azure resource group, a random string, and an Azure confidential ledger with a specified role and type, all in a specified location.
-ms.date: 10/03/2024
+ms.date: 10/17/2024
 ms.service: azure-confidential-ledger
 ms.topic: quickstart
 ms.custom: devx-track-terraform
@@ -12,9 +12,9 @@ content_well_notification:
   - AI-contribution
 ---
 
-# 'Quickstart: Create an Azure confidential ledger using Terraform'
+# Quickstart: Create an Azure confidential ledger using Terraform
 
-In this quickstart, you create a resource group and a confidential ledger using Terraform. Azure Confidential Ledger is a fully managed service that provides a tamper-proof register for storing sensitive data. It's built on Azure Confidential Computing, which uses hardware-based Trusted Execution Environments (TEEs) to protect data from threats even when it's in use. This ledger is designed to maintain the confidentiality and integrity of the data it stores, making it ideal for use cases that require high levels of data protection. The resources created in this script include the Azure Confidential Ledger and an Azure Resource Group.
+In this quickstart, you create an Azure resource group and a confidential ledger using Terraform. Azure confidential ledger is a fully managed service that provides a tamper-proof register for storing sensitive data. It's built on Azure confidential computing, which uses hardware-based trusted execution environments to protect data from threats even when it's in use. This ledger is designed to maintain the confidentiality and integrity of the data it stores, making it ideal for use cases that require high levels of data protection. The resources created in this script include the Azure confidential ledger and an Azure resource group.
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
@@ -95,4 +95,4 @@ You must replace `<ledger_name>` with the name of your Azure confidential ledger
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [See more articles about Azure confidential ledger](/search/?terms=Azure%20confidential%20ledger%20and%20terraform)
+> [See more articles about Azure confidential ledger](/search/?terms=Azure%20confidential%20ledger%20and%20terraform).
