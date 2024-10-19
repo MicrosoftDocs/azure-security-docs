@@ -122,7 +122,7 @@ conceptualContent:
         - url: /azure/developer/java/spring-framework/spring-cloud-azure?tabs=maven#secret-management
           itemType: reference
           text:  Spring Client library
-        - url: /javascript/api/overview/azure/key-vault-index
+        - url: /javascript/api/overview/azure/key-vault
           itemType: reference
           text:  Node.js Client library
 
