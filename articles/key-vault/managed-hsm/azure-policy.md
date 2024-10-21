@@ -53,12 +53,12 @@ Using RSA keys with smaller key sizes is not a secure design practice. You may b
 
 ### Giving permission to scan daily
 
-To check the compliance of the pool's inventory keys, the customer must assign the "Managed HSM Crypto Auditor" role to "Azure Key Vault Managed HSM Key Governance Service"(App ID: a1b76039-a76c-499f-a2dd-846b4cc32627) so it can access key's metadata. Without the grant of permission, inventory keys are not going to be reported on Azure Policy compliance report, only new keys, updated keys, imported keys and rotated keys will be checked on compliance. To do so, a user who has role of "Managed HSM Administrator" to the Managed HSM needs to run the following Azure CLI commands:
+To check the compliance of the pool's inventory keys, the customer must assign the "Managed HSM Crypto Auditor" role to "Azure Key Vault Managed HSM Key Governance Service"(App ID: 00001111-aaaa-2222-bbbb-3333cccc4444) so it can access key's metadata. Without the grant of permission, inventory keys are not going to be reported on Azure Policy compliance report, only new keys, updated keys, imported keys and rotated keys will be checked on compliance. To do so, a user who has role of "Managed HSM Administrator" to the Managed HSM needs to run the following Azure CLI commands:
 
 On windows:
 
 ```azurecli-interactive
-az ad sp show --id a1b76039-a76c-499f-a2dd-846b4cc32627 --query id
+az ad sp show --id 00001111-aaaa-2222-bbbb-3333cccc4444 --query id
 ```
 
 Copy the `id` printed, paste it in the following command:
@@ -70,7 +70,7 @@ az keyvault role assignment create --scope / --role "Managed HSM Crypto Auditor"
 On Linux or Windows Subsystem of Linux:
 
 ```azurecli-interactive
-spId=$(az ad sp show --id a1b76039-a76c-499f-a2dd-846b4cc32627 --query id|cut -d "\"" -f2)
+spId=$(az ad sp show --id 00001111-aaaa-2222-bbbb-3333cccc4444 --query id|cut -d "\"" -f2)
 echo $spId
 az keyvault role assignment create --scope / --role "Managed HSM Crypto Auditor" --assignee-object-id $spId --hsm-name <hsm name>
 ```

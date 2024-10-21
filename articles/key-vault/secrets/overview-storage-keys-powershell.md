@@ -111,13 +111,13 @@ New-AzRoleAssignment -ApplicationId $keyVaultSpAppId -RoleDefinitionName 'Storag
 Upon successful role assignment, you should see output similar to the following example:
 
 ```console
-RoleAssignmentId   : /subscriptions/03f0blll-ce69-483a-a092-d06ea46dfb8z/resourceGroups/rgContoso/providers/Microsoft.Storage/storageAccounts/sacontoso/providers/Microsoft.Authorization/roleAssignments/189cblll-12fb-406e-8699-4eef8b2b9ecz
-Scope              : /subscriptions/03f0blll-ce69-483a-a092-d06ea46dfb8z/resourceGroups/rgContoso/providers/Microsoft.Storage/storageAccounts/sacontoso
+RoleAssignmentId   : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rgContoso/providers/Microsoft.Storage/storageAccounts/sacontoso/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-0000-000000000000
+Scope              : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rgContoso/providers/Microsoft.Storage/storageAccounts/sacontoso
 DisplayName        : Azure Key Vault
 SignInName         :
 RoleDefinitionName : storage account Key Operator Service Role
 RoleDefinitionId   : 81a9662b-bebf-436f-a333-f67b29880f12
-ObjectId           : 93c27d83-f79b-4cb2-8dd4-4aa716542e74
+ObjectId           : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
@@ -152,7 +152,7 @@ Upon successful addition of the storage account with no key regeneration, you sh
 Id                  : https://kvcontoso.vault.azure.net:443/storage/sacontoso
 Vault Name          : kvcontoso
 AccountName         : sacontoso
-Account Resource Id : /subscriptions/03f0blll-ce69-483a-a092-d06ea46dfb8z/resourceGroups/rgContoso/providers/Microsoft.Storage/storageAccounts/sacontoso
+Account Resource Id : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rgContoso/providers/Microsoft.Storage/storageAccounts/sacontoso
 Active Key Name     : key1
 Auto Regenerate Key : False
 Regeneration Period : 90.00:00:00
@@ -178,7 +178,7 @@ Upon successful addition of the storage account with key regeneration, you shoul
 Id                  : https://kvcontoso.vault.azure.net:443/storage/sacontoso
 Vault Name          : kvcontoso
 AccountName         : sacontoso
-Account Resource Id : /subscriptions/03f0blll-ce69-483a-a092-d06ea46dfb8z/resourceGroups/rgContoso/providers/Microsoft.Storage/storageAccounts/sacontoso
+Account Resource Id : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rgContoso/providers/Microsoft.Storage/storageAccounts/sacontoso
 Active Key Name     : key1
 Auto Regenerate Key : True
 Regeneration Period : 30.00:00:00
