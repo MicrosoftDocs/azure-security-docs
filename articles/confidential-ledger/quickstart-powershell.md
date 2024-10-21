@@ -42,7 +42,7 @@ Your result is listed under "Id", in the format `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxx
 Use the Azure PowerShell [New-AzConfidentialLedger](/powershell/module/az.confidentialledger/new-azconfidentialledger) command to create a confidential ledger in your new resource group.
 
 ```azurepowershell
-New-AzConfidentialLedger -Name "myLedger" -ResourceGroupName "myResourceGroup" -Location "EastUS" -LedgerType "Public" -AadBasedSecurityPrincipal @{ LedgerRoleName="Administrator"; PrincipalId="34621747-6fc8-4771-a2eb-72f31c461f2e"; }
+New-AzConfidentialLedger -Name "myLedger" -ResourceGroupName "myResourceGroup" -Location "EastUS" -LedgerType "Public" -AadBasedSecurityPrincipal @{ LedgerRoleName="Administrator"; PrincipalId="aaaaaaaa-bbbb-cccc-1111-222222222222"; }
 
 ```
 
@@ -61,7 +61,7 @@ Get-AzConfidentialLedger -Name "myLedger" -ResourceGroupName "myResourceGroup"
 To update the properties of a confidential ledger, use do so, use the Azure PowerShell [Update-AzConfidentialLedger](/powershell/module/az.confidentialledger/update-azconfidentialledger) cmdlet. For instance, to update your ledger to change your role to "Reader", run:
 
 ```azurepowershell
-Update-AzConfidentialLedger -Name "myLedger" -ResourceGroupName "myResourceGroup" -Location "EastUS" -LedgerType "Public" -AadBasedSecurityPrincipal @{ LedgerRoleName="Reader"; PrincipalId="34621747-6fc8-4771-a2eb-72f31c461f2e"; }
+Update-AzConfidentialLedger -Name "myLedger" -ResourceGroupName "myResourceGroup" -Location "EastUS" -LedgerType "Public" -AadBasedSecurityPrincipal @{ LedgerRoleName="Reader"; PrincipalId="aaaaaaaa-bbbb-cccc-1111-222222222222"; }
 ```
 
 If you again run [Get-AzConfidentialLedger](/powershell/module/az.confidentialledger/get-azconfidentialledger), you see that the role is updated.
