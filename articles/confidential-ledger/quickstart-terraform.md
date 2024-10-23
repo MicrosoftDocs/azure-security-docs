@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create an Azure confidential ledger using Terraform'
 description: In this quickstart, you create an Azure resource group, a random string, and an Azure confidential ledger with a specified role and type, all in a specified location.
-ms.date: 10/18/2024
+ms.date: 10/23/2024
 ms.service: azure-confidential-ledger
 ms.topic: quickstart
 ms.custom: devx-track-terraform
@@ -46,16 +46,16 @@ In this quickstart, you create an Azure resource group and a confidential ledger
 
 1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
 
-1. Create a file named `main.tf` and insert the following code:
+1. Create a file named `main.tf`, and insert the following code:
 :::code language="Terraform" source="~/terraform_samples/quickstart/101-confidential-ledger/main.tf":::
 
-1. Create a file named `outputs.tf` and insert the following code:
+1. Create a file named `outputs.tf`, and insert the following code:
 :::code language="Terraform" source="~/terraform_samples/quickstart/101-confidential-ledger/outputs.tf":::
 
-1. Create a file named `providers.tf` and insert the following code:
+1. Create a file named `providers.tf`, and insert the following code:
 :::code language="Terraform" source="~/terraform_samples/quickstart/101-confidential-ledger/providers.tf":::
 
-1. Create a file named `variables.tf` and insert the following code:
+1. Create a file named `variables.tf`, and insert the following code:
 :::code language="Terraform" source="~/terraform_samples/quickstart/101-confidential-ledger/variables.tf":::
 
 ## Initialize Terraform
