@@ -72,7 +72,7 @@ In this quickstart, you create an Azure resource group and a confidential ledger
 
 ## Verify the results
 
-### [Azure CLI](#tab/azure-cli)
+### Azure CLI
 
 Run [`az confidential-ledger show`](/cli/azure/confidentialledger#az-confidentialledger-show) to view the Azure confidential ledger.
 
