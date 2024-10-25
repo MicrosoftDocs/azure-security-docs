@@ -20,6 +20,8 @@ items:
     href: quickstart-net.md
   - name: ARM template
     href: quickstart-template.md 
+  - name: Terraform
+    href: quickstart-terraform.md
 - name: Concepts
   items:
   - name: Architecture
