@@ -80,7 +80,7 @@ items:
   - name: Spring
     href: /azure/developer/java/spring-framework/spring-cloud-azure-appendix#azure-key-vault-certificates-properties
   - name: Node.js
-    href: /javascript/api/overview/azure/key-vault-index
+    href: /javascript/api/overview/azure/key-vault
   - name: Python
     href: /python/api/overview/azure/keyvault-certificates-readme
   - name: REST
