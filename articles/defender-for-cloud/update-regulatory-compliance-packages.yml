@@ -21,7 +21,7 @@ introduction: |
 prerequisites:
   summary: |  
     - To add compliance standards, at least one Defender for Cloud plan must be enabled.
-    - You need `Owner` or `Policy Contributor` permissions to add a standard.
+    - You need `Owner` or `Resource Policy Contributor` permissions to add a standard.
 procedureSection:
   - title: |
       Assign a standard
