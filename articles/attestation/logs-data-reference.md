@@ -22,7 +22,7 @@ This section lists the types of resource logs you can collect for Azure Attestat
 
 This section refers to all the Azure Monitor Logs Attestation tables relevant to Azure Attestation and available for query by Log Analytics. 
 
-For a reference of all Azure Monitor Logs / Log Analytics tables, including information about what columns are available for Azure Attestation see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype). 
+For a reference of all Azure Monitor Logs / Log Analytics tables, including information about what columns are available for Azure Attestation see the [Azure Monitor Log Table Reference](/azure/azure-monitor/logs/manage-logs-tables). 
 
 ## Diagnostics tables 
 

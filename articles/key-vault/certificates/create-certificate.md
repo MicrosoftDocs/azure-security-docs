@@ -78,7 +78,7 @@ When a request to create a KV certificate completes, the status of the pending o
 Certificate creation can be completed manually or using a "Self" issuer. Key Vault also partners with certain issuer providers to simplify the creation of certificates. The following types of certificates can be ordered for key vault with these partner issuer providers.  
 
 |Provider|Certificate type|Configuration setup  
-|--------------|----------------------|------------------|  
+|--------------|----------------------|------------------|
 |DigiCert|Key Vault offers OV or EV SSL certificates with DigiCert| [Integration Guide](./how-to-integrate-certificate-authority.md)
 |GlobalSign|Key Vault offers OV or EV SSL certificates with GlobalSign| [Integration Guide](https://support.globalsign.com/code-signing/Code-Signing-certificate-setup-in-Azure-Key-vault)
 

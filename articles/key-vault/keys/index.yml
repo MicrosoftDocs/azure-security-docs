@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: msmbaldwin
   ms.author: mbaldwin
-  ms.date: 02/20/2024
+  ms.date: 10/03/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -25,8 +25,7 @@ landingContent:
         links:
           - text: What are Key Vault keys?
             url: about-keys.md
-          - text: Important news about soft-delete 
-            url: ../general/soft-delete-change.md
+
 
   # Card
   - title: Get started

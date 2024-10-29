@@ -18,7 +18,7 @@ Get started with the Azure Key Vault secret client library for JavaScript. [Azur
 
 Key Vault client library resources:
 
-[API reference documentation](/javascript/api/overview/azure/key-vault-index) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault) | [Package (npm)](https://www.npmjs.com/package/@azure/keyvault-secrets)
+[API reference documentation](/javascript/api/overview/azure/key-vault) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault) | [Package (npm)](https://www.npmjs.com/package/@azure/keyvault-secrets)
 
 For more information about Key Vault and secrets, see:
 - [Key Vault Overview](../general/overview.md)
@@ -101,7 +101,7 @@ Create a Node.js application that uses your key vault.
 
 ## Grant access to your key vault
 
-[!INCLUDE [Using RBAC to provide access to a key vault](../includes/key-vault-quickstart-rbac.md)]
+[!INCLUDE [Using RBAC to provide access to a key vault](../includes/rbac/upn-secrets-officer-cli.md)]
 
 ## Set environment variables
 
