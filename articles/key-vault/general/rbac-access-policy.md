@@ -12,7 +12,8 @@ ms.author: mbaldwin
 ---
 # Azure role-based access control (Azure RBAC) vs. access policies (legacy)
 
-[!INCLUDE [contributor-role-warning.md](../includes/rbac/contributor-role-warning.md)]
+[!INCLUDE [contributor-role-warning.md](~/reusable-content/ce-skilling/azure/includes/key-vault/includes/contributor-role-warning.md)]
+
 
 Azure Key Vault offers two authorization systems: **[Azure role-based access control](/azure/role-based-access-control/overview)** (Azure RBAC), which operates on Azure's [control and data planes](/azure/azure-resource-manager/management/control-plane-and-data-plane), and the **access policy model**, which operates on the data plane alone.
 
