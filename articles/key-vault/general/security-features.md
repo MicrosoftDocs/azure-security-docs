@@ -104,7 +104,7 @@ When you create a key vault in a resource group, you manage access by using Micr
 
 There are several predefined roles. If a predefined role doesn't fit your needs, you can define your own role. For more information, see [Azure RBAC: Built-in roles](/azure/role-based-access-control/built-in-roles).
 
-[!INCLUDE [contributor-role-warning.md](../includes/contributor-role-warning.md)]
+[!INCLUDE [contributor-role-warning.md](../includes/rbac/contributor-role-warning.md)]
 
 ### Controlling access to Key Vault data
 
