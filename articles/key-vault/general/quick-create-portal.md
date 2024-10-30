@@ -30,7 +30,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 3. From the results list, choose **Key Vault**.
 4. On the Key Vault section, choose **Create**.
 5. On the **Create key vault** section provide the following information:
-    - **Name**: A unique name is required. For this quickstart, we use **Contoso-vault2**. 
+    - **Name**: A unique name is required. For this quickstart, we use **Contoso-vault2**.
     - **Subscription**: Choose a subscription.
     - Under **Resource Group**, choose **Create new** and enter a resource group name.
     - In the **Location** pull-down menu, choose a location.
@@ -54,7 +54,6 @@ When no longer needed, delete the resource group, which deletes the Key Vault an
 1. Enter the name of your resource group in the Search box at the top of the portal. When you see the resource group used in this quickstart in the search results, select it.
 2. Select **Delete resource group**.
 3. In the **TYPE THE RESOURCE GROUP NAME:** box type in the name of the resource group and select **Delete**.
-
 
 ## Next steps
 

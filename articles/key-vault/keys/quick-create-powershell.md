@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [Create a key vault](../includes/key-vault-creation-powershell.md)]
 
-## Give your user account permissions to manage secrets in Key Vault
+## Give your user account permissions to manage keys in Key Vault
 
 [!INCLUDE [Using RBAC to provide access to a key vault](../includes/rbac/upn-crypto-officer-powershell.md)]
 
