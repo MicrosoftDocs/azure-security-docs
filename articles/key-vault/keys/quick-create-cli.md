@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.date: 01/30/2024
+ms.date: 10/17/2024
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli, mode-api
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
@@ -28,7 +28,7 @@ In this quickstart, you create a key vault in Azure Key Vault with Azure CLI. Az
 
 [!INCLUDE [Create a key vault](../includes/key-vault-creation-cli.md)]
 
-## Give your user account permissions to manage secrets in Key Vault
+## Give your user account permissions to manage keys in Key Vault
 
 [!INCLUDE [Using RBAC to provide access to a key vault](../includes/rbac/upn-crypto-officer-cli.md)]
 
