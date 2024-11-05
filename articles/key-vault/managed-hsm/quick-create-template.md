@@ -63,7 +63,7 @@ You can now deploy the ARM template:
 
     - **Subscription**: Select an Azure subscription.
     - **Resource group**: Select **Create new**, enter "myResourceGroup" as the name, and then select **OK**.
-    - **Location**: Select a location. For example, **East US 2**.
+    - **Location**: Select a location. For example, **Norway East**.
     - **managedHSMName**: Enter a name for your Managed HSM.
     - **Tenant ID**: The template function automatically retrieves your tenant ID; don't change the default value.  If there is no value, enter the Tenant ID that you retrieved above.
     - **initialAdminObjectIds**: Enter the Object ID that you retrieved above.
