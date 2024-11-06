@@ -65,7 +65,7 @@ You can now deploy the ARM template:
     - **Resource group**: Select **Create new**, enter "myResourceGroup" as the name, and then select **OK**.
     - **Location**: Select a location. For example, **Norway East**.
     - **managedHSMName**: Enter a name for your Managed HSM.
-    - **Tenant ID**: The template function automatically retrieves your tenant ID; don't change the default value.  If there is no value, enter the Tenant ID that you retrieved above.
+    - **Tenant ID**: The template function automatically retrieves your tenant ID; don't change the default value.  If there's no value, enter the Tenant ID that you retrieved above.
     - **initialAdminObjectIds**: Enter the Object ID that you retrieved above.
 
 1. Select **Purchase**. After the Managed HSM has been deployed successfully, you get a notification:
@@ -74,7 +74,7 @@ The Azure portal is used to deploy the template. In addition to the Azure portal
 
 ## Validate the deployment
 
-You can verify that the managed HSM was created with the Azure CLI [az keyvault list](/cli/azure/keyvault#az-keyvault-list) command. You will find the output easier to read if you format the results as a table:
+You can verify that the managed HSM was created with the Azure CLI [az keyvault list](/cli/azure/keyvault#az-keyvault-list) command. You'll find the output easier to read if you format the results as a table:
 
 ```azurecli-interactive
 az keyvault list -o table
@@ -87,11 +87,11 @@ You should see the name of your newly created managed HSM.
 [!INCLUDE [Delete resource group](../../../includes/cli-rg-delete.md)]
 
 > [!WARNING]
-> Deleting the resource group puts the Managed HSM into a soft-deleted state. The Managed HSM will continue to be billed until it is purged. See [Managed HSM soft-delete and purge protection](recovery.md)
+> Deleting the resource group puts the Managed HSM into a soft-deleted state. The Managed HSM will continue to be billed until it's purged. See [Managed HSM soft-delete and purge protection](recovery.md)
 
 ## Next steps
 
-In this quickstart, you created a Managed HSM. This Managed HSM will not be fully functional until it is activated. See [Activate your Managed HSM](quick-create-cli.md#activate-your-managed-hsm) to learn how to activate your HSM.
+In this quickstart, you created a Managed HSM. This Managed HSM won't be fully functional until it's activated. See [Activate your Managed HSM](quick-create-cli.md#activate-your-managed-hsm) to learn how to activate your HSM.
 
 - Read an [Overview of Managed HSM](overview.md)
 - Learn about [Managing keys in a Managed HSM](key-management.md)
