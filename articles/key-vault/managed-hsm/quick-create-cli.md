@@ -36,10 +36,10 @@ az login
 
 ## Create a resource group
 
-A resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *ContosoResourceGroup* in the *eastus2* location.
+A resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *ContosoResourceGroup* in the *norwayeast* location.
 
 ```azurecli-interactive
-az group create --name "ContosoResourceGroup" --location eastus2
+az group create --name "ContosoResourceGroup" --location norwayeast
 ```
 
 ## Create a Managed HSM
@@ -57,11 +57,11 @@ You need to provide following inputs to create a Managed HSM resource:
 - Azure location.
 - A list of initial administrators.
 
-The following example creates an HSM named **ContosoMHSM**, in the resource group  **ContosoResourceGroup**, residing in the **East US 2** location, with **the current signed in user** as the only administrator, with **7 days retention period** for soft-delete. The Managed HSM will continue to be billed until it is purged in a **soft-delete period**. For more information, see [Managed HSM soft-delete and purge protection](recovery.md#what-are-soft-delete-and-purge-protection) and read more about [Managed HSM soft-delete](soft-delete-overview.md).
+The following example creates an HSM named **ContosoMHSM**, in the resource group  **ContosoResourceGroup**, residing in the **Norway East** location, with **the current signed in user** as the only administrator, with **7 days retention period** for soft-delete. The Managed HSM will continue to be billed until it is purged in a **soft-delete period**. For more information, see [Managed HSM soft-delete and purge protection](recovery.md#what-are-soft-delete-and-purge-protection) and read more about [Managed HSM soft-delete](soft-delete-overview.md).
 
 ```azurecli-interactive
 oid=$(az ad signed-in-user show --query id -o tsv)
-az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGroup" --location "eastus2" --administrators $oid --retention-days 7
+az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGroup" --location "norwayeast" --administrators $oid --retention-days 7
 ```
 
 > [!NOTE]

@@ -47,7 +47,7 @@ az dedicated-hsm create \
    --name "hsm1" \
    --location "westus" \
    --network-profile-network-interfaces private-ip-address="1.0.0.1" \
-   --subnet id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hsm-group/providers/Microsoft.Network/virtualNetworks/MyHSM-vnet/subnets/MyHSM-vnet" \
+   --subnet id="/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/hsm-group/providers/Microsoft.Network/virtualNetworks/MyHSM-vnet/subnets/MyHSM-vnet" \
    --stamp-id "stamp1" \
    --sku name="SafeNet Luna Network HSM A790" \
    --tags resourceType="hsm" Environment="test" \
