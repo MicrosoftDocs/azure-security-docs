@@ -30,7 +30,7 @@ armclient PATCH <resource-id>?api-version=2021-11-30 "{ 'sku': { 'name': '<sku>'
 For example:
 
 ```bash
-armclient PATCH /subscriptions/6cc6a46d-fc29-46c4-bd82-6afaf0e61b92/resourceGroups/myResourceGroup/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/myPaymentHSM?api-version=2021-11-30 "{ 'sku': { 'name': 'payShield10K_LMK1_CPS60' } }"
+armclient PATCH /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/myPaymentHSM?api-version=2021-11-30 "{ 'sku': { 'name': 'payShield10K_LMK1_CPS60' } }"
 ```
 
 ## Updating the SKU directly via PowerShell
@@ -47,7 +47,7 @@ For example:
 
 ```azurepowershell-interactive
 $sku="payShield10K_LMK1_CPS60" 
-$resourceId="/subscriptions/6cc6a46d-fc29-46c4-bd82-6afaf0e61b92/resourceGroups/myResourceGroup/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/myPaymentHSM" 
+$resourceId="/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/myPaymentHSM" 
 Invoke-RestMethod -Headers @{Authorization = "Bearer $((Get-AzAccessToken).Token)"} -Method PATCH -Uri "https://management.azure.com$($resourceId)?api-version=2021-11-30" -ContentType application/json -Body "{ 'sku': { 'name': '$sku' } }" 
 ```
 
