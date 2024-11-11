@@ -35,7 +35,7 @@ This article describes how you can create an Azure Dedicated HSM using the
 * If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources should be billed. Select a specific subscription using the [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
 
   ```azurepowershell-interactive
-  Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
+  Set-AzContext -SubscriptionId aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
   ```
 
 ## Create a resource group
@@ -60,7 +60,7 @@ $Params = @{
   Location = 'westus'
   Sku = 'SafeNet Luna Network HSM A790'
   StampId = 'stamp1'
-  SubnetId = '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myhsm-vnet/subnets/hsmsubnet'
+  SubnetId = '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myhsm-vnet/subnets/hsmsubnet'
   NetworkInterface = @{PrivateIPAddress = '10.2.1.120'}
 }
 New-AzDedicatedHsm @Params
