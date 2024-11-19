@@ -139,7 +139,7 @@ To associate a Network Security Perimeter with a key vault using the Azure porta
 2. In the service menu, under **Settings**, select **Networking**.
 3. Under **Network security perimeter**, select **Associate**.
 
-   :::image type="content" source="../media/network-security-perimeter-screenshot.png" alt-text="Screenshot showing how to associate a Network Security Perimeter with a storage account in the Azure portal." lightbox="../media/nsp-screenshot.png":::
+   :::image type="content" source="../media/network-security-perimeter-screenshot.png" alt-text="Screenshot showing how to associate a Network Security Perimeter with a storage account in the Azure portal." lightbox="../media/network-security-perimeter-screenshot.png":::
 
 4. Search for and select a Network Security Perimeter, select a profile, and then select **Associate**.
 The Network Security Perimeter is now associated with your key vault.
