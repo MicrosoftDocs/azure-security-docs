@@ -186,7 +186,7 @@ The `publicNetworkAccess` setting determines the key vault's association with a 
 
 #### Enable logging network access
 
-Follow the [Collecting resource logs for Azure Network Security Perimeter Instructions](/azure/private-link//network-security-perimeter-diagnostic-logs)
+Follow the [Collecting resource logs for Azure Network Security Perimeter Instructions](/azure/private-link/network-security-perimeter-diagnostic-logs)
 
 #### References
 * ARM Template Reference: [Azure Key Vault ARM Template Reference](/azure/templates/Microsoft.KeyVault/vaults)
