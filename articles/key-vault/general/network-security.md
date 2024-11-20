@@ -72,7 +72,7 @@ To understand how to configure a private link connection on your key vault, see 
 
 ### Public Access Disabled (Private Endpoint Only)
 
-To enhance network security, you can configure your vault to disable public access. This denies all public configurations and allow only connections through private endpoints.
+To enhance network security, you can configure your vault to disable public access. This denies all public configurations and allows only connections through private endpoints.
 
 ### Network Security Perimeter (preview)
 [Network Security Perimeter](/azure/private-link/network-security-perimeter-concepts) (preview) allows organizations to define a logical network isolation boundary for PaaS resources (for example, Azure Key Vault, Azure Storage and SQL Database) that are deployed outside your organization’s virtual networks. It restricts public network access to PaaS resources outside of the perimeter, access can be exempted by using explicit access rules for public inbound and outbound.
