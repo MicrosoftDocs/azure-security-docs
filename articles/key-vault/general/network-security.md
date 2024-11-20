@@ -77,7 +77,7 @@ To enhance network security, you can configure your vault to disable public acce
 ### Network Security Perimeter (preview)
 [Network Security Perimeter](/azure/private-link/network-security-perimeter-concepts) (preview) allows organizations to define a logical network isolation boundary for PaaS resources (for example, Azure Key Vault, Azure Storage and SQL Database) that are deployed outside your organization’s virtual networks. It restricts public network access to PaaS resources outside of the perimeter, access can be exempted by using explicit access rules for public inbound and outbound.
 
-Currently, Network Security Perimeter is in public preview for a subset of resources. See [Onboarded private-link resources](/azure/private-link/network-security-perimeter-concepts#onboarded-private-link-resources) and [Limitations of network security perimeter](/azure/private-link/network-security-perimeter-concepts#limitations-of-network-security-perimeter) in the article [What is Azure Network Security Perimeter?](/azure/private-link/network-security-perimeter-concepts). For more information, see [Transition to a Network Security Perimeter](/azure/private-link/network-security-perimeter-transition).
+Currently, Network Security Perimeter is in public preview for a subset of resources. See [Onboarded private-link resources](/azure/private-link/network-security-perimeter-concepts#onboarded-private-link-resources) and [Limitations of network security perimeter](/azure/private-link/network-security-perimeter-concepts#limitations-of-network-security-perimeter). For more information, see [Transition to a Network Security Perimeter](/azure/private-link/network-security-perimeter-transition).
 
 > [!IMPORTANT]
 > Private endpoint traffic is considered highly secure and therefore isn't subject to Network Security Perimeter rules. All other traffic, including trusted services, will be subject to Network Security Perimeter rules if the key vault is associated with a perimeter.
@@ -145,6 +145,7 @@ To associate a Network Security Perimeter with a key vault using the Azure porta
 The Network Security Perimeter is now associated with your key vault.
 
 #### Delete a network security perimeter
+
 When you no longer need a network security perimeter, you remove any resources associated with the network security perimeter and then remove the perimeter following these steps:
 1. From your network security perimeter, select **Resources** under **Settings**.
 2. Select **key-vault-YYYYDDMM** and select **Settings>Remove** from the action bar.
@@ -190,7 +191,7 @@ The `publicNetworkAccess` setting determines the key vault's association with a 
 
 #### Enable logging network access
 
-Follow the [Collecting resource logs for Azure Network Security Perimeter Instructions](/azure/private-link/network-security-perimeter-diagnostic-logs)
+See [Diagnostic logs for Network Security Perimeter](/azure/private-link/network-security-perimeter-diagnostic-logs).
 
 #### References
 * ARM Template Reference: [Azure Key Vault ARM Template Reference](/azure/templates/Microsoft.KeyVault/vaults)
