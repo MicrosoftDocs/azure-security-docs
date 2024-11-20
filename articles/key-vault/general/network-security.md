@@ -97,61 +97,6 @@ With a network security perimeter:
 - To access data by using tools such as the Azure portal, you must be on a machine within the trusted boundary that you establish when configuring network security rules.
 - Azure Key Vault has no concept of outbound rules, you can still associate a key vault to a perimeter with outbound rules but the key vault will not use them.
   
-#### Associate a Network Security Perimeter with a key vault - Azure portal
-
-To associate a Network Security Perimeter with a key vault using the Azure portal, follow these instructions.
-
-#### Create a network security perimeter
-
-> [!NOTE]
-> Please do not put any personal identifiable or sensitive data in the network security perimeter rules or other network security perimeter configuration.
-1. Sign in to the Azure portal
-2. From **Home**, select **Create a resource**.
-3. In the search box, enter **network security perimeters**. Select **network security perimeters** from the search results.
-4. In the **network security perimeters** window, select **+ Create**.
-5. In the **Create a network security perimeter** window, enter the following information:
-
-    | **Setting** | **Value** |
-    | --- | --- |
-    | Subscription | Select the subscription you want to use for this network security perimeter. |
-    | Resource group | Select resource group you want to use for this network security perimeter |
-    | Name | Enter **network-security-perimeter**. |
-    | Region | Select the region in which you want your network security perimeter to be created. For this quickstart, **(US) West Central US** is used. |
-    | Profile name | Enter the profile you want to use for this network security perimeter |
-
-6. Select the **Resources** tab or **Next** to proceed to the next step.
-7. Select **Inbound access rules** and select **Add inbound access rule**.
-8. In the **Add inbound access rule** window, enter the following information, and select **Add**:
-
-    | **Settings** | **Value** |
-    | --- | --- |
-    | Rule name | Enter **inbound-rule**. |
-    | Source type | Select **IP address ranges**. |
-    | Allowed Sources | Enter **10.1.0.0/16** or another internal IP address range. |
-
-9.  Select **Outbound access rules** and select **Add outbound access rule**.
-10. Select **Review + create** and then **Create**.
-11. Select **Go to resource** to view the newly created network security perimeter.
-
-## Associate your Key Vault with your network security perimeter
-
-1. Sign in to the Azure portal and navigate to the key vault resource.
-2. In the service menu, under **Settings**, select **Networking**.
-3. Under **Network security perimeter**, select **Associate**.
-
-   :::image type="content" source="../media/network-security-perimeter-screenshot.png" alt-text="Screenshot showing how to associate a Network Security Perimeter with a storage account in the Azure portal." lightbox="../media/network-security-perimeter-screenshot.png":::
-
-4. Search for and select a Network Security Perimeter, select a profile, and then select **Associate**.
-The Network Security Perimeter is now associated with your key vault.
-
-#### Delete a network security perimeter
-
-When you no longer need a network security perimeter, you remove any resources associated with the network security perimeter and then remove the perimeter following these steps:
-1. From your network security perimeter, select **Resources** under **Settings**.
-2. Select **key-vault-YYYYDDMM** and select **Settings>Remove** from the action bar.
-3. Navigate back to the **Overview** page of your network security perimeter.
-4. Select **Delete** and confirm the deletion by entering **network-security-perimeter** in the text box for the name of the resource.
-   
 #### Associate a Network Security Perimeter with a key vault - Azure PowerShell
 
 To associate a Network Security Perimeter with a key vault in the Azure PowerShell, follow these [instructions](/azure/private-link/create-network-security-perimeter-powershell).
@@ -176,18 +121,6 @@ The `publicNetworkAccess` setting determines the key vault's association with a 
 * In Learning mode, the `publicNetworkAccess` setting controls public access to the resource.
 
 * In Enforced mode, the `publicNetworkAccess` setting is overridden by the network security perimeter rules. For example, if a search service with a `publicNetworkAccess` setting of `enabled` is associated with a network security perimeter in Enforced mode, access to the search service is still controlled by network security perimeter access rules.
-
-#### Change the network security perimeter access mode
-
-1. Navigate to your network security perimeter resource in the portal.
-
-2. Select **Resources** in the left-hand menu.
-
-3. Find your key vault in the table.
-
-4. Select the three dots in the far right of the search service row. Select **Change access mode** in the popup.
-
-5. Select the desired access mode and select **Apply**.
 
 #### Enable logging network access
 
