@@ -122,6 +122,18 @@ The `publicNetworkAccess` setting determines the key vault's association with a 
 
 * In Enforced mode, the `publicNetworkAccess` setting is overridden by the network security perimeter rules. For example, if a search service with a `publicNetworkAccess` setting of `enabled` is associated with a network security perimeter in Enforced mode, access to the search service is still controlled by network security perimeter access rules.
 
+#### Change the network security perimeter access mode
+
+1. Navigate to your network security perimeter resource in the portal.
+
+2. Select **Resources** in the left-hand menu.
+
+3. Find your key vault in the table.
+
+4. Select the three dots in the far right of the search service row. Select **Change access mode** in the popup.
+
+5. Select the desired access mode and select **Apply**.
+
 #### Enable logging network access
 
 See [Diagnostic logs for Network Security Perimeter](/azure/private-link/network-security-perimeter-diagnostic-logs).
