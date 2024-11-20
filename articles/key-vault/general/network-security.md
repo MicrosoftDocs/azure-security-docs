@@ -72,7 +72,7 @@ To understand how to configure a private link connection on your key vault, see 
 
 ### Public Access Disabled (Private Endpoint Only)
 
-To enhance network security, you can configure your vault to disable public access. This denies all public configurations and allow only connections through private endpoints.
+To enhance network security, you can configure your vault to disable public access. This denies all public configurations and allows only connections through private endpoints.
 
 ### Network Security Perimeter (preview)
 [Network Security Perimeter](/azure/private-link/network-security-perimeter-concepts) (preview) allows organizations to define a logical network isolation boundary for PaaS resources (for example, Azure Key Vault, Azure Storage and SQL Database) that are deployed outside your organization’s virtual networks. It restricts public network access to PaaS resources outside of the perimeter, access can be exempted by using explicit access rules for public inbound and outbound.
@@ -97,61 +97,6 @@ With a network security perimeter:
 - To access data by using tools such as the Azure portal, you must be on a machine within the trusted boundary that you establish when configuring network security rules.
 - Azure Key Vault has no concept of outbound rules, you can still associate a key vault to a perimeter with outbound rules but the key vault will not use them.
   
-#### Associate a Network Security Perimeter with a key vault - Azure portal
-
-To associate a Network Security Perimeter with a key vault using the Azure portal, follow these instructions.
-
-#### Create a network security perimeter
-
-> [!NOTE]
-> Please do not put any personal identifiable or sensitive data in the network security perimeter rules or other network security perimeter configuration.
-1. Sign in to the Azure portal
-2. From **Home**, select **Create a resource**.
-3. In the search box, enter **network security perimeters**. Select **network security perimeters** from the search results.
-4. In the **network security perimeters** window, select **+ Create**.
-5. In the **Create a network security perimeter** window, enter the following information:
-
-    | **Setting** | **Value** |
-    | --- | --- |
-    | Subscription | Select the subscription you want to use for this network security perimeter. |
-    | Resource group | Select resource group you want to use for this network security perimeter |
-    | Name | Enter **network-security-perimeter**. |
-    | Region | Select the region in which you want your network security perimeter to be created. For this quickstart, **(US) West Central US** is used. |
-    | Profile name | Enter the profile you want to use for this network security perimeter |
-
-6. Select the **Resources** tab or **Next** to proceed to the next step.
-7. Select **Inbound access rules** and select **Add inbound access rule**.
-8. In the **Add inbound access rule** window, enter the following information, and select **Add**:
-
-    | **Settings** | **Value** |
-    | --- | --- |
-    | Rule name | Enter **inbound-rule**. |
-    | Source type | Select **IP address ranges**. |
-    | Allowed Sources | Enter **10.1.0.0/16** or another internal IP address range. |
-
-9.  Select **Outbound access rules** and select **Add outbound access rule**.
-10. Select **Review + create** and then **Create**.
-11. Select **Go to resource** to view the newly created network security perimeter.
-
-## Associate your Key Vault with your network security perimeter
-
-1. Sign in to the Azure portal and navigate to the key vault resource.
-2. In the service menu, under **Settings**, select **Networking**.
-3. Under **Network security perimeter**, select **Associate**.
-
-   :::image type="content" source="../media/network-security-perimeter-screenshot.png" alt-text="Screenshot showing how to associate a Network Security Perimeter with a storage account in the Azure portal." lightbox="../media/network-security-perimeter-screenshot.png":::
-
-4. Search for and select a Network Security Perimeter, select a profile, and then select **Associate**.
-The Network Security Perimeter is now associated with your key vault.
-
-#### Delete a network security perimeter
-
-When you no longer need a network security perimeter, you remove any resources associated with the network security perimeter and then remove the perimeter following these steps:
-1. From your network security perimeter, select **Resources** under **Settings**.
-2. Select **key-vault-YYYYDDMM** and select **Settings>Remove** from the action bar.
-3. Navigate back to the **Overview** page of your network security perimeter.
-4. Select **Delete** and confirm the deletion by entering **network-security-perimeter** in the text box for the name of the resource.
-   
 #### Associate a Network Security Perimeter with a key vault - Azure PowerShell
 
 To associate a Network Security Perimeter with a key vault in the Azure PowerShell, follow these [instructions](/azure/private-link/create-network-security-perimeter-powershell).
