@@ -31,6 +31,7 @@ This article summarizes what's new in Microsoft Defender for Cloud. It includes 
 
 |Date | Category | Update|
 |--|--|--|
+| November 21 | Preview | [Integrate MSDO CLI with popular CI/CD tools](#integrate-msdo-cli-with-popular-cicd-tools) |
 | November 19 | Preview | [Updated versions of CIS standards for managed Kubernetes environments and new recommendations](#updated-versions-of-cis-standards-for-managed-kubernetes-environments-and-new-recommendations) |
 | November 19 | Preview | [Public preview of Kubernetes cloud process events in advanced hunting](#public-preview-of-kubernetes-cloud-process-events-in-advanced-hunting) |
 | November 19 | Deprecation | [Deprecation of Bring your own License (BYOL) feature in vulnerability management](#deprecation-of-bring-your-own-license-byol-feature-in-vulnerability-management) |
@@ -48,6 +49,19 @@ This article summarizes what's new in Microsoft Defender for Cloud. It includes 
 | November 6 | GA | [Enhanced Support for API sensitive data classification](#enhanced-support-for-api-sensitive-data-classification) |
 | November 6 | Public Preview | [New support for mapping Azure API Management API endpoints to backend compute](#new-support-for-mapping-azure-api-management-api-endpoints-to-backend-compute) |
 | November 6 | GA | [Enhanced API security support for multi-regional Azure API Management deployments and managing API revisions](#enhanced-api-security-support-for-multi-regional-azure-api-management-deployments-and-managing-api-revisions) |
+
+
+### Integrate MSDO CLI with popular CI/CD tools
+
+November 21, 2024
+
+MSDO CLI scanning integration with popular CI/CD tools in Microsoft Defender for Cloud is now available for public preview. The MSDO CLI can now be incorporated into CI/CD pipelines to scan and identify security vulnerabilities in containerized source code. This feature assists development teams in detecting and addressing code vulnerabilities during pipeline execution. It requires authentication to Microsoft Defender for Cloud and modifications to the pipeline script. Scan results will be uploaded to Microsoft Defender for Cloud, allowing security teams to view and correlate them with containers in the container registry. This solution delivers continuous and automated insights to expedite risk detection and response, ensuring security without disrupting workflows.
+
+Use cases:
+
+- **Pipeline scanning within CI/CD tools:** Securely monitor all pipelines that invoke the MSDO CLI.
+- **Early vulnerability detection:** Results are published in the pipeline and sent to Microsoft Defender for Cloud.
+- **Continuous security insights:** Maintain visibility and respond swiftly across development cycles without hindering productivity.
 
 
 ### Updated versions of CIS standards for managed Kubernetes environments and new recommendations
