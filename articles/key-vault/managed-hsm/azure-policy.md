@@ -70,7 +70,7 @@ az keyvault role assignment create --scope / --role "Managed HSM Crypto Auditor"
 On Linux or Windows Subsystem of Linux:
 
 ```azurecli-interactive
-spId=$(az ad sp show --id 00001111-aaaa-2222-bbbb-3333cccc4444 --query id|cut -d "\"" -f2)
+spId=$(az ad sp show --id a1b76039-a76c-499f-a2dd-846b4cc32627 --query id|cut -d "\"" -f2)
 echo $spId
 az keyvault role assignment create --scope / --role "Managed HSM Crypto Auditor" --assignee-object-id $spId --hsm-name <hsm name>
 ```

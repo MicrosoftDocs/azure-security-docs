@@ -68,12 +68,12 @@ Tokens are base64 encoded and the values can be decoded at websites such as [htt
  nbf: 1548697513,
  exp: 1548701413,
  aio: "42JgYHh85jiPgdqyfTFdNStv7le/BAA=",
- appid: "00001111-aaaa-2222-bbbb-3333cccc4444",
+ appid: "fad7d5b3-69d6-4b48-9259-8d12124e1cf1",
  appidacr: "1",
  idp: "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
- oid: "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
- sub: "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
- tid: "aaaabbbb-0000-cccc-1111-dddd2222eeee",
+ oid: "3975aeed-7d08-453b-b6f4-445f32698091",
+ sub: "3975aeed-7d08-453b-b6f4-445f32698091",
+ tid: "72f988bf-86f1-41af-91ab-2d7cd011db47",
  uti: "2-grhRkeIk6BeY-Ln42mAA",
  ver: "1.0"
 }.

@@ -26,7 +26,7 @@ To manage control plane permissions for the Managed HSM resource, you must use [
 |Managed HSM Administrator| Grants permissions to perform all operations related to the security domain, full backup and restore, and role management. Not permitted to perform any key management operations.|a290e904-7015-4bba-90c8-60543313cdb4|
 |Managed HSM Crypto Officer|Grants permissions to perform all role management, purge or recover deleted keys, and export keys. Not permitted to perform any other key management operations.|515eb02d-2335-4d2d-92f2-b1cbdf9c3778|
 |Managed HSM Crypto User|Grants permissions to perform all key management operations except purge or recover deleted keys and export keys.|21dbd100-6940-42c2-9190-5d6cb909625b|
-|Managed HSM Policy Administrator| Grants permissions to create and delete role assignments.|00000000-0000-0000-0000-000000000000|
+|Managed HSM Policy Administrator| Grants permissions to create and delete role assignments.|4bd23610-cdcf-4971-bdee-bdc562cc28e4|
 |Managed HSM Crypto Auditor|Grants read permissions to read (but not use) key attributes.|2c18b078-7c48-4d3a-af88-5a3a1b3f82b3|
 |Managed HSM Crypto Service Encryption User| Grants permissions to use a key for service encryption. |33413926-3206-4cdd-b39a-83574fe37a17|
 |Managed HSM Crypto Service Release User| Grants permissions to release a key to a trusted execution environment. |21dbd100-6940-42c2-9190-5d6cb909625c|
