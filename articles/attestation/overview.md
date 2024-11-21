@@ -98,7 +98,7 @@ iii.	Three months post notification date, Azure Attestation stops using the old 
 
 ## Business Continuity and Disaster Recovery (BCDR) support
 
-[Business Continuity and Disaster Recovery](/azure/availability-zones/cross-region-replication-azure) (BCDR) for Azure Attestation enables you to mitigate service disruptions resulting from significant availability issues or disaster events in a region.
+[Business Continuity and Disaster Recovery](/azure/reliability/cross-region-replication-azure) (BCDR) for Azure Attestation enables you to mitigate service disruptions resulting from significant availability issues or disaster events in a region.
 
 Clusters deployed in two regions operate independently under normal circumstances. In the case of a fault or outage of one region, the following takes place:
 
