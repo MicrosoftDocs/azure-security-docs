@@ -10,7 +10,7 @@ ms.topic: how-to
 
 # Introduction
 
-Programmability is a new feature in Confidential Ledger that allows customers to run custom code. The code executes in the same Trusted Compute Base (TCB) as the regular ACL transactions thereby extending the confidentiality and integrity guarantees to the custom code and the transactions produced by it. Programmability also supports Role Based Access Control (RBAC) through custom roles that are defined in the application code.
+Programmability is a new feature in Confidential Ledger that allows customers to run custom code in the same Trusted Compute Base (TCB) as the regular ACL transactions. The benefit of executing the custom code and transactions in the TCB is that it provides the same confidentiality and integrity guarantees to the custom code and the transactions produced by it. Programmability also supports Role Based Access Control (RBAC) through custom roles that are defined in ACL and used in the code.
 
 A few scenarios that can be enabled through programmability are as follows:
 
@@ -61,7 +61,7 @@ az account get-access-token --resource https://confidential-ledger.azure.com
 
 ```
 Connect-AzAccount
-Set-AzContext -Subscription <subscription id>
+Set-AzContext -Subscription subscriptionid
 Get-AzAccessToken -ResourceUrl "https://confidential-ledger.azure.com" 
 ---
 
@@ -74,8 +74,8 @@ Deploy the JavaScript application bundle by calling /app/userDefinedEndpoints.
 ```terminal
 apiVersion="2024-08-22-preview"
 content_type_application_json="Content-Type: application/json"
-bundle="/path/to/the/bundle.json"
-authorization="Authorization: Bearer <token>"
+bundle="/path/to/bundle.json"
+authorization="Authorization: Bearer raw_token_value"
 curl -k -X PUT "https://contoso.confidential-ledger.azure.com/app/userDefinedEndpoints?api-version=$apiVersion" -H "$content_type_application_json" -H "$authorization" -d @$bundle
 
 # View the deployed bundle
@@ -92,13 +92,13 @@ The banking application involves two personas, namely, a 'manager' and a 'teller
 
 > [!NOTE]
 > Application users can be assigned the built-in roles, namely, Administrator, Contributor and Reader. 
-> A user can be assigned more than one role.
+> A user can be assigned multiple roles.
 
 ```terminal
 apiVersion="2024-08-22-preview"
 content_type_application_json="Content-Type: application/json"
 content_type_merge_patch_json="Content-Type: application/merge-patch+json"
-authorization="Authorization: Bearer <token>"
+authorization="Authorization: Bearer raw_token_value"
 curve="secp384r1"
 
 # These actions must match (case-sensitive) the values defined in the application.
@@ -129,7 +129,7 @@ openssl req -new -key "teller_privk.pem" -x509 -nodes -days 365 -out "teller_cer
 teller_cert_fingerprint=$(openssl x509 -in "teller_cert.pem" -noout -fingerprint -sha256 | cut -d "=" -f 2)
 teller_user="{\"user_id\":\"$teller_cert_fingerprint\",\"assignedRoles\":[\"teller\"]}"
 
-# Create the manager user
+# Create the manager user.
 #
 curl -k -X PATCH "https://contoso.confidential-ledger.azure.com/app/ledgerUsers/$manager_cert_fingerprint?api-version=$apiVersion" -H "$content_type_merge_patch_json" -H "$authorization" -d $manager_user
 
@@ -152,7 +152,7 @@ The JavaScript runtime configuration can be updated by calling the /app/userDefi
 ```terminal
 apiVersion="2024-08-22-preview"
 content_type_merge_patch_json="Content-Type: application/merge-patch+json"
-authorization="Authorization: Bearer <token>"
+authorization="Authorization: Bearer raw_token_value"
 runtime_options="{\"max_heap_bytes\":1024,\"max_stack_bytes\":1024,\"max_execution_time_ms\":2000,\"log_exception_details\":false,\"return_exception_details\":false,\"max_cached_interpreters\":1024}"
 
 # Patch the runtime options
