@@ -79,4 +79,4 @@ After a failover is failed back, all request types (including read *and* write r
 
 - [Azure Key Vault backup](backup.md)
 - [Azure Storage redundancy](../managed-hsm/disaster-recovery-guide.md)
-- [Azure paired regions](/azure/availability-zones/cross-region-replication-azure)
+- [Azure paired regions](/azure/reliability/cross-region-replication-azure)
