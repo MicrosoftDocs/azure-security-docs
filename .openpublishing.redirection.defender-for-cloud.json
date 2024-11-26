@@ -361,6 +361,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/defender-for-cloud/defender-for-storage-malware-scan.md",
+      "redirect_url": "/azure/defender-for-cloud/introduction-malware-scanning",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/multi-factor-authentication-enforcement.md",
+      "redirect_url": "/azure/defender-for-cloud/protect-network-resources",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/defender-for-cloud/adaptive-network-hardening.md",
       "redirect_url": "/azure/defender-for-cloud/prepare-deprecation-log-analytics-mma-agent#feature-functionality",
       "redirect_document_id": true

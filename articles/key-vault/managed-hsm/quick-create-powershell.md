@@ -22,10 +22,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create a resource group
 
-A resource group is a logical container into which Azure resources are deployed and managed. Use the Azure PowerShell [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet to create a resource group named *myResourceGroup* in the *eastus2* location. 
+A resource group is a logical container into which Azure resources are deployed and managed. Use the Azure PowerShell [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet to create a resource group named *myResourceGroup* in the *norwayeast* location. 
 
 ```azurepowershell-interactive
-New-AzResourceGroup -Name "myResourceGroup" -Location "eastus2"
+New-AzResourceGroup -Name "myResourceGroup" -Location "norwayeast"
 ```
 
 ## Get your principal ID
@@ -54,11 +54,11 @@ Use the Azure PowerShell [New-AzKeyVaultManagedHsm](/powershell/module/az.keyvau
   > Each Managed HSM must have a unique name. Replace \<your-unique-managed-hsm-name\> with the name of your Managed HSM in the following examples.
 
 - Resource group name: **myResourceGroup**.
-- The location: **East US 2**.
+- The location: **Norway East**.
 - Your principal ID: Pass the Microsoft Entra principal ID that you obtained in the last section to the "Administrator" parameter. 
 
 ```azurepowershell-interactive
-New-AzKeyVaultManagedHsm -Name "your-unique-managed-hsm-name" -ResourceGroupName "myResourceGroup" -Location "eastus2" -Administrator "your-principal-ID" -SoftDeleteRetentionInDays "# of days to retain the managed hsm after softdelete"
+New-AzKeyVaultManagedHsm -Name "your-unique-managed-hsm-name" -ResourceGroupName "myResourceGroup" -Location "norwayeast" -Administrator "your-principal-ID" -SoftDeleteRetentionInDays "# of days to retain the managed hsm after softdelete"
 ```
 > [!NOTE]
 > The create command can take a few minutes. Once it returns successfully you are ready to activate your HSM.
@@ -88,6 +88,9 @@ openssl req -newkey rsa:2048 -nodes -keyout cert_0.key -x509 -days 365 -out cert
 openssl req -newkey rsa:2048 -nodes -keyout cert_1.key -x509 -days 365 -out cert_1.cer
 openssl req -newkey rsa:2048 -nodes -keyout cert_2.key -x509 -days 365 -out cert_2.cer
 ```
+
+> [!NOTE]
+> Even if the certificate has "expired," it can still be used to restore the security domain.
 
 > [!IMPORTANT]
 > Create and store the RSA key pairs and security domain file generated in this step securely.
