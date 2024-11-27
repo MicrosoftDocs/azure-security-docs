@@ -159,6 +159,7 @@ For more information, see [On-demand malware scanning](on-demand-malware-scannin
 November 18, 2024
 
 This feature extends Microsoft Defender for Containers coverage of external registries to include JFrog Artifactory. Your JFrog Artifactory container images are scanned using Microsoft Defender Vulnerability Management to identify security threats and mitigate potential security risks.
+For more information, see [Onboarding of JFrog Artifactory environment](https://learn.microsoft.com/en-us/azure/defender-for-cloud/agentless-vulnerability-assessment-jfrog-artifactory)
 
 ### AI security posture management is now generally available (GA)
 
