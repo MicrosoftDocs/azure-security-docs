@@ -14,6 +14,9 @@ Microsoft Defender for Cloud enhances the Center for Internet Security (CIS) ben
 
 MDVM's security baselines features extensive coverage of benchmarks, which are continuously updated, along with comprehensive rule coverage. Each rule is accompanied with information that details the effect of the issue, a description of the problem, and detailed recommendation steps. These checks are integrated into the Microsoft Defender for Endpoint (MDE) agent, which allows Defender for Cloud to provide extra security checks within the same agent.
 
+> [!NOTE]
+> This feature is in preview. [!INCLUDE [Legalese](./includes/defender-for-cloud-preview-legal-text.md)].
+
 ## Prerequisites
 
 - [Enable Defender for Servers Plan 2](tutorial-enable-servers-plan.md).
