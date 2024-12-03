@@ -128,7 +128,7 @@ Similar to onboarding a single project, When onboarding a GCP organization, Defe
 
 In the first section, you need to add the basic properties of the connection between your GCP organization and Defender for Cloud.
 
-:::image type="content" source="media/quickstart-onboard-gcp/add-gcp-organization-details.png" alt-text="Screenshot of the organization details page of the GCP organization onboarding process." lightbox="media/quickstart-onboard-gcp/add-gcp-organization-details":::
+:::image type="content" source="media/quickstart-onboard-gcp/add-gcp-organization-details.png" alt-text="Screenshot of the organization details page of the GCP organization onboarding process." lightbox="media/quickstart-onboard-gcp/add-gcp-organization-details.png":::
 
 Here you name your connector, select a subscription and resource group that is used to create an ARM template resource that is called security connector. The security connector represents a configuration resource that holds the projects settings.
 
