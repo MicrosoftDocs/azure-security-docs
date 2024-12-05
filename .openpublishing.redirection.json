@@ -6,8 +6,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/defender-for-cloud/kubeaudit-events-advanced-hunting.md",
-      "redirect_url": "defender-xdr/investigate-respond-container-threats",
+      "source_path_from_root": "/articles/defender-for-cloud/kubeaudit-events-advanced-hunting.md",
+      "redirect_url": "/defender-xdr/investigate-respond-container-threats",
       "redirect_document_id": false
     }
   ]
