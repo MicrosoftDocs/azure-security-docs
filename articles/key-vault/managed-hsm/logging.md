@@ -106,7 +106,7 @@ Individual blobs are stored as text, formatted as a JSON. Let's look at an examp
     "callerIpAddress": "X.X.X.X",
     "identity": "{\"claim\":{\"appid\":\"{application-id}\",\"http_schemas_microsoft_com_identity\":{\"claims\":{\"objectidentifier\":\"{object-id}\"}},\"http_schemas_xmlsoap_org_ws_2005_05_identity\":{\"claims\":{\"upn\":\"admin@contoso.com\"}}}}",
     "clientInfo": "azsdk-python-core/1.7.0 Python/3.8.2 (Linux-4.19.84-microsoft-standard-x86_64-with-glibc2.29) azsdk-python-azure-keyvault/7.2",
-    "correlationId": "8806614c-ebc3-11ea-9e9b-00155db778ad",
+    "correlationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
     "subnetId": "(unknown)",
     "httpStatusCode": 202,
     "PoolName": "mhsmdemo",
