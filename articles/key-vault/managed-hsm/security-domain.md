@@ -84,6 +84,13 @@ After a security domain is compromised, all data that's encrypted via the curren
 
 Because there's no way to migrate key material from one instance of Managed HSM to another instance that has a different security domain, implementing the security domain must be well thought-out, and it must be protected through accurate, periodically reviewed recordkeeping.
 
+### Security domain keys compromise or loss
+
+If the keys protecting your security domain are compromised or lost, or policies require the periodic rotation of the security domain keys, it is possible to download a new copy of the security domain with a new quorum of the keys protecting it. A user with the Managed HSM Administrator role can execute the security-domain download command again with a new set of security domain wrapping keys. The new keys and security domain should be tested and stored securely before deleting the old keys and previous security domain copy. Re-downloading a security domain with new protecting keys does not impact any existing keys in the HSM. The security domain itself does not change, only the keys protecting it. 
+
+> [!IMPORTANT]
+> The Managed HSM Administrator role is a highly privileged role. Notifications and alerts should be set on “SecurityDomainBackup” and “SecurityDomainBackupStatusGet” operations, and enabling PIM on the Managed HSM Administator role is highly recommended.
+
 ## Summary
 
 The security domain and its corresponding private keys play an important part in managed HSM operations. These artifacts are analogous to the combination of a safe, and poor management might easily compromise strong algorithms and systems. If a safe combination is known to an adversary, the strongest safe provides no security. The proper management of the security domain and its private keys is essential to the effective use of the managed HSM.
