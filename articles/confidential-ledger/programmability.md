@@ -104,6 +104,7 @@ The banking application involves two personas, namely, a 'manager' and a 'teller
 
 > [!NOTE]
 > Application users can be assigned the built-in roles, namely, Administrator, Contributor and Reader.
+> Custom roles are case-sensitive and built-in roles are case-insensitive.
 > A user can be assigned multiple roles.
 
 ```terminal
@@ -116,13 +117,11 @@ server_identity="--cacert service_cert.pem"
 
 # These actions must match (case-sensitive) the values defined in the application.
 #
-manager_role_actions='{"role":{"role_name":"manager","role_actions":["/banking/accounts/post","/banking/accounts/put","/banking/accounts/get","/banking/accounts/patch"]}}'
-teller_role_actions='{"role":{"role_name":"teller","role_actions":["/banking/accounts/put","/banking/accounts/get","/banking/accounts/patch"]}}'
+role_actions='{"roles":[{"role_name":"manager","role_actions":["/banking/accounts/post","/banking/accounts/put","/banking/accounts/get","/banking/accounts/patch"]},{"role_name":"teller","role_actions":["/banking/accounts/put","/banking/accounts/get","/banking/accounts/patch"]}]}'
 
 # Create the roles.
 #
-curl $server_identity -X PUT "https://contoso.confidential-ledger.azure.com/app/roles?api-version=$apiVersion" -H "$content_type_application_json" -H "$authorization" -d $manager_role_actions
-curl $server_identity -X PUT "https://contoso.confidential-ledger.azure.com/app/roles?api-version=$apiVersion" -H "$content_type_application_json" -H "$authorization" -d $teller_role_actions
+curl $server_identity -X PUT "https://contoso.confidential-ledger.azure.com/app/roles?api-version=$apiVersion" -H "$content_type_application_json" -H "$authorization" -d $role_actions
 
 # View the roles
 #
