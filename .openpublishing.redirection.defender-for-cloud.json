@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/defender-for-cloud/endpoint-protection-recommendations-technical.md",
+      "redirect_url": "/azure/defender-for-cloud/endpoint-detection-response-solution-recommendations",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/defender-for-cloud/file-integrity-monitoring-enable-log-analytics.md",
       "redirect_url": "/azure/defender-for-cloud/migrate-file-integrity-monitoring",
       "redirect_document_id": false
