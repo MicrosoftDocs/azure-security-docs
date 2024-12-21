@@ -48,7 +48,7 @@ Defender for Cloud tools for automatically deploying the Log Analytics agent wor
 
 ## Connect on-premises machines by using the Azure portal
 
-After you connect Defender for Cloud to your Azure subscription, you can start connecting your on-premises machines by [enabling Defender for Servers plan](https://learn.microsoft.com/en-us/azure/defender-for-cloud/tutorial-enable-servers-plan#enable-on-an-azure-subscription-aws-account-or-gcp-project).
+After you connect Defender for Cloud to your Azure subscription, you can start connecting your on-premises machines by [enabling Defender for Servers plan](/azure/defender-for-cloud/tutorial-enable-servers-plan#enable-on-an-azure-subscription-aws-account-or-gcp-project).
 
 ![Screenshot that shows you where on the environment settings page to select change plans.](./media/tutorial-enable-servers-plan/servers-change-plan.png) 
 
