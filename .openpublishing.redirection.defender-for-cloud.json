@@ -1,6 +1,41 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/defender-for-cloud/file-integrity-monitoring-compare-baselines.md",
+      "redirect_url": "/azure/defender-for-cloud/file-integrity-monitoring-review-changes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/remediate-security-baseline.md",
+      "redirect_url": "/azure/defender-for-cloud/operating-system-misconfiguration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/endpoint-protection-recommendations-technical.md",
+      "redirect_url": "/azure/defender-for-cloud/endpoint-detection-response-solution-recommendations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/file-integrity-monitoring-enable-log-analytics.md",
+      "redirect_url": "/azure/defender-for-cloud/migrate-file-integrity-monitoring",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/file-integrity-monitoring-enable-ama.md",
+      "redirect_url": "/azure/defender-for-cloud/migrate-file-integrity-monitoring",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/faq-vulnerability-assessments.yml",
+      "redirect_url": "/azure/defender-for-cloud/faq-defender-for-servers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/faq-vms.yml",
+      "redirect_url": "/azure/defender-for-cloud/faq-defender-for-servers",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/defender-for-cloud/multicloud.yml",
       "redirect_url": "/azure/defender-for-cloud/security-policy-concept",
       "redirect_document_id": false
