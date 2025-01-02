@@ -18,7 +18,7 @@ Get started with the Azure Key Vault secret client library for JavaScript. [Azur
 
 Key Vault client library resources:
 
-[API reference documentation](/javascript/api/overview/azure/key-vault-index) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault) | [Package (npm)](https://www.npmjs.com/package/@azure/keyvault-secrets)
+[API reference documentation](/javascript/api/overview/azure/key-vault) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault) | [Package (npm)](https://www.npmjs.com/package/@azure/keyvault-secrets)
 
 For more information about Key Vault and secrets, see:
 - [Key Vault Overview](../general/overview.md)
@@ -31,10 +31,6 @@ For more information about Key Vault and secrets, see:
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Current [Node.js LTS](https://nodejs.org).
 - [Azure CLI](/cli/azure/install-azure-cli)
-- An existing Key Vault - you can create one using:
-    - [Azure CLI](../general/quick-create-cli.md)
-    - [Azure portal](../general/quick-create-portal.md) 
-    - [Azure PowerShell](../general/quick-create-powershell.md)
 
 ::: zone-end
 
@@ -46,10 +42,6 @@ For more information about Key Vault and secrets, see:
 - Current [Node.js LTS](https://nodejs.org).
 - [TypeScript 5+](https://www.typescriptlang.org/download/)
 - [Azure CLI](/cli/azure/install-azure-cli).
-- An existing Key Vault - you can create one using:
-    - [Azure CLI](../general/quick-create-cli.md)
-    - [Azure portal](../general/quick-create-portal.md) 
-    - [Azure PowerShell](../general/quick-create-powershell.md)
 
 ::: zone-end
 
@@ -69,9 +61,17 @@ This quickstart assumes you are running [Azure CLI](/cli/azure/install-azure-cli
 
 2. Sign in with your account credentials in the browser.
 
+### Create a resource group and key vault
+
+[!INCLUDE [Create a resource group and key vault](../includes/key-vault-python-qs-rg-kv-creation.md)]
+
+### Grant access to your key vault
+
+[!INCLUDE [Using RBAC to provide access to a key vault](../includes/rbac/upn-secrets-officer-cli.md)]
+
 ## Create new Node.js application
 
-Create a Node.js application that uses your key vault. 
+Create a Node.js application that uses your key vault.
 
 1. In a terminal, create a folder named `key-vault-node-app` and change into that folder:
 
@@ -101,7 +101,7 @@ Create a Node.js application that uses your key vault.
 
 ## Grant access to your key vault
 
-[!INCLUDE [Using RBAC to provide access to a key vault](../includes/key-vault-quickstart-rbac.md)]
+[!INCLUDE [Using RBAC to provide access to a key vault](../includes/rbac/upn-secrets-officer-cli.md)]
 
 ## Set environment variables
 
