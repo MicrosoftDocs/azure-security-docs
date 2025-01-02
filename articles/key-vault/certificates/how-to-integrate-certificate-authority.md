@@ -44,8 +44,11 @@ Make sure you have the following information from your DigiCert CertCentral acco
 -	CertCentral account ID
 -	Organization ID
 -	API key
--   Account ID
--   Account Password
+-  Account ID
+-  Account Password
+
+    > [!WARNING]
+    > CertCentral Divisions are not supported and may result in a "_required_param:container_id and Message Division ID is a required parameter._" error when renewing or generating a new certificate. Make sure your CertCentral account does not make use of such feature.
 
 #### GlobalSign
 
