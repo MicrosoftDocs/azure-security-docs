@@ -41,13 +41,15 @@ Once a Managed Application is created, you're able to then connect the Managed A
 
 ### Create a topic and event subscription for the storage account
 
-The Managed Application uses an Azure Service Bus Queue to track and record all **Create Blob** events. You will use the Queue created in the Managed Resource Group by the Managed Application and add it as an Event Subscriber for any storage account that you're creating blobs for.
+The Managed Application uses an Azure Service Bus Queue to track and record all **Create Blob** and **Delete Blob** events. You will use the Queue created in the Managed Resource Group by the Managed Application and add it as an Event Subscriber for any storage account that you're creating blobs for. Also, ensure the `System Topic Name` associated with the storage account you are tracking is assigned the `Azure Service Bus Data Sender` for the Azure Service Bus Queue created by the managed app.
 
 ### [Azure portal](#tab/azure-portal)
 
+:::image type="content" source="./media/managed-application/managed-app-event-topic-inline.png" alt-text="Screenshot of the Azure portal in a web browser, showing how to set up a service bus role." lightbox="./media/managed-application/managed-app-event-topic-enhanced.png":::
+
 :::image type="content" source="./media/managed-application/managed-app-event-subscription-inline.png" alt-text="Screenshot of the Azure portal in a web browser, showing how to set up a storage event subscription." lightbox="./media/managed-application/managed-app-event-subscription-enhanced.png":::
 
-On the Azure portal, you can navigate to the storage account that you would like to start creating blob digests for and go to the `Events` blade. There you can create an Event Subscription and connect it to the Azure Service Bus Queue Endpoint.
+On the Azure portal, you can navigate to the storage account that you would like to start creating blob digests for and go to the `Events` blade. There you can create an Event Subscription and connect it to the Azure Service Bus Queue Endpoint. Be sure to mark the `Managed identity type` as `System Assigned`.
 
 :::image type="content" source="./media/managed-application/managed-app-event-session-id-inline.png" alt-text="Screenshot of the Azure portal in a web browser, showing how to set up a storage event subscription session ID." lightbox="./media/managed-application/managed-app-event-session-id-enhanced.png":::
 
@@ -59,11 +61,12 @@ The queue uses sessions to maintain ordering across multiple storage accounts so
 
 ```azurecli
 az eventgrid system-topic create \
---resource-group {resource_group} \
---name {sample_topic_name} \
---location {location} \
---topic-type microsoft.storage.storageaccounts \
---source /subscriptions/{subscription}/resourceGroups/{resource_group}/providers/Microsoft.Storage/storageAccounts/{storage_account_name}
+  --resource-group {resource_group} \
+  --name {sample_topic_name} \
+  --location {location} \
+  --topic-type microsoft.storage.storageaccounts \
+  --source /subscriptions/{subscription}/resourceGroups/{resource_group}/providers/Microsoft.Storage/storageAccounts/{storage_account_name} \
+  --identity SystemAssigned
 ```
 
 `resource-group` - Resource Group of where Topic should be created
