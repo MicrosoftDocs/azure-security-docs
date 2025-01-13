@@ -18,8 +18,6 @@ Defender for Cloud Command Line Interface (CLI) is an application you can use in
 
 - One of the following CI/CD pipeline tools: Jenkins, BitBucket Pipelines, Google Cloud Build, Bamboo, CircleCI, Travis CI, TeamCity, Oracle DevOps services, AWS CodeBuild
 
-- For Azure DevOps, [Microsoft Security DevOps (MSDO) Extension](azure-devops-extension.yml) installed on the Azure DevOps organization.
-
 - The [Defender CSPM](tutorial-enable-cspm-plan.md) enabled.
 
 - Security Admin Permission to create the client ID and secret.
