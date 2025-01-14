@@ -55,7 +55,7 @@ Following table shows a summary of key types and supported algorithms.
 > [!WARNING]
 > Microsoft recommends using RSA_OAEP_256 or stronger algorithms for enhanced security. 
 >
-> RSA_1_5 and RSA_OAEP are included solely for backwards compatibility. Cryptographic standards no longer consider RSA with the PKCS#1 v1.5 padding scheme secure for encryption. And RSA_OAEP utilizes SHA1, which has known collision problems and is not recommended for security use cases. 
+> RSA_1_5 and RSA_OAEP are included solely for backwards compatibility. Cryptographic standards no longer consider RSA with the PKCS#1 v1.5 padding scheme secure for encryption. And RSA_OAEP utilizes SHA1, which we do not recommend for security use cases as there are known collision problems with SHA1. 
 
 ### SIGN/VERIFY
 
