@@ -8,14 +8,14 @@ ms.service: azure-confidential-ledger
 ms.topic: how-to
 ---
 
-# Introduction
+# Azure Confidential Ledger (ACL) Programmability
 
 Programmability is a new feature in Confidential Ledger that allows customers to run custom code in the same Trusted Compute Base (TCB) as the regular Azure Confidential Ledger (ACL) transactions. The benefit of executing the custom code and transactions in the TCB is that it provides the same confidentiality and integrity guarantees to the custom code and the transactions produced by it. Programmability also supports Role Based Access Control (RBAC) through custom roles that are defined in ACL and used in the code.
 
 A few scenarios that can be enabled through programmability are as follows:
 
  - **Data aggregation and analytics**: Sensitive information can be analyzed in the TCB and only aggregated information can be shared with the stakeholders.
- - **Attestation**: Sensitive information like PII, credit score and health information can be shared with workloads running on other confidential compute offerings like Azure Confidential ACI and Confidential VM after attestation
+ - **Attestation**: Sensitive information like PII, credit score, and health information can be shared with workloads running on other confidential compute offerings like Azure Confidential ACI and Confidential VM after attestation
 
 ## Prerequisites
 
@@ -23,25 +23,25 @@ A few scenarios that can be enabled through programmability are as follows:
 
 [!INCLUDE [Ensure subscription owner](./includes/ensure-subscription-owner.md)]
 
-This tutorial assumes that you have already created a Confidential Ledger instance. You can create a Confidental Ledger with the [Azure portal](quickstart-portal.md), [Azure CLI](quickstart-cli.md), or [Azure PowerShell](quickstart-powershell.md).
+This tutorial assumes that you have created a Confidential Ledger instance. You can create a Confidential Ledger with the [Azure portal](quickstart-portal.md), [Azure CLI](quickstart-cli.md), or [Azure PowerShell](quickstart-powershell.md).
 
 ## Developing and deploying applications
 
 Applications are developed using TypeScript and rolled-up into a JavaScript bundle. To learn more about the development process, refer to the [Confidential Consortium Framework (CCF) documentation](https://microsoft.github.io/CCF/main/build_apps/js_app_ts.html).
 
 > [!IMPORTANT]
-> Only Administrator user(s) can deploy applications and manage custom RBAC in Confidential Ledger.
-> The rest of the section assumes that the following steps are executed by an Administrator.
+> Only Administrator users can deploy applications and manage custom RBAC in Confidential Ledger.
+> The rest of the section assumes that an Administrator executes the following steps.
 
-The following section assumes that the application is ready for deployment. To demonstrate the deployment process, we will use the sample banking application available at the azureconfidentialledger-app-samples repo (https://github.com/microsoft/azureconfidentialledger-app-samples).
+The following section assumes that the application is ready for deployment. To demonstrate the deployment process, we use the sample banking application available at the azureconfidentialledger-app-samples repo (https://github.com/microsoft/azureconfidentialledger-app-samples).
 
 > [!NOTE]
-> The application demostrates how common banking use-cases like opening accounts, depositing and transferring funds can be realized through a JavaScript application deployed on a Confidential Ledger instance. It also demonstrates how custom roles and RBAC can be used to authorize user actions.
+> The application demonstrates how common banking use-cases like opening accounts, depositing and transferring funds can be realized through a JavaScript application deployed on a Confidential Ledger instance. It also demonstrates how custom roles and RBAC can be used to authorize user actions.
 
 ## Sign in to Azure
 
 > [!NOTE]
-> Confidential Ledger supports Microsoft Entra out-of-the-box. No additional configuration is required.
+> Confidential Ledger supports Microsoft Entra out-of-the-box. No more configuration is required.
 > If your application uses JWT issued by other Identity providers, contact customer support to have it configured on the Confidential Ledger instance.
 
 Obtain a Microsoft Entra token to authenticate to the Confidential Ledger instance.
@@ -69,7 +69,7 @@ Copy the raw token value from the command output.
 Every Confidential Ledger instance is associated with a unique identity represented by a certificate called the service certificate. It is required to establish a secure connection to the instance. Download it and save it to servicer_cert.pem.
 
 > [!NOTE]
-> contoso is the name of the Confidential Ledger instance. Replace it with your instance name.
+> `contoso` is the name of the Confidential Ledger instance. Replace it with your instance name.
 
 ```terminal
 curl https://identity.confidential-ledger.core.azure.com/ledgerIdentity/contoso --silent | jq ' .ledgerTlsCertificate' | xargs echo -e > service_cert.pem
@@ -100,7 +100,7 @@ curl $server_identity "https://contoso.confidential-ledger.azure.com/app/userDef
 The banking application involves two personas, namely, a 'manager' and a 'teller'. We create two roles and users to represent the personas.
 
 > [!NOTE]
-> The user will be represented by a unique certificate.
+> The user is represented by a unique certificate.
 
 > [!NOTE]
 > Application users can be assigned the built-in roles, namely, Administrator, Contributor and Reader.
