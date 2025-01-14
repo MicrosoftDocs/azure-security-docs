@@ -21,7 +21,7 @@ Following table shows a summary of key types and supported algorithms.
 |Key types/sizes/curves| Encrypt/Decrypt<br>(Wrap/Unwrap) | Sign/Verify | 
 | --- | --- | --- |
 |EC-P256, EC-P256K, EC-P384, EC-P521|NA|ES256<br>ES256K<br>ES384<br>ES512|
-|RSA 2K, 3K, 4K| RSA1_5<br>RSA-OAEP<br>RSA-OAEP-256|PS256<br>PS384<br>PS512<br>RS256<br>RS384<br>RS512<br>RSNULL| 
+|RSA 2K, 3K, 4K| RSA-OAEP-256<br>NOT RECOMMENDED<br>RSA1_5<br>RSA-OAEP|PS256<br>PS384<br>PS512<br>RS256<br>RS384<br>RS512<br>RSNULL| 
 |AES 128-bit, 256-bit <br/>(Managed HSM only)| AES-KW<br>AES-GCM<br>AES-CBC| NA| 
 |||
 
@@ -47,9 +47,15 @@ Following table shows a summary of key types and supported algorithms.
 
 ### WRAPKEY/UNWRAPKEY, ENCRYPT/DECRYPT
 
+-  **RSA-OAEP-256** – RSAES using Optimal Asymmetric Encryption Padding with a hash function of SHA-256 and a mask generation function of MGF1 with SHA-256
+<br>
+<br>NOT RECOMMENDED<br>
 - **RSA1_5** - RSAES-PKCS1-V1_5 [RFC3447] key encryption  
 - **RSA-OAEP** - RSAES using Optimal Asymmetric Encryption Padding (OAEP) [RFC3447], with the default parameters specified by RFC 3447 in Section A.2.1. Those default parameters are using a hash function of SHA-1 and a mask generation function of MGF1 with SHA-1.  
--  **RSA-OAEP-256** – RSAES using Optimal Asymmetric Encryption Padding with a hash function of SHA-256 and a mask generation function of MGF1 with SHA-256
+> [!WARNING]
+> Microsoft recommends using RSA_OAEP_256 or stronger algorithms for enhanced security. 
+>
+> RSA_1_5 and RSA_OAEP are included solely for backwards compatibility. RSA_OAEP utilizes SHA1, which has known collision problems and is not recommended for security use cases, and RSA with the PKCS#1 v1.5 padding scheme for encryption is no longer considered secure by modern cryptographic standards.
 
 ### SIGN/VERIFY
 
