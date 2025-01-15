@@ -34,7 +34,7 @@ Here's an overview of the process. Specific steps to complete are described late
 * Download the KEK public key as a .pem file.
 * Transfer the KEK public key to an offline computer that is connected to an on-premises HSM.
 * In the offline computer, use the BYOK tool provided by your HSM vendor to create a BYOK file.
-* The target key is encrypted with a KEK, which stays encrypted until it is transferred to the Key Vault HSM. Only the encrypted version of your key leaves the on-premises HSM.
+* The target key is encrypted with a KEK, which stays encrypted until it's transferred to the Key Vault HSM. Only the encrypted version of your key leaves the on-premises HSM.
 * A KEK that's generated inside a Key Vault HSM is not exportable. HSMs enforce the rule that no clear version of a KEK exists outside a Key Vault HSM.
 * The KEK must be in the same key vault where the target key will be imported.
 * When the BYOK file is uploaded to Key Vault, a Key Vault HSM uses the KEK private key to decrypt the target key material and import it as an HSM key. This operation happens entirely inside a Key Vault HSM. The target key always remains in the HSM protection boundary.
@@ -98,7 +98,7 @@ The KEK must be:
 > [!NOTE]
 > The KEK must have 'import' as the only allowed key operation. 'import' is mutually exclusive with all other key operations.
 
-Use the [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create) command to create a KEK that has key operations set to `import`. Record the key identifier (`kid`) that's returned from the following command. (You will use the `kid` value in [Step 3](#generate-and-prepare-your-key-for-transfer).)
+Use the [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create) command to create a KEK that has key operations set to `import`. Record the key identifier (`kid`) that's returned from the following command. (You'll use the `kid` value in [Step 3](#generate-and-prepare-your-key-for-transfer).)
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -156,7 +156,7 @@ Get-AzKeyVaultKey -HsmName 'ContosoKeyVaultHSM' -KeyName 'KEKforBYOK' -OutFile '
 
 ---
 
-Transfer the KEKforBYOK.publickey.pem file to your offline computer. You will need this file in the next step.
+Transfer the KEKforBYOK.publickey.pem file to your offline computer. You'll need this file in the next step.
 
 ### Generate and prepare your key for transfer
 
@@ -165,7 +165,7 @@ Refer to your HSM vendor's documentation to download and install the BYOK tool. 
 Transfer the BYOK file to your connected computer.
 
 > [!NOTE]
-> Importing RSA 1,024-bit keys is not supported. Importing Elliptic Curve key with curve P-256K is supported.
+> Importing Elliptic Curve key with curve P-256K is supported.
 >
 > **Known issue**: Importing an RSA 4K target key from Luna HSMs is only supported with firmware 7.4.0 or newer.
 
