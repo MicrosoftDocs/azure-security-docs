@@ -73,9 +73,9 @@ The following table lists prerequisites for using BYOK in Azure Key Vault:
 |---|---|---|---|---|
 |Key Exchange Key (KEK)|RSA| 2,048-bit<br />3,072-bit<br />4,096-bit|Azure Key Vault HSM|An HSM-backed RSA key pair generated in Azure Key Vault|
 |Target key|
-||RSA|2,048-bit<br />3,072-bit<br />4,096-bit|Vendor HSM|The key to be transferred to the Azure Key Vault HSM|
-||EC|P-256<br />P-384<br />P-521|Vendor HSM|The key to be transferred to the Azure Key Vault HSM|
-||||
+||RSA-HSM|2,048-bit<br />3,072-bit<br />4,096-bit|Vendor HSM|The key to be transferred to the Azure Key Vault HSM|
+||EC-HSM|P-256<br />P-384<br />P-521|Vendor HSM|The key to be transferred to the Azure Key Vault HSM|
+||OCT-HSM|128-bit<br/>192-bit<br/>256-bit<br/>|Vendor HSM|The key to be transferred to the Azure Key Vault HSM. Only supported on Azure Key Vault Managed HSM|
 
 ## Generate and transfer your key to Key Vault Premium HSM or Managed HSM
 
