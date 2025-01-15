@@ -11,7 +11,7 @@ ms.date: 04/04/2024
 ms.author: mbaldwin
 ---
 
-# Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control
+# Provide access to Key Vault keys, certificates, and secrets with Azure role-based access control
 
 > [!NOTE]
 > Key Vault resource provider supports two resource types: **vaults** and **managed HSMs**. Access control described in this article only applies to **vaults**. To learn more about access control for managed HSM, see [Managed HSM access control](../managed-hsm/access-control.md).

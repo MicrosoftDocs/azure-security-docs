@@ -32,12 +32,12 @@ Here's how you can set up an attestation endpoint using Portal
 
 1. Prerequisite: Access to the Microsoft Entra tenant and subscription under which you want to create the attestation endpoint. For more information, see [Microsoft Entra tenant](/azure/active-directory/develop/quickstart-create-new-tenant).
 1. Create an endpoint under the desired resource group, with the desired name.
-    > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5azcU]
+    > [!VIDEO https://learn-video.azurefd.net/vod/player?id=8d3c6aa5-7712-4b47-b3ea-23c49539cd31]
 1. Add Attestation Contributor Role to the Identity who will be responsible to update the attestation policy.
-    > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5aoRj]
+    > [!VIDEO https://learn-video.azurefd.net/vod/player?id=342d7a36-788a-4d42-ae97-00295e2fe6a1]
 
 1. Configure the endpoint with the required policy.
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5aoRk]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=33995690-31e5-4121-9cd5-e61674d3c94d]
 
 Sample policies can be found in the [policy section](tpm-attestation-sample-policies.md).
 
@@ -50,13 +50,13 @@ A client to communicate with the attestation service endpoint needs to ensure it
 
 1. Prerequisite: a Microsoft Entra identity is needed to access the TPM endpoint. For more information, see [Microsoft Entra identity tokens](/azure/active-directory/develop/v2-overview).
 2. Add Attestation Reader Role to the identity that will be need for authentication against the endpoint.
-  > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5aoRi]
+  > [!VIDEO https://learn-video.azurefd.net/vod/player?id=1c70f4b2-e3e7-4b64-9fb1-ceb2810c669c]
 
 ## Execute the attestation workflow
 
 Using the [Client](https://github.com/microsoft/Attestation-Client-Samples) to trigger an attestation flow. A successful attestation will result in an attestation report (encoded JWT token). Parsing the JWT token, the contents of the report can be easily validated against expected outcome.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE5azcT]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=a10576ad-08fe-4663-9ff5-17081de141d0]
 
 Here's a sample of the contents of the attestation report.
 :::image type="content" source="./media/sample-decoded-token.jpg" alt-text="Sample snapshot of a decoded token for tpm attestation." lightbox="./media/sample-decoded-token.jpg":::
