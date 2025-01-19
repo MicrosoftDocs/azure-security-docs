@@ -12,11 +12,11 @@ ms.author: orthomas
 
 # Apps, API Keys, and Azure Key Vault secrets
 
-Azure Key Vault is an Azure service that safeguards cryptographic keys, secrets, and certificates. It provides a centralized, secure, and highly available repository for sensitive information like API keys. One  method of avoiding the insecure practice of embedding API keys directly in your application’s source code is to configure your app to securely interact with API keys that are stored in Azure Key Vault .
+Azure Key Vault is an Azure service that safeguards cryptographic keys, secrets, and certificates. It provides a centralized, secure, and highly available repository for sensitive information like API keys. One  method of avoiding the insecure practice of embedding API keys directly in your application’s source code is to configure your app to securely interact with API keys that are stored in Azure Key Vault.
 
 In this article you learn how to create a Key Vault instance, add an API key as a secret to this key vault, and then secure the key vault using security best practices including restricting access using role based access control (RBAC) and network restriction.
 
-## Creating and securing a Azure Key Vault instance
+## Creating and securing an Azure Key Vault instance
 
 Azure Key Vault allows you to securely store cryptographic keys, secrets, and certificates. You should deploy separate key vaults for different environments (development, staging, production) and applications. 
 
@@ -57,7 +57,7 @@ az role assignment create --role "Key Vault Secrets User" \
 
 ### Enable Key Vault logging and alerts
 
-You should enable logging and alerts on your Key Vault instance as a method of detecting potentially suspicious activity . To enable Azure Key Vault Logging and Alerts, use the following Azure CLI commands:
+You should enable logging and alerts on your Key Vault instance as a method of detecting potentially suspicious activity. To enable Azure Key Vault Logging and Alerts, use the following Azure CLI commands:
 
 ```azurecli
 az monitor diagnostic-settings create \
@@ -99,7 +99,7 @@ az network private-endpoint create \
     --connection-name myConnection
 ```
 
-You can create firewall rules on the Azure Key Vault instance using the following Azure CLI command, substituting the appropriate key vault names, resource groups, and subnet and subnet mask information:
+You can create firewall rules on the Azure Key Vault instance using the following Azure CLI command, substituting the appropriate key vault names, resource groups, subnet, and subnet mask information:
 
 ```azurecli
 az keyvault network-rule add \
