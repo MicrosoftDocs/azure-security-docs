@@ -12,9 +12,9 @@ ms.author: orthomas
 
 # Apps, API Keys, and Azure Key Vault secrets
 
-Azure Key Vault is an Azure service that safeguards cryptographic keys, secrets, and certificates. It provides a centralized, secure, and highly available repository for sensitive information like API keys. One  method of avoiding the insecure practice of embedding API keys directly in your application’s source code is to configure your app to securely interact with API keys that are stored in Azure Key Vault.
+Azure Key Vault is an Azure service that safeguards cryptographic keys, secrets, and certificates. It provides a centralized, secure, and highly available repository for sensitive information like API keys. One  method of avoiding the insecure practice of embedding API keys directly in your application's source code is to configure your app to securely interact with API keys that are stored in Azure Key Vault.
 
-In this article you learn how to create a Key Vault instance, add an API key as a secret to this key vault, and then secure the key vault using security best practices including restricting access using role based access control (RBAC) and network restriction.
+In this article you learn how to create a Key Vault instance, add an API key as a secret to this key vault, and then configure the key vault using best practices. These best practices include restricting access using role based access control (RBAC), enabling monitoring, and restricting network access.
 
 ## Creating and securing an Azure Key Vault instance
 
@@ -43,11 +43,11 @@ az keyvault secret set \
     --expires "$(date -u -d '+180 days' +'%Y-%m-%dT%H:%M:%SZ')"
 ```
 
-You should aim to rotate your API keys periodically. Depending on your organization’s security needs, you may choose to rotate keys more or less frequently than every 180 days. You can configure an Event Grid subscription for the “SecreNearExpiry” event as a method of receiving notification about expiring API key secrets.
+You should aim to rotate your API keys periodically. Depending on your organization's security needs, you may choose to rotate keys more or less frequently than every 180 days. You can configure an Event Grid subscription for the "SecreNearExpiry" event as a method of receiving notification about expiring API key secrets.
 
 ### Restrict access to the Key Vault using RBAC
 
-You can restrict access to the Azure Key Vault instance so that only the application’s identity has access to Azure Key Vault. To do this configure a Role Based Access Control (RBAC) role using the following Azure CLI command
+You can restrict access to the Azure Key Vault instance so that only the application's identity has access to Azure Key Vault. To do this configure a Role Based Access Control (RBAC) role using the following Azure CLI command:
 
 ```azurecli
 az role assignment create --role "Key Vault Secrets User" \
@@ -67,7 +67,7 @@ az monitor diagnostic-settings create \
     --workspace {log-analytics-workspace-id}
 ```
 
-This command creates a diagnostic setting named "myDiagnosticSettings", configures it for the specified Azure Key Vault, enables the "AuditEvent" log category, which tracks security and access-related events and sends the logs to the specified Log Analytics workspace for monitoring, analysis, and alerting. This allows you to monitor access patterns, detect unauthorized access attempts, and configure alerts for critical security events (for example, someone tries to access a secret without the right permissions).
+This command creates a diagnostic setting named `myDiagnosticSettings`, configures it for the specified Azure Key Vault, enables the `AuditEvent` log category, which tracks security and access-related events and sends the logs to the specified Log Analytics workspace for monitoring, analysis, and alerting. This allows you to monitor access patterns, detect unauthorized access attempts, and configure alerts for critical security events (for example, someone tries to access a secret without the right permissions).
 
 You can run the following Azure CLI command to monitors logs in the specified Log Analytics workspace for unauthorized access attempts to Azure Key Vault secrets and triggers an alert if any matching unauthorized access attempt is detected:
 
@@ -81,7 +81,7 @@ az monitor scheduled-query create \
 
 ### Restrict network access to Key Vault
 
-You should restrict network access to Azure Key Vault so that requests will only be handled from known network locations. There are two general methods you  can use to do this:
+You should restrict network access to Azure Key Vault so that the vault only accepts requests from known network locations. There are two general methods you  can use to do this:
 
 - Azure Private Link. This creates a private endpoint within your virtual network, allowing your application to connect to Azure Key Vault without traversing the public internet. This option is the most secure as traffic remains within your network, but requires creating a private endpoint and configuring DNS.
 - Firewall Rules. You can configure the Azure Key Vault firewall settings, located under Networks, with a list of allowed IP ranges. You can also use this method to allow access to existing virtual networks, but this requires that you enable a service endpoint for Microsoft.KeyVault on the selected subnet.
