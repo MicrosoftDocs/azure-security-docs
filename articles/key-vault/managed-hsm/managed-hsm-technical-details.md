@@ -34,7 +34,7 @@ Figure 1 shows the architecture of an HSM pool, which consists of three Linux VM
 - The HSM fabric controller (HFC) is the control plane for the service. The HFC drives automated patching and repairs for the pool.
 - An exclusive cryptographic boundary for each customer composed of three [Intel Secure Guard Extensions (Intel SGX)](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) confidential enclaves connected to three FIPS 140-2 Level 3 compliant HSM instances. The root keys for this boundary are generated and stored in the three HSMs. As we describe later in this article, no person associated with Microsoft has access to the data that's within this boundary. Only service code that's running in the Intel SGX enclave (including the Node Service agent), acting on behalf of the customer, has access.
 
-:::image type="content" source="../media/mhsm-technical-details/mhsm-architecture.png" border="false" alt-text="Diagram of a Managed HSM pool that shows TEEs inside a customer cryptographic boundary and health maintenance operations outside the boundary.":::
+:::image type="content" source="./media/managed-hsm-architecture.png" lightbox="./media/managed-hsm-architecture.png" alt-text="Diagram of a Managed HSM pool that shows TEEs inside a customer cryptographic boundary and health maintenance operations outside the boundary.":::
 
 ### Trusted execution environment (TEE)
 
