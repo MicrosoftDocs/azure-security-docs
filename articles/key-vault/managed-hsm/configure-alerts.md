@@ -1,6 +1,6 @@
 ---
-title: Azure Managed HSM logging
-description: Use this tutorial to help you get started with Managed HSM logging.
+title: Configure Managed HSM alerts
+description: XXX
 services: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
@@ -8,113 +8,121 @@ ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 01/30/2025
-#Customer intent: As a Managed HSM administrator, I want to enable logging so I can monitor how my HSM is accessed.
+#Customer intent: XXX
 ---
 
-# Managed HSM logging
+# Configure Managed HSM alerts
 
-After you create one or more Managed HSMs, you'll likely want to monitor how and when your HSMs are accessed, and by who. You can do this by enabling logging, which saves information in an Azure storage account that you provide. A new container named **insights-logs-auditevent** is automatically created for your specified storage account. You can use this same storage account for collecting logs for multiple Managed HSMs. You can also choose to send your logs to a log analytics workspace, which can then be used to enable Sentinel to detect suspicious activity automatically.
-You can access your logging information 10 minutes (at most) after the Managed HSM operation. In most cases, it will be quicker than this. It's up to you to manage your logs in your storage account:
-- Use standard Azure access control methods to secure your logs by restricting who can access them.
-- Delete logs that you no longer want to keep in your storage account.
+After you start to use Azure Managed HSM to store your production keys, it's important to monitor the health of your HSM to make sure that your service operates as intended.
 
-Use this tutorial to help you get started with Managed HSM logging. You should have a storage account or log analytics workspace already created before you enable logging and interpret the collected log information.
+As you start to scale your service, the number of requests sent to your HSM will rise. This rise has a potential to increase the latency of your requests. In extreme cases, it can cause your requests to be throttled and affect the performance of your service. You also need to know if your HSM is sending an unusual number of error codes, so you can quickly handle any problems with an access policy or firewall configuration.
 
-## Prerequisites
+This article will show you how to configure alerts at specified thresholds so you can alert your team to take action immediately if your HSM is in an unhealthy state. You can configure alerts that send an email (preferably to a team distribution list), fire an Azure Event Grid notification, or call or text a phone number.
 
-To complete the steps in this article, you must have the following items:
+## Alert Types
 
-* A subscription to Microsoft Azure. If you don't have one, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
-* The Azure CLI version 2.25.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
-* A managed HSM in your subscription. See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to provision and activate a managed HSM.
-* An existing Log Analytics workspace. You can create one using the steps found in [Create Log Analytics workspaces](../../azure-monitor/logs/quick-create-workspace.md?tabs=azure-portal).
+You can choose between these alert types:
 
-[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
+- **Static alert** based on a fixed value
+- **Dynamic alert** that will notify you if a monitored metric exceeds the average limit of your HSM a certain number of times within a defined time range
 
-## Connect to your Azure subscription
+> [!IMPORTANT]
+> It can take up to 10 minutes for newly configured alerts to start sending notifications.
 
-The first step in setting up key logging is to point Azure CLI to the Managed HSM that you want to log.
+This article focuses on alerts for managed HSM.
 
-```azurecli-interactive
-az login
-```
+## Configure an Action Group
 
-For more information on login options via the CLI take a look at [sign in with Azure CLI](/cli/azure/authenticate-azure-cli)
+An action group is a configurable list of notifications and properties. The first step in configuring alerts is to create an action group and choose an alert type:
 
-You might have to specify the subscription that you used to create your Managed HSM. Enter the following command to see the subscriptions for your account:
+1. Select your HSM resource in the Azure portal, and then select **Alerts** under **Monitoring**.
+  :::image type="content" source="./media/configure-alerts-1.png" alt-text="XXX" lightbox="./media/configure-alerts-1.png":::
+1. Select **Create**.
+  :::image type="content" source="./media/configure-alerts-2.png" alt-text="XXX" lightbox="./media/configure-alerts-2.png":::
+2. Select **Action group**.
+  :::image type="content" source="./media/configure-alerts-3.png" alt-text="XXX" lightbox="./media/configure-alerts-3.png":::
+4. Enter **Project** and **Instance** details, and then select **Next**.
+  :::image type="content" source="./media/configure-alerts-3.png" alt-text="XXX" lightbox="./media/configure-alerts-3.png":::
+1. Choose the **Notification Type** for your action group. In this example, we’ll create an email and SMS alert. Select **Email/SMS message/Push/Voice**.
+  :::image type="content" source="./media/configure-alerts-4.png" alt-text="XXX" lightbox="./media/configure-alerts-4.png":::
+1. In the dialog, enter email and SMS details, and then select **OK**.
+  :::image type="content" source="./media/configure-alerts-5.png" alt-text="XXX" lightbox="./media/configure-alerts-5.png":::
+1. Enter a name for the notification time and select **Next**.
+  :::image type="content" source="./media/configure-alerts-6.png" alt-text="XXX" lightbox="./media/configure-alerts-6.png":::
+1. Select an **Action type** for your action group. In this example, we’ll create an Event Hub action. Select **Event Hub**.
+  :::image type="content" source="./media/configure-alerts-7.png" alt-text="XXX" lightbox="./media/configure-alerts-7.png":::
+1.  Enter **Event Hub namespace** and **name** and select **OK**.
+  :::image type="content" source="./media/configure-alerts-8.png" alt-text="XXX" lightbox="./media/configure-alerts-8.png":::
+1.  Enter a **Name** for the action.
+  :::image type="content" source="./media/configure-alerts-9.png" alt-text="XXX" lightbox="./media/configure-alerts-9.png":::
+1.  Select **Review + create** and select **Create**.
 
-## Identify the managed HSM and storage account
+## Configure Alert Thresholds
 
-```azurecli-interactive
-hsmresource=$(az keyvault show --hsm-name ContosoMHSM --query id -o tsv)
-storageresource=$(az storage account show --name ContosoMHSMLogs --query id -o tsv)
-```
+Next, create a rule and configure the thresholds that will trigger an alert:
 
-## Enable logging
+1. Select your HSM resource in the Azure portal, and then select **Alerts** under **Monitoring**.
+  :::image type="content" source="./media/configure-alerts-10.png" alt-text="XXX" lightbox="./media/configure-alerts-10.png":::
+2. Select **Alert rule** under **Create**.
+  :::image type="content" source="./media/configure-alerts-11.png" alt-text="XXX" lightbox="./media/configure-alerts-11.png":::
+3. Select the scope of your alert rule. You can select a single HSM or multiple HSMs.
 
-To enable logging for Managed HSM, use the **az monitor diagnostic-settings create** command, together with the variables that we created for the new storage account and the Managed HSM. We'll also set the **-Enabled** flag to **$true** and set the category to **AuditEvent** (the only category for Managed HSM logging):
+  > [!IMPORTANT]
+  > When you're selecting multiple HSMs for the scope of your alerts, all selected HSMs must be in the same region. You have to configure separate alert rules for HSMs in different regions.
 
-This output confirms that logging is now enabled for your Managed HSM, and it will save information to your storage account.
+  :::image type="content" source="./media/configure-alerts-12.png" alt-text="XXX" lightbox="./media/configure-alerts-12.png":::
 
-Optionally, you can set a retention policy for your logs such that older logs are automatically deleted. For example, set retention policy by setting the **-RetentionEnabled** flag to **$true**, and set the **-RetentionInDays** parameter to **90** so that logs older than 90 days are automatically deleted.
+4. Select the thresholds that define the logic for your alerts. You can view all available signals by selecting **See all signals**. The Managed HSM team recommends configuring the following thresholds for most applications, but you can adjust them based on your application needs:
+  - **Key Vault availability** drops below 100 percent (static threshold)
+  - **Key Vault latency** is greater than 1000 ms (static threshold)
 
-```azurecli-interactive
-az monitor diagnostic-settings create --name ContosoMHSM-Diagnostics --resource $hsmresource --logs '[{"category": "AuditEvent","enabled": true}]' --storage-account $storageresource
-```
+  > [!NOTE]
+  > The intention of the 1000 ms threshold is to notify that the Key Vault service in this region has a workload higher than average. Our SLA for Key Vault operations is several times higher, see the [Service Level Agreement for Online Services](https://azure.microsoft.com/en-us/support/legal/sla/) for current SLA. To alert when Key Vault operations are out of SLA, use the thresholds from the SLA documents.
 
-What's logged:
+  **Total error codes** are higher than average (dynamic threshold)
+  :::image type="content" source="./media/configure-alerts-13.png" alt-text="XXX" lightbox="./media/configure-alerts-13.png":::
+1. Select an action to apply to the alert rule. In this example, we’ll add an existing action group. Select the action group and select **Select**.
+  :::image type="content" source="./media/configure-alerts-14.png" alt-text="XXX" lightbox="./media/configure-alerts-14.png":::
+2. Enter **Project** and **Alert rule** details, and then select **Next**.
+3. Select **Create**.
 
-* All authenticated REST API requests, including failed requests as a result of access permissions, system errors, firewall blocks, or bad requests.
-* Managed plane operations on the Managed HSM resource itself, including creation, deletion, and updating attributes such as tags.
-* Security Domain related operations such as initialize & download, initialize recovery, upload
-* Full HSM backup, restore and selective restore operations
-* Role management operations such as create/view/delete role assignments and create/view/delete custom role definitions
-* Operations on keys, including:
-  * Creating, modifying, or deleting the keys.
-  * Signing, verifying, encrypting, decrypting, wrapping and unwrapping keys, listing keys.
-  * Key backup, restore, purge
-  * Key release
-* Invalid paths that result in a 404 response. 
+### Example: Configure a Static Alert Threshold for Latency
 
-## Access your logs
+1. Select **Overall Service Api Latency** as the signal name and select **Apply**.
+  :::image type="content" source="./media/configure-alerts-16.png" alt-text="XXX" lightbox="./media/configure-alerts-16.png":::
+2. Use the following configuration parameters:
+  - Set **Threshold** to **Static**.
+  - Set **Aggregation type** to **Average**.
+  - Set **Operator** to **Greater than**.
+  - Set **Threshold value** to **1000**.
+  - Set **Check every** to **1 minute**.
+  - Set **Lookback period** to **5 Minutes**.
+  :::image type="content" source="./media/configure-alerts-17.png" alt-text="XXX" lightbox="./media/configure-alerts-17.png":::
+3. Select **Done**.
 
-Managed HSM logs are stored in the **insights-logs-auditevent** container in the storage account that you provided. To view the logs, you have to download blobs. For information on Azure Storage, see [Create, download, and list blobs with Azure CLI](/azure/storage/blobs/storage-quickstart-blobs-cli).
+### Example: Configure an Azure Advisor Alert that a Managed HSM Backup Has Been Taken in the Last 30 Days
 
-Individual blobs are stored as text, formatted as a JSON. Let's look at an example log entry. The example below shows the log entry when a request to create a full backup is sent to the managed HSM.
+To get alerted if a backup has not been taken in the last 30 days, the alert must be set up in Advisor.
 
-```json
-[
-  {
-    "TenantId": "{tenant-id}",
-    "time": "2020-08-31T19:52:39.763Z",
-    "resourceId": "/SUBSCRIPTIONS/{subscription-id}/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/MANAGEDHSMS/CONTOSOMHSM",
-    "operationName": "BackupCreate",
-    "operationVersion": "7.0",
-    "category": "AuditEvent",
-    "resultType": "Success",
-    "properties": {
-        "PoolType": "M-HSM",
-        "sku_Family": "B",
-        "sku_Name": "Standard_B1"
-    },
-    "durationMs": 488,
-    "callerIpAddress": "X.X.X.X",
-    "identity": "{\"claim\":{\"appid\":\"{application-id}\",\"http_schemas_microsoft_com_identity\":{\"claims\":{\"objectidentifier\":\"{object-id}\"}},\"http_schemas_xmlsoap_org_ws_2005_05_identity\":{\"claims\":{\"upn\":\"admin@contoso.com\"}}}}",
-    "clientInfo": "azsdk-python-core/1.7.0 Python/3.8.2 (Linux-4.19.84-microsoft-standard-x86_64-with-glibc2.29) azsdk-python-azure-keyvault/7.2",
-    "correlationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
-    "subnetId": "(unknown)",
-    "httpStatusCode": 202,
-    "PoolName": "mhsmdemo",
-    "requestUri": "https://ContosoMHSM.managedhsm.azure.net/backup",
-    "resourceGroup": "ContosoResourceGroup",
-    "resourceProvider": "MICROSOFT.KEYVAULT",
-    "resource": "ContosoMHSM",
-    "resourceType": "managedHSMs"
-  }
-]
-```
+1. Search “Advisor” in the Azure portal and select the “Advisor” service.
+  :::image type="content" source="./media/configure-alerts-18.png" alt-text="XXX" lightbox="./media/configure-alerts-18.png":::
+2. Select **Alerts** under **Monitoring**.
+  :::image type="content" source="./media/configure-alerts-19.png" alt-text="XXX" lightbox="./media/configure-alerts-19.png":::
+3. Select **New Advisor Alert**.
+  :::image type="content" source="./media/configure-alerts-20.png" alt-text="XXX" lightbox="./media/configure-alerts-20.png":::
+4. Select the scope of your alert rule.
+5. Select **Recommendation Type** as the configuration condition.
+6. Search for “Create a backup of HSM” as the recommendation type and select it.
+7. Select an **Action Group**. In this example, we will select an existing action group. You can select up to 5 action groups to attach to an alert rule. Choose **Select existing** and a side panel will pop out. Select the existing action group.
+  :::image type="content" source="./media/configure-alerts-21.png" alt-text="XXX" lightbox="./media/configure-alerts-21.png":::
+8. Give the alert rule a name and select the resource group it applies to. Then, select **Create Alert**.
+  :::image type="content" source="./media/configure-alerts-22.png" alt-text="XXX" lightbox="./media/configure-alerts-22.png":::
+  :::image type="content" source="./media/configure-alerts-23.png" alt-text="XXX" lightbox="./media/configure-alerts-23.png":::
 
-## Next steps
+## Next Steps
 
-- Learn about [best practices](best-practices.md) to provision and use a managed HSM
-- Learn about [how to Backup and Restore](backup-restore.md) a Managed HSM
+Use the tools that you set up in this article to actively monitor the health of your key vault:
+
+- [Monitor Azure Managed HSM](https://docs.microsoft.com/azure/key-vault/managed-hsm/monitor)
+- [Monitoring Key Vault data reference](https://docs.microsoft.com/azure/key-vault/general/monitoring)
+- [Create a log query alert for an Azure resource](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log)
