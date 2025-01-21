@@ -12,13 +12,13 @@ ms.custom: references_regions
 ---
 # Enable multi-region replication on Azure Managed HSM
 
-Multi-region replication allows you to extend a managed HSM pool from one Azure region (called the primary region) to another Azure region (called an extended region). Once configured, both regions are active, able to serve requests and, with automated replication, share the same key material, roles, and permissions. The closest available region to the application receives and fulfills the request, thereby maximizing read throughput and latency. While regional outages are rare, multi-region replication enhances the availability of mission critical cryptographic keys should one region become unavailable.  For more information on SLA, visit [SLA for Azure Key Vault Managed HSM](https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/).
+Multi-region replication allows you to extend a managed HSM pool from one Azure region (called the primary region) to another Azure region (called an extended region). Once configured, both regions are active, able to serve requests and, with automated replication, share the same key material, roles, and permissions. The closest available region to the application receives and fulfills the request, maximizing read throughput and latency. While regional outages are rare, multi-region replication enhances the availability of mission critical cryptographic keys should one region become unavailable. For more information on SLA, visit [SLA for Azure Key Vault Managed HSM](https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/).
 
 ## Architecture
 
 :::image type="content" source="./media/managed-hsm-multi-region-replication.png" alt-text="Architecture diagram of managed HSM Multi-Region Replication." lightbox="./media/managed-hsm-multi-region-replication.png":::
 
-When multi-region replication is enabled on a managed HSM, a second managed HSM pool, with three load-balanced HSM partitions, is created in an extended region. When requests are issued to the Traffic Manager global DNS endpoint `<hsm-name>.managedhsm.azure.net`, the closest available region receives and fulfills the request. While each region individually maintains regional high-availability due to the distribution of HSMs across the region, the traffic manager ensures that even if all partitions of a managed HSM in one region are unavailable due to a catastrophe, requests can still be served by the managed HSM pool in the extended region.
+When multi-region replication is enabled on a managed HSM, a second managed HSM pool, with three load-balanced HSM partitions, is created in an extended region. When requests are issued to the Traffic Manager global DNS endpoint `<hsm-name>.managedhsm.azure.net`, the closest available region receives and fulfills the request. While each region individually maintains regional high-availability due to the distribution of HSMs across the region, the traffic manager ensures that even if all partitions of a managed HSM in one region are unavailable due to a catastrophe, requests are still served by the managed HSM pool in the extended region.
 
 ## Replication latency
 
@@ -86,7 +86,7 @@ The following regions are supported as primary regions (Regions where you can re
 - US West Central
 
 > [!NOTE]
-> US Central, US East, US South Central, West US 2, Switzerland North, West Europe, Central India, Canada Central, Canada East, Japan West, Qatar Central, Poland Central and US West Central cannot be extended regions at this time. Other regions may be unavailable for extension due to capacity limitations in the region.
+> US Central, US East, US South Central, West US 2, Switzerland North, West Europe, Central India, Canada Central, Canada East, Japan West, Qatar Central, Poland Central, and US West Central cannot be extended regions at this time. Other regions may be unavailable for extension due to capacity limitations in the region.
 
 ## Billing
 
@@ -98,9 +98,9 @@ The [Managed HSM soft-delete feature](soft-delete-overview.md) allows recovery o
 
 ## Private link behavior with Multi-region replication
 
-The [Azure Private Link feature](private-link.md) allows you to access the Managed HSM service over a private endpoint in your virtual network. You would configure private endpoint on the Managed HSM in the primary region just as you would when not using the multi-region replication feature. For the Managed HSM in an extended region, it is recommended to create another private endpoint and private DNS zone once the Managed HSM in the primary region is replicated to the Managed HSM in an extended region.  This will redirect client requests to the Managed HSM closest to the client location. 
+The [Azure Private Link feature](private-link.md) allows you to access the Managed HSM service over a private endpoint in your virtual network. You would configure private endpoint on the Managed HSM in the primary region just as you would when not using the multi-region replication feature. For the Managed HSM in an extended region, it is recommended to create another private endpoint and private DNS zone once the Managed HSM in the primary region is replicated to the Managed HSM in an extended region., which redirects client requests to the Managed HSM closest to the client location.
 
-Some scenarios below with examples: Managed HSM in a primary region (UK South) and another Managed HSM in an extended region (US West Central).
+Here are some scenarios with examples: Managed HSM in a primary region (UK South) and another Managed HSM in an extended region (US West Central).
 
 - When both Managed HSMs in the primary and extended regions are up and running with private endpoint enabled, client requests are redirected to the Managed HSM closest to client location. Client requests go to the closest region's private endpoint and then directed to the same region's Managed HSM by the traffic manager.
 
@@ -110,24 +110,24 @@ Some scenarios below with examples: Managed HSM in a primary region (UK South) a
 
   :::image type="content" source="./media/managed-hsm-multiregion-scenario-2.png" alt-text="Diagram illustrating the second managed HSM multi-region scenario." lightbox="./media/managed-hsm-multiregion-scenario-2.png":::
 
-- Managed HSMs in primary and extended regions but only one private endpoint configured in either the primary or extended region. For a client from a different VNET (VNET1) to connect to a Managed HSM through a private endpoint in a different VNET (VNET2), it requires VNET peering between the two VNETs. You can add VNET link for the private DNS zone which is created during the private endpoint creation.
+- Managed HSMs in primary and extended regions but only one private endpoint configured in either the primary or extended region. For a client from a different virtual network (VNET1) to connect to a Managed HSM through a private endpoint in a different virtual network (VNET2), it requires virtual network peering between the two VNETs. You can add virtual network link for the private DNS zone which is created during the private endpoint creation.
 
   :::image type="content" source="./media/managed-hsm-multiregion-scenario-3.png" alt-text="Diagram illustrating the third managed HSM multi-region scenario." lightbox="./media/managed-hsm-multiregion-scenario-3.png":::
 
-In the diagram below, private endpoint is created only in the UK South region, while there are two Managed HSMs up and running one each in the UK South and the other in the US West Central. Requests from both the clients go to the UK South Managed HSM since requests are routed through the private endpoint and the private endpoint location in this case is in the UK south.
+In this diagram, the private endpoint is created only in the UK South region, while there are two Managed HSMs up and running one each in the UK South and the other in the US West Central. Requests from both the clients go to the UK South Managed HSM since requests are routed through the private endpoint and the private endpoint location in this case is in the UK south.
 
   :::image type="content" source="./media/managed-hsm-multiregion-scenario-4.png" alt-text="Diagram illustrating the fourth managed HSM multi-region scenario." lightbox="./media/managed-hsm-multiregion-scenario-4.png":::
 
-In the diagram below, private endpoint is created only in the UK South region, only the Managed HSM in the US West Central is available and the Managed HSM in the UK South is unavailable. In this case, requests will be redirected to the US West Central Managed HSM through the private endpoint in the UK South because traffic manager detects that the UK South Managed HSM is unavailable.
+In this diagram, the private endpoint is created in the UK South region only, the Managed HSM in the US West Central is the only one available, and the Managed HSM in the UK South is unavailable. In this case, requests will be redirected to the US West Central Managed HSM through the private endpoint in the UK South because traffic manager detects that the UK South Managed HSM is unavailable.
 
   :::image type="content" source="./media/managed-hsm-multiregion-scenario-5.png" alt-text="Diagram illustrating the fifth managed HSM multi-region scenario." lightbox="./media/managed-hsm-multiregion-scenario-5.png":::
 
 ### Azure CLI commands
 
-If creating a new Managed HSM pool and then extending to an extended region, refer to [these instructions](quick-create-cli.md#create-a-managed-hsm) prior to extending.  If extending from an already existing Managed HSM pool, then use the following instructions to extend the HSM pool into an extended region.  
+If creating a new Managed HSM pool and then extending to an extended region, refer to [these instructions](quick-create-cli.md#create-a-managed-hsm) before extending. If extending from an already existing Managed HSM pool, then use the following instructions to extend the HSM pool into an extended region.  
 
 > [!NOTE]
-> These commands requires Azure CLI version 2.48.1 or higher. To install the latest version, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+> These commands require Azure CLI version 2.48.1 or higher. To install the latest version, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 ### Extend a primary HSM into an extended region
 
