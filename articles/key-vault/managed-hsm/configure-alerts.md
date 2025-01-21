@@ -8,7 +8,7 @@ ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 01/30/2025
-#Customer intent: Learn how to set up alerts for Azure Managed HSM to ensure optimal performance and health monitoring.
+#Customer intent: As a Managed HSM administrator, I want to configure alerts so I can monitor the health and performance of my HSM. 
 ---
 
 # Configure Managed HSM alerts
