@@ -1,6 +1,6 @@
 ---
 title: Configure Managed HSM alerts
-description: XXX
+description: Learn how to configure alerts for Azure Managed HSM to monitor its health and performance.
 services: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
@@ -8,7 +8,7 @@ ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 01/30/2025
-#Customer intent: XXX
+#Customer intent: Learn how to set up alerts for Azure Managed HSM to ensure optimal performance and health monitoring.
 ---
 
 # Configure Managed HSM alerts
@@ -36,25 +36,25 @@ This article focuses on alerts for managed HSM.
 An action group is a configurable list of notifications and properties. The first step in configuring alerts is to create an action group and choose an alert type:
 
 1. Select your HSM resource in the Azure portal, and then select **Alerts** under **Monitoring**.
-  :::image type="content" source="./media/configure-alerts-1.png" alt-text="XXX" lightbox="./media/configure-alerts-1.png":::
+  :::image type="content" source="./media/configure-alerts-1.png" alt-text="Select Alerts under Monitoring in the Azure portal" lightbox="./media/configure-alerts-1.png":::
 1. Select **Create**.
-  :::image type="content" source="./media/configure-alerts-2.png" alt-text="XXX" lightbox="./media/configure-alerts-2.png":::
+  :::image type="content" source="./media/configure-alerts-2.png" alt-text="Create a new alert" lightbox="./media/configure-alerts-2.png":::
 2. Select **Action group**.
-  :::image type="content" source="./media/configure-alerts-3.png" alt-text="XXX" lightbox="./media/configure-alerts-3.png":::
+  :::image type="content" source="./media/configure-alerts-3.png" alt-text="Select Action group" lightbox="./media/configure-alerts-3.png":::
 4. Enter **Project** and **Instance** details, and then select **Next**.
-  :::image type="content" source="./media/configure-alerts-4.png" alt-text="XXX" lightbox="./media/configure-alerts-4.png":::
+  :::image type="content" source="./media/configure-alerts-4.png" alt-text="Enter Project and Instance details" lightbox="./media/configure-alerts-4.png":::
 1. Choose the **Notification Type** for your action group. In this example, we’ll create an email and SMS alert. Select **Email/SMS message/Push/Voice**.
-   :::image type="content" source="./media/configure-alerts-5.png" alt-text="XXX" lightbox="./media/configure-alerts-5.png":::
+   :::image type="content" source="./media/configure-alerts-5.png" alt-text="Choose Email/SMS message/Push/Voice as the Notification Type" lightbox="./media/configure-alerts-5.png":::
   1. In the dialog, enter email and SMS details, and then select **OK**.
-    :::image type="content" source="./media/configure-alerts-6.png" alt-text="XXX" lightbox="./media/configure-alerts-6.png":::
+    :::image type="content" source="./media/configure-alerts-6.png" alt-text="Enter email and SMS details" lightbox="./media/configure-alerts-6.png":::
   1. Enter a name for the notification time and select **Next**.
-    :::image type="content" source="./media/configure-alerts-7.png" alt-text="XXX" lightbox="./media/configure-alerts-7.png":::
+    :::image type="content" source="./media/configure-alerts-7.png" alt-text="Enter a name for the notification" lightbox="./media/configure-alerts-7.png":::
   1. Select an **Action type** for your action group. In this example, we’ll create an Event Hub action. Select **Event Hub**.
-    :::image type="content" source="./media/configure-alerts-8.png" alt-text="XXX" lightbox="./media/configure-alerts-8.png":::
+    :::image type="content" source="./media/configure-alerts-8.png" alt-text="Select Event Hub as the Action type" lightbox="./media/configure-alerts-8.png":::
   1.  Enter **Event Hub namespace** and **name** and select **OK**.
-    :::image type="content" source="./media/configure-alerts-9.png" alt-text="XXX" lightbox="./media/configure-alerts-9.png":::
+    :::image type="content" source="./media/configure-alerts-9.png" alt-text="Enter Event Hub namespace and name" lightbox="./media/configure-alerts-9.png":::
   1.  Enter a **Name** for the action.
-    :::image type="content" source="./media/configure-alerts-10.png" alt-text="XXX" lightbox="./media/configure-alerts-10.png":::
+    :::image type="content" source="./media/configure-alerts-10.png" alt-text="Enter a name for the action" lightbox="./media/configure-alerts-10.png":::
   1.  Select **Review + create** and select **Create**.
 
 ## Configure Alert Thresholds
@@ -62,15 +62,15 @@ An action group is a configurable list of notifications and properties. The firs
 Next, create a rule and configure the thresholds that will trigger an alert:
 
 1. Select your HSM resource in the Azure portal, and then select **Alerts** under **Monitoring**.
-  :::image type="content" source="./media/configure-alerts-11.png" alt-text="XXX" lightbox="./media/configure-alerts-11.png":::
+  :::image type="content" source="./media/configure-alerts-11.png" alt-text="Select Alerts under Monitoring in the Azure portal" lightbox="./media/configure-alerts-11.png":::
 2. Select **Alert rule** under **Create**.
-  :::image type="content" source="./media/configure-alerts-12.png" alt-text="XXX" lightbox="./media/configure-alerts-12.png":::
+  :::image type="content" source="./media/configure-alerts-12.png" alt-text="Create a new alert rule" lightbox="./media/configure-alerts-12.png":::
 3. Select the scope of your alert rule. You can select a single HSM or multiple HSMs.
 
   > [!IMPORTANT]
   > When you're selecting multiple HSMs for the scope of your alerts, all selected HSMs must be in the same region. You have to configure separate alert rules for HSMs in different regions.
 
-  :::image type="content" source="./media/configure-alerts-13.png" alt-text="XXX" lightbox="./media/configure-alerts-13.png":::
+  :::image type="content" source="./media/configure-alerts-13.png" alt-text="Select the scope of your alert rule" lightbox="./media/configure-alerts-13.png":::
 
 4. Select the thresholds that define the logic for your alerts. You can view all available signals by selecting **See all signals**. The Managed HSM team recommends configuring the following thresholds for most applications, but you can adjust them based on your application needs:
   - **Key Vault availability** drops below 100 percent (static threshold)
@@ -80,16 +80,16 @@ Next, create a rule and configure the thresholds that will trigger an alert:
   > The intention of the 1000 ms threshold is to notify that the Key Vault service in this region has a workload higher than average. Our SLA for Key Vault operations is several times higher, see the [Service Level Agreement for Online Services](https://azure.microsoft.com/en-us/support/legal/sla/) for current SLA. To alert when Key Vault operations are out of SLA, use the thresholds from the SLA documents.
 
   **Total error codes** are higher than average (dynamic threshold)
-  :::image type="content" source="./media/configure-alerts-14.png" alt-text="XXX" lightbox="./media/configure-alerts-14.png":::
+  :::image type="content" source="./media/configure-alerts-14.png" alt-text="Configure alert thresholds" lightbox="./media/configure-alerts-14.png":::
 1. Select an action to apply to the alert rule. In this example, we’ll add an existing action group. Select the action group and select **Select**.
-  :::image type="content" source="./media/configure-alerts-15.png" alt-text="XXX" lightbox="./media/configure-alerts-15.png":::
+  :::image type="content" source="./media/configure-alerts-15.png" alt-text="Select an action group for the alert rule" lightbox="./media/configure-alerts-15.png":::
 2. Enter **Project** and **Alert rule** details, and then select **Next**.
 3. Select **Create**.
 
 ### Example: Configure a Static Alert Threshold for Latency
 
 1. Select **Overall Service Api Latency** as the signal name and select **Apply**.
-  :::image type="content" source="./media/configure-alerts-17.png" alt-text="XXX" lightbox="./media/configure-alerts-17.png":::
+  :::image type="content" source="./media/configure-alerts-16.png" alt-text="Select Overall Service Api Latency as the signal name" lightbox="./media/configure-alerts-16.png":::
 2. Use the following configuration parameters:
   - Set **Threshold** to **Static**.
   - Set **Aggregation type** to **Average**.
@@ -97,7 +97,7 @@ Next, create a rule and configure the thresholds that will trigger an alert:
   - Set **Threshold value** to **1000**.
   - Set **Check every** to **1 minute**.
   - Set **Lookback period** to **5 Minutes**.
-  :::image type="content" source="./media/configure-alerts-18.png" alt-text="XXX" lightbox="./media/configure-alerts-18.png":::
+  :::image type="content" source="./media/configure-alerts-17.png" alt-text="Configure parameters for the static alert threshold" lightbox="./media/configure-alerts-17.png":::
 3. Select **Done**.
 
 ### Example: Configure an Azure Advisor Alert that a Managed HSM Backup Has Been Taken in the Last 30 Days
@@ -105,18 +105,19 @@ Next, create a rule and configure the thresholds that will trigger an alert:
 To get alerted if a backup has not been taken in the last 30 days, the alert must be set up in Advisor.
 
 1. Search “Advisor” in the Azure portal and select the “Advisor” service.
-  :::image type="content" source="./media/configure-alerts-19.png" alt-text="XXX" lightbox="./media/configure-alerts-19.png":::
+  :::image type="content" source="./media/configure-alerts-18.png" alt-text="Search for Advisor in the Azure portal" lightbox="./media/configure-alerts-18.png":::
 2. Select **Alerts** under **Monitoring**.
-  :::image type="content" source="./media/configure-alerts-20.png" alt-text="XXX" lightbox="./media/configure-alerts-20.png":::
+  :::image type="content" source="./media/configure-alerts-19.png" alt-text="Select Alerts under Monitoring in Advisor" lightbox="./media/configure-alerts-19.png":::
 3. Select **New Advisor Alert**.
-  :::image type="content" source="./media/configure-alerts-21.png" alt-text="XXX" lightbox="./media/configure-alerts-21.png":::
+  :::image type="content" source="./media/configure-alerts-20.png" alt-text="Create a new Advisor alert" lightbox="./media/configure-alerts-20.png":::
 4. Select the scope of your alert rule.
 5. Select **Recommendation Type** as the configuration condition.
 6. Search for “Create a backup of HSM” as the recommendation type and select it.
 7. Select an **Action Group**. In this example, we will select an existing action group. You can select up to 5 action groups to attach to an alert rule. Choose **Select existing** and a side panel will pop out. Select the existing action group.
-  :::image type="content" source="./media/configure-alerts-22.png" alt-text="XXX" lightbox="./media/configure-alerts-22.png":::
+  :::image type="content" source="./media/configure-alerts-21.png" alt-text="Select an existing action group" lightbox="./media/configure-alerts-21.png":::
+  :::image type="content" source="./media/configure-alerts-22.png" alt-text="Select the existing action group from the side panel" lightbox="./media/configure-alerts-22.png":::
 8. Give the alert rule a name and select the resource group it applies to. Then, select **Create Alert**.
-  :::image type="content" source="./media/configure-alerts-23.png" alt-text="XXX" lightbox="./media/configure-alerts-23.png":::
+  :::image type="content" source="./media/configure-alerts-23.png" alt-text="Give the alert rule a name and select the resource group" lightbox="./media/configure-alerts-23.png":::
 
 ## Next Steps
 
