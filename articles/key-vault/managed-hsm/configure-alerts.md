@@ -123,6 +123,7 @@ To get alerted if a backup has not been taken in the last 30 days, the alert mus
 
 Use the tools that you set up in this article to actively monitor the health of your key vault:
 
-- [Monitor Azure Managed HSM](https://docs.microsoft.com/azure/key-vault/managed-hsm/monitor)
-- [Monitoring Key Vault data reference](https://docs.microsoft.com/azure/key-vault/general/monitoring)
-- [Create a log query alert for an Azure resource](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log)
+- [Monitor Azure Managed HSM](logging-azure-monitor.md)
+- [Monitoring Key Vault data reference](../general/monitoring.md)
+- [Setting up Sentinel for Azure Managed HSM](sentinel.md)
+- [Create a log query alert for an Azure resource](/azure/azure-monitor/platform/alerts-log)

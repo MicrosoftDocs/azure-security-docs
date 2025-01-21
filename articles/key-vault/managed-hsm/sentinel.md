@@ -1,5 +1,5 @@
 ---
-title: Azure Managed HSM logging
+title: Setting up Sentinel for Azure Managed HSM
 description: Use this tutorial to help you get started with Managed HSM logging.
 services: key-vault
 author: msmbaldwin
@@ -11,110 +11,34 @@ ms.date: 01/30/2025
 #Customer intent: As a Managed HSM administrator, I want to enable logging so I can monitor how my HSM is accessed.
 ---
 
-# Managed HSM logging
+# Setting up Sentinel for Azure Managed HSM
 
-After you create one or more Managed HSMs, you'll likely want to monitor how and when your HSMs are accessed, and by who. You can do this by enabling logging, which saves information in an Azure storage account that you provide. A new container named **insights-logs-auditevent** is automatically created for your specified storage account. You can use this same storage account for collecting logs for multiple Managed HSMs. You can also choose to send your logs to a log analytics workspace, which can then be used to enable Sentinel to detect suspicious activity automatically.
-You can access your logging information 10 minutes (at most) after the Managed HSM operation. In most cases, it will be quicker than this. It's up to you to manage your logs in your storage account:
-- Use standard Azure access control methods to secure your logs by restricting who can access them.
-- Delete logs that you no longer want to keep in your storage account.
+You can use Microsoft Sentinel to automatically detect suspicious activity on your Azure resources. Microsoft Sentinel comes with many out-of-the-box connectors for Microsoft services, which integrate in real time. You can find the specific “Solution Package” for protecting Azure Key Vaults in the Sentinel’s Content Hub. You can use this for Managed HSM as well. However, there are a few key steps to take to ensure you are using it for Managed HSM properly.
 
-Use this tutorial to help you get started with Managed HSM logging. You should have a storage account or log analytics workspace already created before you enable logging and interpret the collected log information.
+1. Follow the instructions found in [Quickstart: Onboard to Microsoft Sentinel | Microsoft Learn](https://learn.microsoft.com/en-us/azure/sentinel/quickstart-onboard) to enable Sentinel.
+2. Navigate to your Microsoft Sentinel workspace, and then select **Content hub** under **Content management**.
+  :::image type="content" source="./media/sentinel-1.png" alt-text="Content hub under Content management in Microsoft Sentinel workspace" lightbox="./media/sentinel-1.png":::
+3. Search for **Azure Key Vault** in the Content Hub and select it.
+  :::image type="content" source="./media/sentinel-2.png" alt-text="Search for Azure Key Vault in the Content Hub" lightbox="./media/sentinel-2.png":::
+4. Select **Install** on the sidebar that appears.
+  :::image type="content" source="./media/sentinel-3.png" alt-text="Install option in the sidebar for Azure Key Vault" lightbox="./media/sentinel-3.png":::
+5. Select **Analytics** under **Configuration**.
+  :::image type="content" source="./media/sentinel-4.png" alt-text="Analytics under Configuration in Microsoft Sentinel" lightbox="./media/sentinel-4.png":::
+6. Select **Rule templates**, and then search for **Azure Key Vault** or use the filter to filter **Data sources** to **Azure Key Vault**.
+  :::image type="content" source="./media/sentinel-5.png" alt-text="Rule templates filtered by Azure Key Vault data source" lightbox="./media/sentinel-5.png":::
+7. Use the rule template that matches your use case best. In this example, we will select **Sensitive Key Vault operations**. In the sidebar that appears, select **Create rule**.
+  :::image type="content" source="./media/sentinel-6.png" alt-text="Create rule option for Sensitive Key Vault operations" lightbox="./media/sentinel-6.png":::
+8. In the **Set rule logic** tab, edit the rule query. Change “VAULTS” to “MANAGEDHSMS”. In this example, we also changed the `SensitiveOperationList` to include key-related operations only.
+  :::image type="content" source="./media/sentinel-7.png" alt-text="Set rule logic tab with rule query for Managed HSM" lightbox="./media/sentinel-7.png":::
+9. In this example, we will schedule the query to run once every hour.
+  :::image type="content" source="./media/sentinel-8.png" alt-text="Schedule query to run every hour" lightbox="./media/sentinel-8.png":::
+10. Review and save the rule. You should now see the rule you’ve created on the **Analytics** page.
+  :::image type="content" source="./media/sentinel-9.png" alt-text="Created rule on the Analytics page" lightbox="./media/sentinel-9.png":::
+11. You can test the rule above by creating and deleting a key. The `KeyDelete` operation is one of the sensitive operations searched by the Analytic Rule named “Sensitive Azure Managed HSM operations”. This should trigger an incident.
 
-## Prerequisites
+## Next Steps
 
-To complete the steps in this article, you must have the following items:
-
-* A subscription to Microsoft Azure. If you don't have one, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
-* The Azure CLI version 2.25.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
-* A managed HSM in your subscription. See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to provision and activate a managed HSM.
-* An existing Log Analytics workspace. You can create one using the steps found in [Create Log Analytics workspaces](../../azure-monitor/logs/quick-create-workspace.md?tabs=azure-portal).
-
-[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
-
-## Connect to your Azure subscription
-
-The first step in setting up key logging is to point Azure CLI to the Managed HSM that you want to log.
-
-```azurecli-interactive
-az login
-```
-
-For more information on login options via the CLI take a look at [sign in with Azure CLI](/cli/azure/authenticate-azure-cli)
-
-You might have to specify the subscription that you used to create your Managed HSM. Enter the following command to see the subscriptions for your account:
-
-## Identify the managed HSM and storage account
-
-```azurecli-interactive
-hsmresource=$(az keyvault show --hsm-name ContosoMHSM --query id -o tsv)
-storageresource=$(az storage account show --name ContosoMHSMLogs --query id -o tsv)
-```
-
-## Enable logging
-
-To enable logging for Managed HSM, use the **az monitor diagnostic-settings create** command, together with the variables that we created for the new storage account and the Managed HSM. We'll also set the **-Enabled** flag to **$true** and set the category to **AuditEvent** (the only category for Managed HSM logging):
-
-This output confirms that logging is now enabled for your Managed HSM, and it will save information to your storage account.
-
-Optionally, you can set a retention policy for your logs such that older logs are automatically deleted. For example, set retention policy by setting the **-RetentionEnabled** flag to **$true**, and set the **-RetentionInDays** parameter to **90** so that logs older than 90 days are automatically deleted.
-
-```azurecli-interactive
-az monitor diagnostic-settings create --name ContosoMHSM-Diagnostics --resource $hsmresource --logs '[{"category": "AuditEvent","enabled": true}]' --storage-account $storageresource
-```
-
-What's logged:
-
-* All authenticated REST API requests, including failed requests as a result of access permissions, system errors, firewall blocks, or bad requests.
-* Managed plane operations on the Managed HSM resource itself, including creation, deletion, and updating attributes such as tags.
-* Security Domain related operations such as initialize & download, initialize recovery, upload
-* Full HSM backup, restore and selective restore operations
-* Role management operations such as create/view/delete role assignments and create/view/delete custom role definitions
-* Operations on keys, including:
-  * Creating, modifying, or deleting the keys.
-  * Signing, verifying, encrypting, decrypting, wrapping and unwrapping keys, listing keys.
-  * Key backup, restore, purge
-  * Key release
-* Invalid paths that result in a 404 response. 
-
-## Access your logs
-
-Managed HSM logs are stored in the **insights-logs-auditevent** container in the storage account that you provided. To view the logs, you have to download blobs. For information on Azure Storage, see [Create, download, and list blobs with Azure CLI](/azure/storage/blobs/storage-quickstart-blobs-cli).
-
-Individual blobs are stored as text, formatted as a JSON. Let's look at an example log entry. The example below shows the log entry when a request to create a full backup is sent to the managed HSM.
-
-```json
-[
-  {
-    "TenantId": "{tenant-id}",
-    "time": "2020-08-31T19:52:39.763Z",
-    "resourceId": "/SUBSCRIPTIONS/{subscription-id}/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/MANAGEDHSMS/CONTOSOMHSM",
-    "operationName": "BackupCreate",
-    "operationVersion": "7.0",
-    "category": "AuditEvent",
-    "resultType": "Success",
-    "properties": {
-        "PoolType": "M-HSM",
-        "sku_Family": "B",
-        "sku_Name": "Standard_B1"
-    },
-    "durationMs": 488,
-    "callerIpAddress": "X.X.X.X",
-    "identity": "{\"claim\":{\"appid\":\"{application-id}\",\"http_schemas_microsoft_com_identity\":{\"claims\":{\"objectidentifier\":\"{object-id}\"}},\"http_schemas_xmlsoap_org_ws_2005_05_identity\":{\"claims\":{\"upn\":\"admin@contoso.com\"}}}}",
-    "clientInfo": "azsdk-python-core/1.7.0 Python/3.8.2 (Linux-4.19.84-microsoft-standard-x86_64-with-glibc2.29) azsdk-python-azure-keyvault/7.2",
-    "correlationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
-    "subnetId": "(unknown)",
-    "httpStatusCode": 202,
-    "PoolName": "mhsmdemo",
-    "requestUri": "https://ContosoMHSM.managedhsm.azure.net/backup",
-    "resourceGroup": "ContosoResourceGroup",
-    "resourceProvider": "MICROSOFT.KEYVAULT",
-    "resource": "ContosoMHSM",
-    "resourceType": "managedHSMs"
-  }
-]
-```
-
-## Next steps
-
-- Learn about [best practices](best-practices.md) to provision and use a managed HSM
-- Learn about [how to Backup and Restore](backup-restore.md) a Managed HSM
+- [Monitor Azure Managed HSM](logging-azure-monitor.md)
+- [Configure Managed HSM alerts](configure-alerts.md)
+- [Monitoring Key Vault data reference](../general/monitoring.md)
+- [Create a log query alert for an Azure resource](/azure/azure-monitor/platform/alerts-log)
