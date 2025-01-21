@@ -36,6 +36,8 @@ items:
       href: authenticate-ledger-nodes.md
     - name: Write transaction receipts
       href: write-transaction-receipts.md
+  - name: Programmability
+    href: programmability.md
 - name: How To Guides
   items:
   - name: Manage your Ledger
