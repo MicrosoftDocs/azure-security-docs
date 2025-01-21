@@ -1,6 +1,6 @@
 ---
 title: Setting up Sentinel for Azure Managed HSM
-description: Use this tutorial to help you get started with Managed HSM logging.
+description: Learn how to set up Azure Sentinel to monitor and detect suspicious activity in your Azure Managed HSM.
 services: key-vault
 author: msmbaldwin
 ms.author: mbaldwin

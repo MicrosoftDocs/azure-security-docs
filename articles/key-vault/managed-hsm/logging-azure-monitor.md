@@ -36,7 +36,7 @@ Azure uses the concept of resource types and IDs to identify everything in a sub
 
 Resource types are also part of the resource IDs for every resource running in Azure. For example, one resource type for a virtual machine is `Microsoft.Compute/virtualMachines`. For a list of services and their associated resource types, see [Resource providers](/azure/azure-resource-manager/management/resource-providers-and-types).
 
-For more information about the resource types for managed HSMs, see [Azure Key Vault monitoring data reference](/azure/key-vault/general/monitoring).
+For more information about the resource types for managed HSMs, see [Azure Key Vault monitoring data reference](../general/monitor-key-vault-reference.md).
 
 ## Data storage
 
@@ -58,9 +58,9 @@ Platform metrics and the Activity log are collected and stored automatically, bu
 
 Resource Logs aren't collected and stored until you create a diagnostic setting and route them to one or more locations.
 
-See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Managed HSM are listed in [Key Vault monitoring data reference](/azure/key-vault/general/monitoring).
+See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Managed HSM are listed in [Key Vault monitoring data reference](../general/monitor-key-vault-reference.md).
 
-To create a diagnostic setting for your key vault, see [Set up logging for managed HSM](/azure/key-vault/managed-hsm/logging-azure-monitor). The metrics and logs you can collect are discussed in the following sections.
+To create a diagnostic setting for your key vault, see [Set up logging for managed HSM](logging.md). The metrics and logs you can collect are discussed in the following sections.
 
 ## Azure Monitor platform metrics
 
@@ -79,7 +79,7 @@ For a list of all metrics it's possible to gather for all resources in Azure Mon
 
 You can analyze metrics for Key Vault with metrics from other Azure services using metrics explorer by opening **Metrics** from the Azure Monitor menu. See [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/visualize/metrics-explorer) for details on using this tool.
 
-For a list of available metrics for managed HSM, see [Azure Key Vault monitoring data reference](/azure/key-vault/general/monitoring).
+For a list of available metrics for managed HSM, see [Azure Key Vault monitoring data reference](../general/monitor-key-vault-reference.md).
 
 ## Azure Monitor resource logs
 
@@ -95,7 +95,7 @@ For a list of all available resource log categories in Azure Monitor, see [Suppo
 
 All resource logs in Azure Monitor have the same header fields, followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/platform/resource-logs-schema).
 
-For the available resource log categories, their associated Log Analytics tables, and the log schemas for managed HSM, see [Azure Key Vault monitoring data reference](/azure/key-vault/general/monitoring).
+For the available resource log categories, their associated Log Analytics tables, and the log schemas for managed HSM, see [Azure Key Vault monitoring data reference](../general/monitor-key-vault-reference.md).
 
 ## Azure activity log
 
@@ -113,9 +113,9 @@ All resource logs in Azure Monitor have the same fields followed by service-spec
 
 The Activity log is a type of platform log for Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.
 
-For a list of the types of resource logs collected for Managed HSM, see [Monitoring Key Vault data reference](/azure/key-vault/general/monitoring).
+For a list of the types of resource logs collected for Managed HSM, see [Monitoring Key Vault data reference](../general/monitor-key-vault-reference.md).
 
-For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Key Vault data reference](/azure/key-vault/general/monitoring).
+For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Key Vault data reference](../general/monitor-key-vault-reference.md).
 
 ## Analyze monitoring data
 
@@ -252,13 +252,13 @@ For some services, you can monitor at scale by applying the same metric alert ru
 
 ### Managed HSM alert rules
 
-The following list contains some suggested alert rules for managed HSM. These alerts are just examples. You can set alerts for any metric, log entry, or activity log entry listed in the [Azure Key Vault monitoring data reference](/azure/key-vault/general/monitoring).
+The following list contains some suggested alert rules for managed HSM. These alerts are just examples. You can set alerts for any metric, log entry, or activity log entry listed in the [Azure Key Vault monitoring data reference](../general/monitor-key-vault-reference.md).
 
 - Managed HSM Availability drops below 100% (Static Threshold)
 - Managed HSM Latency is greater than 1000 ms (Static Threshold)
 - Total Error Codes higher than average (Dynamic Threshold)
 
-For more information, see [Alerting for Azure Managed HSM](/azure/key-vault/managed-hsm/logging-azure-monitor).
+For more information, see [Alerting for Azure Managed HSM](configure-alerts.md).
 
 ## Advisor recommendations
 
@@ -270,5 +270,6 @@ For more information on Azure Advisor, see [Azure Advisor overview](/azure/advis
 
 - [Monitor Azure Managed HSM](logging-azure-monitor.md)
 - [Configure Managed HSM alerts](configure-alerts.md)
-- [Monitoring Key Vault data reference](../general/monitoring.md)
+- [Monitoring Key Vault](../general/monitor-key-vault.md)
+- [Monitoring Key Vault data reference](../general/monitor-key-vault-reference.md)
 - [Create a log query alert for an Azure resource](/azure/azure-monitor/platform/alerts-log)
