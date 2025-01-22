@@ -1,6 +1,6 @@
 ---
-title: Azure Managed HSM logging
-description: Use this tutorial to help you get started with Managed HSM logging.
+title: Monitor Azure Managed HSM
+description: Learn how to monitor Azure Managed HSM using Azure Monitor.
 services: key-vault
 author: msmbaldwin
 ms.author: mbaldwin

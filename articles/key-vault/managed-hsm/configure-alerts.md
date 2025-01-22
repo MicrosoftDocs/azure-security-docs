@@ -62,7 +62,7 @@ An action group is a configurable list of notifications and properties. The firs
 Next, create a rule and configure the thresholds that will trigger an alert:
 
 1. Select your HSM resource in the Azure portal, and then select **Alerts** under **Monitoring**.
-  :::image type="content" source="./media/configure-alerts-11.png" alt-text="Select Alerts under Monitoring in the Azure portal" lightbox="./media/configure-alerts-11.png":::
+  :::image type="content" source="./media/configure-alerts-11.png" alt-text="Select Alerts under Monitoring in the Azure portal 2" lightbox="./media/configure-alerts-11.png":::
 2. Select **Alert rule** under **Create**.
   :::image type="content" source="./media/configure-alerts-12.png" alt-text="Create a new alert rule" lightbox="./media/configure-alerts-12.png":::
 3. Select the scope of your alert rule. You can select a single HSM or multiple HSMs.
@@ -77,7 +77,7 @@ Next, create a rule and configure the thresholds that will trigger an alert:
   - **Key Vault latency** is greater than 1000 ms (static threshold)
 
   > [!NOTE]
-  > The intention of the 1000 ms threshold is to notify that the Key Vault service in this region has a workload higher than average. Our SLA for Key Vault operations is several times higher, see the [Service Level Agreement for Online Services](https://azure.microsoft.com/en-us/support/legal/sla/) for current SLA. To alert when Key Vault operations are out of SLA, use the thresholds from the SLA documents.
+  > The intention of the 1000 ms threshold is to notify that the Key Vault service in this region has a workload higher than average. Our SLA for Key Vault operations is several times higher, see the [Service Level Agreement for Online Services](https://azure.microsoft.com/support/legal/sla/) for current SLA. To alert when Key Vault operations are out of SLA, use the thresholds from the SLA documents.
 
   **Total error codes** are higher than average (dynamic threshold)
   :::image type="content" source="./media/configure-alerts-14.png" alt-text="Configure alert thresholds" lightbox="./media/configure-alerts-14.png":::
@@ -124,6 +124,6 @@ To get alerted if a backup has not been taken in the last 30 days, the alert mus
 Use the tools that you set up in this article to actively monitor the health of your key vault:
 
 - [Monitor Azure Managed HSM](logging-azure-monitor.md)
-- [Monitoring Key Vault data reference](../general/monitoring.md)
+- [Azure Key Vault monitoring data reference](../general/monitor-key-vault-reference.md)
 - [Setting up Sentinel for Azure Managed HSM](sentinel.md)
 - [Create a log query alert for an Azure resource](/azure/azure-monitor/platform/alerts-log)
