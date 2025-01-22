@@ -74,11 +74,11 @@ Azure Monitor provides platform metrics for most services. These metrics are:
 
 **Collection:** Azure Monitor collects platform metrics automatically. No configuration is required.
 
-**Routing:** You can also usually route platform metrics to Azure Monitor Logs / Log Analytics so you can query them with other log data. For more information, see the [Metrics diagnostic setting](/azure/azure-monitor/platform/metrics-collection). For how to configure diagnostic settings for a service, see [Create diagnostic settings in Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings).
+**Routing:** You can also usually route platform metrics to Azure Monitor Logs / Log Analytics so you can query them with other log data. For more information, see the [Azure Monitor metrics overview](/azure/azure-monitor/essentials/data-platform-metrics). For how to configure diagnostic settings for a service, see [Create diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/create-diagnostic-settings?tabs=portal).
 
-For a list of all metrics it's possible to gather for all resources in Azure Monitor, see [Supported metrics in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
+For a list of all metrics it's possible to gather for all resources in Azure Monitor, see [Supported metrics with Azure Monitor](/azure/azure-monitor/reference/metrics-index).
 
-You can analyze metrics for Key Vault with metrics from other Azure services using metrics explorer by opening **Metrics** from the Azure Monitor menu. See [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/visualize/metrics-explorer) for details on using this tool.
+You can analyze metrics for Key Vault with metrics from other Azure services using metrics explorer by opening **Metrics** from the Azure Monitor menu. See [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics) for details on using this tool.
 
 For a list of available metrics for managed HSM, see [Azure Key Vault monitoring data reference](../general/monitor-key-vault-reference.md).
 
@@ -88,13 +88,14 @@ Resource logs provide insight into operations that were done by an Azure resourc
 
 **Collection:** Resource logs aren't collected and stored until you create a diagnostic setting and route the logs to one or more locations. When you create a diagnostic setting, you specify which categories of logs to collect. There are multiple ways to create and maintain diagnostic settings, including the Azure portal, programmatically, and though Azure Policy.
 
-**Routing:** The suggested default is to route resource logs to Azure Monitor Logs so you can query them with other log data. Other locations such as Azure Storage, Azure Event Hubs, and certain Microsoft monitoring partners are also available. For more information, see [Azure resource logs](/azure/azure-monitor/platform/resource-logs) and [Resource log destinations](/azure/azure-monitor/platform/resource-logs-destinations).
+**Routing:** The suggested default is to route resource logs to Azure Monitor Logs so you can query them with other log data. Other locations such as Azure Storage, Azure Event Hubs, and certain Microsoft monitoring partners are also available. For more information, see [Collect and analyze resource logs from an Azure resource](/azure/azure-monitor/essentials/tutorial-resource-logs) and [Diagnostic settings in Azure Monitor: destinations](/azure/azure-monitor/essentials/diagnostic-settings#destinations).
 
-For detailed information about collecting, storing, and routing resource logs, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings).
+For detailed information about collecting, storing, and routing resource logs, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings).
 
-For a list of all available resource log categories in Azure Monitor, see [Supported resource logs in Azure Monitor](/azure/azure-monitor/platform/resource-logs-categories).
+For a list of all available resource log categories in Azure Monitor, see [Supported Resource log categories for Azure Monitor](/azure/azure-monitor/reference/logs-index).
 
-All resource logs in Azure Monitor have the same header fields, followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/platform/resource-logs-schema).
+All resource logs in Azure Monitor have the same header fields, followed by service-specific fields. The common schema is outlined in [Common and service-specific schemas for Azure resource logs
+](/azure/azure-monitor/essentials/resource-logs-schema).
 
 For the available resource log categories, their associated Log Analytics tables, and the log schemas for managed HSM, see [Azure Key Vault monitoring data reference](../general/monitor-key-vault-reference.md).
 
@@ -104,13 +105,13 @@ The activity log contains subscription-level events that track operations for ea
 
 **Collection:** Activity log events are automatically generated and collected in a separate store for viewing in the Azure portal.
 
-**Routing:** You can send activity log data to Azure Monitor Logs so you can analyze it alongside other log data. Other locations such as Azure Storage, Azure Event Hubs, and certain Microsoft monitoring partners are also available. For more information on how to route the activity log, see [Overview of the Azure activity log](/azure/azure-monitor/platform/activity-log).
+**Routing:** You can send activity log data to Azure Monitor Logs so you can analyze it alongside other log data. Other locations such as Azure Storage, Azure Event Hubs, and certain Microsoft monitoring partners are also available. For more information on how to route the activity log, see [Send Azure Monitor Activity log data](/azure/azure-monitor/essentials/activity-log?tabs=powershell).
 
 ## Analyzing logs
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/platform/resource-logs-schema).
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Common and service-specific schemas for Azure resource logs](/azure/azure-monitor/essentials/resource-logs-schema).
 
 The Activity log is a type of platform log for Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.
 
@@ -126,7 +127,7 @@ There are many tools for analyzing monitoring data.
 
 Azure Monitor supports the following basic tools:
 
-- **Metrics explorer**, a tool in the Azure portal that allows you to view and analyze metrics for Azure resources. For more information, see [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/visualize/metrics-explorer).
+- **Metrics explorer**, a tool in the Azure portal that allows you to view and analyze metrics for Azure resources. For more information, see [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics).
 - **Log Analytics**, a tool in the Azure portal that allows you to query and analyze log data by using the Kusto query language (KQL). For more information, see [Get started with log queries in Azure Monitor](/azure/azure-monitor/logs/log-analytics-tutorial).
 - **The activity log**, which has a user interface in the Azure portal for viewing and basic searches. To do more in-depth analysis, you have to route the data to Azure Monitor logs and run more complex queries in Log Analytics.
 
@@ -145,16 +146,16 @@ You can get data out of Azure Monitor into other tools by using the following me
 - **Logs:** Use the REST API or the associated client libraries.
 - Another option is the workspace data export.
 
-To get started with the REST API for Azure Monitor, see [Azure monitoring REST API walkthrough](/azure/azure-monitor/platform/rest-api-walkthrough).
+To get started with the REST API for Azure Monitor, see [Azure monitoring REST API walkthrough](/azure/azure-monitor/essentials/rest-api-walkthrough?tabs=rest%2Cportal).
 
 ### Kusto queries
 
 You can analyze monitoring data in the Azure Monitor Logs / Log Analytics store by using the Kusto query language (KQL).
 
 > **Important**
-> When you select **Logs** from the service's menu in the portal, Log Analytics opens with the query scope set to the current service. This scope means that log queries will only include data from that type of resource. If you want to run a query that includes data from other Azure services, select **Logs** from the Azure Monitor menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/logs/log-analytics-tutorial#log-query-scope-and-time-range) for details.
+> When you select **Logs** from the service's menu in the portal, Log Analytics opens with the query scope set to the current service. This scope means that log queries will only include data from that type of resource. If you want to run a query that includes data from other Azure services, select **Logs** from the Azure Monitor menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/logs/scope) for details.
 
-For a list of common queries for any service, see the [Log Analytics queries interface](/azure/azure-monitor/logs/log-analytics-tutorial).
+For a list of common queries for any service, see the [Use queries in Log Analytics](/azure/azure-monitor/logs/queries?tabs=groupbyl).
 
 Here are some queries that you can enter into the Log search bar to help you monitor your managed HSM resources. These queries work with the new language.
 
@@ -228,15 +229,15 @@ AzureDiagnostics
 
 ## Alerts
 
-Azure Monitor alerts proactively notify you when specific conditions are found in your monitoring data. Alerts allow you to identify and address issues in your system before your customers notice them. For more information, see [Azure Monitor alerts](/azure/azure-monitor/platform/alerts-overview).
+Azure Monitor alerts proactively notify you when specific conditions are found in your monitoring data. Alerts allow you to identify and address issues in your system before your customers notice them. For more information, see [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview).
 
-There are many sources of common alerts for Azure resources. For examples of common alerts for Azure resources, see [Sample log alert queries](/azure/azure-monitor/platform/alerts-log). The Azure Monitor Baseline Alerts (AMBA) site provides a semi-automated method of implementing important platform metric alerts, dashboards, and guidelines. The site applies to a continually expanding subset of Azure services, including all services that are part of the Azure Landing Zone (ALZ).
+There are many sources of common alerts for Azure resources. For examples of common alerts for Azure resources, see [Sample log alert queries](/azure/azure-monitor/alerts/alerts-create-log-alert-rule). The Azure Monitor Baseline Alerts (AMBA) site provides a semi-automated method of implementing important platform metric alerts, dashboards, and guidelines. The site applies to a continually expanding subset of Azure services, including all services that are part of the Azure Landing Zone (ALZ).
 
-The common alert schema standardizes the consumption of Azure Monitor alert notifications. For more information, see [Common alert schema](/azure/azure-monitor/platform/alerts-common-schema).
+The common alert schema standardizes the consumption of Azure Monitor alert notifications. For more information, see [Common alert schema](/azure/azure-monitor/alerts/alerts-common-schema).
 
 ### Types of alerts
 
-You can alert on any metric or log data source in the Azure Monitor data platform. There are many different types of alerts depending on the services you're monitoring and the monitoring data you're collecting. Different types of alerts have various benefits and drawbacks. For more information, see [Choose the right monitoring alert type](/azure/azure-monitor/platform/alerts-overview#types-of-alerts).
+You can alert on any metric or log data source in the Azure Monitor data platform. There are many different types of alerts depending on the services you're monitoring and the monitoring data you're collecting. Different types of alerts have various benefits and drawbacks. For more information, see [Choose the right monitoring alert type](/azure/azure-monitor/alerts/alerts-overview#types-of-alerts).
 
 The following list describes the types of Azure Monitor alerts you can create:
 
@@ -246,7 +247,7 @@ The following list describes the types of Azure Monitor alerts you can create:
 
 Some Azure services also support smart detection alerts, Prometheus alerts, or recommended alert rules.
 
-For some services, you can monitor at scale by applying the same metric alert rule to multiple resources of the same type that exist in the same Azure region. Individual notifications are sent for each monitored resource. For supported Azure services and clouds, see [Monitor multiple resources with one alert rule](/azure/azure-monitor/platform/alerts-metric-multiple-resources).
+For some services, you can monitor at scale by applying the same metric alert rule to multiple resources of the same type that exist in the same Azure region. Individual notifications are sent for each monitored resource. For supported Azure services and clouds, see [/azure/azure-monitor/alerts/alerts-metric-multiple-time-series-single-rule#multiple-resources-multi-resource](/azure/azure-monitor/platform/alerts-metric-multiple-resources).
 
 > **Note**
 > If you're creating or running an application that runs on your service, Azure Monitor application insights might offer more types of alerts.
