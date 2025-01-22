@@ -142,7 +142,7 @@ Tools that allow more complex visualization include:
 
 You can get data out of Azure Monitor into other tools by using the following methods:
 
-- **Metrics:** Use the REST API for metrics to extract metric data from the Azure Monitor metrics database. The API supports filter expressions to refine the data retrieved. For more information, see [Azure Monitor REST API reference](https://docs.microsoft.com/rest/api/monitor/).
+- **Metrics:** Use the REST API for metrics to extract metric data from the Azure Monitor metrics database. The API supports filter expressions to refine the data retrieved. For more information, see [Azure Monitor REST API reference](/rest/api/monitor/).
 - **Logs:** Use the REST API or the associated client libraries.
 - Another option is the workspace data export.
 
@@ -247,7 +247,7 @@ The following list describes the types of Azure Monitor alerts you can create:
 
 Some Azure services also support smart detection alerts, Prometheus alerts, or recommended alert rules.
 
-For some services, you can monitor at scale by applying the same metric alert rule to multiple resources of the same type that exist in the same Azure region. Individual notifications are sent for each monitored resource. For supported Azure services and clouds, see [/azure/azure-monitor/alerts/alerts-metric-multiple-time-series-single-rule#multiple-resources-multi-resource](/azure/azure-monitor/platform/alerts-metric-multiple-resources).
+For some services, you can monitor at scale by applying the same metric alert rule to multiple resources of the same type that exist in the same Azure region. Individual notifications are sent for each monitored resource. For supported Azure services and clouds, see [Monitor multiple time series in a single metric alert rule: Multiple resources (multi-resource)](/azure/azure-monitor/alerts/alerts-metric-multiple-time-series-single-rule#multiple-resources-multi-resource).
 
 > **Note**
 > If you're creating or running an application that runs on your service, Azure Monitor application insights might offer more types of alerts.
