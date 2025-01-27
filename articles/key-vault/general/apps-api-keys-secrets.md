@@ -20,9 +20,9 @@ In this article you learn how to create a Key Vault instance, add an API key as 
 
 Azure Key Vault allows you to securely store cryptographic keys, secrets, and certificates. You should deploy separate key vaults for different environments (development, staging, production) and applications. 
 
-### Create an Resource Group and key vault instance
+### Create a Resource group and key vault instance
 
-To create an key vault instance, you can use the following command from Azure CLI or Azure Cloud Shell:
+To create a key vault instance, you can use the following command from Azure CLI or Azure Cloud Shell:
 
 [!INCLUDE [Create a resource group and key vault](../includes/key-vault-python-qs-rg-kv-creation.md)]
 
@@ -32,7 +32,7 @@ Once you have created the Azure Key Vault instance, you can add an API key as a 
 
 # [Azure CLI](#tab/azure-cli)
 
-The following uses the Azure CLI [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) command to add a secret named MyApiKey to the keyvault and setsthe secret to expire after 180 days:
+The following uses the Azure CLI [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) command to add a secret named MyApiKey to the keyvault and sets the secret to expire after 180 days:
 
 ```azurecli
 az keyvault secret set \
@@ -44,7 +44,7 @@ az keyvault secret set \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-The following uses the Azure PowerShell [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet to add a secret named MyApiKey to the keyvault and setsthe secret to expire after 180 days:
+The following uses the Azure PowerShell [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet to add a secret named MyApiKey to the keyvault and sets the secret to expire after 180 days:
 
 ```powershell
 $secret = ConvertTo-SecureString -String "<YourSecretValue>" -AsPlainText -Force
