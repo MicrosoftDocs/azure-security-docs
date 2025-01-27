@@ -21,7 +21,7 @@ Encryption is one of the key technical measures you can take to get sole control
 
 ## How does encryption at rest work?
 
-:::image type="content" source="../media/control-your-data-enc-at-rest.png" border="false" alt-text="Diagram that demonstrates how encryption at rest works.":::
+:::image type="content" source="./media/managed-hsm-control-your-data-enc-at-rest.png" lightbox="./media/managed-hsm-control-your-data-enc-at-rest.png" alt-text="Diagram that demonstrates how encryption at rest works.":::
 
 Azure Key Vault services provide encryption and key management solutions that safeguard cryptographic keys, certificates, and other secrets that cloud applications and services use to protect and control data that's encrypted at rest.
 
