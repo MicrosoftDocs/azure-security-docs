@@ -409,6 +409,11 @@
       "source_path_from_root": "/articles/defender-for-cloud/adaptive-network-hardening.md",
       "redirect_url": "/azure/defender-for-cloud/prepare-deprecation-log-analytics-mma-agent#feature-functionality",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/sql-azure-vulnerability-assessment-manage.md",
+      "redirect_url": "/azure/defender-for-cloud/sql-azure-vulnerability-assessment-overview",
+      "redirect_document_id": true
     }
   ]
 }

@@ -74,7 +74,7 @@ For more general information about Key Vault, see [About Azure Key Vault](overvi
 
 Refer to the JOSE specifications for relevant data types for keys, encryption, and signing.  
 
--   **algorithm** - a supported algorithm for a key operation, for example, RSA1_5  
+-   **algorithm** - a supported algorithm for a key operation, for example, RSA_OAEP_256  
 -   **ciphertext-value** - cipher text octets, encoded using Base64URL  
 -   **digest-value** - the output of a hash algorithm, encoded using Base64URL  
 -   **key-type** - one of the supported key types, for example RSA (Rivest-Shamir-Adleman).  
