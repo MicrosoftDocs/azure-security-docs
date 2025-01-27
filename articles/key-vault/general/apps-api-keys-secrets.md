@@ -32,7 +32,7 @@ Once you have created the Azure Key Vault instance, you can add an API key as a 
 
 # [Azure CLI](#tab/azure-cli)
 
-The following uses the Azure CLI [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) command to add a secret named MyApiKey to the keyvault and sets the secret to expire after 180 days:
+The following uses the Azure CLI [az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set) command to add a secret named MyApiKey to the keyvault and sets the secret to expire after 180 days:
 
 ```azurecli
 az keyvault secret set \
@@ -61,7 +61,7 @@ You can restrict access to the Azure Key Vault instance so that only the applica
 
 # [Azure CLI](#tab/azure-cli)
 
-To do this configure a Role Based Access Control (RBAC) role using the Azure CLI [az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) command:
+To do this configure a Role Based Access Control (RBAC) role using the Azure CLI [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command:
 
 ```azurecli
 az role assignment create --role "Key Vault Secrets User" \
@@ -87,7 +87,7 @@ You should enable logging and alerts on your Key Vault instance as a method of d
 
 # [Azure CLI](#tab/azure-cli)
 
-To enable Azure Key Vault Logging and Alerts, use the Azure CLI [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) command:
+To enable Azure Key Vault Logging and Alerts, use the Azure CLI [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command:
 
 ```azurecli
 az monitor diagnostic-settings create \
@@ -115,7 +115,7 @@ This command creates a diagnostic setting named `myDiagnosticSettings`, configur
 
 # [Azure CLI](#tab/azure-cli)
 
-You can run the Azure CLI [az monitor scheduled-query create](/cli/azure/monitor/scheduled-query?view=azure-cli-latest#az-monitor-scheduled-query-create) command to monitor logs in the specified Log Analytics workspace for unauthorized access attempts to Azure Key Vault secrets and trigger an alert if any matching unauthorized access attempt is detected:
+You can run the Azure CLI [az monitor scheduled-query create](/cli/azure/monitor/scheduled-query#az-monitor-scheduled-query-create) command to monitor logs in the specified Log Analytics workspace for unauthorized access attempts to Azure Key Vault secrets and trigger an alert if any matching unauthorized access attempt is detected:
 
 ```azurecli
 az monitor scheduled-query create \
@@ -154,7 +154,7 @@ You should restrict network access to Azure Key Vault so that the vault only acc
 
 # [Azure CLI](#tab/azure-cli)
 
-You can create a private endpoint using the Azure CLI [az network private-endpoint create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) command:
+You can create a private endpoint using the Azure CLI [az network private-endpoint create](/cli/azure/network/private-endpoint#az-network-private-endpoint-create) command:
 
 ```azurecli
 az network private-endpoint create \
@@ -166,7 +166,7 @@ az network private-endpoint create \
     --group-id vault \
     --connection-name myConnection
 
-You can create firewall rules on the Azure Key Vault instance using the Azure CLI [az keyvault network-rule add](/cli/azure/keyvault/network-rule?view=azure-cli-latest#az-keyvault-network-rule-add) command, substituting the appropriate key vault names, resource groups, subnet, and subnet mask information:
+You can create firewall rules on the Azure Key Vault instance using the Azure CLI [az keyvault network-rule add](/cli/azure/keyvault/network-rule#az-keyvault-network-rule-add) command, substituting the appropriate key vault names, resource groups, subnet, and subnet mask information:
 
 ```azurecli
 az keyvault network-rule add \
