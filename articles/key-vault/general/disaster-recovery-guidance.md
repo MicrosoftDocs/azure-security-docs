@@ -27,8 +27,6 @@ For most Azure regions that are paired with another region, the contents of your
 
 [!INCLUDE [Key Vault in non-paired regions guidance](~/reusable-content/ce-skilling/azure/includes/key-vault/includes/key-vault-non-paired-regions.md)]
 
-For Azure regions with availability zones, Azure Key Vault uses zone redundant storage to replicate your data within the region, across independent availability zones.
-
 ## Failover within a region
 
 If individual components within the key vault service fail, alternate components within the region step in to serve your request to make sure that there's no degradation of functionality. You don't need to take any action—the process happens automatically and will be transparent to you.
@@ -45,8 +43,9 @@ If you're in a [region that automatically replicates your key vault to a seconda
 > - [Any region that doesn't have a paired region](/azure/reliability/cross-region-replication-azure#regions-with-availability-zones-and-no-region-pair)
 > - Brazil South
 > - Brazil Southeast
+> - West US 3
 >
-> All other regions replicate data between paired regions. For more information, see [Azure Storage redundancy: Redundancy in a secondary region](/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region).
+> All other regions replicate data between paired regions.
 
 In the regions that don't support automatic replication to a secondary region, you must plan for the recovery of your Azure key vaults in a region failure scenario. To back up and restore your Azure key vault to a region of your choice, complete the steps that are detailed in [Azure Key Vault backup](backup.md).
 
