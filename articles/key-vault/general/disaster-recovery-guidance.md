@@ -9,7 +9,7 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 02/20/2024
 ms.author: mbaldwin
-ms.custom: references_regions 
+ms.custom: references_regions
 
 ---
 # Azure Key Vault availability and redundancy
@@ -45,7 +45,7 @@ If you're in a [region that automatically replicates your key vault to a seconda
 > - Brazil Southeast
 > - West US 3
 >
-> All other regions use read-access geo-redundant storage (RA-GRS) to replicate data between paired regions. For more information, see [Azure Storage redundancy: Redundancy in a secondary region](/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region).
+> All other regions replicate data between paired regions.
 
 In the regions that don't support automatic replication to a secondary region, you must plan for the recovery of your Azure key vaults in a region failure scenario. To back up and restore your Azure key vault to a region of your choice, complete the steps that are detailed in [Azure Key Vault backup](backup.md).
 
@@ -80,3 +80,4 @@ After a failover is failed back, all request types (including read *and* write r
 - [Azure Key Vault backup](backup.md)
 - [Azure Storage redundancy](../managed-hsm/disaster-recovery-guide.md)
 - [Azure paired regions](/azure/reliability/cross-region-replication-azure)
+
