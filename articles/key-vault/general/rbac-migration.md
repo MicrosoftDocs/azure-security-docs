@@ -12,7 +12,7 @@ ms.author: mbaldwin
 ---
 # Migrate from vault access policy to an Azure role-based access control permission model
 
-Azure Key Vault offers two authorization systems: Azure role-based access control (Azure RBAC), and an access policy model. Azure RBAC is the default and recommended authorization system for Azure Key Vault. For a comparison of the two methods of authorization, see [Azure role-based access control (Azure RBAC) vs. access policies](rbac-access-policy.md).
+Azure Key Vault offers two authorization systems: Azure role-based access control (Azure RBAC), and an access policy model. Azure RcertifBAC is the default and recommended authorization system for Azure Key Vault. For a comparison of the two methods of authorization, see [Azure role-based access control (Azure RBAC) vs. access policies](rbac-access-policy.md).
 
 This article provides the information necessary to migrate a key vault from an access policy model to an Azure RBAC model.
 
@@ -66,9 +66,6 @@ Access policy predefined permission templates:
 | Exchange Online Customer Key | Keys: get, list, wrap key, unwrap key | Key Vault Crypto Service Encryption User|
 | Exchange Online Customer Key | Keys: get, list, wrap key, unwrap key | Key Vault Crypto Service Encryption User|
 | Azure Information BYOK | Keys: get, decrypt, sign | N/A<br>Custom role required|
-
-> [!NOTE]
-> Azure App Service certificate configuration through Azure Portal does not support Key Vault RBAC permission model. You can use Azure PowerShell, Azure CLI, ARM template deployments with **Key Vault Certificate User** role assignment for App Service global identity, for example Microsoft Azure App Service' in public cloud.
 
 ## Assignment scopes mapping  
 
