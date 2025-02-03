@@ -12,7 +12,7 @@ ms.author: mbaldwin
 ---
 # Migrate from vault access policy to an Azure role-based access control permission model
 
-Azure Key Vault offers two authorization systems: Azure role-based access control (Azure RBAC), and an access policy model. Azure RcertifBAC is the default and recommended authorization system for Azure Key Vault. For a comparison of the two methods of authorization, see [Azure role-based access control (Azure RBAC) vs. access policies](rbac-access-policy.md).
+Azure Key Vault offers two authorization systems: Azure role-based access control (Azure RBAC), and an access policy model. Azure RBAC is the default and recommended authorization system for Azure Key Vault. For a comparison of the two methods of authorization, see [Azure role-based access control (Azure RBAC) vs. access policies](rbac-access-policy.md).
 
 This article provides the information necessary to migrate a key vault from an access policy model to an Azure RBAC model.
 
