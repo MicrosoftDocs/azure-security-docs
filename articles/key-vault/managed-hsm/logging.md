@@ -39,7 +39,7 @@ To complete the steps in this article, you must have the following items:
 
 # [Azure CLI](#tab/azure-cli)
 
-Sign in to your Azure subscription by using the Azure CLI [az login](/cli/azure/reference-index?view=azure-cli-latest#az-login) command:
+Sign in to your Azure subscription by using the Azure CLI [az login](/cli/azure/reference-index#az-login) command:
 
 ```azurecli-interactive
 az login
@@ -49,7 +49,7 @@ For more information on login options via the CLI take a look at [sign in with A
 
 # [Azure PowerShell](#tab/azurepowershell)
 
-Sign in to your Azure subscription by using the `Connect-AzAccount` command:
+Sign in to your Azure subscription by using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command:
 
 ```powershell
 Connect-AzAccount
@@ -93,7 +93,7 @@ $loganalyticsresource = (Get-AzOperationalInsightsWorkspace -ResourceGroupName "
 
 # [Azure CLI](#tab/azure-cli)
 
-To enable logging for Managed HSM, use the Azure CLI [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) command, together with the variables from the previous commands. We will also set the `-Enabled` flag to "true" and set the `category` to "AuditEvent" (the only category for Managed HSM logging).
+To enable logging for Managed HSM, use the Azure CLI [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command, together with the variables from the previous commands. We will also set the `-Enabled` flag to "true" and set the `category` to "AuditEvent" (the only category for Managed HSM logging).
 
 To send the logs to a storage account:
 
