@@ -40,18 +40,23 @@ To complete the steps in this article, you must have the following items:
 # [Azure CLI](#tab/azure-cli)
 
 Sign in to your Azure subscription by using the Azure CLI [az login](/cli/azure/reference-index?view=azure-cli-latest#az-login) command:
+
 ```azurecli-interactive
 az login
 ```
+
 For more information on login options via the CLI take a look at [sign in with Azure CLI](/cli/azure/authenticate-azure-cli)
 
 # [Azure PowerShell](#tab/azurepowershell)
 
 Sign in to your Azure subscription by using the `Connect-AzAccount` command:
+
 ```powershell
 Connect-AzAccount
 ```
+
 For more information on login options via PowerShell, see [sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
+
 ---
 
 ## Identify the managed HSM, storage account, and log analytics workspace
@@ -59,6 +64,7 @@ For more information on login options via PowerShell, see [sign in with Azure Po
 The first step in setting up key logging is to find the Managed HSM that you want to log.
 
 # [Azure CLI](#tab/azure-cli)
+
 Use the Azure CLI [az keyvault show](/cli/azure/keyvault#az-keyvault-show) command to find the Managed HSM that you want to log.
 
 You can also use the Azure CLI [az storage account show](/cli/azure/storage/account#az-storage-account-show) command to find the storage account that you want to use for logging, and/or the Azure CLI [az monitor log-analytics workspace show](/cli/azure/monitor/log-analytics/workspace#az-monitor-log-analytics-workspace-show) command to find the log analytics workspace that you want to use for logging.
@@ -70,6 +76,7 @@ loganalyticsresource=$(az monitor log-analytics workspace show --resource-group 
 ```
 
 # [Azure PowerShell](#tab/azurepowershell)
+
 Use the Azure PowerShell `Get-AzKeyVault` cmdlet to find the Managed HSM that you want to log.
 
 You can also use the Azure PowerShell `Get-AzStorageAccount` cmdlet to find the storage account that you want to use for logging, and/or the Azure PowerShell `Get-AzOperationalInsightsWorkspace` cmdlet to find the log analytics workspace that you want to use for logging.
@@ -79,6 +86,7 @@ $hsmresource = (Get-AzKeyVault -ResourceGroupName "ContosoResourceGroup" -VaultN
 $storageresource = (Get-AzStorageAccount -ResourceGroupName "ContosoResourceGroup" -Name "ContosoMHSMLogs").Id
 $loganalyticsresource = (Get-AzOperationalInsightsWorkspace -ResourceGroupName "ContosoResourceGroup" -Name "ContosoLogs").ResourceId
 ```
+
 ---
 
 ## Enable logging
@@ -114,6 +122,7 @@ To send the logs to a Log Analytics workspace:
 ```powershell
 Set-AzDiagnosticSetting -Name "ContosoMHSM-Diagnostics" -ResourceId $hsmresource -Category "AuditEvent" -Enabled $true -WorkspaceId $loganalyticsresource
 ```
+
 ---
 
 What's logged:
