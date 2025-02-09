@@ -60,7 +60,7 @@ This table summarizes Azure cloud support for Defender for Servers features.
 
 The following table shows feature support for Windows machines in Azure, Azure Arc, and other clouds.
 
-| **Feature** | **Azure VMs*<br/> **[VM Scale Sets (Flexible orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration)** | **Azure Arc-enabled machines** | **Defender for Servers required** |
+| **Feature** | **Azure VMs*<br/> **[VM Scale Sets (Flexible orchestration*)](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration)** | **Azure Arc-enabled machines** | **Defender for Servers required** |
 |--|:-:|:-:|:-:|
 | [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) | ✔</br> Available on: Windows Server 2022, 2019, 2016, 2012 R2, 2008 R2 SP1, [Windows 10/11 Enterprise multi-session](/azure/virtual-desktop/windows-10-multisession-faq) | ✔ | Yes |
 | [Virtual machine behavioral analytics (and security alerts)](alerts-reference.md) | ✔ | ✔ | Yes |
@@ -83,7 +83,7 @@ The following table shows feature support for Windows machines in Azure, Azure A
 
 The following table shows feature support for Linux machines in Azure, Azure Arc, and other clouds.
 
-| **Feature** | **Azure VMs**<br/> **[VM Scale Sets (Flexible orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration)** | **Azure Arc-enabled machines** | **Defender for Servers required** |
+| **Feature** | **Azure VMs**<br/> **[VM Scale Sets (Flexible orchestration*)](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration)** | **Azure Arc-enabled machines** | **Defender for Servers required** |
 |--|:-:|:-:|:-:|
 | [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) | ✔ <br> ([supported versions](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux)) | ✔ | Yes |
 | [Virtual machine behavioral analytics (and security alerts)](./azure-defender.md) | ✔</br> Supported versions | ✔ | Yes |
@@ -101,6 +101,10 @@ The following table shows feature support for Linux machines in Azure, Azure Arc
 | Third-party vulnerability assessment (BYOL) | ✔ | - | No |
 | [Network security assessment](protect-network-resources.md) | ✔ | - | No |
 | [System updates and patches](enable-periodic-system-updates.md) | ✔ | ✔ | Yes (Plan 2)|
+
+> [!NOTE]
+> At present, there is partial feature coverage for VM [Scale Sets with Uniform Orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-uniform-orchestration). Main supported capabilities are agentless detections - such as Network Layer Alerts, DNS alerts, and control plane alerts. Expanded feature coverage for VMSS uniform instances are expected duting 2025. <be>Additionally, there is no support in P1 for the automatic deployment of Microsoft Defender for Endpoint (MDE) on Virtual Machine Scale Sets (VMSS) uniform instances.
+
 
 ## Multicloud machines
 
