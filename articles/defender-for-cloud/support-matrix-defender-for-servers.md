@@ -103,7 +103,7 @@ The following table shows feature support for Linux machines in Azure, Azure Arc
 | [System updates and patches](enable-periodic-system-updates.md) | ✔ | ✔ | Yes (Plan 2)|
 
 > [!NOTE]
-> At present, there is partial feature coverage for VM [Scale Sets with Uniform Orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-uniform-orchestration). Main supported capabilities are agentless detections - such as Network Layer Alerts, DNS alerts, and control plane alerts. Expanded feature coverage for VMSS uniform instances are expected duting 2025. <be>Additionally, there is no support in P1 for the automatic deployment of Microsoft Defender for Endpoint (MDE) on Virtual Machine Scale Sets (VMSS) uniform instances.
+> At present, there is partial feature coverage for VM [Scale Sets with Uniform Orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-uniform-orchestration). Main supported capabilities are agentless detections - such as Network Layer Alerts, DNS alerts, and control plane alerts. Expanded feature coverage for VMSS uniform instances are expected during 2025. <be>Additionally, there is no support in P1 for the automatic deployment of Microsoft Defender for Endpoint (MDE) on Virtual Machine Scale Sets (VMSS) uniform instances.
 
 
 ## Multicloud machines
