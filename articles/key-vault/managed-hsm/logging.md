@@ -59,8 +59,7 @@ For more information on login options via PowerShell, see [sign in with Azure Po
 
 # [Portal](#tab/azure-portal)
 
-
-PORTAL XXX
+Sign in to the Azure portal at <portal.azure.com>.
 
 ---
 
@@ -94,7 +93,7 @@ $loganalyticsresource = (Get-AzOperationalInsightsWorkspace -ResourceGroupName "
 
 # [Portal](#tab/azure-portal)
 
-PORTAL XXX
+
 
 ---
 
