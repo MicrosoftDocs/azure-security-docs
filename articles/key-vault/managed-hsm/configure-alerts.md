@@ -15,16 +15,16 @@ ms.date: 01/30/2025
 
 After you start to use Azure Managed HSM to store your production keys, it's important to monitor the health of your HSM to make sure that your service operates as intended.
 
-As you start to scale your service, the number of requests sent to your HSM will rise. This rise has a potential to increase the latency of your requests. In extreme cases, it can cause your requests to be throttled and affect the performance of your service. You also need to know if your HSM is sending an unusual number of error codes, so you can quickly handle any problems with an access policy or firewall configuration.
+As you start to scale your service, the number of requests sent to your HSM rises. This rise has a potential to increase the latency of your requests. In extreme cases, it can cause your requests to be throttled and affect the performance of your service. You also need to know if your HSM is sending an unusual number of error codes, so you can quickly handle any problems with an access policy or firewall configuration.
 
-This article will show you how to configure alerts at specified thresholds so you can alert your team to take action immediately if your HSM is in an unhealthy state. You can configure alerts that send an email (preferably to a team distribution list), fire an Azure Event Grid notification, or call or text a phone number.
+This article shows you how to configure alerts at specified thresholds so you can alert your team to take action immediately if your HSM is in an unhealthy state. You can configure alerts that send an email (preferably to a team distribution list), fire an Azure Event Grid notification, or call or text a phone number.
 
 ## Alert Types
 
 You can choose between these alert types:
 
 - **Static alert** based on a fixed value
-- **Dynamic alert** that will notify you if a monitored metric exceeds the average limit of your HSM a certain number of times within a defined time range
+- **Dynamic alert** that notifies you if a monitored metric exceeds the average limit of your HSM a certain number of times within a defined time range
 
 > [!IMPORTANT]
 > It can take up to 10 minutes for newly configured alerts to start sending notifications.
@@ -43,23 +43,23 @@ An action group is a configurable list of notifications and properties. The firs
   :::image type="content" source="./media/configure-alerts-3.png" alt-text="Select Action group" lightbox="./media/configure-alerts-3.png":::
 4. Enter **Project** and **Instance** details, and then select **Next**.
   :::image type="content" source="./media/configure-alerts-4.png" alt-text="Enter Project and Instance details" lightbox="./media/configure-alerts-4.png":::
-1. Choose the **Notification Type** for your action group. In this example, we’ll create an email and SMS alert. Select **Email/SMS message/Push/Voice**.
+1. Choose the **Notification Type** for your action group. In this example, we create an email and SMS alert. Select **Email/SMS message/Push/Voice**.
    :::image type="content" source="./media/configure-alerts-5.png" alt-text="Choose Email/SMS message/Push/Voice as the Notification Type" lightbox="./media/configure-alerts-5.png":::
   1. In the dialog, enter email and SMS details, and then select **OK**.
     :::image type="content" source="./media/configure-alerts-6.png" alt-text="Enter email and SMS details" lightbox="./media/configure-alerts-6.png":::
-  1. Enter a name for the notification time and select **Next**.
+  2. Enter a name for the notification time and select **Next**.
     :::image type="content" source="./media/configure-alerts-7.png" alt-text="Enter a name for the notification" lightbox="./media/configure-alerts-7.png":::
-  1. Select an **Action type** for your action group. In this example, we’ll create an Event Hub action. Select **Event Hub**.
+  3. Select an **Action type** for your action group. In this example, we create an Event Hubs action. Select **Event Hub**.
     :::image type="content" source="./media/configure-alerts-8.png" alt-text="Select Event Hub as the Action type" lightbox="./media/configure-alerts-8.png":::
-  1.  Enter **Event Hub namespace** and **name** and select **OK**.
+  4.  Enter **Event Hub namespace** and **name** and select **OK**.
     :::image type="content" source="./media/configure-alerts-9.png" alt-text="Enter Event Hub namespace and name" lightbox="./media/configure-alerts-9.png":::
-  1.  Enter a **Name** for the action.
+  5.  Enter a **Name** for the action.
     :::image type="content" source="./media/configure-alerts-10.png" alt-text="Enter a name for the action" lightbox="./media/configure-alerts-10.png":::
-  1.  Select **Review + create** and select **Create**.
+  6.  Select **Review + create** and select **Create**.
 
 ## Configure Alert Thresholds
 
-Next, create a rule and configure the thresholds that will trigger an alert:
+Next, create a rule and configure the thresholds that trigger an alert:
 
 1. Select your HSM resource in the Azure portal, and then select **Alerts** under **Monitoring**.
   :::image type="content" source="./media/configure-alerts-11.png" alt-text="Select Alerts under Monitoring in the Azure portal 2" lightbox="./media/configure-alerts-11.png":::
@@ -77,16 +77,16 @@ Next, create a rule and configure the thresholds that will trigger an alert:
   - **Key Vault latency** is greater than 1000 ms (static threshold)
 
   > [!NOTE]
-  > The intention of the 1000 ms threshold is to notify that the Key Vault service in this region has a workload higher than average. Our SLA for Key Vault operations is several times higher, see the [Service Level Agreement for Online Services](https://azure.microsoft.com/support/legal/sla/) for current SLA. To alert when Key Vault operations are out of SLA, use the thresholds from the SLA documents.
+  > The intention of the 1000 ms threshold is to notify that the Key Vault service in this region has a workload higher than average. Our SLA for Key Vault operations is several times higher. See the [Service Level Agreement for Online Services](https://azure.microsoft.com/support/legal/sla/) for current SLA. To alert when Key Vault operations are out of SLA, use the thresholds from the SLA documents.
 
   **Total error codes** are higher than average (dynamic threshold)
   :::image type="content" source="./media/configure-alerts-14.png" alt-text="Configure alert thresholds" lightbox="./media/configure-alerts-14.png":::
-1. Select an action to apply to the alert rule. In this example, we’ll add an existing action group. Select the action group and select **Select**.
+1. Select an action to apply to the alert rule. In this example, we add an existing action group. Select the action group and select **Select**.
   :::image type="content" source="./media/configure-alerts-15.png" alt-text="Select an action group for the alert rule" lightbox="./media/configure-alerts-15.png":::
 2. Enter **Project** and **Alert rule** details, and then select **Next**.
 3. Select **Create**.
 
-### Example: Configure a Static Alert Threshold for Latency
+### Example: Configure a static alert threshold for latency
 
 1. Select **Overall Service Api Latency** as the signal name and select **Apply**.
   :::image type="content" source="./media/configure-alerts-16.png" alt-text="Select Overall Service Api Latency as the signal name" lightbox="./media/configure-alerts-16.png":::
@@ -100,11 +100,11 @@ Next, create a rule and configure the thresholds that will trigger an alert:
   :::image type="content" source="./media/configure-alerts-17.png" alt-text="Configure parameters for the static alert threshold" lightbox="./media/configure-alerts-17.png":::
 3. Select **Done**.
 
-### Example: Configure an Azure Advisor Alert that a Managed HSM Backup Has Been Taken in the Last 30 Days
+### Example: Configure an Azure Advisor alert
 
 To get alerted if a backup has not been taken in the last 30 days, the alert must be set up in Advisor.
 
-1. Search “Advisor” in the Azure portal and select the “Advisor” service.
+1. Search "Advisor" in the Azure portal and select the "Advisor" service.
   :::image type="content" source="./media/configure-alerts-18.png" alt-text="Search for Advisor in the Azure portal" lightbox="./media/configure-alerts-18.png":::
 2. Select **Alerts** under **Monitoring**.
   :::image type="content" source="./media/configure-alerts-19.png" alt-text="Select Alerts under Monitoring in Advisor" lightbox="./media/configure-alerts-19.png":::
@@ -112,7 +112,7 @@ To get alerted if a backup has not been taken in the last 30 days, the alert mus
   :::image type="content" source="./media/configure-alerts-20.png" alt-text="Create a new Advisor alert" lightbox="./media/configure-alerts-20.png":::
 4. Select the scope of your alert rule.
 5. Select **Recommendation Type** as the configuration condition.
-6. Search for “Create a backup of HSM” as the recommendation type and select it.
+6. Search for "Create a backup of HSM" as the recommendation type and select it.
 7. Select an **Action Group**. In this example, we will select an existing action group. You can select up to 5 action groups to attach to an alert rule. Choose **Select existing** and a side panel will pop out. Select the existing action group.
   :::image type="content" source="./media/configure-alerts-21.png" alt-text="Select an existing action group" lightbox="./media/configure-alerts-21.png":::
   :::image type="content" source="./media/configure-alerts-22.png" alt-text="Select the existing action group from the side panel" lightbox="./media/configure-alerts-22.png":::
