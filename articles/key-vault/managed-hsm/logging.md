@@ -209,7 +209,7 @@ Managed HSM logs are stored in the Log Analytics workspace that you provided. Yo
 
 You can use the Key Vault solution in Azure Monitor logs to review Managed HSM AuditEvent logs. In Azure Monitor logs, you use log queries to analyze data and get the information you need. For more information, including how to set it up, see [Monitor Azure Managed HSM](logging-azure-monitor.md).
 
-For learn how to analyze logs, see [Sample Kusto log queries](/general/monitor-key-vault.md#analyzing-logs).
+For learn how to analyze logs, see [Sample Kusto log queries](../general/monitor-key-vault.md#analyzing-logs).
 
 If you are sending your logs to a log analytics workspace, you can use Microsoft Sentinel to automatically detect suspicious activity. See [Microsoft Sentinel for Azure Managed HSM](sentinel.md).
 
