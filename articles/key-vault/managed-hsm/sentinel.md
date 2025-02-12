@@ -18,8 +18,8 @@ You can use Microsoft Sentinel to automatically detect suspicious activity on yo
 1. Follow the instructions found in [Quickstart: Onboard to Microsoft Sentinel | Microsoft Learn](/azure/sentinel/quickstart-onboard) to enable Microsoft Sentinel.
 2. Navigate to your Microsoft Sentinel workspace, and then select **Content hub** under **Content management**.
   
-  :::image type="content" source="./media/sentinel-1.png" alt-text="Content hub under Content management in Microsoft Sentinel workspace" lightbox="./media/sentinel-1.png":::
-  
+   :::image type="content" source="./media/sentinel-1.png" alt-text="Content hub under Content management in Microsoft Sentinel workspace" lightbox="./media/sentinel-1.png":::
+   
 1. Search for **Azure Key Vault** in the Content Hub and select it.
    
    :::image type="content" source="./media/sentinel-2.png" alt-text="Search for Azure Key Vault in the Content Hub" lightbox="./media/sentinel-2.png":::
@@ -51,7 +51,7 @@ You can use Microsoft Sentinel to automatically detect suspicious activity on yo
 1. Review and save the rule. You should now see the rule you created on the **Analytics** page.
    
    :::image type="content" source="./media/sentinel-9.png" alt-text="Created rule on the Analytics page" lightbox="./media/sentinel-9.png":::
-   
+
 1.  You can test the rule by creating and deleting a key. The `KeyDelete` operation is one of the sensitive operations searched by the Analytic Rule named "Sensitive Azure Managed HSM operations".
 
 ## Next Steps

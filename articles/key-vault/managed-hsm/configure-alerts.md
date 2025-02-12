@@ -107,29 +107,29 @@ Next, create a rule and configure the thresholds that trigger an alert:
 To get alerted if a backup has not been taken in the last 30 days, the alert must be set up in Advisor.
 
 1. Search "Advisor" in the Azure portal and select the "Advisor" service.
-  
-  :::image type="content" source="./media/configure-alerts-18.png" alt-text="Search for Advisor in the Azure portal" lightbox="./media/configure-alerts-18.png":::
-  
+   
+   :::image type="content" source="./media/configure-alerts-18.png" alt-text="Search for Advisor in the Azure portal" lightbox="./media/configure-alerts-18.png":::
+   
 1. Select **Alerts** under **Monitoring**.
-  
-  :::image type="content" source="./media/configure-alerts-19.png" alt-text="Select Alerts under Monitoring in Advisor" lightbox="./media/configure-alerts-19.png":::
-  
+   
+   :::image type="content" source="./media/configure-alerts-19.png" alt-text="Select Alerts under Monitoring in Advisor" lightbox="./media/configure-alerts-19.png":::
+   
 1. Select **New Advisor Alert**.
-  
-  :::image type="content" source="./media/configure-alerts-20.png" alt-text="Create a new Advisor alert" lightbox="./media/configure-alerts-20.png":::
-  
+   
+   :::image type="content" source="./media/configure-alerts-20.png" alt-text="Create a new Advisor alert" lightbox="./media/configure-alerts-20.png":::
+   
 1. Select the scope of your alert rule.
 1. Select **Recommendation Type** as the configuration condition.
 1. Search for "Create a backup of HSM" as the recommendation type and select it.
 1. Select an **Action Group**. In this example, we will select an existing action group. You can select up to 5 action groups to attach to an alert rule. Choose **Select existing** and a side panel will pop out. Select the existing action group.
-  
-  :::image type="content" source="./media/configure-alerts-21.png" alt-text="Select an existing action group" lightbox="./media/configure-alerts-21.png":::
-  
-  :::image type="content" source="./media/configure-alerts-22.png" alt-text="Select the existing action group from the side panel" lightbox="./media/configure-alerts-22.png":::
-  
+   
+   :::image type="content" source="./media/configure-alerts-21.png" alt-text="Select an existing action group" lightbox="./media/configure-alerts-21.png":::
+   
+   :::image type="content" source="./media/configure-alerts-22.png" alt-text="Select the existing action group from the side panel" lightbox="./media/configure-alerts-22.png":::
+   
 1. Give the alert rule a name and select the resource group it applies to. Then, select **Create Alert**.
-  
-  :::image type="content" source="./media/configure-alerts-23.png" alt-text="Give the alert rule a name and select the resource group" lightbox="./media/configure-alerts-23.png":::
+   
+   :::image type="content" source="./media/configure-alerts-23.png" alt-text="Give the alert rule a name and select the resource group" lightbox="./media/configure-alerts-23.png":::
 
 ## Next Steps
 
