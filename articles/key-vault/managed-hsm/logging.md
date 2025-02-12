@@ -93,7 +93,7 @@ $loganalyticsresource = (Get-AzOperationalInsightsWorkspace -ResourceGroupName "
 
 # [Portal](#tab/azure-portal)
 
-
+Find your Managed HSM from the Azure portal landing page by clicking "See all" under "Resources" and selecting your Managed HSM by name. You can find your storage account and log analytics workspace in the same way.
 
 ---
 
