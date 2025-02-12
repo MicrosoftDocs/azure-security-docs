@@ -59,23 +59,23 @@ An action group is a configurable list of notifications and properties. The firs
    
    :::image type="content" source="./media/configure-alerts-6.png" alt-text="Enter email and SMS details" lightbox="./media/configure-alerts-6.png":::
    
-2. Enter a name for the notification time and select **Next**.
+1. Enter a name for the notification time and select **Next**.
    
    :::image type="content" source="./media/configure-alerts-7.png" alt-text="Enter a name for the notification" lightbox="./media/configure-alerts-7.png":::
    
-3. Select an **Action type** for your action group. In this example, we create an Event Hubs action. Select **Event Hub**.
+1. Select an **Action type** for your action group. In this example, we create an Event Hubs action. Select **Event Hub**.
    
    :::image type="content" source="./media/configure-alerts-8.png" alt-text="Select Event Hub as the Action type" lightbox="./media/configure-alerts-8.png":::
    
-4.  Enter **Event Hub namespace** and **name** and select **OK**.
+1. Enter **Event Hub namespace** and **name** and select **OK**.
    
    :::image type="content" source="./media/configure-alerts-9.png" alt-text="Enter Event Hub namespace and name" lightbox="./media/configure-alerts-9.png":::
    
-5.  Enter a **Name** for the action.
+1. Enter a **Name** for the action.
    
    :::image type="content" source="./media/configure-alerts-10.png" alt-text="Enter a name for the action" lightbox="./media/configure-alerts-10.png":::
 
-6.  Select **Review + create** and select **Create**.
+1. Select **Review + create** and select **Create**.
 
 ## Configure Alert Thresholds
 
@@ -96,7 +96,7 @@ Next, create a rule and configure the thresholds that trigger an alert:
    
    :::image type="content" source="./media/configure-alerts-13.png" alt-text="Select the scope of your alert rule" lightbox="./media/configure-alerts-13.png":::
    
-4. Select the thresholds that define the logic for your alerts. You can view all available signals by selecting **See all signals**. The Managed HSM team recommends configuring the following thresholds for most applications, but you can adjust them based on your application needs:
+1. Select the thresholds that define the logic for your alerts. You can view all available signals by selecting **See all signals**. The Managed HSM team recommends configuring the following thresholds for most applications, but you can adjust them based on your application needs:
    - **Key Vault availability** drops below 100 percent (static threshold)
    - **Key Vault latency** is greater than 1000 ms (static threshold)
    
@@ -112,7 +112,7 @@ Next, create a rule and configure the thresholds that trigger an alert:
    :::image type="content" source="./media/configure-alerts-15.png" alt-text="Select an action group for the alert rule" lightbox="./media/configure-alerts-15.png":::
 
 1. Enter **Project** and **Alert rule** details, and then select **Next**.
-2. Select **Create**.
+1. Select **Create**.
 
 ### Example: Configure a static alert threshold for latency
 
