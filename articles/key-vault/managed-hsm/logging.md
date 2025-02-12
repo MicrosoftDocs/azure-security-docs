@@ -134,12 +134,19 @@ Set-AzDiagnosticSetting -Name "ContosoMHSM-Diagnostics" -ResourceId $hsmresource
 # [Portal](#tab/azure-portal)
 
 1. Select your HSM resource in the Azure portal, and then select Diagnostic settings under Monitoring.
+  
   :::image type="content" source="./media/logging-1.png" alt-text="Azure portal showing the selection of Diagnostic settings under Monitoring for an HSM resource" lightbox="./media/logging-1.png":::
-2. Select Add diagnostic setting
+  
+1. Select Add diagnostic setting.
+  
   :::image type="content" source="./media/logging-2.png" alt-text="Azure portal showing the Add diagnostic setting option" lightbox="./media/logging-2.png":::
-3. Enter a Name for the diagnostic setting.
-  :::image type="content" source="./media/logging-3.png" alt-text="Azure portal showing the field to enter a name for the diagnostic setting" lightbox="./media/logging-3.png"::: 
-4. Select the category group of logs and/or metrics you want to send and the Destination details of the logs. In this example, we will select audit and allLogs as well as AllMetrics and send to a Log Analytics workspace. Enter the details for the destination, and select Save.
+  
+1. Enter a Name for the diagnostic setting.
+  
+  :::image type="content" source="./media/logging-3.png" alt-text="Azure portal showing the field to enter a name for the diagnostic setting" lightbox="./media/logging-3.png":::
+  
+1. Select the category group of logs and/or metrics you want to send and the Destination details of the logs. In this example, we will select audit and allLogs as well as AllMetrics and send to a Log Analytics workspace. Enter the details for the destination, and select Save.
+  
   :::image type="content" source="./media/logging-4.png" alt-text="Azure portal showing the selection of log categories and destination details for the diagnostic setting" lightbox="./media/logging-4.png":::
 
 ---
