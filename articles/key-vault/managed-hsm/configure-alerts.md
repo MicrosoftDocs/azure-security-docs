@@ -103,7 +103,7 @@ Next, create a rule and configure the thresholds that trigger an alert:
    > [!NOTE]
    > The intention of the 1000 ms threshold is to notify that the Key Vault service in this region has a workload higher than average. Our SLA for Key Vault operations is several times higher. See the [Service Level Agreement for Online Services](https://azure.microsoft.com/support/legal/sla/) for current SLA. To alert when Key Vault operations are out of SLA, use the thresholds from the SLA documents.
    
-   **Total error codes** are higher than average (dynamic threshold).
+   - **Total error codes** are higher than average (dynamic threshold).
 
    :::image type="content" source="./media/configure-alerts-14.png" alt-text="Configure alert thresholds" lightbox="./media/configure-alerts-14.png":::
 
