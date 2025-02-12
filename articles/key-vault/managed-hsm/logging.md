@@ -59,7 +59,7 @@ For more information on login options via PowerShell, see [sign in with Azure Po
 
 # [Portal](#tab/azure-portal)
 
-Sign in to the Azure portal at <portal.azure.com>.
+Sign in to the Azure portal at [portal.azure.com](https://portal.azure.com).
 
 ---
 
