@@ -6,8 +6,8 @@ ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: overview
 ms.date: 08/30/2024
-ms.author: mbaldwin, nkondamudi
-author: msmbaldwin
+ms.author: mbaldwin
+author: msmbaldwin, nkondamudi
 ms.collection:
   - zerotrust-extra
 
