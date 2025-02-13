@@ -37,7 +37,7 @@ An action group is a configurable list of notifications and properties. The firs
 
 1. Select your HSM resource in the Azure portal, and then select **Alerts** under **Monitoring**.
    
-   :::image type="content" source="./media/configure-alerts-1.png" alt-text="A screenshot showing the selection of Alerts under Monitoring in the Azure portal." lightbox="./media/configure-alerts-1.png":::
+   :::image type="content" source="./media/configure-alerts-1.png" alt-text="A screenshot of the selection of Alerts under Monitoring in the Azure portal." lightbox="./media/configure-alerts-1.png":::
    
 1. Select **Create**.
    
