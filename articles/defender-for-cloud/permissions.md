@@ -18,7 +18,7 @@ In addition to the built-in roles, there are two roles specific to Defender for 
 
 We recommend assigning the least permissive role needed for users to complete their tasks. 
 
-For example, you can assign the Reader role to users who only need to view security health information of a resource without taking any action. Users with a Reader role can apply recommendations or editing policies.
+For example, you can assign the Reader role to users who only need to view security health information of a resource without taking any action. Users with a Reader role can not apply recommendations or editing policies.
 
 ## Roles and allowed actions
 
