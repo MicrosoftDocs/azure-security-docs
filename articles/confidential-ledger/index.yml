@@ -49,6 +49,8 @@ landingContent:
             url: authenticate-ledger-nodes.md
           - text: Write transaction receipts
             url: write-transaction-receipts.md
+          - text: Programmability
+            url: programmability.md
 
   # Card
   - title: How-to-guides

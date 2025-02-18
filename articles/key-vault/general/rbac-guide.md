@@ -11,13 +11,10 @@ ms.date: 04/04/2024
 ms.author: mbaldwin
 ---
 
-# Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control
+# Provide access to Key Vault keys, certificates, and secrets with Azure role-based access control
 
 > [!NOTE]
 > Key Vault resource provider supports two resource types: **vaults** and **managed HSMs**. Access control described in this article only applies to **vaults**. To learn more about access control for managed HSM, see [Managed HSM access control](../managed-hsm/access-control.md).
-
-> [!NOTE]
-> Azure App Service certificate configuration through Azure Portal does not support Key Vault RBAC permission model. You can use Azure PowerShell, Azure CLI, ARM template deployments with **Key Vault Certificate User** role assignment for App Service global identity, for example Microsoft Azure App Service' in public cloud.
 
 Azure role-based access control (Azure RBAC) is an authorization system built on [Azure Resource Manager](/azure/azure-resource-manager/management/overview) that provides centralized access management of Azure resources.
 
