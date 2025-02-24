@@ -93,7 +93,7 @@ sections:
       - question: |
           What is the SLA for Payment HSM service?
         answer: |
-          Payment HSM is a BareMetal service, meaning customers assume full responsibility for managing the HSM once it is  provisioned within their virtual network. To ensure resilience, customers must implement a High Availability setup within the same region and deploy another HSM in an alternate region for disaster recovery. For detailed guidance, see [Deployment scenarios: High availability deployment](deployment-scenarios.md#high-availability-deployment).
+          Payment HSM is a BareMetal service, meaning customers assume full responsibility for managing the HSM once it is  provisioned within their virtual network. To ensure resilience, customers must implement a High Availability setup within the same region and deploy additional HSMs in an alternate region for disaster recovery. For detailed guidance, see [Deployment scenarios: High availability deployment](deployment-scenarios.md#high-availability-deployment).
           
           The Payment HSM service does not have a specific uptime guarantee. However, Microsoft ensures network-level access to the device, and standard Azure networking SLAs apply.
 
