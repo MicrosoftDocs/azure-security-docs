@@ -73,6 +73,7 @@ Here's a list of trusted services that are allowed to access a key vault if the 
 | Azure Import/Export| [Use customer-managed keys in Azure Key Vault for Import/Export service](/azure/import-export/storage-import-export-encryption-key-portal)
 | Azure Information Protection|Allow access to tenant key for [Azure Information Protection.](/azure/information-protection/what-is-information-protection)|
 | Azure Machine Learning|[Secure Azure Machine Learning in a virtual network](/azure/machine-learning/how-to-secure-workspace-vnet)|
+| Azure Monitor | Log Analytics dedicated cluster [access to a key vault for customer-managed keys scenario](/azure/azure-monitor/logs/customer-managed-keys?tabs=portal) |
 | Azure NetApp Files | [Allow access customer-managed keys in Azure Key Vault](/azure/azure-netapp-files/configure-customer-managed-keys) |
 | Azure Policy Scan| Control plane policies for secrets, keys stored in data plane |
 | Azure Resource Manager template deployment service|[Pass secure values during deployment](/azure/azure-resource-manager/templates/key-vault-parameter).|
