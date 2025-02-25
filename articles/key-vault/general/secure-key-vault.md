@@ -35,7 +35,7 @@ This article provides guidenace on how to best secure your Azure Key Vault deplo
 
 ## Posture and vulnerability management
 
-- **Use Azure Policy to enforce configuration**: Configure Azure Policy to audit and enforce secure configurations for Azure Key Vault and set up alerts for deviations from policy. See [Azure Policy Regulatory Compliance controls for Azure Key Vault](../security-controls-policy).
+- **Use Azure Policy to enforce configuration**: Configure Azure Policy to audit and enforce secure configurations for Azure Key Vault and set up alerts for deviations from policy. See [Azure Policy Regulatory Compliance controls for Azure Key Vault](../security-controls-policy.md).
 
 ## Network Security
 
