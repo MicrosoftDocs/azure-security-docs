@@ -15,9 +15,9 @@ Microsoft Azure confidential ledger (ACL) is a highly secure immutable data stor
 
 These features are ideal when critical metadata records must not be modified and kept intact, such as for regulatory compliance and archival purposes. Data logged in the ledger remains privacy enhanced and protected from insider threats within an organization or even the cloud provider.  It is also beneficial as a repository of audit trails or records that need to be protected and selectively shared with certain personas (i.e. auditors).
 
-The confidential ledger can integrity protect existing databases and applications by acting as a point-in-time source of truth for digests and signatures. Each transaction in the confidential ledger provides cryptographic proofs in verification scenarios.   For example, your Azure SQL data can be integrity protected.  Please see a recent blog on how [Azure’s hardware security is protected via ACL](https://azure.microsoft.com/en-us/blog/microsoft-azure-confidential-ledger-enhancing-customer-trust-in-azures-hardware-supply-chain/).
+The confidential ledger can integrity protect existing databases and applications by acting as a point-in-time source of truth for digests and signatures. Each transaction in the confidential ledger provides cryptographic proofs in verification scenarios.   For example, your Azure SQL data can be integrity protected further, where table digests or logs can be stored in the confidential ledger. 
 
-For more information, you can learn about [protecting data source integrity with Azure confidential ledger](https://www.youtube.com/watch?v=lJSn46id-64) or watch a product demo [Azure confidential ledger demo](https://www.youtube.com/watch?v=Cg0-5moftP0).
+For more information, you can learn about [protecting data source integrity with Azure confidential ledger](https://www.youtube.com/watch?v=lJSn46id-64) or watch a product demo [Azure confidential ledger demo](https://www.youtube.com/watch?v=Cg0-5moftP0). You can also read a recent blog on how [Azure’s hardware security is protected via ACL](https://azure.microsoft.com/en-us/blog/microsoft-azure-confidential-ledger-enhancing-customer-trust-in-azures-hardware-supply-chain/).
 
 # What to store 
 Here are a few examples of things you can store on your ledger:
