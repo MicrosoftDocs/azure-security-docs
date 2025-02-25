@@ -11,7 +11,7 @@ ms.author: mbaldwin
 ---
 # Microsoft Azure confidential ledger
 
-Microsoft Azure confidential ledger (ACL) is a highly secure immutable data store for managing sensitive data records.  This auditable data store offers unique data integrity advantages, including immutability, tamper-proofing, and append-only operations through the private blockchain architecture. 
+Microsoft Azure confidential ledger (ACL) is a highly secure immutable data store for managing sensitive data records.  This auditable data store offers unique data integrity advantages, including immutability, tamper-proofing, and append-only operations by combining cryptographic techniques and blockchain technology. 
 
 These features are ideal when critical metadata records must not be modified and kept intact, such as for regulatory compliance and archival purposes. Data logged in the ledger remains privacy enhanced and protected from insider threats within an organization or even the cloud provider.  It is also beneficial as a repository of audit trails or records that need to be protected and selectively shared with certain personas (i.e. auditors).
 
