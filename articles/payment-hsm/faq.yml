@@ -50,7 +50,7 @@ sections:
       - question: |
           What default license comes with Azure Payment HSM?
         answer: |
-          The service comes with Thales payShield 10K Premium Package license with 1 or 2 LMK at 60CPS, 250CPS or 2500CPS. For pricing, please see [Azure Payment HSM pricing details](https://azure.microsoft.com/en-us/pricing/details/payment-hsm/#pricing); for firmware information, see [Azure Payment HSM service support guide: Firmware and license support](support-guide.md#firmware-and-license-support).
+          The service comes with Thales payShield 10K Premium Package license with 1 or 2 LMK at 60CPS, 250CPS, or 2500CPS. For pricing, see [Azure Payment HSM pricing details](https://azure.microsoft.com/en-us/pricing/details/payment-hsm/#pricing); for firmware information, see [Azure Payment HSM service support guide: Firmware and license support](support-guide.md#firmware-and-license-support).
           
       - question: |
           In what scenarios you need to contact Thales for licenses?
@@ -83,9 +83,20 @@ sections:
       - question: |
           What kind of performance can I expect?
         answer: |
-          Performance of a hosted payShield is no different from an on-premises deployment. The actual end-to-end performance of the payment API depends on the location of the workloads and network latencies. When the payment service workloads are run on virtual machines hosted in the same service provider's network, performance should match an on-premises deployment. Network latencies between the computer virtual machine(s) running payment service workloads and the hosted payShield are typically very low, but this would depend on the provider's network setup
+          Performance of a hosted payShield is no different from an on-premises deployment. The actual end-to-end performance of the payment API depends on the location of the workloads and network latencies. When the payment service workloads are run on virtual machines hosted in the same service provider's network, performance should match an on-premises deployment. Network latencies between the computer's virtual machine(s) running payment service workloads and the hosted payShield are typically low, but this would depend on the provider's network setup
           
       - question: |
           How do I decommission an HSM?
         answer: |
           Releasing a device process removes ALL customer data, logs, keys, and so forth.  For steps, see [Tutorial: Remove a commissioned payment HSM](remove-payment-hsm.md).
+          
+      - question: |
+          What is the SLA for Payment HSM service?
+        answer: |
+          Payment HSM is a BareMetal service, meaning customers assume full responsibility for managing the HSM once it is  provisioned within their virtual network. To ensure resilience, customers must implement a High Availability setup within the same region and deploy additional HSMs in an alternate region for disaster recovery. For detailed guidance, see [Deployment scenarios: High availability deployment](deployment-scenarios.md#high-availability-deployment).
+          
+          The Payment HSM service does not have a specific uptime guarantee. However, Microsoft ensures network-level access to the device, and standard Azure networking SLAs apply.
+
+
+
+ 
