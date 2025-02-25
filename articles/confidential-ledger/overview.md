@@ -11,13 +11,15 @@ ms.author: mbaldwin
 ---
 # Microsoft Azure confidential ledger
 
-Microsoft Azure confidential ledger (ACL) is a new and highly secure immutable data store for managing sensitive data records.  This auditable data store offers unique data integrity advantages, including immutability, tamper-proofing, and append-only operations through the private blockchain architecture. These features, which ensure that all records are kept intact, are ideal when critical metadata records must not be modified, such as for regulatory compliance and archival purposes. It is also beneficial as a repository of audit trails or records that need to be protected and selectively shared with certain personas.
+Microsoft Azure confidential ledger (ACL) is a highly secure immutable data store for managing sensitive data records.  This auditable data store offers unique data integrity advantages, including immutability, tamper-proofing, and append-only operations through the private blockchain architecture. 
 
-The confidential ledger integrity protects existing databases and applications by acting as a point in time source of truth, digest or signature store, which provides cryptographic proofs in verification scenarios. Data logged in the ledger remains unmodifiable, privacy enhanced, and protected from insider threats within an organization or even the cloud provider.   Please see a recent blog on how [Azure’s hardware security is protected via ACL](https://azure.microsoft.com/en-us/blog/microsoft-azure-confidential-ledger-enhancing-customer-trust-in-azures-hardware-supply-chain/).
+These features are ideal when critical metadata records must not be modified and kept intact, such as for regulatory compliance and archival purposes. Data logged in the ledger remains privacy enhanced and protected from insider threats within an organization or even the cloud provider.  It is also beneficial as a repository of audit trails or records that need to be protected and selectively shared with certain personas (i.e. auditors).
+
+The confidential ledger can integrity protect existing databases and applications by acting as a point-in-time source of truth for digests and signatures. Each transaction in the confidential ledger provides cryptographic proofs in verification scenarios.   For example, your Azure SQL data can be integrity protected.  Please see a recent blog on how [Azure’s hardware security is protected via ACL](https://azure.microsoft.com/en-us/blog/microsoft-azure-confidential-ledger-enhancing-customer-trust-in-azures-hardware-supply-chain/).
 
 For more information, you can learn about [protecting data source integrity with Azure confidential ledger](https://www.youtube.com/watch?v=lJSn46id-64) or watch a product demo [Azure confidential ledger demo](https://www.youtube.com/watch?v=Cg0-5moftP0).
 
-# What to store and how
+# What to store 
 Here are a few examples of things you can store on your ledger:
 
 - Records relating to your business transactions (for example, money transfers or confidential document edits).
@@ -48,7 +50,7 @@ The ledger APIs support certificate-based authentication process with owner role
 
 The data to the ledger is sent through TLS 1.3 connection and the TLS 1.3 connection terminates inside the hardware backed security enclaves (Intel® SGX enclaves), ensuring that no one can intercept the connection between a customer's client and the confidential ledger server nodes.
 
-### Ledger storage
+### Ledger data storage
 
 Confidential ledgers are created as blocks in blob storage containers belonging to an Azure Storage account. Transaction data can either be stored encrypted or in plaintext depending on your needs.
 
@@ -56,6 +58,12 @@ Administrators can manage the confidential ledger with Administrative APIs (Cont
 
 The Functional APIs allow direct interaction with your instantiated confidential ledger and include operations such as put and get data.
 
+## BCDR 
+<insert copy>
+
+## Performance 
+<insert copy>
+  
 ## Constraints
 
 - Once a confidential ledger is created, you cannot change the ledger type (private or public).
