@@ -15,11 +15,11 @@ ms.author: mbaldwin
 
 Azure Key Vault protects cryptographic keys, certificates (and the private keys associated with the certificates), and secrets (such as connection strings and passwords) in the cloud. When storing sensitive and business-critical data, however, you must take steps to maximize the security of your vaults and the data stored in them.
 
-This article provides guidenace on how to best secure your Azure Key Vault deployment.
+This article provides guidance on how to best secure your Azure Key Vault deployment.
 
 ## Key vault architecture
 
-- **Use one Key Vault per application, region, and environment**: Create separate Key Vaults for development, pre-production, and production environments to reduce the impact of breaches.
+- **Use one Key Vault per application, region, and environment**: Create separate Key Vaults for development, preproduction, and production environments to reduce the impact of breaches.
 
     Key vaults define security boundaries for stored secrets. Grouping secrets into the same vault increases the blast radius of a security event because attacks might be able to access secrets across concerns. To mitigate access across concerns, consider what secrets a specific application should have access to, and then separate your key vaults based on this delineation. Separating key vaults by application is the most common boundary. Security boundaries, however, can be more granular for large applications, for example, per group of related services.
 
@@ -29,9 +29,9 @@ This article provides guidenace on how to best secure your Azure Key Vault deplo
 
 - **Do not use Key Vault as a data storage to store customer configurations or service configurations**:  Services should use [Azure Storage with encryption at rest](/azure/storage/common/storage-service-encryption) or [Azure configuration manager](/mem/configmgr/core/understand/introduction). Storage is more performant for such scenarios.
 
-- **Do not store certificates (customer or service owned) as secrets**:  Service-owned certificates should be stored as Key Vault certificates and configured for autorotation. For more details, see [Azure key vault: Certificates](../certificates/about-certificates.md).
+- **Do not store certificates (customer or service owned) as secrets**:  Service-owned certificates should be stored as Key Vault certificates and configured for autorotation. For more information, see [Azure key vault: Certificates](../certificates/about-certificates.md).
 
-    - **Customer content (excluding secrets and certificates) should not be stored in Key Vault**: Key Vault is not a data store and not built to scale like a data store. Instead use a proper data store like [Cosmos DB](/azure/cosmos-db/introduction) or [Azure Storage](/azure/storage/common/storage-introduction). Customers have the option of BYOK (Bring Your Own Key) for encryption at rest. This key can be stored in AKV to encrypt the data in Azure Storage.
+    - **Customer content (excluding secrets and certificates) should not be stored in Key Vault**: Key Vault is not a data store and not built to scale like a data store. Instead use a proper data store like [Cosmos DB](/azure/cosmos-db/introduction) or [Azure Storage](/azure/storage/common/storage-introduction). Customers have the option of BYOK (Bring Your Own Key) for encryption at rest. This key can be stored in Azure Key Vault to encrypt the data in Azure Storage.
 
 ## Posture and vulnerability management
 
@@ -39,7 +39,7 @@ This article provides guidenace on how to best secure your Azure Key Vault deplo
 
 ## Network Security
 
-The network security features below are listed from most restricted to least restricted capabilities. Pick the configuration that best suits your organization's use case.
+These network security features are listed from most restricted to least restricted capabilities. Pick the configuration that best suits your organization's use case.
 
 - **Disable public network access and use Private Endpoints only**: Deploy Azure Private Link to establish a private access point from a virtual network to Azure Key Vault and prevent exposure to the public internet. For implementation steps, see [Integrate Key Vault with Azure Private Link](private-link-service.md).
 
@@ -61,13 +61,12 @@ The network security features below are listed from most restricted to least res
 
     - **Do not use legacy access policies**: Do not use legacy access policies, as they lack support for Privileged Identity Management (PIM). Azure RBAC mitigates potential unauthorized Key Vault access risks. See [Azure role-based access control (Azure RBAC) vs. access policies (legacy)](rbac-access-policy.md).
 
-- **Assign just-in-time privileged roles**: Use Azure Privileged Identity Management (PIM) to assign eligible JIT RBAC roles for administrators and operators of Key Vault. See [Privileged Identity Management (PIM) overview](/azure/active-directory/privileged-identity-management/pim-configure) for details.
+- **Assign just-in-time (JIT) privileged roles**: Use Azure Privileged Identity Management (PIM) to assign eligible JIT RBAC roles for administrators and operators of Key Vault. See [Privileged Identity Management (PIM) overview](/azure/active-directory/privileged-identity-management/pim-configure) for details.
 
-    - **Require approvals for privileged role activation**: Ensure at least one approver is required to activate JIT roles. This adds an extra layer of security to prevent unauthorized access. See [Configure Microsoft Entra role settings in Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-how-to-change-default-settings).
-
+    - **Require approvals for privileged role activation**: Add an extra layer of security to prevent unauthorized access by ensuring that at least one approver is required to activate JIT roles. See [Configure Microsoft Entra role settings in Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-how-to-change-default-settings).
     - **Enforce multi-factor authentication for role activation**: Require MFA to activate JIT roles for operators and administrators. See [Microsoft Entra multifactor authentication](/entra/identity/authentication/concept-mfa-howitworks).
 
-- **Enable Microsoft Entra Conditional Access Policies**: Key Vault supports Microsoft Entra Conditional Access policies to apply access controls based on conditions such as user location or device. For more details, see [Conditional Access overview](/azure/active-directory/conditional-access/overview).
+- **Enable Microsoft Entra Conditional Access Policies**: Key Vault supports Microsoft Entra Conditional Access policies to apply access controls based on conditions such as user location or device. For more information, see [Conditional Access overview](/azure/active-directory/conditional-access/overview).
 
 - **Apply the principle of least privilege**: Limit the number of users with administrative roles and ensure users are granted only the minimum permissions required for their role. See [Enhance security with the principle of least privilege](/entra/identity-platform/secure-least-privileged-access)
 
@@ -93,7 +92,7 @@ The network security features below are listed from most restricted to least res
 
 - **Ensure backups for secrets that can't be recreated**: Back up Key Vault objects (like encryption keys) that can't be recreated from other sources. See [Azure Key Vault backup](backup.md).
 
-- **Test backup and recovery procedures**: Regularly test the restoration of Key Vault secrets, keys, and certificates to verify the effectiveness of backup processes. See [Azure Key Vault backup](backup.md).
+- **Test backup and recovery procedures**: To verify the effectiveness of backup processes, regularly test the restoration of Key Vault secrets, keys, and certificates. See [Azure Key Vault backup](backup.md).
 
 ## Next steps
 
