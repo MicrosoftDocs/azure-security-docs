@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure confidential ledger overview
-description: An overview of Azure confidential ledger, a highly secure service for managing sensitive data records
+description: An overview of Azure confidential ledger, a highly secure service for managing sensitive data records with traceability, auditability, and integrity
 services: confidential-ledger
 author: msmbaldwin
 ms.service: azure-confidential-ledger
@@ -11,20 +11,32 @@ ms.author: mbaldwin
 ---
 # Microsoft Azure confidential ledger
 
-Microsoft Azure confidential ledger (ACL) is a new and highly secure service for managing sensitive data records. It runs exclusively on hardware-backed secure enclaves, a heavily monitored and isolated runtime environment, which keeps potential attacks at bay. Furthermore, Azure confidential ledger runs on a minimalistic Trusted Computing Base (TCB), which ensures that no one⁠—not even Microsoft⁠—is "above" the ledger.
+Microsoft Azure confidential ledger (ACL) is a new and highly secure immutable data store for managing sensitive data records.  This auditable data store offers unique data integrity advantages, including immutability, tamper-proofing, and append-only operations through the private blockchain architecture. These features, which ensure that all records are kept intact, are ideal when critical metadata records must not be modified, such as for regulatory compliance and archival purposes. It is also beneficial as a repository of audit trails or records that need to be protected and selectively shared with certain personas.
 
-As its name suggests, Azure confidential ledger utilizes the [Azure Confidential Computing platform](/azure/confidential-computing) and the [Confidential Consortium Framework](https://www.microsoft.com/en-us/research/project/confidential-consortium-framework) to provide a high integrity solution that is tamper-protected and evident. One ledger spans across three or more identical instances, each of which run in a dedicated, fully attested hardware-backed enclave. The ledger's integrity is maintained through a consensus-based blockchain.
+The confidential ledger integrity protects existing databases and applications by acting as a point in time source of truth, digest or signature store, which provides cryptographic proofs in verification scenarios. Data logged in the ledger remains unmodifiable, privacy enhanced, and protected from insider threats within an organization or even the cloud provider.   Please see a recent blog on how [Azure’s hardware security is protected via ACL](https://azure.microsoft.com/en-us/blog/microsoft-azure-confidential-ledger-enhancing-customer-trust-in-azures-hardware-supply-chain/).
 
-Azure confidential ledger offers unique data integrity advantages, including immutability, tamper-proofing, and append-only operations. These features, which ensure that all records are kept intact, are ideal when critical metadata records must not be modified, such as for regulatory compliance and archival purposes.
+For more information, you can learn about [protecting data source integrity with Azure confidential ledger](https://www.youtube.com/watch?v=lJSn46id-64) or watch a product demo [Azure confidential ledger demo](https://www.youtube.com/watch?v=Cg0-5moftP0).
 
+# What to store and how
 Here are a few examples of things you can store on your ledger:
 
 - Records relating to your business transactions (for example, money transfers or confidential document edits).
 - Updates to trusted assets (for example, core applications or contracts).
 - Administrative and control changes (for example, granting access permissions).
-- Operational IT and security events (for example, Microsoft Defender for Cloud alerts).
+- Operational IT and security events (for example, Microsoft Defender for Cloud alerts)
 
-For more information, you can watch the [Azure confidential ledger demo](https://www.youtube.com/watch?v=Cg0-5moftP0).
+## Use Cases 
+- I have *relational data* that requires end to end data integrity guarantees - Store your data in [Azure SQL database's ledger feature](https://learn.microsoft.com/en-us/sql/relational-databases/security/ledger/ledger-overview?view=sql-server-ver16) and turn on Azure Confidential Ledger as your Trusted Digest store.
+- I have *blob data* that needs end to end integrity - Store your data in immutable blob storage and configure the [Azure Marketplace application backed by Confidential Ledger](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azureconfidentialledger.acl-blob-storage?tab=Overview) to store signatures and verify against.
+- I have *system records* that need integrity protection with verifiability - Store your records in the confidential ledger directly. Use different ledger instances for your purposes!
+- I have *confidential transactional data* that needs confidentiality and integrity protection - Store your critical confidential data's application records in the confidential ledger directly.
+
+
+# How it works
+The confidential ledger runs exclusively on hardware-backed secure enclaves, a heavily monitored and isolated runtime environment, which keeps potential attacks at bay. Furthermore, Azure confidential ledger runs on a minimalistic Trusted Computing Base (TCB), which ensures that no one⁠—not even Microsoft⁠—is "above" the ledger.
+
+As its name suggests, Azure confidential ledger utilizes the [Azure Confidential Computing platform](/azure/confidential-computing) and the [Confidential Consortium Framework](https://www.microsoft.com/en-us/research/project/confidential-consortium-framework) to provide a high integrity solution that is tamper-protected and evident. One ledger spans across three or more identical instances, each of which run in a dedicated, fully attested hardware-backed enclave. The ledger's integrity is maintained through a consensus-based blockchain.
+
 
 ## Key Features
 
