@@ -64,6 +64,8 @@
     href: best-practices.md
   - name: Security
     items:
+    - name: Secure your Key vault
+      href: secure-key-vault.md
     - name: Security features
       href: security-features.md
     - name: Key Vault authentication
