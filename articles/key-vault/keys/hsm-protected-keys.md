@@ -8,7 +8,7 @@ manager: devtiw
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 01/30/2024
+ms.date: 02/26/2025
 ms.author: mbaldwin
 
 ---
