@@ -40,6 +40,7 @@ Transferring HSM-protected keys to Key Vault is supported via two different meth
 |StorMagic|ISV (Enterprise Key Management System)|Multiple HSM brands and models including<ul><li>Utimaco</li><li>Thales</li><li>nCipher</li></ul>See [StorMagic site for details](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|[Use new BYOK method](hsm-protected-keys-byok.md)|
 |Thales|Manufacturer|<ul><li>Luna HSM 7 family with firmware version 7.3 or newer</li></ul>| [Use new BYOK method](hsm-protected-keys-byok.md)|
 |Utimaco|Manufacturer,<br/>HSM as a service|u.trust Anchor, CryptoServer|[Use new BYOK method](hsm-protected-keys-byok.md)|
+|Yubico|Manufacturer|YubiHSM 2|[Use new BYOK method](hsm-protected-keys-byok.md)|
 |||||
 
 ## Next steps
