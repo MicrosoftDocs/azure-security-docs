@@ -4,7 +4,7 @@ description: Learn how virtual network service endpoints for Azure Key Vault all
 services: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 01/30/2024
+ms.date: 02/25/2025
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: conceptual
@@ -73,6 +73,7 @@ Here's a list of trusted services that are allowed to access a key vault if the 
 | Azure Import/Export| [Use customer-managed keys in Azure Key Vault for Import/Export service](/azure/import-export/storage-import-export-encryption-key-portal)
 | Azure Information Protection|Allow access to tenant key for [Azure Information Protection.](/azure/information-protection/what-is-information-protection)|
 | Azure Machine Learning|[Secure Azure Machine Learning in a virtual network](/azure/machine-learning/how-to-secure-workspace-vnet)|
+| Azure Monitor | Log Analytics dedicated cluster [access to a key vault for customer-managed keys scenario](/azure/azure-monitor/logs/customer-managed-keys?tabs=portal) |
 | Azure NetApp Files | [Allow access customer-managed keys in Azure Key Vault](/azure/azure-netapp-files/configure-customer-managed-keys) |
 | Azure Policy Scan| Control plane policies for secrets, keys stored in data plane |
 | Azure Resource Manager template deployment service|[Pass secure values during deployment](/azure/azure-resource-manager/templates/key-vault-parameter).|
@@ -82,6 +83,7 @@ Here's a list of trusted services that are allowed to access a key vault if the 
 | Azure Synapse Analytics|[Encryption of data using customer-managed keys in Azure Key Vault](/azure/synapse-analytics/security/workspaces-encryption)|
 | Azure Virtual Machines deployment service|[Deploy certificates to VMs from customer-managed Key Vault](/archive/blogs/kv/updated-deploy-certificates-to-vms-from-customer-managed-key-vault).|
 |Exchange Online, SharePoint Online, M365DataAtRestEncryption | Allow access to customer managed keys for Data-At-Rest Encryption with [Customer Key](/microsoft-365/compliance/customer-key-overview?view=o365-worldwide&preserve-view=true).|
+| Microsoft PowerPlatform | [Encryption of data in Power Platform using customer-managed keys](/power-platform/admin/customer-managed-key).
 | Microsoft Purview|[Using credentials for source authentication in Microsoft Purview](/azure/purview/manage-credentials)
 
 > [!NOTE]
