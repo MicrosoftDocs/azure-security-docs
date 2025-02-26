@@ -65,6 +65,7 @@ The following table lists prerequisites for using BYOK in Azure Key Vault:
 |StorMagic|ISV (Enterprise Key Management System)|Multiple HSM brands and models including<ul><li>Utimaco</li><li>Thales</li><li>nCipher</li></ul>See [StorMagic site for details](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|[SvKMS and Azure Key Vault BYOK](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|
 |Thales|Manufacturer|<ul><li>Luna HSM 7 family with firmware version 7.3 or newer</li></ul>| [Luna BYOK tool and documentation](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=3892db6ddb8fc45005c9143b0b961987&sysparm_article=KB0021016)|
 |Utimaco|Manufacturer,<br/>HSM as a service|u.trust Anchor, CryptoServer| Utimaco BYOK tool and Integration guide |
+|Yubico|Manufacturer|YubiHSM 2| [YubiHSM 2 BYOK User Guide for Azure](https://resources.yubico.com/53ZDUYE6/at/2rsrrspcftx4xkp8fn9nsgv/YubiHSM_2_BYOK_User_Guide_for_Azure.pdf?format=pdf) |
 ||||
 
 ## Supported key types
