@@ -4,7 +4,7 @@ description: Learn how virtual network service endpoints for Azure Key Vault all
 services: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 01/30/2024
+ms.date: 02/25/2025
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: conceptual
@@ -83,6 +83,7 @@ Here's a list of trusted services that are allowed to access a key vault if the 
 | Azure Synapse Analytics|[Encryption of data using customer-managed keys in Azure Key Vault](/azure/synapse-analytics/security/workspaces-encryption)|
 | Azure Virtual Machines deployment service|[Deploy certificates to VMs from customer-managed Key Vault](/archive/blogs/kv/updated-deploy-certificates-to-vms-from-customer-managed-key-vault).|
 |Exchange Online, SharePoint Online, M365DataAtRestEncryption | Allow access to customer managed keys for Data-At-Rest Encryption with [Customer Key](/microsoft-365/compliance/customer-key-overview?view=o365-worldwide&preserve-view=true).|
+| Microsoft PowerPlatform | [Encryption of data in Power Platform using customer-managed keys](/power-platform/admin/customer-managed-key).
 | Microsoft Purview|[Using credentials for source authentication in Microsoft Purview](/azure/purview/manage-credentials)
 
 > [!NOTE]
