@@ -192,6 +192,9 @@ To generate a benign test alert from Defender for Endpoint, select the tab for t
 
 ### Test on Windows
 
+> [!NOTE]
+> During the onboarding process, the Defender for Cloud extension deploys an agent on each Windows server, which automatically generates a self‑signed certificate named Microsoft.Azure.AzureDefenderForServers.MDE.Windows. This certificate is used to secure and authenticate communication between the server and Defender for Endpoint. Importantly, the certificate is auto‑renewed by the agent without manual intervention. To ensure continuous protection, it is recommended that monitoring focuses on verifying that a valid certificate is present rather than tracking the expiration dates of individual certificates.
+
 For endpoints running Windows:
 
 1. Create a folder 'C:\test-MDATP-test'.
