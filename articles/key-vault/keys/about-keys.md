@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: overview
-ms.date: 09/06/2024
+ms.date: 02/27/2025
 ms.author: mbaldwin
 ---
 
@@ -45,7 +45,7 @@ For more information on geographical boundaries, see [Microsoft Azure Trust Cent
 
 ## Key types and protection methods
 
-Key Vault supports RSA and EC keys. Managed HSM supports RSA, EC, and symmetric keys. 
+Key Vault Premium and Standard support RSA and EC keys. Managed HSM supports RSA, EC, and symmetric keys. 
 
 ### HSM-protected keys
 
@@ -74,6 +74,10 @@ Key Vault supports RSA and EC keys. Managed HSM supports RSA, EC, and symmetric 
 |Keys in Managed HSM are always HSM protected | FIPS 140-2 Level 3 |
 |||
 
+### Quantum Resistant
+“Quantum-resistant” (QR), “quantum-safe,” and “post-quantum” (PQ) cryptography are all terms used to describe cryptographic algorithms believed to be resistant to cryptanalytic attacks from both classical and quantum computers. OCT-HSM 256 bit keys used with any of the AES family of algorithms offered by Managed HSM are Quantum Resistant. See [The Commercial National Security Algorithm Suite 2.0 and Quantum Computing FAQ](https://media.defense.gov/2022/Sep/07/2003071836/-1/-1/1/CSI_CNSA_2.0_FAQ_.PDF) for more guidance on quantum resistant cryptography.
+
+OCT-HSM keys with 
 See [Key types, algorithms, and operations](about-keys-details.md) for details about each key type, algorithms, operations, attributes, and tags.
 
 ## Usage Scenarios
