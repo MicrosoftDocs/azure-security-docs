@@ -74,8 +74,8 @@ Key Vault Premium and Standard support RSA and EC keys. Managed HSM supports RSA
 |Keys in Managed HSM are always HSM protected | FIPS 140-2 Level 3 |
 |||
 
-### Quantum Resistant, Quantum Safe, or Post Quantum Cryptography
-“Quantum-resistant”, “quantum-safe,” and “post-quantum” cryptography are all terms used to describe cryptographic algorithms believed to be resistant to cryptanalytic attacks from both classical and quantum computers. OCT-HSM 256-bit keys used with any of the AES family of algorithms offered by Managed HSM are Quantum Resistant. See [The Commercial National Security Algorithm Suite 2.0 and Quantum Computing FAQ](https://media.defense.gov/2022/Sep/07/2003071836/-1/-1/1/CSI_CNSA_2.0_FAQ_.PDF) for more guidance on quantum resistant cryptography.
+### Quantum-resistant, Quantum-safe, or Post-quantum Cryptography
+"Quantum-resistant", "quantum-safe", and "post-quantum" cryptography are all terms used to describe cryptographic algorithms believed to be resistant to cryptanalytic attacks from both classical and quantum computers. OCT-HSM 256-bit keys used with the AES algorithms offered by Managed HSM are quantum-resistant. For more information, see [The Commercial National Security Algorithm Suite 2.0 and Quantum Computing FAQ](https://media.defense.gov/2022/Sep/07/2003071836/-1/-1/1/CSI_CNSA_2.0_FAQ_.PDF).
 
 See [Key types, algorithms, and operations](about-keys-details.md) for details about each key type, algorithms, operations, attributes, and tags.
 
