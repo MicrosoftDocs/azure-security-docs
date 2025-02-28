@@ -74,7 +74,7 @@ Following table shows a summary of key types and supported algorithms.
 - **AES-GCM** - AES encryption in Galois Counter Mode ([NIST SP 800-38d](https://csrc.nist.gov/publications/sp800))
 - **AES-CBC** - AES encryption in Cipher Block Chaining Mode ([NIST SP 800-38a](https://csrc.nist.gov/publications/sp800))
 
-These algorithms when used with 256-bit keys are quantum resistant according to the [The Commercial National Security Algorithm Suite 2.0 and Quantum Computing FAQ](https://media.defense.gov/2022/Sep/07/2003071836/-1/-1/0/CSI_CNSA_2.0_FAQ_.PDF).
+These algorithms when used with 256-bit keys are quantum-resistant according to the [The Commercial National Security Algorithm Suite 2.0 and Quantum Computing FAQ](https://media.defense.gov/2022/Sep/07/2003071836/-1/-1/0/CSI_CNSA_2.0_FAQ_.PDF).
 
 > [!NOTE] 
 > Sign and verify operations algorithms must match the key type, otherwise service will return key size is incorrect error.
