@@ -6,7 +6,8 @@ author: msmbaldwin
 ms.service: azure-confidential-ledger
 ms.topic: overview
 ms.date: 01/30/2024
-ms.author: shubhsinha
+ms.author: shusinha
+
 
 ---
 # Microsoft Azure confidential ledger
@@ -37,7 +38,7 @@ Here are a few examples of things you can store on your ledger:
 ## Use Cases
 
 - I have *relational data* that requires end to end data integrity guarantees - Store your data in [Azure SQL database's ledger feature](/sql/relational-databases/security/ledger/ledger-overview) and turn on Azure Confidential Ledger as your Trusted Digest store.
-- I have *blob data* that needs end to end integrity - Store your data in immutable blob storage and configure the [Azure Marketplace application backed by Confidential Ledger](https://azuremarketplace.microsoft.com/marketplace/apps/azureconfidentialledger.acl-blob-storage?tab=Overview) to [store signatures and verify against](https://learn.microsoft.com/en-us/azure/confidential-ledger/create-blob-managed-app?tabs=azure-portal).
+- I have *blob data* that needs end to end integrity - Store your data in immutable blob storage and configure the [Azure Marketplace application backed by Confidential Ledger](https://azuremarketplace.microsoft.com/marketplace/apps/azureconfidentialledger.acl-blob-storage?tab=Overview) to [store signatures and verify against](/azure/confidential-ledger/create-blob-managed-app?tabs=azure-portal).
 - I have *system records* that need integrity protection with verifiability - Store your records in the confidential ledger directly. For instance, have all your development records go to one ledger instance and have your production logs go to another instance! When it is time to audit, only selectively share ledger transactions with the auditor.
 - I have *confidential transactional data* that needs confidentiality and integrity protection - Store your critical confidential data's application records in the confidential ledger directly.
 
