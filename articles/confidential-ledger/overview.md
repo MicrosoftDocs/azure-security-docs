@@ -6,7 +6,8 @@ author: msmbaldwin
 ms.service: azure-confidential-ledger
 ms.topic: overview
 ms.date: 01/30/2024
-ms.author: shusinha
+ms.author: shubhsinha
+
 
 ---
 # Microsoft Azure confidential ledger
