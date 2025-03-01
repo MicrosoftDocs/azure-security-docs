@@ -24,7 +24,7 @@ The confidential ledger can protect existing databases and applications by actin
 
 For more information, you can learn about [protecting data source integrity with Azure confidential ledger](https://www.youtube.com/watch?v=lJSn46id-64) or watch a product demo [Azure confidential ledger demo](https://www.youtube.com/watch?v=Cg0-5moftP0). You can also read a recent blog on how [Azure’s hardware security is protected via ACL](https://azure.microsoft.com/blog/microsoft-azure-confidential-ledger-enhancing-customer-trust-in-azures-hardware-supply-chain/).
 
-:::image type="content" source="./media/use-cases.png" alt-text="Use cases for Azure confidential ledger" lightbox="media/use-cases.png":::
+:::image type="content" source="./media/use-cases.png" alt-text=Diagram of use cases for Azure confidential ledger." lightbox="media/use-cases.png":::
 
 ## What to store
 
@@ -35,7 +35,7 @@ Here are a few examples of things you can store on your ledger:
 - Administrative and control changes (for example, granting access permissions).
 - Operational IT and security events (for example, Microsoft Defender for Cloud alerts)
 
-## Use Cases
+## Use cases
 
 - I have *relational data* that requires end to end data integrity guarantees - Store your data in [Azure SQL database's ledger feature](/sql/relational-databases/security/ledger/ledger-overview) and turn on Azure Confidential Ledger as your Trusted Digest store.
 - I have *blob data* that needs end to end integrity - Store your data in immutable blob storage and configure the [Azure Marketplace application backed by Confidential Ledger](https://azuremarketplace.microsoft.com/marketplace/apps/azureconfidentialledger.acl-blob-storage?tab=Overview) to [store signatures and verify against](/azure/confidential-ledger/create-blob-managed-app?tabs=azure-portal).
@@ -52,7 +52,7 @@ The confidential ledger runs exclusively on hardware-backed secure enclaves, a h
 
 As its name suggests, Azure confidential ledger utilizes the [Azure Confidential Computing platform](/azure/confidential-computing) and the [Confidential Consortium Framework](https://www.microsoft.com/research/project/confidential-consortium-framework) to provide a high integrity solution that is tamper-protected and tamper-evident. One ledger spans across three or more identical instances, each of which run in a dedicated, fully attested hardware-backed enclave. The ledger's integrity is maintained through a consensus-based blockchain.
 
-## Key Features
+## Key features
 
 The confidential ledger exposes a REST interface which makes it easier to integrate with new or existing applications. Also, SDKs in popular languages (.NET, Java, Python, and JavaScript) are provided to help with the integration.
 
@@ -74,7 +74,7 @@ The confidential ledger uses TLS 1.3 protocol to establish client connection and
 
 Applications are encouraged to verify the authenticity of the ledger nodes by [authenticating the ledger nodes](/azure/confidential-ledger/authenticate-ledger-nodes) to establish trust before exchanging data. This process ensures that the ledger nodes are genuine and not malicious.
 
-## Resiliency and Business Continuity 
+## Resiliency and business continuity 
 
 The confidential ledger nodes are deployed across Azure Availability Zones (AZ) to provide resiliency. The network can self-heal during zone-wide outages. To ensure business continuity, the ledger files are automatically replicated to a secondary storage account periodically. When a disaster happens, these files are used for recovery. Continuous monitoring is utilized to observe and automatically initiate recovery processes when the instance's health falls below a specified threshold.
 
