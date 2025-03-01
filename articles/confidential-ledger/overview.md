@@ -24,7 +24,7 @@ The confidential ledger can protect existing databases and applications by actin
 
 For more information, you can learn about [protecting data source integrity with Azure confidential ledger](https://www.youtube.com/watch?v=lJSn46id-64) or watch a product demo [Azure confidential ledger demo](https://www.youtube.com/watch?v=Cg0-5moftP0). You can also read a recent blog on how [Azure’s hardware security is protected via ACL](https://azure.microsoft.com/blog/microsoft-azure-confidential-ledger-enhancing-customer-trust-in-azures-hardware-supply-chain/).
 
-:::image type="content" source="./media/use-cases.png" alt-text=Diagram of use cases for Azure confidential ledger." lightbox="media/use-cases.png":::
+:::image type="content" source="./media/use-cases.png" alt-text="Diagram of use cases for Azure confidential ledger." lightbox="media/use-cases.png":::
 
 ## What to store
 
