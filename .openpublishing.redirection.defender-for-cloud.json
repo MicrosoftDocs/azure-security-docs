@@ -414,6 +414,11 @@
       "source_path_from_root": "/articles/defender-for-cloud/sql-azure-vulnerability-assessment-manage.md",
       "redirect_url": "/azure/defender-for-cloud/sql-azure-vulnerability-assessment-overview",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/review-ai-alerts.md",
+      "redirect_url": "/azure/defender-for-cloud/managing-and-responding-alerts",
+      "redirect_document_id": true
     }
   ]
 }
