@@ -283,3 +283,54 @@ If the versions do not meet the minimum requirement, run the Update-Module Power
 ```azurepowershell-interactive
 Update-Module -Name Az.Attestation
 ```
+
+## Installation issues with Guest Attestation extension
+
+This section addresses attestation errors and solutions.
+
+### Symptoms
+
+The Azure Attestation extension won't work properly when you set up a network security group (NSG) or a proxy. An error appears that looks similar to "`Microsoft.Azure.Security.WindowsAttestation.GuestAttestation` provisioning failed."
+
+:::image type="content" source="media/trusted-launch/guest-attestation-failing.png" lightbox="./media/trusted-launch/guest-attestation-failing.png" alt-text="Screenshot that shows an error that results from a failed Guest Attestation extension.":::
+
+### Solutions
+
+In Azure, NSGs are used to help filter network traffic between Azure resources. NSGs contain security rules that either allow or deny inbound network traffic, or outbound network traffic from several types of Azure resources. The Azure Attestation endpoint should be able to communicate with the Guest Attestation extension. Without this endpoint, Trusted Launch can't access guest attestation, which allows Microsoft Defender for Cloud to monitor the integrity of the boot sequence of your VMs.
+
+To unblock Azure Attestation traffic in NSGs by using service tags:
+
+1. Go to the VM that you want to allow outbound traffic.
+1. On the leftmost pane, under **Networking**, select **Networking settings**.
+1. Then select **Create port rule** > **Outbound port rule**.
+
+    :::image type="content" source="./media/trusted-launch/tvm-portrule.png" lightbox="./media/trusted-launch/tvm-portrule.png" alt-text="Screenshot that shows adding the Outbound port rule.":::
+
+1. To allow Azure Attestation, you make the destination a service tag. This setting allows for the range of IP addresses to update and automatically set rules that allow Azure Attestation. Set **Destination service tag** to **AzureAttestation** and set **Action** to **Allow**.
+
+    :::image type="content" source="media/trusted-launch/unblocking-NSG.png" alt-text="Screenshot that shows how to make the destination a service tag.":::
+
+Firewalls protect a virtual network, which contains multiple Trusted Launch VMs. To unblock Azure Attestation traffic in a firewall by using an application rule collection:
+
+1. Go to the Azure Firewall instance that has traffic blocked from the Trusted Launch VM resource.
+1. Under **Settings**, select **Rules (classic)** to begin unblocking guest attestation behind the firewall.
+1. Under **Network rule collection**, select **Add network rule collection**.
+
+   :::image type="content" source="./media/trusted-launch/firewall-network-rule-collection.png" lightbox="./media/trusted-launch/firewall-network-rule-collection.png" alt-text="Screenshot that shows adding an application rule.":::
+
+1. Configure the name, priority, source type, and destination ports based on your needs. Set **Service tag name** to **AzureAttestation** and set **Action** to **Allow**.
+
+To unblock Azure Attestation traffic in a firewall by using an application rule collection:
+
+1. Go to the Azure Firewall instance that has traffic blocked from the Trusted Launch VM resource.
+
+   :::image type="content" source="./media/trusted-launch/firewall-rule.png" lightbox="./media/trusted-launch/firewall-rule.png" alt-text="Screenshot that shows adding traffic for the application rule route.":::
+
+   The rules collection must contain at least one rule that targets fully qualified domain names (FQDNs).
+
+1. Select the application rule collection and add an application rule.
+1. Select a name and a numeric priority for your application rules. Set **Action** for the rule collection to **Allow**.
+
+   :::image type="content" source="./media/trusted-launch/firewall-application-rule.png" lightbox="./media/trusted-launch/firewall-application-rule.png" alt-text="Screenshot that shows adding the application rule route.":::
+
+1. Configure the name, source, and protocol. The source type is for a single IP address. Select the IP group to allow multiple IP addresses through the firewall.
