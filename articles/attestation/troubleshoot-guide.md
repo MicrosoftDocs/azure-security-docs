@@ -292,7 +292,7 @@ This section addresses attestation errors and solutions.
 
 The Azure Attestation extension won't work properly when you set up a network security group (NSG) or a proxy. An error appears that looks similar to "`Microsoft.Azure.Security.WindowsAttestation.GuestAttestation` provisioning failed."
 
-:::image type="content" source="media/trusted-launch/guest-attestation-failing.png" lightbox="./media/trusted-launch/guest-attestation-failing.png" alt-text="Screenshot that shows an error that results from a failed Guest Attestation extension.":::
+:::image type="content" source="media/guest-attestation-failing.png" lightbox="./media/guest-attestation-failing.png" alt-text="Screenshot that shows an error that results from a failed Guest Attestation extension.":::
 
 ### Solutions
 
