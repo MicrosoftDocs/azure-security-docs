@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/defender-for-cloud/agentless-vulnerability-assessment-aws.md",
+      "redirect_url": "/azure/defender-for-cloud/agentless-vulnerability-assessment-azure",
+      "redirect_document_id": false
+    },
+    {
+    "source_path_from_root": "/articles/defender-for-cloud/agentless-vulnerability-assessment-gcp.md",
+    "redirect_url": "/azure/defender-for-cloud/agentless-vulnerability-assessment-azure",
+    "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/defender-for-cloud/file-integrity-monitoring-compare-baselines.md",
       "redirect_url": "/azure/defender-for-cloud/file-integrity-monitoring-review-changes",
       "redirect_document_id": false
