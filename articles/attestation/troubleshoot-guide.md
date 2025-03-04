@@ -304,7 +304,7 @@ To unblock Azure Attestation traffic in NSGs by using service tags:
 1. On the leftmost pane, under **Networking**, select **Networking settings**.
 1. Then select **Create port rule** > **Outbound port rule**.
 
-    :::image type="content" source="./media/tvm-portrule.png" lightbox="./media/tvm-portrule.png" alt-text="Screenshot that shows adding the Outbound port rule.":::
+    :::image type="content" source="./media/tvm-port-rule.png" lightbox="./media/tvm-port-rule.png" alt-text="Screenshot that shows adding the Outbound port rule.":::
 
 1. To allow Azure Attestation, you make the destination a service tag. This setting allows for the range of IP addresses to update and automatically set rules that allow Azure Attestation. Set **Destination service tag** to **AzureAttestation** and set **Action** to **Allow**.
 
