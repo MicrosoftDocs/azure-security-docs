@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/defender-for-cloud/agentless-vulnerability-assessment-aws.md",
+      "redirect_url": "/azure/defender-for-cloud/agentless-vulnerability-assessment-azure",
+      "redirect_document_id": false
+    },
+    {
+    "source_path_from_root": "/articles/defender-for-cloud/agentless-vulnerability-assessment-gcp.md",
+    "redirect_url": "/azure/defender-for-cloud/agentless-vulnerability-assessment-azure",
+    "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/defender-for-cloud/file-integrity-monitoring-compare-baselines.md",
       "redirect_url": "/azure/defender-for-cloud/file-integrity-monitoring-review-changes",
       "redirect_document_id": false
@@ -328,7 +338,7 @@
     {
       "source_path_from_root": "/articles/defender-for-cloud/tutorial-security-incident.md",
       "redirect_url": "/azure/defender-for-cloud/managing-and-responding-alerts",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/defender-for-cloud/how-to-use-the-classic-connector.md",
@@ -413,6 +423,11 @@
     {
       "source_path_from_root": "/articles/defender-for-cloud/sql-azure-vulnerability-assessment-manage.md",
       "redirect_url": "/azure/defender-for-cloud/sql-azure-vulnerability-assessment-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/review-ai-alerts.md",
+      "redirect_url": "/azure/defender-for-cloud/managing-and-responding-alerts",
       "redirect_document_id": true
     }
   ]

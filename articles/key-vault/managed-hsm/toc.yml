@@ -41,8 +41,16 @@ items:
     href: secure-your-managed-hsm.md
   - name: Use private endpoints
     href: private-link.md
-  - name: Set up logging for managed HSM
-    href: logging.md
+  - name: Monitoring and logging
+    items:
+    - name: Managed HSM logging
+      href: logging.md
+    - name: Monitor Azure Managed HSM
+      href: logging-azure-monitor.md
+    - name: Setting up Sentinel for Azure Managed HSM
+      href: sentinel.md
+    - name: Configure Managed HSM alerts
+      href: configure-alerts.md
   - name: Enable Multi-Region Replication on Managed HSM
     href: multi-region-replication.md 
   - name: Integrate Managed HSM with Azure Policy
