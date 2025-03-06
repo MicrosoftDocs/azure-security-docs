@@ -9,7 +9,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 02/26/2025
+ms.date: 03/07/2025
 ms.author: mbaldwin
 ---
 
