@@ -20,8 +20,6 @@ For added assurance when you use Azure Key Vault, you can import or generate a k
 Use the information in this article to help you plan for, generate, and transfer your own HSM-protected keys to use with Azure Key Vault.
 
 > [!NOTE]
-> This functionality is not available for Microsoft Azure operated by 21Vianet.
->
 > This import method is available only for [supported HSMs](#supported-hsms).
 
 For more information, and for a tutorial to get started using Key Vault (including how to create a key vault for HSM-protected keys), see [What is Azure Key Vault?](../general/overview.md).
