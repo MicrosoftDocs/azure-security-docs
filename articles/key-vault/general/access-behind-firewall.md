@@ -33,8 +33,8 @@ Key vault client applications will need to access Microsoft Entra endpoints for 
 
 | Principal type | Endpoint:port |
 | --- | --- |
-| User using Microsoft account<br> (for example, user@hotmail.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Microsoft Azure operated by 21Vianet:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government:**<br> login.microsoftonline.us:443<br><br>**Azure Germany:**<br> login.microsoftonline.de:443<br><br> and <br>login.live.com:443 |
-| User or service principal using a work or school account with Microsoft Entra ID (for example, user@contoso.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Microsoft Azure operated by 21Vianet:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government:**<br> login.microsoftonline.us:443<br><br>**Azure Germany:**<br> login.microsoftonline.de:443 |
+| User using Microsoft account<br> (for example, user@hotmail.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Microsoft Azure operated by 21Vianet:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government:**<br> login.microsoftonline.us:443<br><br> and <br>login.live.com:443 |
+| User or service principal using a work or school account with Microsoft Entra ID (for example, user@contoso.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Microsoft Azure operated by 21Vianet:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government:**<br> login.microsoftonline.us:443<br> |
 | User or service principal using a work or school account, plus Active Directory Federation Services (AD FS) or other federated endpoint (for example, user@contoso.com) |All endpoints for a work or school account, plus AD FS or other federated endpoints |
 
 There are other possible complex scenarios. Refer to [Microsoft Entra authentication Flow](/azure/active-directory/develop/authentication-vs-authorization), [Integrating Applications with Microsoft Entra ID](/azure/active-directory/develop/how-to-integrate), and [Active Directory Authentication Protocols](/previous-versions/azure/dn151124(v=azure.100)) for additional information.  
@@ -45,8 +45,8 @@ For Key Vault management (CRUD and setting access policy), the key vault client 
 
 | Type of operation | Endpoint:port |
 | --- | --- |
-| Key Vault control plane operations<br> via Azure Resource Manager |**Global:**<br> management.azure.com:443<br><br> **Microsoft Azure operated by 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Government:**<br> management.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> management.microsoftazure.de:443 |
-| Microsoft Graph API |**Global:**<br> graph.microsoft.com:443<br><br> **Microsoft Azure operated by 21Vianet:**<br> graph.chinacloudapi.cn:443<br><br> **Azure US Government:**<br> graph.microsoft.com:443<br><br> **Azure Germany:**<br> graph.cloudapi.de:443 |
+| Key Vault control plane operations<br> via Azure Resource Manager |**Global:**<br> management.azure.com:443<br><br> **Microsoft Azure operated by 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Government:**<br> management.usgovcloudapi.net:443<br> |
+| Microsoft Graph API |**Global:**<br> graph.microsoft.com:443<br><br> **Microsoft Azure operated by 21Vianet:**<br> graph.chinacloudapi.cn:443<br><br> **Azure US Government:**<br> graph.microsoft.com:443<br> |
 
 ## Key Vault operations
 
@@ -54,14 +54,13 @@ For all key vault object (keys and secrets) management and cryptographic operati
 
 | Type of operation | Endpoint:port |
 | --- | --- |
-| Operations including cryptographic operations on keys; creating, reading, updating, and deleting keys and secrets; setting or getting tags and other attributes on key vault objects (keys or secrets) |**Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Microsoft Azure operated by 21Vianet:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure US Government:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |
+| Operations including cryptographic operations on keys; creating, reading, updating, and deleting keys and secrets; setting or getting tags and other attributes on key vault objects (keys or secrets) |**Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Microsoft Azure operated by 21Vianet:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure US Government:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br> |
 
 ## IP address ranges
 
 The Key Vault service uses other Azure resources like PaaS infrastructure. So it's not possible to provide a specific range of IP addresses that Key Vault service endpoints will have at any particular time. If your firewall supports only IP address ranges, refer to  Microsoft Azure Datacenter IP Ranges documents available at:
 * [Public](https://www.microsoft.com/en-us/download/details.aspx?id=56519)
 * [US Gov](https://www.microsoft.com/en-us/download/details.aspx?id=57063)
-* [Germany](https://www.microsoft.com/en-us/download/details.aspx?id=57064)
 * [China](https://www.microsoft.com/en-us/download/details.aspx?id=57062)
 
 Authentication and Identity (Microsoft Entra ID) is a global service and may fail over to other regions or move traffic without notice. In this scenario, all of the IP ranges listed in [Authentication and Identity IP Addresses](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity_ip) should be added to the firewall.
