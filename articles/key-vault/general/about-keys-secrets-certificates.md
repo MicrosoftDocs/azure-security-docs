@@ -46,9 +46,8 @@ The Azure Key Vault resource provider supports two resource types: vaults and ma
 Cloud environment | DNS suffix for vaults | DNS suffix for managed HSMs
 ---|---|---
 Azure Cloud | .vault.azure.net | .managedhsm.azure.net
-Microsoft Azure operated by 21Vianet Cloud | .vault.azure.cn | Not supported
-Azure US Government | .vault.usgovcloudapi.net | Not supported
-Azure German Cloud | .vault.microsoftazure.de | Not supported
+Microsoft Azure operated by 21Vianet Cloud | .vault.azure.cn | .managedhsm.azure.cn
+Azure US Government | .vault.usgovcloudapi.net | .managedhsm.usgovcloudapi.net
 
 ## Object types
  This table shows object types and their suffixes in the object identifier.
