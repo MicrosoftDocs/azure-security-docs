@@ -33,7 +33,7 @@ Key vault client applications will need to access Microsoft Entra endpoints for 
 
 | Principal type | Endpoint:port |
 | --- | --- |
-| User using Microsoft account<br> (for example, user@hotmail.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Microsoft Azure operated by 21Vianet:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government:**<br> login.microsoftonline.us:443<br><br> and <br>login.live.com:443 |
+| User using Microsoft account<br> (for example, user@hotmail.com) |login.live.com:443<br><br> **Global:**<br> login.microsoftonline.com:443<br><br> **Microsoft Azure operated by 21Vianet:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government:**<br> login.microsoftonline.us:443<br> |
 | User or service principal using a work or school account with Microsoft Entra ID (for example, user@contoso.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Microsoft Azure operated by 21Vianet:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government:**<br> login.microsoftonline.us:443<br> |
 | User or service principal using a work or school account, plus Active Directory Federation Services (AD FS) or other federated endpoint (for example, user@contoso.com) |All endpoints for a work or school account, plus AD FS or other federated endpoints |
 
