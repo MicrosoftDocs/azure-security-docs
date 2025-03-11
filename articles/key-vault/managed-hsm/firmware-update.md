@@ -28,7 +28,7 @@ We're confident that this firmware upgrade improves the security and compliance 
 
 Here are some things to keep in mind specific to Azure Key Vault Managed HSM and doesn't apply to Azure Key Vault Premium:
 
-1. The Managed HSM firmware update is rolled out in phases across all Azure data centers worldwide, with completion expected within 6-8 weeks starting in August 2024. This phased rollout is designed to maintain SLAs and avoid disruptions to customer operations, except in the following scenarios. 
+1. The Managed HSM firmware update is rolled out in phases across all Azure data centers worldwide, starting in February 2025 and with completion expected at the end of May 2025. This phased rollout is designed to maintain SLAs and avoid disruptions to customer operations, except in the following scenarios. 
 
 2. Restoring Security Domains:
    - **From Legacy to New Firmware:** Security domains from a Managed HSM with legacy firmware can be restored to a Managed HSM with new firmware. Most of our customers fall into this category and won't have any issues restoring a security domain.

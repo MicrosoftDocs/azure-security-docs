@@ -8,7 +8,7 @@ manager: devtiw
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 01/30/2024
+ms.date: 03/07/2025
 ms.author: mbaldwin
 
 ---
@@ -16,8 +16,6 @@ ms.author: mbaldwin
 # Import HSM-protected keys to Key Vault
 
 For added assurance, when you use Azure Key Vault, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. This scenario is often referred to as *bring your own key*, or BYOK. Azure Key Vault uses [FIPS 140 validated HSMs](/azure/key-vault/keys/about-keys#compliance) to protect your keys.
-
-This functionality is not available for Microsoft Azure operated by 21Vianet.
 
 > [!NOTE]
 > For more information about Azure Key Vault, see [What is Azure Key Vault?](../general/overview.md)  
@@ -40,6 +38,7 @@ Transferring HSM-protected keys to Key Vault is supported via two different meth
 |StorMagic|ISV (Enterprise Key Management System)|Multiple HSM brands and models including<ul><li>Utimaco</li><li>Thales</li><li>nCipher</li></ul>See [StorMagic site for details](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|[Use new BYOK method](hsm-protected-keys-byok.md)|
 |Thales|Manufacturer|<ul><li>Luna HSM 7 family with firmware version 7.3 or newer</li></ul>| [Use new BYOK method](hsm-protected-keys-byok.md)|
 |Utimaco|Manufacturer,<br/>HSM as a service|u.trust Anchor, CryptoServer|[Use new BYOK method](hsm-protected-keys-byok.md)|
+|Yubico|Manufacturer|YubiHSM 2|[Use new BYOK method](hsm-protected-keys-byok.md)|
 |||||
 
 ## Next steps
