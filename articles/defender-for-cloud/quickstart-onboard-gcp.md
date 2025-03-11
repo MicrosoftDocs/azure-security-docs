@@ -2,7 +2,7 @@
 title: Connect your GCP project
 description: Defend your GCP resources by using Microsoft Defender for Cloud. Protect your workloads and enhance your cloud security with our comprehensive solution.
 ms.topic: install-set-up-deploy
-ms.date: 07/17/2024
+ms.date: 01/29/2025
 ---
 
 # Connect your GCP project to Microsoft Defender for Cloud
@@ -27,7 +27,7 @@ The authentication process works as follows:
 
 :::image type="content" source="media/quickstart-onboard-gcp/authentication-process.png" alt-text="A diagram of the Defender for Cloud GCP connector authentication process." lightbox="media/quickstart-onboard-gcp/authentication-process.png":::
 
-1. Microsoft Defender for Cloud's CSPM service acquires a Microsoft Entra token. The token is signed by Microsoft Entra ID using the RS256 algorithm and is valid for 1 hour.
+1. Microsoft Defender for Cloud's CSPM service acquires a Microsoft Entra token. Microsoft Entra ID signs the token using the RS256 algorithm and is valid for 1 hour.
 
 1. The Microsoft Entra token is exchanged with Google's STS token.
 
@@ -46,6 +46,8 @@ To complete the procedures in this article, you need:
 - Access to a GCP project.
 
 - Contributor level permission for the relevant Azure subscription.
+
+- If CIEM is enabled as part of Defender for CSPM the user enabling the connector will also need [Security Admin role and Application.ReadWrite.All permission](enable-permissions-management.md?source=recommendations#before-you-start) for your tenant.
 
 You can learn more about Defender for Cloud pricing on [the pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
@@ -71,7 +73,7 @@ You also select a location and add the organization ID for your project.
 
 You can also set an interval to scan the GCP environment every 4, 6, 12, or 24 hours.
 
-Some data collectors run with fixed scan intervals and are not affected by custom interval configurations. The following table shows the fixed scan intervals for each excluded data collector:
+Some data collectors run with fixed scan intervals and aren't affected by custom interval configurations. The following table shows the fixed scan intervals for each excluded data collector:
 
 | Data collector name | Scan interval |
 |--|--|
@@ -279,8 +281,8 @@ Microsoft Defender for Containers brings threat detection and advanced defenses 
   - Use Defender for Cloud recommendations for per-cluster installation. They appear on the Microsoft Defender for Cloud recommendations page. [Learn how to deploy the solution to specific clusters](defender-for-containers-enable.md?tabs=defender-for-container-gke#deploy-the-solution-to-specific-clusters).
   - Manually install [Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/quickstart-connect-cluster) and [extensions](/azure/azure-arc/kubernetes/extensions).
 
-- [Agentless discovery for Kubernetes](defender-for-containers-architecture.md#how-does-agentless-discovery-for-kubernetes-in-gcp-work) provides API-based discovery of your Kubernetes clusters. To enable the **Agentless discovery for Kubernetes** feature, toggle the setting to **On**.
-- The [Agentless Container Vulnerability Assessment](agentless-vulnerability-assessment-gcp.md) provides vulnerability management for images stored in Google Container Registry (GCR) and Google Artifact Registry (GAR) and running images on your GKE clusters. To enable the **Agentless Container Vulnerability Assessment** feature, toggle the setting to **On**.
+- The [K8S API access](defender-for-containers-architecture.md#how-does-agentless-discovery-for-kubernetes-in-gcp-work) feature provides API-based discovery of your Kubernetes clusters. To enable, set the **K8S API access** toggle to **On**.
+- The [Registry access](agentless-vulnerability-assessment-gcp.md) feature provides vulnerability management for images stored in Google Container Registry (GCR) and Google Artifact Registry (GAR) and running images on your GKE clusters. To enable, set the **Registry access** toggle to **On**.
 
 To configure the Defender for Containers plan:
 
@@ -334,7 +336,7 @@ To view all the active recommendations for your resources by resource type, use 
 
 ## Integrate with Microsoft Defender XDR
 
-When you enable Defender for Cloud, Defender for Cloud alerts are automatically integrated into the Microsoft Defender Portal. No further steps are needed.
+When you enable Defender for Cloud, Defender for Cloud alerts are automatically integrated into the Microsoft Defender Portal.
 
 The integration between Microsoft Defender for Cloud and Microsoft Defender XDR brings your cloud environments into Microsoft Defender XDR. With Defender for Cloud's alerts and cloud correlations integrated into Microsoft Defender XDR, SOC teams can now access all security information from a single interface.
 

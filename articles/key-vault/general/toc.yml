@@ -64,6 +64,8 @@
     href: best-practices.md
   - name: Security
     items:
+    - name: Secure your Key Vault
+      href: secure-key-vault.md
     - name: Security features
       href: security-features.md
     - name: Key Vault authentication
@@ -114,6 +116,8 @@
     items:
     - name: Azure Key Vault Developer's Guide
       href: developers-guide.md
+    - name: Apps, API keys, and Key Vault secrets
+      href: apps-api-keys-secrets.md
     - name: Use Azure Resource Manager to deploy Key Vault
       href: vault-create-template.md
     - name: Use Key Vault Connected Service
