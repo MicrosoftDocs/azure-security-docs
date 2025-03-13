@@ -17,7 +17,7 @@ Microsoft Azure confidential ledger is a new and highly secure service for manag
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
-[API reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-confidentialledger/latest/azure.confidentialledger.html) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/confidentialledger) | [Package (Python Package Index) Management Library](https://pypi.org/project/azure-mgmt-confidentialledger/)| [Package (Python Package Index) Client Library](https://pypi.org/project/azure-confidentialledger/)
+[API reference documentation](https://azuresdkdocs.z19.web.core.windows.net/python/azure-confidentialledger/latest/azure.confidentialledger.html) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/confidentialledger) | [Package (Python Package Index) Management Library](https://pypi.org/project/azure-mgmt-confidentialledger/)| [Package (Python Package Index) Client Library](https://pypi.org/project/azure-confidentialledger/)
 
 ## Prerequisites
 
