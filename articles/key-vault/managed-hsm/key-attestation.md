@@ -52,7 +52,7 @@ cd src/
 
 ## Get attestation data for a specific key from the HSM
 
-Get attestation data for a specific key from the HSM using the Azure CLI [az rest](/cli/azure/reference-index?view=azure-cli-latest#az-rest) command. Including the key version in the URI is optional. The JSON file contains key properties, the attestation blob, and all certificates required for key attestation. In this example, the JSON file is named `attestation.json`.
+Get attestation data for a specific key from the HSM using the Azure CLI [az rest](/cli/azure/reference-index#az-rest) command. Including the key version in the URI is optional. The JSON file contains key properties, the attestation blob, and all certificates required for key attestation. In this example, the JSON file is named `attestation.json`.
 
 Usage:
 
