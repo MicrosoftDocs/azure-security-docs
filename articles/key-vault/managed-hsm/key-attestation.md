@@ -42,8 +42,8 @@ cd src/
 # [Linux](#tab/linux)
 
 ```sh
-python3 –m venv venv
-Source venv/bin/activate
+python3 –m venv attestation
+source attestation/bin/activate 
 pip3 install -r requirements.txt
 cd src/
 ```
