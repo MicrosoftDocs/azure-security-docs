@@ -84,7 +84,7 @@ Usage:
 python3 validate_attestation.py -af <attestation.json>
 ```
 
-## Examples
+Examples
 
 - Without verbose mode:
 
@@ -98,8 +98,11 @@ python3 validate_attestation.py -af <attestation.json>
     python3 validate_attestation.py -af attestation.json --v
     ```
 
-When running in verbose mode, you see how we establish a certificate chain validation and which certificates are used to verify the integrity of the attestation blob for both Marvell and Microsoft. Validate the certificates we use in `/src/vendor/marvell/marvell_validate_key_attestation.py`.
+When running in verbose mode, you see how we establish a certificate chain validation and which certificates are used to verify the integrity of the attestation blob for both Marvell and Microsoft. 
+
+You can validate the certificates we use with `/src/vendor/marvell/marvell_validate_key_attestation.py`.
 
 ## Next steps
 
 - [Azure Managed HSM overview](overview.md)
+
