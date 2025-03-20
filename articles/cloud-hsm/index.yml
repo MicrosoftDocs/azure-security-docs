@@ -1,0 +1,77 @@
+### YamlMime:Landing
+
+title: Azure Cloud HSM Preview Documentation
+summary: Learn how Azure Cloud HSM offers cryptographic key storage within the Azure environment as a dedicated HSM service.
+
+metadata:
+  title: Azure Cloud HSM Preview Documentation
+  description: Learn how Azure Cloud HSM offers cryptographic key storage within the Azure environment as a dedicated HSM service.
+  ms.service: azure-dedicated-hsm
+  ms.topic: landing-page # Required
+  author: keithp
+  ms.author: keithp
+  ms.date: 03/20/2025
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  - title: About Azure Cloud HSM Preview
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Cloud HSM
+            url: overview.md
+
+  - title: Get Started
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Azure Cloud HSM SDK
+            url: https://github.com/microsoft/MicrosoftAzureCloudHSM
+    
+  - title: Tutorials
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Tutorials
+            url: tutorial-deploy-cloud-hsm.md
+          - text: Operation event logging
+            url: tutorial-operation-event-logging.md
+
+  - title: How-to Guides
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Azure Cloud HSM Onboarding Guide
+            url: onboarding-guide.md
+          - text: Azure Cloud HSM Integration Guides
+            url: integration-guides.md
+
+  - title: Security
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Secure your Cloud HSM
+            url: secure-cloud-hsm.md
+          - text: Network Security
+            url: network-security.md
+          - text: User Management
+            url: user-management.md
+          - text: Key Management and Security
+            url: key-management.md
+          - text: Authentication
+            url: authentication.md
+
+  - title: Reference and resources
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: FAQ
+            url: faq.yml
+          - text: Troubleshooting
+            url: troubleshoot.md
+          - text: Azure Cloud HSM SDK
+            url: https://github.com/microsoft/MicrosoftAzureCloudHSM
+          - text: Service limits
+            url: service-limits.md
+
