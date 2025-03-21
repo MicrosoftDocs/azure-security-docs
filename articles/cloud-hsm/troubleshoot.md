@@ -104,32 +104,28 @@ Encountering a failed socket connection during C_Initialize might be related to 
 
 If you installed the Azure Cloud HSM SDK using deb or rpm, the client isn't configured automatically to run as a service. The SDK during installation includes a service unit file under /etc/systemd/system/azure-cloud-hsm.service. To enable azcloudhsm_client to run as a service, use the predefined azure-cloud-hsm.service file. Reload the Systemd configuration and enable the service to ensure it's continuously running by performing the following steps.
 
-1. Open a terminal window and change the directory to /etc/systemd/system where the Cloud HSM service unit file is located.
-  
-  ```bash
-  cd /etc/systemd/system 
-  ```
-  
-1. Start and enable the Cloud HSM client service.
+1. Open a terminal window and change the directory to `/etc/systemd/system` where the Cloud HSM service unit file is located:
+   ```bash
+   cd /etc/systemd/system
+   ```
 
-  ```bash
-  sudo systemctl start azure-cloud-hsm.service 
-  sudo systemctl enable azure-cloud-hsm.service 
-  ```
-  
-1. Check the status of the Cloud HSM client service.
+1. Start and enable the Cloud HSM client service:
+   ```bash
+   sudo systemctl start azure-cloud-hsm.service
+   sudo systemctl enable azure-cloud-hsm.service
+   ```
 
-  ```bash
-  sudo systemctl status azure-cloud-hsm.service 
-  ```
-  
-1. Reload the Systemd configuration.
+1. Check the status of the Cloud HSM client service:
+   ```bash
+   sudo systemctl status azure-cloud-hsm.service
+   ```
 
-  ```bash
-  sudo systemctl daemon-reload 
-  sudo systemctl list-units --type=service --state=running 
-  ```
-  
+1. Reload the Systemd configuration:
+   ```bash
+   sudo systemctl daemon-reload
+   sudo systemctl list-units --type=service --state=running
+   ```
+
 #### Linux (Manual)
 
 Start the client daemon if it isn't running.
@@ -201,31 +197,27 @@ The error message suggests that azcloudhsm_client isn't running. Ensure that azc
 
 If you installed the Azure Cloud HSM SDK using deb or rpm, the client isn't configured automatically to run as a service. The SDK during installation includes a service unit file under /etc/systemd/system/azure-cloud-hsm.service. To enable azcloudhsm_client to run as a service, use the predefined azure-cloud-hsm.service file. Reload the systemd configuration and enable the service to ensure it's continuously running by performing the following steps.
 
-1. Open a terminal window and change directory to /etc/systemd/system where the Cloud HSM service unit file is located.
+1. Open a terminal window and change directory to `/etc/systemd/system` where the Cloud HSM service unit file is located:
+   ```bash
+   cd /etc/systemd/system
+   ```
 
-  ```bash
-  cd /etc/systemd/system 
-  ```
+1. Start and enable the Cloud HSM Client service:
+   ```bash
+   sudo systemctl start azure-cloud-hsm.service
+   sudo systemctl enable azure-cloud-hsm.service
+   ```
 
-1. Start and enable the Cloud HSM Client service.
+1. Check the status of the Cloud HSM Client service:
+   ```bash
+   sudo systemctl status azure-cloud-hsm.service
+   ```
 
-  ```bash
-  sudo systemctl start azure-cloud-hsm.service 
-  sudo systemctl enable azure-cloud-hsm.service 
-  ```
-
-1. Check the status of the Cloud HSM Client service.
-
-  ```bash
-  sudo systemctl status azure-cloud-hsm.service 
-  ```
-
-1. Reload the Systemd configuration.
-
-  ```bash
-  sudo systemctl daemon-reload 
-  sudo systemctl list-units --type=service --state=running 
-  ```
+1. Reload the Systemd configuration:
+   ```bash
+   sudo systemctl daemon-reload
+   sudo systemctl list-units --type=service --state=running
+   ```
 
 #### Linux (manual)
 
