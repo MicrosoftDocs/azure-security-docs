@@ -87,7 +87,7 @@ After the diagnostic setting is created, the logs will start flowing within 1-2 
 
 **Azure portal**: You can query Azure Cloud HSM operation event logs from the Azure portal via log analytics workspace.
 
-:::image type="content" source="./media/operation-event-logs-portal.jpg" lightbox="./media/operation-event-logs-portal.jpg" alt-text="Screenshot of Azure Cloud HSM operation event logs in the Azure portal.":::
+:::image type="content" source="./media/operation-event-logs-portal.png" lightbox="./media/operation-event-logs-portal.png" alt-text="Screenshot of Azure Cloud HSM operation event logs in the Azure portal.":::
 
 **Azure CLI / PowerShell**: You can query Azure Cloud HSM operation event logs using Azure CLI and PowerShell. In this example, you update ResourceGroupName and WorkspaceName.
 
