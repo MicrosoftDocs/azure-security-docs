@@ -91,4 +91,3 @@ Authentication is a crucial aspect of securely accessing and operating within Az
 - [Security best practices for IaaS workloads in Azure](/azure/security/fundamentals/iaas)
 - [Enable just-in-time access to Virtual Machines](/azure/defender-for-cloud/just-in-time-access-usage)
 - [Adopt a Zero Trust approach](/azure/security/fundamentals/network-best-practices#adopt-a-zero-trust-approach)
-

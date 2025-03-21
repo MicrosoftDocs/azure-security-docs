@@ -1,13 +1,13 @@
 ### YamlMime:FAQ  
 metadata:  
-  title: Frequently Asked Questions (FAQ)  
+  title: Frequently Asked Questions (FAQ) about Azure Cloud HSM
   description: Find answers to common questions about Microsoft Azure Cloud HSM, such as general information, customer onboarding, billing, interoperability, security and compliance, and support.  
   author: msmbaldwin  
   ms.service: azure-dedicated-hsm  
   ms.topic: faq  
   ms.date: 03/20/2025 
   ms.author: mbaldwin  
-title: Frequently asked questions (FAQ)
+title: Frequently asked questions (FAQ) about Azure Cloud HSM
 summary: Find answers to common questions about Microsoft Azure Cloud HSM.  
 sections:  
   - name: General questions
@@ -179,6 +179,6 @@ sections:
       - question: |-  
           What is the SLA for Azure Cloud HSM?  
         answer: |-  
-          Azure Cloud HSM provides an SLA of 99.9% uptime availability.
+          For SLAs, see [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
 

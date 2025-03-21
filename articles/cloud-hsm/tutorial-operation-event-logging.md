@@ -51,7 +51,7 @@ To create a Log Analytics workspace for storing and analyzing HSM logs, use the 
 az monitor log-analytics workspace create --resource-group <ResourceGroupName> --workspace-name <WorkspaceName>
 ```
 
-For more information about creating a Log Analytics workspace, see [create log analytics workspaces for Azure Monitor.](/azure/azure-monitor/logs/quick-create-workspace?tabs=azure-cli).
+For more information about creating a Log Analytics workspace, see [create log analytics workspaces for Azure Monitor](/azure/azure-monitor/logs/quick-create-workspace?tabs=azure-cli).
 
 ### Enable diagnostic-settings using Azure Monitor CLI or PowerShell
 
@@ -81,18 +81,17 @@ $workspaceId = "/subscriptions/<SubscriptionId>/resourcegroups/<ResourceGroupNam
 New-AzDiagnosticSetting -ResourceId $resourceId -Name "my-chsmAuditLogs" -StorageAccountId $storageAccountId -WorkspaceId $workspaceId -Enabled $true -Category "HsmServiceOperations"
 ```
 
-
 ### Verify Cloud HSM logging is configured
 
 After the diagnostic setting is created, the logs will start flowing within 1-2 minutes. The logs can be seen on the Azure portal or using CLI and PowerShell.
 
-**Azure Portal**: You can query Azure Cloud HSM operation event logs from the Azure portal via log analytics workspace.
+**Azure portal**: You can query Azure Cloud HSM operation event logs from the Azure portal via log analytics workspace.
 
-:::image type="content" source="./media/operation-event-logs-portal.jpg" lightbox="./media/operation-event-logs-portal.jpg" alt-text="Azure Cloud HSM operation event logs in Azure Portal":::
+:::image type="content" source="./media/operation-event-logs-portal.jpg" lightbox="./media/operation-event-logs-portal.jpg" alt-text="Screenshot of Azure Cloud HSM operation event logs in the Azure portal.":::
 
-**Azure CLI / PowerShell**: You can query Azure Cloud HSM operation event logs using Azure CLI and PowerShell. In this example you update ResourceGroupName and WorkpsaceName.
+**Azure CLI / PowerShell**: You can query Azure Cloud HSM operation event logs using Azure CLI and PowerShell. In this example, you update ResourceGroupName and WorkspaceName.
 
-:::image type="content" source="./media/operation-event-logs-cli.png" lightbox="./media/operation-event-logs-cli.png"  alt-text="Azure Cloud HSM operation event logs in the commandline":::
+:::image type="content" source="./media/operation-event-logs-cli.png" lightbox="./media/operation-event-logs-cli.png" alt-text="Screenshot of Azure Cloud HSM operation event logs in the command line interface.":::
 
 ```bash
 $workspaceId = az monitor log-analytics workspace show --resource-group <ResourceGroupName> --workspace-name <WorkspaceName> --query customerId -o tsv

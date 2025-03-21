@@ -39,7 +39,7 @@ Each Azure Cloud HSM instance is dedicated to a single customer and consists of 
 
 Many organizations have stringent industry regulations that dictate that cryptographic keys must be stored in [ FIPS 140-3 Level 3](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4700) validated HSMs. Azure Cloud HSM helps customers from various industry segments, such as financial services industry, government agencies, and others meet FIPS 140-2 Level-3 requirements.
 
-## Azure Cloud HSM suitablity
+## Azure Cloud HSM suitability
 
 ### Best fit
 

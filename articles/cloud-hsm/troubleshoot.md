@@ -111,20 +111,20 @@ If you installed the Azure Cloud HSM SDK using deb or rpm, the client isn't conf
   ```
   
 1. Start and enable the Cloud HSM client service.
-  
+
   ```bash
   sudo systemctl start azure-cloud-hsm.service 
   sudo systemctl enable azure-cloud-hsm.service 
   ```
   
 1. Check the status of the Cloud HSM client service.
-  
+
   ```bash
   sudo systemctl status azure-cloud-hsm.service 
   ```
   
 1. Reload the Systemd configuration.
-  
+
   ```bash
   sudo systemctl daemon-reload 
   sudo systemctl list-units --type=service --state=running 
@@ -152,12 +152,12 @@ If you installed the Azure Cloud HSM SDK using MSI, the client is already config
 
 Start the client daemon if it isn't running.
 
-```
+```bash
 cd C:\Program Files\Microsoft Azure Cloud HSM Client SDK 
 .\azcloudhsm_client.exe .\azcloudhsm_resource.cfg 
 ```
 
-### How does the PKCS#11 library know how to find the client configuration for Linux
+### How does the PKCS#11 library know how to find the client configuration for Linux?
 
 The PKCS#11 library knows how to find the client configuration because you must have a copy of your partition owner certificate "PO.crt" on the application server that is running your application and using the PKCS#11 library. In addition to the PO certificate, you have to update /azcloudhsm_client/azcloudhsm_client.cfg on your application server that has the SDK installed to point to your Azure Cloud HSM (that is, hsm1.chsm-`<resourcename>`-`<uniquestring>`.privatelink.cloudhsm.azure.net). The azcloudhsm_client utility must be running on your application server which connects to your Azure Cloud HSM. Finally, you must specify a PIN within your PKCS#11 application using the syntax `<username>`:`<password>` which is used when calling C_Login to your Azure Cloud HSM. You must #include pkcs11_headers/include/cryptoki.h and pkcs11_headers/include/pkcs11t.h in your PKCS#11 application to use the Azure Cloud HSM PKCS#11 library.
 
@@ -207,21 +207,21 @@ If you installed the Azure Cloud HSM SDK using deb or rpm, the client isn't conf
   cd /etc/systemd/system 
   ```
 
-1. Start and Enable the Cloud HSM Client service  
-  
+1. Start and enable the Cloud HSM Client service.
+
   ```bash
   sudo systemctl start azure-cloud-hsm.service 
   sudo systemctl enable azure-cloud-hsm.service 
   ```
-  
-1. Check status of the Cloud HSM Client service
-  
+
+1. Check the status of the Cloud HSM Client service.
+
   ```bash
   sudo systemctl status azure-cloud-hsm.service 
   ```
-  
-1. Reload the Systemd configuration
-  
+
+1. Reload the Systemd configuration.
+
   ```bash
   sudo systemctl daemon-reload 
   sudo systemctl list-units --type=service --state=running 
@@ -277,7 +277,7 @@ sudo dnf update
 sudo dnf install "Development Tools”
 ```
 
-### For Ubuntu based systems (using apt)
+#### For Ubuntu based systems (using apt)
 
 ```bash
 sudo apt update  
@@ -418,7 +418,7 @@ Azure Cloud HSM is IaaS only. You can use your own signing servers in your corpo
   - The customer needs to run the azcloudhsm_client on the same machine where Azure Cloud HSM CNG provider exists.
   - The azcloudhsm_client should be able to reach out to the Customers Azure vNET private IPs.
 
-### When testing ADCS, we generated a RSAKeyPair then used CFM to sign
+When testing ADCS, we generated a RSAKeyPair then used CFM to sign.
 
 ### Are the only accepted methods to sign or verify through Cloud HSM providers (for instance, azcloudhsm_util)?
 

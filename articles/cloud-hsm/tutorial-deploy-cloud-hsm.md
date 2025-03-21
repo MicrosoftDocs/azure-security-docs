@@ -31,7 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 > [!NOTE]
 > Microsoft recommends for Azure Cloud HSM provisioning, initialization, and configuration that customers use the  [Azure Cloud HSM Onboarding Guide](https://github.com/microsoft/MicrosoftAzureCloudHSM/tree/main/OnboardingGuides) and [Azure Cloud HSM Integration Guides](https://github.com/microsoft/MicrosoftAzureCloudHSM/tree/main/IntegrationGuides).
 >
-> To perform backup and restore operations in Azure Cloud HSM, it is necessary to create a user-assigned managed identity. This identity is utilized to transfer a Cloud HSM backup to the customer's designated storage account, enabling Business Continuity and Disaster Recovery (BCDR) scenarios. This process includes the provisioning of a new Cloud HSM using an existing backup
+> To perform backup and restore operations in Azure Cloud HSM, it is necessary to create a user-assigned managed identity. This identity is utilized to transfer a Cloud HSM backup to the customer's designated storage account, enabling Business Continuity and Disaster Recovery (BCDR) scenarios. This process includes the provisioning of a new Cloud HSM using an existing backup.
 
 ## Deploy Azure Cloud HSM
 

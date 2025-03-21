@@ -50,7 +50,7 @@ If your application necessitates key wrapping, it's advisable to use **trusted k
 | OpenSSL Engine          | EXTRACTABLE, !WRAP_WITH_TRUSTED             | No                     | No                                          | 1 |
 | JCE                     | !EXTRACTABLE, !PERSISTANT, !WRAP_WITH_TRUSTED | Yes                    | No                                          | 1 |
 
-**Note:** Keys created by the CNG provider are always set as `EXTRACTABLE`. Keys from other Azure Cloud HSM tools can be imported into the CNG provider using their key handles with the `CavImportKey.exe` tool, which creates a key in the KSP from existing key handle(s).  
+Keys created by the CNG provider are always set as `EXTRACTABLE`. Keys from other Azure Cloud HSM tools can be imported into the CNG provider using their key handles with the `CavImportKey.exe` tool, which creates a key in the KSP from existing key handle(s).  
 
 For **certificate authorities using the CNG / KSP providers**, it's important to note that all keys generated within the CNG provider are still marked as extractable. If a key is marked as `TRUSTED` on the HSM (like a user-generated KEK), it might be used to extract the private key plaintext of these keys, even after the `WRAP_WITH_TRUSTED` change.
 

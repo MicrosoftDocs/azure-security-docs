@@ -11,7 +11,7 @@ ms.author: mbaldwin
 
 ---
 
-# User Management in Azure Cloud HSM
+# User management in Azure Cloud HSM
 
 Effective user management is crucial for maintaining the security and integrity of Azure Cloud HSM. This article outlines best practices for managing user identities, securing credentials, implementing redundancy, and restricting user permissions to enhance security and prevent unauthorized access.
 
