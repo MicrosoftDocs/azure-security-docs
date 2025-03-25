@@ -28,75 +28,46 @@ Depending on the size and structure of your organization, multiple individuals a
 
 :::image type="content" source="./media/defender-for-cloud-planning-and-operations-guide/defender-for-cloud-planning-and-operations-guide-fig01-new.png" alt-text="Conceptual image that shows various people and the roles that they fill in an organization.":::
 
-Defender for Cloud enables these individuals to meet these various responsibilities. For example:
+Defender for Cloud uses [Azure role-based access control (Azure RBAC)](https://learn.microsoft.com/en-us/azure/role-based-access-control/overview), which provides [built-in roles](/azure/role-based-access-control/built-in-roles) that can be assigned to users, groups, and services in Azure. When a user opens Defender for Cloud, they only see information related to resources they have access to. This means that if a user is assigned the Owner, Contributor, or Reader role for a subscription or resource group, they will only have those specific access rights for resources within that scope. 
 
-**Jeff (Workload Owner)**
+There are two roles specific to Defender for Cloud:
 
-- Manage a cloud workload and its related resources.
+- **[Security Reader](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/security#security-reader)**: a user that belongs to this role is able to view only Defender for Cloud configurations, which include recommendations, alerts, policy, and health, but it won't be able to make changes.
 
-- Responsible for implementing and maintaining protections in accordance with company security policy.
+- **[Security Admin](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/security#security-admin)**: same as security reader but it can also update the security policy, dismiss recommendations and alerts.
 
-**Ellen (CISO/CIO)**
+Using the previous diagram as a reference, here's a summary of key security roles and their corresponding Azure RBAC role assignments for Defender for Cloud:
 
-- Responsible for all aspects of security for the company.
+**CISO/CIO**
+  - **Responsibilities**:
+    - Responsible for all aspects of security for the company.
+    - Wants to understand the company's security posture across cloud workloads.
+    - Needs to be informed of major attacks and risks.
+  - **Azure RBAC Role**:
+    - Security Admin
 
-- Wants to understand the company's security posture across cloud workloads.
+**IT Security**:
+  - **Responsibilities**:
+    - Sets company security policies to ensure the appropriate protections are in place.
+    - Monitors compliance with policies.
+    - Generates reports for leadership or auditors.
+  - **Azure RBAC Role**:
+    - Security Admin.
 
-- Needs to be informed of major attacks and risks.
+**Security Operations**:
+- **Responsibilities**:
+    - Monitors and responds to security alerts at any time.
+    - Escalates to Cloud Workload Owner or IT Security Analyst.
+  - **Azure RBAC Role**:
+    - Security Reader.
+    - Security Admin.
 
-**David (IT Security)**
-
-- Sets company security policies to ensure the appropriate protections are in place.
-
-- Monitors compliance with policies.
-
-- Generates reports for leadership or auditors.
-
-**Judy (Security Operations)**
-
-- Monitors and responds to security alerts at any time.
-
-- Escalates to Cloud Workload Owner or IT Security Analyst.
-
-**Sam (Security Analyst)**
-
-- Investigate attacks.
-
-- Work with Cloud Workload Owner to apply remediation.
-
-Defender for Cloud uses [Azure role-based access control (Azure Role-based access control)](https://learn.microsoft.com/en-us/azure/role-based-access-control/overview), which provides [built-in roles](/azure/role-based-access-control/built-in-roles) that can be assigned to users, groups, and services in Azure. When a user opens Defender for Cloud, they only see information related to resources they have access to. Which means the user is assigned the role of Owner, Contributor, or Reader to the subscription or resource group that a resource belongs to. In addition to these roles, there are two roles specific to Defender for Cloud:
-
-- **Security reader**: a user that belongs to this role is able to view only Defender for Cloud configurations, which include recommendations, alerts, policy, and health, but it won't be able to make changes.
-
-- **Security admin**: same as security reader but it can also update the security policy, dismiss recommendations and alerts.
-
-The personas explained in the previous diagram need these Azure Role-based access control roles:
-
-**Jeff (Workload Owner)**
-
-- Resource Group Owner/Contributor.
-
-**Ellen (CISO/CIO)**
-
-- Subscription Owner/Contributor or Security Admin.
-
-**David (IT Security)**
-
-- Subscription Owner/Contributor or Security Admin.
-
-**Judy (Security Operations)**
-
-- Subscription Reader or Security Reader to view alerts.
-
-- Subscription Owner/Contributor or Security Admin required to dismiss alerts.
-
-**Sam (Security Analyst)**
-
-- Subscription Reader to view alerts.
-
-- Subscription Owner/Contributor required to dismiss alerts.
-
-- Access to the workspace might be required.
+**Security Analyst**:
+- **Responsibilities**:
+    - Investigate attacks.
+    - Work with Cloud Workload Owner to apply remediation.
+  - **Azure RBAC Role**:
+    - Security Reader (only if they need access to Defender for Cloud).
 
 Some other important information to consider:
 
