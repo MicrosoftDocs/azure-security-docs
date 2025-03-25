@@ -1,0 +1,54 @@
+items:
+- name: Azure Cloud HSM Preview Documentation
+  href: index.yml
+- name: Overview 
+  items:
+  - name: About Azure Cloud HSM
+    href: overview.md
+
+- name: Tutorials 
+  items:
+  - name: Deploying Azure Cloud HSM
+    href: tutorial-deploy-cloud-hsm.md
+  - name: Operation event logging
+    href: tutorial-operation-event-logging.md
+
+- name: How-to guides
+  items:
+  - name: Azure Cloud HSM Onboarding Guide
+    href: onboarding-guide.md
+  - name: Azure Cloud HSM Integration Guides
+    href: integration-guides.md
+
+- name: Security and best practices
+  items:
+  - name: Secure your Cloud HSM
+    href: secure-cloud-hsm.md
+  - name: Network Security
+    href: network-security.md
+  - name: User Management
+    href: user-management.md
+  - name: Key Management and Security
+    href: key-management.md
+  - name: Authentication
+    href: authentication.md
+
+
+
+- name: Reference
+  items:
+  - name: Troubleshooting
+    href: troubleshoot.md
+  - name: Azure Cloud HSM SDK
+    href: https://github.com/microsoft/MicrosoftAzureCloudHSM 
+  - name: Azure Cloud HSM Onboarding Guide
+    href: https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/OnboardingGuides/Azure%20Cloud%20HSM%20Onboarding.pdf
+  - name: Azure Cloud HSM Integration Guides
+    href: https://github.com/microsoft/MicrosoftAzureCloudHSM/tree/main/IntegrationGuides
+
+- name: Resources
+  items:
+  - name: Frequently asked questions
+    href: faq.yml
+  - name: Service limits
+    href: service-limits.md
