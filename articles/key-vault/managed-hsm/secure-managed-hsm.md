@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 03/25/2025
 ---
 
-# Secure your Azure Key Vault Managed HSM deployment
+# Secure your Azure Managed HSM deployment
 
 Azure Key Vault Managed HSM is a cloud-based hardware security module that protects cryptographic keys and secrets. Because Managed HSM is often used to safeguard highly sensitive or business-critical data, it's vital to secure access to your HSMs, configure them according to security best practices, and monitor them for threats.
 
