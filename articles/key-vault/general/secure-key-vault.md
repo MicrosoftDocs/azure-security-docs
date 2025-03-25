@@ -8,7 +8,8 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/25/2025
 ms.author: mbaldwin
-#Customer intent: As a key vault administrator, I want to learn how to secure my key vaults
+ai-usage: ai-assisted
+#CustomerIntent: As a key vault administrator, I want to learn how to secure my key vaults
 ---
 
 # Secure your Azure Key Vault
