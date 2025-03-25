@@ -32,14 +32,16 @@ This section focuses on securing authentication and identity access to your Mana
 
 - **Authenticate using service principals when appropriate**: Use service principals for automated scenarios and workload-based access. For more details, see [Managed HSM access control](/azure/key-vault/managed-hsm/access-control).
 
-- **Use conditional access policies to control access**: Define Conditional Access policies in Microsoft Entra to restrict access based on conditions like user risk, location, or device compliance. For more details, see [Conditional Access](/azure/active-directory/conditional-access/overview).
+- **Use conditional access policies to control access**: Define Conditional Access policies in Microsoft Entra to restrict access based on conditions like user risk, location, or device compliance. For more details, see [Conditional Access](/entra/identity/conditional-access/overview).
 
-- **Use security groups for administrative access**: Assign the HSM Administrator role to a [Microsoft Entra security group](/azure/active-directory/fundamentals/active-directory-manage-groups) instead of individual users. This reduces the risk of accidental lockout if a user account is deleted. For guidance, see [Managed HSM access control](/azure/key-vault/managed-hsm/access-control).
+- **Use security groups for administrative access**: Assign the HSM Administrator role to a [Microsoft Entra security group](/entra/fundamentals/concept-learn-about-groups) instead of individual users. This reduces the risk of accidental lockout if a user account is deleted. For guidance, see [Managed HSM access control](/azure/key-vault/managed-hsm/access-control).
 
 ## Privileged access
 
 The Privileged Access section emphasizes securing administrative actions and enforcing least-privilege access principles to reduce the risk of unauthorized or excessive permissions.
 
+- **Lock down access to subscriptions and resource groups**: Use Azure RBAC to control administrative access at the management group, subscription, and resource group levels. For guidance, see [Azure RBAC overview](/azure/role-based-access-control/overview).
+- 
 - **Use least-privilege access principles when assigning roles**: Grant only the minimum set of permissions required. Regularly review role assignments. For more details, see [Managed HSM role management](/azure/key-vault/managed-hsm/role-management).
 
 - **Avoid assigning multiple roles to the same identity**: Maintain separation of duties by ensuring a single user or identity isn't assigned conflicting roles. For more details, see [Access control](/azure/key-vault/managed-hsm/access-control).
@@ -47,8 +49,6 @@ The Privileged Access section emphasizes securing administrative actions and enf
 - **Create custom roles with precise permissions**: Define custom roles to meet specific access requirements while maintaining a secure permission set. For more details, see [Access control](/azure/key-vault/managed-hsm/access-control).
 
 - **Create per-key role assignments using local RBAC**: Use Managed HSM’s local RBAC model to control access at the individual key level. For more details, see [Managed HSM local RBAC](/azure/key-vault/managed-hsm/access-control#data-plane-and-managed-hsm-local-rbac).
-
-- **Lock down access to subscriptions and resource groups**: Use Azure RBAC to control administrative access at the management group, subscription, and resource group levels. For guidance, see [Azure RBAC overview](/azure/role-based-access-control/overview).
 
 ## Logging and threat detection
 
