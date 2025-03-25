@@ -5,6 +5,7 @@ services: key-vault
 author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
+ms.custom: horz-security
 ms.topic: conceptual
 ms.date: 01/25/2025
 ms.author: mbaldwin
