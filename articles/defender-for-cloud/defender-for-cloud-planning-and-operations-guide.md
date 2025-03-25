@@ -6,13 +6,9 @@ ms.date: 05/16/2024
 #customer intent: As a reader, I want to understand the planning and operations considerations for adopting Defender for Cloud and how it fits into my organization's security requirements and cloud management model. I also want to learn about the security roles, access controls, security policies, data collection, and storage in Defender for Cloud.
 ---
 
-# Planning and operations guide
+# A Strategic Overview of Security Roles, Responsibilities, and Applications
 
-This guide is for information technology (IT) professionals, IT architects, information security analysts, and cloud administrators planning to use Defender for Cloud.
-
-## Planning guide
-
-This guide provides the background for how [Defender for Cloud](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction) fits into your organization's security requirements and cloud management model. It's important to understand how different individuals or teams in your organization use the service to meet secure development and operations, monitoring, governance, and incident response needs. The key areas to consider when planning to use Defender for Cloud are:
+This article provides a comprehensive analysis into how [Defender for Cloud](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction) can fit into your organization’s security requirements and cloud management model. It's important to understand how different individuals or teams in your organization use the service to meet secure development and operations, monitoring, governance, and incident response needs. The key areas to consider when planning to use Defender for Cloud are:
 
 - [Security Roles and Access Controls](#security-roles-and-access-controls)
 - [Security Policies and Recommendations](#security-policies-and-recommendations)
