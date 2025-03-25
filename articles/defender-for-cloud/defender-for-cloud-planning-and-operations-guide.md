@@ -38,13 +38,13 @@ There are two roles specific to Defender for Cloud:
 
 Using the previous diagram as a reference, here's a summary of key security roles and their corresponding Azure RBAC role assignments for Defender for Cloud:
 
-**CISO/CIO**
+**CISO/CIO**:
   - **Responsibilities**:
     - Responsible for all aspects of security for the company.
     - Wants to understand the company's security posture across cloud workloads.
     - Needs to be informed of major attacks and risks.
   - **Azure RBAC Role**:
-    - Security Admin
+    - Security Admin.
 
 **IT Security**:
   - **Responsibilities**:
