@@ -14,12 +14,12 @@ This guide is for information technology (IT) professionals, IT architects, info
 
 This guide provides the background for how [Defender for Cloud](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction) fits into your organization's security requirements and cloud management model. It's important to understand how different individuals or teams in your organization use the service to meet secure development and operations, monitoring, governance, and incident response needs. The key areas to consider when planning to use Defender for Cloud are:
 
-- Security Roles and Access Controls
-- Security Policies and Recommendations
-- Data Collection and Storage
-- Onboarding non-Azure resources
-- Ongoing Security Monitoring
-- Incident Response
+- [Security Roles and Access Controls](#security-roles-and-access-controls)
+- [Security Policies and Recommendations](#security-policies-and-recommendations)
+- [Data Collection and Storage](#data-collection-and-storage)
+- [Onboarding non-Azure resources](#onboard-non-azure-resources)
+- [Ongoing Security Monitoring](#ongoing-security-monitoring)
+- [Incident Response](#incident-response)
 
 In the next section, you'll learn how to plan for each one of those areas and apply those recommendations based on your requirements.
 
