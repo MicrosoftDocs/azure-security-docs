@@ -66,18 +66,52 @@ items:
     href: mhsm-control-data.md
   - name: Key sovereignty, availability, performance, and scalability
     href: managed-hsm-technical-details.md
-  - name: Security domain overview
-    href: security-domain.md
-  - name: Best practices for securing Managed HSM
-    href: best-practices.md
+
   - name: Access control
     href: access-control.md
   - name: Local RBAC built-in roles
     href: built-in-roles.md
   - name: Managed HSM soft-delete 
     href: soft-delete-overview.md
+
+- name: Security
+  items:
+  - name: Secure Managed HSM
+    href: secure-managed-hsm.md
+  - name: Integrate with Azure Private Link
+    href: private-link.md
+  - name: Access control
+    href: access-control.md
+  - name: Local RBAC built-in roles
+    href: built-in-roles.md
+  - name: Logging
+    href: logging.md
+  - name: Backup and restore
+    href: backup-restore.md
+  - name: Security domain overview
+    href: security-domain.md
+  - name: Integrate with Azure Policy
+    href: azure-policy.md
   - name: Security baseline
     href: /security/benchmark/azure/baselines/key-vault-managed-hsm-security-baseline?toc=/azure/key-vault/managed-hsm/&bc=/azure/key-vault/managed-hsm/breadcrumb/toc.json
+  - name: Azure security services
+    items:
+    - name: Microsoft Defender for Cloud
+      href: /azure/defender-for-cloud/overview
+    - name: Microsoft Defender for Key Vault
+      href: /azure/defender-for-cloud/defender-for-key-vault-introduction
+    - name: Microsoft Entra
+      href: /entra
+    - name: Private Link
+      href: /azure/private-link/
+    - name: Azure Policy 
+      href: /azure/governance/policy/overview 
+    - name: Azure Sentinel
+      href: /azure/sentinel/
+    - name: Azure Monitor
+      href: /azure/monitoring-and-diagnostics/monitoring-overview
+  - name: Azure security fundamentals
+    href: /azure/security/fundamentals
 
 - name: Reference
   items:
