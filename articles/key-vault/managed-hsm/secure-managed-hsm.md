@@ -50,7 +50,7 @@ The Privileged Access section emphasizes securing administrative actions and enf
 
 - **Create per-key role assignments using local RBAC**: Use Managed HSM’s local RBAC model to control access at the individual key level. For more details, see [Managed HSM local RBAC](/azure/key-vault/managed-hsm/access-control#data-plane-and-managed-hsm-local-rbac).
 
-- **Enable Privileged Identity Management (PIM) for administrative roles**: Use Azure AD Privileged Identity Management to enforce just-in-time access and reduce the risk of standing administrative privileges. For more details, see [Privileged Identity Management overview](/azure/active-directory/privileged-identity-management/pim-configure).
+- **Enable Privileged Identity Management (PIM) for administrative roles**: Use Microsoft Entra Privileged Identity Management to enforce just-in-time access and reduce the risk of standing administrative privileges. For more details, see [Privileged Identity Management overview](/entra/id-governance/privileged-identity-management/pim-configure).
 
 ## Backup and recovery
 
