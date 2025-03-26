@@ -85,9 +85,7 @@ A [security policy](https://learn.microsoft.com/en-us/azure/defender-for-cloud/s
 Defenders for Cloud policies contain the following components:
 
 - [Data collection](monitoring-components.md): agent provisioning and data collection settings.
-
 - [Security policy](tutorial-security-policy.md): an [Azure Policy](/azure/governance/policy/overview) that determines which controls are monitored and recommended by Defender for Cloud. You can also use Azure Policy to create new definitions, define more policies, and assign policies across management groups.
-
 - [Email notifications](configure-email-notifications.md): security contacts and notification settings.
 - [Pricing tier](defender-for-cloud-introduction.md#protect-cloud-workloads): with or without Microsoft Defender for Cloud's Defender plans, which determine which Defender for Cloud features are available for resources in scope (can be specified for subscriptions and workspaces using the API).
 
@@ -100,6 +98,7 @@ Defender for Cloud automatically creates a default security policy for each of y
   - Create new definitions.
   - Define more policies.
   - Assign policies across management groups.
+    
 Management groups represent the entire organization or a business unit within the organization. You can monitor policy compliance across these management groups.
 
 Before configuring security policies, review each of the [security recommendations](review-security-recommendations.md) to:
@@ -139,18 +138,18 @@ If your agent reports to a workspace other than the **default** workspace, any D
 
 ## Ongoing security monitoring
 
-After initial configuration and application of Defender for Cloud recommendations, the next step is considering Defender for Cloud operational processes.
+In addition to the configuration and application of Defender for Cloud, it is beneficial to understand the Defender for Cloud operational processes.
 
-The Defender for Cloud Overview provides a unified view of security across all your Azure resources and any non-Azure resources you've connected. This example shows an environment with many issues to resolve:
+The **Defender for Cloud Overview** page provides a unified view of security across all your Azure resources and any non-Azure resources you've connected. This example shows an environment with many issues to resolve:
 
 :::image type="content" source="./media/overview-page/overview.png" alt-text="Screenshot of Defender for Cloud's overview page." lightbox="./media/overview-page/overview.png":::
 
 > [!NOTE]
 > Defender for Cloud doesn't interfere with your normal operational procedures. Defender for Cloud passively monitors your deployments and provides recommendations based on the security policies you enabled.
 
-When you first opt in to use Defender for Cloud for your current Azure environment, make sure that you review all recommendations, which can be done in the **Recommendations** page.
+When you first opt in to use Defender for Cloud for your current Azure environment, you're advised to [review all recommendations](https://learn.microsoft.com/en-us/azure/defender-for-cloud/review-security-recommendations), which can be done in the **Recommendations** page.
 
-Plan to visit the threat intelligence option as part of your daily security operations. There you can identify security threats against the environment, such as identify if a particular computer is part of a botnet.
+Additionally, integrating threat intelligence into daily security operations can help identify and mitigate security threats. For example, you can detect if a particular machine has been compromised or is part of a botnet.
 
 ### Monitor for new or changed resources
 
