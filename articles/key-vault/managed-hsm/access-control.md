@@ -51,7 +51,11 @@ The permissions models for both planes use the same syntax, but they're enforced
 
 For example, a subscription administrator (because they have Contributor permissions to all resources in the subscription) can delete a managed HSM in their subscription. But if they don't have data plane access specifically granted through Managed HSM local RBAC, they can't gain access to keys or manage role assignments in the managed HSM to grant themselves or others access to the data plane.
 
-<a name='azure-active-directory-authentication'></a>
+### Microsoft Entra Privileged Identity Management (PIM)
+
+To enhance the security of administrative roles and protect managed hardware security modules (HSMs), use [Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure). PIM helps safeguard managed HSMs by enabling just-in-time access to critical administrative roles, ensuring that elevated privileges are only granted when necessary and for a limited duration. This minimizes the risk of unauthorized or accidental changes to sensitive cryptographic resources.
+
+Additionally, PIM provides detailed visibility into role assignments and access history, allowing administrators to monitor and audit who accessed managed HSMs and when. It enforces approval workflows for elevated access, adding an extra layer of security by requiring explicit authorization before granting permissions. These capabilities help organizations maintain strict control over their managed HSMs while reducing the attack surface. For more information, see [Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure).
 
 ## Microsoft Entra authentication
 
