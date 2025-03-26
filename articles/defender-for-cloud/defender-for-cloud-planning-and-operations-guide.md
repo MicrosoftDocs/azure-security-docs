@@ -13,8 +13,8 @@ This article provides a comprehensive analysis into how [Defender for Cloud](htt
 - [Security roles and access controls](#security-roles-and-access-controls).
 - [Security policies](#security-policies).
 - [Data collection and storage](#data-collection-and-storage).
-- [Ongoing Security Monitoring](#ongoing-security-monitoring).
-- [Incident Response](#incident-response).
+- [Ongoing security monitoring](#ongoing-security-monitoring).
+- [Incident response](#incident-response).
 - [Connecting non-Azure machines](#connect-non-azure-machines).
 
 > [!NOTE]
