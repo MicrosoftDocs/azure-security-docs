@@ -46,11 +46,11 @@ The Privileged Access section emphasizes securing administrative actions and enf
 
 - **Avoid assigning multiple roles to the same identity**: Maintain separation of duties by ensuring a single user or identity isn't assigned conflicting roles. For more details, see [Access control](/azure/key-vault/managed-hsm/access-control).
 
-- **Create custom roles with precise permissions**: Define custom roles to meet specific access requirements while maintaining a secure permission set. For more details, see [Access control](/azure/key-vault/managed-hsm/access-control).
+- **Create custom roles with precise permissions**: Define custom roles to meet specific access requirements while maintaining a secure permission set. For more details, see [Managed HSM access control](/azure/key-vault/managed-hsm/access-control).
 
 - **Create per-key role assignments using local RBAC**: Use Managed HSM’s local RBAC model to control access at the individual key level. For more details, see [Managed HSM local RBAC](/azure/key-vault/managed-hsm/access-control#data-plane-and-managed-hsm-local-rbac).
 
-- **Enable Privileged Identity Management (PIM) for administrative roles**: Use Microsoft Entra Privileged Identity Management to enforce just-in-time access and reduce the risk of standing administrative privileges. For more details, see [Privileged Identity Management overview](/entra/id-governance/privileged-identity-management/pim-configure).
+- **Enable Privileged Identity Management (PIM) for administrative roles**: Use [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-configure) to enforce just-in-time access and reduce the risk of standing administrative privileges. For more details, see [Managed HSM access control: Privileged Identity Management](access-control.md#microsoft-entra-privileged-identity-management-pim).
 
 ## Backup and recovery
 
