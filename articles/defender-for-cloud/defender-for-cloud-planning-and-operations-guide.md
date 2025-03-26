@@ -8,7 +8,7 @@ ms.date: 05/16/2024
 
 # Defender for Cloud: Organizational overview of security roles, policies, and applications
 
-This article provides a comprehensive analysis into how [Defender for Cloud](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction) integrates with your organization’s security requirements and cloud management model. Understanding how different individuals or teams in your organization use the service is imperative for meeting secure development, operations, monitoring, governance, and incident response needs. When configuring Defender for Cloud, consider these key areas:
+This article provides a comprehensive analysis of how [Defender for Cloud](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction) integrates with your organization’s security requirements and cloud management model. Understanding how different individuals or teams in your organization use the service is imperative for meeting secure development, operations, monitoring, governance, and incident response needs. When configuring Defender for Cloud, consider these key areas:
 
 - [Security roles and access controls](#security-roles-and-access-controls).
 - [Security policies](#security-policies).
