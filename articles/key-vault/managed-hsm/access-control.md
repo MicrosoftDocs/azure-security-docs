@@ -31,7 +31,7 @@ Access to a managed HSM is controlled through two interfaces:
 
 On the management plane, you manage the HSM itself. Operations in this plane include creating and deleting managed HSMs and retrieving managed HSM properties.
 
-On the data plane, you work with the data that's stored in a managed HSM. That is, you work with the HSM-backed encryption keys. You can add, delete, modify, and use keys to perform cryptographic operations, manage role assignments to control access to the keys, create a full HSM backup, restore a full backup, and manage the security domain from the data plane interface.
+On the data plane, you work with the data that's stored in a managed HSM. That is, you work with the HSM-backed encryption keys. You can add, delete, modify, and use keys to perform cryptographic operations, manage role assignments to control access to the  keys, create a full HSM backup, restore a full backup, and manage the security domain from the data plane interface.
 
 To access a managed HSM in either plane, all callers must have proper authentication and authorization. *Authentication* establishes the identity of the caller. *Authorization* determines which operations the caller can execute. A caller can be any one of the [security principals](/azure/role-based-access-control/overview#security-principal) that are defined in Microsoft Entra ID: user, group, service principal, or managed identity.
 
@@ -51,31 +51,7 @@ The permissions models for both planes use the same syntax, but they're enforced
 
 For example, a subscription administrator (because they have Contributor permissions to all resources in the subscription) can delete a managed HSM in their subscription. But if they don't have data plane access specifically granted through Managed HSM local RBAC, they can't gain access to keys or manage role assignments in the managed HSM to grant themselves or others access to the data plane.
 
-### Role-based access control for Managed HSM
-
-The following table summarizes the role assignments for common scenarios:
-
-| Role | Management plane role | Data plane role |
-| --- | --- | --- |
-| Security team | Managed HSM Contributor | Managed HSM Administrator |
-| Developers and operators | None | None |
-| Auditors | None | Managed HSM Crypto Auditor |
-| Managed identity of the VM used by the application | None | Managed HSM Crypto User |
-| Managed identity of the storage account used by the application | None | Managed HSM Service Encryption |
-
-#### Management plane and Azure RBAC
-
-In the management plane, you use Azure RBAC to authorize the operations that a caller can execute. For example, the `Managed HSM Contributor` role allows users to create and manage managed HSMs. You can assign roles at different scopes, such as subscription, resource group, or specific resource levels.
-
-#### Data plane and Managed HSM local RBAC
-
-In the data plane, Managed HSM local RBAC is used to control access to keys and other data. Roles such as `Managed HSM Administrator`, `Managed HSM Crypto User`, and `Managed HSM Crypto Auditor` define specific permissions for accessing and managing keys.
-
-For more information on Azure RBAC and Managed HSM local RBAC roles, see [Azure RBAC: Built-in roles](/azure/role-based-access-control/built-in-roles) and [Local RBAC built-in roles for Managed HSM](built-in-roles.md).
-
-### Microsoft Entra Privileged Identity Management (PIM)
-
-To enhance the security of administrative roles, use [Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure). PIM enables just-in-time access, reducing the risk of standing administrative privileges. It also provides visibility into role assignments and enforces approval workflows for elevated access.
+<a name='azure-active-directory-authentication'></a>
 
 ## Microsoft Entra authentication
 
@@ -101,6 +77,19 @@ The following table shows the endpoints for the management plane and data plane.
 | Data plane | **Global:**<br/> `<hsm-name>.managedhsm.azure.net:443`<br/> | **Keys**: Decrypt, encrypt,<br/> unwrap, wrap, verify, sign, get, list, update, create, import, delete, back up, restore, purge<br/><br/> **Data plane role-management (Managed HSM local RBAC)**: List role definitions, assign roles, delete role assignments, define custom roles<br/><br/>**Backup and restore**: Back up, restore, check the status of backup and restore operations <br/><br/>**Security domain**: Download and upload the security domain | Managed HSM local RBAC |
 |||||
 
+## Management plane and Azure RBAC
+
+In the management plane, you use Azure RBAC to authorize the operations that a caller can execute. In the Azure RBAC model, each Azure subscription has an instance of Microsoft Entra ID. You grant access to users, groups, and applications from this directory. Access is granted to manage subscription resources that use the Azure Resource Manager deployment model. To grant access, use the [Azure portal](https://portal.azure.com/), the [Azure CLI](/cli/azure/install-classic-cli), [Azure PowerShell](/powershell/azureps-cmdlets-docs), or [Azure Resource Manager REST APIs](/rest/api/authorization/role-assignments).
+
+You create a key vault in a resource group and manage access by using Microsoft Entra ID. You grant users or groups the ability to manage the key vaults in a resource group. You grant the access at a specific scope level by assigning appropriate Azure roles. To grant access to a user to manage key vaults, you assign a predefined `key vault Contributor` role to the user at a specific scope. The following scope levels can be assigned to an Azure role:
+
+- **Management group**:  An Azure role assigned at the subscription level applies to all the subscriptions in that management group.
+- **Subscription**: An Azure role assigned at the subscription level applies to all resource groups and resources within that subscription.
+- **Resource group**: An Azure role assigned at the resource group level applies to all resources in that resource group.
+- **Specific resource**: An Azure role assigned for a specific resource applies to that resource. In this case, the resource is a specific key vault.
+
+Several roles are predefined. If a predefined role doesn't fit your needs, you can define your own role. For more information, see [Azure RBAC: Built-in roles](/azure/role-based-access-control/built-in-roles).
+
 ## Data plane and Managed HSM local RBAC
 
 You grant a security principal access to execute specific key operations by assigning a role. For each role assignment, you must specify a role and scope for which that assignment applies. For Managed HSM local RBAC, two scopes are available:
@@ -110,6 +99,6 @@ You grant a security principal access to execute specific key operations by assi
 
 ## Next steps
 
-- For a getting-started tutorial for an administrator, see [Secure access to your managed HSMs](secure-your-managed-hsm.md).
+- For a get-started tutorial for an administrator, see [What is Managed HSM?](overview.md).
+- For a role management tutorial, see [Managed HSM local RBAC](role-management.md).
 - For more information about usage logging for Managed HSM, see [Managed HSM logging](logging.md).
-
