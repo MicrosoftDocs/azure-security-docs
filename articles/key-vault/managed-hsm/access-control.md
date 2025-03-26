@@ -40,6 +40,17 @@ Both planes use Microsoft Entra ID for authentication. For authorization, they u
 - The management plane uses Azure role-based access control (Azure RBAC), an authorization system that's built on Azure Resource Manager.
 - The data plane uses a managed HSM-level RBAC (Managed HSM local RBAC), an authorization system that's implemented and enforced at the managed HSM level.
 
+When a managed HSM is created, the requestor provides a list of data plane administrators (all [security principals](/azure/role-based-access-control/overview#security-principal) are supported). Only these administrators can access the managed HSM data plane to perform key operations and manage data plane role assignments (Managed HSM local RBAC).
+
+The permissions models for both planes use the same syntax, but they're enforced at different levels, and role assignments use different scopes. Management plane Azure RBAC is enforced by Azure Resource Manager, and data plane Managed HSM local RBAC is enforced by the managed HSM itself.
+
+> [!IMPORTANT]
+> Granting management plane access to a security principal does *not* grant the security principal data plane access. For example, a security principal with management plane access doesn't automatically have access to keys or data plane role assignments. This isolation is by design, to prevent inadvertent expansion of privileges that affect access to keys that are stored in Managed HSM.
+>
+> But there's an exception: Members of the Microsoft Entra Global Administrator role can always add users to the Managed HSM Administrator role for recovery purposes, such as when there are no longer any valid Managed HSM Administrator accounts. For more information, see [Microsoft Entra ID best practices for securing the Global Adminstrator role](/azure/active-directory/roles/best-practices#5-limit-the-number-of-global-administrators-to-less-than-5).
+
+For example, a subscription administrator (because they have Contributor permissions to all resources in the subscription) can delete a managed HSM in their subscription. But if they don't have data plane access specifically granted through Managed HSM local RBAC, they can't gain access to keys or manage role assignments in the managed HSM to grant themselves or others access to the data plane.
+
 ### Role-based access control for Managed HSM
 
 The following table summarizes the role assignments for common scenarios:
@@ -61,13 +72,6 @@ In the management plane, you use Azure RBAC to authorize the operations that a c
 In the data plane, Managed HSM local RBAC is used to control access to keys and other data. Roles such as `Managed HSM Administrator`, `Managed HSM Crypto User`, and `Managed HSM Crypto Auditor` define specific permissions for accessing and managing keys.
 
 For more information on Azure RBAC and Managed HSM local RBAC roles, see [Azure RBAC: Built-in roles](/azure/role-based-access-control/built-in-roles) and [Local RBAC built-in roles for Managed HSM](built-in-roles.md).
-
-> [!IMPORTANT]
-> Granting management plane access to a security principal does *not* grant the security principal data plane access. For example, a security principal with management plane access doesn't automatically have access to keys or data plane role assignments. This isolation is by design, to prevent inadvertent expansion of privileges that affect access to keys that are stored in Managed HSM.
->
-> But there's an exception: Members of the Microsoft Entra Global Administrator role can always add users to the Managed HSM Administrator role for recovery purposes, such as when there are no longer any valid Managed HSM Administrator accounts. For more information, see [Microsoft Entra ID best practices for securing the Global Adminstrator role](/azure/active-directory/roles/best-practices#5-limit-the-number-of-global-administrators-to-less-than-5).
-
-For example, a subscription administrator (because they have Contributor permissions to all resources in the subscription) can delete a managed HSM in their subscription. But if they don't have data plane access specifically granted through Managed HSM local RBAC, they can't gain access to keys or manage role assignments in the managed HSM to grant themselves or others access to the data plane.
 
 ### Microsoft Entra Privileged Identity Management (PIM)
 
