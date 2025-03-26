@@ -90,6 +90,10 @@ You create a key vault in a resource group and manage access by using Microsoft 
 
 Several roles are predefined. If a predefined role doesn't fit your needs, you can define your own role. For more information, see [Azure RBAC: Built-in roles](/azure/role-based-access-control/built-in-roles).
 
+### Use Azure AD Privileged Identity Management (PIM)
+
+To enhance the security of administrative roles, use [Azure AD Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure). PIM enables just-in-time access, reducing the risk of standing administrative privileges. It also provides visibility into role assignments and enforces approval workflows for elevated access.
+
 ## Data plane and Managed HSM local RBAC
 
 You grant a security principal access to execute specific key operations by assigning a role. For each role assignment, you must specify a role and scope for which that assignment applies. For Managed HSM local RBAC, two scopes are available:
