@@ -41,7 +41,7 @@ This section focuses on securing authentication and identity access to your Mana
 The Privileged Access section emphasizes securing administrative actions and enforcing least-privilege access principles to reduce the risk of unauthorized or excessive permissions.
 
 - **Lock down access to subscriptions and resource groups**: Use Azure RBAC to control administrative access at the management group, subscription, and resource group levels. For guidance, see [Azure RBAC overview](/azure/role-based-access-control/overview).
-- 
+
 - **Use least-privilege access principles when assigning roles**: Grant only the minimum set of permissions required. Regularly review role assignments. For more details, see [Managed HSM role management](/azure/key-vault/managed-hsm/role-management).
 
 - **Avoid assigning multiple roles to the same identity**: Maintain separation of duties by ensuring a single user or identity isn't assigned conflicting roles. For more details, see [Access control](/azure/key-vault/managed-hsm/access-control).
@@ -50,13 +50,7 @@ The Privileged Access section emphasizes securing administrative actions and enf
 
 - **Create per-key role assignments using local RBAC**: Use Managed HSM’s local RBAC model to control access at the individual key level. For more details, see [Managed HSM local RBAC](/azure/key-vault/managed-hsm/access-control#data-plane-and-managed-hsm-local-rbac).
 
-## Logging and threat detection
-
-This section covers how to enable audit logging and security monitoring for your HSM deployment, which is critical for detecting threats and conducting forensic investigations.
-
-- **Enable resource logging for auditing and monitoring**: Turn on logging to track access and operations on your HSM. Configure the logs to send data to Log Analytics or a storage account. For more details, see [Managed HSM logging](/azure/key-vault/managed-hsm/logging).
-
-- **Set up alerts for security events**: Configure alerts based on log data to receive notifications about unusual activity. For more details, see [Managed HSM logging](/azure/key-vault/managed-hsm/logging).
+- **Enable Privileged Identity Management (PIM) for administrative roles**: Use Azure AD Privileged Identity Management to enforce just-in-time access and reduce the risk of standing administrative privileges. For more details, see [Privileged Identity Management overview](/azure/active-directory/privileged-identity-management/pim-configure).
 
 ## Backup and recovery
 
@@ -67,6 +61,8 @@ The Backup and Recovery section helps you protect against accidental or maliciou
 - **Turn on purge protection**: Enable purge protection to prevent permanent deletion of the HSM or its keys before the retention period expires. For more details, see [Soft-delete overview](/azure/key-vault/managed-hsm/soft-delete-overview).
 
 - **Retain soft-deleted resources**: Soft-delete is enabled by default. Choose a retention period of 7 to 90 days during which deleted items can be recovered. For more details, see [Soft-delete overview](/azure/key-vault/managed-hsm/soft-delete-overview).
+
+- **Protect the security domain to prevent cryptographic lockout**: Follow best practices for managing the security domain and its keys to ensure business continuity and prevent unauthorized access. For more details, see [Security domain overview](security-domain.md).
 
 ## Posture and vulnerability management
 
