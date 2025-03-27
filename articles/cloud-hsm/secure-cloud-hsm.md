@@ -2,7 +2,7 @@
 title: Best Practices for Securing Microsoft Azure Cloud HSM
 description: Learn the best practices for securing and managing Microsoft Azure Cloud HSM to protect cryptographic keys and sensitive workloads.
 author: msmbaldwin
-ms.service: azure-dedicated-hsm
+ms.service: azure-cloud-hsm
 ms.topic: conceptual
 ms.date: 03/20/2025
 ai-usage: ai-assisted

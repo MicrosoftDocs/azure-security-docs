@@ -3,7 +3,7 @@ title: Azure Cloud HSM Service Limits
 description: Detailed information on service limits for Azure Cloud HSM, including object limits and transaction limits for various cryptographic operations.
 author: keithp
 manager: davinune
-ms.service: azure-dedicated-hsm
+ms.service: azure-cloud-hsm
 ms.topic: reference
 ms.date: 03/20/2025
 ms.author: keithp
