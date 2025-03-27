@@ -184,7 +184,7 @@ The following terms are used to describe HSM operation events.
 | CN_LIST_USERS               | listUsers          | Lists users.                                                  |
 | CN_CHANGE_PSWD              | changePswd         | Changes a password.                                           |
 | CN_MODIFY_OBJECT            | setAttribute       | Sets an attribute of an object.                               |
-| CN_GET_ATTRIBUTE_VALUE<br>CN_GET_ALL_ATTRIBUTE_VALUE<br>CN_GET_ATTRIBUTE_SIZE<br>CN_GET_ALL_ATTRIBUTE_SIZE                            | getAttribute       | Gets an attribute of an object.                               |
+| CN_GET_ATTRIBUTE_VALUE<br>CN_GET_ALL_ATTRIBUTE_VALUE<br>CN_GET_ATTRIBUTE_SIZE<br>CN_GET_ALL_ATTRIBUTE_SIZE | getAttribute       | Gets an attribute of an object.                               |
 | CN_TOKEN_INFO               | getHSMInfo         | Gets the HSM information.                                     |
 | CN_PARTITION_INFO           | getPartitionInfo   | Gets the partition information.                               |
 | ---                         | getClusterInfo     | Not recorded.                                                 |
@@ -198,7 +198,7 @@ The following terms are used to describe HSM operation events.
 | CN_LOGOUT                   | logoutHSM          | Logout of the HSM.                                            |
 | CN_GENERATE_KEY             | genSymKey          | Generates a Symmetric key.                                     |
 | CN_GENERATE_KEY_PAIR        | genRSAKeyPair      | Generates an RSA Key Pair.                                     |
-|                             | genECCKeyPair      | Generates an ECC Key Pair.                                     |
+| CN_GENERATE_KEY_PAIR        | genECCKeyPair      | Generates an ECC Key Pair.                                     |
 | CN_SHARE_OBJECT             | shareKey           | Shares/unshares an existing key with other users.              |
 | CN_TOMBSTONE_OBJECT         | deleteKey          | Deletes a key.                                                |
 | CN_FIND_OBJECTS_FROM_INDEX  | findSingleKey      | Finds a single key.                                           |
@@ -213,7 +213,7 @@ The following terms are used to describe HSM operation events.
 | CN_LIST_USERS               | listUsers          | Lists users.                                                  |
 | CN_CHANGE_PSWD              | changePswd         | Changes a password.                                           |
 | CN_MODIFY_OBJECT            | setAttribute       | Sets an attribute of an object.                               |
-|                             | getAttribute       | Gets an attribute of an object.                               |
+| CN_GET_ATTRIBUTE_VALUE<br>CN_GET_ALL_ATTRIBUTE_VALUE<br>CN_GET_ATTRIBUTE_SIZE<br>CN_GET_ALL_ATTRIBUTE_SIZE | getAttribute       | Gets an attribute of an object.                               |
 | CN_TOKEN_INFO               | getHSMInfo         | Gets the HSM information.                                     |
 | CN_PARTITION_INFO           | getPartitionInfo   | Gets the partition information.                               |
 | ---                         | getClusterInfo     | Not recorded.                                                 |
