@@ -3,7 +3,7 @@ title: Tutorial - Deploying Microsoft Azure Cloud HSM | Microsoft Docs
 description: Deploying Azure Cloud HSM into an existing virtual network.
 author: keithp
 manager: keithp
-ms.service: azure-dedicated-hsm
+ms.service: azure-cloud-hsm
 ms.topic: overview
 ms.date: 03/20/2025
 ms.author: keithp
