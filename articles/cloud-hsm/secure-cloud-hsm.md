@@ -5,7 +5,10 @@ author: msmbaldwin
 ms.service: azure-dedicated-hsm
 ms.topic: conceptual
 ms.date: 03/20/2025
+ai-usage: ai-assisted
+ms.custom: horz-security
 ms.author: mbaldwin
+
 #Customer intent: As a Cloud HSM administrator, I want to learn how to secure and optimize my Cloud HSM deployment.
 ---
 
