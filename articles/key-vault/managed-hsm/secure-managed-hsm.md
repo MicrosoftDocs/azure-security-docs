@@ -18,23 +18,23 @@ This article provides guidance on how to best secure your Azure Key Vault Manage
 
 The Network Security section provides guidance on protecting Managed HSM with secure network connectivity, private endpoints, and network access controls. It helps reduce the exposure of your HSM to public networks and ensures that only authorized traffic is allowed.
 
-- **Deploy private endpoints using Azure Private Link**: Use private endpoints to establish private, secured connectivity to your Managed HSM instance. This prevents exposure to the public internet and reduces attack vectors. For more details, see [Integrate Managed HSM with Azure Private Link](/azure/key-vault/managed-hsm/private-link).
+- **Deploy private endpoints using Azure Private Link**: Use private endpoints to establish private, secured connectivity to your Managed HSM instance. This prevents exposure to the public internet and reduces attack vectors. For more details, see [Integrate Managed HSM with Azure Private Link](private-link.md).
 
-- **Disable public network access**: Prevent access to the service from public IP addresses by disabling public network access in the Managed HSM configuration. For more details, see [Integrate Managed HSM with Azure Private Link](/azure/key-vault/managed-hsm/private-link).
+- **Disable public network access**: Prevent access to the service from public IP addresses by disabling public network access in the Managed HSM configuration. For more details, see [Integrate Managed HSM with Azure Private Link](private-link.md).
 
 ## Identity management
 
 This section focuses on securing authentication and identity access to your Managed HSM resources. Microsoft Entra provides a centralized identity solution for managing access to the HSM's management and data planes.
 
-- **Require Microsoft Entra authentication for data plane access**: Microsoft Entra is used by default for authenticating data plane operations in Managed HSM, enabling centralized and secure identity control. For more details, see [Managed HSM access control](/azure/key-vault/managed-hsm/access-control).
+- **Require Microsoft Entra authentication for data plane access**: Microsoft Entra is used by default for authenticating data plane operations in Managed HSM, enabling centralized and secure identity control. For more details, see [Managed HSM access control](access-control.md).
 
-- **Use managed identities for secure application access**: Managed identities are enabled by default, allowing applications to authenticate to Managed HSM without storing credentials. For more details, see [Secure access to your managed HSMs](/azure/key-vault/managed-hsm/secure-your-managed-hsm).
+- **Use managed identities for secure application access**: Managed identities are enabled by default, allowing applications to authenticate to Managed HSM without storing credentials. For more details, see [Secure access to your managed HSMs](secure-your-managed-hsm.md).
 
-- **Authenticate using service principals when appropriate**: Use service principals for automated scenarios and workload-based access. For more details, see [Managed HSM access control](/azure/key-vault/managed-hsm/access-control).
+- **Authenticate using service principals when appropriate**: Use service principals for automated scenarios and workload-based access. For more details, see [Managed HSM access control](access-control.md).
 
 - **Use conditional access policies to control access**: Define Conditional Access policies in Microsoft Entra to restrict access based on conditions like user risk, location, or device compliance. For more details, see [Conditional Access](/entra/identity/conditional-access/overview).
 
-- **Use security groups for administrative access**: Assign the HSM Administrator role to a [Microsoft Entra security group](/entra/fundamentals/concept-learn-about-groups) instead of individual users. This reduces the risk of accidental lockout if a user account is deleted. For guidance, see [Managed HSM access control](/azure/key-vault/managed-hsm/access-control).
+- **Use security groups for administrative access**: Assign the HSM Administrator role to a [Microsoft Entra security group](/entra/fundamentals/concept-learn-about-groups) instead of individual users. This reduces the risk of accidental lockout if a user account is deleted. For guidance, see [Managed HSM access control](access-control.md).
 
 ## Privileged access
 
@@ -42,13 +42,13 @@ The Privileged Access section emphasizes securing administrative actions and enf
 
 - **Lock down access to subscriptions and resource groups**: Use Azure RBAC to control administrative access at the management group, subscription, and resource group levels. For guidance, see [Azure RBAC overview](/azure/role-based-access-control/overview).
 
-- **Use least-privilege access principles when assigning roles**: Grant only the minimum set of permissions required. Regularly review role assignments. For more details, see [Managed HSM role management](/azure/key-vault/managed-hsm/role-management).
+- **Use least-privilege access principles when assigning roles**: Grant only the minimum set of permissions required. Regularly review role assignments. For more details, see [Managed HSM role management](role-management.md).
 
-- **Avoid assigning multiple roles to the same identity**: Maintain separation of duties by ensuring a single user or identity isn't assigned conflicting roles. For more details, see [Access control](/azure/key-vault/managed-hsm/access-control).
+- **Avoid assigning multiple roles to the same identity**: Maintain separation of duties by ensuring a single user or identity isn't assigned conflicting roles. For more details, see [Access control](access-control.md).
 
-- **Create custom roles with precise permissions**: Define custom roles to meet specific access requirements while maintaining a secure permission set. For more details, see [Managed HSM access control](/azure/key-vault/managed-hsm/access-control).
+- **Create custom roles with precise permissions**: Define custom roles to meet specific access requirements while maintaining a secure permission set. For more details, see [Managed HSM access control](access-control.md).
 
-- **Create per-key role assignments using local RBAC**: Use Managed HSM’s local RBAC model to control access at the individual key level. For more details, see [Managed HSM local RBAC](/azure/key-vault/managed-hsm/access-control#data-plane-and-managed-hsm-local-rbac).
+- **Create per-key role assignments using local RBAC**: Use Managed HSM’s local RBAC model to control access at the individual key level. For more details, see [Managed HSM local RBAC](access-control.md#data-plane-and-managed-hsm-local-rbac).
 
 - **Enable Privileged Identity Management (PIM) for administrative roles**: Use [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-configure) to enforce just-in-time access and reduce the risk of standing administrative privileges. For more details, see [Managed HSM access control: Privileged Identity Management](access-control.md#microsoft-entra-privileged-identity-management-pim).
 
@@ -56,11 +56,11 @@ The Privileged Access section emphasizes securing administrative actions and enf
 
 The Backup and Recovery section helps you protect against accidental or malicious data loss by ensuring proper backup and retention policies.
 
-- **Create regular HSM and key-level backups**: Schedule backups of the HSM and individual keys to prevent data loss. For more details, see [Full backup and restore](/azure/key-vault/managed-hsm/backup-restore).
+- **Create regular HSM and key-level backups**: Schedule backups of the HSM and individual keys to prevent data loss. For more details, see [Full backup and restore](backup-restore.md).
 
-- **Turn on purge protection**: Enable purge protection to prevent permanent deletion of the HSM or its keys before the retention period expires. For more details, see [Soft-delete overview](/azure/key-vault/managed-hsm/soft-delete-overview).
+- **Turn on purge protection**: Enable purge protection to prevent permanent deletion of the HSM or its keys before the retention period expires. For more details, see [Soft-delete overview](soft-delete-overview.md).
 
-- **Retain soft-deleted resources**: Soft-delete is enabled by default. Choose a retention period of 7 to 90 days during which deleted items can be recovered. For more details, see [Soft-delete overview](/azure/key-vault/managed-hsm/soft-delete-overview).
+- **Retain soft-deleted resources**: Soft-delete is enabled by default. Choose a retention period of 7 to 90 days during which deleted items can be recovered. For more details, see [Soft-delete overview](soft-delete-overview.md).
 
 - **Protect the security domain to prevent cryptographic lockout**: Follow best practices for managing the security domain and its keys to ensure business continuity and prevent unauthorized access. For more details, see [Security domain overview](security-domain.md).
 
@@ -72,7 +72,6 @@ The posture and vulnerability management section provides guidance on how to use
 
 ## Next steps
 
-- See the full [Azure Managed HSM security baseline](/security/benchmark/azure/baselines/key-vault-managed-hsm-security-baseline).
 - [Integrate with Azure Private Link](private-link.md)
 - [Access control](access-control.md)
 - [Local RBAC built-in roles](built-in-roles.md)
