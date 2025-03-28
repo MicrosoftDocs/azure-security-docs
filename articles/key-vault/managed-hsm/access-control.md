@@ -97,8 +97,11 @@ You grant a security principal access to execute specific key operations by assi
 - **`/` or `/keys`**: HSM-level scope. Security principals that are assigned a role at this scope can perform the operations that are defined in the role for all objects (keys) in the managed HSM.
 - **`/keys/<key-name>`**: Key-level scope. Security principals that are assigned a role at this scope can perform the operations that are defined in this role for all versions of the specified key only.
 
+The Managed HSM local RBAC system includes several built-in roles with pre-defined permissions. You can also create custom role definitions to meet specific operational needs.
+
 ## Next steps
 
-- For a get-started tutorial for an administrator, see [What is Managed HSM?](overview.md).
-- For a role management tutorial, see [Managed HSM local RBAC](role-management.md).
-- For more information about usage logging for Managed HSM, see [Managed HSM logging](logging.md).
+- For a list of built-in roles and their permitted operations, see [Local RBAC built-in roles for Managed HSM](built-in-roles.md)
+- For implementation steps using the Azure CLI, see [Managed HSM role management](role-management.md)
+- For comprehensive security recommendations, see [Secure your Azure Managed HSM deployment](secure-managed-hsm.md)
+- For more information about usage logging, see [Managed HSM logging](logging.md)

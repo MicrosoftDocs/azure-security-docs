@@ -13,11 +13,12 @@ ms.author: mbaldwin
 ---
 # Local RBAC built-in roles for Managed HSM
 
-Azure Key Vault Managed HSM local role-based access control (RBAC) has several built-in roles. You can assign these roles to users, service principals, groups, and managed identities.
+Azure Key Vault Managed HSM local role-based access control (RBAC) has several built-in roles. This article provides a reference for these roles and the operations they permit.
 
-To allow a principal to perform an operation, you must assign them a role that grants them permissions to perform that operations. All these roles and operations allow you to manage permissions only for *data plane* operations. For *management plane* operations, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles) and [Secure access to your managed HSMs](secure-your-managed-hsm.md).
-
-To manage control plane permissions for the Managed HSM resource, you must use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview). Some examples of control plane operations are to create a new managed HSM, or to update, move, or delete a managed HSM.
+> [!IMPORTANT]
+> These roles only apply to *data plane* operations. For *management plane* operations (creating or deleting an HSM), see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
+>
+> For information on how to assign these roles, see [Managed HSM role management](role-management.md). For a conceptual overview of the access control model, see [Access control for Managed HSM](access-control.md).
 
 ## Built-in roles
 

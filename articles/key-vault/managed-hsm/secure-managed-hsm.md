@@ -26,15 +26,15 @@ The Network Security section provides guidance on protecting Managed HSM with se
 
 This section focuses on securing authentication and identity access to your Managed HSM resources. Microsoft Entra provides a centralized identity solution for managing access to the HSM's management and data planes.
 
-- **Require Microsoft Entra authentication for data plane access**: Microsoft Entra is used by default for authenticating data plane operations in Managed HSM, enabling centralized and secure identity control. For more details, see [Managed HSM access control](access-control.md).
+- **Require Microsoft Entra authentication for data plane access**: Microsoft Entra is used by default for authenticating data plane operations in Managed HSM, enabling centralized and secure identity control. For more details, see [Microsoft Entra authentication](/entra/identity/authentication/overview).
 
-- **Use managed identities for secure application access**: Managed identities are enabled by default, allowing applications to authenticate to Managed HSM without storing credentials. For more details, see [Secure access to your managed HSMs](secure-your-managed-hsm.md).
+- **Use managed identities for secure application access**: Managed identities are enabled by default, allowing applications to authenticate to Managed HSM without storing credentials. For more details, see [Microsoft Entra managed identities](/entra/identity/managed-identities-azure-resources/overview).
 
-- **Authenticate using service principals when appropriate**: Use service principals for automated scenarios and workload-based access. For more details, see [Managed HSM access control](access-control.md).
+- **Authenticate using service principals when appropriate**: Use service principals for automated scenarios and workload-based access. For more details, see [Managed HSM role management](role-management.md).
 
 - **Use conditional access policies to control access**: Define Conditional Access policies in Microsoft Entra to restrict access based on conditions like user risk, location, or device compliance. For more details, see [Conditional Access](/entra/identity/conditional-access/overview).
 
-- **Use security groups for administrative access**: Assign the HSM Administrator role to a [Microsoft Entra security group](/entra/fundamentals/concept-learn-about-groups) instead of individual users. This reduces the risk of accidental lockout if a user account is deleted. For guidance, see [Managed HSM access control](access-control.md).
+- **Use security groups for administrative access**: Assign the HSM Administrator role to a [Microsoft Entra security group](/entra/fundamentals/concept-learn-about-groups) instead of individual users. This reduces the risk of accidental lockout if a user account is deleted. For guidance, see [Access control for Managed HSM](access-control.md).
 
 ## Privileged access
 
@@ -44,13 +44,13 @@ The Privileged Access section emphasizes securing administrative actions and enf
 
 - **Use least-privilege access principles when assigning roles**: Grant only the minimum set of permissions required. Regularly review role assignments. For more details, see [Managed HSM role management](role-management.md).
 
-- **Avoid assigning multiple roles to the same identity**: Maintain separation of duties by ensuring a single user or identity isn't assigned conflicting roles. For more details, see [Access control](access-control.md).
+- **Avoid assigning multiple roles to the same identity**: Maintain separation of duties by ensuring a single user or identity isn't assigned conflicting roles. For more details, see [Access control for Managed HSM](access-control.md).
 
-- **Create custom roles with precise permissions**: Define custom roles to meet specific access requirements while maintaining a secure permission set. For more details, see [Managed HSM access control](access-control.md).
+- **Create custom roles with precise permissions**: Define custom roles to meet specific access requirements while maintaining a secure permission set. For more details, see [Access control for Managed HSM](access-control.md).
 
 - **Create per-key role assignments using local RBAC**: Use Managed HSM’s local RBAC model to control access at the individual key level. For more details, see [Managed HSM local RBAC](access-control.md#data-plane-and-managed-hsm-local-rbac).
 
-- **Enable Privileged Identity Management (PIM) for administrative roles**: Use [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-configure) to enforce just-in-time access and reduce the risk of standing administrative privileges. For more details, see [Managed HSM access control: Privileged Identity Management](access-control.md#microsoft-entra-privileged-identity-management-pim).
+- **Enable Privileged Identity Management (PIM) for administrative roles**: Use [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-configure) to enforce just-in-time access and reduce the risk of standing administrative privileges. For more details, see [Access control for Managed HSM: Privileged Identity Management](access-control.md#microsoft-entra-privileged-identity-management-pim).
 
 ## Backup and recovery
 
