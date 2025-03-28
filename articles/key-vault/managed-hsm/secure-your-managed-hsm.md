@@ -104,67 +104,26 @@ The Azure CLI snippets below demonstrate how to implement the role assignments d
 - All resources are located in the **ContosoAppRG** resource group.
 - The managed HSM logs are stored in the **contosologstorage** storage account.
 - The **ContosoMHSM** managed HSM and the **contosologstorage** storage account are in the same Azure location.
+### Assign roles for access control
 
-### Step 1: Assign management plane roles
+To secure your Managed HSM, you need to assign appropriate roles for both the management and data planes. This ensures that only authorized users or groups can manage and access the HSM resources.
+
+#### Assign management plane roles
 
 The subscription admin assigns the `Managed HSM Contributor` role to the security team. This role allows the security team to manage existing managed HSMs and create new ones.
 
-```azurecli-interactive
-# This role assignment allows Contoso Security Team to create new Managed HSMs
-az role assignment create --assignee-object-id $(az ad group show -g 'Contoso Security Team' --query 'id' -o tsv) --assignee-principal-type Group --role "Managed HSM Contributor"
-```
+#### Assign data plane roles
 
-### Step 2: Assign data plane roles
+For existing managed HSMs, the security team needs to be assigned the `Managed HSM Administrator` role to manage them.
 
-For existing managed HSMs, the security team needs to be assigned the "Managed HSM Administrator" role to manage them:
+#### Configure logging and assign additional roles
 
-```azurecli-interactive
-# This role assignment allows Contoso Security Team to become administrator of existing managed HSM
-az keyvault role assignment create --hsm-name ContosoMHSM --assignee $(az ad group show -g 'Contoso Security Team' --query 'id' -o tsv) --scope / --role "Managed HSM Administrator"
-```
-
-### Step 3: Configure logging and assign additional roles
-
-The security team sets up logging and assigns roles to auditors and the VM application:
-
-```azurecli-interactive
-# Enable logging
-hsmresource=$(az keyvault show --hsm-name ContosoMHSM --query id -o tsv)
-storageresource=$(az storage account show --name contosologstorage --query id -o tsv)
-az monitor diagnostic-settings create --name MHSM-Diagnostics --resource $hsmresource --logs '[{"category": "AuditEvent","enabled": true}]' --storage-account $storageresource
-
-# Assign the "Crypto Auditor" role to Contoso App Auditors group. It only allows them to read.
-az keyvault role assignment create --hsm-name ContosoMHSM --assignee $(az ad group show -g 'Contoso App Auditors' --query 'id' -o tsv) --scope / --role "Managed HSM Crypto Auditor"
-
-# Grant the "Crypto User" role to the VM's managed identity. It allows to use keys.
-az keyvault role assignment create --hsm-name ContosoMHSM --assignee $(az vm identity show --name "vmname" --resource-group "ContosoAppRG" --query principalId -o tsv) --scope / --role "Managed HSM Crypto User"
-
-# Assign "Managed HSM Crypto Service Encryption User" role to the Storage account identity
-storage_account_principal=$(az storage account show --id $storageresource --query identity.principalId -o tsv)
-# (if no identity exists), then assign a new one
-[ "$storage_account_principal" ] || storage_account_principal=$(az storage account update --assign-identity --id $storageresource --query identity.principalId -o tsv)
-
-az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Service Encryption User" --assignee $storage_account_principal
-```
-
-## Considerations for production environments
-
-This tutorial demonstrates a simple scenario to illustrate the implementation of access control. In a production environment, consider the following practices:
-
-- Apply the principle of least privilege - only grant the minimum permissions necessary
-- Regularly audit role assignments 
-- Set up alerts for suspicious access attempts
+The security team sets up logging to monitor HSM activity and assigns roles to auditors and the VM application. This includes assigning the `Crypto Auditor` role for read-only access, the `Crypto User` role for key usage, and the `Managed HSM Crypto Service Encryption User` role for storage account encryption.
 - Rotate keys according to your organization's security policy
 - Use conditional access policies where appropriate
 - Protect identity credentials using multi-factor authentication
 
 For deploying applications in VMs, enabling storage encryption with customer-managed keys, or creating managed HSMs, refer to the relevant Azure documentation as those topics are beyond the scope of this tutorial.
-
-## Resources
-
-- [Azure RBAC documentation](/azure/role-based-access-control/overview)
-- [Azure RBAC: Built-in roles](/azure/role-based-access-control/built-in-roles)
-- [Manage Azure RBAC with Azure CLI](/azure/role-based-access-control/role-assignments-cli)
 
 ## Next steps
 
@@ -172,3 +131,6 @@ For deploying applications in VMs, enabling storage encryption with customer-man
 - For a getting-started tutorial for an administrator, see [What is Managed HSM?](overview.md)
 - For more information about usage logging for Managed HSM logging, see [Managed HSM logging](logging.md)
 - To learn about managing roles in Managed HSM, see [Managed HSM local RBAC](role-management.md)
+- [Azure RBAC documentation](/azure/role-based-access-control/overview)
+- [Azure RBAC: Built-in roles](/azure/role-based-access-control/built-in-roles)
+- [Manage Azure RBAC with Azure CLI](/azure/role-based-access-control/role-assignments-cli)
