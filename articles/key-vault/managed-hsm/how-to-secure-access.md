@@ -144,18 +144,11 @@ storage_account_principal=$(az storage account show --id $storageresource --quer
 az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Service Encryption User" --assignee $storage_account_principal
 ```
 
-## Apply production considerations
+## Considerations for production environments
 
-This tutorial demonstrates a simple scenario to illustrate the implementation of access control. In a production environment, consider the following practices:
+This tutorial demonstrates a simplified scenario to illustrate access control implementation.
 
-- Apply the principle of least privilege - only grant the minimum permissions necessary
-- Regularly audit role assignments 
-- Set up alerts for suspicious access attempts
-- Rotate keys according to your organization's security policy
-- Use conditional access policies where appropriate
-- Protect identity credentials using multi-factor authentication
-
-For deploying applications in VMs, enabling storage encryption with customer-managed keys, or creating managed HSMs, refer to the relevant Azure documentation as those topics are beyond the scope of this tutorial.
+Adjust permissions to your managed HSM based on your specific requirements. In this example, we assumed the security team provides key and secret references (URIs and thumbprints) to the DevOps staff for use in their applications. Developers and operators don't require direct data plane access. While this tutorial focuses on securing your managed HSM, apply similar security measures to other Azure resources, such as [virtual machines](https://azure.microsoft.com/services/virtual-machines/security/), [storage accounts](/azure/storage/blobs/security-recommendations), and others.
 
 ## Next steps
 
