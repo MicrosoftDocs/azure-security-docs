@@ -17,10 +17,10 @@ ms.author: mbaldwin
 
 Azure Key Vault Managed HSM is a cloud service that safeguards encryption keys. Because this data is sensitive and critical to your business, you need to secure your managed hardware security modules (HSMs) by allowing only authorized applications and users to access the data.
 
-This article provides an overview of the Managed HSM access control model. It explains authentication and authorization, and describes how to secure access to your managed HSMs.
+This article provides an overview of the Managed HSM access control model. It explains authentication and authorization, and describes how to secure access to your managed HSMs. For practical implementation guidance, see [Secure access to your managed HSMs](secure-your-managed-hsm.md).
 
 > [!NOTE]
-> The Azure Key Vault resource provider supports two resource types: *vaults* and *managed HSMs*. Access control that's described in this article applies only to *managed HSMs*. To learn more about access control for Managed HSM, see [Provide access to Key Vault keys, certificates, and secrets with Azure role-based access control](../general/rbac-guide.md).
+> The Azure Key Vault resource provider supports two resource types: *vaults* and *managed HSMs*. Access control that's described in this article applies only to *managed HSMs*. To learn more about access control for Key Vault vaults, see [Provide access to Key Vault keys, certificates, and secrets with Azure role-based access control](../general/rbac-guide.md).
 
 ## Access control model
 
@@ -31,7 +31,7 @@ Access to a managed HSM is controlled through two interfaces:
 
 On the management plane, you manage the HSM itself. Operations in this plane include creating and deleting managed HSMs and retrieving managed HSM properties.
 
-On the data plane, you work with the data that's stored in a managed HSM. That is, you work with the HSM-backed encryption keys. You can add, delete, modify, and use keys to perform cryptographic operations, manage role assignments to control access to the  keys, create a full HSM backup, restore a full backup, and manage the security domain from the data plane interface.
+On the data plane, you work with the data that's stored in a managed HSM. That is, you work with the HSM-backed encryption keys. You can add, delete, modify, and use keys to perform cryptographic operations, manage role assignments to control access to the keys, create a full HSM backup, restore a full backup, and manage the security domain from the data plane interface.
 
 To access a managed HSM in either plane, all callers must have proper authentication and authorization. *Authentication* establishes the identity of the caller. *Authorization* determines which operations the caller can execute. A caller can be any one of the [security principals](/azure/role-based-access-control/overview#security-principal) that are defined in Microsoft Entra ID: user, group, service principal, or managed identity.
 
@@ -97,8 +97,35 @@ You grant a security principal access to execute specific key operations by assi
 - **`/` or `/keys`**: HSM-level scope. Security principals that are assigned a role at this scope can perform the operations that are defined in the role for all objects (keys) in the managed HSM.
 - **`/keys/<key-name>`**: Key-level scope. Security principals that are assigned a role at this scope can perform the operations that are defined in this role for all versions of the specified key only.
 
+### Common roles and role assignments
+
+Managed HSM local RBAC has several built-in roles to address different access control scenarios. The common roles include:
+
+- **Managed HSM Administrator**: Full control of the Managed HSM data plane
+- **Managed HSM Crypto Officer**: Perform any operation except managing role assignments
+- **Managed HSM Crypto User**: Encrypt, decrypt, wrap, unwrap, verify, sign with keys
+- **Managed HSM Crypto Service Encryption User**: Read keys for service encryption use cases
+- **Managed HSM Crypto Auditor**: Read-only access to role assignments and keys
+
+For a complete list of roles and their permissions, see [Local RBAC built-in roles for Managed HSM](built-in-roles.md).
+
+## Separation of duties and access control
+
+It's a security best practice to separate duties among team roles and grant only the minimum required access for specific job functions. This principle helps prevent unauthorized access and limits the potential impact of accidental or malicious actions.
+
+When implementing access control for Managed HSM, consider establishing these common functional roles:
+
+- **Security team**: Responsible for HSM management, key lifecycle, and access control
+- **Application developers**: Need references to keys but typically shouldn't have direct access
+- **Auditors**: Require monitoring capabilities without modification permissions
+
+These conceptual roles should each be granted only the specific permissions needed to perform their responsibilities. The implementation of separation of duties requires both management plane (Azure RBAC) and data plane (Managed HSM local RBAC) role assignments.
+
+For a detailed tutorial on implementing separation of duties with specific examples and Azure CLI commands, see [Secure access to your managed HSMs](secure-your-managed-hsm.md).
+
 ## Next steps
 
 - For a get-started tutorial for an administrator, see [What is Managed HSM?](overview.md).
-- For a role management tutorial, see [Managed HSM local RBAC](role-management.md).
+- For details on managing roles, see [Managed HSM local RBAC](role-management.md).
 - For more information about usage logging for Managed HSM, see [Managed HSM logging](logging.md).
+- For a practical implementation guide on access control, see [Secure access to your managed HSMs](secure-your-managed-hsm.md).
