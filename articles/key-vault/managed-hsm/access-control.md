@@ -51,8 +51,6 @@ The permissions models for both planes use the same syntax, but they're enforced
 
 For example, a subscription administrator (because they have Contributor permissions to all resources in the subscription) can delete a managed HSM in their subscription. But if they don't have data plane access specifically granted through Managed HSM local RBAC, they can't gain access to keys or manage role assignments in the managed HSM to grant themselves or others access to the data plane.
 
-<a name='azure-active-directory-authentication'></a>
-
 ## Microsoft Entra authentication
 
 When you create a managed HSM in an Azure subscription, the managed HSM is automatically associated with the Microsoft Entra tenant of the subscription. All callers in both planes must be registered in this tenant and authenticate to access the managed HSM.
@@ -101,11 +99,11 @@ You grant a security principal access to execute specific key operations by assi
 
 Managed HSM local RBAC has several built-in roles to address different access control scenarios. The common roles include:
 
-- **Managed HSM Administrator**: Full control of the Managed HSM data plane
-- **Managed HSM Crypto Officer**: Perform any operation except managing role assignments
-- **Managed HSM Crypto User**: Encrypt, decrypt, wrap, unwrap, verify, sign with keys
-- **Managed HSM Crypto Service Encryption User**: Read keys for service encryption use cases
-- **Managed HSM Crypto Auditor**: Read-only access to role assignments and keys
+- **Managed HSM Administrator**: Grants permissions to perform all operations related to the security domain, full backup and restore, and role management. Not permitted to perform any key management operations.
+- **Managed HSM Crypto Officer**: Grants permissions to perform all role management, purge or recover deleted keys, and export keys. Not permitted to perform any other key management operations.
+- **Managed HSM Crypto User**: Grants permissions to perform all key management operations except purge or recover deleted keys and export keys.
+- **Managed HSM Policy Administrator**: Grants permissions to create and delete role assignments.
+- **Managed HSM Crypto Auditor**: Grants read permissions to read (but not use) key attributes.
 
 For a complete list of roles and their permissions, see [Local RBAC built-in roles for Managed HSM](built-in-roles.md).
 
@@ -115,9 +113,12 @@ It's a security best practice to separate duties among team roles and grant only
 
 When implementing access control for Managed HSM, consider establishing these common functional roles:
 
-- **Security team**: Responsible for HSM management, key lifecycle, and access control
-- **Application developers**: Need references to keys but typically shouldn't have direct access
-- **Auditors**: Require monitoring capabilities without modification permissions
+| Role | Role Description | Suggested RBAC Roles |
+|------|-----------------|---------------------|
+| Security team | Responsible for HSM management, key lifecycle, and access control. | **Managed HSM Administrator** (for security domain and backup management)<br>**Managed HSM Crypto Officer** (for key lifecycle management)<br>**Managed HSM Policy Administrator** (for access control) |
+| Application developers | Need references to keys but typically shouldn't have direct access. | **Managed HSM Crypto Auditor** (for read-only access to key attributes) |
+| Auditors | Require monitoring capabilities without modification permissions. | **Managed HSM Crypto Auditor** (for read-only access to view key attributes and audit operations) |
+| Applications and services | Require access to use keys for cryptographic operations in an application. | **Managed HSM Crypto Service Encryption User** (for specific encryption/decryption operations)<br>**Managed HSM Crypto User** (for broader key operations without export/purge capabilities) |
 
 These conceptual roles should each be granted only the specific permissions needed to perform their responsibilities. The implementation of separation of duties requires both management plane (Azure RBAC) and data plane (Managed HSM local RBAC) role assignments.
 
