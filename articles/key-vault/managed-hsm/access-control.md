@@ -95,17 +95,7 @@ You grant a security principal access to execute specific key operations by assi
 - **`/` or `/keys`**: HSM-level scope. Security principals that are assigned a role at this scope can perform the operations that are defined in the role for all objects (keys) in the managed HSM.
 - **`/keys/<key-name>`**: Key-level scope. Security principals that are assigned a role at this scope can perform the operations that are defined in this role for all versions of the specified key only.
 
-### Common roles and role assignments
-
-Managed HSM local RBAC has several built-in roles to address different access control scenarios. The common roles include:
-
-- **Managed HSM Administrator**: Grants permissions to perform all operations related to the security domain, full backup and restore, and role management. Not permitted to perform any key management operations.
-- **Managed HSM Crypto Officer**: Grants permissions to perform all role management, purge or recover deleted keys, and export keys. Not permitted to perform any other key management operations.
-- **Managed HSM Crypto User**: Grants permissions to perform all key management operations except purge or recover deleted keys and export keys.
-- **Managed HSM Policy Administrator**: Grants permissions to create and delete role assignments.
-- **Managed HSM Crypto Auditor**: Grants read permissions to read (but not use) key attributes.
-
-For a complete list of roles and their permissions, see [Local RBAC built-in roles for Managed HSM](built-in-roles.md).
+Managed HSM local RBAC has several built-in roles to address different access control scenarios. For a complete list of roles and their permissions, see [Local RBAC built-in roles for Managed HSM](built-in-roles.md).
 
 ## Separation of duties and access control
 
@@ -113,14 +103,12 @@ It's a security best practice to separate duties among team roles and grant only
 
 When implementing access control for Managed HSM, consider establishing these common functional roles:
 
-| Role | Role Description | Suggested RBAC Roles |
-|------|-----------------|---------------------|
-| Security team | Responsible for HSM management, key lifecycle, and access control. | **Managed HSM Administrator** (for security domain and backup management)<br>**Managed HSM Crypto Officer** (for key lifecycle management)<br>**Managed HSM Policy Administrator** (for access control) |
-| Application developers | Need references to keys but typically shouldn't have direct access. | **Managed HSM Crypto Auditor** (for read-only access to key attributes) |
-| Auditors | Require monitoring capabilities without modification permissions. | **Managed HSM Crypto Auditor** (for read-only access to view key attributes and audit operations) |
-| Applications and services | Require access to use keys for cryptographic operations in an application. | **Managed HSM Crypto Service Encryption User** (for specific encryption/decryption operations)<br>**Managed HSM Crypto User** (for broader key operations without export/purge capabilities) |
+- **Security team**: Needs permissions to manage the HSM, control key lifecycles, and configure access control settings.
+- **Application developers**: Needs references to keys without requiring direct access to the HSM.
+- **Service/code**: Needs permissions to perform specific encryption operations while being restricted from broader key management functions.
+- **Auditors**: Needs monitoring and log access capabilities without permissions to modify HSM settings or keys.
 
-These conceptual roles should each be granted only the specific permissions needed to perform their responsibilities. The implementation of separation of duties requires both management plane (Azure RBAC) and data plane (Managed HSM local RBAC) role assignments.
+Theese conceptual roles should each be granted only the specific permissions needed to perform their responsibilities. The implementation of separation of duties requires both management plane (Azure RBAC) and data plane (Managed HSM local RBAC) role assignments.
 
 For a detailed tutorial on implementing separation of duties with specific examples and Azure CLI commands, see [Secure access to your managed HSMs](how-to-secure-access.md).
 
