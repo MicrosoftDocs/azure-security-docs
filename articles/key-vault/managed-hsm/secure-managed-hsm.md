@@ -6,6 +6,11 @@ ms.author: mbaldwin
 ms.service: security
 ms.topic: conceptual
 ms.date: 03/25/2025
+ms.custom: horz-security
+ai-usage: ai-assisted
+
+# CustomerIntent: As a security administrator, I want to implement best practices for securing my Managed HSM deployment so I can protect my organization's sensitive cryptographic keys, maintain regulatory compliance, and prevent unauthorized access to critical secrets.
+
 ---
 
 # Secure your Azure Managed HSM deployment
@@ -26,7 +31,7 @@ The Network Security section provides guidance on protecting Managed HSM with se
 
 This section focuses on securing authentication and identity access to your Managed HSM resources. Microsoft Entra provides a centralized identity solution for managing access to the HSM's management and data planes.
 
-- **Require Microsoft Entra authentication for data plane access**: Microsoft Entra is used by default for authenticating data plane operations in Managed HSM, enabling centralized and secure identity control. For more details, see [Microsoft Entra authentication](/entra/identity/authentication/overview).
+- **Require Microsoft Entra authentication for data plane access**: Microsoft Entra is used by default for authenticating data plane operations in Managed HSM, enabling centralized and secure identity control. For more details, see [Microsoft Entra authentication](/entra/identity/authentication/overview-authentication).
 
 - **Use managed identities for secure application access**: Managed identities are enabled by default, allowing applications to authenticate to Managed HSM without storing credentials. For more details, see [Microsoft Entra managed identities](/entra/identity/managed-identities-azure-resources/overview).
 
