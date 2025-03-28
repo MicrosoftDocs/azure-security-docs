@@ -38,7 +38,7 @@ items:
   - name: Backup and restore and selective key restore
     href: backup-restore.md
   - name: Secure access to your Managed HSM
-    href: secure-your-managed-hsm.md
+    href: how-to-secure-access.md
   - name: Use private endpoints
     href: private-link.md
   - name: Monitoring and logging
