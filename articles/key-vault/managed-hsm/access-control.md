@@ -17,7 +17,7 @@ ms.author: mbaldwin
 
 Azure Key Vault Managed HSM is a cloud service that safeguards encryption keys. Because this data is sensitive and critical to your business, you need to secure your managed hardware security modules (HSMs) by allowing only authorized applications and users to access the data.
 
-This article provides an overview of the Managed HSM access control model. It explains authentication and authorization, and describes how to secure access to your managed HSMs. For practical implementation guidance, see [Secure access to your managed HSMs](secure-your-managed-hsm.md).
+This article provides an overview of the Managed HSM access control model. It explains authentication and authorization, and describes how to secure access to your managed HSMs. For practical implementation guidance, see [Secure access to your managed HSMs](how-to-secure-access.md).
 
 > [!NOTE]
 > The Azure Key Vault resource provider supports two resource types: *vaults* and *managed HSMs*. Access control that's described in this article applies only to *managed HSMs*. To learn more about access control for Key Vault vaults, see [Provide access to Key Vault keys, certificates, and secrets with Azure role-based access control](../general/rbac-guide.md).
@@ -121,11 +121,11 @@ When implementing access control for Managed HSM, consider establishing these co
 
 These conceptual roles should each be granted only the specific permissions needed to perform their responsibilities. The implementation of separation of duties requires both management plane (Azure RBAC) and data plane (Managed HSM local RBAC) role assignments.
 
-For a detailed tutorial on implementing separation of duties with specific examples and Azure CLI commands, see [Secure access to your managed HSMs](secure-your-managed-hsm.md).
+For a detailed tutorial on implementing separation of duties with specific examples and Azure CLI commands, see [Secure access to your managed HSMs](how-to-secure-access.md).
 
 ## Next steps
 
 - For a get-started tutorial for an administrator, see [What is Managed HSM?](overview.md).
 - For details on managing roles, see [Managed HSM local RBAC](role-management.md).
 - For more information about usage logging for Managed HSM, see [Managed HSM logging](logging.md).
-- For a practical implementation guide on access control, see [Secure access to your managed HSMs](secure-your-managed-hsm.md).
+- For a practical implementation guide on access control, see [Secure access to your managed HSMs](how-to-secure-access.md).
