@@ -2,7 +2,7 @@
 title: Network Security for Azure Cloud HSM
 description: Learn how to secure your network configuration for Azure Cloud HSM to prevent unauthorized access and enhance overall security.
 author: msmbaldwin
-ms.service: azure-dedicated-hsm
+ms.service: azure-cloud-hsm
 ms.topic: conceptual
 ms.date: 03/20/2025
 ms.author: mbaldwin

@@ -2,7 +2,7 @@
 title: Authentication in Azure Cloud HSM
 description: Learn about various authentication methods and best practices for securing and optimizing your Azure Cloud HSM deployment.
 author: msmbaldwin
-ms.service: azure-dedicated-hsm
+ms.service: azure-cloud-hsm
 ms.topic: conceptual
 ms.date: 03/20/2025
 ms.author: mbaldwin

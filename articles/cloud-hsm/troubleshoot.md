@@ -3,7 +3,7 @@ title: Troubleshoot Azure Cloud HSM
 description: Learn how to troubleshoot common Azure Cloud HSM issues and errors.
 author: keithp
 manager: davinune
-ms.service: azure-dedicated-hsm
+ms.service: azure-cloud-hsm
 ms.topic: overview
 ms.date: 03/20/2025
 ms.author: keithp
