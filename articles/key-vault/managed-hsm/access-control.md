@@ -31,14 +31,14 @@ Access to a managed HSM is controlled through two interfaces:
 
 On the management plane, you manage the HSM itself. Operations in this plane include creating and deleting managed HSMs and retrieving managed HSM properties.
 
-On the data plane, you work with the data that's stored in a managed HSM. That is, you work with the HSM-backed encryption keys. You can add, delete, modify, and use keys to perform cryptographic operations, manage role assignments to control access to the keys, create a full HSM backup, restore a full backup, and manage the security domain from the data plane interface.
+On the data plane, you work with the data stored in a managed HSM. That is, you work with the HSM-backed encryption keys. You can add, delete, modify, and use keys to perform cryptographic operations, manage role assignments to control access to the keys, create a full HSM backup, restore a full backup, and manage the security domain from the data plane interface.
 
 To access a managed HSM in either plane, all callers must have proper authentication and authorization. *Authentication* establishes the identity of the caller. *Authorization* determines which operations the caller can execute. A caller can be any one of the [security principals](/azure/role-based-access-control/overview#security-principal) that are defined in Microsoft Entra ID: user, group, service principal, or managed identity.
 
 Both planes use Microsoft Entra ID for authentication. For authorization, they use different systems:
 
 - The management plane uses Azure role-based access control (Azure RBAC), an authorization system that's built on Azure Resource Manager.
-- The data plane uses a managed HSM-level RBAC (Managed HSM local RBAC), an authorization system that's implemented and enforced at the managed HSM level.
+- The data plane uses a managed HSM-level RBAC (Managed HSM local RBAC), an authorization system implemented and enforced at the managed HSM level.
 
 When a managed HSM is created, the requestor provides a list of data plane administrators (all [security principals](/azure/role-based-access-control/overview#security-principal) are supported). Only these administrators can access the managed HSM data plane to perform key operations and manage data plane role assignments (Managed HSM local RBAC).
 
@@ -47,9 +47,9 @@ The permissions models for both planes use the same syntax, but they're enforced
 > [!IMPORTANT]
 > Granting management plane access to a security principal does *not* grant the security principal data plane access. For example, a security principal with management plane access doesn't automatically have access to keys or data plane role assignments. This isolation is by design, to prevent inadvertent expansion of privileges that affect access to keys that are stored in Managed HSM.
 >
-> But there's an exception: Members of the Microsoft Entra Global Administrator role can always add users to the Managed HSM Administrator role for recovery purposes, such as when there are no longer any valid Managed HSM Administrator accounts. For more information, see [Microsoft Entra ID best practices for securing the Global Adminstrator role](/azure/active-directory/roles/best-practices#5-limit-the-number-of-global-administrators-to-less-than-5).
+> But there's an exception: Members of the Microsoft Entra Global Administrator role can always add users to the Managed HSM Administrator role for recovery purposes, such as when there are no longer any valid Managed HSM Administrator accounts. For more information, see [Microsoft Entra ID best practices for securing the Global Administrator role](/azure/active-directory/roles/best-practices#5-limit-the-number-of-global-administrators-to-less-than-5).
 
-For example, a subscription administrator (because they have Contributor permissions to all resources in the subscription) can delete a managed HSM in their subscription. But if they don't have data plane access specifically granted through Managed HSM local RBAC, they can't gain access to keys or manage role assignments in the managed HSM to grant themselves or others access to the data plane.
+For example, a subscription administrator (because they have Contributor permissions to all resources in the subscription) can delete a managed HSM in their subscription. But if they don't have data plane access granted through Managed HSM local RBAC, they can't gain access to keys or manage role assignments in the managed HSM to grant themselves or others access to the data plane.
 
 ## Microsoft Entra authentication
 
@@ -61,7 +61,7 @@ Using a single authentication mechanism for both planes has several benefits:
 
 - Organizations can centrally control access to all managed HSMs in their organization.
 - If a user leaves the organization, they instantly lose access to all managed HSMs in the organization.
-- Organizations can customize authentication by using options in Microsoft Entra ID, such as to enable multi-factor authentication for added security.
+- Organizations can customize authentication by using options in Microsoft Entra ID, such as to enable multifactor authentication for added security.
 
 ## Resource endpoints
 
@@ -108,7 +108,7 @@ When implementing access control for Managed HSM, consider establishing these co
 - **Service/code**: Needs permissions to perform specific encryption operations while being restricted from broader key management functions.
 - **Auditors**: Needs monitoring and log access capabilities without permissions to modify HSM settings or keys.
 
-Theese conceptual roles should each be granted only the specific permissions needed to perform their responsibilities. The implementation of separation of duties requires both management plane (Azure RBAC) and data plane (Managed HSM local RBAC) role assignments.
+These conceptual roles should each be granted only the specific permissions needed to perform their responsibilities. The implementation of separation of duties requires both management plane (Azure RBAC) and data plane (Managed HSM local RBAC) role assignments.
 
 For a detailed tutorial on implementing separation of duties with specific examples and Azure CLI commands, see [Secure access to your managed HSMs](how-to-secure-access.md).
 
