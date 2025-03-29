@@ -97,6 +97,10 @@ You grant a security principal access to execute specific key operations by assi
 
 Managed HSM local RBAC has several built-in roles to address different access control scenarios. For a complete list of roles and their permissions, see [Local RBAC built-in roles for Managed HSM](built-in-roles.md).
 
+### Microsoft Entra Privileged Identity Management (PIM)
+
+To enhance the security of administrative roles, use [Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure). PIM enables just-in-time access, reducing the risk of standing administrative privileges. It also provides visibility into role assignments and enforces approval workflows for elevated access.
+
 ## Separation of duties and access control
 
 It's a security best practice to separate duties among team roles and grant only the minimum required access for specific job functions. This principle helps prevent unauthorized access and limits the potential impact of accidental or malicious actions.
