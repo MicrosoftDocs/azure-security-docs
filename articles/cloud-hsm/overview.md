@@ -2,7 +2,7 @@
 title: Azure Cloud HSM Overview (preview)
 description: Learn how Azure Cloud HSM (preview) offers cryptographic key storage within the Azure environment as a dedicated HSM service.
 author: keithp
-ms.service: azure-dedicated-hsm
+ms.service: azure-cloud-hsm
 ms.topic: overview
 ms.date: 03/20/2025
 ms.author: keithp
