@@ -17,10 +17,10 @@ ms.author: mbaldwin
 
 Azure Key Vault Managed HSM is a cloud service that safeguards encryption keys. Because this data is sensitive and critical to your business, you need to secure your managed hardware security modules (HSMs) by allowing only authorized applications and users to access the data.
 
-This article provides an overview of the Managed HSM access control model. It explains authentication and authorization, and describes how to secure access to your managed HSMs.
+This article provides an overview of the Managed HSM access control model. It explains authentication and authorization, and describes how to secure access to your managed HSMs. For practical implementation guidance, see [Secure access to your managed HSMs](how-to-secure-access.md).
 
 > [!NOTE]
-> The Azure Key Vault resource provider supports two resource types: *vaults* and *managed HSMs*. Access control that's described in this article applies only to *managed HSMs*. To learn more about access control for Managed HSM, see [Provide access to Key Vault keys, certificates, and secrets with Azure role-based access control](../general/rbac-guide.md).
+> The Azure Key Vault resource provider supports two resource types: *vaults* and *managed HSMs*. The access control described in this article applies only to *managed HSMs*. To learn more about access control for Key Vault vaults, see [Provide access to Key Vault keys, certificates, and secrets with Azure role-based access control](../general/rbac-guide.md).
 
 ## Access control model
 
@@ -31,14 +31,14 @@ Access to a managed HSM is controlled through two interfaces:
 
 On the management plane, you manage the HSM itself. Operations in this plane include creating and deleting managed HSMs and retrieving managed HSM properties.
 
-On the data plane, you work with the data that's stored in a managed HSM. That is, you work with the HSM-backed encryption keys. You can add, delete, modify, and use keys to perform cryptographic operations, manage role assignments to control access to the  keys, create a full HSM backup, restore a full backup, and manage the security domain from the data plane interface.
+On the data plane, you work with the data stored in a managed HSM. That is, you work with the HSM-backed encryption keys. You can add, delete, modify, and use keys to perform cryptographic operations, manage role assignments to control access to the keys, create a full HSM backup, restore a full backup, and manage the security domain from the data plane interface.
 
 To access a managed HSM in either plane, all callers must have proper authentication and authorization. *Authentication* establishes the identity of the caller. *Authorization* determines which operations the caller can execute. A caller can be any one of the [security principals](/azure/role-based-access-control/overview#security-principal) that are defined in Microsoft Entra ID: user, group, service principal, or managed identity.
 
 Both planes use Microsoft Entra ID for authentication. For authorization, they use different systems:
 
 - The management plane uses Azure role-based access control (Azure RBAC), an authorization system that's built on Azure Resource Manager.
-- The data plane uses a managed HSM-level RBAC (Managed HSM local RBAC), an authorization system that's implemented and enforced at the managed HSM level.
+- The data plane uses a managed HSM-level RBAC (Managed HSM local RBAC), an authorization system implemented and enforced at the managed HSM level.
 
 When a managed HSM is created, the requestor provides a list of data plane administrators (all [security principals](/azure/role-based-access-control/overview#security-principal) are supported). Only these administrators can access the managed HSM data plane to perform key operations and manage data plane role assignments (Managed HSM local RBAC).
 
@@ -47,11 +47,9 @@ The permissions models for both planes use the same syntax, but they're enforced
 > [!IMPORTANT]
 > Granting management plane access to a security principal does *not* grant the security principal data plane access. For example, a security principal with management plane access doesn't automatically have access to keys or data plane role assignments. This isolation is by design, to prevent inadvertent expansion of privileges that affect access to keys that are stored in Managed HSM.
 >
-> But there's an exception: Members of the Microsoft Entra Global Administrator role can always add users to the Managed HSM Administrator role for recovery purposes, such as when there are no longer any valid Managed HSM Administrator accounts. For more information, see [Microsoft Entra ID best practices for securing the Global Adminstrator role](/azure/active-directory/roles/best-practices#5-limit-the-number-of-global-administrators-to-less-than-5).
+> But there's an exception: Members of the Microsoft Entra Global Administrator role can always add users to the Managed HSM Administrator role for recovery purposes, such as when there are no longer any valid Managed HSM Administrator accounts. For more information, see [Microsoft Entra ID best practices for securing the Global Administrator role](/azure/active-directory/roles/best-practices#5-limit-the-number-of-global-administrators-to-less-than-5).
 
-For example, a subscription administrator (because they have Contributor permissions to all resources in the subscription) can delete a managed HSM in their subscription. But if they don't have data plane access specifically granted through Managed HSM local RBAC, they can't gain access to keys or manage role assignments in the managed HSM to grant themselves or others access to the data plane.
-
-<a name='azure-active-directory-authentication'></a>
+For example, a subscription administrator (because they have Contributor permissions to all resources in the subscription) can delete a managed HSM in their subscription. But if they don't have data plane access granted through Managed HSM local RBAC, they can't gain access to keys or manage role assignments in the managed HSM to grant themselves or others access to the data plane.
 
 ## Microsoft Entra authentication
 
@@ -63,7 +61,7 @@ Using a single authentication mechanism for both planes has several benefits:
 
 - Organizations can centrally control access to all managed HSMs in their organization.
 - If a user leaves the organization, they instantly lose access to all managed HSMs in the organization.
-- Organizations can customize authentication by using options in Microsoft Entra ID, such as to enable multi-factor authentication for added security.
+- Organizations can customize authentication by using options in Microsoft Entra ID, such as to enable multifactor authentication for added security.
 
 ## Resource endpoints
 
@@ -97,8 +95,30 @@ You grant a security principal access to execute specific key operations by assi
 - **`/` or `/keys`**: HSM-level scope. Security principals that are assigned a role at this scope can perform the operations that are defined in the role for all objects (keys) in the managed HSM.
 - **`/keys/<key-name>`**: Key-level scope. Security principals that are assigned a role at this scope can perform the operations that are defined in this role for all versions of the specified key only.
 
+Managed HSM local RBAC has several built-in roles to address different access control scenarios. For a complete list of roles and their permissions, see [Local RBAC built-in roles for Managed HSM](built-in-roles.md).
+
+### Microsoft Entra Privileged Identity Management (PIM)
+
+To enhance the security of administrative roles, use [Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure). PIM enables just-in-time access, reducing the risk of standing administrative privileges. It also provides visibility into role assignments and enforces approval workflows for elevated access.
+
+## Separation of duties and access control
+
+It's a security best practice to separate duties among team roles and grant only the minimum required access for specific job functions. This principle helps prevent unauthorized access and limits the potential impact of accidental or malicious actions.
+
+When implementing access control for Managed HSM, consider establishing these common functional roles:
+
+- **Security team**: Needs permissions to manage the HSM, control key lifecycles, and configure access control settings.
+- **Application developers**: Needs references to keys without requiring direct access to the HSM.
+- **Service/code**: Needs permissions to perform specific encryption operations while being restricted from broader key management functions.
+- **Auditors**: Needs monitoring and log access capabilities without permissions to modify HSM settings or keys.
+
+These conceptual roles should each be granted only the specific permissions needed to perform their responsibilities. The implementation of separation of duties requires both management plane (Azure RBAC) and data plane (Managed HSM local RBAC) role assignments.
+
+For a detailed tutorial on implementing separation of duties with specific examples and Azure CLI commands, see [Secure access to your managed HSMs](how-to-secure-access.md).
+
 ## Next steps
 
 - For a get-started tutorial for an administrator, see [What is Managed HSM?](overview.md).
-- For a role management tutorial, see [Managed HSM local RBAC](role-management.md).
+- For details on managing roles, see [Managed HSM local RBAC](role-management.md).
 - For more information about usage logging for Managed HSM, see [Managed HSM logging](logging.md).
+- For a practical implementation guide on access control, see [Secure access to your managed HSMs](how-to-secure-access.md).
