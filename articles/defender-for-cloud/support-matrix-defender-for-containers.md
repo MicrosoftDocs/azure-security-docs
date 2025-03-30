@@ -30,6 +30,7 @@ The following are the features provided by Defender for Containers, for the supp
 |--|--|--|--|--|--|--|--|
 | Container registry VA | Vulnerability assessments for images in container registries | ACR | GA | GA | Requires **Registry access** <sup>[1](#footnote1azva)</sup> | **Defender for Containers** or **Defender CSPM** | Commercial clouds<br/><br/>National clouds: Azure Government, Azure operated by 21Vianet |
 | Runtime container VA | Vulnerability assessments of running container images | Agnostic to container registry source | Preview<br/> (Container with ACR images are GA)| GA | Requires **Agentless scanning for machines** and either **K8S API access** or **Defender sensor** <sup>[1](#footnote1azva)</sup> | **Defender for Containers** or **Defender CSPM** | Commercial clouds<br/><br/>National clouds: Azure Government, Azure operated by 21Vianet |
+| Kubernetes nodes VA | Vulnerability assessments of Kubernetes nodes | AKS nodes | GA | GA | Requires **Agentless scanning for machines** | **Defender for Containers** or **Defender CSPM** or **Defender for Servers P2** | Commercial clouds |
 
 <sup><a name="footnote1azva"></a>1</sup>National clouds are automatically enabled and cannot be disabled.
 
@@ -75,7 +76,7 @@ The following are the features provided by Defender for Containers, for the supp
 | Binary drift detection | Detects binary of runtime container from container image | AKS | GA | GA | Requires **Defender sensor** | **Defender for Containers** | Commercial clouds |
 | Advanced hunting in XDR | View cluster incidents and alerts in Microsoft XDR | AKS | Preview - currently supports audit logs & process events | Preview - currently supports audit logs & process events | Requires **Defender sensor** | **Defender for Containers** | Commercial clouds and National clouds: Azure Government, Azure operated by 21Vianet |
 | Response actions in XDR | Provides automated and manual remediation in Microsoft XDR | AKS  | Preview | Preview | Requires **Defender sensor** and **K8S access API** | **Defender for Containers** | Commercial clouds and National clouds: Azure Government, Azure operated by 21Vianet |
-| Malware detection | Detection of malware | AKS nodes | Preview | Preview | Requires **Agentless scanning for machines** | **Defender for Containers** or **Defender for Servers Plan 2** | Commercial clouds |
+| Malware detection | Detection of malware | AKS nodes | GA | GA | Requires **Agentless scanning for machines** | **Defender for Containers** or **Defender for Servers Plan 2** | Commercial clouds |
 
 #### Kubernetes distributions and configurations for runtime threat protection in Azure
 
