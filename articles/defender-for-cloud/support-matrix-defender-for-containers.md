@@ -28,9 +28,11 @@ The following are the features provided by Defender for Containers, for the supp
 
 | Feature | Description | Supported resources | Linux release state | Windows release state | Enablement method | Plans | Clouds availability |
 |--|--|--|--|--|--|--|--|
-| Container registry VA | VA for images in container registries | ACR, ECR, GAR, GCR, Docker Hub, JFrog Artifactory | GA | GA | Requires **Registry access** <sup>[1](#footnote1azva)</sup> or  Connector creation for Docker Hub/Jfrog| **Defender for Containers** or **Defender CSPM** | Commercial clouds<br/><br/>National clouds: Azure Government, Azure operated by 21Vianet |
-| Runtime container VA - Registry scan based | VA of containers running images from supported registries | ACR, ECR, GAR, GCR, Docker Hub, JFrog Artifactory | GA | GA | Requires **Registry access** <sup>[1](#footnote1azva)</sup> or  Connector creation for Docker Hub/Jfrog and either **K8S API access** or **Defender sensor** <sup>[1](#footnote1azva)</sup> | **Defender for Containers** or **Defender CSPM** | Commercial clouds<br/><br/>National clouds: Azure Government, Azure operated by 21Vianet |
-| Runtime container VA | Registry agnostic VA of container running images | All | Preview | - | Requires **Agentless scanning for machines** and either **K8S API access** or **Defender sensor** <sup>[1](#footnote1azva)</sup> | **Defender for Containers** or **Defender CSPM** | Commercial clouds<br/><br/>National clouds: Azure Government, Azure operated by 21Vianet |
+| Container registry VA | VA for images in container registries | ACR, ECR, GAR, GCR | GA | GA | Requires **Registry access** <sup>[1](#footnote1azva)</sup> or  Connector creation for Docker Hub/Jfrog| **Defender for Containers** or **Defender CSPM** | Commercial clouds<br/><br/>National clouds: Azure Government, Azure operated by 21Vianet |
+| Container registry VA | VA for images in container registries | Docker Hub, JFrog Artifactory | Preview | Preview | Requires connector creation | **Defender for Containers** or **Defender CSPM** | Commercial clouds |
+| Runtime container VA - Registry scan based | VA of containers running images from supported registries | ACR, ECR, GAR, GCR | GA | GA | Requires **Registry access** <sup>[1](#footnote1azva)</sup> and either **K8S API access** or **Defender sensor** <sup>[1](#footnote1azva)</sup> | **Defender for Containers** or **Defender CSPM** | Commercial clouds<br/><br/>National clouds: Azure Government, Azure operated by 21Vianet |
+| Runtime container VA - Registry scan based | VA of containers running images from supported registries | Docker Hub, JFrog Artifactory | Preview | - | Requires connector creation for Docker Hub/Jfrog and either **K8S API access** or **Defender sensor** <sup>[1](#footnote1azva)</sup> | **Defender for Containers** or **Defender CSPM** | Commercial clouds |
+| Runtime container VA | Registry agnostic VA of container running images | All | Preview | - | Requires **Agentless scanning for machines** and either **K8S API access** or **Defender sensor** <sup>[1](#footnote1azva)</sup> | **Defender for Containers** or **Defender CSPM** | Commercial clouds |
 
 <sup><a name="footnote1azva"></a>1</sup>National clouds are automatically enabled and cannot be disabled.
 
@@ -38,22 +40,27 @@ The following are the features provided by Defender for Containers, for the supp
 
 | Feature | Description | Supported resources | Linux release state | Windows release state | Enablement method | Plans | Clouds availability |
 |--|--|--|--|--|--|--|--|
-| Container registry VA | Vulnerability assessments for images in container registries | ACR, ECR, GAR, GCR, Docker Hub, JFrog Artifactory | GA | GA | Requires **Registry access** | **Defender for Containers** or **Defender CSPM** | AWS |
-| Runtime container VA - Registry scan based | VA of containers running images from supported registries | ACR, ECR, GAR, GCR, Docker Hub, JFrog Artifactory | GA | - | Requires **Agentless scanning for machines** and either **K8S API access** or **Defender sensor** | **Defender for Containers** or **Defender CSPM**  | AWS |
+| Container registry VA | Vulnerability assessments for images in container registries | ACR, ECR, GAR, GCR | GA | GA | Requires **Registry access** | **Defender for Containers** or **Defender CSPM** | AWS |
+| Container registry VA | Vulnerability assessments for images in container registries | Docker Hub, JFrog Artifactory | Preview | - | Requires connector creation for Docker Hub/Jfrog  | **Defender for Containers** or **Defender CSPM** | AWS |
+| Runtime container VA - Registry scan based | VA of containers running images from supported registries | ACR, ECR, GAR, GCR | GA | - | Requires **Agentless scanning for machines** and either **Kubernetes API access** or **Defender sensor** | **Defender for Containers** or **Defender CSPM**  | AWS |
+| Runtime container VA - Registry scan based | VA of containers running images from supported registries | JFrog Artifactory | Preview | - | Requires connector creation for Docker Hub/Jfrog **Agentless scanning for machines** and either **Kubernetes API access** or **Defender sensor** | **Defender for Containers** or **Defender CSPM**  | AWS |
+
 
 ### [GCP](#tab/gcpva)
 
 | Feature | Description | Supported resources | Linux release state | Windows release state | Enablement method | Plans | Clouds availability |
 |--|--|--|--|--|--|--|--|
-| Container registry VA | Vulnerability assessments for images in container registries | ACR, ECR, GAR, GCR, Docker Hub, JFrog Artifactory | GA | GA | Requires **Registry access** | **Defender for Containers** or **Defender CSPM** | GCP |
-| Runtime container VA - Registry scan based | VA of containers running images from supported registries | ACR, ECR, GAR, GCR, Docker Hub, JFrog Artifactory | GA | - | Requires **Agentless scanning for machines** and either **K8S API access** or **Defender sensor** | **Defender for Containers** or **Defender CSPM**  | GCP |
+| Container registry VA | Vulnerability assessments for images in container registries | ACR, ECR, GAR, GCR | GA | GA | Requires **Registry access** | **Defender for Containers** or **Defender CSPM** | GCP |
+| Container registry VA | Vulnerability assessments for images in container registries | Docker Hub, JFrog Artifactory | Preview | - | Requires connector creation for Docker Hub/Jfrog | **Defender for Containers** or **Defender CSPM** | GCP |
+| Runtime container VA - Registry scan based | VA of containers running images from supported registries | ACR, ECR, GAR, GCR | GA | - | Requires **Agentless scanning for machines** and either **Kubernetes API access** or **Defender sensor** | **Defender for Containers** or **Defender CSPM**  | GCP |
+| Runtime container VA - Registry scan based | VA of containers running images from supported registries | Docker Hub, JFrog Artifactory | Preview | - | Requires connector creation for Docker Hub/Jfrog and either **Kubernetes API access** or **Defender sensor** | **Defender for Containers** or **Defender CSPM**  | GCP |
 
 ### [Arc Connected clusters](#tab/arcva)
 
 | Feature | Description | Supported resources | Linux release state | Windows release state | Enablement method | Plans | Clouds availability |
 |--|--|--|--|--|--|--|--|
-| Container registry VA | Vulnerability assessments for images in container registries | ACR, ECR, GAR, GCR, Docker Hub, JFrog Artifactory | GA | GA | Requires **Registry access** | **Defender for Containers** or **Defender CSPM** | Arc Connected clusters |
-| Runtime container VA - Registry scan based | VA of containers running images from supported registries | ACR, ECR, GAR, GCR, Docker Hub, JFrog Artifactory | GA | - | Requires **Agentless scanning for machines** and either **K8S API access** or **Defender sensor** | **Defender for Containers** or **Defender CSPM**  | Arc Connected clusters |
+| Container registry VA | Vulnerability assessments for images in container registries | ACR, ECR, GAR, GCR | GA | GA | Requires **Registry access** | **Defender for Containers** or **Defender CSPM** | Arc Connected clusters |
+| Runtime container VA - Registry scan based | VA of containers running images from supported registries | ACR, ECR, GAR, GCR | GA | - | Requires **Agentless scanning for machines** and either **Kubernetes API access** or **Defender sensor** | **Defender for Containers** or **Defender CSPM**  | Arc Connected clusters |
 
 ---
 
