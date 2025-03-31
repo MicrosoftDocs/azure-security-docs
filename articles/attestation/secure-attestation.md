@@ -66,9 +66,9 @@ While Azure Attestation handles the underlying infrastructure, you should plan f
 
 - **Test recovery procedures regularly**: Periodically test your ability to restore attestation policies and configurations to ensure your recovery procedures work as expected and meet your business continuity requirements.
 
-# Next steps
+## Next steps
+
 - [Learn more about Azure Attestation service](/azure/attestation/overview)
 - [Set up an attestation provider using PowerShell](quickstart-powershell.md)
-- [Configure policy management in Azure Attestation](policy-management.md)
 - [Create private endpoints for Azure Attestation](private-endpoint-powershell.md)
 - [Explore Azure security best practices](/azure/security/fundamentals/best-practices-and-patterns)
