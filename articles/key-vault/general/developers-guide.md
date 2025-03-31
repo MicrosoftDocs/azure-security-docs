@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 01/30/2024
+ms.date: 03/31/2025
 ms.author: mbaldwin
 ---
 # Azure Key Vault developer's guide
@@ -29,7 +29,7 @@ Periodically, we release a public preview of a new Key Vault feature. Try out pu
 
 As with other Azure services, Key Vault is managed through [Azure Resource Manager](/azure/azure-resource-manager/management/overview). Azure Resource Manager is the deployment and management service for Azure. You can use it to create, update, and delete resources in your Azure account. 
 
-[Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) controls access to the management layer, also known as the [management plane](security-features.md#managing-administrative-access-to-key-vault). You use the management plane in Key Vault to create and manage key vaults and their attributes, including access policies. You use the *data plane* to manage keys, certificates, and secrets. 
+[Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) controls access to the management layer, also known as the [control plane](security-features.md#managing-administrative-access-to-key-vault). You use the control plane in Key Vault to create and manage key vaults and their attributes, including access policies. You use the *data plane* to manage keys, certificates, and secrets. 
 
 You can use the predefined Key Vault Contributor role to grant management access to Key Vault.     
 

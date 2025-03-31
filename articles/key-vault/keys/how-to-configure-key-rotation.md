@@ -9,7 +9,7 @@ ms.custom: devx-track-arm-template
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: how-to
-ms.date: 10/17/2022
+ms.date: 03/31/2025
 ms.author: mbaldwin
 ---
 # Configure cryptographic key auto-rotation in Azure Key Vault
@@ -153,7 +153,7 @@ For more information about Event Grid notifications in Key Vault, see
 Key rotation policy can also be configured using ARM templates.
 
 > [!NOTE]
-> It requires 'Key Vault Contributor' role on Key Vault configured with Azure RBAC to deploy key through management plane.
+> It requires 'Key Vault Contributor' role on Key Vault configured with Azure RBAC to deploy key through control plane.
 
 ```json
 {

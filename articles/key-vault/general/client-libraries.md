@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 01/30/2024
+ms.date: 03/31/2025
 ms.author: mbaldwin
 
 
@@ -21,7 +21,7 @@ The client libraries for Azure Key Vault allow programmatic access to Key Vault 
 
 Each SDK has separate client libraries for key vault, secrets, keys, and certificates.
 
-| Language | Secrets | Keys | Certificates | Key Vault (Management plane) |
+| Language | Secrets | Keys | Certificates | Key Vault (Control plane) |
 |--|--|--|--|--|
 | .NET | - [API Reference](/dotnet/api/azure.security.keyvault.secrets)<br>- [NuGet package](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)<br>- [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault/Azure.Security.KeyVault.Secrets)<br>- [Quickstart](../secrets/quick-create-net.md) | - [API Reference](/dotnet/api/azure.security.keyvault.keys)<br>- [NuGet package](https://www.nuget.org/packages/Azure.Security.KeyVault.Keys/)<br>- [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault/Azure.Security.KeyVault.Keys)<br>- [Quickstart](../keys/quick-create-net.md) | - [API Reference](/dotnet/api/azure.security.keyvault.certificates)<br>- [NuGet package](https://www.nuget.org/packages/Azure.Security.KeyVault.Certificates/)<br>- [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault/Azure.Security.KeyVault.Certificates)<br>- [Quickstart](../certificates/quick-create-net.md) | - [API Reference](/dotnet/api/microsoft.azure.management.keyvault)<br>- [NuGet Package](https://www.nuget.org/packages/Microsoft.Azure.Management.KeyVault/)<br> - [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/keyvault)|
 | Python| - [API Reference](/python/api/overview/azure/keyvault-secrets-readme)<br>- [PyPi package](https://pypi.org/project/azure-keyvault-secrets/)<br>- [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-secrets)<br>- [Quickstart](../secrets/quick-create-python.md) |- [API Reference](/python/api/overview/azure/keyvault-keys-readme)<br>- [PyPi package](https://pypi.org/project/azure-keyvault-keys/)<br>- [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-keys)<br>- [Quickstart](../keys/quick-create-python.md) | - [API Reference](/python/api/overview/azure/keyvault-certificates-readme)<br>- [PyPi package](https://pypi.org/project/azure-keyvault-certificates/)<br>- [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-certificates)<br>- [Quickstart](../certificates/quick-create-python.md) | - [API Reference](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br> - [PyPi package](https://pypi.org/project/azure-mgmt-keyvault/)<br> - [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-mgmt-keyvault)|
