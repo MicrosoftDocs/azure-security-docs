@@ -17,7 +17,7 @@ ms.author: mbaldwin
 This tutorial provides a practical implementation example of access control for Azure Key Vault Managed HSM. You'll learn how to implement separation of duties using Azure RBAC and Managed HSM local RBAC through a realistic scenario.
 
 > [!IMPORTANT]
-> Before proceeding with this tutorial, ensure you understand the Managed HSM access control model, including the differences between management plane and data plane access. For this conceptual foundation, see [Managed HSM access control](access-control.md).
+> Before proceeding with this tutorial, ensure you understand the Managed HSM access control model, including the differences between control plane and data plane access. For this conceptual foundation, see [Managed HSM access control](access-control.md).
 
 ## Prerequisites
 
@@ -77,7 +77,7 @@ We need to authorize the following operations for our roles:
 
 The following table summarizes the role assignments to teams and resources to access the managed HSM.
 
-| Role | Management plane role | Data plane role |
+| Role | Control plane role | Data plane role |
 | --- | --- | --- |
 | Security team | Managed HSM Contributor | Managed HSM Administrator |
 | Developers and operators | None | None |
@@ -89,9 +89,9 @@ The three team roles need access to other resources along with managed HSM permi
 
 ## Implement with Azure CLI
 
-To assign management plane roles (Azure RBAC) you can use Azure portal or any of the other management interfaces such as Azure CLI or Azure PowerShell. To assign managed HSM data plane roles you must use Azure CLI or Azure REST API. 
+To assign control plane roles (Azure RBAC) you can use Azure portal or any of the other management interfaces such as Azure CLI or Azure PowerShell. To assign managed HSM data plane roles you must use Azure CLI or Azure REST API. 
 
-For more information on management plane roles, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles). For more information on Managed HSM data plane roles, see [Local RBAC built-in roles for Managed HSM](built-in-roles.md).
+For more information on control plane roles, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles). For more information on Managed HSM data plane roles, see [Local RBAC built-in roles for Managed HSM](built-in-roles.md).
 
 The Azure CLI snippets below demonstrate how to implement the role assignments described above:
 
@@ -102,7 +102,7 @@ The Azure CLI snippets below demonstrate how to implement the role assignments d
 - The managed HSM logs are stored in the **contosologstorage** storage account.
 - The **ContosoMHSM** managed HSM and the **contosologstorage** storage account are in the same Azure location.
 
-### Assign management plane roles
+### Assign control plane roles
 
 The subscription admin assigns the `Managed HSM Contributor` role to the security team. This role allows the security team to manage existing managed HSMs and create new ones.
 
