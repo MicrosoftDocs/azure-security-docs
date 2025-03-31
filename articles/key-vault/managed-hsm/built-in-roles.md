@@ -13,14 +13,16 @@ ms.author: mbaldwin
 ---
 # Local RBAC built-in roles for Managed HSM
 
-Azure Key Vault Managed HSM local role-based access control (RBAC) has several built-in roles. This article provides a reference for these roles and the operations they permit.
+Azure Managed HSM local role-based access control (RBAC) has several built-in roles. This article provides a reference for these roles and the operations they permit.
 
 > [!IMPORTANT]
-> These roles only apply to *data plane* operations. For *management plane* operations (creating or deleting an HSM), see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
->
-> For information on how to assign these roles, see [Managed HSM role management](role-management.md). For a conceptual overview of the access control model, see [Access control for Managed HSM](access-control.md).
+> These roles only apply to *data plane* operations. For *management plane* operations (such as creating, updating, moving, or deleting an HSM), see [Azure built-in roles](/azure/role-based-access-control/built-in-roles) and [Access control for Managed HSM: Management plane and Azure RBAC](access-control.md#management-plane-and-azure-rbac).
 
 ## Built-in roles
+
+To allow a principal to perform an operation, you must assign them a role that grants them permissions to perform that operations.
+
+The following table lists the built-in roles for Managed HSM local RBAC. Each role has a unique ID that can be used to assign the role.
 
 |Role name|Description|ID|
 |---|---|---|
@@ -37,7 +39,7 @@ Azure Key Vault Managed HSM local role-based access control (RBAC) has several b
 ## Permitted operations
 
 > [!NOTE]  
-> - In the following table, an **X** indicates that a role is allowed to perform the data action. An empty cell indicates that the role does not have pemissions to perform that data action.
+> - In the following table, an **X** indicates that a role is allowed to perform the data action. An empty cell indicates that the role does not have permission to perform that data action.
 > - All the data action names have the prefix **Microsoft.KeyVault/managedHsm**, which is omitted in the table for brevity.
 > - All role names have the prefix **Managed HSM**, which is omitted in the following table for brevity.
 

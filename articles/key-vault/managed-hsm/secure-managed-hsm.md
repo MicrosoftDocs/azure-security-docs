@@ -21,7 +21,7 @@ This article provides guidance on how to best secure your Azure Key Vault Manage
 
 ## Network security
 
-The Network Security section provides guidance on protecting Managed HSM with secure network connectivity, private endpoints, and network access controls. It helps reduce the exposure of your HSM to public networks and ensures that only authorized traffic is allowed.
+Network security covers protecting Managed HSM with secure network connectivity, private endpoints, and network access controls. It helps reduce the exposure of your HSM to public networks and ensures that only authorized traffic is allowed.
 
 - **Deploy private endpoints using Azure Private Link**: Use private endpoints to establish private, secured connectivity to your Managed HSM instance. This prevents exposure to the public internet and reduces attack vectors. For more details, see [Integrate Managed HSM with Azure Private Link](private-link.md).
 
@@ -29,7 +29,7 @@ The Network Security section provides guidance on protecting Managed HSM with se
 
 ## Identity management
 
-This section focuses on securing authentication and identity access to your Managed HSM resources. Microsoft Entra provides a centralized identity solution for managing access to the HSM's management and data planes.
+Identity management focuses on securing authentication and identity access to your Managed HSM resources. Microsoft Entra provides a centralized identity solution for managing access to the HSM's management and data planes.
 
 - **Require Microsoft Entra authentication for data plane access**: Microsoft Entra is used by default for authenticating data plane operations in Managed HSM, enabling centralized and secure identity control. For more details, see [Microsoft Entra authentication](/entra/identity/authentication/overview-authentication).
 
@@ -43,7 +43,7 @@ This section focuses on securing authentication and identity access to your Mana
 
 ## Privileged access
 
-The Privileged Access section emphasizes securing administrative actions and enforcing least-privilege access principles to reduce the risk of unauthorized or excessive permissions.
+Privileged access emphasizes securing administrative actions and enforcing least-privilege access principles to reduce the risk of unauthorized or excessive permissions.
 
 - **Lock down access to subscriptions and resource groups**: Use Azure RBAC to control administrative access at the management group, subscription, and resource group levels. For guidance, see [Azure RBAC overview](/azure/role-based-access-control/overview).
 
@@ -53,13 +53,13 @@ The Privileged Access section emphasizes securing administrative actions and enf
 
 - **Create custom roles with precise permissions**: Define custom roles to meet specific access requirements while maintaining a secure permission set. For more details, see [Access control for Managed HSM](access-control.md).
 
-- **Create per-key role assignments using local RBAC**: Use Managed HSM’s local RBAC model to control access at the individual key level. For more details, see [Managed HSM local RBAC](access-control.md#data-plane-and-managed-hsm-local-rbac).
+- **Create per-key role assignments using local RBAC**: Use Managed HSM's local RBAC model to control access at the individual key level. For more details, see [Managed HSM local RBAC](access-control.md#data-plane-and-managed-hsm-local-rbac).
 
 - **Enable Privileged Identity Management (PIM) for administrative roles**: Use [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-configure) to enforce just-in-time access and reduce the risk of standing administrative privileges. For more details, see [Access control for Managed HSM: Privileged Identity Management](access-control.md#microsoft-entra-privileged-identity-management-pim).
 
 ## Backup and recovery
 
-The Backup and Recovery section helps you protect against accidental or malicious data loss by ensuring proper backup and retention policies.
+Backup and recovery helps you protect against accidental or malicious data loss by ensuring proper backup and retention policies.
 
 - **Create regular HSM and key-level backups**: Schedule backups of the HSM and individual keys to prevent data loss. For more details, see [Full backup and restore](backup-restore.md).
 
@@ -71,9 +71,9 @@ The Backup and Recovery section helps you protect against accidental or maliciou
 
 ## Posture and vulnerability management
 
-The posture and vulnerability management section provides guidance on how to use policy enforcement tools to maintain security compliance across your environment.
+Posture and vulnerability management provides guidance on how to use policy enforcement tools to maintain security compliance across your environment.
 
-- **Use Azure Policy to enforce configuration compliance**: Define and apply Azure Policy rules to audit or block insecure configurations. Integrate with Microsoft Defender for Cloud and Azure Monitor for visibility. For more details, see [Create and manage policies](/azure/governance/policy/tutorials/create-and-manage).
+- **Use Azure Policy to enforce configuration compliance**: Define and apply [Azure Policy](/azure/governance/policy/overview) rules to audit or block insecure configurations. Integrate with [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) and [Azure Monitor](/azure/azure-monitor/fundamentals/overview) for visibility. For more details, see [Create and manage policies](/azure/governance/policy/tutorials/create-and-manage).
 
 ## Next steps
 

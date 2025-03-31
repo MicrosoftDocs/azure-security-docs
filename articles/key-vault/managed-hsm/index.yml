@@ -68,7 +68,7 @@ landingContent:
           - text: Managed HSM role management
             url: role-management.md
           - text: Secure access to your Managed HSM
-            url: secure-your-managed-hsm.md
+            url: how-to-secure-access.md
 
   # Card
   - title: Tutorials
