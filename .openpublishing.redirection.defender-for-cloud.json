@@ -429,6 +429,11 @@
       "source_path_from_root": "/articles/defender-for-cloud/review-ai-alerts.md",
       "redirect_url": "/azure/defender-for-cloud/managing-and-responding-alerts",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/multicloud-resource-types-support-foundational-cspm.md",
+      "redirect_url": "/azure/defender-for-cloud/support-matrix-cloud-environment",
+      "redirect_document_id": true
     }
   ]
 }
