@@ -16,7 +16,7 @@ ms.author: mbaldwin
 Microsoft Azure Cloud HSM lets you back up and restore your Cloud HSM, preserving all keys, versions, attributes, tags, and role assignments.
 
 > [!IMPORTANT]
-> When you create an Azure Cloud HSM backup, it is protected by a key derived within the HSM. Microsoft doesn't have visibility or access to the derived key protecting your backups. Azure Cloud HSM doesn't support restoring a backup to its source HSM or any Cloud HSM that is already activated. To restore, use another non-activated Cloud HSM in any preferred region. Otherwise, the restore operation fails, rendering the destination Cloud HSM nonfunctional. 
+> When you create an Azure Cloud HSM backup, it is protected by a key derived within the HSM. Microsoft doesn't have visibility or access to the derived key protecting your backups. Azure Cloud HSM doesn't support restoring a backup to its source HSM or any Cloud HSM that is already activated. To restore, use another nonactivated Cloud HSM in any preferred region. Otherwise, the restore operation fails, rendering the destination Cloud HSM nonfunctional. 
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ The following configurations aren't supported for backup and restore with Azure 
 
 ### Creating a managed service identity
 
-Create a new user-assigned managed service identity in your existing Azure Cloud HSM resource group. In this guided example, we will use CHSM-MSI and CHSM-SERVER-RG, the resource group name referenced in the Azure Cloud HSM onboarding guide example.
+Create a new user-assigned managed service identity in your existing Azure Cloud HSM resource group. In this guided example, we use CHSM-MSI and CHSM-SERVER-RG, the resource group name referenced in the Azure Cloud HSM onboarding guide example.
 
 ```azurepowershell-interactive
 # Define parameters for the new managed service identity (MSI)
@@ -49,7 +49,7 @@ New-AzUserAssignedIdentity -Name $identity.ResourceName -ResourceGroupName $iden
 
 ### Apply MSI to source and destination Cloud HSM
 
-For Azure Cloud HSM backup and restore operations, a managed service identity (MSI) must be applied to both your source and destination Cloud HSM resources. Each Cloud HSM cluster can have only one MSI. You can either use the same MSI for both the source and destination or use different MSIs for each. In this guided example, we will apply the same MSI to both the source and destination Cloud HSM resources.
+For Azure Cloud HSM backup and restore operations, a managed service identity (MSI) must be applied to both your source and destination Cloud HSM resources. Each Cloud HSM cluster can have only one MSI. You can either use the same MSI for both the source and destination or use different MSIs for each. In this guided example, we apply the same MSI to both the source and destination Cloud HSM resources.
 
 ```azurepowershell-interactive
 # Define the source Cloud HSM parameters
@@ -102,7 +102,7 @@ Invoke-AzRestMethod -Path $destinationURI -Method Put -Payload $chsmMSIPatch
 
 ### Create a storage account in your private VNET for Cloud HSM backups
 
-Set up storage infrastructure for Azure Cloud HSM backup operations by defining and configuring a storage account and associated blob container within a private virtual network. Begin by defining the subscription ID and specifying the storage account parameters, including location, SKU, and type. The process includes creating a new resource group, establishing the storage account with network rules to restrict access to a designated virtual network, and enhancing security through a private endpoint. A private endpoint is set up for secure access, and the "Storage Blob Data Contributor" role is assigned to a specified identity to ensure appropriate permissions for backup tasks. In this example, we will create a new resource group named CHSM-BACKUP-RG, a storage account called chsmbackup00, and a blob container named chsmbackupcontainer00, with read/write access granted for both source and destination.
+Set up storage infrastructure for Azure Cloud HSM backup operations by defining and configuring a storage account and associated blob container within a private virtual network. Begin by defining the subscription ID and specifying the storage account parameters, including location, SKU, and type. The process includes creating a new resource group, establishing the storage account with network rules to restrict access to a designated virtual network, and enhancing security through a private endpoint. A private endpoint is set up for secure access, and the "Storage Blob Data Contributor" role is assigned to a specified identity to ensure appropriate permissions for backup tasks. In this example, we create a new resource group named CHSM-BACKUP-RG, a storage account called chsmbackup00, and a blob container named chsmbackupcontainer00, with read/write access granted for both source and destination.
 
 > [!IMPORTANT]
 > The minimum RBAC role required is **Storage Blob Data Contributor**. Public storage accounts are accessible over the public internet, so place your storage account behind a private VNET for enhanced security.
@@ -279,7 +279,7 @@ After some processing time, the restore operation should indicate "Succeeded," a
     ```
     **Expected Output:** `getClusterInfo` should confirm that all three nodes are now available for your Azure Cloud HSM cluster.
 
-3. Exit the Management Utility, then launch the Azure Cloud HSM Utility (`azcloudhsm_util`). Log in as CU and run the `findKey` command.
+3. Exit the Management Utility, then launch the Azure Cloud HSM Utility (`azcloudhsm_util`). Sign in as CU and run the `findKey` command.
 
     > [!IMPORTANT]
     > Key handles can change because they are dynamic; however, key IDs don't change.
