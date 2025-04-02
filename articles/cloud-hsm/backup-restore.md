@@ -11,7 +11,7 @@ ms.author: mbaldwin
 
 ---
 
-# Backup and restore
+# Tutorial: Backup and restore
 
 Microsoft Azure Cloud HSM lets you back up and restore your Cloud HSM, preserving all keys, versions, attributes, tags, and role assignments.
 
@@ -224,7 +224,7 @@ $backupStatus
 $backupID
 ```
 
-Expected output: `$backupStatus` returns "Succeeded", and `$backupID` shows the corresponding backup ID for the backup you initiated.
+**Expected output**: `$backupStatus` returns "Succeeded", and `$backupID` shows the corresponding backup ID for the backup you initiated.
 
 ## Azure Cloud HSM Restore
 
@@ -251,7 +251,7 @@ $jobStatus = Invoke-AzRestMethod -Method 'GET' -Uri $response.Headers.Location
 (ConvertFrom-Json $jobStatus.Content).properties.status
 ```
 
-Expected Output:* $jobStatus should return "Succeeded".
+**Expected Output**:* $jobStatus should return "Succeeded".
 
 ### Validate restore to destination Cloud HSM
 
