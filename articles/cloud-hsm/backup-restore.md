@@ -299,8 +299,8 @@ After some processing time, the restore operation should indicate "Succeeded," a
 
 ## Next steps
 
-- [Manage keys in Azure Cloud HSM](keys-operations.md) - Learn how to create, use, and manage cryptographic keys in your Cloud HSM
-- [Configure monitoring and logging](monitoring-logging.md) - Set up monitoring and audit logging for your Cloud HSM operations
-- [Disaster recovery planning](disaster-recovery.md) - Implement comprehensive disaster recovery strategies using Cloud HSM backups
-- [Security best practices for Azure Cloud HSM](security-best-practices.md) - Follow recommended security guidelines to protect your HSM resources
-- [Troubleshoot common Cloud HSM issues](troubleshooting.md) - Resolve common problems with backup, restore, and other Cloud HSM operations
+- [Secure your Azure Cloud HSM](secure-cloud-hsm.md)
+- [Network security](network-security.md)
+- [Key Management in Azure Cloud HSM](key-management.md)
+- [User Management in Azure Cloud HSM](user-management.md)
+- [Authentication in Azure Cloud HSM](authentication.md)

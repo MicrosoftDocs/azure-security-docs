@@ -35,7 +35,7 @@ sections:
       - question: |-  
           How do I decide whether to use Azure Cloud HSM or Azure Managed HSM?
         answer: |- 
-          Azure offers multiple solutions for cryptographic key storage and management in the cloud: Azure Key Vault (standard and premium offerings), Azure Managed HSM, Azure Cloud HSM, and Azure Payment HSM. It can be overwhelming for customers to decide which key management solution is correct for them. To help customers navigate this decision-making process, a flowchart, based on common high-level requirements and key management scenarios, is available. See [How to choose the right key management solution](key-management-choose.md).
+          Azure offers multiple solutions for cryptographic key storage and management in the cloud: Azure Key Vault (standard and premium offerings), Azure Managed HSM, Azure Cloud HSM, and Azure Payment HSM. It can be overwhelming for customers to decide which key management solution is correct for them. To help customers navigate this decision-making process, a flowchart, based on common high-level requirements and key management scenarios, is available. See [How to choose the right key management solution](/azure/security/fundamentals/key-management-choose).
       - question: |-  
           What usage scenarios best suit Azure Cloud HSM?
         answer: |
@@ -109,7 +109,7 @@ sections:
       - question: |-  
           Does Azure Cloud HSM work with on-premises HSMs?  
         answer: |-  
-          No, although Azure Cloud HSM doesn't directly interoperate with on-premises HSMs, you can securely transfer exportable keys between Azure Cloud HSM and most commercial HSMs by employing one of several supported key wrap methods. For more information about key management, see [Key management in Azure Cloud HSM](key-management.md).
+          No, although Azure Cloud HSM doesn't directly interoperate with on-premises HSMs, you can securely transfer exportable keys between Azure Cloud HSM and most commercial HSMs by employing one of several supported key wrap methods. For more information about key management, see [Key management in Azure Cloud HSM](/azure/security/fundamentals/key-management).
       - question: |-  
           Can I encrypt data used by other Azure services using keys stored in Azure Cloud HSM?  
         answer: |-  
