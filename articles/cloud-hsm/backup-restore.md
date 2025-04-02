@@ -251,7 +251,7 @@ $jobStatus = Invoke-AzRestMethod -Method 'GET' -Uri $response.Headers.Location
 (ConvertFrom-Json $jobStatus.Content).properties.status
 ```
 
-**Expected Output**:* $jobStatus should return "Succeeded".
+**Expected Output**: $jobStatus should return "Succeeded".
 
 ### Validate restore to destination Cloud HSM
 
