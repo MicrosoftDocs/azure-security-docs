@@ -28,7 +28,7 @@ Download or clone the [GitHub repository](https://github.com/Azure/azure-managed
 
 ## Set up a virtual environment and install the required Python packages
 
-Set up a virtual environment and install the required Python packages from `requirements.txt`. In this example, we are naming the virtual environment "attestation". Make sure you are in the repository you downloaded or cloned in step 1.
+Set up a virtual environment and install the required Python packages from `requirements.txt`. In this example, we are naming the virtual environment "attestation". Make sure you are in the repository you downloaded or cloned in step 1. If using Windows, please use Command Prompt.
 
 # [Windows](#tab/windows)
 
@@ -76,7 +76,7 @@ Examples:
 
 ## Validate the attestation data
 
-The Python script `validate_attestation.py` extracts the attestation blob and certificates from the JSON file. It constructs a certificate chain to confirm that the key is signed by Marvell, the HSM vendor’s root, and verifies that the key is signed with a Microsoft-signed certificate. It also parses the attributes of the attestation binary and prints the results. Symmetric keys receive both public and private key attestation, whereas asymmetric keys receive only private key attestation. An optional parameter `--v` or `--verbose` can be included to view the properties of the certificate chain and additional information on the attributes of the key.
+The Python script `validate_attestation.py` extracts the attestation blob and certificates from the JSON file. It constructs a certificate chain to confirm that the key is signed by Marvell, the HSM vendor’s root, and verifies that the key is signed with a Microsoft-signed certificate. It also parses the attributes of the attestation binary and prints the results. Asymmetric keys receive both public and private key attestation, whereas symmetric keys receive only private key attestation. An optional parameter `--v` or `--verbose` can be included to view the properties of the certificate chain and additional information on the attributes of the key.
 
 Usage:
 

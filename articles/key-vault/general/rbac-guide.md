@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: general
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 04/04/2024
+ms.date: 03/31/2025
 ms.author: mbaldwin
 ---
 
@@ -38,7 +38,7 @@ More about Azure Key Vault management guidelines, see:
 ## Azure built-in roles for Key Vault data plane operations
 
 > [!NOTE]
-> The `Key Vault Contributor` role is for management plane operations only to manage key vaults. It does not allow access to keys, secrets and certificates.
+> The `Key Vault Contributor` role is for control plane operations only to manage key vaults. It does not allow access to keys, secrets and certificates.
 
 | Built-in role | Description | ID |
 | --- | --- | --- |
