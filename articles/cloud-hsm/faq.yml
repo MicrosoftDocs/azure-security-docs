@@ -15,27 +15,27 @@ sections:
       - question: |-  
           What is Azure Cloud HSM offering?  
         answer: |-  
-          Microsoft Azure Cloud HSM is a service that provides secure storage for cryptographic keys using hardware security modules that meet the FIPS 140-3 Level 3 security standard. It's a customer-managed single-tenant, highly available service that is compliant with industry standards. Microsoft Azure Cloud HSM provides secure and customer-managed HSM for storing cryptographic keys and performing cryptographic operations. It supports various applications, including PKCS#11, offload SSL/TLS processing, certificate authority private key protection, and transparent data encryption, including document and code signing. Microsoft Azure Cloud HSM provides high availability and redundancy by grouping multiple HSMs into an HSM cluster and automatically synchronizing across three HSM instances. The HSM cluster supports load balancing of cryptographic operations, and periodic HSM backups ensure secure and simple data recovery.
+          Microsoft Azure Cloud HSM is a service that provides secure storage for cryptographic keys using hardware security modules that meet the FIPS 140-3 Level 3 security standard. It's a customer-managed single-tenant, highly available service that is compliant with industry standards. Microsoft Azure Cloud HSM provides secure and customer-managed HSM for storing cryptographic keys and performing cryptographic operations. It supports various applications, including PKCS#11, offload SSL/TLS processing, certificate authority private key protection, and transparent data encryption, including document and code signing. Microsoft Azure Cloud HSM provides high availability and redundancy by grouping multiple HSMs into an HSM cluster and automatically synchronizing across three HSM instances. The HSM cluster supports load balancing of cryptographic operations, and periodic HSM backups ensure secure and simple data recovery. For more information, see [What is Azure Cloud HSM?](overview.md).
       - question: |-  
           What is a hardware security module (HSM)?  
         answer: |-  
-          A hardware security module (HSM) is a physical computing device designed to protect and administer cryptographic keys. Within HSMs, keys are securely stored and used for cryptographic operations, ensuring their confidentiality and integrity through tamper-resistant and tamper-evident hardware modules. Access to the keys is restricted to authenticated and authorized applications, ensuring that the key material always remains within the protected boundary of the HSM.
+          A hardware security module (HSM) is a physical computing device designed to protect and administer cryptographic keys. Within HSMs, keys are securely stored and used for cryptographic operations, ensuring their confidentiality and integrity through tamper-resistant and tamper-evident hardware modules. Access to the keys is restricted to authenticated and authorized applications, ensuring that the key material always remains within the protected boundary of the HSM. For more information, see [Secure your Azure Cloud HSM](secure-cloud-hsm.md).
       - question: |-  
           What hardware is used for Azure Cloud HSM?  
         answer: |-  
-          Microsoft Azure Cloud uses Marvell LiquidSecurity hardware security modules.
+          Microsoft Azure Cloud uses Marvell LiquidSecurity hardware security modules. For more information about service specifications, see [Azure Cloud HSM service limits](service-limits.md).
       - question: |-  
           What software is provided with Azure Cloud HSM?  
         answer: |-  
-          Microsoft supplies all software and utilities for Azure Cloud HSM through its SDK. Customers can download the Azure Cloud HSM SDK from GitHub at [microsoft/MicrosoftAzureCloudHSM: Azure Cloud HSM SDK](https://github.com/microsoft/MicrosoftAzureCloudHSM/releases).
+          Microsoft supplies all software and utilities for Azure Cloud HSM through its SDK. Customers can download the Azure Cloud HSM SDK from GitHub at [microsoft/MicrosoftAzureCloudHSM: Azure Cloud HSM SDK](https://github.com/microsoft/MicrosoftAzureCloudHSM/releases). For more information about integration options, see [Azure Cloud HSM integration guides](integration-guides.md).
       - question: |-  
           Do I need to manage the firmware on my HSM?  
         answer: |-  
-          No, Microsoft oversees the firmware on the hardware. A third party (HSM manufacturer) maintains the hardware, while the firmware is evaluated and must be signed by NIST to ensure compliance with FIPS 140-3 Level 3 standards.
+          No, Microsoft oversees the firmware on the hardware. A third party (HSM manufacturer) maintains the hardware, while the firmware is evaluated and must be signed by NIST to ensure compliance with FIPS 140-3 Level 3 standards. For more information about hardware management, see [What is Azure Cloud HSM?](overview.md).
       - question: |-  
           How do I decide whether to use Azure Cloud HSM or Azure Managed HSM?
         answer: |- 
-          Azure offers multiple solutions for cryptographic key storage and management in the cloud: Azure Key Vault (standard and premium offerings), Azure Managed HSM, Azure Cloud HSM, and Azure Payment HSM. It can be overwhelming for customers to decide which key management solution is correct for them. To help customers navigate this decision-making process, a flowchart, based on common high-level requirements and key management scenarios, is available. See [How to choose the right key management solution](/azure/security/fundamentals/key-management-choose).
+          Azure offers multiple solutions for cryptographic key storage and management in the cloud: Azure Key Vault (standard and premium offerings), Azure Managed HSM, Azure Cloud HSM, and Azure Payment HSM. It can be overwhelming for customers to decide which key management solution is correct for them. To help customers navigate this decision-making process, a flowchart, based on common high-level requirements and key management scenarios, is available. See [How to choose the right key management solution](key-management-choose.md).
       - question: |-  
           What usage scenarios best suit Azure Cloud HSM?
         answer: |
@@ -47,36 +47,38 @@ sections:
             - Java applications that require JCE provider  
             - Microsoft SQL Server TDE (IaaS) through EKM.  
             - Oracle TDE  
+          
+          For more information about implementing these scenarios, see [Azure Cloud HSM integration guides](integration-guides.md).
       - question: |-  
           Will Azure Cloud HSM host my HSMs for me?
         answer: |- 
-          No. Microsoft doesn't support 'Bring Your Own HSM'. Azure Cloud HSM cannot host any customer-provided devices.
+          No. Microsoft doesn't support 'Bring Your Own HSM'. Azure Cloud HSM cannot host any customer-provided devices. For more information about the service architecture, see [What is Azure Cloud HSM?](overview.md).
       - question: |-  
           Can my keys in Azure Dedicated HSM be migrated to Azure Cloud HSM?  
         answer: |-  
-          Yes, it depends on your architecture and configuration. If your Dedicated HSM is configured in HA grouping, then you cannot migrate keys as Key Export is disabled to allow for Key Cloning (HA Grouping) and it's a destructive process to change those attributes. Customers configured in a HA Grouping must create new keys when migrating to Azure Cloud HSM.  
+          Yes, it depends on your architecture and configuration. If your Dedicated HSM is configured in HA grouping, then you cannot migrate keys as Key Export is disabled to allow for Key Cloning (HA Grouping) and it's a destructive process to change those attributes. Customers configured in a HA Grouping must create new keys when migrating to Azure Cloud HSM. For more information about key management, see [Key management in Azure Cloud HSM](key-management.md).
   
   - name: Customer Onboarding  
     questions:  
       - question: |-  
           Does Azure Cloud HSM have a monetary policy for onboarding?  
         answer: |-  
-          No, Azure Cloud HSM does not have a monetary policy. Onboarding Azure Cloud HSM is open to all customers.  
+          No, Azure Cloud HSM does not have a monetary policy. Onboarding Azure Cloud HSM is open to all customers. For more information about getting started, see [Azure Cloud HSM onboarding guide](onboarding-guide.md).
   
   - name: Billing  
     questions:  
       - question: |-  
           How will I be charged and billed for my use of the Azure Cloud HSM?  
         answer: |-  
-          Customers will incur an hourly fee for each Azure Cloud HSM cluster (consisting of 3 nodes). Once provisioned, Cloud HSM resource remains continuously active (always on). Billing commences upon resource provisioning, rather than when initializing the HSM resource completes.  
+          Customers will incur an hourly fee for each Azure Cloud HSM cluster (consisting of 3 nodes). Once provisioned, Cloud HSM resource remains continuously active (always on). Billing commences upon resource provisioning, rather than when initializing the HSM resource completes. For more information about deploying Azure Cloud HSM, see [Tutorial - Deploying Azure Cloud HSM](tutorial-deploy-cloud-hsm.md).
       - question: |-  
           What extra costs may be incurred with Azure Cloud HSM service?  
         answer: |-  
-          Azure Cloud HSM requires networking infrastructure (VNET, private endpoint, etc.) and resources such as virtual machines for device configuration. These resources incur extra costs and are not included in the Azure Cloud HSM service pricing.
+          Azure Cloud HSM requires networking infrastructure (VNET, private endpoint, etc.) and resources such as virtual machines for device configuration. These resources incur extra costs and are not included in the Azure Cloud HSM service pricing. For more information about network requirements, see [Network security](network-security.md).
       - question: |-  
           Is there a Free Tier for the Azure Cloud HSM?  
         answer: |-  
-          No, there is no free tier available for Azure Cloud HSM.  
+          No, there is no free tier available for Azure Cloud HSM. For more information about service offerings, see [What is Azure Cloud HSM?](overview.md).
   
   - name: Interoperability  
     questions:  
@@ -86,122 +88,124 @@ sections:
           - Windows (Server 2016, 2019, 2022)  
           - Linux (Ubuntu 20.04, Ubuntu 22.04, Ubuntu 24.04, RHEL 7, RHEL 8, and RHEL 9)
           - CBL Mariner 2  
+          
+          For more information about compatibility and troubleshooting, see [Troubleshoot Azure Cloud HSM](troubleshoot.md).
       - question: |-  
           How do I manage Azure Cloud HSM?  
         answer: |-  
-          Manage Azure Cloud HSMs by accessing your Cloud HSM cluster using SSH and the Azure Cloud HSM SDK from GitHub at [microsoft/MicrosoftAzureCloudHSM: Azure Cloud HSM SDK](https://github.com/microsoft/MicrosoftAzureCloudHSM/releases).
+          Manage Azure Cloud HSMs by accessing your Cloud HSM cluster using SSH and the Azure Cloud HSM SDK from GitHub at [microsoft/MicrosoftAzureCloudHSM: Azure Cloud HSM SDK](https://github.com/microsoft/MicrosoftAzureCloudHSM/releases). For more information about management operations, see [User management in Azure Cloud HSM](user-management.md).
       - question: |-  
           How does my application connect to Azure Cloud HSM?  
         answer: |-  
-          The Azure Cloud HSM SDK, comprising software, tools, and utilities, executes cryptographic operations within applications. Azure Cloud HSM supports various interfaces including PKCS#11, OpenSSL, JCE, and KSP/CNG, and offers a range of tools and utilities enabling seamless interaction with their HSM. Customers can download the Azure Cloud HSM SDK from GitHub at [microsoft/MicrosoftAzureCloudHSM: Azure Cloud HSM SDK](https://github.com/microsoft/MicrosoftAzureCloudHSM/releases).
+          The Azure Cloud HSM SDK, comprising software, tools, and utilities, executes cryptographic operations within applications. Azure Cloud HSM supports various interfaces including PKCS#11, OpenSSL, JCE, and KSP/CNG, and offers a range of tools and utilities enabling seamless interaction with their HSM. Customers can download the Azure Cloud HSM SDK from GitHub at [microsoft/MicrosoftAzureCloudHSM: Azure Cloud HSM SDK](https://github.com/microsoft/MicrosoftAzureCloudHSM/releases). For more information about connectivity methods, see [Authentication in Azure Cloud HSM](authentication.md).
       - question: |-  
           Does Azure Cloud HSM support Password-based and PED-based authentication?  
         answer: |-  
-          No, Azure Cloud HSM only supports password-based authentication.
+          No, Azure Cloud HSM only supports password-based authentication. For more information about authentication methods, see [Authentication in Azure Cloud HSM](authentication.md).
       - question: |-  
           Can an application connect to Azure Cloud HSM from a different VNET in or across regions?  
         answer: |-  
-          Yes, use [VNET peering](/azure/virtual-network/virtual-network-peering-overview) within a region to establish connectivity across virtual networks. For cross-region connectivity, use [global VNET peering](/azure/virtual-network/virtual-network-peering-overview/) or [VPN gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+          Yes, use [VNET peering](/azure/virtual-network/virtual-network-peering-overview) within a region to establish connectivity across virtual networks. For cross-region connectivity, use [global VNET peering](/azure/virtual-network/virtual-network-peering-overview/) or [VPN gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways). For more information about network configurations, see [Network security](network-security.md).
       - question: |-  
           Does Azure Cloud HSM work with on-premises HSMs?  
         answer: |-  
-          No, although Azure Cloud HSM doesn't directly interoperate with on-premises HSMs, you can securely transfer exportable keys between Azure Cloud HSM and most commercial HSMs by employing one of several supported key wrap methods.
+          No, although Azure Cloud HSM doesn't directly interoperate with on-premises HSMs, you can securely transfer exportable keys between Azure Cloud HSM and most commercial HSMs by employing one of several supported key wrap methods. For more information about key management, see [Key management in Azure Cloud HSM](key-management.md).
       - question: |-  
           Can I encrypt data used by other Azure services using keys stored in Azure Cloud HSM?  
         answer: |-  
-          No. Azure Cloud HSM clusters are only accessible from inside your virtual network.  
+          No. Azure Cloud HSM clusters are only accessible from inside your virtual network. For more information about service limitations, see [What is Azure Cloud HSM?](overview.md).
       - question: |-  
           Can Azure Cloud HSM be used with Office 365 Customer Key, Azure Information Protection, Azure Data Lake Store, Disk Encryption, or Azure Storage encryption?  
         answer: |-  
-          No. Azure Cloud HSM is provisioned directly into a customer's private IP address space, so it isn't accessible by other Azure or Microsoft services.
+          No. Azure Cloud HSM is provisioned directly into a customer's private IP address space, so it isn't accessible by other Azure or Microsoft services. For more information about service capabilities and limitations, see [What is Azure Cloud HSM?](overview.md).
       - question: |-  
           Can I import keys from existing on-premises HSMs to Azure Cloud HSM?  
         answer: |-  
-          Yes. There are multiple methods for BYOK and have on-premises HSMs that allow key export (key wrap).  
+          Yes. There are multiple methods for BYOK and have on-premises HSMs that allow key export (key wrap). For more information about key import operations, see [Key management in Azure Cloud HSM](key-management.md).
       - question: |-  
           Can I install functionality modules to Azure Cloud HSMs?  
         answer: |-  
-          No. Azure Cloud HSM service does not support functionality modules.  
+          No. Azure Cloud HSM service does not support functionality modules. For more information about service capabilities, see [Azure Cloud HSM service limits](service-limits.md).
       - question: |-  
           Can I update the Partition Owner Certificate once uploaded?  
         answer: |-  
-          No. Users cannot change the partition owner certificate once uploaded. If you uploaded the PO.crt in error, you would need to delete your Azure Cloud HSM resource and deploy again. For more information about certificate management, see [Certificate management in Azure Cloud HSM](/azure/cloud-hsm/certificate-management).
+          No. Users cannot change the partition owner certificate once uploaded. If you uploaded the PO.crt in error, you would need to delete your Azure Cloud HSM resource and deploy again. 
   
   - name: Business Continuity
     questions:
       - question: |-
           Can I restore a backup to the source Azure Cloud HSM?
         answer: |-
-          No. You cannot restore a backup to its source Azure Cloud HSM as it's in an activated state. For more information about backup and restore operations, see [Backup and restore in Azure Cloud HSM](/azure/cloud-hsm/backup-restore).
+          No. You cannot restore a backup to its source Azure Cloud HSM as it's in an activated state. For more information about backup and restore operations, see [Backup and restore in Azure Cloud HSM](backup-restore.md).
       - question: |-
           Can I restore a backup to another destination Azure Cloud HSM that is in an activated state?
         answer: |-
-          No. Azure Cloud HSM does not support restoring a backup to its source HSM or any Cloud HSM which has already been activated; otherwise, the restore operation will fail rendering the destination Cloud HSM into a non-functional state. For more information about the restoration process, see [Restoration guidelines for Azure Cloud HSM](/azure/cloud-hsm/backup-restore).
+          No. Azure Cloud HSM does not support restoring a backup to its source HSM or any Cloud HSM which has already been activated; otherwise, the restore operation will fail rendering the destination Cloud HSM into a non-functional state. For more information about the restoration process, see [Restoration guidelines for Azure Cloud HSM](backup-restore.md).
       - question: |-
           Can I restore a backup to another Azure Cloud HSM within a different region?
         answer: |-
-          Yes, you can restore a backup to another Azure Cloud HSM in any region, provided that the destination Cloud HSM is in a Not Activated state. For more information about cross-region restoration, see [Cross-region recovery for Azure Cloud HSM](/azure/cloud-hsm/backup-restore#azure-cloud-hsm-restore).
+          Yes, you can restore a backup to another Azure Cloud HSM in any region, provided that the destination Cloud HSM is in a Not Activated state. For more information about cross-region restoration, see [Cross-region recovery for Azure Cloud HSM](backup-restore.md#azure-cloud-hsm-restore).
       - question: |-
           Can I create more than one MSI per Azure Cloud HSM?
         answer: |-
-          No. Only one MSI is allowed per Azure Cloud HSM Cluster. For more information about identity and access management, see [Apply an MSI to Cloud HSM](/azure/cloud-hsm/backup-restore#apply-an-msi-to-cloud-hsm-and-create-a-storage-account-for-hsm-backups).
+          No. Only one MSI is allowed per Azure Cloud HSM Cluster. For more information about identity and access management, see [Apply an MSI to Cloud HSM](backup-restore.md#apply-an-msi-to-cloud-hsm-and-create-a-storage-account-for-hsm-backups).
       - question: |-
           Can I apply more restrictive read / write permissions for my source and destination for backups?
         answer: |-
-          Yes. In the examples given it states minimum RBAC role required is 'Storage Blob Data Contributor'. You may restrict the source as 'read-only' but you will need to read/write on the destination. For more information about access control, see [Apply an MSI to Cloud HSM and Create a Storage Account for HSM Backups](/azure/cloud-hsm/backup-restore#apply-an-msi-to-cloud-hsm-and-create-a-storage-account-for-hsm-backups).
+          Yes. In the examples given it states minimum RBAC role required is 'Storage Blob Data Contributor'. You may restrict the source as 'read-only' but you will need to read/write on the destination. For more information about access control, see [Apply an MSI to Cloud HSM and Create a Storage Account for HSM Backups](backup-restore.md#apply-an-msi-to-cloud-hsm-and-create-a-storage-account-for-hsm-backups).
   
   - name: Security and Compliance  
     questions:  
       - question: |-  
           Do I share my Azure Cloud HSM with other Azure customers?  
         answer: |-  
-          No, with Azure Cloud HSM, you have exclusive administrative access to your HSM as a single tenant.  
+          No, with Azure Cloud HSM, you have exclusive administrative access to your HSM as a single tenant. For more information about the service architecture, see [What is Azure Cloud HSM?](overview.md).
       - question: |-  
           Can Microsoft or anyone at Microsoft access keys in my Azure Cloud HSM?  
         answer: |-  
-          No. Microsoft does not have any access to the keys stored in customer allocated HSMs.  
+          No. Microsoft does not have any access to the keys stored in customer allocated HSMs. For more information about security controls, see [Secure your Azure Cloud HSM](secure-cloud-hsm.md).
       - question: |-  
           How does Microsoft manage the HSM without having access to my encryption keys?  
         answer: |-  
-          In the architecture of Azure Cloud HSM, separation of duties and role-based access control are fundamental principles. Microsoft does not have any cryptographic control over customer allocated HSMs or control over the HSM's users other than its own limited Appliance User. Microsoft possesses restricted permissions to the HSM, allowing monitoring, maintenance of health and availability, encrypted backups, and extraction and publication of immutable audit logs to the customers specified storage. Microsoft's permissions on the HSM do not allow it to use CU-owned keys to perform cryptographic operations.  
+          In the architecture of Azure Cloud HSM, separation of duties and role-based access control are fundamental principles. Microsoft does not have any cryptographic control over customer allocated HSMs or control over the HSM's users other than its own limited Appliance User. Microsoft possesses restricted permissions to the HSM, allowing monitoring, maintenance of health and availability, encrypted backups, and extraction and publication of immutable audit logs to the customers specified storage. Microsoft's permissions on the HSM do not allow it to use CU-owned keys to perform cryptographic operations. For more information about operational logging, see [Tutorial: Operation event logging](tutorial-operation-event-logging.md).
       - question: |-  
           Does Azure Cloud HSM store customer data?  
         answer: |-  
-          No, Azure Cloud HSM doesn't retain customer data. All key materials and data are housed within the customer's HSM. Each Azure Cloud HSM cluster is exclusively designated for a single customer, granting them sole administrative control.
+          No, Azure Cloud HSM doesn't retain customer data. All key materials and data are housed within the customer's HSM. Each Azure Cloud HSM cluster is exclusively designated for a single customer, granting them sole administrative control. For more information about data protection, see [Secure your Azure Cloud HSM](secure-cloud-hsm.md).
       - question: |-  
           Does Azure Cloud HSM support FIPS 140-3 Level 3?  
         answer: |-  
-          Yes, Azure Cloud HSM offers HSMs validated to meet the FIPS 140-3 Level 3 standards. Refer to the onboarding guide for procedures to verify the authenticity of your HSM, including checking the [FIPS 140-3 Level 3 certification from NIST](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4700).
+          Yes, Azure Cloud HSM offers HSMs validated to meet the FIPS 140-3 Level 3 standards. Refer to the onboarding guide for procedures to verify the authenticity of your HSM, including checking the [FIPS 140-3 Level 3 certification from NIST](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4700). For more information about compliance, see [What is Azure Cloud HSM?](overview.md).
       - question: |-  
           Does Azure Cloud HSM support eIDAS? 
         answer: |-  
-          Yes, Azure Cloud HSM supports eIDAS compliance under the Austrian scheme by providing secure key management, cryptographic operations, and FIPS 140-3 Level 3 validated hardware to meet stringent requirements for qualified electronic signatures and seals, ensuring regulatory compliance. Learn more in the [QSCD Certificate](https://www.a-sit.at/wp-content/uploads/2024/10/VIG-19-078-QSCD-Certificate-Final_sig-HL.pdf).
+          Yes, Azure Cloud HSM supports eIDAS compliance under the Austrian scheme by providing secure key management, cryptographic operations, and FIPS 140-3 Level 3 validated hardware to meet stringent requirements for qualified electronic signatures and seals, ensuring regulatory compliance. Learn more in the [QSCD Certificate](https://www.a-sit.at/wp-content/uploads/2024/10/VIG-19-078-QSCD-Certificate-Final_sig-HL.pdf). For more information about security standards, see [Secure your Azure Cloud HSM](secure-cloud-hsm.md).
       - question: |-  
           What happens if someone tampers with the HSM hardware?  
         answer: |-  
-          Azure Cloud HSM incorporates both physical and logical tamper detection and response mechanisms that initiate key deletion (zeroization) of the hardware. These measures are designed to detect tampering if the physical barrier is compromised. Additionally, HSMs are safeguarded against brute-force login attacks, with the system locking out Crypto Officers (COs) after a set number of unsuccessful access attempts. Similarly, repeated unsuccessful attempts to access an HSM with Crypto User (CU) credentials result in the user being locked out, requiring a CO to unlock them. Unlocking a CO user requires getChallenge, signing the challenge with your PO.key using OpenSSL, followed by unlockCO and changePswd commands.
+          Azure Cloud HSM incorporates both physical and logical tamper detection and response mechanisms that initiate key deletion (zeroization) of the hardware. These measures are designed to detect tampering if the physical barrier is compromised. Additionally, HSMs are safeguarded against brute-force login attacks, with the system locking out Crypto Officers (COs) after a set number of unsuccessful access attempts. Similarly, repeated unsuccessful attempts to access an HSM with Crypto User (CU) credentials result in the user being locked out, requiring a CO to unlock them. Unlocking a CO user requires getChallenge, signing the challenge with your PO.key using OpenSSL, followed by unlockCO and changePswd commands. For more information about security features, see [Secure your Azure Cloud HSM](secure-cloud-hsm.md).
   
   - name: Support  
     questions:  
       - question: |-  
           How do I get support for Azure Cloud HSM?
         answer: |-  
-          All support for Azure Cloud HSM is facilitated exclusively through Microsoft. If you encounter any issues related to hardware, software, HSM configuration, or network access, submit a support request to Microsoft.
+          All support for Azure Cloud HSM is facilitated exclusively through Microsoft. If you encounter any issues related to hardware, software, HSM configuration, or network access, submit a support request to Microsoft. For more information about common issues and solutions, see [Troubleshoot Azure Cloud HSM](troubleshoot.md).
       - question: |-  
           How are the HSMs used in Azure Cloud HSM protected?
         answer: |-  
-          Azure datacenters have extensive physical and procedural security controls. Additionally, Azure Cloud HSMs are hosted in a restricted access area of the datacenter with physical access controls and video camera surveillance for added security.
+          Azure datacenters have extensive physical and procedural security controls. Additionally, Azure Cloud HSMs are hosted in a restricted access area of the datacenter with physical access controls and video camera surveillance for added security. For more information about physical security, see [Secure your Azure Cloud HSM](secure-cloud-hsm.md).
       - question: |-  
           Can Microsoft recover my keys if I lose my credentials to my HSM?
         answer: |-  
-          No, Microsoft doesn't have access to your keys or credentials and cannot recover your keys if you lose your credentials.
+          No, Microsoft doesn't have access to your keys or credentials and cannot recover your keys if you lose your credentials. For more information about credential management, see [User management in Azure Cloud HSM](user-management.md).
       - question: |-  
           Does Azure Cloud HSM have scheduled maintenance windows?
         answer: |-  
-          No, although Microsoft might need to perform maintenance for necessary upgrades or faulty hardware. We notify customers in advance if any impact is anticipated.
+          No, although Microsoft might need to perform maintenance for necessary upgrades or faulty hardware. We notify customers in advance if any impact is anticipated. For more information about operational considerations, see [Secure your Azure Cloud HSM](secure-cloud-hsm.md).
       - question: |-  
           What is the SLA for Azure Cloud HSM?  
         answer: |-  
-          For SLAs, see [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+          For SLAs, see [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services). For more information about service reliability, see [What is Azure Cloud HSM?](overview.md).
 
 
