@@ -39,7 +39,7 @@ Proper identity and authentication management is crucial for securing access to 
 
 - **Implement strong authentication for HSM access**: Configure the HSM to use strong authentication mechanisms for all accounts. Be aware of the different thresholds for login attempts across different roles to avoid accidental zeroization. For more information, see [Failed Logins](troubleshoot.md#failed-logins).
 
-- **Limit local authentication methods**: Avoid using local authentication methods or accounts wherever possible. These should be disabled when not required to reduce the attack surface. For more information, see [Local Authentication Methods for Data Plane Access](azure-dedicated-hsm-security-baseline.md).
+- **Limit local authentication methods**: Avoid using local authentication methods or accounts wherever possible. These should be disabled when not required to reduce the attack surface. For more information, see [Failed Logins](troubleshoot.md#failed-logins).
 
 - **Be cautious with credential management**: Store HSM credentials securely according to your organization's policies. Both shell and HSM credentials should be protected, as loss of credentials can result in complete loss of access and key material. For more information, see [Lost Credentials](troubleshoot.md#lost-credentials).
 
@@ -75,7 +75,7 @@ Protecting the cryptographic keys and sensitive data stored in your HSM is the p
 
 - **Ensure secure key transport**: When transferring keys between HSMs or to backup devices, use secure key wrapping techniques to protect the keys during transit. For more information, refer to the Thales documentation available through the [Thales customer support portal](https://supportportal.thalesgroup.com/csm).
 
-- **Enable encrypted communications**: Ensure that all communications with the HSM use secure, encrypted channels. The HSM supports data-in-transit encryption by default. For more information, see [Data in Transit Encryption](azure-dedicated-hsm-security-baseline.md#dp-3-encrypt-sensitive-data-in-transit).
+- **Enable encrypted communications**: Ensure that all communications with the HSM use secure, encrypted channels. The HSM supports data-in-transit encryption by default. For more information, see [Networking](networking.md#connecting-your-on-premises-it-to-azure).
 
 - **Properly zeroize HSMs before deprovisioning**: Before requesting deprovisioning of an HSM, ensure you've properly zeroized the device to remove all key material. This can be done by getting the HSM admin password wrong three times or using the appropriate zeroization commands. For more information, see [How to delete an HSM resource](troubleshoot.md#how-to-delete-an-hsm-resource).
 
@@ -103,7 +103,7 @@ Keeping your HSM devices updated with the latest security patches is important f
 
 ## Next steps
 
-- Review the [Azure Dedicated HSM security baseline](azure-dedicated-hsm-security-baseline.md) for additional security recommendations
+- Review the [Azure Dedicated HSM security baseline](/azure/baselines/azure-dedicated-hsm-security-baseline) for additional security recommendations
 - Learn about [high availability](high-availability.md) configurations for Azure Dedicated HSM
 - Understand [networking considerations](networking.md) for Azure Dedicated HSM
 - Explore [monitoring options](monitoring.md) for Azure Dedicated HSM
