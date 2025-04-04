@@ -68,6 +68,11 @@
   - name: Azure Payment HSM traffic inspection
     href: inspect-traffic.md
 
+- name: Security
+  items:
+  - name: Scure your Payment HSM
+    href: secure-payment-hsm.md
+
 - name: Support
   items:
   - name: Azure Payment HSM service support guide
