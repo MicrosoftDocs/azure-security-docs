@@ -13,7 +13,7 @@ ms.custom: horz-security
 
 Azure Dedicated HSM provides cryptographic key storage in Azure with FIPS 140-2 Level 3-validated devices and complete customer control of the HSM appliance. As this service handles your most sensitive cryptographic keys and operations, implementing strong security controls is essential to protect these critical resources.
 
-This article provides guidance on how to best secure your Azure Dedicated HSM deployment. Following these recommendations will help you maintain a strong security posture and protect your cryptographic assets.
+This article provides guidance on how to best secure your Azure Dedicated HSM deployment. Following these recommendations help you maintain a strong security posture and protecting your cryptographic assets.
 
 ## Network security
 
@@ -37,7 +37,7 @@ Proper identity and authentication management is crucial for securing access to 
 
 - **Change default passwords immediately after provisioning**: When you first access a newly provisioned HSM device, change the default "tenant admin" password to a strong, complex password. Store this password securely following your organization's credential management policies. Losing this password could require device reset and loss of key material.
 
-- **Implement strong authentication for HSM access**: Configure the HSM to use strong authentication mechanisms for all accounts. Be aware of the different thresholds for login attempts across different roles to avoid accidental zeroization. For more information, see [Failed Logins](troubleshoot.md#failed-logins).
+- **Implement strong authentication for HSM access**: Configure the HSM to use strong authentication mechanisms for all accounts. Be aware of the different thresholds for sign in attempts across different roles to avoid accidental zeroization. For more information, see [Failed Logins](troubleshoot.md#failed-logins).
 
 - **Limit local authentication methods**: Avoid using local authentication methods or accounts wherever possible. These should be disabled when not required to reduce the attack surface. For more information, see [Failed Logins](troubleshoot.md#failed-logins).
 
@@ -49,11 +49,11 @@ Controlling privileged access to HSM devices is essential for maintaining the se
 
 - **Apply least privilege principle to HSM roles**: Assign the minimum necessary permissions to users through the HSM's role-based system. Use separate accounts for administrative tasks (HSM SO), partition management (Partition SO), and cryptographic operations (Crypto Officer, Crypto User). For more information, see the [Thales Luna 7 HSM Documentation](https://thalesdocs.com/gphsm/luna/7.2/docs/network/Content/Home_network.htm).
 
-- **Be aware of role lockout thresholds**: Understand the different thresholds for failed login attempts across HSM roles. For example, the HSM SO role is zeroized after 3 failed attempts, while the Partition SO role is zeroized after 10 failed attempts. For more information, see [Failed Logins](troubleshoot.md#failed-logins).
+- **Be aware of role lockout thresholds**: Understand the different thresholds for failed sign in attempts across HSM roles. For example, the HSM SO role is zeroized after three failed attempts, while the Partition SO role is zeroized after 10 failed attempts. For more information, see [Failed Logins](troubleshoot.md#failed-logins).
 
 - **Monitor and audit privileged access**: Configure logging to track all administrative and privileged operations performed on the HSM. Monitor these logs regularly to detect unauthorized access attempts or suspicious activities. For more information, see [Customer monitoring](monitoring.md#customer-monitoring).
 
-- **Disable Microsoft's monitor account if required**: While Microsoft uses a non-administrative "monitor" role to retrieve basic telemetry for device health, you can disable this account if your security requirements demand complete isolation. Be aware that this means Microsoft will have no visibility into device health issues. For more information, see [Microsoft monitoring](monitoring.md#microsoft-monitoring).
+- **Disable Microsoft's monitor account if required**: While Microsoft uses a nonadministrative "monitor" role to retrieve basic telemetry for device health, you can disable this account if your security requirements demand complete isolation. Be aware that this means Microsoft will have no visibility into device health issues. For more information, see [Microsoft monitoring](monitoring.md#microsoft-monitoring).
 
 ## Logging and monitoring
 
@@ -103,7 +103,7 @@ Keeping your HSM devices updated with the latest security patches is important f
 
 ## Next steps
 
-- Review the [Azure Dedicated HSM security baseline](/azure/baselines/azure-dedicated-hsm-security-baseline) for additional security recommendations
+- Review the [Azure Dedicated HSM security baseline](/security/benchmark/azure/baselines/azure-dedicated-hsm-security-baseline) for additional security recommendations
 - Learn about [high availability](high-availability.md) configurations for Azure Dedicated HSM
 - Understand [networking considerations](networking.md) for Azure Dedicated HSM
 - Explore [monitoring options](monitoring.md) for Azure Dedicated HSM
