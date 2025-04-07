@@ -63,17 +63,21 @@ Logging and threat detection help you monitor access and operations on your Mana
 
 - **Enable audit logging**: Configure diagnostic settings to enable audit logging for your Managed HSM. Logs capture all authenticated REST API requests, key operations, and security domain actions. Logs can be sent to an Azure storage account, Log Analytics workspace, or Event Hubs. For more details, see [Managed HSM logging](logging.md).
 
-- **Set up alerts for critical events**: Configure Azure Monitor alerts to notify you of critical events, such as failed access attempts or unusual activity. Alerts can be based on metrics or log queries. For more details, see [Configure Managed HSM alerts](logging-azure-monitor.md#alerts).
-
 - **Analyze logs with Azure Monitor**: Use Azure Monitor to collect and analyze logs from your Managed HSM. Logs can be queried using Log Analytics and visualized in dashboards or workbooks. For more details, see [Monitor Azure Managed HSM](logging-azure-monitor.md).
 
 - **Retain logs for compliance and investigations**: Ensure that logs are retained for an appropriate duration to meet compliance requirements and support forensic investigations. Use Azure Monitor Log Analytics retention policies to manage log storage. For more details, see [Log retention in Azure Monitor](logging-azure-monitor.md#data-storage).
+
+- **Set up alerts for critical events**: Configure alerts to notify you of critical events, such as failed access attempts or unusual activity. Use Azure Monitor to create static or dynamic alert rules based on metrics or log queries. For more details, see [Configure Managed HSM alerts](configure-alerts.md).
+
+- **Integrate with Microsoft Sentinel**: Use Microsoft Sentinel to detect and respond to potential threats. Set up Sentinel to monitor Managed HSM logs and create custom analytic rules for sensitive operations. For more details, see [Setting up Microsoft Sentinel for Azure Managed HSM](sentinel.md).
 
 ## Backup and recovery
 
 Backup and recovery helps you protect against accidental or malicious data loss by ensuring proper backup and retention policies.
 
 - **Create regular HSM and key-level backups**: Schedule backups of the HSM and individual keys to prevent data loss. For more details, see [Full backup and restore](backup-restore.md).
+
+- **Prepare for disaster recovery**: Follow disaster recovery procedures to replicate HSMs in case of catastrophic failure. Ensure you have the security domain, private keys, and the most recent backup to restore the HSM. For more details, see [Disaster recovery guide](disaster-recovery-guide.md).
 
 - **Turn on purge protection**: Enable purge protection to prevent permanent deletion of the HSM or its keys before the retention period expires. For more details, see [Soft-delete overview](soft-delete-overview.md).
 
