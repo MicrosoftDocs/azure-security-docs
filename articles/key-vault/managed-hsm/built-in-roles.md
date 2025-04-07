@@ -13,9 +13,9 @@ ms.author: mbaldwin
 ---
 # Local RBAC built-in roles for Managed HSM
 
-Azure Managed HSM local role-based access control (RBAC) has several built-in roles. This article provides a reference for these roles and the operations they permit.
+Azure Managed HSM local role-based access control (RBAC) has several built-in roles. You can assign these roles to users, service principals, groups, and managed identities. This article provides a reference for these roles and the operations they permit.
 
-To allow a principal to perform an operation, you must assign them a role that grants them permissions to perform that operations. All these roles and operations allow you to manage permissions only for *data plane* operations. For *control plane* operations, seesee [Azure built-in roles](/azure/role-based-access-control/built-in-roles) and [Access control for Managed HSM: Control plane and Azure RBAC](access-control.md#control-plane-and-azure-rbac).
+To allow a principal to perform an operation, you must assign them a role that grants them permissions to perform that operations. All these roles and operations allow you to manage permissions only for *data plane* operations. For *control plane* operations, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles) and [Access control for Managed HSM: Control plane and Azure RBAC](access-control.md#control-plane-and-azure-rbac).
 
 To manage control plane permissions for the Managed HSM resource, you must use [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview). Some examples of control plane operations are to create a new managed HSM, or to update, move, or delete a managed HSM.
 

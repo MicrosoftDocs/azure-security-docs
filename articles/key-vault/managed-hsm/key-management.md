@@ -40,7 +40,7 @@ az login
 For more information on sign in options via the CLI, see [sign in with Azure CLI](/cli/azure/authenticate-azure-cli)
 
 > [!NOTE]
-> All the commands following commands show two usage methods. One using `--hsm-name` and `--name` (for key name) parameters and another using `--id` parameter where you can specify the entire url including the key name where appropriate. The latter method is useful when the caller (a user or an application) has no read access on the management plane and only restricted access on the data plane.
+> All the commands following commands show two usage methods. One using `--hsm-name` and `--name` (for key name) parameters and another using `--id` parameter where you can specify the entire url including the key name where appropriate. The latter method is useful when the caller (a user or an application) has no read access on the control plane and only restricted access on the data plane.
 
 > [!NOTE]
 > Some interactions with key material require specific Local RBAC permissions. For a full list of built-in Local RBAC roles and permissions, see [Managed HSM local RBAC built-in roles](./built-in-roles.md). To assign these permissions to a user, see [Secure access to your managed HSMs](./how-to-secure-access.md)
