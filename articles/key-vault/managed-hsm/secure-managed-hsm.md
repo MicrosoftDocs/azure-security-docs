@@ -64,7 +64,7 @@ Logging and threat detection help you monitor access and operations on your Mana
 - **Enable audit logging**: Configure diagnostic settings to enable audit logging for your Managed HSM. Logs capture all authenticated REST API requests, key operations, and security domain actions. Logs can be sent to an Azure storage account, Log Analytics workspace, or Event Hubs. For more details, see [Managed HSM logging](logging.md).
 
 - **Set up alerts for critical events**: Configure Azure Monitor alerts to notify you of critical events, such as failed access attempts or unusual activity. Alerts can be based on metrics or log queries. For more details, see [Configure Managed HSM alerts](logging-azure-monitor.md#alerts).
-- 
+
 - **Analyze logs with Azure Monitor**: Use Azure Monitor to collect and analyze logs from your Managed HSM. Logs can be queried using Log Analytics and visualized in dashboards or workbooks. For more details, see [Monitor Azure Managed HSM](logging-azure-monitor.md).
 
 - **Retain logs for compliance and investigations**: Ensure that logs are retained for an appropriate duration to meet compliance requirements and support forensic investigations. Use Azure Monitor Log Analytics retention policies to manage log storage. For more details, see [Log retention in Azure Monitor](logging-azure-monitor.md#data-storage).
@@ -86,8 +86,6 @@ Backup and recovery helps you protect against accidental or malicious data loss 
 Posture and vulnerability management provides guidance on how to use policy enforcement tools to maintain security compliance across your environment.
 
 - **Use Azure Policy to enforce configuration compliance**: Define and apply [Azure Policy](/azure/governance/policy/overview) rules to audit or block insecure configurations. Integrate with [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) and [Azure Monitor](/azure/azure-monitor/fundamentals/overview) for visibility. For more details, see [Create and manage policies](/azure/governance/policy/tutorials/create-and-manage).
-
-
 
 ## Next steps
 
