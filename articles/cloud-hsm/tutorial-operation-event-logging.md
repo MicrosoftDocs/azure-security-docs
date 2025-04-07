@@ -31,12 +31,12 @@ In this tutorial, you:
 > [!IMPORTANT]
 > To maintain security and privacy, logging excludes sensitive details such as key IDs, key names, and other identifiable information related to keys, users, or sessions. Logs capture the HSM operation performed, the time of the operation, and relevant HSM metadata.
 >
-> Azure Cloud HSM operation event logging can't determine whether an HSM operation succeeded or failed. It can only log the fact that the operation was executed. This limitation exists during the preview because the HSM operation occurs within the inner TLS channel, which is not exposed outside that boundary.
+> Azure Cloud HSM operation event logging can't determine whether an HSM operation succeeded or failed. It can only log the fact that the operation was executed. This limitation exists during the preview of the service because the HSM operation occurs within the inner TLS channel, which is not exposed outside that boundary.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free).
-- An Azure Cloud HSM resource that you deployed, initialized, and configured. For information about SDK installation and Azure Cloud HSM configuration, refer to the [Azure Cloud HSM onboarding guide](onboarding-guide.md).
+- An Azure Cloud HSM resource that you deployed, initialized, and configured. For information, refer to the [Azure Cloud HSM onboarding guide](onboarding-guide.md).
 
 ## Set up and configure operation event logs
 

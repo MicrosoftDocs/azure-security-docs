@@ -43,7 +43,7 @@ For Cloud HSM provisioning, initialization, and configuration, use these guides:
 
 ## Deploy Cloud HSM
 
-The following example code creates a resource group and a Cloud HSM instance. When you're using the example code, update the subscription, resource group, location, and hardware security module (HSM) name to a unique resource name. If you specify an HSM resource name that already exists in the chosen region, your deployment fails.
+The following example code creates a resource group and a Cloud HSM instance. Update the subscription, resource group, location, and hardware security module (HSM) names. The HSM name must be unique. If you specify an HSM resource name that already exists in the chosen region, your deployment fails.
 
 We recommend deploying your Cloud HSM resources in a separate resource group from your related client virtual network and virtual machine resources.
 
@@ -66,7 +66,7 @@ New-AzResource @server -AsJob -Verbose
 
 ## Delete resources
 
-Other integration guides, tutorials, and quickstarts for Cloud HSM build on this tutorial. If you plan to work with that documentation, you might want to keep the resources that you created in this tutorial.
+Other integration guides, tutorials, and quickstarts for Azure Cloud HSM build on this tutorial. If you plan to work with that documentation, you might want to keep the resources that you created in this tutorial.
 
 When you no longer need the resource group and all related resources, you can use the `az group delete command` to remove them:
 
