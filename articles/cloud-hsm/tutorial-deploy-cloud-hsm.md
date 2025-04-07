@@ -17,7 +17,7 @@ ms.author: keithp
 
 # Tutorial: Deploy Azure Cloud HSM
 
-This tutorial walks you through the process of deploying Azure Cloud HSM into a virtual network. For an overview of the service, see [What is Azure Cloud HSM?](overview.md).
+This tutorial walks you through the process of deploying Azure Cloud HSM Preview into a virtual network. For an overview of the service, see [What is Azure Cloud HSM?](overview.md).
 
 In this tutorial, you:
 
@@ -26,8 +26,6 @@ In this tutorial, you:
 > * Provision, initialize, and configure a Cloud HSM instance.
 > * Create and deploy a resource group and a Cloud HSM instance.
 > * Delete resources that you no longer need.
-
-Cloud HSM is in preview.
 
 ## Prerequisites
 

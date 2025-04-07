@@ -13,7 +13,7 @@ ms.author: mbaldwin
 
 # Tutorial: Backup and restore Azure Cloud HSM resources
 
-Azure Cloud HSM lets you back up and restore your hardware security module (HSM) in a way that preserves all keys, versions, attributes, tags, and role assignments.
+Azure Cloud HSM Preview lets you back up and restore your hardware security module (HSM) in a way that preserves all keys, versions, attributes, tags, and role assignments.
 
 In this tutorial, you:
 
@@ -40,11 +40,11 @@ Azure Cloud HSM doesn't support:
 
 ## Apply a managed identity and create a storage account
 
-Use the code in the following sections to apply a managed identity to Cloud HSM and create a storage account for HSM backups.
+Use the code in the following sections to apply a managed identity to Azure Cloud HSM and create a storage account for HSM backups.
 
 ### Create a managed identity
 
-Create a new user-assigned managed identity in your existing Cloud HSM resource group. In this tutorial, you can use `CHSM-MSI` as the name of the managed identity and `CHSM-SERVER-RG` as the name of the resource group. `CHSM-SERVER-RG` is the name that [Azure Cloud HSM onboarding guide](onboarding-guide.md) uses as an example resource group.
+Create a new user-assigned managed identity in your existing Azure Cloud HSM resource group. In this tutorial, you can use `CHSM-MSI` as the name of the managed identity and `CHSM-SERVER-RG` as the name of the resource group. `CHSM-SERVER-RG` is the name that the [Azure Cloud HSM onboarding guide](onboarding-guide.md) uses as an example resource group.
 
 ```azurepowershell-interactive
 # Define parameters for the new managed identity
@@ -61,10 +61,10 @@ New-AzUserAssignedIdentity -Name $identity.ResourceName -ResourceGroupName $iden
 
 ### Apply the managed identity to Cloud HSM resources
 
-For Cloud HSM backup and restore operations, you must apply a managed identity to both your source and destination Cloud HSM resources.
+For Azure Cloud HSM backup and restore operations, you must apply a managed identity to both your source and destination Cloud HSM resources.
 
 > [!NOTE]
-> For this tutorial, the destination Cloud HSM resource must be in the `NotActivated` state.
+> The destination Cloud HSM resource must be in the `NotActivated` state.
 
 Each Cloud HSM cluster can have only one managed identity. You can use the same managed identity for both the source and destination, or you can use a different managed identity for each. The example in this tutorial applies the same managed identity to both the source and destination Cloud HSM resources.
 
@@ -223,7 +223,7 @@ New-AzRoleAssignment -RoleDefinitionName $roleAssignment.RoleDefinitionName `
 
 Disable shared key access to enhance security:
 
-1. In the Azure portal, go your Azure Storage account.
+1. In the Azure portal, go your Azure storage account.
 1. Select **Settings** > **Configuration**.
 1. Set **Allow storage account key access** to **Disabled**.
 
@@ -231,7 +231,7 @@ Disable shared key access to enhance security:
 
 Start a backup for your source Cloud HSM resource by sending a `POST` request with the storage container URI to the backup API endpoint. Monitor the backup's progress by sending a `GET` request to the URL in the response headers.
 
-The following script retrieves and shows the backup job status and unique backup ID from the response. The status confirms that the backup started and tracks its progress.
+The following script retrieves and shows the backup job status and the unique backup ID from the response. The status confirms that the backup started and tracks its progress.
 
 ```azurepowershell-interactive
 # Define backup properties, including the URI for the Azure Blob Storage container
@@ -315,9 +315,9 @@ After some processing time, the restore operation should indicate `Succeeded`, a
     getClusterInfo  
     ```
 
-    **Expected output**: `getClusterInfo` should confirm that all three nodes are now available for your Cloud HSM cluster.
+    **Expected output**: `getClusterInfo` should confirm that all three nodes are now available for your Azure Cloud HSM cluster.
 
-3. Close the management tool, and then open the Cloud HSM tool (`azcloudhsm_util`). Sign in as `CU` and run the `findKey` command.
+3. Close the management tool, and then open the Azure Cloud HSM tool (`azcloudhsm_util`). Sign in as `CU` and run the `findKey` command.
 
     > [!IMPORTANT]
     > Key handles can change because they're dynamic. However, key IDs don't change.
