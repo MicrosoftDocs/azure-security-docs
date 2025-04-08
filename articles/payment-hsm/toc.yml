@@ -70,7 +70,7 @@
 
 - name: Security
   items:
-  - name: Scure your Payment HSM
+  - name: Secure your Payment HSM
     href: secure-payment-hsm.md
 
 - name: Support
