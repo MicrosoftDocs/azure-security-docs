@@ -164,7 +164,7 @@ az keyvault role definition create --hsm-name ContosoMHSM --role-definition '{
 
 ## Delete custom role definition
 
-Use the Azure CLI [az keyvault role definition delete](/cli/azure/keyvault/role/definition?view=azure-cli-latest#az-keyvault-role-definition-delete) command to delete a custom role definition using name (a GUID).
+Use the Azure CLI [az keyvault role definition delete](/cli/azure/keyvault/role/definition#az-keyvault-role-definition-delete) command to delete a custom role definition using name (a GUID).
 
 ```azurecli-interactive
 az keyvault role definition delete --hsm-name ContosoMHSM --name xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
