@@ -89,7 +89,7 @@ Backup and recovery helps you protect against accidental or malicious data loss 
 
 Posture and vulnerability management provides guidance on how to use policy enforcement tools to maintain security compliance across your environment.
 
-- **Use Azure Policy to enforce configuration compliance**: Define and apply [Azure Policy](/azure/governance/policy/overview) rules to audit or block insecure configurations. Integrate with [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) and [Azure Monitor](/azure/azure-monitor/fundamentals/overview) for visibility. For more details, see [Create and manage policies](/azure/governance/policy/tutorials/create-and-manage).
+- **Use Azure Policy to enforce configuration compliance**: Define and apply [Azure Policy](/azure/governance/policy/overview) rules to audit or block insecure configurations.  For more details, see [Integrate Azure Managed HSM with Azure Policy](/azure/key-vault/managed-hsm/azure-policy).
 
 ## Next steps
 
