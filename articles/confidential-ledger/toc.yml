@@ -68,6 +68,12 @@ items:
       href: /sql/relational-databases/security/ledger/ledger-overview?branch=sql
     - name: Create a managed application to store blob digests
       href: create-blob-managed-app.md
+- name: Security
+  items:
+  - name: Secure Confidential Ledger
+    items:
+    - name: Secure your Confidential Ledger 
+      href: secure-confidential-ledger.md
 - name: References
   items:
   - name: FAQ
