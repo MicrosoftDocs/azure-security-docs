@@ -38,7 +38,7 @@ items:
   - name: Backup and restore and selective key restore
     href: backup-restore.md
   - name: Secure access to your Managed HSM
-    href: secure-your-managed-hsm.md
+    href: how-to-secure-access.md
   - name: Use private endpoints
     href: private-link.md
   - name: Monitoring and logging
@@ -66,10 +66,13 @@ items:
     href: mhsm-control-data.md
   - name: Key sovereignty, availability, performance, and scalability
     href: managed-hsm-technical-details.md
+
+- name: Security
+  items:
+  - name: Secure your managed HSM
+    href: secure-managed-hsm.md
   - name: Security domain overview
     href: security-domain.md
-  - name: Best practices for securing Managed HSM
-    href: best-practices.md
   - name: Access control
     href: access-control.md
   - name: Local RBAC built-in roles
@@ -104,6 +107,7 @@ items:
   - name: Resource Manager template
     href: /azure/templates/microsoft.keyvault/allversions
     displayName: ARM
+
 
 - name: Resources
   items:

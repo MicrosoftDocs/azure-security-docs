@@ -2,10 +2,13 @@
 title: Best Practices for Securing Microsoft Azure Cloud HSM
 description: Learn the best practices for securing and managing Microsoft Azure Cloud HSM to protect cryptographic keys and sensitive workloads.
 author: msmbaldwin
-ms.service: azure-dedicated-hsm
+ms.service: azure-cloud-hsm
 ms.topic: conceptual
 ms.date: 03/20/2025
+ai-usage: ai-assisted
+ms.custom: horz-security
 ms.author: mbaldwin
+
 #Customer intent: As a Cloud HSM administrator, I want to learn how to secure and optimize my Cloud HSM deployment.
 ---
 
@@ -84,7 +87,9 @@ Authentication is a crucial aspect of securely accessing and operating within Az
 
 ## Business continuity and disaster recovery  
 
-- **Deploy disaster recovery tactics**: Microsoft Azure Cloud HSM provides high availability by clustering HSMs, synchronizing keys/policies, and auto-migrating partitions in the event of failure. Periodic backups support recovery, but BCDR best practices recommend deploying in two regions for failover. Use `extractMaskedObject` to extract keys as encrypted blobs, store them securely, and back up your HSM regularly. In case of a regional outage, restore the latest backup available to you in another region and import the maskedObjects (`insertMaskedObject`) as needed to ensure business continuity.  
+- **Implement robust backup and disaster recovery**: Azure Cloud HSM provides high availability through clustered HSMs that synchronize keys and policies while automatically migrating partitions during failures. The service supports comprehensive backup and restore operations that preserve all keys, attributes, and role assignments, with backups secured by HSM-derived keys that Microsoft cannot access. For disaster recovery, use managed service identities for authentication, store backups in private Azure Blob Storage, implement minimal RBAC permissions, and disable shared key access. Note that Azure Cloud HSM doesn't support restoring to already activated HSMs. For detailed implementation instructions and additional recovery options like extracting keys as encrypted blobs, see [Backup and restore in Azure Cloud HSM](backup-restore.md).
+
+  Additional recovery options include using `extractMaskedObject` to extract keys as encrypted blobs, storing them securely, and importing them with `insertMaskedObject` as needed. BCDR best practices recommend deploying in two regions for failover capability.
 
 ## Next steps
 

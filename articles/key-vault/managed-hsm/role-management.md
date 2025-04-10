@@ -1,5 +1,5 @@
 ---
-title: Managed HSM data plane role management - Azure Key Vault | Microsoft Docs
+title: Managed HSM data plane role management
 description: Use this article to manage role assignments for your managed HSM. 
 services: key-vault
 author: msmbaldwin
@@ -13,11 +13,11 @@ ms.author: mbaldwin
 # Managed HSM role management
 
 > [!NOTE]
-> Key Vault supports two types of resource: vaults and managed HSMs. This article is about **Managed HSM**. If you want to learn how to manage a vault, please see [Manage Key Vault using the Azure CLI](../general/manage-with-cli2.md).
+> Key Vault supports two types of resource: vaults and managed HSMs. This article is about **Managed HSM**. If you want to learn how to manage a vault, see [Manage Key Vault using the Azure CLI](../general/manage-with-cli2.md).
 
-For an overview of Managed HSM, see [What is Managed HSM?](overview.md). If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+This article provides practical instructions for managing roles and role assignments for a Managed HSM using the Azure CLI. It implements the role-based access control model described in [Access control for Managed HSM](access-control.md) using the built-in roles documented in [Local RBAC built-in roles for Managed HSM](built-in-roles.md).
 
-This article shows you how to manage roles for a Managed HSM data plane. To learn about Managed HSM access control model, see [Managed HSM access control](access-control.md).
+For an overview of Managed HSM, see [What is Managed HSM?](overview.md). If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 To allow a security principal (such as a user, a service principal, group or a managed identity) to perform managed HSM data plane operations, they must be assigned a role that permits performing those operations. For example, if you want to allow an application to perform a sign operation using a key, it must be assigned a role that contains the "Microsoft.KeyVault/managedHSM/keys/sign/action" as one of the data actions. A role can be assigned at a specific scope. Managed HSM local RBAC supports two scopes, HSM-wide (`/` or `/keys`) and per key (`/keys/<keyname>`).
 
@@ -41,7 +41,7 @@ To sign in to Azure using the CLI you can type:
 az login
 ```
 
-For more information on login options via the CLI, see [sign in with Azure CLI](/cli/azure/authenticate-azure-cli)
+For more information on sign in options via the CLI, see [sign in with Azure CLI](/cli/azure/authenticate-azure-cli)
 
 ## Create a new role assignment
 
@@ -164,14 +164,14 @@ az keyvault role definition create --hsm-name ContosoMHSM --role-definition '{
 
 ## Delete custom role definition
 
-Use `az keyvault role definition delete` command to see details of a specific role definition using name (a GUID). 
+Use the Azure CLI [az keyvault role definition delete](/cli/azure/keyvault/role/definition#az-keyvault-role-definition-delete) command to delete a custom role definition using name (a GUID).
+
 ```azurecli-interactive
 az keyvault role definition delete --hsm-name ContosoMHSM --name xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 > [!NOTE]
 > Built-in roles cannot be deleted. When custom roles are deleted, all the role assignments using that custom role become defunct.
-
 
 ## Next steps
 

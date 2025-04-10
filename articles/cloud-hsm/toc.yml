@@ -12,6 +12,8 @@ items:
     href: tutorial-deploy-cloud-hsm.md
   - name: Operation event logging
     href: tutorial-operation-event-logging.md
+  - name: Backup and restore
+    href: backup-restore.md
 
 - name: How-to guides
   items:
@@ -19,7 +21,6 @@ items:
     href: onboarding-guide.md
   - name: Azure Cloud HSM Integration Guides
     href: integration-guides.md
-
 - name: Security and best practices
   items:
   - name: Secure your Cloud HSM
