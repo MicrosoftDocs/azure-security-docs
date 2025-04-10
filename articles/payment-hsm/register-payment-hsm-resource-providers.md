@@ -34,7 +34,7 @@ az feature registration create --namespace "Microsoft.Network" --name "FastPathE
 ```
 
 > [!IMPORTANT]
-> After registering the "FastPathEnabled" feature flag, you **must** contact the [Azure Payment HSM support team](support-guide.md#microsoft-support) team to have your registration approved.  In your message to Microsoft support, include your subscription ID.  If multiple subsciptions must connect with the payment HSM, you must include **all** the subscriopts IDs.
+> After registering the "FastPathEnabled" feature flag, you **must** contact the [Azure Payment HSM support team](support-guide.md#microsoft-support) team to have your registration approved.  In your message to Microsoft support, include your subscription ID.  If multiple subsciptions must connect with the payment HSM, you must include **all** the subscription IDs.
 
 You can verify that your registrations are complete with the Azure CLI [az provider show](/cli/azure/provider#az-provider-show) command. (The output of this command is more readable if you display it in table-format.)
 
