@@ -183,4 +183,5 @@ Now you are ready to call the application endpoints and submit transactions.
 
 In this tutorial, you deployed a custom JavaScript application into a confidential ledger instance. To learn more about Azure confidential ledger and how to integrate it with your applications, continue on to these articles.
 
+- [Simple User Defined Functions in Azure Confidential Ledger](simple-user-defined-function.md)
 - [Overview of Microsoft Azure confidential ledger](overview.md)

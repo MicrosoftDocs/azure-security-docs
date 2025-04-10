@@ -59,7 +59,7 @@ GET /app/userDefinedFunctions/myFunction
 GET /app/userDefinedFunctions
 ```
 
-### Delete UDF
+### Delete a UDF
 
 ```http
 DELETE /app/userDefinedFunctions/myFunction
@@ -577,3 +577,4 @@ HTTP/1.1 200 OK
 ## Related content
 
 - [Advanced User Defined Functions in Azure Confidential Ledger](./advanced-user-defined-function.md)
+- [Overview of Microsoft Azure confidential ledger](overview.md)
