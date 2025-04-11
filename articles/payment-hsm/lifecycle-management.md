@@ -6,7 +6,7 @@ author: msmbaldwin
 
 ms.service: azure-payment-hsm
 ms.topic: article
-ms.date: 07/23/2024
+ms.date: 04/10/2024
 ms.author: mbaldwin
 
 ---
@@ -51,7 +51,7 @@ If a situation arises where a customer allocated HSM is unresponsive, open a sup
 
 There are two methods of rebooting:  
 
-- **Soft Reboot:** The Engineering group can issue an Out of Band (OOB) request to the device for it to initiate a restart and can quickly verify via Service Audit Logs that it was successful. This option can be exercised shortly after a request via Customer Support. Note that there are some circumstances (device network issues, device hard-lock) that would prevent the HSM from receiving this request.  
+- **Soft Reboot:** The Engineering group can issue an Out of Band (OOB) request to the device for it to initiate a restart and can quickly verify via Service Audit Logs that it was successful. This option can be exercised shortly after a request via Customer Support. There are some circumstances (device network issues, device hard-lock) that would prevent the HSM from receiving this request.  
 
 - **Hard Reboot:** The Engineering group can request on-site datacenter personnel physically interact with the HSM to reboot it. This option can take longer time depending on severity of the impact. We highly recommend customer to discuss with support and engineering group to evaluate the impact, and determine whether customer should create a new HSM to move forward or wait for the hard reboot.  
 
@@ -61,9 +61,9 @@ Customer Data Impact: In either method, customer data should be unaffected by a 
 
 There are two methods to deallocate/delete an HSM:  
 
-- **Normal Delete:** In this process the customer can Release the HSM via the payShield Manager before deleting the HSM in Azure. This process checks/ensures that the HSM is released (and therefore all customer content/secrets are removed) before it is handed back to Microsoft and will block if that check fails. After the customer releases the HSM they should retry the request. See [Tutorial: Remove a commissioned payment HSM](remove-payment-hsm.md?tabs=azure-cli).
+- **Normal Delete:** In this process the customer can Release the HSM via the payShield Manager before deleting the HSM in Azure. This process checks/ensures that the HSM is released (and therefore all customer content/secrets are removed) before it is handed back to Microsoft and will block if that check fails. After the customer releases the HSM, they should retry the request. See [Tutorial: Remove a commissioned payment HSM](remove-payment-hsm.md?tabs=azure-cli).
 
-- **Force delete:** If the customer is unable to Release the HSM before deletion (due to unresponsive device, etc.) the Engineering group, with a documented request from the customer, can set a flag that bypasses the Release check. In this case, when the HSM is deleted the automated management system performs an OOB "Reclaim" request, which issues a "Release" command on behalf of the previous customer and clears all customer content (data, logs, etc.).  
+- **Force delete:** If the customer is unable to Release the HSM before deletion (due to unresponsive device, etc.) the Engineering group, with a documented request from the customer, can set a flag that bypasses the Release check. In this case, when the HSM is deleted, the automated management system performs an OOB "Reclaim" request, which issues a "Release" command on behalf of the previous customer and clears all customer content (data, logs, etc.).  
 
 Customer Data Impact: In either method, customer data is irrevocably removed by the "Release Device" command.  
 
