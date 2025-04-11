@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-payment-hsm
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: overview
-ms.date: 01/30/2024
+ms.date: 04/10/2025
 ms.author: mbaldwin
 ---
 # How to reuse an existing virtual network
@@ -70,7 +70,7 @@ $myPHSMSubnetConfig = New-AzVirtualNetworkSubnetConfig -Name "myPHSMSubnet" -Add
 ```
 
 > [!NOTE]
-> The New-AzVirtualNetworkSubnetConfig cmdlet will generate a warning, which you can safely ignore.
+> The New-AzVirtualNetworkSubnetConfig cmdlet generates a warning, which you can safely ignore.
 
 Add the new subnet, along with the 'fastpathenabled="True"' tag, to the $vnet variable:
 

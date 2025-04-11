@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.topic: tutorial
 ms.custom:
-ms.date: 04/10/2024
+ms.date: 04/10/2025
 ---
 
 # Tutorial: View your payment HSMs
