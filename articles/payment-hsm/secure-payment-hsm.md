@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.service: azure-payment-hsm
 ms.topic: conceptual
-ms.date: 07/25/2024
+ms.date: 04/10/2025
 ms.custom: horz-security
 ---
 

@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-payment-hsm
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: article
-ms.date: 01/30/2024
+ms.date: 04/10/2025
 ms.author: mbaldwin
 ---
 
