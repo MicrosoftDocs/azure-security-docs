@@ -13,7 +13,7 @@ ms.date: 04/10/2025
 
 Simple User Defined Functions is a new feature in Azure Confidential Ledger that allows you to create custom JavaScript functions that can be executed inside the ledger trust boundary. This feature is designed to be simple and easy to use, allowing you to extend the functionality of the ledger API without the need for complex application development.
 
-Using the [built-in JavaScript API](https://microsoft.github.io/CCF/main/build_apps/js_app_bundle.html#javascript-api), you can run custom code in an isolated environment and execute arbitrary workflows - some examples include reading and writing data to the ledger, running queries, performing conditional checks, and more. This feature is suitable for scenarios where you need a direct integration with the existing ledger API or run lightweight custom logic in a confidential environment.  
+Using the [built-in JavaScript API](https://microsoft.github.io/CCF/main/build_apps/js_app_bundle.html#javascript-api), you can run custom code to achieve various tasks, such as custom queries and computations, conditional checks, post-processing tasks, and more. This feature is suitable for scenarios where you need a direct integration with the existing ledger API or run lightweight custom logic in a confidential environment.
 
 ## Use cases
 
@@ -31,49 +31,9 @@ Simple User Defined Functions (UDFs) in Azure Confidential Ledger allow you to e
 
 * The User Defined Function API is available from [Azure Confidential Ledger API version `2024-12-09-preview`](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/confidentialledger/data-plane/Microsoft.ConfidentialLedger/preview/2024-12-09-preview). Make sure to specify this version in the `api-version` query parameter when calling the ledger API.
 
-## Managing UDFs
-
-A UDF is defined as a JavaScript code script identified by a unique ID. A dedicated CRUD API is provided to create, read, update, and delete UDFs as separate entities. The UDF entities are securely stored in the ledger and are accessible only to the ledger application. 
-
-### Create or update a UDF
-
-```http
-PUT /app/userDefinedFunctions/myFunction
-{
-    "code": "export function main() { return 1+1; }",
-}
-```
-
-> [!IMPORTANT]
-> Administrator role is required to create or update a UDF.
-
-### Get a UDF
-
-```http
-GET /app/userDefinedFunctions/myFunction
-```
-
-### List UDFs
-
-```http
-GET /app/userDefinedFunctions
-```
-
-### Delete a UDF
-
-```http
-DELETE /app/userDefinedFunctions/myFunction
-```
-
-> [!IMPORTANT]
-> Administrator role is required to delete a UDF.
-
-> [!NOTE]
-> Deleting a UDF only removes the entity from the current state of the ledger. Any deleted UDF is always retained in the immutable ledger history (as any committed transaction). 
-
 ## Writing UDFs 
 
-This section describes how to write a well-formatted UDF and use the JavaScript API for achieving different functionalities.
+An Azure Confidential Ledger UDF is an entity stored in the ledger with a unique ID and contains the JavaScript code that is executed when the UDF is called. This section describes how to write UDF code and use the JavaScript API for achieving different tasks.
 
 ### Function structure
 
@@ -115,7 +75,7 @@ The JavaScript code of a UDF is executed inside a sandbox environment that provi
 All the [JavaScript standard global functions, objects, and values](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects) can be used. A global object called `ccf` can be used to access specific functionalities and utilities provided by the [Confidential Consortium Framework (CCF)](https://microsoft.github.io/CCF/main/) (for example, cryptography helper functions, ledger tables accessors, etc.). The full API of the `ccf` global object is documented [here](https://microsoft.github.io/CCF/main/js/ccf-app/interfaces/global.CCF.html).
 
 You can also access contextual information of the current request by using the `context` global object. This object provides access to the request metadata that originated the function execution (`context.request`) and the user ID of the function caller (`context.userId`). For transaction hooks, the collection ID and the transaction contents associated to the write operation are also added to the `context` object (`context.collectionId` and `context.contents` respectively). 
-
+ 
 The following snippet shows some basic examples of the use of the JavaScript API:
 
 ```javascript
@@ -164,15 +124,55 @@ export function main(args) {
 }
 ```
 
-> [!NOTE]
-> Importing modules isn't supported in UDFs. The JavaScript code must be self-contained and can't rely on external libraries or modules.
+> [!TIP]
+> For more information on how ledger maps can be used to store and retrieve data, see [the CCF documentation on the Key-Value Store API](https://microsoft.github.io/CCF/main/build_apps/kv/kv_how_to.html).
 
 > [!NOTE]
-> [Web APIs](https://developer.mozilla.org/en-US/docs/Web/API) aren't supported.
+> Importing modules isn't supported in UDFs. The JavaScript code must be self-contained and can't rely on external libraries or modules. [Web APIs](https://developer.mozilla.org/en-US/docs/Web/API) aren't supported.
+
+## Managing UDFs
+
+Azure Confidential Ledger applications provide a dedicated CRUD API to create, read, update, and delete UDF entities. UDFs are securely stored in the ledger and are accessible only to the ledger application. 
+
+### Create or update a UDF
+
+```http
+PUT /app/userDefinedFunctions/myFunction
+{
+    "code": "export function main() { return "Hello World"; }",
+}
+```
+
+> [!IMPORTANT]
+> Administrator role is required to create or update a UDF.
+
+### Get a UDF
+
+```http
+GET /app/userDefinedFunctions/myFunction
+```
+
+### List UDFs
+
+```http
+GET /app/userDefinedFunctions
+```
+
+### Delete a UDF
+
+```http
+DELETE /app/userDefinedFunctions/myFunction
+```
+
+> [!IMPORTANT]
+> Administrator role is required to delete a UDF.
+
+> [!NOTE]
+> Deleting a UDF only removes the entity from the current state of the ledger. Any deleted UDF is always retained in the immutable ledger history (as any committed transaction). 
 
 ## Running UDFs 
 
-Once a UDF is created, it can be executed either as a standalone function or as a transaction hook associated to a write operation. Each UDF execution runs on a separate runtime environment and sandbox, meaning that the UDF execution is isolated from other UDFs or other ledger operations.
+Once created, Azure Confidential Ledger users can execute a UDF either as a standalone function or as a transaction hook associated to a write operation. Each UDF execution runs on a separate runtime environment and sandbox, meaning that the UDF execution is isolated from other UDFs or other ledger operations.
 
 The UDF execution can be controlled using optional properties that can be specified in the request body. The properties currently supported are:
 
@@ -194,7 +194,7 @@ The UDF execution can be controlled using optional properties that can be specif
 
 ### Standalone Functions
 
-A UDF can be directly executed using the `POST /app/userDefinedFunctions/{functionId}:execute` endpoint. 
+A UDF can be directly executed using the `POST /app/userDefinedFunctions/{functionId}:execute` API. 
 
 ```http
 POST /app/userDefinedFunctions/myFunction:execute
@@ -338,7 +338,7 @@ If a pre-hook or post-hook fails, the entire transaction is aborted. In that cas
 
 ## Examples
 
-This section walks through some practical examples of how to use UDFs in Azure Confidential Ledger. For the following example scenarios, we assume to use Azure Confidential Ledger to store banking transactions for different banking users.
+This section walks through some practical examples of how to use UDFs in Azure Confidential Ledger. For the following example scenarios, we assume using Azure Confidential Ledger to store banking transactions for different bank users.
 
 ### Context
 
@@ -544,11 +544,11 @@ HTTP/1.1 200 OK
 
 ## Considerations
 
-* Transaction hooks are currently only supported for the `POST /app/transactions` endpoint when creating a new entry to the ledger.
+* Transaction hooks are currently only supported for the `POST /app/transactions` API, when adding a new entry to the ledger.
 
 * UDFs and hooks are always executed on the primary replica of the ledger, to ensure transaction ordering and strong consistency.
 
-* UDF code is wrapped under a single transaction. If the JavaScript logic in a UDF completes without any exceptions, all the operations within the transaction are committed to the ledger. If any exception is thrown, the entire transactions are rolled back. Similarly, pre-hooks and post-hooks are executed in the context of the write transaction they're registered to. If a pre-hook or a post-hook fails, the write transaction is aborted and no new entry is added to the ledger.
+* UDF code execution is always wrapped in a single atomic transaction. If the JavaScript logic in a UDF completes without any exceptions, all the operations within the UDF are committed to the ledger. If any exception is thrown, the entire transactions are rolled back. Similarly, pre-hooks and post-hooks are executed in the same context of the write operation they're registered to. If a pre-hook or a post-hook fails, the entire transaction is aborted and no entry is added to the ledger.
 
 * UDFs can only access CCF application tables and can't access [the ledger's internal and governance tables](https://microsoft.github.io/CCF/main/audit/read_write_restrictions.html#table-namespaces) or other [built-in tables](https://microsoft.github.io/CCF/main/audit/builtin_maps.html) for security reasons. The ledger tables where entries are written to (`public:confidentialledger.logs` for public ledgers and `private:confidentialledger.logs` for private ledgers) are read-only.
 
@@ -562,7 +562,7 @@ HTTP/1.1 200 OK
 
     * To delete all the existing UDFs, you can list all the UDFs (`GET /app/userDefinedFunctions`) and delete them one by one (`DELETE /app/userDefinedFunctions/{functionId}`).
     
-    * To apply a [JavaScript application bundle](./advanced-user-defined-function.md#deploy-the-application) with empty modules and endpoints definitions, you can use the `PUT /app/userDefinedEndpoints` endpoint with the following request body:
+    * To apply a [JavaScript application bundle](./advanced-user-defined-function.md#deploy-the-application) with empty modules and endpoints definitions, you can use the `PUT /app/userDefinedEndpoints` API with the following request body:
 
     ```json
     {
