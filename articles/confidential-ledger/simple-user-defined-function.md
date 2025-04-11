@@ -381,7 +381,6 @@ Using the pre-hook in the write request, it's possible to enforce that the input
 
 ```http
 POST /app/transactions?collectionId=Mark
-
 {
     "contents": "This is not a number",
     "preHooks": [
