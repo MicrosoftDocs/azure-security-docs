@@ -51,7 +51,7 @@ az group create --name <ResourceGroupName> --location <RegionName>
 az storage account create --name <StorageAccountName> --resource-group <ResourceGroupName> --location <RegionName> --sku Standard_LRS --kind StorageV2
 ```
 
-### Create a log analytics workspace
+### Create a Log Analytics workspace
 
 To create a Log Analytics workspace for storing and analyzing HSM logs, use the following command:
 
