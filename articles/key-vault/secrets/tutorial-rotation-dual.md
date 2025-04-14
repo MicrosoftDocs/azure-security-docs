@@ -7,7 +7,8 @@ tags: 'rotation'
 ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: tutorial
-ms.date: 01/30/2024
+ms.date: 04/14/2025
+
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
