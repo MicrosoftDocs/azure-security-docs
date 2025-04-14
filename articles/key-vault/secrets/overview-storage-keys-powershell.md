@@ -6,7 +6,8 @@ ms.service: azure-key-vault
 ms.subservice: secrets
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 01/11/2023
+ms.date: 04/14/2025
+
 ms.custom: devx-track-azurepowershell
 
 # Customer intent: As a developer I want storage credentials and SAS tokens to be managed securely by Azure Key Vault.
