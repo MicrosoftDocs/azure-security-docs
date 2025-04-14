@@ -556,13 +556,13 @@ HTTP/1.1 200 OK
 
 * UDF and hook execution is limited to 5 seconds. If a function takes longer than 5 seconds to execute, the operation is aborted and an error is returned.
 
-* Simple UDFs and [Advanced UDFs](./advanced-user-defined-function.md) are mutually exclusive features. This means you can't create or run UDFs if you previously defined a JavaScript application bundle. Similarly, if you defined a UDF, you can't create a JavaScript application bundle. 
+* Simple UDFs and [Advanced UDFs](./advanced-user-defined-function.md) are mutually exclusive features. This means you can't create or run simple UDFs if you previously defined Advanced UDFs, and vice versa. 
 
-    You can switch between the two features by deleting all the existing UDFs or applying a JavaScript application bundle with empty modules and endpoints definitions.
+    You can switch between the two features by deleting all the existing simple UDFs or defining Advanced UDFs with empty modules and endpoints definitions.
 
-    * To delete all the existing UDFs, you can list all the UDFs (`GET /app/userDefinedFunctions`) and delete them one by one (`DELETE /app/userDefinedFunctions/{functionId}`).
+    * To delete all the existing simple UDFs, you can list all the UDFs (`GET /app/userDefinedFunctions`) and delete them one by one (`DELETE /app/userDefinedFunctions/{functionId}`).
     
-    * To apply a [JavaScript application bundle](./advanced-user-defined-function.md#deploy-the-application) with empty modules and endpoints definitions, you can use the `PUT /app/userDefinedEndpoints` API with the following request body:
+    * To set [Advanced UDFs](./advanced-user-defined-function.md#deploy-the-application) with empty modules and endpoints definitions, you can use the `PUT /app/userDefinedEndpoints` API with the following request body:
 
     ```json
     {
