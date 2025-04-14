@@ -128,7 +128,7 @@ export function main(args) {
 > For more information on how ledger maps can be used to store and retrieve data, see [the CCF documentation on the Key-Value Store API](https://microsoft.github.io/CCF/main/build_apps/kv/kv_how_to.html).
 
 > [!NOTE]
-> Importing modules isn't supported in UDFs. The JavaScript code must be self-contained and can't rely on external libraries or modules. [Web APIs](https://developer.mozilla.org/en-US/docs/Web/API) aren't supported.
+> Importing modules isn't supported in UDFs. The JavaScript code must be self-contained and can't rely on external libraries or modules. [Web APIs](https://developer.mozilla.org/en-US/docs/Web/API) also aren't supported at the moment.
 
 ## Managing UDFs
 
