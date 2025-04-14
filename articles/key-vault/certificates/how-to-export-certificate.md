@@ -26,17 +26,17 @@ Azure Key Vault allows you to easily provision, manage, and deploy digital certi
 
 When a Key Vault certificate is created, an addressable *key* and *secret* are created that have the same name. The Key Vault key allows key operations. The Key Vault secret allows retrieval of the certificate value as a secret. A Key Vault certificate also contains public x509 certificate metadata. Go to [Composition of a certificate](./about-certificates.md#composition-of-a-certificate) for more information.
 
-### Exportable and non-exportable keys
+### Exportable and nonexportable keys
 
 After a Key Vault certificate is created, you can retrieve it from the addressable secret with the private key. Retrieve the certificate in PFX or PEM format.
 
 - **Exportable**: The policy used to create the certificate indicates the key is exportable.
-- **Non-exportable**: The policy used to create the certificate indicates the key is non-exportable. In this case, the private key isn't part of the value when it's retrieved as a secret.
+- **Non-exportable**: The policy used to create the certificate indicates the key is nonexportable. In this case, the private key isn't part of the value when it is retrieved as a secret.
 
 Supported keytypes: RSA, RSA-HSM, EC, EC-HSM, oct (listed [here](/rest/api/keyvault/certificates/create-certificate/create-certificate#jsonwebkeytype))
-Exportable is only allowed with RSA, EC. HSM keys would be non-exportable.
+Exportable is only allowed with RSA, EC. HSM keys would be nonexportable.
 
-See [About Azure Key Vault certificates](./about-certificates.md#exportable-or-non-exportable-key) for more information.
+For or information, see [About Azure Key Vault certificates](./about-certificates.md#exportable-or-non-exportable-key) for more information.
 
 ## Export stored certificates
 
@@ -61,7 +61,7 @@ az keyvault certificate download --file
 
 View [examples and parameter definitions](/cli/azure/keyvault/certificate#az-keyvault-certificate-download) for more information.
 
-Downloading as certificate means getting the public portion. If you want both the private key and public metadata then you can download it as secret.
+When you download as a certificate, you receive the public portion. If you want both the private key and public metadata, download it as secret.
 
 ```azurecli
 az keyvault secret download --file {nameofcert.pfx}
@@ -92,7 +92,7 @@ Set-Content -Path cert.pfx -Value $certBytes -AsByteStream
 
 ```
 
-This command exports the entire chain of certificates with private key (i.e. the same as it was imported). The certificate is password protected.
+This command exports the entire chain of certificates with private key (that is, the same as it was imported). The certificate is password protected.
 
 For more information on the **Get-AzKeyVaultCertificate** command and parameters, see [Get-AzKeyVaultCertificate - Example 2](/powershell/module/az.keyvault/Get-AzKeyVaultCertificate).
 
