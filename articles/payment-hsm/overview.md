@@ -6,7 +6,7 @@ author: msmbaldwin
 
 ms.service: azure-payment-hsm
 ms.topic: overview
-ms.date: 01/30/2024
+ms.date: 04/10/2025
 ms.author: mbaldwin
 ---
 # What is Azure Payment HSM?

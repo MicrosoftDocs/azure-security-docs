@@ -5,6 +5,11 @@
       "redirect_url": "/azure/key-vault/general/soft-delete-overview",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/key-vault/managed-hsm/secure-your-managed-hsm.md",
+      "redirect_url": "/azure/key-vault/managed-hsm/how-to-secure-access",
+      "redirect_document_id": false
+    },
   {
     "source_path_from_root": "/articles/key-vault/about-keys-secrets-and-certificates.md",
     "redirect_url": "/azure/key-vault/general/about-keys-secrets-certificates",
@@ -521,13 +526,13 @@
     "redirect_document_id": false
   },
   {
-    "source_path_from_root": "/articles/key-vault/vs-secure-secret-appsettings.md",
-    "redirect_url": "/previous-versions/azure/key-vault/vs-secure-secret-appsettings",
+    "source_path_from_root": "/articles/key-vault/managed-hsm/best-practices.md",
+    "redirect_url": "/azure/key-vault/managed-hsm/secure-managed-hsm",
     "redirect_document_id": false
   },
   {
-    "source_path_from_root": "/articles/key-vault/managed-hsm/key-attestation.md",
-    "redirect_url": "/azure/key-vault/managed-hsm/overview",
+    "source_path_from_root": "/articles/key-vault/vs-secure-secret-appsettings.md",
+    "redirect_url": "/previous-versions/azure/key-vault/vs-secure-secret-appsettings",
     "redirect_document_id": false
   }
 ]

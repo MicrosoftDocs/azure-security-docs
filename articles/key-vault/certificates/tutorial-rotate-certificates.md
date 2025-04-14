@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Updating certificate auto-rotation frequency in Key Vault | Microsoft Docs
-description: Tutorial showing how to update a certificate's auto-rotation frequency in Azure Key Vault using the Azure portal
+title: Tutorial - Updating certificate autorotation frequency in Key Vault | Microsoft Docs
+description: Tutorial showing how to update a certificate's autorotation frequency in Azure Key Vault using the Azure portal
 services: key-vault
 author: msmbaldwin
 
@@ -8,13 +8,14 @@ ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/30/2024
+ms.date: 04/14/2025
+
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure.
 ---
-# Tutorial: Configure certificate auto-rotation in Key Vault
+# Tutorial: Configure certificate autorotation in Key Vault
 
-You can easily provision, manage, and deploy digital certificates by using Azure Key Vault. The certificates can be public and private Secure Sockets Layer (SSL)/Transport Layer Security (TLS) certificates signed by a certificate authority (CA), or a self-signed certificate. Key Vault can also request and renew certificates through partnerships with CAs, providing a robust solution for certificate lifecycle management. In this tutorial, you'll update a certificate's validity period, auto-rotation frequency, and CA attributes.
+You can easily provision, manage, and deploy digital certificates by using Azure Key Vault. The certificates can be public and private Secure Sockets Layer (SSL)/Transport Layer Security (TLS) certificates signed by a certificate authority (CA), or a self-signed certificate. Key Vault can also request and renew certificates through partnerships with CAs, providing a robust solution for certificate lifecycle management. In this tutorial, you update a certificate's validity period, autorotation frequency, and CA attributes.
 
 The tutorial shows you how to:
 
@@ -43,7 +44,7 @@ Create a key vault using one of these three methods:
 
 ## Create a certificate in Key Vault
 
-Create a certificate or import a certificate into the key vault (see [Steps to create a certificate in Key Vault](../certificates/quick-create-portal.md). In this case, you'll work on a certificate called **ExampleCertificate**.
+Create a certificate or import a certificate into the key vault (see [Steps to create a certificate in Key Vault](../certificates/quick-create-portal.md). In this case, you work on a certificate called **ExampleCertificate**.
 
 ## Update certificate lifecycle attributes
 
@@ -52,7 +53,7 @@ In Azure Key Vault, you can update a certificate's lifecycle attributes both at 
 A certificate created in Key Vault can be:
 
 - A self-signed certificate.
-- A certificate created with a CA that's partnered with Key Vault.
+- A certificate created with a CA that is partnered with Key Vault.
 - A certificate with a CA that isn't partnered with Key Vault.
 
 The following CAs are currently partnered providers with Key Vault:
@@ -60,7 +61,7 @@ The following CAs are currently partnered providers with Key Vault:
 - DigiCert: Key Vault offers OV or EV TLS/SSL certificates.
 - GlobalSign: Key Vault offers OV or EV TLS/SSL certificates.
 
-Key Vault auto-rotates certificates through established partnerships with CAs. Because Key Vault automatically requests and renews certificates through the partnership, auto-rotation capability isn't applicable for certificates created with CAs that aren't partnered with Key Vault.
+Key Vault autorotates certificates through established partnerships with CAs. Because Key Vault automatically requests and renews certificates through the partnership, autorotation capability isn't applicable for certificates created with CAs that aren't partnered with Key Vault.
 
 > [!NOTE]
 > An account admin for a CA provider creates credentials that Key Vault uses to create, renew, and use TLS/SSL certificates.
@@ -74,11 +75,11 @@ Key Vault auto-rotates certificates through established partnerships with CAs. B
 1. On the **Create a certificate** screen, update the following values:
 
    - **Validity Period**: Enter the value (in  months). Creating short-lived certificates is a recommended security practice. By default, the validity value of a newly created certificate is 12 months.
-   - **Lifetime Action Type**: Select the certificate's auto-renewal and alerting action and then update **percentage lifetime** or **Number of days before expiry**. By default, a certificate's auto-renewal is set at 80 percent of its lifetime. From the drop-down menu, select one of the following options.
+   - **Lifetime Action Type**: Select the certificate's autorenewal and alerting action and then update **percentage lifetime** or **Number of days before expiry**. By default, a certificate's autorenewal is set at 80 percent of its lifetime. From the drop-down menu, select one of the following options.
 
       |  Automatically renew at a given time| Email all contacts at a given time |
       |-----------|------|
-      |Selecting this option will *turn on* autorotation. | Selecting this option will *not* auto-rotate but will only alert the contacts.|
+      |Selecting this option *turns on* autorotation. | Selecting this option will *not* autorotate but will only alert the contacts.|
       
       You can learn about [setting up Email contact here](./overview-renew-certificate.md#get-notified-about-certificate-expiration)
 
@@ -90,7 +91,7 @@ Key Vault auto-rotates certificates through established partnerships with CAs. B
 
 1. Select the key vault.
 1. On the Key Vault properties pages, select **Certificates**.
-1. Select the certificate you want to update. In this case, you'll work on a certificate called **ExampleCertificate**.
+1. Select the certificate you want to update. In this case, you work on a certificate called **ExampleCertificate**.
 1. Select **Issuance Policy** from the top menu bar.
 
    ![Screenshot that highlights the Issuance Policy button.](../media/certificates/tutorial-rotate-cert/cert-issuance-policy.png)
@@ -98,14 +99,14 @@ Key Vault auto-rotates certificates through established partnerships with CAs. B
 1. On the **Issuance Policy** screen, update the following values:
 
    - **Validity Period**: Update the value (in  months).
-   - **Lifetime Action Type**: Select the certificate's auto-renewal and alerting action and then update the **percentage lifetime** or **Number of days before expiry**.
+   - **Lifetime Action Type**: Select the certificate's autorenewal and alerting action and then update the **percentage lifetime** or **Number of days before expiry**.
 
    ![Certificate properties](../media/certificates/tutorial-rotate-cert/cert-policy-change.png)
 
 1. Select **Save**.
 
 > [!IMPORTANT]
-> Changing the Lifetime Action Type for a certificate will record modifications for the existing certificates immediately.
+> Changing the Lifetime Action Type for a certificate records modifications for the existing certificates immediately.
 
 
 ### Update certificate attributes by using PowerShell

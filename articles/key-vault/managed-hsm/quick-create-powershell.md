@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell, mode-api
 ---
 # Quickstart: Provision and activate a Managed HSM using PowerShell
 
-In this quickstart, you create and activate an Azure Key Vault Managed HSM (Hardware Security Module) with PowerShell. Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using **FIPS  140-2 Level 3** validated HSMs. For more information on Managed HSM, you may review the [Overview](overview.md).
+In this quickstart, you create and activate an Azure Key Vault Managed HSM (Hardware Security Module) with PowerShell. Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using **FIPS 140-2 Level 3** validated HSMs. For more information on Managed HSM, you may review the [Overview](overview.md).
 
 ## Prerequisites
 
