@@ -1,10 +1,5 @@
-{
+ {
   "redirections": [
-    {
-      "source_path_from_root": "/articles/confidential-ledger/register-ledger-service-principal.md",
-      "redirect_url": "/azure/confidential-ledger/overview",
-      "redirect_document_id": false
-    },
     {
       "source_path_from_root": "/articles/defender-for-cloud/kubeaudit-events-advanced-hunting.md",
       "redirect_url": "/defender-xdr/investigate-respond-container-threats",
