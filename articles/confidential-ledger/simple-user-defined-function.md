@@ -192,7 +192,7 @@ The UDF execution can be controlled using optional properties that can be specif
 
     * `return_exception_details`: a boolean value that specifies whether to return exception details in the response. The default value is `true`. 
 
-### Standalone Functions
+### Standalone functions
 
 A UDF can be directly executed using the `POST /app/userDefinedFunctions/{functionId}:execute` API. 
 
@@ -245,7 +245,7 @@ If the UDF failed, the response includes the error message with the detailed sta
 > [!IMPORTANT]
 > Contributor role is required to execute a UDF.
 
-### Transaction Hooks
+### Transaction hooks
 
 A UDF can alternatively be executed as a hook _before_ (**pre-hook**) or _after_ (**post-hook**) an entry is written to the ledger as part of the ledger write API (`POST /app/transactions`). Hooks run in the same context of the write operation; this means that any data written to the ledger by the hooks is automatically included in the same write transaction.
 
