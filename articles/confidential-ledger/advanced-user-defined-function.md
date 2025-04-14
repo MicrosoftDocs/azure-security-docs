@@ -10,12 +10,12 @@ ms.topic: how-to
 
 # Advanced user defined function
 
-Advanced user defined function allows custom code to execute in the same Trusted Execution Environment (TEE) as the ledger. This extends the benefits of confidentiality and integrity guarantee to the custom code. Also, it supports custom Role Based Access Control (RBAC) for authorization.
+Advanced user defined function allows custom code to execute in the same Trusted Execution Environment (TEE) as the ledger. This feature extends the benefits of confidentiality and integrity guarantee to the custom code. Also, it supports custom Role Based Access Control (RBAC) for authorization.
 
-A few scenarios that would benefit fom this feature are as follows:
+A few scenarios that would benefit from this feature are as follows:
 
  - **Data analysis and aggregation**: Sensitive information can be processed in the TEE and aggregated information can be shared with the stakeholders.
- - **Protecting confidential information**: Confidential information like PII, credit score, and health information can be shared with other confidential workloads after attestation.
+ - **Protecting confidential information**: Confidential information like personal data, credit score, and health information can be shared with other confidential workloads after attestation.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ A few scenarios that would benefit fom this feature are as follows:
 
 [!INCLUDE [Ensure subscription owner](./includes/ensure-subscription-owner.md)]
 
-This tutorial assumes that you have created a ledger instance. You can create one using the [Azure portal](quickstart-portal.md), [Azure CLI](quickstart-cli.md), or [Azure PowerShell](quickstart-powershell.md).
+This tutorial assumes that you created a ledger instance. You can create one using the [Azure portal](quickstart-portal.md), [Azure CLI](quickstart-cli.md), or [Azure PowerShell](quickstart-powershell.md).
 
 ## Developing applications
 
@@ -33,7 +33,7 @@ Ledger applications are developed using TypeScript and rolled-up into a JavaScri
 > Only Administrators can deploy applications and manage custom RBAC in the ledger.
 > The rest of the section assumes that an Administrator executes the commands.
 
-We will use the banking application available at the azureconfidentialledger-app-samples repo (https://github.com/microsoft/azureconfidentialledger-app-samples) to demostrate the feature.
+We use the banking application available at the azureconfidentialledger-app-samples repo (https://github.com/microsoft/azureconfidentialledger-app-samples) to demonstrate the feature.
 
 > [!NOTE]
 > The banking application exposes APIs for commonly used banking scenarios like opening accounts, depositing and transferring funds using custom roles and actions.
@@ -41,7 +41,7 @@ We will use the banking application available at the azureconfidentialledger-app
 ## Sign in to Azure
 
 > [!NOTE]
-> Confidential Ledger supports Microsoft Entra ID out-of-the-box. If your application integrates with other identity providers, contact customer support to have it configured in the ledger.
+> Confidential Ledger supports Microsoft Entra ID out-of-the-box. If your application integrates with other identity providers, contact customer support to configure it in the ledger.
 
 Obtain a Microsoft Entra ID token.
 
@@ -65,7 +65,7 @@ Copy the raw token value from the output.
 
 ## Download the ledger identity
 
-A ledger is uniquely identified by a certificate called the service certificate. It is used to establish a secure connection to the ledger. Download it from a well-known endpoint and save it to servicer_cert.pem.
+A ledger is uniquely identified by a certificate called the service certificate. It's used to establish a secure connection to the ledger. Download it from a well-known endpoint and save it to servicer_cert.pem.
 
 > [!NOTE]
 > `contoso` is the name of the ledger. Replace it with the appropriate ledger name.
@@ -96,7 +96,7 @@ curl $server_identity "https://contoso.confidential-ledger.azure.com/app/userDef
 
 ## Create roles and users
 
-The banking application uses two personas, namely, a 'manager' and a 'teller'. We will create roles and users to represent them.
+The banking application uses two personas, namely, a 'manager' and a 'teller'. We create roles and users to represent them.
 
 > [!NOTE]
 > Each user is represented by a unique certificate.
@@ -155,7 +155,7 @@ curl $server_identity "https://contoso.confidential-ledger.azure.com/app/ledgerU
 
 ## Update the runtime configuration (optional)
 
-The JavaScript runtime configuration can be updated by calling the /app/userDefinedEndpoints/runTimeOptions endpoint. To demonstrate it, let us set the maximum execution time to 2000 ms.
+The JavaScript runtime configuration can be updated by calling the /app/userDefinedEndpoints/runTimeOptions endpoint. To demonstrate it, let us set the maximum execution time to 2,000 ms.
 
 ```terminal
 apiVersion="2024-08-22-preview"
@@ -173,7 +173,7 @@ curl $server_identity -X PATCH "https://contoso.confidential-ledger.azure.com/ap
 curl $server_identity "https://contoso.confidential-ledger.azure.com/app/userDefinedEndpoints/runTimeOptions?api-version=$apiVersion" -H "$authorization"
 ```
 
-Now you are ready to call the application endpoints and submit transactions.
+Now you're ready to call the application endpoints and submit transactions.
 
 ## Clean up resources
 
