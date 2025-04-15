@@ -18,7 +18,7 @@ Azure Dedicated HSM demands a robust, secure networking infrastructure across al
 - Creating and connecting virtual networks for inter-connecting application resources and HSM devices
 - Connecting virtual networks across regions for inter-communication and also to enable high availability scenarios
 
-## Virtual network for your dedicated HSMs
+## Virtual network for your Dedicated HSMs
 
 Dedicated HSMs are integrated into a virtual network and placed in the customers' own private network in Azure. This enables access to the devices from virtual machines or compute resources in the virtual network.  
 For more information on integrating Azure services into the virtual network and the capabilities it provides, see [Virtual network for Azure services](/azure/virtual-network/virtual-network-for-azure-services) documentation.
