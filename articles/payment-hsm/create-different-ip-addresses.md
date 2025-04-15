@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell, devx-track-arm-template, devx-track-azurecli
-ms.date: 05/25/2023
+ms.date: 04/14/2025
 ---
 
 # Create a payment HSM with host and management port with IP addresses in different virtual networks using ARM template
