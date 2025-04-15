@@ -8,8 +8,7 @@ ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 04/14/2025
-
+ms.date: 02/20/2024
 ms.author: mbaldwin
 ---
 

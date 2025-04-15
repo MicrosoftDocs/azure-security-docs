@@ -7,8 +7,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 ms.author: mbaldwin
 author: msmbaldwin
-ms.date: 04/14/2025
-
+ms.date: 02/20/2024
 ---
 
 # Managed HSM soft-delete and purge protection
