@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.topic: tutorial
 ms.custom: mvc, devx-track-azurecli
 ms.service: azure-dedicated-hsm
-ms.date: 02/20/2024
+ms.date: 04/15/2025
 ms.author: mbaldwin
 ---
 
