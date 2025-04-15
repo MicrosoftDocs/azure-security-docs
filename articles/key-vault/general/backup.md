@@ -7,7 +7,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 01/30/2024
+ms.date: 04/15/2025
 ms.author: mbaldwin
 #Customer intent: As an Azure Key Vault administrator, I want to back up a secret, key, or certificate in my key vault.
 ---
