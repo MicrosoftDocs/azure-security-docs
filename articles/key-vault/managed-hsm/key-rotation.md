@@ -1,5 +1,5 @@
 ---
-title: Configure key auto-rotation in Azure Key Vault Managed HSM
+title: Configure key autorotation in Azure Key Vault Managed HSM
 description: Use this guide to learn how to configure automated the rotation of a key in Azure Key Vault Managed HSM
 services: key-vault
 author: msmbaldwin
@@ -11,16 +11,16 @@ ms.date: 04/14/2025
 
 ms.author: mbaldwin
 ---
-# Configure key auto-rotation in Azure Managed HSM
+# Configure key autorotation in Azure Managed HSM
 
 ## Overview
 
 > [!NOTE]
-> Key auto-rotation requires the [Azure CLI version 2.42.0 or above](/cli/azure/install-azure-cli).
-> 
-Automated key rotation in Managed HSM allows users to configure Managed HSM to automatically generate a new key version at a specified frequency. You can set a rotation policy to configure rotation for each individual key and optionally rotate keys on demand. Our recommendation is to rotate encryption keys at least every two years to meet cryptographic best practices. For additional guidance and recommendations, see [NIST SP 800-57 Part 1](https://csrc.nist.gov/publications/detail/sp/800-57-part-1/rev-5/final).
+> Key autorotation requires the [Azure CLI version 2.42.0 or above](/cli/azure/install-azure-cli).
 
-This feature enables end-to-end zero-touch rotation for encryption at rest for Azure services with customer-managed keys (CMK) stored in Azure Managed HSM. Please refer to specific Azure service documentation to see if the service covers end-to-end rotation.
+Automated key rotation in Managed HSM allows users to configure Managed HSM to automatically generate a new key version at a specified frequency. You can set a rotation policy to configure rotation for each individual key and optionally rotate keys on demand. Our recommendation is to rotate encryption keys at least every two years to meet cryptographic best practices. For more information and recommendations, see [NIST SP 800-57 Part 1](https://csrc.nist.gov/publications/detail/sp/800-57-part-1/rev-5/final).
+
+This feature enables end-to-end zero-touch rotation for encryption at rest for Azure services with customer-managed keys (CMK) stored in Azure Managed HSM. Refer to specific Azure service documentation to see if the service covers end-to-end rotation.
 
 ## Pricing
 
@@ -48,7 +48,7 @@ The key rotation policy allows users to configure rotation intervals and set the
 
 Key rotation policy settings:
 
--   Expiry time: key expiration interval (minimum 28 days). It is used to set expiration date on a newly rotated key (e.g. after rotation, the new key is set to expire in 30 days).
+-   Expiry time: key expiration interval (minimum 28 days). It is used to set expiration date on a newly rotated key (for example, after rotation, the new key is set to expire in 30 days).
 -   Rotation types:
     -   Automatically renew at a given time after creation
     -   Automatically renew at a given time before expiry. 'Expiration Date' must be set on the key for this event to fire.
