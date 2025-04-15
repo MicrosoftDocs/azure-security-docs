@@ -85,7 +85,7 @@ Evaluation of conditions list:
 
 The set of actions that are allowed in a policy:
 
-| Action Verb | Description | Policy sections to which these apply |
+| Action Verb | Description | Policy sections to which they apply |
 |--|--|--|
 | permit() | The incoming claim set can be used to compute **issuancerules**. Does not take any claim as a parameter. | **authorizationrules** |
 | deny() | The incoming claim set should not be used to compute **issuancerules** Does not take any claim as a parameter | **authorizationrules** |
