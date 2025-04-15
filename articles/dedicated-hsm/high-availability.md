@@ -5,12 +5,12 @@ services: dedicated-hsm
 author: msmbaldwin
 ms.topic: conceptual
 ms.service: azure-dedicated-hsm
-ms.date: 02/20/2024
+ms.date: 04/15/2025
 ms.author: mbaldwin
 ---
 # Azure Dedicated HSM high availability
 
-Azure Dedicated HSM is underpinned by Microsoft’s highly available datacenters. However, any highly available datacenter is vulnerable to localized failures and in extreme circumstances, regional level failures. Microsoft deploys HSM devices in different datacenters within a region to ensure provisioning multiple devices does not lead to those devices sharing a single rack. A further level of high availability can be achieved by pairing these HSMs across the datacenters in a region using the Thales HA Group feature. It is also possible to pair devices across regions to address regional failover in a disaster recovery situation. With this multi-layered high availability configuration, any device failure will be automatically addressed to keep applications working. All datacenters also have spare devices and components on-site so any failed device can be replaced in a timely fashion.
+Azure Dedicated HSM is underpinned by Microsoft's highly available datacenters. However, any highly available datacenter is vulnerable to localized failures and in extreme circumstances, regional level failures. Microsoft deploys HSM devices in different datacenters within a region to ensure provisioning multiple devices does not lead to those devices sharing a single rack. A further level of high availability can be achieved by pairing these HSMs across the datacenters in a region using the Thales HA Group feature. It is also possible to pair devices across regions to address regional failover in a disaster recovery situation. With this multi-layered high availability configuration, any device failure is automatically addressed to keep applications working. All datacenters also have spare devices and components on-site so any failed device can be replaced in a timely fashion.
 
 ## High availability example
 
@@ -23,7 +23,8 @@ The following diagram shows a highly available architecture. It uses multiple de
 ## Next steps
 
 It is recommended that all key concepts of the service, such as high availability and security, are well understood before device provisioning and application design or deployment.
-Further concept level topics:
+
+Further concept level articles:
 
 * [Deployment Architecture](deployment-architecture.md)
 * [Physical Security](physical-security.md)
@@ -31,4 +32,4 @@ Further concept level topics:
 * [Supportability](supportability.md)
 * [Monitoring](monitoring.md)
 
-For specific details on configuring HSM devices for high availability, please refer to the [Thales customer support portal](https://supportportal.thalesgroup.com/csm) for the Administrator Guides and see section 6.
+For specific details on configuring HSM devices for high availability, refer to the [Thales customer support portal](https://supportportal.thalesgroup.com/csm) for the Administrator Guides and see section 6.

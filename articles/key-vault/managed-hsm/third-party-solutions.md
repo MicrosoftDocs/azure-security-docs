@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: conceptual
-ms.date: 02/20/2022
+ms.date: 04/15/2025
 ms.author: mbaldwin
 
 ---
