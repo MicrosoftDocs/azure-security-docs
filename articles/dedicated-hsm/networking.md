@@ -54,8 +54,6 @@ A point-to-site Virtual Private Network is the simplest form of secure connectio
 
 ### Site-to-site VPN
 
-### Site-to-site VPN
-
 A site-to-site Virtual Private Network enables secure communication between Azure-based Dedicated HSMs and your on-premises IT infrastructure. Organizations often implement such connections when maintaining an on-premises backup facility for HSMs, as the secure tunnel supports necessary data transfers for backup operations between both environments.
 
 ## Connecting virtual networks
@@ -117,7 +115,7 @@ Since adding the NVA proxy solution also allows for an NVA firewall in the trans
 ### Alternative to UDRs
 The NVA tier solution mentioned works as an alternative to UDRs. There are some important points to note.
 1.	Network Address Translation should be configured on NVA to allow for return traffic to be routed correctly.
-2. Customers should disable the client ip-check in Luna HSM configuration to use VNA for NAT. The following commands servce as an example.
+2. Customers should disable the client ip-check in Luna HSM configuration to use VNA for NAT. The following commands serve as an example.
 
 ```
 Disable:

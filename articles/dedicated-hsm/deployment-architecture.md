@@ -3,7 +3,7 @@ title: Deployment architecture - Azure Dedicated HSM | Microsoft Docs
 description: Basic design considerations when using Azure Dedicated HSM as part of an application architecture
 services: dedicated-hsm
 author: msmbaldwin
-ms.custom: mvc
+ms.custom: mvc, references_regions
 ms.service: azure-dedicated-hsm
 ms.date: 04/15/2025
 ms.topic: how-to
