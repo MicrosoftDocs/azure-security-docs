@@ -7,7 +7,8 @@ ms.author: mbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: reference
-ms.date: 02/20/2024
+ms.date: 04/14/2025
+
 ---
  
 # Azure Managed HSM secure key release policy grammar
