@@ -6,7 +6,7 @@ ms.author: mbaldwin
 ms.service: security
 ms.topic: conceptual
 ms.custom: horz-security
-ms.date: 05/15/2023
+ms.date: 04/14/2025
 ---
 
 # Secure your Azure confidential ledger deployment

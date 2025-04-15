@@ -6,7 +6,8 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 02/07/2024
+ms.date: 04/14/2025
+
 ms.author: nkondamudi
 ms.custom: references_regions
 ---
