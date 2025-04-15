@@ -106,7 +106,7 @@ This networking design requires the following elements:
 
 Since adding the NVA proxy solution also allows for an NVA firewall in the transit/DMZ hub to be logically placed in front of the HSM NIC, thus providing the needed default-deny policies. In our example, we use the Azure Firewall for this purpose and need the following elements in place:
 1. An Azure Firewall deployed into subnet "AzureFirewallSubnet" in the DMZ hub VNet
-1. A Routing Table with a UDR that directs traffic headed to the Azure ILB private endpoint into the Azure Firewall. This Routing Table is applied to the GatewaySubnet where the customer [ExpressRoute Virtual Gateway](/azure/expressroute/1xpressroute-howto-add-gateway-portal-resource-manager) resides
+1. A Routing Table with a UDR that directs traffic headed to the Azure ILB private endpoint into the Azure Firewall. This Routing Table is applied to the GatewaySubnet where the customer [ExpressRoute Virtual Gateway](/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager) resides.
 3. Network security rules within the AzureFirewall to allow forwarding between a trusted source range and the Azure IBL private endpoint listening on TCP port 1792. This security logic adds the necessary "default deny" policy against the Dedicated HSM service. Meaning, only trusted source IP ranges are allowed into the Dedicated HSM service. All other ranges are dropped.  
 1. A Routing Table with a UDR that directs traffic headed to on-premises into the Azure Firewall. This Routing Table is applied to the NVA proxy subnet. 
 1. An NSG applied to the Proxy NVA subnet to trust only the subnet range of the Azure Firewall as a source, and to only allow forwarding to the HSM NIC IP address over TCP port 1792.
