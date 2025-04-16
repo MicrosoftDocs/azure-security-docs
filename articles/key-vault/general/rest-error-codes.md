@@ -7,7 +7,7 @@ ms.author: mbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: reference
-ms.date: 02/20/2024
+ms.date: 04/16/2025
 ---
  
 # Azure Key Vault REST API Error Codes
