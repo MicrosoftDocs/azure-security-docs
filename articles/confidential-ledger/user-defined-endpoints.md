@@ -18,7 +18,7 @@ A few scenarios that would benefit from this feature are as follows:
  - **Protecting confidential information**: Confidential information like personal data, credit score, and health information can be shared with other confidential workloads after attestation.
 
 > [!IMPORTANT]
-> User defined endpoints is currently in PREVIEW under API version `2024-08-22-preview`.
+> User defined endpoints are currently in PREVIEW under API version `2024-08-22-preview`.
 > You can request access for this preview via [this sign-up form](https://aka.ms/ACL2025Preview).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 

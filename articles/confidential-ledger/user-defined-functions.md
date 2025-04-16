@@ -11,18 +11,18 @@ ms.date: 04/10/2025
 
 # User defined functions in Azure confidential ledger (preview)
 
-User defined functions (UDFs) is a new feature in Azure confidential ledger that allows you to create custom JavaScript functions that can be executed inside the ledger trust boundary. This feature is designed to be simple and easy to use, allowing you to extend the functionality of the ledger API without the need for complex application development.
+User defined functions (UDFs) in Azure confidential ledger allow you to create custom JavaScript functions that can be executed inside the ledger trust boundary. This feature is designed to be simple and easy to use, allowing you to extend the functionality of the ledger API without the need for complex application development.
 
 Using the [built-in JavaScript API](https://microsoft.github.io/CCF/main/build_apps/js_app_bundle.html#javascript-api), you can run custom code to achieve various tasks, such as custom queries and computations, conditional checks, post-processing tasks, and more. This feature is suitable for scenarios where you need a direct integration with the existing ledger API or run lightweight custom logic in a confidential environment.
 
 > [!IMPORTANT]
-> User defined functions is currently in PREVIEW under API version `2024-12-09-preview`.
+> User defined functions are currently in PREVIEW under API version `2024-12-09-preview`.
 > You can request access for this preview via [this sign-up form](https://aka.ms/ACL2025Preview).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Use cases
 
-UDFs in Azure confidential ledger allow you to extend the functionality of the ledger by running custom logic. Some common use cases for UDFs include:
+Azure confidential ledger UDFs allow you to extend the functionality of the ledger by running custom logic. Some common use cases for UDFs include:
 
 * **Custom computations and queries**: run standalone UDFs to read or write data into any ledger application table according to your business logic.
 
