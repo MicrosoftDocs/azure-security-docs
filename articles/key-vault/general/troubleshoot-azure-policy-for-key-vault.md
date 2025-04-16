@@ -15,20 +15,20 @@ This article guides you how to troubleshoot general errors that might occur when
 
 ## About Azure policy for Key Vault
 
-[Azure Policy](/azure/governance/policy/) is a governance tool that gives users the ability to audit and manage their Azure environment at scale. Azure Policy allows you to place guardrails on Azure resources to ensure they're compliant with assigned policy rules. It allows users to perform audit, real-time enforcement, and remediation of their Azure environment. The results of audits performed by policy will be available to users in a compliance dashboard where they will be able to see a drill-down of which resources and components are compliant and which are not.
+[Azure Policy](/azure/governance/policy/) is a governance tool that enables you to audit and manage your Azure environment at scale. It allows you to place guardrails on Azure resources to ensure they comply with assigned policy rules. With Azure Policy, you can perform audits, real-time enforcement, and remediation of your Azure environment. Audit results are available in a compliance dashboard where you can view a detailed breakdown of compliant and noncompliant resources and components.
 
 ### Logging
 
-In order to monitor how policy evaluations are conducted, you can review the Key Vault logs. Enabling logging for Azure Key Vault, which saves information in an Azure storage account that you provide. For step by step guidance, see [How to enable Key Vault logging](howto-logging.md).
+In order to monitor how policy evaluations are conducted, you can review the Key Vault logs. You can also enable logging for Azure Key Vault, which saves information in an Azure storage account that you provide. For step by step guidance, see [How to enable Key Vault logging](howto-logging.md).
 
-When you enable logging, a new container called **AzurePolicyEvaluationDetails** will be automatically created to collect policy related logging information in your specified storage account.
+When you enable logging, a new container called **AzurePolicyEvaluationDetails** is automatically created to collect policy related logging information in your specified storage account.
 
 > [!NOTE]
 > You should strictly regulate access to monitoring data, particularly log files, as they can contain sensitive information. Learn about applying [built-in monitoring Azure role](/azure/azure-monitor/roles-permissions-security) and limiting access.
 
 Individual blobs are stored as text, formatted as a JSON blob.
 
-Let's look at an example log entry for a Key policy: [Keys should have expiration date set](azure-policy.md). This policy evaluates all keys in your key vaults and flags keys that do not have an expiration date set as non-compliant.
+Let's look at an example log entry for a Key policy: [Keys should have expiration date set](azure-policy.md). This policy evaluates all keys in your key vaults and flags keys that do not have an expiration date set as noncompliant.
 
 ```json
 {
@@ -90,9 +90,9 @@ One of the reasons could be that your subscription (or management group) has a p
 
 If you see the error type ```RequestDisallowedByPolicy``` for recovery due to **built-in** policy, ensure that you're using the **most updated version**. 
 
-If you created a **custom policy** with your own logic, here is an example of portion of a policy that can be used to require soft delete. The recovery of a soft deleted vault uses the same API as creating or updating a vault. However, instead of specifying the properties of the vault, it has a single "createMode" property with the value "recover". The vault will be restored with whatever properties it had when it was deleted. Policies that block requests unless they have specific properties configured will also block the recovery of soft deleted vaults. The fix is to include a clause that will cause the policy to ignore requests where "createMode" is "recover":
+If you created a **custom policy** with your own logic, here is an example of portion of a policy that can be used to require soft delete. The recovery of a soft deleted vault uses the same API as creating or updating a vault. However, instead of specifying the properties of the vault, it has a single "createMode" property with the value "recover". The vault is restored with whatever properties it had when it was deleted. Policies that block requests unless they have specific properties configured also block the recovery of soft deleted vaults. The fix is to include a clause that causes the policy to ignore requests where "createMode" is "recover":
 
-You'll see that it has a clause that causes the policy to only apply when "createMode" is not equal to "recover":
+This policy has a clause that causes the policy to only apply when "createMode" is not equal to "recover":
 
 ```
 
