@@ -8,7 +8,7 @@ ms.custom: devx-track-azurecli, has-azure-ad-ps-ref
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 01/30/2024
+ms.date: 04/15/2025
 ms.author: mbaldwin
 #Customer intent: As someone new to Key Vault, I'm trying to learn basic concepts that can help me understand Key Vault documentation.
 ---
