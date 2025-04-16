@@ -75,3 +75,5 @@ Azure confidential ledger is designed with resiliency features to ensure high av
 - [Azure confidential ledger architecture](architecture.md)
 - [Register the Azure confidential ledger resource provider](register-ledger-resource-provider.md)
 - [Register an ACL app with Microsoft Entra ID](register-application.md)
+- [User defined functions in Azure confidential ledger](user-defined-functions.md)
+- [User defined endpoints in Azure confidential ledger](user-defined-endpoints.md)

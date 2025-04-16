@@ -49,10 +49,10 @@ landingContent:
             url: authenticate-ledger-nodes.md
           - text: Write transaction receipts
             url: write-transaction-receipts.md
-          - text: Simple User Defined Functions
-            url: simple-user-defined-function.md
-          - text: Advanced User Defined Functions
-            url: advanced-user-defined-function.md
+          - text: User defined functions
+            url: user-defined-functions.md
+          - text: User defined endpoints
+            url: user-defined-endpoints.md
           
   # Card
   - title: How-to-guides

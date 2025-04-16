@@ -78,3 +78,6 @@ additionalContent: |
   
   - [Azure confidential ledger](./overview.md)
 
+  - [User defined functions in Azure confidential ledger](user-defined-functions.md)
+  
+  - [User defined endpoints in Azure confidential ledger](user-defined-endpoints.md)

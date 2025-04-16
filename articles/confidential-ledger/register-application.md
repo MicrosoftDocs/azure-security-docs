@@ -133,3 +133,5 @@ For application security recommendations, see [Microsoft identity platform best 
 - [Use portal to create a Microsoft Entra application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal)
 - [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 - [Authenticating Azure confidential ledger nodes](authenticate-ledger-nodes.md)
+- [User defined functions in Azure confidential ledger](user-defined-functions.md)
+- [User defined endpoints in Azure confidential ledger](user-defined-endpoints.md)
