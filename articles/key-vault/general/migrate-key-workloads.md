@@ -17,7 +17,7 @@ Azure Key Vault and Azure Managed HSM do not allow the export of keys, to protec
 If you want a key to be highly portable, it is best to create it in a supported HSM and import it into Azure Key Vault or Azure Managed HSM.
 
 > [!NOTE]
-> The only exception is if a key is created with a [key release policy](../keys/policy-grammar.md) restricting exports to confidential compute enclaves you trust to handle the key material. Such secure key operations are not general-purpose exports of the key.
+> The only exception to the no-export rule is when you create a key with a specific [key release policy](../keys/policy-grammar.md). This policy allows the key to be exported only to trusted confidential computing environments (secure enclaves) that you explicitly define. This limited export capability is designed for specific secure computing scenarios and is not the same as a general-purpose key export.
 
 There are several scenarios that require the migration of key workloads:
 - Switching security boundaries, such as when switching between subscriptions, resource groups, or owners.
@@ -31,18 +31,26 @@ Below we discuss several methods for migrating workloads to use a new key, eithe
 For most workloads that use keys in Key Vault, the most effective way to migrate a key into a new location (a new managed HSM or new key vault in a different subscription or region) is to:
 
 1. Create a new key in the new vault or managed HSM.
-1. Ensure that the workload has access to this new key, by adding the workload's identity to the appropriate role in [Azure Key Vault](rbac-guide.md) or [Azure Managed HSM](../managed-hsm/access-control.md).
+2. Grant your workload access to the new key by assigning the workload's managed identity to the appropriate RBAC role in [Azure Key Vault](rbac-guide.md) or [Azure Managed HSM](../managed-hsm/access-control.md).
 1. Update the workload to use the new key as the customer managed encryption key.
 1. Retain the old key until you no longer want the backups of the workload data that they key originally protected.
+## Example: Migrating Azure Storage to a new customer-managed key
 
-For example, to update Azure Storage to use a new key, follow the instructions at [Configure customer-managed keys for an existing storage account - Azure Storage](/azure/storage/common/customer-managed-keys-configure-existing-account). The previous customer managed key is needed until Storage is updated to the new key; once Storage has successfully been updated to the new key, the previous key is no longer needed.
+If you're using customer-managed keys with Azure Storage, you can migrate to a new key by following these steps:
+
+1. Create the new key in your destination key vault or managed HSM.
+2. Follow the instructions in [Configure customer-managed keys for an existing storage account](/azure/storage/common/customer-managed-keys-configure-existing-account) to update your storage account to use the new key.
+3. Keep your previous customer-managed key available until the storage service has fully transitioned to the new key.
+4. After confirming that all operations are working correctly with the new key, you can safely retire the previous key (but do not delete it if you need to access older backups).
+
+This pattern applies to many Azure services that support customer-managed keys.
 
 ## Custom applications and client-side encryption
 
-For client-side encryption or custom applications you've built, that directly encrypt data using the keys in Key Vault, the process is different:
+For client-side encryption or custom applications that directly encrypt data using the keys in Key Vault, the process is different:
 
 1. Create the new key vault or managed HSM, and create a new key encryption key (KEK).
-1. Re-encrypt any keys or data that was encrypted by the old key using the new key. (If data was directly encrypted by the key in key vault, this may take some time, as all data must be read, decrypted, and encrypted with the new key. Use [envelope encryption](/azure/security/fundamentals/encryption-atrest#envelope-encryption-with-a-key-hierarchy) where possible to make such key rotations faster).
+2. Re-encrypt any keys or data that encrypted by the old key using the new key. (If data was directly encrypted by the key in key vault, this may take some time, as all data must be read, decrypted, and encrypted with the new key. Use [envelope encryption](/azure/security/fundamentals/encryption-atrest#envelope-encryption-with-a-key-hierarchy) where possible to make such key rotations faster).
 
   When re-encrypting the data, we recommend a three-level key hierarchy, which will make KEK rotation easier in the future:
     1. The Key Encryption Key in Azure Key Vault or Managed HSM

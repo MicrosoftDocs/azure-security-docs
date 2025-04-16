@@ -13,7 +13,7 @@ ms.author: mbaldwin
  
 # Monitoring Key Vault with Azure Event Grid
 
-Key Vault integration with Event Grid allows users to be notified when the status of a secret stored in key vault has changed. A status change is defined as a secret that is about to expire (30 days before expiration), a secret that has expired, or a secret that has a new version available. Notifications for all three secret types (key, certificate, and secret) are supported.
+Key Vault integration with Event Grid allows users to be notified when the status of a secret stored in key vault changes. A status change is defined as a secret that is about to expire (30 days before expiration), a secret that expires, or a secret that has a new version available. Notifications for all three secret types (key, certificate, and secret) are supported.
 
 Applications can react to these events using modern serverless architectures, without the need for complicated code or expensive and inefficient polling services. Events are pushed through [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) to event handlers such as [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), or even to your own Webhook, and you only pay for what you use. For information about pricing, see [Event Grid pricing](https://azure.microsoft.com/pricing/details/event-grid/).
 
@@ -31,7 +31,7 @@ For more information, see the [Key Vault event schema](/azure/event-grid/event-s
 Applications that handle Key Vault events should follow a few recommended practices:
 
 * Multiple subscriptions can be configured to route events to the same event handler. It's important not to assume events are from a particular source, but to check the topic of the message to ensure that it comes from the key vault you're expecting.
-* Similarly, check that the eventType is one you're prepared to process, and do not assume that all events you receive will be the types you expect.
+* Similarly, check that the eventType is one you're prepared to process, and do not assume that all events you receive are the types you expect.
 * Ignore fields you don't understand.  This practice will help keep you resilient to new features that might be added in the future.
 * Use the "subject" prefix and suffix matches to limit events to a particular event.
 

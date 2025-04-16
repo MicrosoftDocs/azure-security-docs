@@ -20,7 +20,7 @@ If you are new to this feature, see [Integrate Key Vault with Azure Private Link
 ### Problems covered by this article
 
 - Your DNS queries still return a public IP address for the key vault, instead of a private IP address that you would expect from using the private links feature.
-- All requests made by a given client that is using private link, are failing with timeouts or network errors, and the problem is not intermittent.
+- All requests made by a given client that is using private link, are failing with time-outs or network errors, and the problem is not intermittent.
 - The key vault has a private IP address, but requests still get `403` response with the `ForbiddenByFirewall` inner error code.
 - You are using private links, but your key vault still accepts requests from the public Internet.
 - Your key vault has two Private Endpoints. Requests using one are working fine, but requests using the other are failing.
@@ -28,12 +28,12 @@ If you are new to this feature, see [Integrate Key Vault with Azure Private Link
 
 ### Problems NOT covered by this article
 
-- There is an intermittent connectivity issue. In a given client, you see some requests working and some not working. *Intermittent problems are typically not caused by an issue in private links configuration; they are a sign of network or client overload.*
+- There is an intermittent connectivity issue. In a given client, you see some requests working and some not working. *Intermittent problems are rarely caused by an issue in private links configuration; they are a sign of network or client overload.*
 - You are using an Azure product that supports BYOK (Bring Your Own Key), CMK (Customer Managed Keys), or access to secrets stored in key vault. When you enable the firewall in key vault settings, that product cannot access your key vault. *Look at product specific documentation. Make sure it explicitly states support for key vaults with the firewall enabled. Contact support for that specific product, if needed.*
 
 ### How to read this article
 
-If you are new to private links or you are evaluating a complex deployment, it's recommended that you read the entire article. Otherwise, feel free to choose the section that makes more sense for the problem you are facing.
+If you are new to private links or you are evaluating a complex deployment, it is recommended that you read the entire article. Otherwise, feel free to choose the section that makes more sense for the problem you are facing.
 
 Let's get started!
 
@@ -49,9 +49,21 @@ If the application, script or portal is running on an arbitrary Internet-connect
 
 ### If you use a managed solution, refer to specific documentation
 
-This guide is NOT applicable to solutions that are managed by Microsoft, where the key vault is accessed by an Azure product that exists independently from the customer Virtual Network. Examples of such scenarios are Azure Storage or Azure SQL configured for encryption at rest, Azure Event Hubs encrypting data with customer-provided keys, Azure Data Factory accessing service credentials stored in key vault, Azure Pipelines retrieving secrets from key vault, and other similar scenarios. In these cases, *you must check if the product supports key vaults with the firewall enabled*. This support is typically performed with the [Trusted Services](overview-vnet-service-endpoints.md#trusted-services) feature of Key Vault firewall. However, many products are not included in the list of trusted services, for various reasons. In that case, reach the product-specific support.
+### Managed Azure services require different configuration
 
-A few Azure products supports the concept of *vnet injection*. In simple terms, the product adds a network device into the customer Virtual Network, allowing it to send requests as if it was deployed to the Virtual Network. A notable example is [Azure Databricks](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). Products like this can make requests to the key vault using the private links, and this troubleshooting guide may help.
+This guide does NOT apply to Microsoft-managed services that access your Key Vault from outside your Virtual Network. Such scenarios include:
+
+- Azure Storage configured with encryption at rest
+- Azure SQL using customer-managed keys
+- Azure Event Hubs encrypting data with your keys
+- Azure Data Factory accessing credentials stored in Key Vault
+- Azure Pipelines retrieving secrets from Key Vault
+
+For these scenarios, you must verify whether the specific Azure service supports accessing Key Vaults with firewalls enabled. Many services use the [Trusted Services](overview-vnet-service-endpoints.md#trusted-services) feature to securely access your Key Vault despite firewall restrictions. However, not all Azure services appear on the trusted services list due to various architectural reasons.
+
+If you're having issues with a specific Azure service accessing your Key Vault, consult that service's documentation or contact its support team for specific guidance.
+
+A few Azure products support the concept of *vnet injection*. In simple terms, the product adds a network device into the customer Virtual Network, allowing it to send requests as if it was deployed to the Virtual Network. A notable example is [Azure Databricks](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). Products like this can make requests to the key vault using the private links, and this troubleshooting guide may help.
 
 ## 2. Confirm that the connection is approved and succeeded
 
@@ -59,7 +71,7 @@ The following steps validate that the private endpoint connection is approved  a
 
 1. Open the Azure portal and open your key vault resource.
 2. In the left menu, select **Networking**.
-3. Select the **Private endpoint connections** tab. This will show all private endpoint connections and their respective states. If there are no connections, or if the connection for your Virtual Network is missing, you have to create a new Private Endpoint. This will be covered later.
+3. Select the **Private endpoint connections** tab to see all private endpoint connections and their respective states. If there are no connections, or if the connection for your Virtual Network is missing, you have to create a new Private Endpoint. This will be covered later.
 4. Still in **Private endpoint connections**, find the one you are diagnosing and confirm that "Connection state" is **Approved** and "Provisioning state" is **Succeeded**.
     - If the connection is in "Pending" state, you might be able to just approve it.
     - If the connection "Rejected", "Failed", "Error", "Disconnected" or other state, then it's not effective at all, you have to create a new Private Endpoint resource.
@@ -85,7 +97,7 @@ The following statements also apply to firewall settings:
 
 If you are using private links, the only motivations for specifying virtual network or IP address in key vault firewall are:
 
-- You have an hybrid system where some clients use private links, some use service endpoints, some use public IP address.
+- You have a hybrid system where some clients use private links, some use service endpoints, some use public IP address.
 - You are transitioning to private links. In this case, once you confirm all clients are using private links, you should remove virtual networks and IP addresses from the key vault firewall settings.
 
 ## 4. Make sure the key vault has a private IP address
@@ -111,18 +123,17 @@ All other IP addresses are public.
 When you browse the portal or run a command that shows the IP address, make sure you can identify if that IP address is private, public, or reserved. For private links to work, the key vault hostname must resolve to a private IP address belonging to the Virtual Network address space.
 
 ### Find the key vault private IP address in the virtual network
-
-You will need to diagnose hostname resolution, and for that you must know the exact private IP address of your key vault with private links enabled. In order to find that address, follow this procedure:
+You will need to diagnose hostname resolution, and for that purpose you must know the exact private IP address of your key vault with private links enabled. In order to find that address, follow these steps:
 
 1. Open the Azure portal and open your key vault resource.
 2. In the left menu, select **Networking**.
-3. Select the **Private endpoint connections** tab. This will show all private endpoint connections and their respective states.
-4. Find the one you are diagnosing and confirm that "Connection state" is **Approved** and Provisioning state is **Succeeded**. If you are not seeing this, go back to previous sections of this document.
-5. When you find the right item, click the link in the **Private endpoint** column. This will open the Private Endpoint resource.
+3. Select the **Private endpoint connections** tab. The resulting view shows all private endpoint connections and their respective states.
+4. Find the connection you are diagnosing and confirm that "Connection state" is **Approved** and Provisioning state is **Succeeded**. If the status differs, go back to previous sections of the document.
+5. When you find the appropriate item, click the link in the **Private endpoint** column. The action opens the Private Endpoint resource.
 6. The Overview page may show a section called **Custom DNS settings**. Confirm that there is only one entry that matches the key vault hostname. That entry shows the key vault private IP address.
-7. You may also click the link at **Network interface** and confirm that the private IP address is the same displayed in the previous step. The network interface is a virtual device that represents key vault.
+7. You may also select the link at **Network interface** and confirm that the private IP address is the same displayed in the previous step. The network interface is a virtual device that represents key vault.
 
-The IP address is the one that VMs and other devices *running in the same Virtual Network* will use to connect to the key vault. Make note of the IP address, or keep the browser tab open and don't touch it while you do further investigations.
+The IP address is the one that VMs and other devices *running in the same Virtual Network* use to connect to the key vault. Make note of the IP address, or keep the browser tab open and don't touch it while you do further investigations.
 
 >[!NOTE]
 > If your key vault has multiple private endpoints, then it has multiple private IP addresses. This is only useful if you have multiple Virtual Networks accessing the same key vault, each through its own Private Endpoint (the Private Endpoint belongs to a single Virtual Network). Make sure you diagnose the problem for the correct Virtual Network, and select the correct private endpoint connection in the procedure above. Furthermore, **do not** create multiple Private Endpoints for the same Key Vault in the same Virtual Network. This is not needed and is a source of confusion.
@@ -163,11 +174,11 @@ data-prod-eus-region.vaultcore.azure.net has address 52.168.109.101
 
 You can see that the name resolves to a public IP address, and there is no `privatelink` alias. The alias is explained later, don't worry about it now.
 
-The above result is expected regardless of the machine be connected to the Virtual Network or be an arbitrary machine with an Internet connection. This happens because the key vault has no private endpoint connection in approved state, and therefore there is no need for the key vault to support private links.
+This result appears the same whether you're running the query from a machine connected to the Virtual Network or from any computer with an internet connection. The result occurs because the key vault has no private endpoint connections in an approved state, so there's no need for the key vault to support private links.
 
 ### Key vault with private link resolving from arbitrary Internet machine
 
-When the key vault has one or more private endpoint connections in approved state and you resolve the hostname from an arbitrary machine connected to the Internet (a machine that *is not* connected to the Virtual Network where the Private Endpoint resides), you shall find this:
+When the key vault has one or more private endpoint connections in approved state and you resolve the hostname from an arbitrary machine connected to the Internet (a machine that *is not* connected to the Virtual Network where the Private Endpoint resides), you receive a result similar to this one:
 
 Windows:
 
@@ -197,9 +208,9 @@ data-prod-eus.vaultcore.azure.net is an alias for data-prod-eus-region.vaultcore
 data-prod-eus-region.vaultcore.azure.net has address 52.168.109.101
 ```
 
-The notable difference from previous scenario is that there is a new alias with the value `{vaultname}.privatelink.vaultcore.azure.net`. This means the key vault Data Plane is ready to accept requests from private links.
+The notable difference from previous scenario is that there is a new alias with the value `{vaultname}.privatelink.vaultcore.azure.net`. The key vault Data Plane is ready to accept requests from private links.
 
-It doesn't mean that requests performed from machines *outside* the Virtual Network (like the one you just used) will use private links - they won't. You can see that from the fact that the hostname still resolves to a public IP address. Only machines *connected to the Virtual Network* can use private links. More on this will follow.
+It doesn't mean that requests performed from machines *outside* the Virtual Network (like the one you just used) use private links - they don't. You can see that from the fact that the hostname still resolves to a public IP address. Only machines *connected to the Virtual Network* can use private links. 
 
 If you don't see the `privatelink` alias, it means the key vault has zero private endpoint connections in `Approved` state. Go back to [this section](#2-confirm-that-the-connection-is-approved-and-succeeded) before retrying.
 
@@ -231,10 +242,10 @@ fabrikam.vault.azure.net is an alias for fabrikam.privatelink.vaultcore.azure.ne
 fabrikam.privatelink.vaultcore.azure.net has address 10.1.2.3
 ```
 
-There are two notable differences. First, the name resolves to a private IP address. That must be the IP address that we found in the [corresponding section](#find-the-key-vault-private-ip-address-in-the-virtual-network) of this article. Second, there are no other aliases after the `privatelink` one. This happens because the Virtual Network DNS servers *intercept* the chain of aliases and return the private IP address directly from the name `fabrikam.privatelink.vaultcore.azure.net`. That entry is actually an `A` record in a Private DNS Zone. More on this will follow.
+There are two notable differences. First, the name resolves to a private IP address. That must be the IP address that we found in the [corresponding section](#find-the-key-vault-private-ip-address-in-the-virtual-network) of this article. Second, there are no other aliases after the `privatelink` one. This happens because the Virtual Network DNS servers *intercept* the chain of aliases and return the private IP address directly from the name `fabrikam.privatelink.vaultcore.azure.net`. That entry is actually an `A` record in a Private DNS Zone. 
 
 >[!NOTE]
-> The outcome above only happens at a Virtual Machine connected to the Virtual Network where the Private Endpoint was created. If you don't have a VM deployed in the Virtual Network that contains the Private Endpoint, deploy one and connect remotely to it, then execute the `nslookup` command (Windows) or the `host` command (Linux) above.
+> This outcome only happens at a Virtual Machine connected to the Virtual Network where the Private Endpoint was created. If you don't have a VM deployed in the Virtual Network that contains the Private Endpoint, deploy one and connect remotely to it, then execute the `nslookup` command (Windows) or the `host` command (Linux).
 
 If you run these commands on a Virtual Machine connected to the Virtual Network where the Private Endpoint was created, and they are **not** showing the key vault private IP address, the next section may help fixing the issue.
 
@@ -252,26 +263,26 @@ You can check for the presence of this resource by going to the subscription pag
 
 Normally this resource is created automatically when you create a Private Endpoint using a common procedure. But there are cases where this resource is not created automatically and you have to do it manually. This resource might have been accidentally deleted as well.
 
-If you don't have this resource, create a new Private DNS Zone resource in your subscription. Remember that the name must be exactly `privatelink.vaultcore.azure.net`, without spaces or additional dots. If you specify the wrong name, the name resolution explained in this article will not work. For more information on how to create this resource, see [Create an Azure private DNS zone using the Azure portal](/azure/dns/private-dns-getstarted-portal). If you follow that page, you can skip Virtual Network creation because at this point you should have one already. You can also skip validation procedures with Virtual Machines.
+If you don't have this resource, create a new Private DNS Zone resource in your subscription. Remember that the name must be exactly `privatelink.vaultcore.azure.net`, without spaces or extra dots. If you specify the wrong name, the name resolution explained in this article fails. For more information on how to create this resource, see [Create an Azure private DNS zone using the Azure portal](/azure/dns/private-dns-getstarted-portal). If you follow that page, you can skip Virtual Network creation because at this point you should have one already. You can also skip validation procedures with Virtual Machines.
 
 ### Confirm that the Private DNS Zone is linked to the Virtual Network
 
 It is not enough to have a Private DNS Zone. It must also be linked to the Virtual Network that contains the Private Endpoint. If the Private DNS Zone is not linked to the correct Virtual Network, any DNS resolution from that Virtual Network will ignore the Private DNS Zone.
 
-Open the Private DNS Zone resource and click the **Virtual network links** option in the left menu. This will show a list of links, each with the name of a Virtual Network in your subscription. The Virtual Network that contains the Private Endpoint resource must be listed here. If it's not there, add it. For detailed steps, see [Link the virtual network](/azure/dns/private-dns-getstarted-portal#link-the-virtual-network). You can leave "Enable auto registration" unchecked - that feature is not related to private links.
+Open the Private DNS Zone resource and select the **Virtual network links** option in the left menu. You see a list of links, each with the name of a Virtual Network in your subscription. The Virtual Network that contains the Private Endpoint resource must be listed here. If it's not there, add it. For detailed steps, see [Link the virtual network](/azure/dns/private-dns-getstarted-portal#link-the-virtual-network). You can leave "Enable auto registration" unchecked - that feature is not related to private links.
 
-Once the Private DNS Zone is linked to the Virtual Network, DNS requests originating from the Virtual Network will look for names in the Private DNS Zone. This is required for correct address resolution performed at Virtual Machines connected to the Virtual Network where the Private Endpoint was created.
+After the Private DNS Zone is linked to the Virtual Network, any DNS requests coming from within that network will automatically check this private zone for name resolution. This linkage is essential for Virtual Machines in the same Virtual Network as the Private Endpoint to correctly resolve the key vault hostname to its private IP address rather than its public address.
 
 >[!NOTE]
-> If you just saved the link, it may take some time for this go into effect, even after the Portal says the operation is complete. You might also need to reboot the VM that you are using to test DNS resolution.
+> If you just saved the link, it may take some time to go into effect, even after the Portal says the operation is complete. You might also need to reboot the VM that you are using to test DNS resolution.
 
 ### Confirm that the Private DNS Zone contains the right A record
 
-Using the Portal, open the Private DNS Zone with name `privatelink.vaultcore.azure.net`. The Overview page shows all records. By default, there will be one record with name `@` and type `SOA`, meaning Start of Authority. Don't touch that.
+Using the Portal, open the Private DNS Zone with name `privatelink.vaultcore.azure.net`. The Overview page shows all records. By default, there is one record with name `@` and type `SOA`, meaning Start of Authority. Don't touch that.
 
 For the key vault name resolution to work, there must be an `A` record with the simple vault name without suffix or dots. For example, if the hostname is `fabrikam.vault.azure.net`, there must be an `A` record with the name `fabrikam`, without any suffix or dots.
 
-Also, the value of the `A` record (the IP address) must be [the key vault private IP address](#find-the-key-vault-private-ip-address-in-the-virtual-network). If you find the `A` record but it contains the wrong IP address, you must remove the wrong IP address and add a new one. It's recommended that you remove the entire `A` record and add a new one.
+Also, the value of the `A` record (the IP address) must be [the key vault private IP address](#find-the-key-vault-private-ip-address-in-the-virtual-network). If you find the `A` record but it contains the wrong IP address, you must remove the wrong IP address and add a new one. It is recommended that you remove the entire `A` record and add a new one.
 
 >[!NOTE]
 > Whenever you remove or modify an `A` record, the machine may still resolve to the old IP address because the TTL (Time To Live) value might not be expired yet. It is recommended that you always specify a TTL value no smaller than 10 seconds and no bigger than 600 seconds (10 minutes). If you specify a value that is too large, your clients may take too long to recover from outages.
@@ -284,14 +295,14 @@ In more advanced scenarios, the Virtual Networks may have peering enabled. In th
 
 ### Understand that you have control over DNS resolution
 
-As explained in the [previous section](#key-vault-with-private-link-resolving-from-arbitrary-internet-machine), a key vault with private links has the alias `{vaultname}.privatelink.vaultcore.azure.net` in its *public* registration. The DNS server used by the Virtual Network uses the public registration, but it checks every alias for a *private* registration, and if one is found, it will stop following aliases defined at public registration.
+As explained in the [previous section](#key-vault-with-private-link-resolving-from-arbitrary-internet-machine), a key vault with private links has the alias `{vaultname}.privatelink.vaultcore.azure.net` in its *public* registration. The DNS server used by the Virtual Network uses the public registration, but it checks every alias for a *private* registration, and if one is found, it stops following aliases defined at public registration.
 
-This logic means that if the Virtual Network is linked to a Private DNS Zone with name `privatelink.vaultcore.azure.net`, and the public DNS registration for the key vault has the alias `fabrikam.privatelink.vaultcore.azure.net` (note that the key vault hostname suffix matches the Private DNS Zone name exactly), then the DNS query will look for an `A` record with name `fabrikam` *in the Private DNS Zone*. If the `A` record is found, its IP address is returned in the DNS query, and no further lookup is performed at public DNS registration.
+This logic means that if the Virtual Network is linked to a Private DNS Zone with name `privatelink.vaultcore.azure.net`, and the public DNS registration for the key vault has the alias `fabrikam.privatelink.vaultcore.azure.net` (note that the key vault hostname suffix matches the Private DNS Zone name exactly), then the DNS query looks for an `A` record with name `fabrikam` *in the Private DNS Zone*. If the `A` record is found, its IP address is returned in the DNS query, and no further lookup is performed at public DNS registration.
 
-As you can see, the name resolution is under your control. The rationales for this design are:
+As you can see, the name resolution is under your control. The rational for this design is:
 
 - You may have a complex scenario that involves custom DNS servers and integration with on-premises networks. In that case, you need to control how names are translated to IP addresses.
-- You may need to access a key vault without private links. In that case, resolving the hostname from the Virtual Network must return the public IP address, and this happens because key vaults without private links don't have the `privatelink` alias in the name registration.
+- You may need to access a key vault without private links. In that case, resolving the hostname from the Virtual Network must return the public IP address, because key vaults without private links don't have the `privatelink` alias in the name registration.
 
 ## 7. Validate that requests to key vault use private link
 
@@ -397,5 +408,5 @@ Except when explicitly noted, the diagnostics options in this article only work 
 This is a non-exhaustive list of items that can be found on advanced or complex scenarios:
 
 - Firewall settings, either the Azure Firewall connected to the Virtual Network, or a custom firewall solution deploying in the Virtual Network or in the machine.
-- Network peering, which may impact which DNS servers are used and how traffic is routed.
+- Network peering, which may impact the DNS servers used and how traffic is routed.
 - Custom gateway (NAT) solutions, which may impact how traffic is routed, including traffic from DNS queries.
