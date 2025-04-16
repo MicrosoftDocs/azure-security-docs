@@ -1,22 +1,22 @@
 ---
 title: REST API error codes - Azure Key Vault
-description: These error codes could be returned by an operation on an Azure Key Vault web service.
+description: An operation on an Azure Key Vault web service may return the following error codes.
 services: machine-learning
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: reference
-ms.date: 02/20/2024
+ms.date: 04/16/2025
 ---
  
 # Azure Key Vault REST API Error Codes
 
-The following error codes could be returned by an operation on an Azure Key Vault web service.
+An operation on an Azure Key Vault web service may return the following error codes.
 
 ## HTTP 401: Unauthenticated Request
 
-401 means that the request is unauthenticated for Key Vault. 
+401 means that the request is unauthenticated for Key Vault.
 
 A request is authenticated if:
 
@@ -52,7 +52,7 @@ When requesting an access token from the Azure OAUTH endpoint, a parameter calle
 
 ### The token is expired
 
-Tokens are base64 encoded and the values can be decoded at websites such as [http://jwt.calebb.net](http://jwt.calebb.net). Here is the above token decoded:
+Tokens are base64 encoded and the values can be decoded at websites such as [http://jwt.calebb.net](http://jwt.calebb.net). Here is the token decoded:
 
 ```
     {
@@ -80,14 +80,14 @@ Tokens are base64 encoded and the values can be decoded at websites such as [htt
 [signature]
 ```
 
-We can see many important parts in this token:
+The token contains many important parts:
 
-- aud (audience): The resource of the token. Notice that this is `https://vault.azure.net`. This token will NOT work for any resource that doesn't explicitly match this value, such as graph.
+- aud (audience): The resource of the token. Notice that the value is `https://vault.azure.net`. The token does NOT work for any resource that doesn't explicitly match the value, such as graph.
 - iat (issued at): The number of ticks since the start of the epoch when the token was issued.
-- nbf (not before): The number of ticks since the start of the epoch when this token becomes valid.
-- exp (expiration): The number of ticks since the start of the epoch when this token expires.
-- appid (application ID): The GUID for the application ID making this request.
-- tid (tenant ID): The GUID for the tenant ID of the principal making this request
+- nbf (not before): The number of ticks since the start of the epoch when the token becomes valid.
+- exp (expiration): The number of ticks since the start of the epoch when the token expires.
+- appid (application ID): The GUID for the application ID making the request.
+- tid (tenant ID): The GUID for the tenant ID of the principal making the request
 
 It is important that all of the values be properly identified in the token in order for the request to work. If everything is correct, then the request won't result in 401.
 
@@ -142,7 +142,7 @@ There is a limited list of "Azure Trusted Services". Azure Web Sites are **not**
 
 You must add the IP address of the Azure Web Site to the Key Vault in order for it to work.
 
-If due to access policy: find the object ID for the request and ensure that the object ID matches the object to which the user is trying to assign the access policy. There will often be multiple objects in Microsoft Entra ID, which have the same name, so choosing the correct one is important. By deleting and readding the access policy, it is possible to see if multiple objects exist with the same name.
+If due to access policy: find the object ID for the request and ensure that the object ID matches the object to which the user is trying to assign the access policy. There are often multiple objects in Microsoft Entra ID, which have the same name, so choosing the correct one is important. By deleting and readding the access policy, it is possible to see if multiple objects exist with the same name.
 
 In addition, most access policies do not require the use of the "Authorized application" as shown in the portal. Authorized applications are used for "on-behalf-of" authentication scenarios, which are rare.
 
