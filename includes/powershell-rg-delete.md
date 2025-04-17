@@ -3,7 +3,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.custom: devx-track-azurepowershell
 ms.topic: include
-ms.date: 03/25/2022
+ms.date: 04/17/2025
 ms.author: msmbaldwin
 # Generic PowerShell delete resource group include for quickstarts.
 ---
