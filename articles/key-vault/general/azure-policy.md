@@ -21,7 +21,7 @@ Example Usage Scenarios:
 - You want to enforce your company security policies and stop individuals from creating self-signed certificates, but you don't have an automated way to block their creation.
 - You want to relax some requirements for your test teams, but you want to maintain tight controls over your production environment. You need a simple automated way to separate enforcement of your resources.
 - You want to be sure that you can roll back enforcement of new policies in the event that there is a live-site issue. You need a one-click solution to turn off enforcement of the policy.
-- You're relying on a third-party solution for auditing your environment and you want to use an internal Microsoft offering.
+- You rely on a third-party solution for auditing your environment and you want to use an internal Microsoft offering.
 
 ## Types of policy effects and guidance
 
@@ -215,13 +215,13 @@ You manage a key vault used by multiple teams that contains 100 certificates, an
 
     ![Screenshot that shows the Category Filter and the selected Key Vault category.](../media/policy-img3.png)
 
-1. Now you should be able to see all the policies available for Public Preview, for Azure Key Vault. Make sure you have read and understood the policy guidance section above and select a policy you want to assign to a scope.  
+1. Now you should be able to see all the policies available for Public Preview, for Azure Key Vault. Make sure to read and understand the policy guidance section above and select a policy you want to assign to a scope.  
 
     ![Screenshot that shows the policies that are available for Public Preview.](../media/policy-img4.png)
 
 ### Assign a Policy to a Scope 
 
-1. Select a policy you wish to apply, in this example, the **Manage Certificate Validity Period** policy is shown. Click the assign button in the top-left corner.
+1. Select a policy you wish to apply, in this example, the **Manage Certificate Validity Period** policy is shown. Select the assign button in the top-left corner.
 
     ![Screenshot that shows the Manage Certificate Validity Period policy.](../media/policy-img5.png)
   
@@ -229,7 +229,7 @@ You manage a key vault used by multiple teams that contains 100 certificates, an
 
     ![Screenshot that shows where you can choose to restrict the scope to only a single resource group within a subscription.](../media/policy-img6.png)
 
-1. Click on the parameters tab at the top of the screen in order to specify the maximum validity period in months that you want. If you need to input the parameters, you can uncheck 'Only show parameters that need input or review' option. Select **audit** or **deny** for the effect of the policy following the guidance in the sections above. Then select the review + create button.
+2. Select on the parameters tab at the top of the screen to specify the maximum validity period in months that you want. If you need to input the parameters, you can uncheck 'Only show parameters that need input or review' option. Select **audit** or **deny** for the effect of the policy following the guidance in the sections above. Then select the review + create button.
 
     ![Screenshot that shows the Parameters tab where you can specify the maximum validity period in months that you want.](../media/policy-img7.png)
 
