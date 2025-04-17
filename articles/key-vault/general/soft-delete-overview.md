@@ -9,13 +9,13 @@ ms.author: mbaldwin
 ms.date: 04/17/2025
 ---
 
-# Azure Key Vault soft-delete overview
+# Azure Key Vault: soft-delete overview
 
 > [!IMPORTANT]
 > If a key vault does not have soft-delete protection enabled, deleting a key deletes it permanently. Customers are strongly encouraged to turn on soft delete enforcement for their vaults via [Azure Policy](../policy-reference.md).
 
 > [!IMPORTANT]
-> When a Key Vault is soft-deleted, services that are integrated with the Key Vault will be deleted. For example: Azure RBAC roles assignments and Event Grid subscriptions. Recovering a soft-deleted Key Vault will not restore these services. They will need to be recreated.
+> When a Key Vault is soft-deleted, services that are integrated with the Key Vault are deleted. For example: Azure RBAC roles assignments and Event Grid subscriptions. Recovering a soft-deleted Key Vault does not restore these services. They must be recreated.
 
 Key Vault's soft-delete feature allows recovery of the deleted vaults and deleted key vault objects (for example, keys, secrets, certificates), known as soft-delete. Specifically, we address the following scenarios:  This safeguard offer the following protections:
 
@@ -25,7 +25,7 @@ Key Vault's soft-delete feature allows recovery of the deleted vaults and delete
 
 ## Supporting interfaces
 
-The soft-delete feature is available through the [REST API](/rest/api/keyvault/), the [Azure CLI](./key-vault-recovery.md), [Azure PowerShell](./key-vault-recovery.md), and [.NET/C#](/dotnet/api/microsoft.azure.keyvault) interfaces, as well as [ARM templates](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
+The soft-delete feature is available through the [REST API](/rest/api/keyvault/), the [Azure CLI](./key-vault-recovery.md), [Azure PowerShell](./key-vault-recovery.md), [.NET/C#](/dotnet/api/microsoft.azure.keyvault) interfaces, and [ARM templates](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
 
 ## Scenarios
 
@@ -61,7 +61,7 @@ Permanently deleting, purging, a key vault is possible via a POST operation on t
 
 Exceptions are:
 - When the Azure subscription is marked as *undeletable*. In this case, only the service can then perform the actual deletion, and does so as a scheduled process. 
-- When the `--enable-purge-protection` argument is enabled on the vault itself. In this case, Key Vault will wait for 7 to 90 days from when the original secret object was marked for deletion to permanently delete the object.
+- When the `--enable-purge-protection` argument is enabled on the vault itself. In this case, Key Vault waits for 7 to 90 days from when the original secret object was marked for deletion to permanently delete the object.
 
 For steps, see [How to use Key Vault soft-delete with CLI: Purging a key vault](./key-vault-recovery.md?tabs=azure-cli#key-vault-cli) or [How to use Key Vault soft-delete with PowerShell: Purging a key vault](./key-vault-recovery.md?tabs=azure-powershell#key-vault-powershell).
 
@@ -90,7 +90,7 @@ Unless a key vault or key vault object is recovered, at the end of the retention
 
 ### Billing implications
 
-In general, when an object (a key vault or a key or a secret) is in deleted state, there are only two operations possible: 'purge' and 'recover'. All the other operations will fail. Therefore, even though the object exists, no operations can be performed and hence no usage will occur, so no bill. However there are following exceptions:
+In general, when an object (a key vault or a key or a secret) is in deleted state, there are only two operations possible: 'purge' and 'recover'. All the other operations fail. Therefore, even though the object exists, no operations can be performed and hence no usage will occur, so no bill. However there are following exceptions:
 
 - 'purge' and 'recover' actions will count towards normal key vault operations and will be billed.
 - If the object is an HSM-key, the 'HSM Protected key' charge per key version per month charge will apply if a key version has been used in last 30 days. After that, since the object is in deleted state no operations can be performed against it, so no charge will apply.
