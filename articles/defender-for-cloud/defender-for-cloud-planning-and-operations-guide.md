@@ -49,10 +49,7 @@ When planning access control using Azure Role-based access control for Defender 
 > [!NOTE]
 > We recommend that you assign the least permissive role needed for users to complete their tasks. For example, users who only need to view information about the security state of resources but not take action, such as applying recommendations or editing policies, should be assigned the Reader role.
 
-Table 1 shows an example of how Defender for Cloud enables such individuals to meet their various responsibilities by assigning Azure Role-based access control roles.
-
-# Table 1: User Access Control by Roles
-
+The following table shows an example of how Defender for Cloud enables such individuals to meet their various responsibilities by assigning Azure Role-based access control roles.
 
 | Employee | Role              | Responsibilities                                                                                          | Access Control Roles                                                                                 |
 |----------|-------------------|----------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
