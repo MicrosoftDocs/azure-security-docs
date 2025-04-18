@@ -13,22 +13,20 @@ ms.date: 04/18/2025
 
 Azure confidential ledger provides a server-side programming model that allows you to run custom logic inside the ledger. This feature enables you to extend the functionality of the ledger by writing custom code that can be executed inside a confidential environment and interact with the ledger's data.
 
-The new server-side programming capabilities allow users to create _User Defined Functions (UDFs)_ and _User Defined Endpoints (UDEs)_ to perform various operations with a different level of customization. Once defined, UDFs and UDEs can be invoked from the Azure confidential ledger clients to execute directly inside the ledger engine.  
+The new server-side programming capabilities allow users to create _user defined functions (UDFs)_ and _user defined endpoints (UDEs)_ to perform various operations with a different level of customization. Once defined, UDFs and UDEs can be invoked from the Azure confidential ledger clients to execute directly inside the ledger engine.  
 
 > [!IMPORTANT]
 > Server-side programming is currently in PREVIEW.
 > You can request access for this preview via [this sign-up form](https://aka.ms/ACL2025Preview).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## User Defined Functions and User Defined Endpoints
+## User defined functions and user defined endpoints
 
 Azure confidential ledger offers two types of server-side programming features:
 
-- **User Defined Functions (UDFs)**: UDFs are simple custom functions that can be defined and executed inside the ledger. They allow you to perform simple operations using the JavaScript API and can be integrated with the existing ledger write API. Learn more about UDFs in the [User defined functions](./user-defined-functions.md) article. 
+- **User defined functions (UDFs)**: UDFs are simple custom functions that can be defined and executed inside the ledger. They allow you to perform simple operations using the JavaScript API and can be integrated with the existing ledger write API. Learn more about UDFs in the [User defined functions](./user-defined-functions.md) article. 
 
-- **User Defined Endpoints (UDEs)**: UDEs are custom endpoints that can be defined and exposed on a ledger application. These endpoints can be used to expose more sophisticated APIs with customizable parameters, data formats, and authentication mechanisms. Learn more about UDEs in the [User defined endpoints](./user-defined-endpoints.md) article.
-
-## UDFs and UDEs comparison
+- **User defined endpoints (UDEs)**: UDEs are custom endpoints that can be defined and exposed on a ledger application. These endpoints can be used to expose more sophisticated APIs with customizable parameters, data formats, and authentication mechanisms. Learn more about UDEs in the [User defined endpoints](./user-defined-endpoints.md) article.
 
 Here's a comparison of the main features and capabilities of UDFs and UDEs:  
 
