@@ -24,25 +24,25 @@ The new server-side programming capabilities allow users to create _user defined
 
 Azure confidential ledger offers two types of server-side programming features:
 
-- **User defined functions (UDFs)**: UDFs are simple custom functions that can be defined and executed inside the ledger. They allow you to perform simple operations using the JavaScript API and can be integrated with the existing ledger write API. Learn more about UDFs in the [User defined functions](./user-defined-functions.md) article. 
+- **User defined functions (UDFs)**: UDFs are simple custom functions that can be defined and executed inside the ledger. They allow you to perform simple operations using the JavaScript API and can be integrated with the existing ledger write API. Learn more about UDFs in the [user defined functions](./user-defined-functions.md) article. 
 
-- **User defined endpoints (UDEs)**: UDEs are custom endpoints that can be defined and exposed on a ledger application. These endpoints can be used to expose more sophisticated APIs with customizable parameters, data formats, and authentication mechanisms. Learn more about UDEs in the [User defined endpoints](./user-defined-endpoints.md) article.
+- **User defined endpoints (UDEs)**: UDEs are custom endpoints that can be defined and exposed on a ledger application. These endpoints can be used to expose more sophisticated APIs with customizable parameters, data formats, and authentication mechanisms. Learn more about UDEs in the [user defined endpoints](./user-defined-endpoints.md) article.
 
 Here's a comparison of the main features and capabilities of UDFs and UDEs:  
 
-| Capability                                     | User defined functions                                                                 | User defined endpoints                                                                 |
+| Capability                                     | User defined functions (UDFs)                                                                 | User defined endpoints (UDEs)                                                              |
 |--------------------------------------|---------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
-| Run custom business logic            | Yes                                                                                   | No                                                                                     |
-| Customization of runtime arguments / parameters  | Yes                                                                                   | No                                                                                     |
-| Expose new API / endpoints           | Yes                                                                                   | No                                                                                     |
+| Run custom business logic            | Yes                                                                                   | Yes                                                                                     |
+| Customization of runtime arguments / parameters  | Yes                                                                                   | Yes                                                                                     |
+| Expose new API / endpoints           | No                                                                                   | Yes                                                                                     |
 | Run individual functions             | Yes                                                                                   | No                                                                                     |
-| Run hooks before / after a ledger entry write operation  | No                                                                                    | Yes (single application bundle registered per node)                                    |
-| Creation and update of custom code   | Yes (granular update/delete of each function)                                         | Yes (globally)                                                                         |
-| Custom JavaScript runtime options    | Yes (per each execution)                                                              | No                                                                                     |
+| Run hooks before / after a ledger entry write operation  | Yes                                                                                    | No                                    |
+| Creation and update of custom code   | Yes (granular update/delete of each function)                                         | Yes (single application bundle update for all endpoints)                                                                         |
+| Custom JavaScript runtime options    | Yes (per each execution)                                                              | Yes (globally)                                                                                     |
 | Execution on backup nodes        | No                                                                                    | Yes                                                                                    |
-| Support multiple data formats for input and output  | Yes                                                                                   | No                                                                                     |
-| Custom authentication and authorization  | Yes                                                                                   | No                                                                                     |
-| Target scenarios                     | Execution of simple custom logic and integration with the ledger API                  | Advanced use cases requiring custom APIs and control over advanced JavaScript parameters    |
+| Support multiple data formats for input and output  | No                                                                                   | Yes                                                                                     |
+| Custom authentication and authorization  | No                                                                                   | Yes                                                                                     |
+| **Target scenarios**                     | Execution of simple custom logic and integration with the ledger API                  | Advanced use cases requiring custom APIs and control over advanced JavaScript parameters    |
 
 
 ## Next steps
