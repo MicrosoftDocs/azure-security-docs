@@ -49,6 +49,8 @@ landingContent:
             url: authenticate-ledger-nodes.md
           - text: Write transaction receipts
             url: write-transaction-receipts.md
+          - text: Server-side programming
+            url: server-side-programming.md
           - text: User defined functions
             url: user-defined-functions.md
           - text: User defined endpoints

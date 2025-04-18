@@ -38,6 +38,8 @@ items:
       href: write-transaction-receipts.md
   - name: Server-side programming
     items:
+    - name: Server-side programming
+      href: server-side-programming.md
     - name: User defined functions (UDFs)
       href: user-defined-functions.md
     - name: User defined endpoints (UDEs)

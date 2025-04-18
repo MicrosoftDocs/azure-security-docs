@@ -246,7 +246,7 @@ If the UDF failed, the response includes the error message with the detailed sta
 
 ### Transaction hooks
 
-A UDF can alternatively be executed as a hook _before_ (**pre-hook**) or _after_ (**post-hook**) an entry is written to the ledger as part of the ledger write API (`POST /app/transactions`). Hooks run in the same context of the write operation; this means that any data written to the ledger by the hooks is automatically included in the same write transaction.
+A UDF can alternatively be executed as a hook before (_pre-hook_) or after (_post-hook_) an entry is written to the ledger as part of the ledger write API (`POST /app/transactions`). Hooks run in the same context of the write operation; this means that any data written to the ledger by the hooks is automatically included in the same write transaction.
 
 The request body of the write request can be used to specify any UDF IDs to be executed as pre-hooks and post-hooks respectively.
 
@@ -574,5 +574,6 @@ HTTP/1.1 200 OK
 
 ## Related content
 
+- [Server-side programming in Azure confidential ledger](server-side-programming.md)
 - [User defined endpoints in Azure confidential ledger](./user-defined-endpoints.md)
 - [Overview of Microsoft Azure confidential ledger](overview.md)
