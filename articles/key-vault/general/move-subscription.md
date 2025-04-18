@@ -22,19 +22,19 @@ ms.custom: devx-track-azurepowershell
 > [!IMPORTANT]
 > **Moving a key vault to another subscription will cause a breaking change to your environment.**
 > Make sure you understand the impact of this change and follow the guidance in this article carefully before deciding to move key vault to a new subscription.
-> If you are using Managed Service Identities (MSI) please read the post-move instructions at the end of the document. 
+> If you are using Managed Service Identities (MSI), read the post-move instructions at the end of the document. 
 
-[Azure Key Vault](overview.md) is automatically tied to the default [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) tenant ID for the subscription in which it is created. You can find tenant ID associated with your subscription by following this [guide](/azure/active-directory-b2c/tenant-management-read-tenant-name). All access policy entries and roles assignments are also tied to this tenant ID.  If you move your Azure subscription from tenant A to tenant B, your existing key vaults will be inaccessible by the service principals (users and applications) in tenant B. To fix this issue, you need to:
+[Azure Key Vault](overview.md) is automatically tied to the default [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) tenant ID for the subscription in which it is created. You can find tenant ID associated with your subscription by following this [guide](/azure/active-directory-b2c/tenant-management-read-tenant-name). All access policy entries and roles assignments are also tied to this tenant ID. If you move your Azure subscription from tenant A to tenant B, your existing key vaults are inaccessible by the service principals (users and applications) in tenant B. To fix this issue, you need to:
 
 > [!NOTE]
-> If Key Vault is created through [Azure Lighthouse](/azure/lighthouse/overview), it is tied to managing tenant id instead. Azure Lighthouse is only supported by vault access policy permission model.
+> If Key Vault is created through [Azure Lighthouse](/azure/lighthouse/overview), it is tied to managing tenant ID instead. Azure Lighthouse only supports the vault access policy permission model.
 > For more information about tenants in Azure Lighthouse, see [Tenants, users, and roles in Azure Lighthouse](/azure/lighthouse/concepts/tenants-users-roles).
 
 * Change the tenant ID associated with all existing key vaults in the subscription to tenant B.
 * Remove all existing access policy entries.
 * Add new access policy entries associated with tenant B.
 
-For more information about Azure Key Vault and Microsoft Entra ID, see
+For more information about Azure Key Vault and Microsoft Entra ID, see:
 - [About Azure Key Vault](overview.md)
 - [What is Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis)
 - [How to find tenant ID](/azure/active-directory-b2c/tenant-management-read-tenant-name)
@@ -43,7 +43,7 @@ For more information about Azure Key Vault and Microsoft Entra ID, see
 
 > [!IMPORTANT]
 > **Key Vaults used for disk encryption cannot be moved**
-> If you are using key vault with disk encryption for a VM, the key vault cannot be moved to a different resource group or a subscription while disk encryption is enabled. You must disable disk encryption prior to moving the key vault to a new resource group or subscription. 
+> If you are using key vault with disk encryption for a virtual machine (VM), the key vault cannot be moved to a different resource group or a subscription while disk encryption is enabled. You must disable disk encryption before moving the key vault to a new resource group or subscription. 
 
 Some service principals (users and applications) are bound to a specific tenant. If you move your key vault to a subscription in another tenant, there's a chance that you won't be able to restore access to a specific service principal. Check to make sure that all essential service principals exist in the tenant where you are moving your key vault.
 
@@ -96,7 +96,7 @@ az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Upd
 ### Update access policies and role assignments
 
 > [!NOTE]
-> If Key Vault is using [Azure RBAC](/azure/role-based-access-control/overview) permission model. You need to also remove key vault role assignments. You can remove role assignments using the [Azure portal](/azure/role-based-access-control/role-assignments-portal), [Azure CLI](/azure/role-based-access-control/role-assignments-cli), or [PowerShell](/azure/role-based-access-control/role-assignments-powershell). 
+> If Key Vault is using [Azure RBAC](/azure/role-based-access-control/overview) permission model, you need to also remove key vault role assignments. You can remove role assignments using the [Azure portal](/azure/role-based-access-control/role-assignments-portal), [Azure CLI](/azure/role-based-access-control/role-assignments-cli), or [PowerShell](/azure/role-based-access-control/role-assignments-powershell). 
 
 Now that your vault is associated with the correct tenant ID and old access policy entries or role assignments are removed, set new access policy entries or role assignments.
 

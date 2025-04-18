@@ -11,17 +11,17 @@ ms.author: mbaldwin
 
 ---
 # Azure Key Vault .NET 2.0 - Release Notes and Migration Guide
-The following information helps migrating to the 2.0 version of the Azure Key Vault library for C# and .NET.  Apps written for earlier versions need to be updating to support the latest version.  These changes are needed to fully support new and improved features, such as **Key Vault certificates**.
+The following information helps migrating to the 2.0 version of the Azure Key Vault library for C# and .NET. Apps written for earlier versions need to be updating to support the latest version. These changes are needed to fully support new and improved features, such as **Key Vault certificates**.
 
 ## Key Vault certificates
 
 Key Vault certificates manage x509 certificates and supports the following behaviors:  
 
-* Create certificates through a Key Vault creation process or import existing certificate. This includes both self-signed and Certificate Authority (CA) generated certificates.
+* Create certificates through a Key Vault creation process or import existing certificate, including both self-signed and Certificate Authority (CA) generated certificates.
 * Securely store and manage x509 certificate storage without interaction using private key material.  
 * Define policies that direct Key Vault to manage the certificate lifecycle.  
 * Provide contact information for lifecycle events, such as expiration warnings and renewal notifications.  
-* Automatically renew certificates with selected issuers (Key Vault partner X509 certificate providers and certificate authorities).* Support certificate from alternate (non-partner) provides and certificate authorities (does not support auto-renewal).  
+* Automatically renew certificates with selected issuers (Key Vault partner X509 certificate providers and certificate authorities).* Support certificate from alternate (nonpartner) provides and certificate authorities (does not support autorenewal).  
 
 ## .NET support
 
@@ -83,12 +83,12 @@ When a client processes a Key Vault dependency, the following packages are downl
 
 ## Class changes
 
-* **UnixEpoch** class has been removed.
+* **UnixEpoch** class is removed.
 * **Base64UrlConverter** class is renamed to **Base64UrlJsonConverter**.
 
 ## Other changes
 
-* Support for the configuration of KV operation retry policy on transient failures has been added to this version of the API.
+* Support for the configuration of KV operation retry policy on transient failures is added to this version of the API.
 
 ## Microsoft.Azure.Management.KeyVault NuGet
 
