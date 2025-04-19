@@ -49,11 +49,11 @@ landingContent:
             url: authenticate-ledger-nodes.md
           - text: Write transaction receipts
             url: write-transaction-receipts.md
-          - text: Server-side programming
+          - text: Server-side programming overview
             url: server-side-programming.md
-          - text: User defined functions
+          - text: User defined functions (UDFs)
             url: user-defined-functions.md
-          - text: User defined endpoints
+          - text: User defined endpoints (UDEs)
             url: user-defined-endpoints.md
           
   # Card

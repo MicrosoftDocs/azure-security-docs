@@ -38,7 +38,7 @@ items:
       href: write-transaction-receipts.md
   - name: Server-side programming
     items:
-    - name: Server-side programming
+    - name: Server-side programming overview
       href: server-side-programming.md
     - name: User defined functions (UDFs)
       href: user-defined-functions.md
