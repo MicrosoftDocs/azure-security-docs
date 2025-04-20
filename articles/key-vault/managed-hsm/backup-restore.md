@@ -9,14 +9,14 @@ ms.custom: devx-track-azurecli
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 01/09/2024
+ms.date: 04/15/2025
 ms.author: mbaldwin
 # Customer intent: As a developer using Key Vault I want to know the best practices so I can implement them.
 ---
 # Full backup and restore and selective key restore
 
 > [!NOTE]
-> This feature is only available for resource type managed HSM.
+> This feature is only available for the resource type managed HSM.
 
 Managed HSM supports creating a full backup of the entire contents of the HSM including all keys, versions, attributes, tags, and role assignments. The backup is encrypted with cryptographic keys associated with the HSM's security domain.
 
@@ -28,13 +28,13 @@ Only following built-in roles have permission to perform full backup:
 
 There are two ways to execute a full backup/restore:
 1. Assigning a User-Assigned Managed Identity (UAMI) to the Managed HSM service. You can back up and restore your MHSM using a user assigned managed identity regardless of whether your storage account has public network access or private network access enabled. If storage account is behind a private endpoint, the UAMI method works with trusted service bypass to allow for backup and restore.
-2. Using storage container SAS token with permissions 'crdw'. Backing up and restoring using storage container SAS token requires your storage account to have public network access enabled.
+2. Using storage container SAS token with permissions `crdw`. Backing up and restoring using storage container SAS token requires your storage account to have public network access enabled.
 
 You must provide the following information to execute a full backup:
 - HSM name or URL
 - Storage account name
 - Storage account blob storage container
-- User assigned managed identity OR storage container SAS token with permissions 'crdw'
+- User assigned managed identity OR storage container SAS token with permissions `crdw`
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
@@ -43,9 +43,9 @@ You must provide the following information to execute a full backup:
 1. Ensure you have the Azure CLI version 2.56.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 2. Create a user assigned managed identity.
 3. Create a storage account (or use an existing storage account).
-4. If public network access is disabled on your storage account, enable trusted service bypass on the storage account in the “Networking” tab, under “Exceptions.”
-5. Provide ‘storage blob data contributor’ role access to the user assigned managed identity created in step #2 by going to the “Access Control” tab on the portal -> Add Role Assignment. Then select “managed identity” and select the managed identity created in step#2 -> Review + Assign
-6. Create the Managed HSM and associate the managed identity with below command.
+4. If public network access is disabled on your storage account, enable trusted service bypass on the storage account in the "Networking" tab, under "Exceptions."
+5. Provide 'storage blob data contributor' role access to the user assigned managed identity created in step 2, by going to the "Access Control" tab on the portal and selecting "Add Role Assignment". Then select "managed identity" and select the managed identity created in step#2 -> Review + Assign
+6. Create the Managed HSM and associate the managed identity:
    ```azurecli-interactive
    az keyvault create --hsm-name mhsmdemo2 –l mhsmlocation -- retention-days 7 --administrators "initialadmin" --mi-user-assigned "/subscriptions/subid/resourcegroups/mhsmrgname/providers/Microsoft.ManagedIdentity/userAssignedIdentities/userassignedidentitynamefromstep2" 
    ```
@@ -58,7 +58,7 @@ You must provide the following information to execute a full backup:
 
 Backup is a long running operation but immediately returns a Job ID. You can check the status of backup process using this Job ID. The backup process creates a folder inside the designated container with a following naming pattern **`mhsm-{HSM_NAME}-{YYYY}{MM}{DD}{HH}{mm}{SS}`**, where HSM_NAME is the name of managed HSM being backed up and YYYY, MM, DD, HH, MM, mm, SS are the year, month, date, hour, minutes, and seconds of date/time in UTC when the backup command was received.
 
-While the backup is in progress, the HSM might not operate at full throughput as some HSM partitions will be busy performing the backup operation.
+While the backup is in progress, the HSM might not operate at full throughput as some HSM partitions are busy performing the backup operation.
 
 ### Backup HSM using user assigned managed identity
 ```azurecli-interactive
@@ -91,14 +91,14 @@ az keyvault backup start --hsm-name mhsmdemo2 --storage-account-name mhsmdemobac
 
 ## Full restore
 
-Full restore allows you to completely restore the contents of the HSM with a previous backup, including all keys, versions, attributes, tags, and role assignments. Everything currently stored in the HSM will be wiped out, and it will return to the same state it was in when the source backup was created.
+Full restore allows you to completely restore the contents of the HSM with a previous backup, including all keys, versions, attributes, tags, and role assignments. Everything currently stored in the HSM is wiped out, and it returns to the same state it was in when the source backup was created.
 
 > [!IMPORTANT]
-> Full restore is a very destructive and disruptive operation. Therefore it is mandatory to have completed a full backup of the HSM you are restoring to at least 30 minutes prior to a `restore` operation can be performed.
+> Full restore is a destructive and disruptive operation. Therefore it is mandatory to complete a full backup of the HSM you are restoring to at least 30 minutes before a `restore` operation can be performed.
 
 Restore is a data plane operation. The caller starting the restore operation must have permission to perform dataAction **Microsoft.KeyVault/managedHsm/restore/start/action**. The source HSM where the backup was created and the destination HSM where the restore will be performed **must** have the same Security Domain. See more [about Managed HSM Security Domain](security-domain.md).
 
-There are 2 ways to execute a full restore. You must provide the following information to execute a full restore:
+There are two ways to execute a full restore. You must provide the following information to execute a full restore:
 - HSM name or URL
 - Storage account name
 - Storage account blob container

@@ -7,7 +7,8 @@ ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: how-to
 ms.custom: devx-track-js
-ms.date: 05/22/2023
+ms.date: 04/14/2025
+
 ms.author: mbaldwin
 #Customer intent: As a JavaScript developer who is new to Azure, I want to create, update, or rotate a secret to the Key Vault with the SDK.
 ---

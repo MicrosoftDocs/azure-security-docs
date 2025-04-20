@@ -8,7 +8,8 @@ ms.custom: devx-track-arm-template
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 01/30/2024
+ms.date: 04/14/2025
+
 ms.author: mbaldwin
 # Customer intent: As a managed HSM administrator, I want to authorize Azure Resource Manager to perform key management operations via Azure Managed HSM
 ---
