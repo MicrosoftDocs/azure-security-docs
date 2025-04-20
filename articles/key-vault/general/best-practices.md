@@ -8,7 +8,7 @@ tags: azure-key-vault
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 09/04/2022
+ms.date: 04/16/2025
 ms.author: mbaldwin
 # Customer intent: As a developer who's using Key Vault, I want to know the best practices so I can implement them.
 ---

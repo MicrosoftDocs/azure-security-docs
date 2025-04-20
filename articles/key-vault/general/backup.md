@@ -7,7 +7,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 01/30/2024
+ms.date: 04/15/2025
 ms.author: mbaldwin
 #Customer intent: As an Azure Key Vault administrator, I want to back up a secret, key, or certificate in my key vault.
 ---
@@ -26,9 +26,9 @@ If you want protection against accidental or malicious deletion of your secrets,
 ## Limitations
 
 > [!IMPORTANT]
-> Key Vault does not support the ability to backup more than 500 past versions of a key, secret, or certificate object. Attempting to backup a key, secret, or certificate object may result in an error. It is not possible to delete previous versions of a key, secret, or certificate.
+> Key Vault does not support the ability to backup more than 500 past versions of a key, secret, or certificate object, and attempting to do so may result in an error. It is not possible to delete previous versions of a key, secret, or certificate.
 
-Key Vault doesn't currently provide a way to back up an entire key vault in a single operation and keys, secrets and certitificates must be backup indvidually.
+Key Vault doesn't currently provide a way to back up an entire key vault in a single operation and keys, secrets, and certificates must be backup individually.
 
 Also consider the following issues:
 

@@ -7,7 +7,8 @@ ms.service: azure-key-vault
 ms.subservice: secrets
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 01/24/2023
+ms.date: 04/14/2025
+
 ms.custom: devx-track-azurecli
 # Customer intent: As a developer, I want to use Azure Key Vault and Azure CLI for secure management of my storage credentials and shared access signature tokens.
 ---

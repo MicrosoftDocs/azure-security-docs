@@ -6,17 +6,16 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: conceptual
-ms.date: 02/20/2022
+ms.date: 04/15/2025
 ms.author: mbaldwin
 
 ---
 
 # Third-party solutions
 
-Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using **FIPS  140-2 Level 3** validated HSMs. [Learn more](overview.md).
+Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using **FIPS 140-2 Level 3** validated HSMs. [Learn more](overview.md).
 
 Several vendors have worked closely with Microsoft to integrate their solutions with Managed HSM. The table below lists these solutions with a brief description (provided by vendor). Links to their Azure Marketplace offering and documentation are also provided.
-
 
 ## Third-party solutions integrated with Managed HSM
 

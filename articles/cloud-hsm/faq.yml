@@ -144,15 +144,15 @@ sections:
       - question: |-
           Can I restore a backup to another Azure Cloud HSM within a different region?
         answer: |-
-          Yes, you can restore a backup to another Azure Cloud HSM in any region, provided that the destination Cloud HSM is in a Not Activated state. For more information about cross-region restoration, see [Cross-region recovery for Azure Cloud HSM](backup-restore.md#azure-cloud-hsm-restore).
+          Yes, you can restore a backup to another Azure Cloud HSM in any region, provided that the destination Cloud HSM is in a Not Activated state. For more information about cross-region restoration, see [Cross-region recovery for Azure Cloud HSM](backup-restore.md#initiate-a-restore-to-the-destination-cloud-hsm-resource).
       - question: |-
           Can I create more than one MSI per Azure Cloud HSM?
         answer: |-
-          No. Only one MSI is allowed per Azure Cloud HSM Cluster. For more information about identity and access management, see [Apply an MSI to Cloud HSM](backup-restore.md#apply-an-msi-to-cloud-hsm-and-create-a-storage-account-for-hsm-backups).
+          No. Only one MSI is allowed per Azure Cloud HSM Cluster. For more information about identity and access management, see [Apply an MSI to Cloud HSM](backup-restore.md#apply-a-managed-identity-and-create-a-storage-account).
       - question: |-
           Can I apply more restrictive read / write permissions for my source and destination for backups?
         answer: |-
-          Yes. In the examples given it states minimum RBAC role required is 'Storage Blob Data Contributor'. You may restrict the source as 'read-only' but you will need to read/write on the destination. For more information about access control, see [Apply an MSI to Cloud HSM and Create a Storage Account for HSM Backups](backup-restore.md#apply-an-msi-to-cloud-hsm-and-create-a-storage-account-for-hsm-backups).
+          Yes. In the examples given it states minimum RBAC role required is 'Storage Blob Data Contributor'. You may restrict the source as 'read-only' but you will need to read/write on the destination. For more information about access control, see [Apply an MSI to Cloud HSM and Create a Storage Account for HSM Backups](backup-restore.md#apply-a-managed-identity-and-create-a-storage-account).
   
   - name: Security and Compliance  
     questions:  

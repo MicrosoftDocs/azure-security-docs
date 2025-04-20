@@ -34,6 +34,12 @@
     href: deployment-architecture.md
   - name: Troubleshooting
     href: troubleshoot.md
+
+- name: Security
+  items:
+  - name: Secure your Dedicated HSM
+    href: secure-dedicated-hsm.md
+
 - name: Reference
   items:
   - name: Azure CLI

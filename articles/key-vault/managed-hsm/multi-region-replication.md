@@ -6,7 +6,8 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 02/07/2024
+ms.date: 04/14/2025
+
 ms.author: nkondamudi
 ms.custom: references_regions
 ---
@@ -47,46 +48,10 @@ If a region reports an unhealthy status to the Traffic Manager, future requests 
 
 ## Azure region support
 
-The following regions are supported as primary regions (Regions where you can replicate a Managed HSM pool from)
-
-- US East
-- US East 2
-- US North
-- Europe West
-- US West
-- Canada East
-- Qatar Central
-- Asia East
-- Asia SouthEast
-- UK South
-- US Central
-- Japan East
-- Switzerland North
-- Brazil South
-- Australia Central
-- India Central
-- US West 3
-- Canada Central
-- Australia East
-- India South
-- Sweden Central
-- South Africa North
-- Korea Central
-- Europe North
-- France Central
-- Japan West
-- US South Central
-- Poland Central
-- Switzerland West
-- Australia SouthEast
-- India West
-- UAE Central
-- UAE North
-- US West 2
-- US West Central
+All Azure Managed HSM regions are supported as primary regions (regions where you can replicate a Managed HSM pool from).
 
 > [!NOTE]
-> US Central, US East, US South Central, West US 2, Switzerland North, West Europe, Central India, Canada Central, Canada East, Japan West, Qatar Central, Poland Central, and US West Central cannot be extended regions at this time. Other regions may be unavailable for extension due to capacity limitations in the region.
+> US East, US South Central, West US 2, Switzerland North, West Europe, Central India, Canada Central, Canada East, Japan West, Qatar Central, Poland Central, and US West Central cannot be extended regions at this time. Other regions may be unavailable for extension due to capacity limitations in the region.
 
 ## Billing
 
