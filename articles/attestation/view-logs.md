@@ -5,7 +5,7 @@ services: attestation
 author: msmbaldwin
 ms.service: azure-attestation
 ms.topic: reference
-ms.date: 01/23/2023
+ms.date: 04/15/2025
 ms.author: mbaldwin
 
 ---

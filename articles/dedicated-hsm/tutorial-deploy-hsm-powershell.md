@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.topic: tutorial
 ms.custom: mvc, devx-track-azurepowershell
 ms.service: azure-dedicated-hsm
-ms.date: 02/20/2024
+ms.date: 04/14/2025
 ms.author: mbaldwin
 ---
 
@@ -39,11 +39,11 @@ Assumptions:
 - You created a Resource Group for these resources and for the new resources that are deployed in this tutorial.
 - You already created the necessary virtual network, subnet, and virtual machines and now want to integrate 2 HSMs into that deployment.
 
-The following instructions assume that you've already navigated to the Azure portal and you've opened the Cloud Shell (select "\>\_" towards the top right of the portal).
+The following instructions assume that you are on the Azure portal and you've opened the Cloud Shell (select "\>\_" towards the top right of the portal).
 
 ## Provisioning a Dedicated HSM
 
-Provisioning the HSMs and integrating into an existing virtual network via [ExpressRoute gateway](/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager) is validated using the ssh command-line tool to ensure reachability and basic availability of the HSM device for any further configuration activities. The following commands will use a Resource Manager template to create the HSM resources and associated networking resources.
+Provisioning the HSMs and integrating into an existing virtual network via [ExpressRoute gateway](/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager) is validated using the ssh command-line tool to ensure reachability and basic availability of the HSM device for any further configuration activities. The following commands use a Resource Manager template to create the HSM resources and associated networking resources.
 
 ### Validating Feature Registration
 
@@ -53,7 +53,7 @@ As mentioned, any provisioning activity requires that the Dedicated HSM service 
 Get-AzProviderFeature -ProviderNamespace Microsoft.HardwareSecurityModules -FeatureName AzureDedicatedHsm
 ```
 
-The command should return a status of "Registered" before you proceed any further.  If you're not registered for this service, contact your Microsoft account representative.
+The command should return a status of "Registered" before you proceed any further. If you're not registered for this service, contact your Microsoft account representative.
 
 :::image type="content" source="media/tutorial-deploy-hsm-powershell/subscription-status.png" lightbox="media/tutorial-deploy-hsm-powershell/subscription-status.png" alt-text="Subscription status.":::
 
@@ -159,7 +159,7 @@ New-AzVirtualNetwork `
 ```
 
 >[!NOTE]
->The most important configuration to note for the virtual network, is that the subnet for the HSM device must have delegations set to "Microsoft.HardwareSecurityModules/dedicatedHSMs".  The HSM provisioning will not work without this.
+>The most important configuration to note for the virtual network is that the subnet for the HSM device must have delegations set to "Microsoft.HardwareSecurityModules/dedicatedHSMs". Otherwise the HSM provisioning does not work.
 
 Once all prerequisites are in place, and updated the Resource Manager template with your unique names (at least the resource group name), run the following command:
 
@@ -172,9 +172,9 @@ New-AzResourceGroupDeployment -ResourceGroupName myRG `
 
 ```
 
-This command should take approximately 20 minutes to complete. The "-verbose" option used will ensure status is continually displayed.
+This command should take approximately 20 minutes to complete. The "-verbose" option used ensures that the status is continually displayed.
 
-:::image type="content" source="media/tutorial-deploy-hsm-powershell/progress-status.png" lightbox="media/tutorial-deploy-hsm-powershell/progress-status.png" alt-text="Deploying a Decicated HSM.":::
+:::image type="content" source="media/tutorial-deploy-hsm-powershell/progress-status.png" lightbox="media/tutorial-deploy-hsm-powershell/progress-status.png" alt-text="Deploying a Dedicated HSM.":::
 
 When completed successfully, shown by "provisioningState": "Succeeded", you can sign in to your existing virtual machine and use SSH to ensure availability of the HSM device.
 

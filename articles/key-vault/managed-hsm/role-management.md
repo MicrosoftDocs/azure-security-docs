@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 02/20/2024
+ms.date: 04/15/2025
 ms.author: mbaldwin
 ---
 # Managed HSM role management

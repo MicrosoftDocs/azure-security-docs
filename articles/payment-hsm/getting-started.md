@@ -6,7 +6,7 @@ author: msmbaldwin
 
 ms.service: azure-payment-hsm
 ms.topic: article
-ms.date: 01/30/2024
+ms.date: 04/14/2025
 ms.author: mbaldwin
 ms.custom: references_regions
 ---

@@ -1,18 +1,18 @@
 ---
 title: Azure Key Vault security worlds | Microsoft Docs
-description: Azure Key Vault is a multi-tenant service. It uses a pool of HSMs in each Azure region. All regions in a geographic region share a cryptographic boundary.
+description: Azure Key Vault is a multitenant service. It uses a pool of HSMs in each Azure region. All regions in a geographic region share a cryptographic boundary.
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 02/20/2024
+ms.date: 04/16/2025
 ---
 # Azure Key Vault security worlds and geographic boundaries
 
-Azure products are available in a number of [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/), with each Azure geography containing one or more regions. For example, the Europe geography contains two regions -- North Europe and West Europe -- while the sole region in the Brazil geography is Brazil South.
+Azure products are available in many [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/), with each Azure geography containing one or more regions. For example, the Europe geography contains two regions--North Europe and West Europe--while the sole region in the Brazil geography is Brazil South.
 
-Azure Key Vault is a multi-tenant service that uses a pool of Hardware Security Modules (HSMs). All HSMs in a geography share the same cryptographic boundary, referred to as a "security world". Every geography corresponds to a single security world, and vice versa.
+Azure Key Vault is a multitenant service that uses a pool of Hardware Security Modules (HSMs). All HSMs in a geography share the same cryptographic boundary, referred to as a "security world". Every geography corresponds to a single security world, and vice versa.
 
 East US and West US share the same security world because they belong to the geography (United States). Similarly, all Azure regions in Japan share the same security world, as do all Azure regions in Australia, and so forth.
 

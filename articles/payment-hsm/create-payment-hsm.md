@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.date: 05/25/2023
+ms.date: 04/14/2025
 ---
 
 # Tutorial: Create a payment HSM

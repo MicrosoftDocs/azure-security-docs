@@ -6,7 +6,7 @@ ms.author: mbaldwin
 ms.service: security
 ms.topic: conceptual
 ms.custom: horz-security
-ms.date: 05/15/2023
+ms.date: 04/14/2025
 ---
 
 # Secure your Azure confidential ledger deployment
@@ -21,7 +21,7 @@ Azure confidential ledger runs exclusively on hardware-backed secure enclaves, p
 
 - **Verify ledger authenticity before exchanging data**: Always authenticate the ledger nodes before establishing a connection to ensure you're communicating with legitimate ACL nodes. This verification helps prevent sophisticated man-in-the-middle attacks and ensures your data is flowing to the intended location. For more details, see [Authenticating Azure confidential ledger nodes](authenticate-ledger-nodes.md).
 
-- **Understand TLS connection security**: Azure confidential ledger uses TLS 1.3 protocol for client connections, with connections terminating inside hardware-backed security enclaves. This approach prevents man-in-the-middle attacks, as neither Azure administrators nor anyone else can access data inside the secure enclave. For more information, see the [Azure confidential ledger FAQ](faq.yml).
+- **Understand TLS connection security**: Azure confidential ledger supports TLS 1.2 and 1.3 protocols for client connections, with connections terminating inside hardware-backed security enclaves. This approach prevents man-in-the-middle attacks, as neither Azure administrators nor anyone else can access data inside the secure enclave. For more information, see the [Azure confidential ledger FAQ](faq.yml).
 
 - **Verify node quotes to establish trust**: Use the `verify_quote.sh` script (installed with the CCF Python package) to verify that the nodes your applications connect to are running trusted code within legitimate Intel SGX enclaves. This verification confirms the cryptographic hash of the node's identity public key matches the SGX report data. For more details, see [Establish trust on Azure confidential ledger](verify-node-quotes.md).
 
