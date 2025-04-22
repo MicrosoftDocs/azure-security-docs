@@ -95,37 +95,233 @@ There are many differences between Azure RBAC and vault access policy permission
 
 ## Prerequisites
 
-Changing a key vault's permission model requires two permissions:
-- The 'Microsoft.Authorization/roleAssignments/write' permission, which is included in the [Owner role](/azure/role-based-access-control/built-in-roles#owner) and [User Access Administrator role](/azure/role-based-access-control/built-in-roles#user-access-administrator).
-- The 'Microsoft.KeyVault/vaults/write' permission, which is included in the [Key Vault Contributor role](/azure/role-based-access-control/built-in-roles/security#key-vault-contributor).
+Before starting the migration, ensure you have:
 
-Classic subscription administrator roles like 'Service Administrator' and 'Co-Administrator' are not supported.
+1. **Required permissions**: You must have the following permissions on the key vault:
+   - `Microsoft.Authorization/roleAssignments/write` permission, included in Owner and User Access Administrator roles
+   - `Microsoft.KeyVault/vaults/write` permission, included in the Key Vault Contributor role
+   
+   > [!NOTE]
+   > Classic subscription administrator roles (Service Administrator and Co-Administrator) are not supported.
+1. **Inventory of applications and identities**:  List all applications, services, and users that access the key vault, and document all current access policies and the permissions they grant.
+1. **Monitoring configured**: Enable the diagnostic settings on the key vault to detect any access issues during migration. Set up alerts for access denied errors (HTTP 401/403).
 
-> [!NOTE]
-> When Azure RBAC permission model is enabled, all scripts which attempt to update access policies will fail. It is important to update those scripts to use Azure RBAC.
+## How to migrate
 
-## Migration governance
+Follow these steps to migrate your key vault to RBAC from access policies:
+
+1. **Inventory current access policies**: Document all existing access policies, noting the security principals (users, groups, service principals) and their permissions.
+
+1. **Create equivalent RBAC role assignments**: For each security principal with an access policy, create one or more RBAC role assignments based on the mapping table above.
+
+1. **Enable RBAC permission model**: After creating all necessary role assignments, switch the vault to use the RBAC permission model.
+
+1. **Validate access**: Test access to the vault to ensure all applications and users can still perform required operations.
+
+# [Azure CLI](#tab/cli)
+
+### Inventory current access policies
+
+Use the Azure CLI [az keyvault show](/cli/azure/keyvault#az-keyvault-show) command to retrieve the access policies:
+
+```azurecli
+# List all current access policies
+az keyvault show --name <vault-name> --resource-group <resource-group-name> --query properties.accessPolicies
+```
+
+### Create equivalent RBAC role assignments
+
+Use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to grant appropriate roles:
+
+```azurecli
+# Example for Key Vault Administrator role:
+az role assignment create --role "Key Vault Administrator" --assignee "<object-id-or-email>" --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<vault-name>"
+
+# Example for Key Vault Secrets Officer:
+az role assignment create --role "Key Vault Secrets Officer" --assignee "<object-id-or-email>" --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<vault-name>"
+
+# Example for Key Vault Crypto Officer:
+az role assignment create --role "Key Vault Crypto Officer" --assignee "<object-id-or-email>" --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<vault-name>"
+
+# Example for Key Vault Certificates Officer:
+az role assignment create --role "Key Vault Certificates Officer" --assignee "<object-id-or-email>" --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<vault-name>"
+```
+
+### Enable RBAC permission model
+
+Use the [az keyvault update](/cli/azure/keyvault#az-keyvault-update) command to enable RBAC:
+
+```azurecli
+# Switch the vault to RBAC permission model
+az keyvault update --name <vault-name> --resource-group <resource-group-name> --enable-rbac-authorization true
+```
+
+### Validate access
+
+Test your access with these commands:
+
+```azurecli
+# Try to list secrets to verify access
+az keyvault secret list --vault-name <vault-name>
+
+# Try to get a secret to verify access
+az keyvault secret show --vault-name <vault-name> --name <secret-name>
+```
+
+# [Azure PowerShell](#tab/powershell)
+
+### Inventory current access policies
+
+Use the [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault) cmdlet to retrieve the access policies:
+
+```powershell
+# List all current access policies
+$vault = Get-AzKeyVault -VaultName "<vault-name>" -ResourceGroupName "<resource-group-name>"
+$vault.AccessPolicies
+```
+
+### Create equivalent RBAC role assignments
+
+Use the [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) cmdlet to grant appropriate roles:
+
+```powershell
+# Example for Key Vault Administrator role:
+New-AzRoleAssignment -RoleDefinitionName "Key Vault Administrator" -ObjectId "<object-id>" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<vault-name>"
+
+# Example for Key Vault Secrets Officer:
+New-AzRoleAssignment -RoleDefinitionName "Key Vault Secrets Officer" -ObjectId "<object-id>" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<vault-name>"
+
+# Example for Key Vault Crypto Officer:
+New-AzRoleAssignment -RoleDefinitionName "Key Vault Crypto Officer" -ObjectId "<object-id>" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<vault-name>"
+
+# Example for Key Vault Certificates Officer:
+New-AzRoleAssignment -RoleDefinitionName "Key Vault Certificates Officer" -ObjectId "<object-id>" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<vault-name>"
+```
+
+### Enable RBAC permission model
+
+Use the [Update-AzKeyVault](/powershell/module/az.keyvault/update-azkeyvault) cmdlet to enable RBAC:
+
+```powershell
+# Switch the vault to RBAC permission model
+$vault = Get-AzKeyVault -VaultName "<vault-name>" -ResourceGroupName "<resource-group-name>"
+Update-AzKeyVault -VaultName $vault.VaultName -ResourceGroupName $vault.ResourceGroupName -EnableRbacAuthorization $true
+```
+
+### Validate access
+
+Test your access with these cmdlets:
+
+```powershell
+# Try to list secrets to verify access
+Get-AzKeyVaultSecret -VaultName "<vault-name>"
+
+# Try to get a secret to verify access
+Get-AzKeyVaultSecret -VaultName "<vault-name>" -Name "<secret-name>"
+```
+
+# [Azure portal](#tab/portal)
+
+### Inventory current access policies
+
+In the Azure portal:
+
+1. Navigate to your key vault
+2. Select **Access policies** under Settings
+3. Document all existing access policies, noting:
+    - Identity (user, group, or service principal)
+    - Key, Secret, and Certificate permissions granted
+
+### Create equivalent RBAC role assignments
+
+In the Azure portal:
+
+1. Navigate to your key vault
+2. Select **Access control (IAM)**
+3. Click **Add** > **Add role assignment**
+4. Select the appropriate role based on the access policy mapping
+5. Search for and select the user, group, or service principal
+6. Click **Review + assign** to create the role assignment
+7. Repeat for each identity that needs access
+
+### Enable RBAC permission model
+
+In the Azure portal:
+
+1. Navigate to your key vault
+2. Select **Properties** under Settings
+3. Change **Permission model** to **Azure role-based access control**
+4. Click **Save**
+
+![Enable Azure RBAC permissions - existing vault](../media/rbac/existing-vault.png)
+
+### Validate access
+
+In the Azure portal:
+
+1. Try to access secrets, keys, or certificates based on your assigned roles
+2. Verify that applications using the vault still function correctly
+
+---
+
+## Migration governance with Azure Policy
 
 Using the Azure Policy service, you can govern RBAC permission model migration across your vaults. You can create a custom policy definition to audit existing key vaults and enforce all new key vaults to use the Azure RBAC permission model.
 
 ### Create and assign policy definition for Key Vault Azure RBAC permission model
+
 1. Navigate to Policy resource
-1. Select **Assignments** under **Authoring** on the left side of the Azure Policy page.
-1. Select **Assign policy** at the top of the page. This button opens to the Policy assignment page.
-1. Enter the following information:
-    - Define the scope of the policy by choosing the subscription and resource group over which the policy will be enforced. Select by clicking the three-dot button at on **Scope** field.
-    - Select the name of the policy definition: "[[Preview]: Azure Key Vault should use RBAC permission model](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12d4fa5e-1f9f-4c21-97a9-b99b3c6611b5)"
-    - Go to the **Parameters** tab at the top of the page and define the desired effect of the policy (Audit, Deny, or Disabled). 
-1. Fill out any additional fields. Navigate the tabs clicking on **Previous** and **Next** buttons at the bottom of the page.
-1. Select **Review + create**
-1. Select **Create**
+2. Select **Assignments** under **Authoring** on the left side of the Azure Policy page
+3. Select **Assign policy** at the top of the page
+4. Enter the following information:
+    - Define the scope of the policy by choosing the subscription and resource group
+    - Select the policy definition: "[[Preview]: Azure Key Vault should use RBAC permission model](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12d4fa5e-1f9f-4c21-97a9-b99b3c6611b5)"
+    - Define the desired effect of the policy (Audit, Deny, or Disabled)
+5. Complete the assignment by reviewing and creating it
 
-Once the built-in policy is assigned, it can take up to 24 hours to complete the scan. After the scan is completed, you can see compliance results like below.
+Once the policy is assigned, it can take up to 24 hours to complete the scan. After the scan is completed, you can see compliance results in the Azure Policy dashboard.
 
-:::image type="content" source="../media/rbac/migration-policy.png" alt-text="RBAC policy compliance":::
+## Monitoring and alerting
 
-For more information, see
-- [Integrate Azure Key Vault with Azure Policy](azure-policy.md)
+After migration, set up proper monitoring to detect any access issues:
+
+# [Azure CLI](#tab/cli)
+
+Use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command:
+
+```azurecli
+# Enable diagnostics logging for Key Vault
+az monitor diagnostic-settings create --resource <vault-id> --name KeyVaultLogs --logs "[{\"category\":\"AuditEvent\",\"enabled\":true}]" --workspace <log-analytics-workspace-id>
+```
+
+# [Azure PowerShell](#tab/powershell)
+
+Use the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet:
+
+```powershell
+# Get the vault resource ID
+$vaultResourceId = (Get-AzKeyVault -VaultName "<vault-name>" -ResourceGroupName "<resource-group-name>").ResourceId
+
+# Enable diagnostics logging for Key Vault
+$logs = @()
+$logs += New-AzDiagnosticSettingLogSettingsObject -Category "AuditEvent" -Enabled $true
+Set-AzDiagnosticSetting -ResourceId $vaultResourceId -Name "KeyVaultLogs" -WorkspaceId "<log-analytics-workspace-id>" -Log $logs
+```
+
+# [Azure portal](#tab/portal)
+
+In the Azure portal:
+
+1. Navigate to your key vault
+2. Select **Diagnostic settings** under Monitoring
+3. Click **Add diagnostic setting**
+4. Enter a name for the setting (for example, "KeyVaultLogs")
+5. Under "Logs", check the **AuditEvent** category
+6. Select **Send to Log Analytics workspace** as the destination
+7. Choose your Log Analytics workspace
+8. Click **Save**
+
+---
 
 ## Access Policy to Azure RBAC Comparison Tool
 
@@ -135,9 +331,15 @@ For more information, see
 
 [PowerShell tool](https://github.com/Azure/KeyVault-AccessPolicyToRBAC-CompareTool) to compare Key Vault access policies to assigned RBAC roles to help with Access Policy to RBAC Permission Model migration. The tool intent is to provide sanity check when migrating existing Key Vault to RBAC permission model to ensure that assigned roles with underlying data actions cover existing Access Policies.
 
-## Troubleshooting
--  Role assignment not working after several minutes - there are situations when role assignments can take longer. It's important to write retry logic in code to cover those cases.
-- Role assignments disappeared when Key Vault was deleted (soft-delete) and recovered - it's currently a limitation of soft-delete feature across all Azure services. It's required to recreate all role assignments after recovery.
+## Troubleshooting common issues
+
+- **Role assignment delay**: Role assignments can take several minutes to propagate. Implement retry logic in your applications.
+- **Lost role assignments after recovery**: Role assignments are not preserved when a vault is recovered after soft-delete. You must recreate all role assignments after recovery.
+- **Access denied errors**: Check that:
+  - The correct roles are assigned at the right scope
+  - The service principal or managed identity has the exact permissions needed
+  - Network access rules are not blocking your connection
+- **Scripts fail after migration**: Update any scripts that used access policies to use role assignments instead.
 
 ## Learn more
 
