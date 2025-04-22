@@ -35,7 +35,7 @@ For more information, please visit [Azure role-based access control (Azure RBAC)
 
 ## February 2023
 
-Built-in policy to govern the migration to Azure role-based access control (RBAC) is now in preview. With the built-in policy you can audit existing key vaults and enforce all new key vaults to use the Azure RBAC permission model. See [RBAC migration governance](../general/rbac-migration.md#migration-governance) to learn how to enforce the new built-in policy.
+Built-in policy to govern the migration to Azure role-based access control (RBAC) is now in preview. With the built-in policy you can audit existing key vaults and enforce all new key vaults to use the Azure RBAC permission model. See [RBAC migration governance](../general/rbac-migration.md#migration-governance-with-azure-policy) to learn how to enforce the new built-in policy.
 
 ## April 2022
 

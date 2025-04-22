@@ -221,9 +221,6 @@ In the Azure portal:
 2. Select **Properties** under Settings
 3. Change **Permission model** to **Azure role-based access control**
 4. Click **Save**
-
-![Enable Azure RBAC permissions - existing vault](../media/rbac/existing-vault.png)
-
 ---
 
 ### Validate access
