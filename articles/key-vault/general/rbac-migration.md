@@ -86,7 +86,13 @@ In general, it's best practice to have one key vault per application and manage 
 
 ## How to migrate
 
-Follow these steps to migrate your key vault to RBAC from access policies.
+Follow these steps to migrate your key vault to RBAC from access policies:
+- **Prepare**: Ensure you have proper permissions,and an inventory of your applications.
+- **Inventory**: Document all existing access policies and permissions.
+- **Create RBAC roles**: Assign appropriate RBAC roles to each security principal.
+- **Enable RBAC**: Switch the key vault to use the RBAC permission model.
+- **Validate**: Test access to ensure all applications and users retain appropriate access.
+- **Monitor**: Set up monitoring and alerting for access issues.
 
 ### Prerequisites
 
@@ -99,7 +105,6 @@ Before starting the migration, ensure you have:
    > [!NOTE]
    > Classic subscription administrator roles (Service Administrator and Co-Administrator) are not supported.
 1. **Inventory of applications and identities**:  List all applications, services, and users that access the key vault, and document all current access policies and the permissions they grant.
-1. **Monitoring configured**: Enable the diagnostic settings on the key vault to detect any access issues during migration. Set up alerts for access denied errors (HTTP 401/403).
 
 ### Inventory current access policies
 
