@@ -41,7 +41,7 @@ To create an Azure Cloud HSM via the Azure portal:
 ## Enter Cloud HSM details
 
 1. Select your Azure subscription.
-2. Choose an existing resource group or create a new one. It's recommended to deploy your Cloud HSM resources in a separate resource group from your related client virtual network and virtual machine resources, as noted in [Tutorial: Deploy Azure Cloud HSM](tutorial-deploy-cloud-hsm.md).
+2. Choose an existing resource group or create a new one. It's recommended to deploy your Cloud HSM resources in a separate resource group from your related client virtual network and virtual machine resources for better management and security isolation.
 3. Specify the HSM name, region, and SKU.
 4. Keep the default Domain Name Reuse setting as "Tenant Reuse" to prevent malicious subdomain takeover and ensure the FQDN can only be reused within your tenant.
 
@@ -120,3 +120,4 @@ If you encounter issues during deployment:
 - [Configure backup and restore for Cloud HSM](backup-restore.md) 
 - [Secure your Cloud HSM](secure-cloud-hsm.md)
 - [Network security for Cloud HSM](network-security.md)
+- [Deploy Azure Cloud HSM using Azure PowerShell](quickstart-powershell.md)

@@ -19,5 +19,6 @@ The onboarding guide is available as a PDF and includes detailed instructions, b
 
 ## Next Steps
 - [Azure Cloud HSM overview](overview.md)
-- [Deploy Azure Cloud HSM using PowerShell](quickstart-powershell.md) or [using the Azure portal](quickstart-portal.md)
+- [Deploy Azure Cloud HSM using the Azure portal](quickstart-portal.md)
+- [Deploy Azure Cloud HSM using Azure PowerShell](quickstart-powershell.md)
 - [Azure Cloud HSM integration guides](integration-guides.md)

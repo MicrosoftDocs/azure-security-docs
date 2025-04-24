@@ -34,5 +34,6 @@ Here are the integration guides available for securely connecting various applic
 
 ## Next Steps
 - [Azure Cloud HSM overview](overview.md)
-- [Deploy Azure Cloud HSM using PowerShell](quickstart-powershell.md) or [using the Azure portal](quickstart-portal.md)
+- [Deploy Azure Cloud HSM using the Azure portal](quickstart-portal.md)
+- [Deploy Azure Cloud HSM using Azure PowerShell](quickstart-powershell.md)
 - [Azure Cloud HSM Onboarding Guide](onboarding-guide.md)
