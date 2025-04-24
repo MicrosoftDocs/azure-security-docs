@@ -176,6 +176,5 @@ az keyvault role definition delete --hsm-name ContosoMHSM --name xxxxxxxx-xxxx-x
 ## Next steps
 
 - See an overview of [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview).
-- See a tutorial on [Managed HSM role management](role-management.md)
 - Learn more about [Managed HSM access control model](access-control.md)
 - See all the [built-in roles for Managed HSM local RBAC](built-in-roles.md)
