@@ -208,7 +208,7 @@ For full details, see [Assign Azure roles using Azure PowerShell](/azure/role-ba
 ### Secret scope role assignment
 
 > [!NOTE]
-> Key vault secret, certificate, key scope role assignments should only be used for limited scenarios described [here](rbac-guide.md?i#best-practices-for-individual-keys-secrets-and-certificates-role-assignments) to comply with security best practices.
+> Key vault secret, certificate, key scope role assignments should only be used for limited scenarios described [here](#best-practices-for-individual-keys-secrets-and-certificates-role-assignments) to comply with security best practices.
 
 # [Azure portal](#tab/azure-portal)
 
