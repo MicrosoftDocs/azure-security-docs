@@ -28,28 +28,32 @@ landingContent:
         links:
           - text: Azure Cloud HSM SDK
             url: https://github.com/microsoft/MicrosoftAzureCloudHSM
-    
-  - title: Tutorials
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Tutorials
-            url: tutorial-deploy-cloud-hsm.md
-          - text: Operation event logging
-            url: tutorial-operation-event-logging.md
-
-  - title: How-to Guides
-    linkLists:
-      - linkListType: how-to-guide
-        links:
           - text: Azure Cloud HSM Onboarding Guide
             url: onboarding-guide.md
           - text: Azure Cloud HSM Integration Guides
             url: integration-guides.md
-
-  - title: Security
+    
+  - title: Quickstarts
     linkLists:
-      - linkListType: reference
+      - linkListType: quickstart
+        links:
+          - text: Deploy using the Azure portal
+            url: quickstart-portal.md
+
+  - title: Tutorials
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Deploy Azure Cloud HSM
+            url: quickstart-powershell.md
+          - text: Back up and restore resources
+            url: backup-restore.md
+          - text: Operation event logging
+            url: tutorial-operation-event-logging.md
+
+  - title: Security and management
+    linkLists:
+      - linkListType: concept
         links:
           - text: Secure your Cloud HSM
             url: secure-cloud-hsm.md

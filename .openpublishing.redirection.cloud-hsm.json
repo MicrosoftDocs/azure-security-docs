@@ -1,0 +1,10 @@
+{
+  "redirections": [
+    {
+      "source_path_from_root": "/articles/cloud-hsm/tutorial-deploy-cloud-hsm.md",
+      "redirect_url": "/azure/cloud-hsm/quickstart-powershell",
+      "redirect_document_id": false
+    }
+  ]
+}
+

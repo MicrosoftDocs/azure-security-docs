@@ -6,10 +6,15 @@ items:
   - name: About Azure Cloud HSM
     href: overview.md
 
+- name: Quickstarts 
+  items:
+  - name: Powershell
+    href: quickstart-powershell.md
+  - name: Azure portal
+    href: quickstart-portal.md
+
 - name: Tutorials 
   items:
-  - name: Deploying Azure Cloud HSM
-    href: tutorial-deploy-cloud-hsm.md
   - name: Operation event logging
     href: tutorial-operation-event-logging.md
   - name: Backup and restore
