@@ -58,5 +58,5 @@ items:
     href: faq.yml
   - name: Service limits
     href: service-limits.md
-  - name: REgion availability
+  - name: Region availability
     href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table
