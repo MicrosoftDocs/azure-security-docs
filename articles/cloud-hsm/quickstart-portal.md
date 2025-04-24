@@ -32,7 +32,7 @@ To create an Azure Cloud HSM via the Azure portal:
 2. Search for and select **Cloud HSM**.
 3. Click **Create**.
 
-:::image type="content" source="./media/cloud-hsm-portal-1.png" lightbox="./media/cloud-hsm-portal-1.png" alt-text="Azure Portal interface showing the Cloud HSM resource creation option":::
+:::image type="content" source="./media/cloud-hsm-portal-1.png" lightbox="./media/cloud-hsm-portal-1.png" alt-text="A screenshot of the Azure Portal interface showing the Cloud HSM resource creation option.":::
 
 ## Configure basic settings
 
@@ -41,7 +41,7 @@ To create an Azure Cloud HSM via the Azure portal:
 3. Specify the HSM name, region, and SKU.
 4. Keep the default Domain Name Reuse setting as "Tenant Reuse" to prevent malicious subdomain takeover and ensure the FQDN can only be reused within your tenant.
 
-:::image type="content" source="./media/cloud-hsm-portal-2.png" lightbox="./media/cloud-hsm-portal-2.png" alt-text="Cloud HSM basic configuration details form showing subscription, resource group, name, region, and SKU options":::
+:::image type="content" source="./media/cloud-hsm-portal-2.png" lightbox="./media/cloud-hsm-portal-2.png" alt-text="A screenshot of the Cloud HSM basic configuration form displaying subscription, resource group, name, region, and SKU options.":::
 
 > [!IMPORTANT]
 > The HSM name must be unique. If you specify an HSM resource name that already exists in the chosen region, your deployment will fail.
@@ -54,11 +54,11 @@ Consider the following options:
 
 1. **No identity (default)** - Choose this if you don't plan to use backup and restore operations.
 
-   :::image type="content" source="./media/cloud-hsm-portal-3.png" lightbox="./media/cloud-hsm-portal-3.png" alt-text="Identity configuration page showing the No Identity (default) option selected for Cloud HSM":::
+   :::image type="content" source="./media/cloud-hsm-portal-3.png" lightbox="./media/cloud-hsm-portal-3.png" alt-text="A screenshot of the identity configuration page showing the No Identity (default) option selected for Cloud HSM.":::
 
 2. **User-assigned identity** - Recommended for business continuity and disaster recovery (BCDR). Each Cloud HSM cluster can have only one MSI, but you can use the same MSI for multiple HSMs or assign different ones.
 
-   :::image type="content" source="./media/cloud-hsm-portal-4.png" lightbox="./media/cloud-hsm-portal-4.png" alt-text="Identity configuration page showing User-Assigned Identity option for Cloud HSM backup and restore operations":::
+   :::image type="content" source="./media/cloud-hsm-portal-4.png" lightbox="./media/cloud-hsm-portal-4.png" alt-text="A screenshot of the identity configuration page showing the User-Assigned Identity option for Cloud HSM backup and restore operations.":::
 
 For detailed instructions on configuring a user-assigned identity for backup and restore operations, see [Apply a managed identity and create a storage account](backup-restore.md#apply-a-managed-identity-and-create-a-storage-account).
 
@@ -70,7 +70,7 @@ For secure connectivity, establish a private endpoint to your Azure Cloud HSM. T
 2. Select your VNet and subnet.
 3. Configure the DNS integration settings as needed.
 
-:::image type="content" source="./media/cloud-hsm-portal-5.png" lightbox="./media/cloud-hsm-portal-5.png" alt-text="Networking configuration showing private endpoint setup for secure connectivity to Cloud HSM":::
+:::image type="content" source="./media/cloud-hsm-portal-5.png" lightbox="./media/cloud-hsm-portal-5.png" alt-text="A screenshot of the networking configuration page displaying private endpoint setup for secure connectivity to Cloud HSM.":::
 
 > [!TIP]
 > Private endpoints are crucial for security as they enable secure connections to your Azure Cloud HSM through a private link, ensuring traffic between your virtual network and the service traverses the Microsoft backbone network. This eliminates exposure to the public internet, as described in [Network security](network-security.md).
@@ -79,7 +79,7 @@ For secure connectivity, establish a private endpoint to your Azure Cloud HSM. T
 
 Tags are name/value pairs that help organize and categorize resources for management and reporting. This step is optional but recommended for resource organization, especially in enterprise environments.
 
-:::image type="content" source="./media/cloud-hsm-portal-6.png" lightbox="./media/cloud-hsm-portal-6.png" alt-text="Tags configuration interface for organizing Cloud HSM resources with name/value pairs":::
+:::image type="content" source="./media/cloud-hsm-portal-6.png" lightbox="./media/cloud-hsm-portal-6.png" alt-text="A screenshot of the tags configuration interface for organizing Cloud HSM resources with name/value pairs.":::
 
 ## Deploy your Cloud HSM
 
@@ -87,11 +87,11 @@ Tags are name/value pairs that help organize and categorize resources for manage
 2. Click **Create** to begin provisioning your Azure Cloud HSM resource.
 3. The portal will display "Deployment is in progress" while resources are being created.
 
-:::image type="content" source="./media/cloud-hsm-portal-7.png" lightbox="./media/cloud-hsm-portal-7.png" alt-text="Azure portal deployment progress screen for Cloud HSM showing 'Deployment is in progress'":::
+:::image type="content" source="./media/cloud-hsm-portal-7.png" lightbox="./media/cloud-hsm-portal-7.png" alt-text="A screenshot of the Azure portal deployment progress screen for Cloud HSM showing 'Deployment is in progress'.":::
 
 When the deployment finishes, you'll see "Your deployment is complete" in the portal.
 
-:::image type="content" source="./media/cloud-hsm-portal-8.png" lightbox="./media/cloud-hsm-portal-8.png" alt-text="Azure portal deployment completion screen showing 'Your deployment is complete' for Cloud HSM":::
+:::image type="content" source="./media/cloud-hsm-portal-8.png" lightbox="./media/cloud-hsm-portal-8.png" alt-text="A screenshot of the Azure portal deployment completion screen showing 'Your deployment is complete' for Cloud HSM.":::
 
 ## Initialize and configure your HSM
 

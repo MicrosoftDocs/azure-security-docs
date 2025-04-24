@@ -8,7 +8,7 @@ items:
 
 - name: Quickstarts 
   items:
-  - name: Powershell
+  - name: PowerShell
     href: quickstart-powershell.md
   - name: Azure portal
     href: quickstart-portal.md
