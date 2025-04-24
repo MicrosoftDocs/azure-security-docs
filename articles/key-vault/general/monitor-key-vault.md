@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Key Vault
 description: Start here to learn how to monitor Azure Key Vault by using Azure Monitor.
-ms.date: 07/09/2024
+ms.date: 04/23/2025
 ms.custom: horz-monitor, subject-monitoring
 ms.topic: conceptual
 author: msmbaldwin
