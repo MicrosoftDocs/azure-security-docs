@@ -125,13 +125,29 @@ New-AzPrivateEndpoint @privateEndpoint
 > [!TIP]
 > Private endpoints are crucial for security as they enable secure connections to your Azure Cloud HSM through a private link, ensuring traffic between your virtual network and the service traverses the Microsoft backbone network. This eliminates exposure to the public internet, as described in [Network security](network-security.md).
 
+## Deploy your Cloud HSM
+
+When you run the `New-AzResource` command with the `-AsJob` parameter, it creates a background job to deploy your Cloud HSM resource. You can check the status of the deployment by running:
+
+```azurepowershell-interactive
+Get-Job -Id <JobId> | Receive-Job
+```
+
+Where `<JobId>` is the ID returned when you ran the `New-AzResource` command.
+
+The deployment is complete when you see a successful result from the job or when you can verify the resource exists in your Azure subscription.
+
 ## Initialize and configure your HSM
 
-After deploying your Cloud HSM resource through Azure PowerShell, you need to initialize and configure it. This process cannot be done through PowerShell directly and requires the Azure Cloud HSM SDK and Client Tools.
+> [!IMPORTANT]
+> Azure Cloud HSM activation and configuration cannot be done through PowerShell directly and requires the Azure Cloud HSM SDK and Client Tools.
 
-1. **Download the Azure Cloud HSM SDK** from [GitHub](https://github.com/microsoft/MicrosoftAzureCloudHSM/releases).
-2. **Install the SDK** on a VM that has network connectivity to your HSM.
-3. **Follow the initialization steps** in the [Azure Cloud HSM Onboarding Guide](onboarding-guide.md).
+After deploying your Cloud HSM resource through Azure PowerShell, you need to follow these steps:
+
+1. **Download and install the Azure Cloud HSM SDK** from [GitHub](https://github.com/microsoft/MicrosoftAzureCloudHSM/releases) on a VM that has network connectivity to your HSM.
+2. **Initialize and configure your HSM** following the detailed steps in the [Azure Cloud HSM Onboarding Guide](onboarding-guide.md).
+3. **Establish user management** with appropriate crypto officers and crypto users, as described in [User management in Azure Cloud HSM](user-management.md).
+4. **Implement proper key management practices** to ensure optimal security and performance, as outlined in [Key management in Azure Cloud HSM](key-management.md).
 
 ## Clean up resources
 
@@ -156,5 +172,4 @@ If you encounter issues during deployment:
 - [Configure backup and restore for Cloud HSM](backup-restore.md)
 - [Secure your Cloud HSM](secure-cloud-hsm.md)
 - [Network security for Cloud HSM](network-security.md)
-- [Azure Cloud HSM SDK](https://github.com/microsoft/MicrosoftAzureCloudHSM)
-- [Key management in Azure](/azure/security/fundamentals/key-management)
+- [Deploy Azure Cloud HSM using the Azure portal](quickstart-portal.md)
