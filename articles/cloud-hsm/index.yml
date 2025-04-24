@@ -37,6 +37,8 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
+          - text: Deploy using PowerShell
+            url: quickstart-powershell.md
           - text: Deploy using the Azure portal
             url: quickstart-portal.md
 
@@ -44,8 +46,6 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Deploy Azure Cloud HSM
-            url: quickstart-powershell.md
           - text: Back up and restore resources
             url: backup-restore.md
           - text: Operation event logging

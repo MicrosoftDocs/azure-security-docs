@@ -32,8 +32,7 @@ Here are the integration guides available for securely connecting various applic
 - [Azure Cloud HSM SQL EKM Integration Guide (PDF)](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20SQL%20EKM%20Integration%20Guide.pdf)
 - [Azure Cloud HSM SSL TLS Offloading Integration Guide (PDF)](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20SSL%20TLS%20Offloading%20Integration%20Guide.pdf)
 
-
 ## Next Steps
 - [Azure Cloud HSM overview](overview.md)
-- [Deploying Azure Cloud HSM](quickstart-powershell.md)
+- [Deploy Azure Cloud HSM using PowerShell](quickstart-powershell.md) or [using the Azure portal](quickstart-portal.md)
 - [Azure Cloud HSM Onboarding Guide](onboarding-guide.md)
