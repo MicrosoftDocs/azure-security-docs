@@ -75,7 +75,7 @@ landingContent:
             url: create-client-certificate.md
     
   # Card
-  - title: Run custom code
+  - title: Run code
     linkLists:
       - linkListType: tutorial
         links:
