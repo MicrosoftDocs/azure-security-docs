@@ -1,5 +1,5 @@
 ---
-title: User defined functions in Azure confidential ledger
+title: Simple user defined functions in Azure confidential ledger
 description: Learn about user defined functions (UDFs) in Azure confidential ledger, a simple way to run custom code in a confidential environment.
 author: andpiccione
 ms.author: apiccione
@@ -9,9 +9,9 @@ ms.date: 04/10/2025
 
 ---
 
-# User defined functions in Azure confidential ledger (preview)
+# Simple user defined functions in Azure confidential ledger (preview)
 
-User defined functions (UDFs) in Azure confidential ledger allow you to create custom JavaScript functions that can be executed inside the ledger trust boundary. This feature is designed to be simple and easy to use, allowing you to extend the functionality of the ledger API without the need for complex application development.
+Simple user defined functions (UDFs) in Azure confidential ledger allow you to create custom JavaScript functions that can be executed inside the ledger trust boundary. This feature is designed to be simple and easy to use, allowing you to extend the functionality of the ledger API without the need for complex application development.
 
 Using the [built-in JavaScript API](https://microsoft.github.io/CCF/main/build_apps/js_app_bundle.html#javascript-api), you can run custom code to achieve various tasks, such as custom queries and computations, conditional checks, post-processing tasks, and more. This feature is suitable for scenarios where you need a direct integration with the existing ledger API or run lightweight custom logic in a confidential environment.
 
@@ -21,7 +21,7 @@ Using the [built-in JavaScript API](https://microsoft.github.io/CCF/main/build_a
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 > [!TIP]
-> For more advanced scenarios, such as custom Role-Based Access Control (RBAC) or integration with external confidential workloads, see [user defined endpoints in Azure confidential ledger](./user-defined-endpoints.md).
+> For more advanced scenarios, such as custom Role-Based Access Control (RBAC) or integration with external confidential workloads, see [advanced user defined functions in Azure confidential ledger](./user-defined-endpoints.md).
 
 ## Use cases
 
@@ -137,7 +137,7 @@ export function main(args) {
 Azure confidential ledger applications provide a dedicated CRUD API to create, read, update, and delete UDF entities. UDFs are securely stored in the ledger and are accessible only to the ledger application. 
 
 > [!NOTE]
-> [User defined endpoints](./user-defined-endpoints.md) (UDEs) and user defined functions (UDFs) are mutually exclusive features. You can't create or run UDFs if UDEs are defined, and vice versa. To switch between the two, follow the instructions in the [server-side programming documentation](./server-side-programming.md#switching-between-udfs-and-udes).
+> Simple user defined functions and [advanced user defined functions](./user-defined-endpoints.md) are mutually exclusive features. You can't create or run simple UDFs if advanced UDFs are defined, and vice versa. To switch between the two, follow the instructions in the [UDF overview page](./server-side-programming.md#switching-between-simple-and-advanced-udfs).
 
 ### Create or update a UDF
 
@@ -563,6 +563,6 @@ HTTP/1.1 200 OK
 
 ## Related content
 
-- [Server-side programming in Azure confidential ledger](server-side-programming.md)
-- [User defined endpoints in Azure confidential ledger](./user-defined-endpoints.md)
+- [User defined functions overview in Azure confidential ledger](server-side-programming.md)
+- [Advanced user defined functions in Azure confidential ledger](./user-defined-endpoints.md)
 - [Overview of Microsoft Azure confidential ledger](overview.md)

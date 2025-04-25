@@ -1,5 +1,5 @@
 ---
-title: User defined endpoints in Azure confidential ledger
+title: Advanced user defined functions in Azure confidential ledger
 description: Learn how to execute custom code in Azure confidential ledger
 author: settiy
 ms.author: settiy
@@ -8,21 +8,21 @@ ms.service: azure-confidential-ledger
 ms.topic: how-to
 ---
 
-# User defined endpoints in Azure confidential ledger (preview)
+# Advanced user defined functions in Azure confidential ledger (preview)
 
-User defined endpoints allow custom code to execute in the same Trusted Execution Environment (TEE) as the ledger. This feature extends the benefits of confidentiality and integrity guarantee to the custom code. Also, it supports custom Role Based Access Control (RBAC) for authorization.
+Advanced user defined functions (UDFs) allow custom code to execute in the same Trusted Execution Environment (TEE) as the ledger. This feature extends the benefits of confidentiality and integrity guarantee to the custom code. Also, it supports custom Role Based Access Control (RBAC) for authorization.
 
 > [!IMPORTANT]
-> User defined endpoints are currently in PREVIEW under API version `2024-08-22-preview`.
+> User defined functions are currently in PREVIEW under API version `2024-08-22-preview`.
 > You can request access for this preview via [this sign-up form](https://aka.ms/ACL2025Preview).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 > [!TIP]
-> For simpler scenarios, such as lightweight custom logic or direct integration with the ledger API, see [user defined functions in Azure confidential ledger](./user-defined-functions.md).
+> For simpler scenarios, such as lightweight custom logic or direct integration with the ledger API, see [simple user defined functions in Azure confidential ledger](./user-defined-functions.md).
 
 ## Use cases
 
-Here are some scenarios where User defined endpoints can be beneficial:
+Here are some scenarios where advanced user defined functions can be beneficial:
 
  - **Data analysis and aggregation**: Sensitive information can be processed in the TEE and aggregated information can be shared with the stakeholders.
  - **Protecting confidential information**: Confidential information like personal data, credit score, and health information can be shared with other confidential workloads after attestation.
@@ -105,7 +105,7 @@ curl $server_identity "https://contoso.confidential-ledger.azure.com/app/userDef
 ```
 
 > [!NOTE]
-> [User defined functions](./user-defined-functions.md) (UDFs) and user defined endpoints (UDEs) are mutually exclusive features. You can't create or run UDFs if UDEs are defined, and vice versa. To switch between the two, follow the instructions in the [server-side programming documentation](./server-side-programming.md#switching-between-udfs-and-udes).
+> Advanced user defined functions and [simple user defined functions](./user-defined-functions.md)  are mutually exclusive features. You can't create or run simple UDFs if advanced UDFs are defined, and vice versa. To switch between the two, follow the instructions in the [UDF overview page](./server-side-programming.md#switching-between-simple-and-advanced-udfs).
 
 ## Create roles and users
 
@@ -196,6 +196,6 @@ Now you're ready to call the application endpoints and submit transactions.
 
 In this tutorial, you deployed a custom JavaScript application into a confidential ledger instance. To learn more about Azure confidential ledger and how to integrate it with your applications, continue on to these articles:
 
-- [Server-side programming in Azure confidential ledger](server-side-programming.md)
-- [User defined functions in Azure confidential ledger](user-defined-functions.md)
+- [User defined functions overview in Azure confidential ledger](server-side-programming.md)
+- [Simple user defined functions in Azure confidential ledger](user-defined-functions.md)
 - [Overview of Microsoft Azure confidential ledger](overview.md)
