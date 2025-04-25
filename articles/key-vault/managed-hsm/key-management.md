@@ -48,7 +48,7 @@ For more information on sign in options via the CLI, see [sign in with Azure CLI
 ## Create an HSM key
 
 > [!NOTE]
-> Key generated or imported into Managed HSM cannot be exported. The only exception to the no-export rule is when you create a key with a specific [key release policy](../keys/policy-grammar.md). This policy allows the key to be exported only to trusted confidential computing environments (secure enclaves) that you explicitly define. This limited export capability is designed for specific secure computing scenarios and is not the same as a general-purpose key export. Refer to recommended best practices for key portability and durability.
+> A key that's generated or imported into Managed HSM cannot be exported. The only exception to the no-export rule is when you create a key with a specific [key release policy](../keys/policy-grammar.md). This policy allows the key to be exported only to trusted confidential computing environments (secure enclaves) that you explicitly define. This limited export capability is designed for specific secure computing scenarios and is not the same as a general-purpose key export. Refer to recommended best practices for key portability and durability.
 
 Use `az keyvault key create` command to create a key.
 
