@@ -45,6 +45,38 @@ Here's a comparison of the main features and capabilities of UDFs and UDEs:
 | **Target scenarios**                     | Execution of simple custom logic and integration with the ledger API                  | Advanced use cases requiring custom APIs and control over advanced JavaScript parameters    |
 
 
+## Switching between UDFs and UDEs
+
+UDFs and UDEs are mutually exclusive features. You can't create or run UDFs if UDEs are defined, and vice versa. It's possible to switch between the two features using the following steps.
+
+> [!IMPORTANT]
+> Switching between UDFs and UDEs is a destructive operation. All existing UDFs or UDEs are deleted when switching to the other feature. Make sure to back up any important data before proceeding.
+
+### From UDFs to UDEs
+
+To switch from UDFs to UDEs, you need to delete all existing UDFs:
+
+1. [List all UDFs](./user-defined-functions.md#list-udfs) stored in the ledger using the `GET /app/userDefinedFunctions` API.
+
+2. [Delete each UDF](./user-defined-functions.md#delete-a-udf), one by one, using the `DELETE /app/userDefinedFunctions/{functionId}` API.
+
+### From UDEs to UDFs
+
+To switch from UDEs to UDFs, you need to define user defined endpoints with empty modules and endpoints definitions.
+
+1. Create a new application bundle with the following structure:
+   
+    ```json
+    {
+        "metadata": {
+            "endpoints": {}
+        }, 
+       "modules": []
+    }
+    ```
+
+2. [Deploy the application bundle](./user-defined-endpoints.md#deploy-the-application) with the request body defined in step 1 using the `PUT /app/userDefinedEndpoints` API.
+
 ## Next steps
 
 Refer to the following articles to get started with server-side programming features in Azure confidential ledger:

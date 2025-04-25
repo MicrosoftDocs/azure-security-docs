@@ -1,5 +1,5 @@
 ---
-title: User defined functions in Azure confidential ledger (preview)
+title: User defined functions in Azure confidential ledger
 description: Learn about user defined functions (UDFs) in Azure confidential ledger, a simple way to run custom code in a confidential environment.
 author: andpiccione
 ms.author: apiccione
@@ -19,6 +19,9 @@ Using the [built-in JavaScript API](https://microsoft.github.io/CCF/main/build_a
 > User defined functions are currently in PREVIEW under API version `2024-12-09-preview`.
 > You can request access for this preview via [this sign-up form](https://aka.ms/ACL2025Preview).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+> [!TIP]
+> For more advanced scenarios, such as custom Role-Based Access Control (RBAC) or integration with external confidential workloads, see [user defined endpoints in Azure confidential ledger](./user-defined-endpoints.md).
 
 ## Use cases
 
@@ -132,6 +135,9 @@ export function main(args) {
 ## Managing UDFs
 
 Azure confidential ledger applications provide a dedicated CRUD API to create, read, update, and delete UDF entities. UDFs are securely stored in the ledger and are accessible only to the ledger application. 
+
+> [!NOTE]
+> [User defined endpoints](./user-defined-endpoints.md) (UDEs) and user defined functions (UDFs) are mutually exclusive features. You can't create or run UDFs if UDEs are defined, and vice versa. To switch between the two, follow the instructions in the [server-side programming documentation](./server-side-programming.md#switching-between-udfs-and-udes).
 
 ### Create or update a UDF
 
@@ -554,23 +560,6 @@ HTTP/1.1 200 OK
 * The maximum number of pre-hooks and post-hooks that can be registered for a single write transaction is 5.
 
 * UDF and hook execution is limited to 5 seconds. If a function takes longer than 5 seconds to execute, the operation is aborted and an error is returned.
-
-* User defined functions and [user defined endpoints](./user-defined-endpoints.md) are mutually exclusive features. This means you can't create or run user defined functions if you previously defined user defined endpoints, and vice versa. 
-
-    You can switch between the two features by deleting all the existing user defined functions or defining user defined endpoints with empty modules and endpoints definitions.
-
-    * To delete all the existing user defined functions, you can list all the UDFs (`GET /app/userDefinedFunctions`) and delete them one by one (`DELETE /app/userDefinedFunctions/{functionId}`).
-    
-    * [To set user defined endpoints](./user-defined-endpoints.md#deploy-the-application) with empty modules and endpoints definitions, you can use the `PUT /app/userDefinedEndpoints` API with the following request body:
-
-    ```json
-    {
-        "metadata": {
-            "endpoints": {}
-        }, 
-        "modules": []
-    }
-    ```
 
 ## Related content
 
