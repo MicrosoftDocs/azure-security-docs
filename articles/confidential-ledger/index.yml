@@ -23,6 +23,20 @@ landingContent:
         links:
           - text: What is Azure confidential ledger?
             url: overview.md
+          - text: Use cases
+            url: overview.md#use-cases
+  
+  # Card
+  - title: Architecture
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Architecture
+            url: architecture.md
+          - text: How it works
+            url: overview.md#how-it-works
+          - text: Ledger security
+            url: overview.md#ledger-security
 
   # Card
   - title: Get started
@@ -31,46 +45,89 @@ landingContent:
         links:
           - text: Azure portal quickstart
             url: quickstart-portal.md
-          - text: CLI quickstart
+          - text: Azure CLI quickstart
             url: quickstart-cli.md
+          - text: PowerShell quickstart
+            url: quickstart-powershell.md
           - text: Python quickstart
             url: quickstart-python.md
+          - text: .NET quickstart
+            url: quickstart-net.md
           - text: ARM template quickstart
-            url: quickstart-template.md
+            url: quickstart-template.md 
+          - text: Terraform quickstart
+            url: quickstart-terraform.md
 
   # Card
-  - title: Concepts
+  - title: Manage ledger users
     linkLists:
-      - linkListType: concept
+      - linkListType: tutorial
         links:
-          - text: Architecture
-            url: architecture.md
-          - text: Authenticating ledger nodes
-            url: authenticate-ledger-nodes.md
-          - text: Write transaction receipts
-            url: write-transaction-receipts.md
-          - text: UDF overview
+          - text: Authentication with Microsoft Entra ID
+            url: authentication-azure-ad.md
+          - text: Register an ACL app with Microsoft Entra ID
+            url: register-application.md
+          - text: Manage Microsoft Entra token-based users
+            url: manage-azure-ad-token-based-users.md
+          - text: Manage certificate-based users
+            url: manage-certificate-based-users.md
+          - text: Create a client certificate
+            url: create-client-certificate.md
+    
+  # Card
+  - title: Run custom code
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: User defined functions (UDFs) overview
             url: server-side-programming.md
           - text: Simple UDFs
             url: user-defined-functions.md
           - text: Advanced UDFs
             url: user-defined-endpoints.md
-          
+    
   # Card
-  - title: How-to-guides
+  - title: Verify ledger data
     linkLists:
       - linkListType: tutorial
         links:
           - text: Authenticating ledger nodes
             url: authenticate-ledger-nodes.md
-          - text: Create a client certificate
-            url: create-client-certificate.md
-          - text: Create a managed application to store blob digests
-            url: create-blob-managed-app.md
-          - text: Register the Azure confidential ledger resource provider
-            url: register-ledger-resource-provider.md
+          - text: Write transaction receipts
+            url: write-transaction-receipts.md
           - text: Verify write transaction receipts
             url: verify-write-transaction-receipts.md
+          - text: Verify write transaction receipts
+            url: verify-write-transaction-receipts.md
+          - text: Establish trust on Azure confidential ledger
+            url: verify-node-quotes.md
+
+  # Card
+  - title: Confidential ledger integrations
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Enabling data integrity for data sources
+            url: overview.md#enabling-data-integrity-for-data-sources
+          - text: Store your data securely in SQL Server with Ledger
+            url: /sql/relational-databases/security/ledger/ledger-overview?branch=sql
+          - text: Create a managed application to store blob digests
+            url: create-blob-managed-app.md
+
+  # Card
+  - title: How-to guides
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Register the confidential ledger resource provider
+            url: register-ledger-resource-provider.md  
+          - text: Register an ACL app with Microsoft Entra ID
+            url: register-application.md
+          - text: Upload, view and list ledger data with the Azure ledger explorer
+            url: quickstart-ledger-explorer.md
+          - text: Secure your Azure confidential ledger deployment
+            url: secure-confidential-ledger.md
+  
   # Card
   - title: References
     linkLists:
