@@ -15,6 +15,8 @@ Simple user defined functions (UDFs) in Azure confidential ledger allow you to c
 
 Using the [built-in JavaScript API](https://microsoft.github.io/CCF/main/build_apps/js_app_bundle.html#javascript-api), you can run custom code to achieve various tasks, such as custom queries and computations, conditional checks, post-processing tasks, and more. This feature is suitable for scenarios where you need a direct integration with the existing ledger API or run lightweight custom logic in a confidential environment.
 
+[!VIDEO cc413f21-53da-4e2a-9a3e-7e2dc8fc948c]
+
 > [!IMPORTANT]
 > User defined functions are currently in PREVIEW under API version `2024-12-09-preview`.
 > You can request access for this preview via [this sign-up form](https://aka.ms/ACL2025Preview).
