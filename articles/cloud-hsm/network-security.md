@@ -22,7 +22,6 @@ Azure Private Endpoint ensures that traffic between your virtual network and the
 ## Next steps
 
 - [Secure your Azure Cloud HSM](secure-cloud-hsm.md)
-- [Network security](network-security.md)
 - [Key Management in Azure Cloud HSM](key-management.md)
 - [User Management in Azure Cloud HSM](user-management.md)
 - [Authentication in Azure Cloud HSM](authentication.md)

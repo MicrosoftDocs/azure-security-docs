@@ -76,5 +76,6 @@ The following table describes the number of operations per second for AES key op
 
 ## Next steps
 - [Azure Cloud HSM overview](overview.md)
-- [Deploying Azure Cloud HSM](tutorial-deploy-cloud-hsm.md)
+- [Deploy Azure Cloud HSM using the Azure portal](quickstart-portal.md)
+- [Deploy Azure Cloud HSM using Azure PowerShell](quickstart-powershell.md)
 - [Azure Cloud HSM FAQs](faq.yml)

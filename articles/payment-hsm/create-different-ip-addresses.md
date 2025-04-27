@@ -20,7 +20,6 @@ This tutorial describes how to use an Azure Resource Manager template (ARM templ
 - [Create a payment HSM with the host and management port in the same virtual network using an ARM template](quickstart-template.md)
 - [Create a payment HSM with the host and management port in different virtual networks using Azure CLI or PowerShell](create-different-vnet.md)
 - [Create a payment HSM with the host and management port in different virtual networks using an ARM template](create-different-vnet-template.md)
-- [Create HSM resource with host and management port with IP addresses in different virtual networks using ARM template](create-different-ip-addresses.md)
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
