@@ -93,5 +93,4 @@ For example, if you're logged in with `azurecloudhsm_util` and attempt to execut
 - [Network security](network-security.md)
 - [Key Management in Azure Cloud HSM](key-management.md)
 - [User Management in Azure Cloud HSM](user-management.md)
-- [Authentication in Azure Cloud HSM](authentication.md)
 - [Overview of Azure Cloud HSM](overview.md)

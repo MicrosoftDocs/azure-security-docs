@@ -15,7 +15,7 @@ Azure Payment HSM is a "BareMetal" service delivered using [Thales payShield 10K
 
 Payment HSMs are provisioned and connected directly to users' virtual network, and HSMs are under users' sole administration control. HSMs can be easily provisioned as a pair of devices and configured for high availability. Users of the service utilize [Thales payShield Manager](https://cpl.thalesgroup.com/encryption/hardware-security-modules/payment-hsms/payshield-manager) for secure remote access to the HSMs as part of their Azure-based subscription. Multiple subscription options are available to satisfy a broad range of performance and multiple application requirements that can be upgraded quickly in line with end-user business growth. Azure payment HSM service offers highest performance level 2500 CPS.
 
-The Azure Payment HSM solution uses hardware from [Thales](https://cpl.thalesgroup.com/encryption/hardware-security-modules/payment-hsms/payshield-10k) as a vendor. Customers have [full control and exclusive access](overview.md#customer-managed-hsm-in-azure) to the Payment HSM.
+The Azure Payment HSM solution uses hardware from [Thales](https://cpl.thalesgroup.com/encryption/hardware-security-modules/payment-hsms/payshield-10k) as a vendor. Customers have [full control and exclusive access](#customer-managed-hsm-in-azure) to the Payment HSM.
 
 > [!IMPORTANT]
 > Azure Payment HSM a highly specialized service. We highly recommend that you review the [Azure Payment HSM pricing page](https://azure.microsoft.com/pricing/details/payment-hsm/#pricing) and [Getting started with Azure Payment HSM](getting-started.md).
@@ -127,7 +127,6 @@ Benefits for new payment participants:
 
 ## Next steps
 
-- Learn more about [Azure Payment HSM](overview.md)
 - Find out how to [get started with Azure Payment HSM](getting-started.md)
 - See some common [deployment scenarios](deployment-scenarios.md)
 - Learn about [Certification and compliance](certification-compliance.md)

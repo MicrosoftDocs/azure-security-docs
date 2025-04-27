@@ -75,7 +75,6 @@ For optimal performance, Microsoft advises using key find commands (such as `fin
 
 - [Secure your Azure Cloud HSM](secure-cloud-hsm.md)
 - [Network security](network-security.md)
-- [Key management in Azure Cloud HSM](key-management.md)
 - [User management in Azure Cloud HSM](user-management.md)
 - [Authentication in Azure Cloud HSM](authentication.md)
 - [Overview of Azure Cloud HSM](overview.md)
