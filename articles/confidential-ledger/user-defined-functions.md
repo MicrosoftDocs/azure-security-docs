@@ -78,7 +78,7 @@ export function main(arg1, arg2) {
 
 The JavaScript code of a UDF is executed inside a sandbox environment that provides a [limited set of APIs](https://microsoft.github.io/CCF/main/build_apps/js_app_bundle.html#javascript-api).
 
-All the [JavaScript standard global functions, objects, and values](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects) can be used. A global object called `ccf` can be used to access specific functionalities and utilities provided by the [Confidential Consortium Framework (CCF)](https://microsoft.github.io/CCF/main/) (for example, cryptography helper functions, ledger tables accessors, etc.). The full API of the `ccf` global object is documented [here](https://microsoft.github.io/CCF/main/js/ccf-app/interfaces/global.CCF.html).
+All the [JavaScript standard global functions, objects, and values](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects) can be used. A global object called `ccf` can be used to access specific functionalities and utilities provided by the [Confidential Consortium Framework (CCF)](https://microsoft.github.io/CCF/main/) (for example, cryptography helper functions, ledger tables accessors, etc.). The full API of the `ccf` global object is documented [here](https://microsoft.github.io/CCF/main/js/ccf-app/interfaces/global.CCF.html).
 
 You can also access contextual information of the current request by using the `context` global object. This object provides access to the request metadata that originated the function execution (`context.request`) and the user ID of the function caller (`context.userId`). For transaction hooks, the collection ID and the transaction contents associated to the write operation are also added to the `context` object (`context.collectionId` and `context.contents` respectively). 
  
@@ -134,7 +134,7 @@ export function main(args) {
 > For more information on how ledger maps can be used to store and retrieve data, see [the CCF documentation on the Key-Value Store API](https://microsoft.github.io/CCF/main/build_apps/kv/kv_how_to.html).
 
 > [!NOTE]
-> Importing modules isn't supported in UDFs. The JavaScript code must be self-contained and can't rely on external libraries or modules. [Web APIs](https://developer.mozilla.org/en-US/docs/Web/API) also aren't supported at the moment.
+> Importing modules isn't supported in UDFs. The JavaScript code must be self-contained and can't rely on external libraries or modules. [Web APIs](https://developer.mozilla.org/docs/Web/API) also aren't supported at the moment.
 
 ## Managing UDFs
 
