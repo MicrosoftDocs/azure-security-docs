@@ -43,9 +43,9 @@ Here are a few examples of things you can store on your ledger:
 - I have *confidential transactional data* that needs confidentiality and integrity protection - Store your critical confidential data's application records in the confidential ledger directly.
 
 ## Enabling data integrity for data sources
-SQL databases and storage systems are foundational to enterprise data architecture. The confidential ledger enhances these systems by providing an additional layer of integrity protection. For SQL databases, ACL can act as an external ledger where changes and transactions are recorded and verified, adding a new dimension of security and trust.
+SQL databases and storage systems are foundational to enterprise data architecture. The confidential ledger enhances these systems by providing an additional layer of integrity protection. [For SQL databases](https://learn.microsoft.com/en-us/sql/relational-databases/security/ledger/ledger-overview), ACL can act as an external ledger where changes and transactions are recorded and verified, adding a new dimension of security and trust.
 
-For Azure Blob Storage, the confidential ledger enhances security features by providing an immutable log of storage operations, which is valuable for regulatory compliance and archival purposes where data integrity over time is crucial.
+[For Azure Blob Storage](https://learn.microsoft.com/en-us/azure/confidential-ledger/create-blob-managed-app), the confidential ledger enhances security features by providing an immutable log of storage operations, which is valuable for regulatory compliance and archival purposes where data integrity over time is crucial.
 
 ## How it works
 
