@@ -2,7 +2,8 @@
 author: msmbaldwin
 ms.service: azure-key-vault
 ms.topic: include
-ms.date: 04/04/2024
+ms.date: 04/14/2025
+
 ms.author: msmbaldwin
 
 # Used by articles that show how to assign a Key Vault access policy

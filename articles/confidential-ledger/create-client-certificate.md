@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-confidential-ledger
 ms.custom:
 ms.topic: overview
-ms.date: 04/11/2023
+ms.date: 04/14/2025
 ms.author: mbaldwin
 ---
 # Creating a Client Certificate

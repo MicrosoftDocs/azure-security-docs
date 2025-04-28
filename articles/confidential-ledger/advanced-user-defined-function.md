@@ -1,21 +1,21 @@
 ---
-title: Azure Confidential Ledger (ACL) Programmability
-description: Learn how to run custom business logic on Azure Confidential Ledger
+title: Advanced user defined function
+description: Learn how to execute custom code in Azure confidential ledger
 author: settiy
 ms.author: settiy
-ms.date: 11/20/2024
+ms.date: 03/12/2025
 ms.service: azure-confidential-ledger
 ms.topic: how-to
 ---
 
-# Azure Confidential Ledger (ACL) Programmability
+# Advanced user defined function
 
-Programmability is a new feature in Confidential Ledger that allows customers to run custom code in the same Trusted Compute Base (TCB) as the regular Azure Confidential Ledger (ACL) transactions. The benefit of executing the custom code and transactions in the TCB is that it provides the same confidentiality and integrity guarantees to the custom code and the transactions produced by it. Programmability also supports Role Based Access Control (RBAC) through custom roles that are defined in ACL and used in the code.
+Advanced user defined function allows custom code to execute in the same Trusted Execution Environment (TEE) as the ledger. This feature extends the benefits of confidentiality and integrity guarantee to the custom code. Also, it supports custom Role Based Access Control (RBAC) for authorization.
 
-A few scenarios that can be enabled through programmability are as follows:
+A few scenarios that would benefit from this feature are as follows:
 
- - **Data aggregation and analytics**: Sensitive information can be analyzed in the TCB and only aggregated information can be shared with the stakeholders.
- - **Attestation**: Sensitive information like PII, credit score, and health information can be shared with workloads running on other confidential compute offerings like Azure Confidential ACI and Confidential VM after attestation
+ - **Data analysis and aggregation**: Sensitive information can be processed in the TEE and aggregated information can be shared with the stakeholders.
+ - **Protecting confidential information**: Confidential information like personal data, credit score, and health information can be shared with other confidential workloads after attestation.
 
 ## Prerequisites
 
@@ -23,28 +23,27 @@ A few scenarios that can be enabled through programmability are as follows:
 
 [!INCLUDE [Ensure subscription owner](./includes/ensure-subscription-owner.md)]
 
-This tutorial assumes that you have created a Confidential Ledger instance. You can create a Confidential Ledger with the [Azure portal](quickstart-portal.md), [Azure CLI](quickstart-cli.md), or [Azure PowerShell](quickstart-powershell.md).
+This tutorial assumes that you created a ledger instance. You can create one using the [Azure portal](quickstart-portal.md), [Azure CLI](quickstart-cli.md), or [Azure PowerShell](quickstart-powershell.md).
 
-## Developing and deploying applications
+## Developing applications
 
-Applications are developed using TypeScript and rolled-up into a JavaScript bundle. To learn more about the development process, refer to the [Confidential Consortium Framework (CCF) documentation](https://microsoft.github.io/CCF/main/build_apps/js_app_ts.html).
+Ledger applications are developed using TypeScript and rolled-up into a JavaScript bundle. To learn more about the development process, refer to the [Confidential Consortium Framework (CCF) documentation](https://microsoft.github.io/CCF/main/build_apps/js_app_ts.html).
 
 > [!IMPORTANT]
-> Only Administrator users can deploy applications and manage custom RBAC in Confidential Ledger.
-> The rest of the section assumes that an Administrator executes the following steps.
+> Only Administrators can deploy applications and manage custom RBAC in the ledger.
+> The rest of the section assumes that an Administrator executes the commands.
 
-The following section assumes that the application is ready for deployment. To demonstrate the deployment process, we use the sample banking application available at the azureconfidentialledger-app-samples repo (https://github.com/microsoft/azureconfidentialledger-app-samples).
+We use the banking application available at the azureconfidentialledger-app-samples repo (https://github.com/microsoft/azureconfidentialledger-app-samples) to demonstrate the feature.
 
 > [!NOTE]
-> The application demonstrates how common banking use-cases like opening accounts, depositing and transferring funds can be realized through a JavaScript application deployed on a Confidential Ledger instance. It also demonstrates how custom roles and RBAC can be used to authorize user actions.
+> The banking application exposes APIs for commonly used banking scenarios like opening accounts, depositing and transferring funds using custom roles and actions.
 
 ## Sign in to Azure
 
 > [!NOTE]
-> Confidential Ledger supports Microsoft Entra out-of-the-box. No more configuration is required.
-> If your application uses JWT issued by other Identity providers, contact customer support to have it configured on the Confidential Ledger instance.
+> Confidential Ledger supports Microsoft Entra ID out-of-the-box. If your application integrates with other identity providers, contact customer support to configure it in the ledger.
 
-Obtain a Microsoft Entra token to authenticate to the Confidential Ledger instance.
+Obtain a Microsoft Entra ID token.
 
 # [CLI](#tab/CLI)
 
@@ -62,14 +61,14 @@ Get-AzAccessToken -ResourceUrl "https://confidential-ledger.azure.com"
 ```
 ---
 
-Copy the raw token value from the command output.
+Copy the raw token value from the output.
 
-## Download the Ledger identity
+## Download the ledger identity
 
-Every Confidential Ledger instance is associated with a unique identity represented by a certificate called the service certificate. It is required to establish a secure connection to the instance. Download it and save it to servicer_cert.pem.
+A ledger is uniquely identified by a certificate called the service certificate. It's used to establish a secure connection to the ledger. Download it from a well-known endpoint and save it to servicer_cert.pem.
 
 > [!NOTE]
-> `contoso` is the name of the Confidential Ledger instance. Replace it with your instance name.
+> `contoso` is the name of the ledger. Replace it with the appropriate ledger name.
 
 ```terminal
 curl https://identity.confidential-ledger.core.azure.com/ledgerIdentity/contoso --silent | jq ' .ledgerTlsCertificate' | xargs echo -e > service_cert.pem
@@ -77,7 +76,7 @@ curl https://identity.confidential-ledger.core.azure.com/ledgerIdentity/contoso 
 
 ## Deploy the application
 
-Deploy the JavaScript application bundle by calling /app/userDefinedEndpoints.
+Deploy the JavaScript application bundle by invoking the /app/userDefinedEndpoints endpoint.
 
 ```terminal
 apiVersion="2024-08-22-preview"
@@ -95,12 +94,12 @@ curl $server_identity -X PUT "https://contoso.confidential-ledger.azure.com/app/
 curl $server_identity "https://contoso.confidential-ledger.azure.com/app/userDefinedEndpoints?api-version=$apiVersion" -H "$authorization"
 ```
 
-## Create custom roles and users
+## Create roles and users
 
-The banking application involves two personas, namely, a 'manager' and a 'teller'. We create two roles and users to represent the personas.
+The banking application uses two personas, namely, a 'manager' and a 'teller'. We create roles and users to represent them.
 
 > [!NOTE]
-> The user is represented by a unique certificate.
+> Each user is represented by a unique certificate.
 
 > [!NOTE]
 > Application users can be assigned the built-in roles, namely, Administrator, Contributor and Reader.
@@ -156,7 +155,7 @@ curl $server_identity "https://contoso.confidential-ledger.azure.com/app/ledgerU
 
 ## Update the runtime configuration (optional)
 
-The JavaScript runtime configuration can be updated by calling the /app/userDefinedEndpoints/runTimeOptions endpoint. To demonstrate it, let us set the maximum execution time to 2000 ms.
+The JavaScript runtime configuration can be updated by calling the /app/userDefinedEndpoints/runTimeOptions endpoint. To demonstrate it, let us set the maximum execution time to 2,000 ms.
 
 ```terminal
 apiVersion="2024-08-22-preview"
@@ -174,7 +173,7 @@ curl $server_identity -X PATCH "https://contoso.confidential-ledger.azure.com/ap
 curl $server_identity "https://contoso.confidential-ledger.azure.com/app/userDefinedEndpoints/runTimeOptions?api-version=$apiVersion" -H "$authorization"
 ```
 
-Now you are ready to call the application endpoints and submit transactions.
+Now you're ready to call the application endpoints and submit transactions.
 
 ## Clean up resources
 
@@ -184,4 +183,5 @@ Now you are ready to call the application endpoints and submit transactions.
 
 In this tutorial, you deployed a custom JavaScript application into a confidential ledger instance. To learn more about Azure confidential ledger and how to integrate it with your applications, continue on to these articles.
 
+- [Simple User Defined Functions in Azure Confidential Ledger](simple-user-defined-function.md)
 - [Overview of Microsoft Azure confidential ledger](overview.md)

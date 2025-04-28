@@ -3,12 +3,11 @@ title: Configure Azure Key Vault Managed HSM with private endpoints
 description: Learn how to integrate Azure Key Vault Managed HSM with Azure Private Link Service
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 02/20/2024
+ms.date: 04/14/2025
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-
 ---
 
 # Integrate Managed HSM with Azure Private Link
@@ -20,22 +19,21 @@ An Azure Private Endpoint is a network interface that connects you privately and
 For more information, see [What is Azure Private Link?](/azure/private-link/private-link-overview)
 
 > [!NOTE]
-> Managed HSM does not currently support IP rules or [Virtual Network Service Endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) 
-> 
+> Managed HSM does not support IP rules or [Virtual Network Service Endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) 
+
 ## Prerequisites
 
-To integrate a managed HSM with Azure Private Link, you will need the following:
+To integrate a managed HSM with Azure Private Link, you need:
 
-- A Managed HSM. See [Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) for more details.
+- A Managed HSM. For more information, see [Provision and activate a managed HSM using Azure CLI](quick-create-cli.md).
 - An Azure virtual network.
 - A subnet in the virtual network.
 - Owner or contributor permissions for both the managed HSM and the virtual network.
 - The Azure CLI version 2.25.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-Your private endpoint and virtual network must be in the same region. When you select a region for the private endpoint using the portal, it will automatically filter only virtual networks that are in that region. Your HSM can be in a different region.
+Your private endpoint and virtual network must be in the same region. When you select a region for the private endpoint using the portal, it automatically filters only virtual networks that are in that region. Your HSM can be in a different region.
 
 Your private endpoint uses a private IP address in your virtual network.
-
 
 ## Establish a private link connection to Managed HSM using CLI (Initial Setup)
 
@@ -64,10 +62,10 @@ az network private-dns link vnet create --resource-group {RG} --virtual-network 
 
 ### Allow trusted services to access Managed HSM
 
-When the firewall is turned on, all access to the HSM from any location that are not using a private endpoints connection will be denied, including public Internet and Azure services. Use `--bypass AzureServices` option if you want to allow Microsoft services to access your keys in your Managed HSM. The individual entities (such as an Azure Storage account or a Azure SQL Server) still need to have specific role assignments in place to be able to access a key. 
+When the firewall is turned on, all access to the HSM from any location that is not using a private endpoints connection is denied, including public Internet and Azure services. Use `--bypass AzureServices` option if you want to allow Microsoft services to access your keys in your Managed HSM. The individual entities (such as an Azure Storage account or an Azure SQL Server) still need to have specific role assignments in place to be able to access a key.
 
 > [!NOTE]
-> Only specific trusted services usage scenarios are supported. Refer to the [list of trusted services usage scenarios](../general/overview-vnet-service-endpoints.md#trusted-services) for more details.
+> Only specific trusted services usage scenarios are supported. For more information, refer to the [list of trusted services usage scenarios](../general/overview-vnet-service-endpoints.md#trusted-services).
 
 ```azurecli
 az keyvault update-hsm --hsm-name {HSM NAME} -g {RG} --default-action deny --bypass AzureServices
@@ -79,7 +77,7 @@ az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME}
 ```
 
 > [!NOTE]
-> If you delete this HSM the private endpoint will stop working. If your recover (undelete) this HSM later, you must re-create a new private endpoint.
+> If you delete this HSM the private endpoint stops working. If your recover (undelete) this HSM later, you must re-create a new private endpoint.
 
 ### Create a Private Endpoint (Manually Request Approval) 
 ```azurecli
@@ -139,7 +137,7 @@ Open the command line and run the following command:
 nslookup <your-HSM-name>.managedhsm.azure.net
 ```
 
-If you run the ns lookup command to resolve the IP address of a managed HSM over a public endpoint, you will see a result that looks like this:
+If you run the ns lookup command to resolve the IP address of a managed HSM over a public endpoint, you see a result that looks like this:
 
 ```console
 c:\ >nslookup <your-hsm-name>.managedhsm.azure.net
@@ -150,7 +148,7 @@ Address:  (public IP address)
 Aliases:  <your-hsm-name>.managedhsm.azure.net
 ```
 
-If you run the ns lookup command to resolve the IP address of a managed HSM over a private endpoint, you will see a result that looks like this:
+If you run the ns lookup command to resolve the IP address of a managed HSM over a private endpoint, you see a result that looks like this:
 
 ```console
 c:\ >nslookup your_hsm_name.managedhsm.azure.net
@@ -164,39 +162,39 @@ Aliases:  <your-hsm-name>.managed.azure.net
 
 ## Troubleshooting Guide
 
-* Check to make sure the private endpoint is in the approved state. 
-    1. Use ```az keyvault private-endpoint-connections show``` subcommand to see the status of a private endpoint connection.
-    2. Make sure connection state is Approved and provisioning state is Succeeded. 
+* Check to make sure the private endpoint is in the approved state.
+    1. Use `az keyvault private-endpoint-connections show` subcommand to see the status of a private endpoint connection.
+    2. Make sure connection state is Approved and provisioning state is Succeeded.
     3. Make sure the virtual network matches the one you are using.
 
-* Check to make sure you have a Private DNS Zone resource. 
-    1. You must have a Private DNS Zone resource with the exact name: privatelink.managedhsm.azure.net. 
-    2. To learn how to set this up please see the following link. [Private DNS Zones](/azure/dns/private-dns-privatednszone)
+* Check to make sure you have a Private DNS Zone resource.
+    1. You must have a Private DNS Zone resource with the exact name: privatelink.managedhsm.azure.net.
+    2. To learn how to set this up, see the following link. [Private DNS Zones](/azure/dns/private-dns-privatednszone)
     
-* Check to make sure the Private DNS Zone is linked to the Virtual Network. This may be the issue if you are still getting the public IP address returned. 
-    1. If the Private Zone DNS is not linked to the virtual network, the DNS query originating from the virtual network will return the public IP address of the HSM. 
-    2. Navigate to the Private DNS Zone resource in the Azure portal and click the virtual network links option. 
-    4. The virtual network that will perform calls to the HSM must be listed. 
-    5. If it's not there, add it. 
+* Check to make sure the Private DNS Zone is linked to the Virtual Network. This may be the issue if you are still getting the public IP address returned.
+    1. If the Private Zone DNS is not linked to the virtual network, the DNS query originating from the virtual network returns the public IP address of the HSM.
+    2. Navigate to the Private DNS Zone resource in the Azure portal and select the virtual network links option. 
+    4. The virtual network that performs calls to the HSM must be listed.
+    5. If it's not there, add it.
     6. For detailed steps, see the following document [Link Virtual Network to Private DNS Zone](/azure/dns/private-dns-getstarted-portal#link-the-virtual-network)
 
-* Check to make sure the Private DNS Zone is not missing an A record for the HSM. 
-    1. Navigate to the Private DNS Zone page. 
-    2. Click Overview and check if there is an A record with the simple name of your HSM. Do not specify any suffix.
+* Check to make sure the Private DNS Zone is not missing an A record for the HSM.
+    1. Navigate to the Private DNS Zone page.
+    2. Select Overview and check if there is an A record with the simple name of your HSM. Do not specify any suffix.
     3. Make sure you check the spelling, and either create or fix the A record. You can use a TTL of 3600 (1 hour). 
-    4. Make sure you specify the correct private IP address. 
+    4. Make sure you specify the correct private IP address.
     
-* Check to make sure the A record has the correct IP Address. 
+* Check to make sure the A record has the correct IP Address.
     1. You can confirm the IP address by opening the Private Endpoint resource in Azure portal.
     2. Navigate to the Microsoft.Network/privateEndpoints resource, in the Azure portal
-    3. In the overview page look for Network interface and click that link. 
-    4. The link will show the Overview of the NIC resource, which contains the property Private IP address. 
-    5. Verify that this is the correct IP address that is specified in the A record.
+    3. In the overview page, look for Network interface and select that link.
+    4. The link shows the Overview of the NIC resource, which contains the property Private IP address.
+    5. Verify that the correct IP address is specified in the A record.
 
 ## Limitations and Design Considerations
 
 > [!NOTE]
-> The number of managed HSMs with private endpoints enabled per subscription is an adjustable limit. The limit shown below is the default limit. If you would like to request a limit increase for your subscription, please create an Azure support ticket. We will approve these requests on a case by case basis.
+> The number of managed HSMs with private endpoints enabled per subscription is an adjustable limit. The limit shown as "Maximum Number of Private Endpoints per Managed HSM" is the default limit. If you would like to request a limit increase for your subscription, create an Azure support ticket. We approve these requests on a case by case basis.
 
 **Pricing**: For pricing information, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 

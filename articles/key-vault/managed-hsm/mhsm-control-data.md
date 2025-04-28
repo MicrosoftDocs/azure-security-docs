@@ -106,9 +106,9 @@ Several layers of technical controls in Managed HSM further protect your key mat
 
   The security domain is generated both in the managed HSM hardware and in the service software enclaves during initialization. After the managed HSM is provisioned, you must create at least three RSA key pairs. You send the public keys to the service when you request the security domain download. After the security domain is downloaded, the managed HSM moves into an activated state and is ready for you to consume. Microsoft personnel have no way of recovering the security domain, and they can't access your keys without the security domain.
 
-- **Access controls and authorization**: Access to a managed HSM is controlled through two interfaces, the management plane and the data plane.
+- **Access controls and authorization**: Access to a managed HSM is controlled through two interfaces, the control plane and the data plane.
 
-  The management plane is where you manage the HSM itself. Operations in this plane include creating and deleting managed HSMs and retrieving managed HSM properties.
+  The control plane is where you manage the HSM itself. Operations in this plane include creating and deleting managed HSMs and retrieving managed HSM properties.
 
   The data plane is where you work with the data that's stored in a managed HSM, which is HSM-backed encryption keys. From the data plane interface, you can add, delete, modify, and use keys to perform cryptographic operations, manage role assignments to control access to the keys, create a full HSM backup, restore a full backup, and manage security domain.
   
@@ -116,7 +116,7 @@ Several layers of technical controls in Managed HSM further protect your key mat
 
   Both planes use Microsoft Entra ID for authentication. For authorization, they use different systems:
 
-  - The management plane uses Azure role-based access control (Azure RBAC), an authorization system that's built on Azure Resource Manager.
+  - The control plane uses Azure role-based access control (Azure RBAC), an authorization system that's built on Azure Resource Manager.
   - The data plane uses a managed HSM-level RBAC (Managed HSM local RBAC), an authorization system that's implemented and enforced at the managed HSM level. The local RBAC control model allows designated HSM administrators to have complete control over their HSM pool that even the management group, subscription, or resource group administrators can't override.
   - **Encryption in transit**: All traffic to and from the Managed HSM is always encrypted with TLS (Transport Layer Security versions 1.3 and 1.2 are supported) to protect against data tampering and eavesdropping where the TLS termination happens inside the SGX enclave and not in the untrusted host
   - **Firewalls**: Managed HSM can be configured to restrict who can reach the service in the first place, which further shrinks the attack surface. We allow you to configure Managed HSM to deny access from the public internet and only allow traffic from trusted Azure services (such as Azure Storage)

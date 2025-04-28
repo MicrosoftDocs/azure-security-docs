@@ -62,23 +62,6 @@
     href: basic-concepts.md
   - name: Best practices
     href: best-practices.md
-  - name: Security
-    items:
-    - name: Secure your Key Vault
-      href: secure-key-vault.md
-    - name: Security features
-      href: security-features.md
-    - name: Key Vault authentication
-      href: authentication.md
-    - name: Security worlds and geographies
-      href: overview-security-worlds.md
-    - name: Network Security
-      href: network-security.md
-    - name: Security baseline
-      href: /security/benchmark/azure/baselines/key-vault-security-baseline?context=/azure/key-vault/general/context/context
-    - name: Security controls by Azure Policy
-      displayName: regulatory, compliance, standards, domains
-      href: ../security-controls-policy.md?context=/azure/key-vault/general/context/context
   - name: Azure Key Vault logging
     href: logging.md
   - name: Notifications
@@ -166,6 +149,25 @@
       href: move-subscription.md
     - name: Move Key Vault to Another Region
       href: /azure/operational-excellence/relocation-key-vault?toc=/azure/key-vault/general/toc.json
+
+- name: Security
+  items:
+  - name: Secure your Key Vault
+    href: secure-key-vault.md
+  - name: Security features
+    href: security-features.md
+  - name: Key Vault authentication
+    href: authentication.md
+  - name: Security worlds and geographies
+    href: overview-security-worlds.md
+  - name: Network Security
+    href: network-security.md
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/key-vault-security-baseline?context=/azure/key-vault/general/context/context
+  - name: Security controls by Azure Policy
+    displayName: regulatory, compliance, standards, domains
+    href: ../security-controls-policy.md?context=/azure/key-vault/general/context/context
+    
 - name: Reference
   items:
   - name: What's new
