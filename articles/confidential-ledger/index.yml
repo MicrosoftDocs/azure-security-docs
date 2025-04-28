@@ -97,8 +97,6 @@ landingContent:
             url: write-transaction-receipts.md
           - text: Verify write transaction receipts
             url: verify-write-transaction-receipts.md
-          - text: Verify write transaction receipts
-            url: verify-write-transaction-receipts.md
           - text: Establish trust on Azure confidential ledger
             url: verify-node-quotes.md
 
