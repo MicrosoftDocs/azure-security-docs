@@ -54,7 +54,7 @@ https://myACL.confidential-ledger.azure.com
 
 ### Microsoft Entra tenant ID
 
-Microsoft Entra ID is a multi-tenant service, and every organization can create an object called **directory** in Microsoft Entra ID. The directory object holds security-related objects such as user accounts, applications, and groups. Microsoft Entra ID often refers to the directory as a **tenant**. Microsoft Entra tenants are identified by a GUID (**tenant ID**). In many cases, Microsoft Entra tenants can also be identified by the domain name of the organization.
+Microsoft Entra ID is a multitenant service, and every organization can create an object called **directory** in Microsoft Entra ID. The directory object holds security-related objects such as user accounts, applications, and groups. Microsoft Entra ID often refers to the directory as a **tenant**. Microsoft Entra tenants are identified by a GUID (**tenant ID**). In many cases, Microsoft Entra tenants can also be identified by the domain name of the organization.
 
 For example, an organization called "Contoso" might have the tenant ID `aaaabbbb-0000-cccc-1111-dddd2222eeee` and the domain name `contoso.com`.
 
