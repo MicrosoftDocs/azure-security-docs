@@ -23,7 +23,7 @@ The **Blob Storage Digest Backed by Confidential Ledger** Managed Application ca
 
 ## Deploying the managed application
 
-The Managed Application can be found in the Azure Marketplace here: [Blob Storage Digests Backed by Confidential Ledger (preview)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azureconfidentialledger.acl-blob-storage?tab=Overview).
+The Managed Application can be found in the Azure Marketplace here: [Blob Storage Digests Backed by Confidential Ledger (preview)](https://azuremarketplace.microsoft.com/marketplace/apps/azureconfidentialledger.acl-blob-storage?tab=Overview).
 
 ### Resources to be created
 
