@@ -70,7 +70,7 @@ sections:
       - question: |-  
           How will I be charged and billed for my use of the Azure Cloud HSM?  
         answer: |-  
-          Customers will incur an hourly fee for each Azure Cloud HSM cluster (consisting of 3 nodes). Once provisioned, Cloud HSM resource remains continuously active (always on). Billing commences upon resource provisioning, rather than when initializing the HSM resource completes. For more information about deploying Azure Cloud HSM, see [Tutorial - Deploying Azure Cloud HSM](tutorial-deploy-cloud-hsm.md).
+          Customers will incur an hourly fee for each Azure Cloud HSM cluster (consisting of 3 nodes). Once provisioned, Cloud HSM resource remains continuously active (always on). Billing commences upon resource provisioning, rather than when initializing the HSM resource completes. For more information about deployment options, see [Deploy Azure Cloud HSM using PowerShell](quickstart-powershell.md) or [using the Azure portal](quickstart-portal.md).
       - question: |-  
           What extra costs may be incurred with Azure Cloud HSM service?  
         answer: |-  
