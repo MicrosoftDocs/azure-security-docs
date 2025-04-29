@@ -6,13 +6,13 @@ author: msmbaldwin
 ms.topic: tutorial
 ms.custom: mvc, devx-track-azurecli
 ms.service: azure-dedicated-hsm
-ms.date: 02/20/2024
+ms.date: 04/15/2025
 ms.author: mbaldwin
 ---
 
 # Tutorial: Deploying HSMs into an existing virtual network using the Azure CLI
 
-Azure Dedicated HSM provides a physical device for sole customer use, with complete administrative control and full management responsibility. The use of physical devices creates the need for Microsoft to control device allocation to ensure capacity is managed effectively. As a result, within an Azure subscription, the Dedicated HSM service won't normally be visible for resource provisioning. Any Azure customer requiring access to the Dedicated HSM service, must first contact their Microsoft account executive to request registration for the Dedicated HSM service. Only once this process completes successfully will provisioning be possible. 
+Azure Dedicated HSM provides a physical device for sole customer use, with complete administrative control and full management responsibility. The use of physical devices creates the need for Microsoft to control device allocation to ensure capacity is managed effectively. As a result, within an Azure subscription, the Dedicated HSM service aren't normally visible for resource provisioning. Any Azure customer requiring access to the Dedicated HSM service must first contact their Microsoft account executive to request registration for the Dedicated HSM service. Only once this process completes successfully is provisioning possible.
 
 This tutorial shows a typical provisioning process where:
 
@@ -24,28 +24,28 @@ A typical, high availability, multi-region deployment architecture may look as f
 
 ![multi region deployment](media/tutorial-deploy-hsm-cli/high-availability-architecture.png)
 
-This tutorial focuses on a pair of HSMs and required [ExpressRoute gateway](/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager) (see Subnet 1 above) being integrated into an existing virtual network (see VNET 1 above).  All other resources are standard Azure resources. The same integration process can be used for HSMs in subnet 4 on VNET 3 above.
+This tutorial focuses on a pair of HSMs and required [ExpressRoute gateway](/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager) (see Subnet 1 above) being integrated into an existing virtual network (see VNET 1 above). All other resources are standard Azure resources. The same integration process can be used for HSMs in subnet 4 on VNET 3 above.
 
 ## Prerequisites
 
-Azure Dedicated HSM is not currently available in the Azure portal. All interaction with the service will be via command-line or using PowerShell. This tutorial will use the command-line (CLI) interface in the Azure Cloud Shell. If you're new to the Azure CLI, follow getting started instructions here: [Azure CLI 2.0 Get Started](/cli/azure/get-started-with-azure-cli).
+Azure Dedicated HSM is not currently available in the Azure portal. All interaction with the service must be via command-line or using PowerShell. This tutorial uses the command-line (CLI) interface in the Azure Cloud Shell. If you're new to the Azure CLI, follow getting started instructions here: [Azure CLI 2.0 Get Started](/cli/azure/get-started-with-azure-cli).
 
 Assumptions:
 
 - You have an assigned Microsoft Account Manager and meet the monetary requirement of five million ($5M) USD or greater in overall committed Azure revenue annually to qualify for onboarding and use of Azure Dedicated HSM.
-- You have been through the Azure Dedicated HSM registration process and been approved for use of the service. If not, then contact your Microsoft account representative for details. 
-- You have created a Resource Group for these resources and the new ones deployed in this tutorial will join that group.
-- You have already created the necessary virtual network, subnet, and virtual machines as per the diagram above and now want to integrate 2 HSMs into that deployment.
+- You went through the Azure Dedicated HSM registration process and been approved for use of the service. If not, then contact your Microsoft account representative for details.
+- You created a Resource Group for these resources and the new ones deployed in this tutorial will join that group.
+- You already created the necessary virtual network, subnet, and virtual machines as per the diagram and now want to integrate 2 HSMs into that deployment.
 
-All instructions below assume that you've already navigated to the Azure portal and you have opened the Cloud Shell (select "\>\_" towards the top right of the portal).
+All instructions in this article assume that you are at the Azure portal and have the Cloud Shell open (select "\>\_" towards the top right of the portal).
 
 ## Provisioning a Dedicated HSM
 
-Provisioning HSMs and integrating them into an existing virtual network via [ExpressRoute gateway](/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager) will be validated using ssh. This validation helps ensure reachability and basic availability of the HSM device for any further configuration activities.
+Provisioning HSMs and integrating them into an existing virtual network via [ExpressRoute gateway](/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager) is validated using ssh. This validation helps ensure reachability and basic availability of the HSM device for any further configuration activities.
 
 ### Validating Feature Registration
 
-As mentioned above, any provisioning activity requires that the Dedicated HSM service is registered for your subscription. To validate that, run the following commands in the Azure portal Cloud Shell.
+Any provisioning activity requires that the Dedicated HSM service is registered for your subscription. To validate that, run the following commands in the Azure portal Cloud Shell.
 
 ```azurecli
 az feature show \
@@ -53,13 +53,13 @@ az feature show \
    --name AzureDedicatedHSM
 ```
 
-The commands should return a status of "Registered" (as shown below). If the commands don't return "Registered" you need to register for this service by contacting your Microsoft account representative.
+The commands should return a status of "Registered". If the commands don't return "Registered", you must register for this service by contacting your Microsoft account representative.
 
 ![subscription status](media/tutorial-deploy-hsm-cli/subscription-status.png)
 
 ### Creating HSM resources
 
-Before you create HSM resources, there are some pre-requisite resources you need. You must have a virtual network with subnet ranges for compute, HSMs, and gateway. The following commands serve as an example of what would create such a virtual network.
+Before you create HSM resources, there are some prerequisite resources, you need. You must have a virtual network with subnet ranges for compute, HSMs, and gateway. The following commands serve as an example of what would create such a virtual network.
 
 ```azurecli
 az network vnet create \
@@ -88,7 +88,7 @@ az network vnet subnet create \
 ```
 
 >[!NOTE]
->The most important configuration to note for the virtual network, is that the subnet for the HSM device must have delegations set to "Microsoft.HardwareSecurityModules/dedicatedHSMs".  The HSM provisioning will not work without this option being set.
+>The most important configuration to note for the virtual network is that the subnet for the HSM device must have delegations set to "Microsoft.HardwareSecurityModules/dedicatedHSMs".  The HSM provisioning will not work without this option being set.
 
 After you configure your network, use these Azure CLI commands to provision your HSMs.
 
@@ -134,7 +134,7 @@ az dedicated-hsm delete --resource-group myRG –-name hsm1
 
 ## Verifying the Deployment
 
-To verify the devices have been provisioned and see device attributes, run the following command set. Ensure the resource group is set appropriately and the resource name is exactly as you have in the parameter file.
+To verify the devices are provisioned and to see device attributes, run the following command set. Ensure the resource group is set appropriately and the resource name is exactly as you have in the parameter file.
 
 ```azurecli
 subid=$(az account show --query id --output tsv)
@@ -188,38 +188,38 @@ The output looks something like the following output:
 }
 ```
 
-You'll also now be able to see the resources using the [Azure resource explorer](https://resources.azure.com/).   Once in the explorer, expand "subscriptions" on the left, expand your specific subscription for Dedicated HSM, expand "resource groups", expand the resource group you used and finally select the "resources" item.
+You can also now see the resources using the [Azure resource explorer](https://resources.azure.com/).   Once in the explorer, expand "subscriptions", expand your specific subscription for Dedicated HSM, expand "resource groups", expand the resource group you used and finally select the "resources" item.
 
 ## Testing the Deployment
 
-Testing the deployment is a case of connecting to a virtual machine that can access the HSM(s) and then connecting directly to the HSM device. These actions will confirm the HSM is reachable.
-The ssh tool is used to connect to the virtual machine. The command will be similar to the following but with the administrator name and dns name you specified in the parameter.
+Testing the deployment is a case of connecting to a virtual machine that can access one or more HSMs and then connecting directly to the HSM device. These actions confirm the HSM is reachable.
+The ssh tool is used to connect to the virtual machine. The command is similar to the following but with the administrator name and dns name you specified in the parameter.
 
 `ssh adminuser@hsmlinuxvm.westus.cloudapp.azure.com`
 
-The IP Address of the VM could also be used in place of the DNS name in the above command. If the command is successful, it will prompt for a password, and you should enter that. Once logged on to the virtual machine, you can sign in to the HSM using the private IP address found in the portal for the network interface resource associated with the HSM.
+The IP Address of the VM could also be used in place of the DNS name. If the command is successful, it will prompt for a password, and you should enter that. Once logged on to the virtual machine, you can sign in to the HSM using the private IP address found in the portal for the network interface resource associated with the HSM.
 
 ![components list](media/tutorial-deploy-hsm-cli/resources.png)
 
 >[!NOTE]
 >Notice the "Show hidden types" checkbox, which when selected will display HSM resources.
 
-In the screenshot above, clicking the "HSM1_HSMnic" or "HSM2_HSMnic" would show the appropriate Private IP Address. Otherwise, the `az resource show` command used above is a way to identify the right IP Address. 
+In the screenshot, clicking the "HSM1_HSMnic" or "HSM2_HSMnic" would show the appropriate Private IP Address. Otherwise, the `az resource show` command is a way to identify the right IP Address.
 
 When you have the correct IP address, run the following command substituting that address:
 
 `ssh tenantadmin@10.0.2.4`
 
-If successful you'll be prompted for a password. The default password is PASSWORD and the HSM will first ask you to change your password so set a strong password and use whatever mechanism your organization prefers to store the password and prevent loss.
+If successful, you are prompted for a password. The default password is PASSWORD and the HSM will first ask you to change your password so set a strong password and use whatever mechanism your organization prefers to store the password and prevent loss.
 
 >[!IMPORTANT]
->if you lose this password, the HSM will have to be reset and that means losing your keys.
+> If you lose this password, the HSM must be reset and that means losing your keys.
 
 When you're connected to the HSM using ssh, run the following command to ensure the HSM is operational.
 
 `hsm show`
 
-The output should look as shown on the image below:
+The output should look like this:
 
 ![Screenshot shows output in PowerShell window.](media/tutorial-deploy-hsm-cli/hsm-show-output.png)
 
@@ -227,12 +227,12 @@ At this point, you've allocated all resources for a highly available, two HSM de
 
 ## Delete or clean up resources
 
-If you've finished with just the HSM device, then it can be deleted as a resource and returned to the free pool. The obvious concern when doing this is any sensitive customer data that is on the device. The best way to "zeroize" a device is to get the HSM admin password wrong three times (note: this is not appliance admin, it's the actual HSM admin). As a safety measure to protect key material, the device can't be deleted as an Azure resource until it is in the zeroized state.
+If you are finished with just the HSM device, it can be deleted as a resource and returned to the free pool. The obvious concern when doing this is any sensitive customer data that is on the device. The best way to "zeroize" a device is to get the HSM admin password wrong three times. (Not the appliance admin, the actual HSM admin). As a safety measure to protect key material, the device can't be deleted as an Azure resource until it is in the zeroized state.
 
 > [!NOTE]
-> if you have issue with any Thales device configuration you should contact [Thales customer support](https://supportportal.thalesgroup.com/csm).
+> If you have issue with any Thales device configuration, contact [Thales customer support](https://supportportal.thalesgroup.com/csm).
 
-If you've finished with all resources in this resource group, then you can remove them all with the following command:
+If you are finished with all resources in the resource group, you can remove them with the following command:
 
 ```azurecli
 az group delete \
@@ -243,7 +243,7 @@ az group delete \
 
 ## Next steps
 
-After completing the steps in the tutorial, Dedicated HSM resources are provisioned and you have a virtual network with necessary HSMs, and further network components to enable communication with the HSM.  You're now in a position to complement this deployment with more resources as required by your preferred deployment architecture. For more information on helping plan your deployment, see the Concepts documents.
+After completing the steps in the tutorial, Dedicated HSM resources are provisioned and you have a virtual network with necessary HSMs, and further network components to enable communication with the HSM. You're now in a position to complement this deployment with more resources as required by your preferred deployment architecture. For more information on helping plan your deployment, see the Concepts documents.
 A design with two HSMs in a primary region addressing availability at the rack level, and two HSMs in a secondary region addressing regional availability is recommended. 
 
 * [High Availability](high-availability.md)

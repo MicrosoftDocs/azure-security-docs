@@ -77,3 +77,5 @@ Integration Guides and [Microsoft Azure Cloud HSM SDK](https://github.com/micros
 
 * [Azure Cloud HSM SDK](https://github.com/microsoft/MicrosoftAzureCloudHSM)
 * [Key Management in Azure](/azure/security/fundamentals/key-management)
+* [Deploy Azure Cloud HSM using the Azure portal](quickstart-portal.md)
+* [Deploy Azure Cloud HSM using Azure PowerShell](quickstart-powershell.md)
