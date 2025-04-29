@@ -1,5 +1,5 @@
 ---
-title: Advanced user defined function
+title: Advanced user defined functions in Azure confidential ledger
 description: Learn how to execute custom code in Azure confidential ledger
 author: settiy
 ms.author: settiy
@@ -8,11 +8,21 @@ ms.service: azure-confidential-ledger
 ms.topic: how-to
 ---
 
-# Advanced user defined function
+# Advanced user defined functions in Azure confidential ledger (preview)
 
-Advanced user defined function allows custom code to execute in the same Trusted Execution Environment (TEE) as the ledger. This feature extends the benefits of confidentiality and integrity guarantee to the custom code. Also, it supports custom Role Based Access Control (RBAC) for authorization.
+Advanced user defined functions (UDFs) allow custom code to execute in the same Trusted Execution Environment (TEE) as the ledger. This feature extends the benefits of confidentiality and integrity guarantee to the custom code. Also, it supports custom Role Based Access Control (RBAC) for authorization.
 
-A few scenarios that would benefit from this feature are as follows:
+> [!IMPORTANT]
+> User defined functions are currently in PREVIEW under API version `2024-08-22-preview`.
+> You can request access for this preview via [this sign-up form](https://aka.ms/ACL2025Preview).
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+> [!TIP]
+> For simpler scenarios, such as lightweight custom logic or direct integration with the ledger API, see [simple user defined functions in Azure confidential ledger](./user-defined-functions.md).
+
+## Use cases
+
+Here are some scenarios where advanced user defined functions can be beneficial:
 
  - **Data analysis and aggregation**: Sensitive information can be processed in the TEE and aggregated information can be shared with the stakeholders.
  - **Protecting confidential information**: Confidential information like personal data, credit score, and health information can be shared with other confidential workloads after attestation.
@@ -41,7 +51,7 @@ We use the banking application available at the azureconfidentialledger-app-samp
 ## Sign in to Azure
 
 > [!NOTE]
-> Confidential Ledger supports Microsoft Entra ID out-of-the-box. If your application integrates with other identity providers, contact customer support to configure it in the ledger.
+> Azure confidential ledger supports Microsoft Entra ID out-of-the-box. If your application integrates with other identity providers, contact customer support to configure it in the ledger.
 
 Obtain a Microsoft Entra ID token.
 
@@ -94,9 +104,12 @@ curl $server_identity -X PUT "https://contoso.confidential-ledger.azure.com/app/
 curl $server_identity "https://contoso.confidential-ledger.azure.com/app/userDefinedEndpoints?api-version=$apiVersion" -H "$authorization"
 ```
 
+> [!NOTE]
+> Advanced user defined functions and [simple user defined functions](./user-defined-functions.md)  are mutually exclusive features. You can't create or run simple UDFs if advanced UDFs are defined, and vice versa. To switch between the two, follow the instructions in the [UDF overview page](./server-side-programming.md#switching-between-simple-and-advanced-udfs).
+
 ## Create roles and users
 
-The banking application uses two personas, namely, a 'manager' and a 'teller'. We create roles and users to represent them.
+The banking application uses two personas, namely, a _manager_ and a _teller_. We create roles and users to represent them.
 
 > [!NOTE]
 > Each user is represented by a unique certificate.
@@ -181,7 +194,8 @@ Now you're ready to call the application endpoints and submit transactions.
 
 ## Next steps
 
-In this tutorial, you deployed a custom JavaScript application into a confidential ledger instance. To learn more about Azure confidential ledger and how to integrate it with your applications, continue on to these articles.
+In this tutorial, you deployed a custom JavaScript application into a confidential ledger instance. To learn more about Azure confidential ledger and how to integrate it with your applications, continue on to these articles:
 
-- [Simple User Defined Functions in Azure Confidential Ledger](simple-user-defined-function.md)
+- [User defined functions overview in Azure confidential ledger](server-side-programming.md)
+- [Simple user defined functions in Azure confidential ledger](user-defined-functions.md)
 - [Overview of Microsoft Azure confidential ledger](overview.md)
