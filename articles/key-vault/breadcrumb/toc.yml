@@ -5,6 +5,22 @@
   - name: Key Vault
     tocHref: /azure/
     topicHref: /azure/key-vault/index
+    items:
+    - name: General
+      tocHref: /azure/key-vault/general/
+      topicHref: /azure/key-vault/general/index
+    - name: Certificates
+      tocHref: /azure/key-vault/certificates/
+      topicHref: /azure/key-vault/certificates/index
+    - name: Keys
+      tocHref: /azure/key-vault/keys/
+      topicHref: /azure/key-vault/keys/index
+    - name: Secrets
+      tocHref: /azure/key-vault/secrets/
+      topicHref: /azure/key-vault/secrets/index
+    - name: Managed HSM
+      tocHref: /azure/key-vault/managed-hsm/
+      topicHref: /azure/key-vault/managed-hsm/index
 
 - name: Azure
   tocHref: /java/
@@ -44,10 +60,10 @@
       items:
       - name: Certificates 
         tocHref: /cli/azure/keyvault/certificate
-        topicHref:  /azure/key-vault/
+        topicHref: /azure/key-vault/
       - name: Keys
         tocHref: /cli/azure/keyvault/key
-        topicHref:  /azure/key-vault/
+        topicHref: /azure/key-vault/
       - name: Secrets
         tocHref: /cli/azure/keyvault/secret
         topicHref: /azure/key-vault/
@@ -60,18 +76,3 @@
   - name: Key Vault
     tocHref: /security/benchmark/azure/baselines
     topicHref: /azure/key-vault/general/index
-
-
-
-### Leave this element for testing from the contributor guide instructions. 
-- name: Azure
-  tocHref: /sccm/
-  topicHref: /azure/index
-  items: 
-  - name: Key Vault
-    tocHref: /sccm/apps/
-    topicHref: /azure/key-vault/index
-    items: 
-    - name: Run SCCM scripts
-      tocHref: /sccm/apps/deploy-use/
-      topicHref: /azure/key-vault/index

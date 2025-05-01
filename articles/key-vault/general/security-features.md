@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 03/07/2025
+ms.date: 03/31/2025
 ms.author: mbaldwin
 #Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
 ---
@@ -56,9 +56,9 @@ For more information, see [Key Vault authentication fundamentals](authentication
 
 ## Access model overview
 
-Access to a key vault is controlled through two interfaces: the **management plane** and the **data plane**. The management plane is where you manage Key Vault itself. Operations in this plane include creating and deleting key vaults, retrieving Key Vault properties, and updating access policies. The data plane is where you work with the data stored in a key vault. You can add, delete, and modify keys, secrets, and certificates.
+Access to a key vault is controlled through two interfaces: the **control plane** and the **data plane**. The control plane is where you manage Key Vault itself. Operations in this plane include creating and deleting key vaults, retrieving Key Vault properties, and updating access policies. The data plane is where you work with the data stored in a key vault. You can add, delete, and modify keys, secrets, and certificates.
 
-Both planes use [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) for authentication. For authorization, the management plane uses [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) and the data plane uses a [Key Vault access policy](./assign-access-policy-portal.md) and [Azure RBAC for Key Vault data plane operations](./rbac-guide.md).
+Both planes use [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) for authentication. For authorization, the control plane uses [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) and the data plane uses a [Key Vault access policy](./assign-access-policy-portal.md) and [Azure RBAC for Key Vault data plane operations](./rbac-guide.md).
 
 To access a key vault in either plane, all callers (users or applications) must have proper authentication and authorization. Authentication establishes the identity of the caller. Authorization determines which operations the caller can execute. Authentication with Key Vault works in conjunction with [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis), which is responsible for authenticating the identity of any given **security principal**.
 
@@ -78,20 +78,20 @@ For more information, see [Conditional Access overview](/azure/active-directory/
 
 ## Privileged access
 
-Authorization determines which operations the caller can perform. Authorization in Key Vault uses [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) on management plane and either Azure RBAC or Azure Key Vault access policies on data plane.
+Authorization determines which operations the caller can perform. Authorization in Key Vault uses [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) on control plane and either Azure RBAC or Azure Key Vault access policies on data plane.
 
-Access to vaults takes place through two interfaces or planes. These planes are the management plane and the data plane.
+Access to vaults takes place through two interfaces or planes. These planes are the control plane and the data plane.
 
-- The *management plane* is where you manage Key Vault itself and it is the interface used to create and delete vaults. You can also read key vault properties and manage access policies.
+- The *control plane* is where you manage Key Vault itself and it is the interface used to create and delete vaults. You can also read key vault properties and manage access policies.
 - The *data plane* allows you to work with the data stored in a key vault. You can add, delete, and modify keys, secrets, and certificates.
 
-Applications access the planes through endpoints. The access controls for the two planes work independently. To grant an application access to use keys in a key vault, you grant data plane access by using Azure RBAC or a Key Vault access policy. To grant a user read access to Key Vault properties and tags, but not access to data (keys, secrets, or certificates), you grant management plane access with Azure RBAC.
+Applications access the planes through endpoints. The access controls for the two planes work independently. To grant an application access to use keys in a key vault, you grant data plane access by using Azure RBAC or a Key Vault access policy. To grant a user read access to Key Vault properties and tags, but not access to data (keys, secrets, or certificates), you grant control plane access with Azure RBAC.
 
-The following table shows the endpoints for the management and data planes.
+The following table shows the endpoints for the control and data planes.
 
 | Access&nbsp;plane | Access endpoints | Operations | Access&nbsp;control mechanism |
 | --- | --- | --- | --- |
-| Management plane | **Global:**<br> management.azure.com:443<br><br> **Microsoft Azure operated by 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Government:**<br> management.usgovcloudapi.net:443<br> | Create, read, update, and delete key vaults<br><br>Set Key Vault access policies<br><br>Set Key Vault tags | Azure RBAC |
+| Control plane | **Global:**<br> management.azure.com:443<br><br> **Microsoft Azure operated by 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Government:**<br> management.usgovcloudapi.net:443<br> | Create, read, update, and delete key vaults<br><br>Set Key Vault access policies<br><br>Set Key Vault tags | Azure RBAC |
 | Data plane | **Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Microsoft Azure operated by 21Vianet:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure US Government:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br> | Keys: encrypt, decrypt, wrapKey, unwrapKey, sign, verify, get, list, create, update, import, delete, recover, backup, restore, purge, rotate (preview), getrotationpolicy (preview), setrotationpolicy (preview), release(preview) <br><br> Certificates: managecontacts, getissuers, listissuers, setissuers, deleteissuers, manageissuers, get, list, create, import, update, delete, recover, backup, restore, purge<br><br>  Secrets: get, list, set, delete,recover, backup, restore, purge | Key Vault access policy or Azure RBAC |
 
 ### Managing administrative access to Key Vault

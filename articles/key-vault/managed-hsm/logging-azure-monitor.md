@@ -270,7 +270,7 @@ For more information on Azure Advisor, see [Azure Advisor overview](/azure/advis
 
 ## Next Steps
 
-- [Monitor Azure Managed HSM](logging-azure-monitor.md)
+- [Managed HSM logging](logging.md)
 - [Configure Managed HSM alerts](configure-alerts.md)
 - [Monitoring Key Vault](../general/monitor-key-vault.md)
 - [Monitoring Key Vault data reference](../general/monitor-key-vault-reference.md)
