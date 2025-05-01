@@ -36,8 +36,12 @@ items:
       href: authenticate-ledger-nodes.md
     - name: Write transaction receipts
       href: write-transaction-receipts.md
-  - name: Programmability
-    href: programmability.md
+  - name: User Defined Functions (UDFs)
+    items:
+    - name: Simple UDFs
+      href: simple-user-defined-function.md
+    - name: Advanced UDFs
+      href: advanced-user-defined-function.md
 - name: How To Guides
   items:
   - name: Manage your Ledger
@@ -68,6 +72,12 @@ items:
       href: /sql/relational-databases/security/ledger/ledger-overview?branch=sql
     - name: Create a managed application to store blob digests
       href: create-blob-managed-app.md
+- name: Security
+  items:
+  - name: Secure Confidential Ledger
+    items:
+    - name: Secure your Confidential Ledger 
+      href: secure-confidential-ledger.md
 - name: References
   items:
   - name: FAQ

@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell, devx-track-arm-template, devx-track-azurecli
-ms.date: 05/25/2023
+ms.date: 04/14/2025
 ---
 
 # Create a payment HSM with host and management port with IP addresses in different virtual networks using ARM template
@@ -20,7 +20,6 @@ This tutorial describes how to use an Azure Resource Manager template (ARM templ
 - [Create a payment HSM with the host and management port in the same virtual network using an ARM template](quickstart-template.md)
 - [Create a payment HSM with the host and management port in different virtual networks using Azure CLI or PowerShell](create-different-vnet.md)
 - [Create a payment HSM with the host and management port in different virtual networks using an ARM template](create-different-vnet-template.md)
-- [Create HSM resource with host and management port with IP addresses in different virtual networks using ARM template](create-different-ip-addresses.md)
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
@@ -30,7 +29,7 @@ This tutorial describes how to use an Azure Resource Manager template (ARM templ
 
 - You must register the "Microsoft.HardwareSecurityModules" and "Microsoft.Network" resource providers, as well as the Azure Payment HSM features. Steps for doing so are at [Register the Azure Payment HSM resource provider and resource provider features](register-payment-hsm-resource-providers.md).
 
-  To quickly ascertain if the resource providers and features are already registered, use the Azure CLI [az provider show](/cli/azure/provider#az-provider-show) command. (You will find the output of this command more readable if you display it in table-format.)
+  To quickly ascertain if the resource providers and features are already registered, use the Azure CLI [az provider show](/cli/azure/provider#az-provider-show) command. (The output of this command is more readable if you display it in table-format.)
 
   ```azurecli-interactive
   az provider show --namespace "Microsoft.HardwareSecurityModules" -o table
