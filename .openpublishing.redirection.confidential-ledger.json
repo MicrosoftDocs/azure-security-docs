@@ -9,6 +9,16 @@
       "source_path_from_root": "/articles/confidential-ledger/programmability.md",
       "redirect_url": "/azure/confidential-ledger/advanced-user-defined-function",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/confidential-ledger/advanced-user-defined-function.md",
+      "redirect_url": "/azure/confidential-ledger/user-defined-endpoints",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/confidential-ledger/simple-user-defined-function.md",
+      "redirect_url": "/azure/confidential-ledger/user-defined-functions",
+      "redirect_document_id": false
     }    
   ]
 }

@@ -19,7 +19,7 @@ ms.author: keithp
 Microsoft Azure Cloud HSM Preview is a highly available, FIPS 140-3 Level 3 validated single-tenant HSM service that is compliant with industry standards. Azure Cloud HSM grants customers complete administrative authority over their Hardware Security Module (HSM). It provides a secure and customer owned HSM cluster for storing cryptographic keys and performing cryptographic operations. It's the ideal solution for customers who require FIPS 140-3 Level 3 validated Hardware Security Modules and supporting various applications, including PKCS#11, offload SSL/TLS processing, certificate authority private key protection, transparent data encryption, including document and code signing.
 
 > [!NOTE]
-> Microsoft Azure Cloud HSM is available through Public Preview in West Europe and UK West. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Microsoft Azure Cloud HSM is available through Public Preview in East US, East US 2, West US, West US 2, West Europe, North Europe and UK West. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Why use Azure Cloud HSM?
 
@@ -77,3 +77,5 @@ Integration Guides and [Microsoft Azure Cloud HSM SDK](https://github.com/micros
 
 * [Azure Cloud HSM SDK](https://github.com/microsoft/MicrosoftAzureCloudHSM)
 * [Key Management in Azure](/azure/security/fundamentals/key-management)
+* [Deploy Azure Cloud HSM using the Azure portal](quickstart-portal.md)
+* [Deploy Azure Cloud HSM using Azure PowerShell](quickstart-powershell.md)
