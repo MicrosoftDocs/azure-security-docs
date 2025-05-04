@@ -5,7 +5,7 @@ services: dedicated-hsm
 author: msmbaldwin
 ms.topic: quickstart
 ms.service: azure-dedicated-hsm
-ms.date: 02/20/2024
+ms.date: 04/15/2025
 ms.author: mbaldwin
 ms.devlang: azurepowershell
 ms.custom: devx-track-azurepowershell, mode-api

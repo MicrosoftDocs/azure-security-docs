@@ -75,6 +75,10 @@
         href: policy-version-1-2.md
   - name: Workflow
     href: workflow.md
+- name: Security
+  items:
+  - name: Secure Microsoft Azure Attestation
+    href: secure-attestation.md
 - name: References
   items:
   - name: Regional availability

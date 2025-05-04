@@ -1,5 +1,5 @@
 ---
-title: Backup and Restore in Azure Cloud HSM
+title: Back Up and Restore Azure Cloud HSM Resources
 description: Learn how to back up and restore your Azure Cloud HSM resources, including prerequisites, configuration steps, and validation procedures.
 author: msmbaldwin
 ms.service: azure-cloud-hsm
@@ -11,48 +11,65 @@ ms.author: mbaldwin
 
 ---
 
-# Tutorial: Backup and restore
+# Tutorial: Back up and restore Azure Cloud HSM resources
 
-Microsoft Azure Cloud HSM lets you back up and restore your Cloud HSM, preserving all keys, versions, attributes, tags, and role assignments.
+Azure Cloud HSM Preview lets you back up and restore your hardware security module (HSM) in a way that preserves all keys, versions, attributes, tags, and role assignments.
+
+In this tutorial, you:
+
+> [!div class="checklist"]
+>
+> - Create a managed identity and a storage account for Cloud HSM resources.
+> - Initiate a backup from a source Cloud HSM resource.
+> - Initiate and validate a restore to a destination Cloud HSM resource.
 
 > [!IMPORTANT]
-> When you create an Azure Cloud HSM backup, it is protected by a key derived within the HSM. Microsoft doesn't have visibility or access to the derived key protecting your backups. Azure Cloud HSM doesn't support restoring a backup to its source HSM or any Cloud HSM that is already activated. To restore, use another nonactivated Cloud HSM in any preferred region. Otherwise, the restore operation fails, rendering the destination Cloud HSM nonfunctional. 
+> When you create a Cloud HSM backup, a key derived within the HSM helps protect it. Microsoft doesn't have visibility or access to the derived key.
 
 ## Prerequisites
 
-The following prerequisites support Azure Cloud HSM backup and restore operations.  
-- Managed service identity configured for Azure Cloud HSM source and destination.
-- Azure Blob Storage with RBAC ([Storage Blob Data Contributor](https://github.com/OpenSC/OpenSC)).
-- The Azure Cloud HSM destination resource must be in the NotActivated state.
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free).
+- Azure Blob Storage with role-based access control (RBAC) ([Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles/storage#storage-blob-data-contributor) role).
 
-The following configurations aren't supported for backup and restore with Azure Cloud HSM.
-- Storage container SAS tokens aren't supported.
+### Unsupported configurations
 
-## Apply an MSI to Cloud HSM and Create a Storage Account for HSM Backups
+Azure Cloud HSM doesn't support:
 
-### Creating a managed service identity
+- Restoring a backup to its source Cloud HSM resource or any Cloud HSM resource that's already activated. To restore, use another nonactivated Cloud HSM resource in any preferred region. Otherwise, the restore operation fails and renders the destination Cloud HSM resource nonfunctional.
+- Backup and restore via shared access signature (SAS) tokens for storage containers.
 
-Create a new user-assigned managed service identity in your existing Azure Cloud HSM resource group. In this guided example, we use CHSM-MSI and CHSM-SERVER-RG, the resource group name referenced in the Azure Cloud HSM onboarding guide example.
+## Apply a managed identity and create a storage account
+
+Use the code in the following sections to apply a managed identity to Azure Cloud HSM and create a storage account for HSM backups.
+
+### Create a managed identity
+
+Create a new user-assigned managed identity in your existing Azure Cloud HSM resource group. In this tutorial, you can use `CHSM-MSI` as the name of the managed identity and `CHSM-SERVER-RG` as the name of the resource group. `CHSM-SERVER-RG` is the name that the [Azure Cloud HSM onboarding guide](onboarding-guide.md) uses as an example resource group.
 
 ```azurepowershell-interactive
-# Define parameters for the new managed service identity (MSI)
+# Define parameters for the new managed identity
 $identity = @{
     Location          = "<RegionName>"                                         
-    ResourceName      = "<MSIName>"                                         
+    ResourceName      = "<ManagedIdentityName>"                                         
     ResourceGroupName = "<ResourceGroupName>"
     SubscriptionID    = "<SubscriptionID>"     
 }
 
-# Create a new user-assigned managed service identity (MSI) in the specified resource group and location
+# Create a new user-assigned managed identity in the specified resource group and location
 New-AzUserAssignedIdentity -Name $identity.ResourceName -ResourceGroupName $identity.ResourceGroupName -Location $identity.Location
 ```
 
-### Apply MSI to source and destination Cloud HSM
+### Apply the managed identity to Cloud HSM resources
 
-For Azure Cloud HSM backup and restore operations, a managed service identity (MSI) must be applied to both your source and destination Cloud HSM resources. Each Cloud HSM cluster can have only one MSI. You can either use the same MSI for both the source and destination or use different MSIs for each. In this guided example, we apply the same MSI to both the source and destination Cloud HSM resources.
+For Azure Cloud HSM backup and restore operations, you must apply a managed identity to both your source and destination Cloud HSM resources.
+
+> [!NOTE]
+> The destination Cloud HSM resource must be in the `NotActivated` state.
+
+Each Cloud HSM cluster can have only one managed identity. You can use the same managed identity for both the source and destination, or you can use a different managed identity for each. The example in this tutorial applies the same managed identity to both the source and destination Cloud HSM resources.
 
 ```azurepowershell-interactive
-# Define the source Cloud HSM parameters
+# Define the parameters for the source Cloud HSM resource
 $sourceCloudHSM = @{
     Location          = "<RegionName>"                              
     Sku               = @{ "family" = "B"; "Name" = "Standard_B1" } 
@@ -62,7 +79,7 @@ $sourceCloudHSM = @{
     Force             = $true                                    
 }
 
-# Define the destination Cloud HSM parameters
+# Define the parameters for the destination Cloud HSM resource
 $destinationCloudHSM = @{
     Location          = "<RegionName>"                              
     Sku               = @{ "family" = "B"; "Name" = "Standard_B1" } 
@@ -72,7 +89,7 @@ $destinationCloudHSM = @{
     Force             = $true                                    
 }
 
-# Define the Cloud HSM MSI patch payload
+# Define the Cloud HSM managed identity patch payload
 $chsmMSIPatch = '{
     "Sku": {
         "Family": "B",
@@ -82,7 +99,7 @@ $chsmMSIPatch = '{
     "Identity": {
         "type": "UserAssigned",
         "userAssignedIdentities": {
-            "/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSIName>": {}
+            "/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<ManagedIdentityName>": {}
         }
     }
 }'
@@ -93,19 +110,31 @@ $sourceURI = "/subscriptions/$($identity.SubscriptionID)/resourceGroups/$($sourc
 # Construct the destination URI
 $destinationURI = "/subscriptions/$($identity.SubscriptionID)/resourceGroups/$($destinationCloudHSM.ResourceGroupName)/providers/Microsoft.HardwareSecurityModules/cloudHsmClusters/$($destinationCloudHSM.ResourceName)?api-version=2024-06-30-preview"
 
-# Invoke REST method to update the source Cloud HSM with MSI patch
+# Invoke the REST method to update the source Cloud HSM resource with the managed identity patch
 Invoke-AzRestMethod -Path $sourceURI -Method Put -Payload $chsmMSIPatch
 
-# Invoke REST method to update the destination Cloud HSM with MSI patch
+# Invoke the REST method to update the destination Cloud HSM resource with the managed identity patch
 Invoke-AzRestMethod -Path $destinationURI -Method Put -Payload $chsmMSIPatch
 ```
 
-### Create a storage account in your private VNET for Cloud HSM backups
+### Create a storage account in a private virtual network
 
-Set up storage infrastructure for Azure Cloud HSM backup operations by defining and configuring a storage account and associated blob container within a private virtual network. Begin by defining the subscription ID and specifying the storage account parameters, including location, SKU, and type. The process includes creating a new resource group, establishing the storage account with network rules to restrict access to a designated virtual network, and enhancing security through a private endpoint. A private endpoint is set up for secure access, and the "Storage Blob Data Contributor" role is assigned to a specified identity to ensure appropriate permissions for backup tasks. In this example, we create a new resource group named CHSM-BACKUP-RG, a storage account called chsmbackup00, and a blob container named chsmbackupcontainer00, with read/write access granted for both source and destination.
+Set up storage infrastructure for Azure Cloud HSM backup operations by defining and configuring a storage account and an associated blob container within a private virtual network.
+
+Begin by defining the subscription ID. Specify the storage account parameters, including the location, product tier, and type.
+
+The process includes creating a new resource group, establishing the storage account with network rules to restrict access to a designated virtual network, and enhancing security through a private endpoint. The Storage Blob Data Contributor role is assigned to a specified identity to ensure appropriate permissions for backup tasks.
+
+In the following code, you can use the following examples:
+
+- `CHSM-BACKUP-RG` for the name of the resource group
+- `chsmbackup00` for the name of the storage account
+- `chsmbackupcontainer00` for the name of the blob container
+
+Read/write access is granted for both the source and the destination.
 
 > [!IMPORTANT]
-> The minimum RBAC role required is **Storage Blob Data Contributor**. Public storage accounts are accessible over the public internet, so place your storage account behind a private VNET for enhanced security.
+> The minimum RBAC role required is Storage Blob Data Contributor. Public storage accounts are accessible over the public internet, so place your storage account behind a private virtual network for enhanced security.
 
 ```azurepowershell-interactive
 # Define the subscription ID
@@ -115,8 +144,8 @@ $subscriptionId = "<SubscriptionID>"
 $storageAccount = @{
     Location          = "<RegionName>"                    
     ResourceGroupName = "<BackupResourceGroupName>" 
-    AccountName       = "<ResourceName>"      # Name for the storage account
-    SkuName           = "<StorageAccountSKU>"     # Storage account SKU (example: Standard_LRS)
+    AccountName       = "<ResourceName>"      # Name of the storage account
+    SkuName           = "<StorageAccountSKU>"     # Storage account tier (example: Standard_LRS)
     Kind              = "<StorageAccountType>"       #Type of storage account (example: StorageV2)
 }
 
@@ -124,16 +153,16 @@ $storageAccount = @{
 $container = @{
     ResourceGroupName  = $storageAccount.ResourceGroupName # Resource group name where the storage account is located
     StorageAccountName = $storageAccount.AccountName      # Name of the storage account
-    ContainerName      = "<StorageContainerName>"              # Name for the blob container
+    ContainerName      = "<StorageContainerName>"              # Name of the blob container
 }
 
 # Define the private endpoint parameters
-# Storage accounts are publicly accessible, its recommended to put it behind a private VNET
+# Storage accounts are publicly accessible, so put it behind a private virtual network
 $privateEndpoint = @{
     Name              = "<PrivateEndpointName>"
-    VnetName          = "<ExistingVNetName>"  # Name of the existing VNet
-    SubnetName        = "<ExistingSubnetName>"  # Name of the existing subnet within the VNet
-    ResourceGroupName = "<ResourceGroupName>" # Resource group for private VNet and subnet (example: CHSM-CLIENT-RG)
+    VnetName          = "<ExistingVNetName>"  # Name of the existing virtual network
+    SubnetName        = "<ExistingSubnetName>"  # Name of the existing subnet within the virtual network
+    ResourceGroupName = "<ResourceGroupName>" # Resource group for private virtual network and subnet (example: CHSM-CLIENT-RG)
 }
 
 # Define the role assignment parameters
@@ -167,7 +196,7 @@ New-AzStorageContainer -Name $container.ContainerName -Context $storageAccountCo
 $vnet = Get-AzVirtualNetwork -ResourceGroupName $privateEndpoint.ResourceGroupName -Name $privateEndpoint.VnetName
 $subnet = $vnet.Subnets | Where-Object { $_.Name -eq $privateEndpoint.SubnetName }
 
-# Create the private endpoint for the storage account in the existing VNet
+# Create the private endpoint for the storage account in the existing virtual network
 New-AzPrivateEndpoint -ResourceGroupName $storageAccount.ResourceGroupName `
     -Name $privateEndpoint.Name `
     -Location $storageAccount.Location `
@@ -184,7 +213,7 @@ New-AzPrivateEndpoint -ResourceGroupName $storageAccount.ResourceGroupName `
     ) `
     -Subnet $subnet 
 
-# Assign 'Storage Blob Data Contributor' role to the specified identity
+# Assign the Storage Blob Data Contributor role to the specified identity
 New-AzRoleAssignment -RoleDefinitionName $roleAssignment.RoleDefinitionName `
     -PrincipalId $roleAssignment.PrincipalId `
     -Scope $roleAssignment.Scope
@@ -192,27 +221,31 @@ New-AzRoleAssignment -RoleDefinitionName $roleAssignment.RoleDefinitionName `
 
 ### Disable shared key access via portal setting
 
-Disable shared key access to enhance security. To do this, navigate to your Azure Storage Account, select Settings >> Configuration, and set 'Allow storage account key access' to 'Disabled'.
+Disable shared key access to enhance security:
 
-## Azure Cloud HSM Backup
+1. In the Azure portal, go your Azure storage account.
+1. Select **Settings** > **Configuration**.
+1. Set **Allow storage account key access** to **Disabled**.
 
-### Initiate Cloud HSM backup from source HSM
+## Initiate a backup from the source Cloud HSM resource
 
-Start a backup for your source Azure Cloud HSM by sending a POST request with the storage container URI to the backup API endpoint. Monitor the backup's progress by sending a GET request to the URL in the response headers. The script retrieves and shows the backup job status and unique backup ID from the response, confirming the backup has started and tracking its progress.
+Start a backup for your source Cloud HSM resource by sending a `POST` request with the storage container URI to the backup API endpoint. Monitor the backup's progress by sending a `GET` request to the URL in the response headers.
+
+The following script retrieves and shows the backup job status and the unique backup ID from the response. The status confirms that the backup started and tracks its progress.
 
 ```azurepowershell-interactive
-# Define backup properties, including the URI for the Azure Storage Blob container
+# Define backup properties, including the URI for the Azure Blob Storage container
 $backupProperties = ConvertTo-Json @{
     azureStorageBlobContainerUri = "https://$($container.StorageAccountName).blob.core.windows.net/$($container.ContainerName)"
 }
 
-# Construct the URI for the backup operation using the provided parameters
+# Construct the URI for the backup operation by using the provided parameters
 $backupUri = "/subscriptions/$($identity.SubscriptionID)/resourceGroups/$($sourceCloudHSM.ResourceGroupName)/providers/Microsoft.HardwareSecurityModules/cloudHsmClusters/$($sourceCloudHSM.ResourceName)/backup?api-version=2024-06-30-preview"
 
 # Initiate the backup operation by sending a POST request with the backup properties
 $response = Invoke-AzRestMethod -Path $backupUri -Method Post -Payload $backupProperties
 
-# Check the backup job status to confirm it succeeded
+# Check the backup job status to confirm that it succeeded
 $jobStatus = Invoke-AzRestMethod -Method 'GET' -Uri $response.Headers.Location
 $backupStatus = (ConvertFrom-Json $jobStatus.Content).properties.status
 
@@ -224,13 +257,13 @@ $backupStatus
 $backupID
 ```
 
-**Expected output**: `$backupStatus` returns "Succeeded", and `$backupID` shows the corresponding backup ID for the backup you initiated.
+**Expected output**: `$backupStatus` returns `Succeeded`, and `$backupID` shows the corresponding ID for the backup that you initiated.
 
-## Azure Cloud HSM Restore
+## Initiate a restore to the destination Cloud HSM resource
 
-### Initiate Cloud HSM restore to destination HSM
+Start a restore operation for the destination Cloud HSM resource by providing the necessary restore properties, including the storage container URI and backup ID.
 
-Start a restore operation for the destination Azure Cloud HSM by providing the necessary restore properties, including the storage container URI and backup ID. The script creates the correct URI for the restore API endpoint and sends a POST request to initiate the restore. To monitor the restore progress, send a GET request to the location specified in the response headers and retrieve the restore job status to confirm its completion.
+The following script creates the correct URI for the restore API endpoint and sends a `POST` request to initiate the restore. To monitor the restore progress, send a `GET` request to the location specified in the response headers and retrieve the restore job status to confirm its completion.
 
 ```azurepowershell-interactive
 $restoreProperties = ConvertTo-Json @{
@@ -238,7 +271,7 @@ $restoreProperties = ConvertTo-Json @{
     "backupId" = "$($backupID)"
 }
 
-# Set the URI for the restore API endpoint using the subscription ID, resource group, and destination server details
+# Set the URI for the restore API endpoint by using the subscription ID, resource group, and destination server details
 $restoreUri = "/subscriptions/$($identity.SubscriptionID)/resourceGroups/$($destinationCloudHSM.ResourceGroupName)/providers/Microsoft.HardwareSecurityModules/cloudHsmClusters/$($destinationCloudHSM.ResourceName)/restore?api-version=2024-06-30-preview"
 
 # Initiate the restore operation by sending a POST request to the restore API endpoint with the defined properties
@@ -251,56 +284,64 @@ $jobStatus = Invoke-AzRestMethod -Method 'GET' -Uri $response.Headers.Location
 (ConvertFrom-Json $jobStatus.Content).properties.status
 ```
 
-**Expected Output**: $jobStatus should return "Succeeded".
+**Expected output**: `$jobStatus` should return `Succeeded`.
 
-### Validate restore to destination Cloud HSM
+### Validate the restore to the destination Cloud HSM resource
 
-After some processing time, the restore operation should indicate "Succeeded," and the Destination Cloud HSM should display an Activation Status of "Active." When you connect to the Destination Cloud HSM where you performed the restore operation, running `azcloudhsm_mgmt_util` and executing `getClusterInfo` should show all three nodes as active and available.
+After some processing time, the restore operation should indicate `Succeeded`, and the destination Cloud HSM resource should display an activation status of `Active`. When you connect to the destination Cloud HSM resource where you performed the restore operation, running `azcloudhsm_mgmt_util` and `getClusterInfo` should show all three nodes as active and available.
 
 > [!IMPORTANT]
-> When connecting to Azure Cloud HSM from the Admin VM, update both the Client and Management configuration files (`azcloudhsm_resource.cfg`) to point to the correct destination Cloud HSM where the restore was performed.
+> When you're connecting to Azure Cloud HSM from the administrative virtual machine, update both the client and management configuration files (`azcloudhsm_resource.cfg`) to point to the correct destination Cloud HSM resource where you performed the restore.
 
-1. Start the `azcloudhsm_mgmt_util` by executing:  
+1. Start `azcloudhsm_mgmt_util` by running one of the following commands.  
 
-    **Linux**
+    Linux:
+
     ```bash
     cd /usr/local/bin/AzureCloudHSM-ClientSDK-* 
     sudo ./azcloudhsm_mgmt_util ./azcloudhsm_resource.cfg
-    ```  
-    **Windows**
+    ```
+
+    Windows:
+
     ```powershell
     cd azcloudhsm_mgmt_util 
     .\azcloudhsm_mgmt_util.exe .\azcloudhsm_resource.cfg
     ```
 
-2. Inside the management utility, the prompt becomes `cloudmgmt`. To list the cluster information, run: 
+2. Inside the management tool, the prompt becomes `cloudmgmt`. To list the cluster information, run:
+
     ```bash
     getClusterInfo  
     ```
-    **Expected Output:** `getClusterInfo` should confirm that all three nodes are now available for your Azure Cloud HSM cluster.
 
-3. Exit the Management Utility, then launch the Azure Cloud HSM Utility (`azcloudhsm_util`). Sign in as CU and run the `findKey` command.
+    **Expected output**: `getClusterInfo` should confirm that all three nodes are now available for your Azure Cloud HSM cluster.
+
+3. Close the management tool, and then open the Azure Cloud HSM tool (`azcloudhsm_util`). Sign in as `CU` and run the `findKey` command.
 
     > [!IMPORTANT]
-    > Key handles can change because they are dynamic; however, key IDs don't change.
+    > Key handles can change because they're dynamic. However, key IDs don't change.
 
-    **Linux**
+    Linux:
+
     ```bash
     ./azcloudhsm_util  
     loginHSM -u CU -s cu1 -p user1234
     findKey
     ```  
-    **Windows**
+
+    Windows:
+
     ```powershell
     azcloudhsm_util.exe
     loginHSM -u CU -s cu1 -p user1234  
     findKey
     ```
 
-## Next steps
+## Related content
 
-- [Secure your Azure Cloud HSM](secure-cloud-hsm.md)
-- [Network security](network-security.md)
-- [Key Management in Azure Cloud HSM](key-management.md)
-- [User Management in Azure Cloud HSM](user-management.md)
+- [Secure your Azure Cloud HSM deployment](secure-cloud-hsm.md)
+- [Network security for Azure Cloud HSM](network-security.md)
+- [Key management in Azure Cloud HSM](key-management.md)
+- [User management in Azure Cloud HSM](user-management.md)
 - [Authentication in Azure Cloud HSM](authentication.md)

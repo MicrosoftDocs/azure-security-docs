@@ -6,7 +6,8 @@ tags: azure-key-vault
 ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: conceptual
-ms.date: 09/21/2021
+ms.date: 04/14/2025
+
 ms.author: mbaldwin
 
 # Customer intent: As a developer interested in using Key Vault secrets, I want to implement best practices.

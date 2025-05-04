@@ -526,6 +526,11 @@
     "redirect_document_id": false
   },
   {
+    "source_path_from_root": "/articles/key-vault/managed-hsm/best-practices.md",
+    "redirect_url": "/azure/key-vault/managed-hsm/secure-managed-hsm",
+    "redirect_document_id": false
+  },
+  {
     "source_path_from_root": "/articles/key-vault/vs-secure-secret-appsettings.md",
     "redirect_url": "/previous-versions/azure/key-vault/vs-secure-secret-appsettings",
     "redirect_document_id": false

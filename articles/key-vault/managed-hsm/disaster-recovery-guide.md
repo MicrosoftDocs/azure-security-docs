@@ -8,7 +8,8 @@ ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 02/23/2024
+ms.date: 04/14/2025
+
 ms.author: mbaldwin
 ---
 
@@ -27,12 +28,12 @@ You can re-create the HSM instance in the same or a different region if you have
 Here are the steps of the disaster recovery procedure:
 
 1. Create a new HSM Instance.
-2. Activate "Security Domain recovery". A new RSA key pair (Security Domain Exchange Key) will be generated for Security Domain transfer and sent in response, which will be downloaded as a SecurityDomainExchangeKey (public key).
-3. Create and then upload the "Security Domain Transfer File". You'll need the private keys that encrypt the security domain. The private keys are used locally, and never transferred anywhere in this process.
+2. Activate "Security Domain recovery". A new RSA key pair (Security Domain Exchange Key) is generated for Security Domain transfer and sent in response, which is downloaded as a SecurityDomainExchangeKey (public key).
+3. Create and then upload the "Security Domain Transfer File". You need the private keys that encrypt the security domain. The private keys are used locally, and never transferred anywhere in this process.
 4. Take a backup of the new HSM. A backup is required before any restore, even when the HSM is empty. Backups allow for easy roll-back.
 5. Restore the recent HSM backup from the source HSM.
 
-These steps will enable you to manually replicate contents of the HSM to another region. The HSM name (and the service endpoint URI) will be different, so you will have to change your application configuration to make use of these keys from a different location.
+These steps enable you to manually replicate contents of the HSM to another region. The HSM name (and the service endpoint URI) is different, so you have to change your application configuration to make use of these keys from a different location.
 
 ## Create a new Managed HSM
 
@@ -41,7 +42,7 @@ Use the `az keyvault create` command to create a Managed HSM. This script has th
 You must provide the following inputs to create a Managed HSM resource:
 
 - The name for the HSM.
-- The resource group where it will be placed in your subscription.
+- The resource group where it is placed in your subscription.
 - The Azure location.
 - A list of initial administrators.
 
@@ -57,7 +58,7 @@ az keyvault create --hsm-name "ContosoMHSM2" --resource-group "ContosoResourceGr
 
 
 > [!WARNING]
-> Managed HSM instances are considered always-in-use. If you choose to enable purge protection using the `--enable-purge-protection` flag, you will be billed for the entirety of the retention period.
+> Managed HSM instances are considered always-in-use. If you choose to enable purge protection using the `--enable-purge-protection` flag, you are billed for the entirety of the retention period.
 
 The output of this command shows properties of the Managed HSM that you've created. The two most important properties are:
 

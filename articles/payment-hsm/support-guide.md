@@ -6,7 +6,7 @@ author: msmbaldwin
 
 ms.service: azure-payment-hsm
 ms.topic: article
-ms.date: 09/09/2024
+ms.date: 04/10/2025
 ms.author: mbaldwin
 ms.custom: references_regions metadata
 ---
@@ -109,16 +109,16 @@ Thales support can be contacted through the [Thales CPL Customer Support Portal]
 
 ## Support contacts
 
-Depending on the nature of your issue or query, you may need to contact Microsoft and/or Thales support. The table below provides high level guidance. When you do not know where to get support, contact Microsoft support first.
+Depending on the nature of your issue or query, you may need to contact Microsoft and/or Thales support. This table provides high level guidance. When you do not know where to get support, contact Microsoft support first.
 
 | Issues | Microsoft Support | Thales Support | Additional Information |
 |--|--|--|--|
-| HSM provisioning, HSM networking, HSM hardware, management and host port connection | X | | |
+| HSM provisioning, HSM networking, HSM hardware, management, and host port connection | X | | |
 | HSM reset, HSM delete | X | | |
 | HSM Tamper event | X | | Microsoft can recover logs from medium Tamper based on customer's request. It is highly recommended that you implement real time log replication and backup. |
 | payShield manager operation, key management | | X | |
 | payShield applications, host commands | | X | |
-| payShield firmware upgrade, security patch | | X | Customers are responsible for upgrading their allocated HSM's firmware and applying security patches. Firmware versions below 1.4a 1.8.3. are not supported.<br><br>Microsoft is responsible for applying payShield security patches to unallocated HSMs. |
+| payShield firmware upgrade, security patch | | X | Customers are responsible for upgrading their allocated HSM's firmware and applying security patches. Firmware versions before 1.4a 1.8.3. are not supported.<br><br>Microsoft is responsible for applying payShield security patches to unallocated HSMs. |
 | Smart card, Card Readers | | X | Customers can purchase smart cards and readers through their Thales representatives. |
 | TMD | | X | The customer can purchase TMD through their Thales representatives. |
 | Hosted HSM End User Guide | | X | Customers must download "Hosted HSM End User Guide" from Thales support portal for more details on the changes to payShield to this service. |

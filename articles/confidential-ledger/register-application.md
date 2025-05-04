@@ -5,7 +5,7 @@ services: confidential-ledger
 author: msmbaldwin
 ms.service: azure-confidential-ledger
 ms.topic: how-to
-ms.date: 01/30/2024
+ms.date: 04/14/2025
 ms.author: mbaldwin
 #Customer intent: As developer, I want to know how to register my Azure confidential ledger application with the Microsoft identity platform so that the security token service can issue ID and/or access tokens to client applications that request them.
 ---
@@ -133,3 +133,6 @@ For application security recommendations, see [Microsoft identity platform best 
 - [Use portal to create a Microsoft Entra application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal)
 - [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 - [Authenticating Azure confidential ledger nodes](authenticate-ledger-nodes.md)
+- [User defined functions in Azure confidential ledger](server-side-programming.md)
+- [Simple user defined functions in Azure confidential ledger](user-defined-functions.md)
+- [Advanced user defined functions in Azure confidential ledger](user-defined-endpoints.md)

@@ -61,7 +61,6 @@ The `disableUserAccess` command achieves this by revoking CO's access to the spe
 
 - [Secure your Azure Cloud HSM](secure-cloud-hsm.md)
 - [Network security](network-security.md)
-- [Key Management in Azure Cloud HSM](key-management.md)
-- [User Management in Azure Cloud HSM](user-management.md)
+- [Key management in Azure Cloud HSM](key-management.md)
 - [Authentication in Azure Cloud HSM](authentication.md)
 - [Overview of Azure Cloud HSM](overview.md)

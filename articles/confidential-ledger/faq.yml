@@ -77,4 +77,9 @@ additionalContent: |
   ## Next steps
   
   - [Azure confidential ledger](./overview.md)
+  
+  - [User defined functions in Azure confidential ledger](server-side-programming.md)
 
+  - [Simple user defined functions in Azure confidential ledger](user-defined-functions.md)
+
+  - [Advanced user defined functions in Azure confidential ledger](user-defined-endpoints.md)

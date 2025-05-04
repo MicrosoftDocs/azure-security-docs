@@ -3,7 +3,7 @@ title: Quickstart - Azure confidential ledger client library for .NET
 description: Learn how to use Azure Confidential Ledger using the client library for .NET
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 01/30/2024
+ms.date: 04/14/2025
 ms.service: azure-confidential-ledger
 ms.topic: quickstart
 ms.devlang: csharp
