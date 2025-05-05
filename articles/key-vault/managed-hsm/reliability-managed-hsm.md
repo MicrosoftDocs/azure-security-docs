@@ -166,7 +166,7 @@ Managed HSM supports full backups and selective key restores. Backups are encryp
 
 ## Related content
 
-- [Reliability in Azure](https://learn.microsoft.com/azure/availability-zones/overview)
+- [Reliability in Azure](/azure/availability-zones/overview)
 - [Azure Managed HSM backup and restore](backup-restore.md)
 - [Azure Managed HSM multi-region replication](multi-region-replication.md)
 - [Azure Managed HSM disaster recovery guide](disaster-recovery-guide.md)
