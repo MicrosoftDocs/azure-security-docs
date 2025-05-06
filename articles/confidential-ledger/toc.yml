@@ -36,12 +36,14 @@ items:
       href: authenticate-ledger-nodes.md
     - name: Write transaction receipts
       href: write-transaction-receipts.md
-  - name: User Defined Functions (UDFs)
+  - name: User defined functions (UDFs)
     items:
+    - name: UDF overview
+      href: server-side-programming.md
     - name: Simple UDFs
-      href: simple-user-defined-function.md
+      href: user-defined-functions.md
     - name: Advanced UDFs
-      href: advanced-user-defined-function.md
+      href: user-defined-endpoints.md
 - name: How To Guides
   items:
   - name: Manage your Ledger
