@@ -73,11 +73,11 @@ Azure Key Vault has updated its HSM platform to provide improved security with F
 
 To transition your workloads to keys protected by hsmPlatform 2:
 
-1. **Create New Keys on hsmPlatform 2**
+1. **Create new keys on hsmPlatform 2**
    - If you have a [key rotation policy](../keys/about-keys-details.md#key-rotation-policy-operations) configured, a new key version is automatically created at the next scheduled rotation.
    - If no rotation policy is configured, manually create a new key version which will automatically use hsmPlatform 2.
 
-2. **Rolling Keys for Different Services**
+2. **Rolling kys for different services**
    - **Customer Managed Keys (CMK)**:
      - If autorotate is enabled for your service, the new key is automatically applied when created.
      - If autorotate is not configured, update your service to use the new key manually using the service's key configuration settings.
