@@ -22,7 +22,7 @@ If you want a key to be highly portable, it is best to create it in a supported 
 There are several scenarios that require the migration of key workloads:
 - Switching security boundaries, such as when switching between subscriptions, resource groups, or owners.
 - Moving regions due to compliance boundaries or risks in a given region.
-- Changing to a new offering, such as from Azure Key Vault to [Azure Managed HSM](../managed-hsm/overview.md), which offers greater security, isolation, and compliance than Key Vault Premium.
+- You are changing to a new offering, such as from Azure Key Vault to [Azure Managed HSM](../managed-hsm/overview.md), which offers greater security, isolation, and compliance than Key Vault Premium.
 
 Below we discuss several methods for migrating workloads to use a new key, either into a new vault or into a new managed HSM.
 
@@ -40,7 +40,7 @@ If you're using customer-managed keys with Azure Storage, you can migrate to a n
 
 1. Create the new key in your destination key vault or managed HSM.
 2. Follow the instructions in [Configure customer-managed keys for an existing storage account](/azure/storage/common/customer-managed-keys-configure-existing-account) to update your storage account to use the new key.
-3. Keep your previous customer-managed key available until the storage service has fully transitioned to the new key.
+3. Keep your previous customer-managed key available until the storage service is fully transitioned to the new key.
 4. After confirming that all operations are working correctly with the new key, you can safely retire the previous key (but do not delete it if you need to access older backups).
 
 This pattern applies to many Azure services that support customer-managed keys.
@@ -50,7 +50,7 @@ This pattern applies to many Azure services that support customer-managed keys.
 For client-side encryption or custom applications that directly encrypt data using the keys in Key Vault, the process is different:
 
 1. Create the new key vault or managed HSM, and create a new key encryption key (KEK).
-2. Re-encrypt any keys or data that encrypted by the old key using the new key. (If data was directly encrypted by the key in key vault, this may take some time, as all data must be read, decrypted, and encrypted with the new key. Use [envelope encryption](/azure/security/fundamentals/encryption-atrest#envelope-encryption-with-a-key-hierarchy) where possible to make such key rotations faster).
+2. Re-encrypt any keys or data that encrypted by the old key using the new key. (If data is directly encrypted by the key in key vault, this may take some time, as all data must be read, decrypted, and encrypted with the new key. Use [envelope encryption](/azure/security/fundamentals/encryption-atrest#envelope-encryption-with-a-key-hierarchy) where possible to make such key rotations faster).
 
   When re-encrypting the data, we recommend a three-level key hierarchy, which will make KEK rotation easier in the future:
     1. The Key Encryption Key in Azure Key Vault or Managed HSM
@@ -74,13 +74,13 @@ Azure Key Vault has updated its HSM platform to provide improved security with F
 To transition your workloads to keys protected by hsmPlatform 2:
 
 1. **Create New Keys on hsmPlatform 2**
-   - If you have a [key rotation policy](../keys/about-keys-details.md#key-rotation-policy-operations) configured, a new key version will be automatically created at the next scheduled rotation.
+   - If you have a [key rotation policy](../keys/about-keys-details.md#key-rotation-policy-operations) configured, a new key version is automatically created at the next scheduled rotation.
    - If no rotation policy is configured, manually create a new key version which will automatically use hsmPlatform 2.
 
 2. **Rolling Keys for Different Services**
    - **Customer Managed Keys (CMK)**:
-     - If auto-rotate is enabled for your service, the new key will be automatically applied when created.
-     - If auto-rotate is not configured, update your service to use the new key manually using the service's key configuration settings.
+     - If autorotate is enabled for your service, the new key is automatically applied when created.
+     - If autorotate is not configured, update your service to use the new key manually using the service's key configuration settings.
    - **Azure Information Protection (AIP)**:
      - Refer to the [AIP tenant key migration section](#migrating-tenant-keys-in-azure-information-protection) for detailed migration steps.
    - **Custom Applications**:
