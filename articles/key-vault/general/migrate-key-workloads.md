@@ -67,6 +67,27 @@ It is not safe to delete the old tenant key until you no longer need the content
 1. Remove protection from the document protected with the old tenant key.
 1. Apply protection again, which will use the new tenant key.
 
+## Transitioning to hsmPlatform 2
+
+Azure Key Vault has updated its HSM platform to provide improved security with FIPS 140-2 Level 3 validation. All new keys and key versions are now created using hsmPlatform 2 (except UK geo). You can check which HSM platform is protecting your key by looking at its [hsmPlatform](../keys/about-keys-details.md#key-attributes) attribute.
+
+To transition your workloads to keys protected by hsmPlatform 2:
+
+1. **Create New Keys on hsmPlatform 2**
+   - If you have a [key rotation policy](../keys/about-keys-details.md#key-rotation-policy-operations) configured, a new key version will be automatically created at the next scheduled rotation.
+   - If no rotation policy is configured, manually create a new key version which will automatically use hsmPlatform 2.
+
+2. **Rolling Keys for Different Services**
+   - **Customer Managed Keys (CMK)**:
+     - If auto-rotate is enabled for your service, the new key will be automatically applied when created.
+     - If auto-rotate is not configured, update your service to use the new key manually using the service's key configuration settings.
+   - **Azure Information Protection (AIP)**:
+     - Refer to the [AIP tenant key migration section](#migrating-tenant-keys-in-azure-information-protection) for detailed migration steps.
+   - **Custom Applications**:
+     - Follow the [Custom applications guidance](#custom-applications-and-client-side-encryption) to ensure a smooth transition.
+
+The benefits of transitioning to hsmPlatform 2 include enhanced security compliance with FIPS 140-2 Level 3 validation. Since all new keys are automatically created on the latest platform, this transition mainly applies to updating existing workloads to use newer key versions.
+
 ## Next steps
 
 - [About Azure Key Vault](overview.md)
