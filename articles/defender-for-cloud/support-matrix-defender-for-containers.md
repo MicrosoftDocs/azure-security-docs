@@ -282,7 +282,7 @@ The following are the features provided by Defender for Containers, for the supp
 
 ## Supported host operating systems
 
-Defender for Containers relies on the Defender sensor for several features. The Defender sensor is supported only with Linux Kernel 5.4 and above, on the following host operating systems:
+Defender for Containers relies on the Defender sensor for several features.  Defender sensor for Defender for Containers supports for both AMD64 and Arm64 arch nodes (Linux only). The Defender sensor is supported only with Linux Kernel 5.4 and above, on the following host operating systems:
 
 - Amazon Linux 2
 - CentOS 8  (CentOS is End Of Service as of June 30, 2024. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).)
@@ -296,6 +296,7 @@ Defender for Containers relies on the Defender sensor for several features. The 
 - Ubuntu 18.04
 - Ubuntu 20.04
 - Ubuntu 22.04
+- support for both AMD64 and Arm64 arch nodes (Linux only)
 
 Ensure your Kubernetes node is running on one of these verified operating systems. Clusters with unsupported host operating systems don't get the benefits of features relying on Defender sensor.
 
