@@ -7,7 +7,7 @@ services: key-vault
 ms.subservice: general
 ms.topic: conceptual
 ms.service: azure-key-vault
-ms.date: 04/16/2025
+ms.date: 05/08/2025
 ---
 
 # How to migrate key workloads
@@ -34,6 +34,7 @@ For most workloads that use keys in Key Vault, the most effective way to migrate
 2. Grant your workload access to the new key by assigning the workload's managed identity to the appropriate RBAC role in [Azure Key Vault](rbac-guide.md) or [Azure Managed HSM](../managed-hsm/access-control.md).
 1. Update the workload to use the new key as the customer managed encryption key.
 1. Retain the old key until you no longer want the backups of the workload data that they key originally protected.
+
 ## Example: Migrating Azure Storage to a new customer-managed key
 
 If you're using customer-managed keys with Azure Storage, you can migrate to a new key by following these steps:
@@ -60,6 +61,7 @@ For client-side encryption or custom applications that directly encrypt data usi
 1. Do not delete old key/key vault until you no longer want the backups of data associated with it.
 
 ## Migrating tenant keys in Azure Information Protection
+
 Migrating tenant keys in Azure Information Protection is referred to as "rekeying" or "rolling your key". [Customer-managed - AIP tenant key life cycle operations](/azure/information-protection/operations-customer-managed-tenant-key#rekey-your-tenant-key) has detailed instructions on how to perform this operation.
 
 It is not safe to delete the old tenant key until you no longer need the content or documents protected with the old tenant key. If you want to migrate documents to be protected by the new key, you must:
@@ -69,7 +71,7 @@ It is not safe to delete the old tenant key until you no longer need the content
 
 ## Transitioning to hsmPlatform 2
 
-Azure Key Vault has updated its HSM platform to provide improved security with FIPS 140-2 Level 3 validation. All new keys and key versions are now created using hsmPlatform 2 (except UK geo). You can check which HSM platform is protecting your key by looking at its [hsmPlatform](../keys/about-keys-details.md#key-attributes) attribute.
+Azure Key Vault has updated its HSM platform to provide improved security with FIPS 140 Level 3 validation. All new keys and key versions are now created using hsmPlatform 2 (except UK geo). You can check which HSM platform is protecting your key by looking at its [hsmPlatform](../keys/about-keys-details.md#key-attributes) attribute.
 
 To transition your workloads to keys protected by hsmPlatform 2:
 
@@ -77,19 +79,20 @@ To transition your workloads to keys protected by hsmPlatform 2:
    - If you have a [key rotation policy](../keys/about-keys-details.md#key-rotation-policy-operations) configured, a new key version is automatically created at the next scheduled rotation.
    - If no rotation policy is configured, manually create a new key version which will automatically use hsmPlatform 2.
 
-2. **Rolling kys for different services**
+1. **Rolling keys for different services**
    - **Customer Managed Keys (CMK)**:
-     - If autorotate is enabled for your service, the new key is automatically applied when created.
+     - If [autorotation for your keys](autorotation.md#keys-auto-rotate) is enabled for your service, the new key is automatically applied when created. 
      - If autorotate is not configured, update your service to use the new key manually using the service's key configuration settings.
    - **Azure Information Protection (AIP)**:
      - Refer to the [AIP tenant key migration section](#migrating-tenant-keys-in-azure-information-protection) for detailed migration steps.
    - **Custom Applications**:
      - Follow the [Custom applications guidance](#custom-applications-and-client-side-encryption) to ensure a smooth transition.
 
-The benefits of transitioning to hsmPlatform 2 include enhanced security compliance with FIPS 140-2 Level 3 validation. Since all new keys are automatically created on the latest platform, this transition mainly applies to updating existing workloads to use newer key versions.
+The benefits of transitioning to hsmPlatform 2 include enhanced security compliance with FIPS 140 Level 3 validation. Since all new keys are automatically created on the latest platform, this transition mainly applies to updating existing workloads to use newer key versions.
 
 ## Next steps
 
 - [About Azure Key Vault](overview.md)
+- [Understanding auto-rotation in Azure Key Vault](autorotation.md)
 - [About Azure Key Vault Managed HSM?](../managed-hsm/overview.md)
 - [Key management is Azure](/azure/security/fundamentals/key-management)

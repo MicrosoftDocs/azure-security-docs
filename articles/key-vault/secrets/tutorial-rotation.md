@@ -8,7 +8,7 @@ tags: 'rotation'
 ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: tutorial
-ms.date: 04/14/2025
+ms.date: 05/08/2025
 
 ms.author: mbaldwin
 ms.devlang: csharp

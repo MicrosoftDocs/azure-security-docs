@@ -62,6 +62,8 @@
     href: basic-concepts.md
   - name: Best practices
     href: best-practices.md
+  - name: Understanding auto-rotation
+    href: autorotation.md
   - name: Azure Key Vault logging
     href: logging.md
   - name: Notifications

@@ -31,7 +31,7 @@ This article provides guidance on how to best secure your Azure Key Vault deploy
 
 - **Do not use Key Vault as a data storage to store customer configurations or service configurations**:  Services should use [Azure Storage with encryption at rest](/azure/storage/common/storage-service-encryption) or [Azure configuration manager](/mem/configmgr/core/understand/introduction). Storage is more performant for such scenarios.
 
-- **Do not store certificates (customer or service owned) as secrets**:  Service-owned certificates should be stored as Key Vault certificates and configured for autorotation. For more information, see [Azure key vault: Certificates](../certificates/about-certificates.md).
+- **Do not store certificates (customer or service owned) as secrets**:  Service-owned certificates should be stored as Key Vault certificates and configured for autorotation. For more information, see [Azure key vault: Certificates](../certificates/about-certificates.md) and [Understanding autorotation in Azure Key Vault](autorotation.md).
 
     - **Customer content (excluding secrets and certificates) should not be stored in Key Vault**: Key Vault is not a data store and not built to scale like a data store. Instead use a proper data store like [Cosmos DB](/azure/cosmos-db/introduction) or [Azure Storage](/azure/storage/common/storage-introduction). Customers have the option of BYOK (Bring Your Own Key) for encryption at rest. This key can be stored in Azure Key Vault to encrypt the data in Azure Storage.
 
@@ -77,6 +77,8 @@ These network security features are listed from most restricted to least restric
 - **Turn on soft delete**: Ensure that soft delete is enabled so that deleted Key Vault objects can be recovered within a 7 to 90-day retention period. See [Azure Key Vault soft-delete overview](soft-delete-overview.md).
 
 - **Turn on purge protection**: Enable purge protection to protect against accidental or malicious deletion of Key Vault objects even after soft delete is enabled. See [Azure Key Vault soft-delete overview: Purge Protection](soft-delete-overview.md#purge-protection)
+
+- **Implement autorotation for cryptographic assets**: Configure automatic rotation of keys, secrets, and certificates to minimize the risk of compromise and ensure compliance with security policies. Regular rotation of cryptographic materials is a critical security practice. See [Understanding autorotation in Azure Key Vault](autorotation.md), [Configure key autorotation](../keys/how-to-configure-key-rotation.md), [Configure certificate autorotation](../certificates/tutorial-rotate-certificates.md), and [Automate secret rotation](../secrets/tutorial-rotation.md).
 
 ## Logging and Threat Detection
 
