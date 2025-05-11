@@ -207,7 +207,7 @@ Use the [Update-AzKeyVault](/powershell/module/az.keyvault/update-azkeyvault) cm
 ```powershell
 # Switch the vault to RBAC permission model
 $vault = Get-AzKeyVault -VaultName "<vault-name>" -ResourceGroupName "<resource-group-name>"
-Update-AzKeyVault -VaultName $vault.VaultName -ResourceGroupName $vault.ResourceGroupName -EnableRbacAuthorization $true
+Update-AzKeyVault -VaultName $vault.VaultName -ResourceGroupName $vault.ResourceGroupName -DisableRbacAuthorization $false
 ```
 
 # [Azure portal](#tab/portal)
