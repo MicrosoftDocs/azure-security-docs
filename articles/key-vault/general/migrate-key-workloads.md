@@ -88,7 +88,7 @@ To transition your workloads to keys protected by HSM Platform 2:
    - **Custom Applications**:
      - Follow the [Custom applications guidance](#custom-applications-and-client-side-encryption) to ensure a smooth transition.
 
-The benefits of transitioning to hsmPlatform 2 include enhanced security compliance with FIPS 140 Level 3 validation. Since all new keys are automatically created on the latest platform, this transition mainly applies to updating existing workloads to use newer key versions.
+The benefits of transitioning to HSM Platform 2 include enhanced security compliance with FIPS 140 Level 3 validation. Since all new keys are automatically created on the latest platform, this transition mainly applies to updating existing workloads to use newer key versions.
 
 ## Next steps
 
