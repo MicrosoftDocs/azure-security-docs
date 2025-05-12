@@ -15,7 +15,11 @@ ms.author: mbaldwin
 ---
 # Tutorial: Configure certificate autorotation in Key Vault
 
-You can easily provision, manage, and deploy digital certificates by using Azure Key Vault. The certificates can be public and private Secure Sockets Layer (SSL)/Transport Layer Security (TLS) certificates signed by a certificate authority (CA), or a self-signed certificate. Key Vault can also request and renew certificates through partnerships with CAs, providing a robust solution for certificate lifecycle management. In this tutorial, you update a certificate's validity period, autorotation frequency, and CA attributes.
+You can easily provision, manage, and deploy digital certificates by using Azure Key Vault. The certificates can be public and private Secure Sockets Layer (SSL)/Transport Layer Security (TLS) certificates signed by a certificate authority (CA), or a self-signed certificate. Key Vault can also request and renew certificates through partnerships with CAs, providing a robust solution for certificate lifecycle management.
+
+For a comprehensive understanding of autorotation concepts and benefits across different asset types in Azure Key Vault, see [Understanding autorotation in Azure Key Vault](../general/autorotation.md).
+
+In this tutorial, you update a certificate's validity period, autorotation frequency, and CA attributes.
 
 The tutorial shows you how to:
 
@@ -152,5 +156,6 @@ To delete the resource group by using the portal:
 
 In this tutorial, you updated a certificate's lifecycle attributes. To learn more about Key Vault and how to integrate it with your applications, continue on to the following articles:
 
-- Read more about [Managing certificate creation in Azure Key Vault](./create-certificate-scenarios.md).
-- Review the [Key Vault Overview](../general/overview.md).
+- [Key Vault Overview](../general/overview.md).
+- [Managing certificate creation in Azure Key Vault](./create-certificate-scenarios.md).
+- [Understanding autorotation in Azure Key Vault](../general/autorotation.md)

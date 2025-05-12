@@ -16,12 +16,14 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 The best way to authenticate to Azure services is by using a [managed identity](../general/authentication.md), but there are some scenarios where that isn't an option. In those cases, access keys or passwords are used. You should rotate access keys and passwords frequently.
 
-This tutorial shows how to automate the periodic rotation of secrets for databases and services that use two sets of authentication credentials. Specifically, this tutorial shows how to rotate Azure Storage account keys stored in Azure Key Vault as secrets. You'll use a function triggered by Azure Event Grid notification. 
+This tutorial shows how to automate the periodic rotation of secrets for databases and services that use two sets of authentication credentials. For a comprehensive overview of autorotation concepts and benefits across different asset types, see [Understanding autorotation in Azure Key Vault](../general/autorotation.md).
+
+Specifically, this tutorial shows how to rotate Azure Storage account keys stored in Azure Key Vault as secrets. You'll use a function triggered by Azure Event Grid notification.
 
 > [!NOTE]
 > For Storage account services, using Microsoft Entra ID to authorize requests is recommended. For more information, see [Authorize access to blobs using Microsoft Entra ID](/azure/storage/blobs/authorize-access-azure-active-directory). There are services that require storage account connection strings with access keys. For that scenario, we recommend this solution.
 
-Here's the rotation solution described in this tutorial: 
+Here's the rotation solution described in this tutorial:
 
 ![Diagram that shows the rotation solution.](../media/secrets/rotation-dual/rotation-diagram.png)
 
@@ -331,8 +333,9 @@ Rotation functions template for two sets of credentials and several ready to use
 
 ## Next steps
 
-- Tutorial: [Secrets rotation for one set of credentials](./tutorial-rotation.md)
-- Overview: [Monitoring Key Vault with Azure Event Grid](../general/event-grid-overview.md)
-- How to: [Create your first function in the Azure portal](/azure/azure-functions/functions-get-started)
-- How to: [Receive email when a Key Vault secret changes](../general/event-grid-logicapps.md)
-- Reference: [Azure Event Grid event schema for Azure Key Vault](/azure/event-grid/event-schema-key-vault)
+- [Secrets rotation for one set of credentials](./tutorial-rotation.md)
+- [Understanding autorotation in Azure Key Vault](../general/autorotation.md)
+- [Monitoring Key Vault with Azure Event Grid](../general/event-grid-overview.md)
+- [Create your first function in the Azure portal](/azure/azure-functions/functions-get-started)
+- [Receive email when a Key Vault secret changes](../general/event-grid-logicapps.md)
+- [Azure Event Grid event schema for Azure Key Vault](/azure/event-grid/event-schema-key-vault)

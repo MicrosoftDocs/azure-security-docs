@@ -69,15 +69,15 @@ It is not safe to delete the old tenant key until you no longer need the content
 1. Remove protection from the document protected with the old tenant key.
 1. Apply protection again, which will use the new tenant key.
 
-## Transitioning to hsmPlatform 2
+## Transitioning to HSM Platform 2
 
-Azure Key Vault has updated its HSM platform to provide improved security with FIPS 140 Level 3 validation. All new keys and key versions are now created using hsmPlatform 2 (except UK geo). You can check which HSM platform is protecting your key by looking at its [hsmPlatform](../keys/about-keys-details.md#key-attributes) attribute.
+Azure Key Vault has updated its HSM platform to provide improved security with FIPS 140 Level 3 validation. All new keys and key versions are now created using HSM Platform 2 (except UK geo). You can check which HSM platform is protecting your key by looking at its [hsmPlatform](../keys/about-keys-details.md#key-attributes) attribute.
 
-To transition your workloads to keys protected by hsmPlatform 2:
+To transition your workloads to keys protected by HSM Platform 2:
 
-1. **Create new keys on hsmPlatform 2**
+1. **Create new keys on HSM Platform 2**
    - If you have a [key rotation policy](../keys/about-keys-details.md#key-rotation-policy-operations) configured, a new key version is automatically created at the next scheduled rotation.
-   - If no rotation policy is configured, manually create a new key version which will automatically use hsmPlatform 2.
+   - If no rotation policy is configured, manually create a new key version which will automatically use HSM Platform 2.
 
 1. **Rolling keys for different services**
    - **Customer Managed Keys (CMK)**:
