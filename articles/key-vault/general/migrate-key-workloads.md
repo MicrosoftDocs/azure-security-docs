@@ -81,7 +81,7 @@ To transition your workloads to keys protected by HSM Platform 2:
 
 1. **Rolling keys for different services**
    - **Customer Managed Keys (CMK)**:
-     - If [autorotation for your keys](autorotation.md#keys-auto-rotate) is enabled for your service, the new key is automatically applied when created. 
+     - If [autorotation for your keys](autorotation.md#key-autorotation) is enabled for your service, the new key is automatically applied when created.
      - If autorotate is not configured, update your service to use the new key manually using the service's key configuration settings.
    - **Azure Information Protection (AIP)**:
      - Refer to the [AIP tenant key migration section](#migrating-tenant-keys-in-azure-information-protection) for detailed migration steps.
