@@ -3,7 +3,6 @@ title: Tutorial - Updating certificate autorotation frequency in Key Vault | Mic
 description: Tutorial showing how to update a certificate's autorotation frequency in Azure Key Vault using the Azure portal
 services: key-vault
 author: msmbaldwin
-
 ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: tutorial
@@ -13,6 +12,7 @@ ms.date: 05/08/2025
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure.
 ---
+
 # Tutorial: Configure certificate autorotation in Key Vault
 
 You can easily provision, manage, and deploy digital certificates by using Azure Key Vault. The certificates can be public and private Secure Sockets Layer (SSL)/Transport Layer Security (TLS) certificates signed by a certificate authority (CA), or a self-signed certificate. Key Vault can also request and renew certificates through partnerships with CAs, providing a robust solution for certificate lifecycle management.
@@ -20,8 +20,6 @@ You can easily provision, manage, and deploy digital certificates by using Azure
 For a comprehensive understanding of autorotation concepts and benefits across different asset types in Azure Key Vault, see [Understanding autorotation in Azure Key Vault](../general/autorotation.md).
 
 In this tutorial, you update a certificate's validity period, autorotation frequency, and CA attributes.
-
-The tutorial shows you how to:
 
 > [!div class="checklist"]
 > * Manage a certificate by using the Azure portal.
@@ -137,7 +135,6 @@ Set-AzureKeyVaultCertificatePolicy -VaultName $vaultName
 > Set-AzureKeyVaultCertificatePolicy -VaultName $vaultName -Name $certificateName -RenewAtNumberOfDaysBeforeExpiry [276 or appropriate calculated value]
 > }
 >  ```
-> 
 To learn more about the parameters, see [az keyvault certificate](/cli/azure/keyvault/certificate#az-keyvault-certificate-set-attributes).
 
 ## Clean up resources

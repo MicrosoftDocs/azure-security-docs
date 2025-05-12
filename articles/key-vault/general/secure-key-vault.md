@@ -78,7 +78,7 @@ These network security features are listed from most restricted to least restric
 
 - **Turn on purge protection**: Enable purge protection to protect against accidental or malicious deletion of Key Vault objects even after soft delete is enabled. See [Azure Key Vault soft-delete overview: Purge Protection](soft-delete-overview.md#purge-protection)
 
-- **Implement autorotation for cryptographic assets**: Configure automatic rotation of keys, secrets, and certificates to minimize the risk of compromise and ensure compliance with security policies. Regular rotation of cryptographic materials is a critical security practice. See [Understanding autorotation in Azure Key Vault](autorotation.md), [Configure key autorotation](../keys/how-to-configure-key-rotation.md), [Configure certificate autorotation](../certificates/tutorial-rotate-certificates.md), and [Automate secret rotation](../secrets/tutorial-rotation.md).
+- **Implement autorotation for cryptographic assets**: Configure automatic rotation of keys, secrets, and certificates to minimize the risk of compromise and ensure compliance with security policies. Regular rotation of cryptographic materials is a critical security practice. See [Understanding autorotation in Azure Key Vault](autorotation.md), [Configure key autorotation](../keys/how-to-configure-key-rotation.md), [Configure certificate autorotation](../certificates/tutorial-rotate-certificates.md), [Automate secret rotation for resources with one set of authentication credentials](../secrets/tutorial-rotation.md), and [Automate secret rotation for resources with two sets of authentication credentials](../secrets/tutorial-rotation-dual.md).
 
 ## Logging and Threat Detection
 

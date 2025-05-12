@@ -56,7 +56,9 @@ Secret autorotation supports:
 - Near-expiry notifications for manual rotation reminders
 - Updating dependent services with new secret values
 
-[Learn how to implement secret autorotation in Azure Key Vault](../secrets/tutorial-rotation.md)
+Azure Key Vault supports two secret rotation scenarios:
+- [Learn how to implement secret autorotation for resources with one set of authentication credentials](../secrets/tutorial-rotation.md)
+- [Learn how to implement secret autorotation for resources with two sets of authentication credentials](../secrets/tutorial-rotation-dual.md)
 
 ### Certificate autorotation
 
