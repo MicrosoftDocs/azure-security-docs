@@ -3,23 +3,23 @@ title: Configure cryptographic key auto-rotation in Azure Key Vault
 description: Use this guide to learn how to configure automated the rotation of a key in Azure Key Vault
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: 'rotation'
 ms.custom: devx-track-arm-template
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: how-to
-ms.date: 03/31/2025
+ms.date: 05/08/2025
 ms.author: mbaldwin
 ---
+
 # Configure cryptographic key auto-rotation in Azure Key Vault
 
 ## Overview
 Automated cryptographic key rotation in [Key Vault](../general/overview.md) allows users to configure Key Vault to automatically generate a new key version at a specified frequency. To configure rotation you can use key rotation policy, which can be defined on each individual key. 
 
-Our recommendation is to rotate encryption keys at least every two years to meet cryptographic best practices. 
+Our recommendation is to rotate encryption keys at least every two years to meet cryptographic best practices.
 
-For more information about how objects in Key Vault are versioned, see [Key Vault objects, identifiers, and versioning](../general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning). 
+For more information about how objects in Key Vault are versioned, see [Key Vault objects, identifiers, and versioning](../general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning). For a comprehensive understanding of autorotation concepts across different asset types in Azure Key Vault, see [Understanding autorotation in Azure Key Vault](../general/autorotation.md).
 
 ## Integration with Azure services
 This feature enables end-to-end zero-touch rotation for encryption at rest for Azure services with customer-managed key (CMK) stored in Azure Key Vault. Please refer to specific Azure service documentation to see if the service covers end-to-end rotation. 
@@ -263,6 +263,7 @@ Once the built-in policy is assigned, it can take up to 24 hours to complete the
 ## Resources
 
 - [Monitoring Key Vault with Azure Event Grid](../general/event-grid-overview.md)
+- [Understanding autorotation in Azure Key Vault](../general/autorotation.md)
 - [Use an Azure RBAC to control access to keys, certificates and secrets](../general/rbac-guide.md)
 - [Azure Data Encryption At Rest](/azure/security/fundamentals/encryption-atrest)
 - [Azure Storage Encryption](/azure/storage/common/storage-service-encryption)
