@@ -8,7 +8,7 @@ tags: 'rotation'
 ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: tutorial
-ms.date: 04/14/2025
+ms.date: 05/08/2025
 
 ms.author: mbaldwin
 ms.devlang: csharp
@@ -19,14 +19,16 @@ ms.custom: devx-track-csharp
 
 The best way to authenticate to Azure services is by using a [managed identity](../general/authentication.md), but there are some scenarios where that isn't an option. In those cases, access keys or secrets are used. You should periodically rotate access keys or secrets.
 
-This tutorial shows how to automate the periodic rotation of secrets for databases and services that use one set of authentication credentials. Specifically, this tutorial rotates SQL Server passwords stored in Azure Key Vault by using a function triggered by Azure Event Grid notification:
+This tutorial shows how to automate the periodic rotation of secrets for databases and services that use one set of authentication credentials. For a comprehensive overview of autorotation concepts and benefits across different asset types, see [Understanding autorotation in Azure Key Vault](../general/autorotation.md).
+
+Specifically, this tutorial rotates SQL Server passwords stored in Azure Key Vault by using a function triggered by Azure Event Grid notification:
 
 :::image type="content" source="../media/rotate-1.png" alt-text="Diagram of rotation solution":::
 
 1. Thirty days before the expiration date of a secret, Key Vault publishes the "near expiry" event to Event Grid.
-1. Event Grid checks the event subscriptions and uses HTTP POST to call the function app endpoint subscribed to the event.
-1. The function app receives the secret information, generates a new random password, and creates a new version for the secret with the new password in Key Vault.
-1. The function app updates SQL Server with the new password.
+2. Event Grid checks the event subscriptions and uses HTTP POST to call the function app endpoint subscribed to the event.
+3. The function app receives the secret information, generates a new random password, and creates a new version for the secret with the new password in Key Vault.
+4. The function app updates SQL Server with the new password.
 
 > [!NOTE]
 > There could be a lag between steps 3 and 4. During that time, the secret in Key Vault won't be able to authenticate to SQL Server. 
@@ -249,8 +251,8 @@ When the application opens in the browser, you will see the **Generated Secret V
 
 ## Learn more
 
-- Tutorial: [Rotation for resources with two sets of credentials](tutorial-rotation-dual.md)
-- Overview: [Monitoring Key Vault with Azure Event Grid](../general/event-grid-overview.md)
-- How to: [Receive email when a key vault secret changes](../general/event-grid-logicapps.md)
+- [Rotation for resources with two sets of credentials](tutorial-rotation-dual.md)
+- [Understanding autorotation in Azure Key Vault](../general/autorotation.md)
+- [Monitoring Key Vault with Azure Event Grid](../general/event-grid-overview.md)
+- [Receive email when a key vault secret changes](../general/event-grid-logicapps.md)
 - [Azure Event Grid event schema for Azure Key Vault](/azure/event-grid/event-schema-key-vault)
-
