@@ -11,7 +11,7 @@ ms.author: mbaldwin
 ---
 # Azure Managed HSM service limits
 
-This article describes the service limits and quotas for Azure Key Vault Managed HSM. For information about general Azure Key Vault service limits, see [Azure Key Vault service limits](../../general/service-limits.md).
+This article describes the service limits and quotas for Azure Key Vault: Managed HSM. For information about general Azure Key Vault service limits, see [Azure Key Vault service limits](../general/service-limits.md).
 
 ## Managed HSM limits
 
