@@ -79,7 +79,7 @@ Synapse.SQLPool_GeoAnomaly)
 
 **[MITRE tactics](alerts-reference.md#mitre-attck-tactics)**: Exploitation
 
-**Severity**: Medium
+**Severity**: Informational
 
 ### **Login from a principal user not seen in 60 days**
 
@@ -93,7 +93,7 @@ Synapse.SQLPool_PrincipalAnomaly)
 
 **[MITRE tactics](alerts-reference.md#mitre-attck-tactics)**: Exploitation
 
-**Severity**: Medium
+**Severity**: Informational
 
 ### **Login from a domain not seen in 60 days**
 
