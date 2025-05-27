@@ -111,7 +111,7 @@ Network security perimeter supports two different access modes for associated re
 
 | **Mode** | **Description** |
 |----------------|--------|
-| **Transition mode**  | The default access mode. In *Transition* mode, network security perimeter logs all traffic to the search service that would have been denied if the perimeter was in enforced mode. This allows network administrators to understand the existing access patterns of the search service before implementing enforcement of access rules. |
+| **Transition mode** (formerly "Learning mode")  | The default access mode. In *Transition* mode, network security perimeter logs all traffic to the search service that would have been denied if the perimeter was in enforced mode. This allows network administrators to understand the existing access patterns of the search service before implementing enforcement of access rules. |
 | **Enforced mode**  | In *Enforced* mode, network security perimeter logs and denies all traffic that isn't explicitly allowed by access rules. |
 
 #### Network security perimeter and key vault networking settings
