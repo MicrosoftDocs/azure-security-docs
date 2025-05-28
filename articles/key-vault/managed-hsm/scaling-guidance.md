@@ -18,7 +18,7 @@ This document describes how to correctly plan capacity for Azure Managed HSM.
 
 ### Customer Managed Keys Encryption at Rest
 
-Most Azure services that support customer-managed keys do a combination of get keys, wrap, and unwrap calls, and then cache the results so there are only a couple of calls per hour. If using a Managed HSM for customer-managed keys encryption at rest, these guidelines will likely not get hit under any scenario and therefore will likely not apply.
+Azure services that use customer-managed keys perform a small number of get key, wrap, and unwrap operations, then cache the results while periodically checking access permissions. This means only a few calls are made per hour. Because of this behavior, it is very unlikely that you will reach the throughput limits described in this document when using Managed HSM for encryption at rest.
 
 ### Custom Applications
 
