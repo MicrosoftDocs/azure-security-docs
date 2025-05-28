@@ -15,7 +15,7 @@ This article describes the service limits and quotas for Azure Key Vault: Manage
 
 ## Managed HSM limits
 
-The following limits apply to Managed HSM instances including object counts and transaction throughput capacity.
+The following limits apply to Managed HSM instances including object counts.
 
 [!INCLUDE [key-vault-limits](~/reusable-content/ce-skilling/azure/includes/key-vault/managed-hsm-service-limits.md)]
 
