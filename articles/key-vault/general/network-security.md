@@ -111,14 +111,14 @@ Network security perimeter supports two different access modes for associated re
 
 | **Mode** | **Description** |
 |----------------|--------|
-| **Learning mode**  | The default access mode. In *learning* mode, network security perimeter logs all traffic to the search service that would have been denied if the perimeter was in enforced mode. This allows network administrators to understand the existing access patterns of the search service before implementing enforcement of access rules. |
+| **Transition mode** (formerly "Learning mode")  | The default access mode. In *Transition* mode, network security perimeter logs all traffic to the search service that would have been denied if the perimeter was in enforced mode. This allows network administrators to understand the existing access patterns of the search service before implementing enforcement of access rules. |
 | **Enforced mode**  | In *Enforced* mode, network security perimeter logs and denies all traffic that isn't explicitly allowed by access rules. |
 
 #### Network security perimeter and key vault networking settings
 
 The `publicNetworkAccess` setting determines the key vault's association with a network security perimeter.
 
-* In Learning mode, the `publicNetworkAccess` setting controls public access to the resource.
+* In Transition mode, the `publicNetworkAccess` setting controls public access to the resource.
 
 * In Enforced mode, the `publicNetworkAccess` setting is overridden by the network security perimeter rules. For example, if a search service with a `publicNetworkAccess` setting of `enabled` is associated with a network security perimeter in Enforced mode, access to the search service is still controlled by network security perimeter access rules.
 
