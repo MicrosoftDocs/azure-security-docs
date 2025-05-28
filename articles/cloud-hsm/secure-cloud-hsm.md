@@ -12,7 +12,7 @@ ms.author: mbaldwin
 #Customer intent: As a Cloud HSM administrator, I want to learn how to secure and optimize my Cloud HSM deployment.
 ---
 
-# Secure your Azure Cloud HSM
+# Secure your Azure Cloud HSM deployment
 
 Microsoft Azure Cloud HSM provides a high-assurance hardware security module (HSM) solution for protecting cryptographic keys and securing sensitive workloads in the cloud. Implementing security best practices is essential to prevent unauthorized access, maintain operational integrity, and optimize performance.
 

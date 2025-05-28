@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure Cloud HSM using the Azure portal
+title: Deploy Azure Cloud HSM by using the Azure portal
 description: Learn how to deploy and configure Azure Cloud HSM instances using the Azure portal, including managed identity setup and private endpoint configuration.
 author: msmbaldwin
 ms.service: azure-cloud-hsm
@@ -10,13 +10,12 @@ ms.author: mbaldwin
 # Customer intent: As a cloud administrator, I want to deploy Azure Cloud HSM instances securely through the Azure portal.
 ---
 
-# Deploy Azure Cloud HSM using the Azure portal
+# Quickstart: Deploy Azure Cloud HSM by using the Azure portal
 
-[Azure Cloud HSM](overview.md) is a highly available, FIPS 140-3 Level 3 validated single-tenant HSM service that enables you to deploy hardware security modules (HSMs) using various methods including Azure CLI, PowerShell, ARM templates, Terraform, or the Azure portal. This quickstart guides you through the deployment process using the Azure portal.
+[Azure Cloud HSM](overview.md) is a highly available, FIPS 140-3 Level 3 validated single-tenant service that enables you to deploy hardware security modules (HSMs) by using various methods. These methods include the Azure CLI, Azure PowerShell, Azure Resource Manager templates (ARM templates), Terraform, or the Azure portal. This quickstart guides you through the deployment process in the Azure portal.
 
 ## Prerequisites
 
-Before deploying Azure Cloud HSM:
 - An Azure account with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - Appropriate permissions to create resources in your subscription, including the ability to create HSM resources and managed identities.
 - For production environments, an existing virtual network (VNet) and subnet for configuring [private endpoints](/azure/private-link/private-endpoint-overview).
@@ -24,9 +23,9 @@ Before deploying Azure Cloud HSM:
 > [!NOTE]
 > If you don't have a VNet and subnet ready, you can still create the HSM first and add network connectivity later, but using private endpoints is strongly recommended for production environments, as described in [Network security](network-security.md).
 
-## Create an Azure Cloud HSM
+## Create an Azure Cloud HSM instance
 
-To create an Azure Cloud HSM via the Azure portal:
+To create an Azure Cloud HSM instance via the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for and select **Cloud HSM**.
@@ -46,7 +45,7 @@ To create an Azure Cloud HSM via the Azure portal:
 > [!IMPORTANT]
 > The HSM name must be unique. If you specify an HSM resource name that already exists in the chosen region, your deployment will fail.
 
-## Configure managed identity (optional)
+## Configure a managed identity (optional)
 
 By default, Azure Cloud HSM is set to "No Identity" since it primarily uses password-based authentication with user management handled directly on the HSM. However, for backup and restore operations, you'll need a Managed Service Identity (MSI).
 
@@ -81,7 +80,7 @@ Tags are name/value pairs that help organize and categorize resources for manage
 
 :::image type="content" source="./media/cloud-hsm-portal-6.png" lightbox="./media/cloud-hsm-portal-6.png" alt-text="A screenshot of the tags configuration interface for organizing Cloud HSM resources with name/value pairs.":::
 
-## Deploy your Cloud HSM
+## Deploy your Cloud HSM resource
 
 1. Review all HSM details, including managed identity and networking settings.
 2. Click **Create** to begin provisioning your Azure Cloud HSM resource.
@@ -113,19 +112,19 @@ If you created a resource group solely for this quickstart and don't need to kee
 2. Select **Delete resource group**.
 3. Enter the resource group name to confirm deletion and select **Delete**.
 
-## Troubleshooting common deployment issues
+## Troubleshoot common deployment problems
 
-If you encounter issues during deployment:
+If you encounter problems during deployment:
 
 - **Resource name conflicts**: Ensure your HSM name is unique in the region. If deployment fails with a naming conflict, try a different name.
 - **Network connectivity problems**: Ensure your VM has proper network access to the HSM. Review [Network security](network-security.md) for best practices.
 - **Authentication failures**: Verify you're using the correct credentials format as detailed in [Authentication in Azure Cloud HSM](authentication.md).
-- **Client connection errors**: Check if the Azure Cloud HSM client is running and properly configured. See [Troubleshoot Azure Cloud HSM](troubleshoot.md) for common client connection issues.
+- **Client connection errors**: Check if the Azure Cloud HSM client is running and properly configured. See [Troubleshoot Azure Cloud HSM](troubleshoot.md) for common client connection problems.
 
-## Next steps
+## Related content
 
-- [Azure Cloud HSM Onboarding Guide](onboarding-guide.md)
-- [Configure backup and restore for Cloud HSM](backup-restore.md) 
-- [Secure your Cloud HSM](secure-cloud-hsm.md)
-- [Network security for Cloud HSM](network-security.md)
-- [Deploy Azure Cloud HSM using Azure PowerShell](quickstart-powershell.md)
+- [Azure Cloud HSM onboarding guide](onboarding-guide.md)
+- [Back up and restore Azure Cloud HSM resources](backup-restore.md)
+- [Secure your Azure Cloud HSM deployment](secure-cloud-hsm.md)
+- [Network security for Azure Cloud HSM](network-security.md)
+- [Deploy Azure Cloud HSM by using Azure PowerShell](quickstart-powershell.md)

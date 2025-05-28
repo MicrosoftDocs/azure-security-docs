@@ -9,7 +9,7 @@ ms.author: mbaldwin
 # Customer intent: As a security administrator, I need to understand how to secure my network configuration for Azure Cloud HSM to prevent unauthorized access and enhance overall security.
 ---
 
-# Network security
+# Network security for Azure Cloud HSM
 
 Ensuring robust network security is crucial when using Azure Cloud HSM. This article provides guidance on securing your network configuration to prevent unauthorized access and enhance overall security.
 
