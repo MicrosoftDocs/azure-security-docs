@@ -137,10 +137,9 @@ The deployment is complete when you see a successful result from the job or when
 
 ## Initialize and configure your HSM
 
-> [!IMPORTANT]
-> You can't accomplish Azure Cloud HSM activation and configuration through Azure PowerShell directly. You need the Azure Cloud HSM SDK and client tools.
+You can't accomplish Azure Cloud HSM activation and configuration through Azure PowerShell directly. You need the Azure Cloud HSM SDK and client tools.
 
-After you deploy your Cloud HSM resource through Azure PowerShell, you need to follow these steps:
+After you deploy your Cloud HSM resource through Azure PowerShell, follow these steps:
 
 1. Download and install the Azure Cloud HSM SDK from [GitHub](https://github.com/microsoft/MicrosoftAzureCloudHSM/releases) on a VM that has network connectivity to your HSM.
 2. Initialize and configure your HSM by following the detailed steps in the [Azure Cloud HSM onboarding guide](onboarding-guide.md).
@@ -160,7 +159,7 @@ Remove-AzResourceGroup -Name $server.ResourceGroupName -Force
 If you encounter problems during deployment:
 
 - **Resource name conflicts**: Ensure that your HSM name is unique in the region. If deployment fails with a naming conflict, try a different name.
-- **Network connectivity**: If you're using private endpoints, verify that your VM has proper network access to the HSM. For best practices, see [Network security for Azure Cloud HSM](network-security.md).
+- **Network connectivity problems**: If you're using private endpoints, verify that your VM has proper network access to the HSM. For best practices, see [Network security for Azure Cloud HSM](network-security.md).
 - **Authentication failures**: When you're initializing the HSM, ensure that you use the correct format for credentials, as detailed in [Authentication in Azure Cloud HSM](authentication.md).
 - **Managed identity problems**: If backup operations fail, verify that the managed identity was properly assigned and has the necessary permissions.
 

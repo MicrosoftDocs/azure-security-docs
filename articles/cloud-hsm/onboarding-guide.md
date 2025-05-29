@@ -8,17 +8,18 @@ ms.topic: overview
 ms.date: 03/20/2025
 ms.author: keithp
 
-#CustomerIntent: Provide a detailed onboarding guide to help customers provision, configure, and use Azure Cloud HSM effectively.
+#Customer Intent: As an IT pro decision-maker, I want to provide a detailed onboarding guide to help customers provision, configure, and use Azure Cloud HSM effectively.
 ---
 
 # Azure Cloud HSM onboarding guide
 
-Microsoft Azure Cloud HSM provides dedicated, FIPS 140-2 Level 3 validated hardware security modules (HSMs) for customers requiring high levels of cryptographic key security. To help new users get started, Microsoft has published a comprehensive onboarding guide that outlines the steps necessary to provision, configure, and use Azure Cloud HSM effectively.
+Microsoft Azure Cloud HSM provides dedicated, FIPS 140-2 Level 3 validated hardware security modules (HSMs) for customers who require high levels of cryptographic key security. To help new users get started, Microsoft published a comprehensive onboarding guide that outlines the steps for provisioning, configuring, and using Azure Cloud HSM effectively.
 
-The onboarding guide is available as a PDF and includes detailed instructions, best practices, and prerequisites for a smooth setup process. You can access the full guide here: [Azure Cloud HSM Onboarding Guide (PDF)](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/OnboardingGuides/Azure%20Cloud%20HSM%20Onboarding.pdf).
+The onboarding guide is available as a PDF. It includes detailed instructions, best practices, and prerequisites for a smooth setup process. You can access the full guide here: [Azure Cloud HSM onboarding guide (PDF)](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/OnboardingGuides/Azure%20Cloud%20HSM%20Onboarding.pdf).
 
-## Next Steps
+## Related content
+
 - [Azure Cloud HSM overview](overview.md)
-- [Deploy Azure Cloud HSM using the Azure portal](quickstart-portal.md)
-- [Deploy Azure Cloud HSM using Azure PowerShell](quickstart-powershell.md)
+- [Deploy Azure Cloud HSM by using the Azure portal](quickstart-portal.md)
+- [Deploy Azure Cloud HSM by using Azure PowerShell](quickstart-powershell.md)
 - [Azure Cloud HSM integration guides](integration-guides.md)
