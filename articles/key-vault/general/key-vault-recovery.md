@@ -25,7 +25,7 @@ Azure Key Vault provides multiple options to ensure the availability and recover
 - **Soft delete and purge protection** (covered in this article): Prevents accidental or malicious deletion of your vault or vault objects
 - **Manual backup and restore**: For individual secrets, keys, and certificates - see [Azure Key Vault backup](backup.md)
 
-This article focuses on soft delete and purge protection features that help protect against accidental or malicious deletion.
+This article focuses on soft delete and purge protection features that help protect against accidental or malicious deletion. For a comprehensive overview of these features in relation to overall reliability, see [Recovery features in reliability planning](/azure/reliability/reliability-key-vault#recovery-features).
 
 ## Prerequisites
 
@@ -54,6 +54,8 @@ It is important to note that **key vault names are globally unique**, so you are
 
 > [!NOTE]
 > Purge Protection is designed so that no administrator role or permission can override, disable, or circumvent purge protection. **When purge protection is enabled, it cannot be disabled or overridden by anyone including Microsoft.** This means you must recover a deleted key vault or wait for the retention period to elapse before reusing the key vault name.
+
+These features are strongly recommended for production environments and are part of the [recommended production deployment practices](/azure/reliability/reliability-key-vault#production-deployment-recommendations) for Azure Key Vault.
 
 For more information about soft-delete, see [Azure Key Vault soft-delete overview](soft-delete-overview.md)
 
@@ -402,3 +404,4 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 - [How to enable Key Vault logging](howto-logging.md)
 - [Azure Key Vault security features](security-features.md)
 - [Azure Key Vault developer's guide](developers-guide.md)
+- [Reliability in Azure Key Vault](/azure/reliability/reliability-key-vault)
