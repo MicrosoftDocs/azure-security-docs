@@ -32,6 +32,8 @@ The benchmark numbers were calculated from internal performance testing one key 
 
 These numbers assume that one single key is being used to achieve maximum throughput. For example, if a single RSA-2048 key is used, the maximum throughput is 900 sign operations. If you use 900 different keys with one transaction per second each, they will not be able to achieve the same throughput.
 
+These numbers will be updated after Managed HSM firmware updates, based on our internal performance testing.
+
 > [!NOTE]
 > For accuracy, we recommend testing your application workloads to validate performance numbers and determine scaling needs.
 
