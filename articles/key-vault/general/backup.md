@@ -17,11 +17,25 @@ This document shows you how to back up secrets, keys, and certificates stored in
 
 ## Overview
 
+Azure Key Vault provides multiple options for ensuring the availability and recoverability of your vault data:
+
+- **Automatic redundancy and failover**: Key Vault automatically replicates data across regions and handles failover during outages - see [Azure Key Vault availability and redundancy](disaster-recovery-guidance.md)
+- **Soft delete and purge protection**: Prevents accidental or malicious deletion of your vault or vault objects - see [Azure Key Vault recovery management with soft delete and purge protection](key-vault-recovery.md)
+- **Manual backup and restore** (covered in this article): For individual secrets, keys, and certificates
+
+This article focuses on manual backup and restore operations for individual objects within Key Vault.
+
+## When to use backups
+
 Azure Key Vault automatically provides features to help you maintain availability and prevent data loss. Back up secrets only if you have a critical business justification. Backing up secrets in your key vault may introduce operational challenges such as maintaining multiple sets of logs, permissions, and backups when secrets expire or rotate.
 
-Key Vault maintains availability in disaster scenarios and will automatically fail over requests to a paired region without any intervention from a user. For more information, see [Azure Key Vault availability and redundancy](./disaster-recovery-guidance.md).
+Consider using backups in these scenarios:
+- You need to move objects between key vaults or Azure regions
+- You want an offline copy of your secrets for regulatory or compliance reasons
+- You're using a region that doesn't support automatic cross-region replication (Brazil South, Brazil Southeast, or West US 3)
+- You need protection against accidental deletion of specific objects
 
-If you want protection against accidental or malicious deletion of your secrets, configure soft-delete and purge protection features on your key vault. For more information, see [Azure Key Vault soft-delete overview](./soft-delete-overview.md).
+For most scenarios, Key Vault's built-in redundancy and soft delete features provide sufficient protection without requiring manual backups. For more information, see [Azure Key Vault availability and redundancy](disaster-recovery-guidance.md) and [Backup considerations in reliability planning](/azure/reliability/reliability-key-vault#backups).
 
 ## Limitations
 
@@ -145,6 +159,8 @@ Restore-AzKeyVaultSecret -VaultName '{Key Vault Name}' -InputFile '{File Path}'
 
 ## Next steps
 
-
+- [Azure Key Vault availability and redundancy](disaster-recovery-guidance.md)
+- [Azure Key Vault recovery management with soft delete and purge protection](key-vault-recovery.md)
 - [Move an Azure key vault across regions](move-region.md)
 - [Enable Key Vault logging](howto-logging.md) for Key Vault
+- [Reliability in Azure Key Vault](/azure/reliability/reliability-key-vault)
