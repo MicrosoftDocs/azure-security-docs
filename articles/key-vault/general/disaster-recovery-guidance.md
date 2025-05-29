@@ -27,15 +27,13 @@ Azure Key Vault provides several options to ensure the availability and recovera
 - **Soft delete and purge protection**: Prevents accidental or malicious deletion of your vault or vault objects - see [Azure Key Vault recovery management with soft delete and purge protection](key-vault-recovery.md)
 - **Manual backup and restore**: For individual secrets, keys, and certificates - see [Azure Key Vault backup](backup.md)
 
-Choose the appropriate recovery strategy based on your specific requirements and disaster recovery scenarios. For a comprehensive overview of Azure Key Vault reliability features, see [Reliability in Azure Key Vault](/azure/reliability/reliability-key-vault).
+Choose the appropriate recovery strategy based on your specific requirements and disaster recovery scenarios.
 
 ## Data replication
 
 The way that Key Vault replicates your data depends on the specific region that your vault is in.
 
 For most Azure regions that are paired with another region, the contents of your key vault are replicated both within the region and to the paired region. The paired region is usually at least 150 miles away, but within the same geography. This approach ensures high durability of your keys and secrets. For more information about Azure region pairs, see [Azure paired regions](/azure/reliability/cross-region-replication-azure). Two exceptions are the Brazil South region, which is paired to a region in another geography, and the West US 3 region. When you create key vaults in Brazil South or West US 3, they aren't replicated across regions.
-
-For more details on how Key Vault handles multi-region replication and failover, see [Multi-region support in Azure Key Vault](/azure/reliability/reliability-key-vault#multi-region-support).
 
 [!INCLUDE [Key Vault in non-paired regions guidance](~/reusable-content/ce-skilling/azure/includes/key-vault/key-vault-non-paired-regions.md)]
 
@@ -93,5 +91,3 @@ After a failover is failed back, all request types (including read *and* write r
 - [Azure Key Vault recovery management with soft delete and purge protection](key-vault-recovery.md)
 - [Azure Storage redundancy](../managed-hsm/disaster-recovery-guide.md)
 - [Azure paired regions](/azure/reliability/cross-region-replication-azure)
-- [Reliability in Azure Key Vault](/azure/reliability/reliability-key-vault)
-

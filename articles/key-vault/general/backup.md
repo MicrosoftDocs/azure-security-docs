@@ -35,7 +35,7 @@ Consider using backups in these scenarios:
 - You're using a region that doesn't support automatic cross-region replication (Brazil South, Brazil Southeast, or West US 3)
 - You need protection against accidental deletion of specific objects
 
-For most scenarios, Key Vault's built-in redundancy and soft delete features provide sufficient protection without requiring manual backups. For more information, see [Azure Key Vault availability and redundancy](disaster-recovery-guidance.md) and [Backup considerations in reliability planning](/azure/reliability/reliability-key-vault#backups).
+For most scenarios, Key Vault's built-in redundancy and soft delete features provide sufficient protection without requiring manual backups. For more information, see [Azure Key Vault availability and redundancy](disaster-recovery-guidance.md).
 
 ## Limitations
 
@@ -163,4 +163,3 @@ Restore-AzKeyVaultSecret -VaultName '{Key Vault Name}' -InputFile '{File Path}'
 - [Azure Key Vault recovery management with soft delete and purge protection](key-vault-recovery.md)
 - [Move an Azure key vault across regions](move-region.md)
 - [Enable Key Vault logging](howto-logging.md) for Key Vault
-- [Reliability in Azure Key Vault](/azure/reliability/reliability-key-vault)
