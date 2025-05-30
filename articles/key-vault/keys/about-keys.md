@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: overview
-ms.date: 02/27/2025
+ms.date: 05/30/2025
 ms.author: mbaldwin
 ---
 
@@ -70,8 +70,8 @@ Key Vault Premium and Standard support RSA and EC keys. Managed HSM supports RSA
 |---|---|
 |Software-protected (HSM Platform 0) keys in vaults | FIPS 140-2 Level 1 |
 |HSM Platform 1 protected keys in vaults (Premium SKU)| FIPS 140-2 Level 2 |
-|HSM Platform 2 protected keys in vaults (Premium SKU)| FIPS 140-2 Level 3 |
-|Keys in Managed HSM are always HSM protected | FIPS 140-2 Level 3 |
+|HSM Platform 2 protected keys in vaults (Premium SKU)| FIPS 140-3 Level 3 |
+|Keys in Managed HSM are always HSM protected | FIPS 140-3 Level 3 |
 |||
 
 ### Quantum-resistant, Quantum-safe, or Post-quantum Cryptography
