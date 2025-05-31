@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.date: 03/20/2025
 ms.author: keithp
 
-#Customer Intent: As an IT pro decision-maker, I'm looking for key storage capability within the Azure cloud platform that meets FIPS 140-3 Level 3 certification and that gives me exclusive access to a dedicated hardware security module.
+#customer intent: As an IT pro decision-maker, I'm looking for key storage capability within the Azure cloud platform that meets FIPS 140-3 Level 3 certification and that gives me exclusive access to a dedicated hardware security module.
 
 #Supported Use Cases: Azure Cloud HSM provides a secure and customer-owned HSM for storing cryptographic keys and performing cryptographic operations. It supports various applications, including PKCS#11, offload of SSL/TLS processing, CA private key protection, and transparent data encryption. It also supports document and code signing.
 

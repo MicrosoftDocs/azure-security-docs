@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.date: 05/15/2024
 ms.author: mbaldwin
 
-#Customer Intent: As a cloud administrator, I want to deploy Azure Cloud HSM instances securely through the Azure portal.
+#customer intent: As a cloud administrator, I want to deploy Azure Cloud HSM instances securely through the Azure portal.
 ---
 
 # Quickstart: Deploy Azure Cloud HSM by using the Azure portal

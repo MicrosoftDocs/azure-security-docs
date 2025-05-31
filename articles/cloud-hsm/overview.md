@@ -7,9 +7,9 @@ ms.topic: overview
 ms.date: 03/20/2025
 ms.author: keithp
 
-#Customer Intent: As an IT pro decision-maker, I'm looking for key storage capability within the Azure cloud platform that meets FIPS 140-3 Level 3 certification and that gives me exclusive access to a dedicated hardware security module.
+#customer intent: As an IT pro decision-maker, I'm looking for key storage capability within the Azure cloud platform that meets FIPS 140-3 Level 3 certification and that gives me exclusive access to a dedicated hardware security module.
 
-#Supported Use Cases: Azure Cloud HSM provides a secure and customer-owned HSM for storing cryptographic keys and performing cryptographic operations. It supports various applications, including PKCS#11, offload of SSL/TLS processing, CA private key protection, and transparent data encryption. It also supports document and code signing.
+#Supported Use Cases: Azure Cloud HSM provides a secure and customer-owned HSM for storing cryptographic keys and performing cryptographic operations. It supports various applications, including PKCS#11, offloading of SSL/TLS processing, CA private key protection, and transparent data encryption. It also supports document and code signing.
 
 #Not Supported Use Cases: Azure Cloud HSM is IaaS only. It doesn't integrate with other Azure services, doesn't have a REST API, and doesn't support encryption at rest.
 ---
@@ -18,7 +18,7 @@ ms.author: keithp
 
 Microsoft Azure Cloud HSM Preview is a highly available, FIPS 140-3 Level 3 validated single-tenant service that's compliant with industry standards. Azure Cloud HSM grants customers complete administrative authority over their hardware security module (HSM). It provides a secure and customer-owned HSM cluster for storing cryptographic keys and performing cryptographic operations.
 
-Azure Cloud HSM is a solution for customers who require FIPS 140-3 Level 3 validated HSMs. It supports various applications, including PKCS #11, offload of Secure Sockets Layer (SSL) or Transport Layer Security (TLS) processing, certificate authority (CA) private key protection, and transparent data encryption (TDE). It also supports document and code signing.
+Azure Cloud HSM is a solution for customers who require FIPS 140-3 Level 3 validated HSMs. It supports various applications, including PKCS#11, offloading of Secure Sockets Layer (SSL) or Transport Layer Security (TLS) processing, certificate authority (CA) private key protection, and transparent data encryption (TDE). It also supports document and code signing.
 
 > [!NOTE]
 > Azure Cloud HSM is available in preview in the East US, East US 2, West US, West US 2, West Europe, North Europe, and UK West regions. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -51,7 +51,7 @@ Many organizations have stringent industry regulations that dictate that cryptog
 
 Azure Cloud HSM supports:
 
-- PKCS #11, OpenSSL, Java Cryptography Architecture, Java Cryptography Extension, Cryptography API: Next Generation (CNG), and key storage provider (KSP).
+- PKCS#11, OpenSSL, Java Cryptography Architecture (JCA), Java Cryptography Extension (JCE), Cryptography API: Next Generation (CNG), and key storage provider (KSP).
 - Active Directory Certificate Services (AD CS).
 - SSL/TLS offloading (Apache or NGINX).
 - TDE (Microsoft SQL Server or Oracle).
@@ -69,8 +69,8 @@ Azure Cloud HSM is most suitable for the following types of scenarios:
 
 - Migrating applications from on-premises to Azure Virtual Machines
 - Migrating applications from Azure Dedicated HSM or AWS Cloud HSM
-- Supporting applications that require PKCS #11
-- Running shrink-wrapped software such as Apache or NGINX SSL offload, SQL Server or Oracle TDE, and AD CS in Azure Virtual Machines
+- Supporting applications that require PKCS#11
+- Running shrink-wrapped software such as Apache or NGINX SSL offloading, SQL Server or Oracle TDE, and AD CS in Azure Virtual Machines
 
 ### Not a fit
 

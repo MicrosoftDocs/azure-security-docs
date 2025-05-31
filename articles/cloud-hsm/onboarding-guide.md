@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 03/20/2025
 ms.author: keithp
 
-#Customer Intent: As an IT pro decision-maker, I want to provide a detailed onboarding guide to help customers provision, configure, and use Azure Cloud HSM effectively.
+#customer intent: As an IT pro decision-maker, I want to provide a detailed onboarding guide to help customers provision, configure, and use Azure Cloud HSM effectively.
 ---
 
 # Azure Cloud HSM onboarding guide
