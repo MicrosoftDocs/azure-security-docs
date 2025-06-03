@@ -373,7 +373,7 @@ To display detailed information about a CSR, use the following command. This inf
 openssl req -in filename.csr -text -noout
 ```
 
-To display detailed information about an RSA private key, use the following command. This information includes the key's modulus, public exponent, and other parameters.
+To display detailed information about a Rivest-Shamir-Adleman (RSA) private key, use the following command. This information includes the key's modulus, public exponent, and other parameters.
 
 ```bash
 openssl rsa -in filename.key -text -noout
