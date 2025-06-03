@@ -107,7 +107,7 @@ After you deploy your Cloud HSM resource, follow these steps:
 
 1. Download and install the Azure Cloud HSM SDK from [GitHub](https://github.com/microsoft/MicrosoftAzureCloudHSM/releases) on a VM that has network connectivity to your HSM.
 2. Initialize and configure your HSM by following the detailed steps in the [Azure Cloud HSM onboarding guide](onboarding-guide.md).
-3. Establish user management with appropriate cryptographic officers and users, as described in [User management in Azure Cloud HSM](user-management.md).
+3. Establish user management with appropriate cryptography officers and users, as described in [User management in Azure Cloud HSM](user-management.md).
 4. Implement proper key management practices to help ensure optimal security and performance, as outlined in [Key management in Azure Cloud HSM](key-management.md).
 
 ## Clean up resources

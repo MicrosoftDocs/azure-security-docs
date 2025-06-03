@@ -20,7 +20,7 @@ This article provides guidance on how to best secure your Cloud HSM deployment.
 
 ## Security and compliance  
 
-- **Protect root of trust**: We advise customers to limit access to the Partition Owner of the Application Partition (POTA) private key (also called *PO.key*). The Admin of the Application Partition (AOTA) and POTA private keys are equivalent to root access. They can reset passwords for cryptographic officer users in a partition (AOTA for partition 0, POTA for user partitions).
+- **Protect root of trust**: We advise customers to limit access to the Partition Owner of the Application Partition (POTA) private key (also called *PO.key*). The Admin of the Application Partition (AOTA) and POTA private keys are equivalent to root access. They can reset passwords for cryptography officer users in a partition (AOTA for partition 0, POTA for user partitions).
 
   PO.key is unnecessary for HSM access during runtime. It's required only for the initial signing of Purchase Order Accruals (POAC) and Controlling (CO) password resets. We recommend storing PO.key offline and performing the initial POAC signing on an offline machine, if possible.
 
@@ -43,11 +43,11 @@ Effective user management is crucial for maintaining the security and integrity 
 
 - **Implement secondary admins for lockout prevention**: Designate at least two administrators to prevent HSM lockout in case one password is lost.
 
-- **Establish multiple cryptographic users with restricted permissions**: Create multiple cryptographic users with distinct responsibilities to prevent any single user from having full control.
+- **Establish multiple cryptography users with restricted permissions**: Create multiple cryptography users with distinct responsibilities to prevent any single user from having full control.
 
-- **Limit the ability of cryptographic users to export keys**: Restrict cryptographic users from exporting key material by setting appropriate user attributes.
+- **Limit the ability of cryptography users to export keys**: Restrict cryptography users from exporting key material by setting appropriate user attributes.
 
-- **Limit CO control over cryptographic users**: Use the `disableUserAccess` command to prevent CO users from managing specific cryptographic users. However, this command can be bypassed with older backups.
+- **Limit CO control over cryptography users**: Use the `disableUserAccess` command to prevent CO users from managing specific cryptography users. However, this command can be bypassed with older backups.
 
 ## Key management  
 

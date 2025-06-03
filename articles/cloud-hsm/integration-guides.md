@@ -16,7 +16,15 @@ ms.author: keithp
 
 # Azure Cloud HSM integration guides
 
-Microsoft Azure Cloud HSM offers a suite of integration guides to help customers securely connect their applications and systems to Azure hardware security modules. These guides provide detailed, step-by-step instructions for integrating Azure Cloud HSM with widely used platforms and technologies. These platforms and technologies include Active Directory Certificate Services (AD CS), Java Cryptography Extension (JCE), OpenSSL, Oracle Transparent Data Encryption (TDE), PKCS#11, SQL Server Extensible Key Management (EKM), and offloading of Secure Sockets Layer (SSL) or Transport Layer Security (TLS) for web servers like Apache and NGINX.
+Microsoft Azure Cloud HSM offers a suite of integration guides to help customers securely connect their applications and systems to Azure hardware security modules. These guides provide detailed, step-by-step instructions for integrating Azure Cloud HSM with widely used platforms and technologies, including:
+
+- Active Directory Certificate Services (AD CS)
+- Java Cryptography Extension (JCE)
+- OpenSSL
+- Oracle Transparent Data Encryption (TDE)
+- PKCS#11
+- SQL Server Extensible Key Management (EKM)
+- Offloading of Secure Sockets Layer (SSL) or Transport Layer Security (TLS) for web servers like Apache and NGINX
 
 Each guide includes prerequisites, system requirements, configuration steps, and validation procedures tailored to a specific integration scenario. For example, the guide for SSL/TLS offloading details how to configure Apache and NGINX to use Azure Cloud HSM for cryptographic operations, to help ensure secure and efficient SSL/TLS handshakes.
 
