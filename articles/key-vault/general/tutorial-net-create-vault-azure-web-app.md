@@ -282,7 +282,9 @@ using Azure.Security.KeyVault.Secrets;
 using Azure.Core;
 ```
 
-Add the following lines before the `app.UseEndpoints` call (.NET 5.0 or earlier) or `app.MapGet` call (.NET 6.0), updating the URI to reflect the `vaultUri` of your key vault. This code uses  [DefaultAzureCredential()](/dotnet/api/azure.identity.defaultazurecredential) to authenticate to Key Vault, which uses a token from managed identity to authenticate. For more information about authenticating to Key Vault, see the [Developer's Guide](./developers-guide.md#authenticate-to-key-vault-in-code). The code also uses exponential backoff for retries in case Key Vault is being throttled. For more information about Key Vault transaction limits, see [Azure Key Vault throttling guidance](./overview-throttling.md).
+Add the following lines before the app.UseEndpoints call (.NET 5.0 or earlier) or `app.MapGet` call (.NET 6.0), updating the URI to reflect the `vaultUri` of your Key Vault. This code uses [DefaultAzureCredential()](/dotnet/api/azure.identity.defaultazurecredential) to authenticate to Azure Key Vault. By default, this credential attempts to use the system-assigned managed identity of the hosting environment. If a user-assigned managed identity is configured, it will be used instead. For more information about authenticating to Key Vault, see the [Developer's Guide](./developers-guide.md#authenticate-to-key-vault-in-code). The code also uses exponential backoff for retries in case Key Vault is being throttled. For more information about Key Vault transaction limits, see [Azure Key Vault throttling guidance](./overview-throttling.md).
+
+The code also implements exponential backoff for retries in case Key Vault is being throttled. For more information about Key Vault transaction limits, see ./overview-throttling.md.
 
 ```csharp
 SecretClientOptions options = new SecretClientOptions()
