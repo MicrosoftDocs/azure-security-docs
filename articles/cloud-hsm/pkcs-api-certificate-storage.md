@@ -349,7 +349,7 @@ Azure Cloud HSM includes sample application code to help validate certificate st
 
 Verify Certificates in Storage
 
-After a successful call to the C_CreateObject() API, the newly created certificate object will appear in your Azure Blob Storage account, as specified in the azcloudhsm_application.cfg file. The blob will be named using the format pkcs11_certificate_<ObjectHandle>, as shown below. Certificate objects are assigned object handles ranging from 0xFFF00000 to 0xFFFFFFFF (decimal range: 4,293,918,720 to 4,294,967,295), allowing support for up to 1,048,575 certificates.
+After a successful call to the C_CreateObject() API, the newly created certificate object will appear in your Azure Blob Storage account, as specified in the azcloudhsm_application.cfg file. The blob will be named using the format pkcs11_certificate_\<ObjectHandle\>, as shown below. Certificate objects are assigned object handles ranging from 0xFFF00000 to 0xFFFFFFFF (decimal range: 4,293,918,720 to 4,294,967,295), allowing support for up to 1,048,575 certificates.
 
 From both Azure Portal as well as from your Azure VM you can see the certificates stored.
 

@@ -34,7 +34,8 @@ The following prerequisites are required to support certificate storage with Azu
 - Azure Blob Storage Account
 - Managed Identity to access storage
 
-> [!IMPORTANT] Customers using any version of Windows Server should install the most recent version of Visual C++ Redistributable.
+> [!IMPORTANT]
+> Customers using any version of Windows Server should install the most recent version of Visual C++ Redistributable.
 
 ## Setting up an Azure Blob Storage Account
 
@@ -57,7 +58,8 @@ Before you can use the PKCS#11 API for Certificate Storage, you must create an A
 
 The next prerequisite for certificate storage is to create a **User Assigned Managed Identity**. This identity is granted the necessary role to access the Azure Blob Storage Account and is used to authenticate from your designated Admin VM.
 
-> [!NOTE] The following example creates and uses a User Assigned Managed Identity. A System Assigned Managed Identity can also be created and used on the VM.
+> [!NOTE]
+> The following example creates and uses a User Assigned Managed Identity. A System Assigned Managed Identity can also be created and used on the VM.
 
 1. To create a **User Assigned Managed Identity** for PKCS#11 certificate storage, navigate to the Azure portal and create a new identity.
 2. After successfully creating the Managed Identity, make note of the **Client ID**, which is required later in the azcloudhsm_application.cfg file to enable authentication to the storage account from your VM.
@@ -106,7 +108,8 @@ sudo ./azcloudhsm_util singlecmd loginHSM -u CU -s $PKCS11_S -p $PKCS11_P genRSA
 .\azcloudhsm_util.exe singlecmd loginHSM -u CU -s %PKCS11_S% -p %PKCS11_P% genRSAKeyPair -m 2048 -e 65537 -l %SIGNING_KEY_ID% -id %SIGNING_KEY_ID%
 ```
 
-> [!IMPORTANT] Please ensure that each of the HSM partitions returns to success.
+> [!IMPORTANT]
+> Please ensure that each of the HSM partitions returns to success.
 
    <!-- :::image type="content" source="media/tutorial-certificate-storage/image9.png" alt-text="Screenshot of azcloudhsm_util command output for creating RSA signing key pair."::: -->
 
@@ -122,7 +125,8 @@ You will need to update the following parameters in the azcloudhsm_application.c
 
 **UAMI_CLIENT_ID**: This field refers to the Client ID of the User Assigned Managed Identity, which is used to authenticate to the customer's Blob Storage Account. If left blank, authentication will default to using a System Assigned Managed Identity.
 
-> [!NOTE] These parameters only apply when running certificate operations in PKCS#11. It is not required for Key Operations.
+> [!NOTE]
+> These parameters only apply when running certificate operations in PKCS#11. It is not required for Key Operations.
 
 :::image type="content" source="media/tutorial-certificate-storage/image10.png" alt-text="Screenshot of azcloudhsm_application.cfg file with updated parameters.":::
 
