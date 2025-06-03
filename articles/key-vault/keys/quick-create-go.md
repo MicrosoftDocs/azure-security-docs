@@ -46,7 +46,7 @@ Follow this guide to learn how to use the [azkeys](https://aka.ms/azsdk/go/keyva
 
 ### Grant access to your key vault
 
-[!INCLUDE [Using RBAC to provide access to a key vault](../includes/rbac/upn-crypto-officer-cli.md)]
+[!INCLUDE [Using RBAC to provide access to a key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/rbac/upn-crypto-officer-cli.md)]
 
 
 ### Create a new Go module and install packages

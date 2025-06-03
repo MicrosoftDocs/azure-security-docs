@@ -32,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Give your user account permissions to manage keys in Key Vault
 
-[!INCLUDE [Using RBAC to provide access to a key vault](../includes/rbac/upn-crypto-officer-powershell.md)]
+[!INCLUDE [Using RBAC to provide access to a key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/rbac/upn-crypto-officer-powershell.md)]
 
 ## Add a key to Key Vault
 

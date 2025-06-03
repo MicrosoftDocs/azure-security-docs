@@ -49,7 +49,7 @@ For purposes of this quickstart, you use the [azidentity](https://pkg.go.dev/git
 
 ### Grant access to your key vault
 
-[!INCLUDE [Using RBAC to provide access to a key vault](../includes/rbac/upn-secrets-officer-cli.md)]
+[!INCLUDE [Using RBAC to provide access to a key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/rbac/upn-secrets-officer-cli.md)]
 
 ### Create a new Go module and install packages
 
