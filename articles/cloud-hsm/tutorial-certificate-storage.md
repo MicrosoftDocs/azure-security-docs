@@ -18,14 +18,14 @@ Azure Cloud HSM supports certificate storage via PKCS#11, enabling applications 
 
 ## Prerequisite
 
-The following prerequisites are required to support certificate storage with Azure Cloud HSM. Please reference the Azure Cloud HSM Onboarding Guide for SDK Installation and configuration if you have not completed your HSM deployment.
+The following prerequisites are required to support certificate storage with Azure Cloud HSM. Reference [the Azure Cloud HSM Onboarding Guide for SDK Installation and configuration](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/OnboardingGuides/Azure%20Cloud%20HSM%20Onboarding.pdf) if HSM deployment is not complete.
 
 ### System Requirements
 
-- Azure Cloud HSM resource has been deployed, initialized, and configured.
+- Azure Cloud HSM resource is deployed, initialized, and configured.
 - Azure Cloud HSM Client SDK
-- Copy of partition owner certificate “PO.crt” on application server.
-- Known address of your HSM “hsm1.chsm-\<resourcename\>-\<uniquestring\>.privatelink.cloudhsm.azure.net”.
+- Copy of partition owner certificate "PO.crt" on application server.
+- Known address of your HSM "hsm1.chsm-\<resourcename\>-\<uniquestring\>.privatelink.cloudhsm.azure.net".
 - Knowledge of Crypto User credentials
 
 ### Certificate Storage Prerequisites
@@ -37,43 +37,43 @@ The following prerequisites are required to support certificate storage with Azu
 
 ## Setting up an Azure Blob Storage Account
 
-A prerequisite to running any PKCS#11 API for Certificate Storage is to create an Azure Blob Storage Account. This is where the PKCS#11 Certificate Objects will be stored (in JWS format) and read from.
+Before you can use the PKCS#11 API for Certificate Storage, you must create an Azure Blob Storage Account. This storage account will hold the PKCS#11 certificate objects, which are saved and retrieved in JWS format.
 
-1. To set up an Azure Blob Storage Account for PKCS#11 certificate storage, go to the Azure Portal and create a new **Storage Account**.
-2. After successfully creating the Storage Account, navigate to it in the Azure Portal and select **Containers** under **Data storage**. Here, you will create a new container to store the blobs.
+1. To set up an Azure Blob Storage Account for PKCS#11 certificate storage, go to the Azure portal and create a new **Storage Account**.
+2. After successfully creating the Storage Account, navigate to it in the Azure portal and select **Containers** under **Data storage**. Here, you create a new container to store the blobs.
 
    :::image type="content" source="media/tutorial-certificate-storage/image1.png" alt-text="Screenshot of creating a container in Azure Blob Storage.":::
 
-3. After creating the container, locate the container endpoint URL by navigating to **Container properties**. This URL will be needed later.
+3. After creating the container, locate the container endpoint URL by navigating to **Container properties**. This URL is needed later.
 
    :::image type="content" source="media/tutorial-certificate-storage/image2.png" alt-text="Screenshot of locating container endpoint URL in Azure Blob Storage.":::
 
-4. In **Container properties**, you will find the container URL listed. This URL is required later in the azcloudhsm_application.cfg file to enable PKCS#11 applications to locate the storage location for certificate objects.
+4. In **Container properties**, you find the container URL listed. This URL is required later in the azcloudhsm_application.cfg file to enable PKCS#11 applications to locate the storage location for certificate objects.
 
    :::image type="content" source="media/tutorial-certificate-storage/image3.png" alt-text="Screenshot of container URL in Azure Blob Storage properties.":::
 
 ## Setting up User Assigned Managed Identity to access storage
 
-The next prerequisite for certificate storage is to create a **User Assigned Managed Identity**. This identity will be granted the necessary role to access the Azure Blob Storage Account and will be used to authenticate from your designated Admin VM.
+The next prerequisite for certificate storage is to create a **User Assigned Managed Identity**. This identity is granted the necessary role to access the Azure Blob Storage Account and is used to authenticate from your designated Admin VM.
 
-> [!NOTE] The following example will create and use a User Assigned Managed Identity. A System Assigned Managed Identity can also be created and used on the VM.
+> [!NOTE] The following example creates and uses a User Assigned Managed Identity. A System Assigned Managed Identity can also be created and used on the VM.
 
-1. To create a **User Assigned Managed Identity** for PKCS#11 certificate storage, navigate to the Azure Portal and create a new identity.
-2. After successfully creating the Managed Identity, make note of the **Client ID**. This will be required later in the azcloudhsm_application.cfg file to enable authentication to the storage account from your VM.
+1. To create a **User Assigned Managed Identity** for PKCS#11 certificate storage, navigate to the Azure portal and create a new identity.
+2. After successfully creating the Managed Identity, make note of the **Client ID**, which is required later in the azcloudhsm_application.cfg file to enable authentication to the storage account from your VM.
 
-   :::image type="content" source="media/tutorial-certificate-storage/image4.png" alt-text="Screenshot of Managed Identity Client ID in Azure Portal.":::
+   :::image type="content" source="media/tutorial-certificate-storage/image4.png" alt-text="Screenshot of Managed Identity Client ID in Azure portal.":::
 
 3. The next step is to assign the appropriate Azure role to grant the Managed Identity permission to read and write to the previously created Blob Storage Account. Assign the **Storage Blob Data Contributor** role to the Managed Identity, setting the **Scope** to **Storage** and selecting the specific Storage Account resource.
 
-   :::image type="content" source="media/tutorial-certificate-storage/image5.png" alt-text="Screenshot of assigning Storage Blob Data Contributor role in Azure Portal.":::
+   :::image type="content" source="media/tutorial-certificate-storage/image5.png" alt-text="Screenshot of assigning Storage Blob Data Contributor role in Azure portal.":::
 
    :::image type="content" source="media/tutorial-certificate-storage/image6.png" alt-text="Screenshot of setting scope for Storage Blob Data Contributor role.":::
 
-4. The next step is to assign the **User Assigned Managed Identity** to the VM that will run your PKCS#11 certificate storage application. To do this, navigate to your VM resource in the Azure Portal, go to the **Security** section, select **Identity**, and add the User Assigned Identity.
+4. The next step is to assign the **User Assigned Managed Identity** to the VM that will run your PKCS#11 certificate storage application. Navigate to your VM resource in the Azure portal, go to the **Security** section, select **Identity**, and add the User Assigned Identity.
 
-   :::image type="content" source="media/tutorial-certificate-storage/image7.png" alt-text="Screenshot of adding User Assigned Managed Identity to VM in Azure Portal.":::
+   :::image type="content" source="media/tutorial-certificate-storage/image7.png" alt-text="Screenshot of adding User Assigned Managed Identity to VM in Azure portal.":::
 
-   :::image type="content" source="media/tutorial-certificate-storage/image8.png" alt-text="Screenshot of VM Identity settings in Azure Portal.":::
+   :::image type="content" source="media/tutorial-certificate-storage/image8.png" alt-text="Screenshot of VM Identity settings in Azure portal.":::
 
 ## Configure the Azure Cloud HSM Client Tools
 
@@ -83,8 +83,8 @@ The following azcloudhsm_util command can be used to create an RSA signing key p
 
 Replace the placeholders as follows:
 
-- PKCS11_S with your Crypto User username. (e.g. cu1)
-- PKCS11_P with your Crypto User password. (e.g. user1234)
+- PKCS11_S with your Crypto User username. (for example, cu1)
+- PKCS11_P with your Crypto User password. (for example, user1234)
 - SIGNING_KEY_ID with the desired key pair ID (this ID will also be used later in your azcloudhsm_application.cfg file)
 
 **Signing Key ID** For this example, we are going to set Signing Key ID to a random value.
