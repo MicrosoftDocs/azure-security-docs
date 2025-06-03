@@ -21,3 +21,9 @@ Here's what you need to know about this update.
 **Improved Compliance**: In addition to bolstering security, the updated firmware also enhances compliance capabilities. Whether you're subject to industry regulations or internal compliance policies, this firmware ensures that your HSMs meet or exceed the required standards, helping you maintain regulatory compliance effortlessly.
 
 As we continue to innovate and enhance our services, our commitment to delivering the highest standards of security continues. We are confident this upgrade to FIPS 140-3 Level 3 improves the security and compliance posture of your infrastructure, allowing you to focus on your core business activities with confidence.
+
+# Next steps
+
+- Learn more about [What is Azure Key Vault Managed HSM?](overview.md)
+- Understand [How Managed HSM implements key sovereignty, availability, performance, and scalability](managed-hsm-technical-details.md)
+- Explore [Control your data in the cloud by using Managed HSM](mhsm-control-data.md)
