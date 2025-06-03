@@ -22,7 +22,7 @@ Here's what you need to know about this update.
 
 As we continue to innovate and enhance our services, our commitment to delivering the highest standards of security continues. We are confident this upgrade to FIPS 140-3 Level 3 improves the security and compliance posture of your infrastructure, allowing you to focus on your core business activities with confidence.
 
-# Next steps
+## Next steps
 
 - Learn more about [What is Azure Key Vault Managed HSM?](overview.md)
 - Understand [How Managed HSM implements key sovereignty, availability, performance, and scalability](managed-hsm-technical-details.md)
