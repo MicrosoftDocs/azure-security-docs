@@ -1,12 +1,13 @@
 ---
 title: Tutorial - Azure Cloud HSM Certificate Storage
-description: Learn how to configure certificate storage for Azure Cloud HSM using PKCS#11.
+description: Step-by-step guide to configure certificate storage for Azure Cloud HSM using PKCS#11 APIs, including prerequisites, Azure Blob Storage setup, and Managed Identity configuration.
 author: keithp
 manager: keithp
 ms.service: azure-cloud-hsm
 ms.topic: tutorial
 ms.date: 03/20/2025
 ms.author: keithp
+ms.custom: certificate-storage, pkcs11, azure-blob-storage, managed-identity
 
 #Customer Intent: As an IT pro, I want to set up and use certificate storage for Azure Cloud HSM to help ensure security and compliance.
 
@@ -42,15 +43,15 @@ Before you can use the PKCS#11 API for Certificate Storage, you must create an A
 1. To set up an Azure Blob Storage Account for PKCS#11 certificate storage, go to the Azure portal and create a new **Storage Account**.
 2. After successfully creating the Storage Account, navigate to it in the Azure portal and select **Containers** under **Data storage**. Here, you create a new container to store the blobs.
 
-   :::image type="content" source="media/tutorial-certificate-storage/image1.png" alt-text="Screenshot of creating a container in Azure Blob Storage.":::
+   <!-- :::image type="content" source="media/tutorial-certificate-storage/image1.png" alt-text="Screenshot of creating a container in Azure Blob Storage."::: -->
 
 3. After creating the container, locate the container endpoint URL by navigating to **Container properties**. This URL is needed later.
 
-   :::image type="content" source="media/tutorial-certificate-storage/image2.png" alt-text="Screenshot of locating container endpoint URL in Azure Blob Storage.":::
+   <!-- :::image type="content" source="media/tutorial-certificate-storage/image2.png" alt-text="Screenshot of locating container endpoint URL in Azure Blob Storage."::: -->
 
 4. In **Container properties**, you find the container URL listed. This URL is required later in the azcloudhsm_application.cfg file to enable PKCS#11 applications to locate the storage location for certificate objects.
 
-   :::image type="content" source="media/tutorial-certificate-storage/image3.png" alt-text="Screenshot of container URL in Azure Blob Storage properties.":::
+   <!-- :::image type="content" source="media/tutorial-certificate-storage/image3.png" alt-text="Screenshot of container URL in Azure Blob Storage properties."::: -->
 
 ## Setting up User Assigned Managed Identity to access storage
 
@@ -61,19 +62,19 @@ The next prerequisite for certificate storage is to create a **User Assigned Man
 1. To create a **User Assigned Managed Identity** for PKCS#11 certificate storage, navigate to the Azure portal and create a new identity.
 2. After successfully creating the Managed Identity, make note of the **Client ID**, which is required later in the azcloudhsm_application.cfg file to enable authentication to the storage account from your VM.
 
-   :::image type="content" source="media/tutorial-certificate-storage/image4.png" alt-text="Screenshot of Managed Identity Client ID in Azure portal.":::
+   <!-- :::image type="content" source="media/tutorial-certificate-storage/image4.png" alt-text="Screenshot of Managed Identity Client ID in Azure portal."::: -->
 
 3. The next step is to assign the appropriate Azure role to grant the Managed Identity permission to read and write to the previously created Blob Storage Account. Assign the **Storage Blob Data Contributor** role to the Managed Identity, setting the **Scope** to **Storage** and selecting the specific Storage Account resource.
 
-   :::image type="content" source="media/tutorial-certificate-storage/image5.png" alt-text="Screenshot of assigning Storage Blob Data Contributor role in Azure portal.":::
+   <!-- :::image type="content" source="media/tutorial-certificate-storage/image5.png" alt-text="Screenshot of assigning Storage Blob Data Contributor role in Azure portal."::: -->
 
-   :::image type="content" source="media/tutorial-certificate-storage/image6.png" alt-text="Screenshot of setting scope for Storage Blob Data Contributor role.":::
+   <!-- :::image type="content" source="media/tutorial-certificate-storage/image6.png" alt-text="Screenshot of setting scope for Storage Blob Data Contributor role."::: -->
 
 4. The next step is to assign the **User Assigned Managed Identity** to the VM that will run your PKCS#11 certificate storage application. Navigate to your VM resource in the Azure portal, go to the **Security** section, select **Identity**, and add the User Assigned Identity.
 
-   :::image type="content" source="media/tutorial-certificate-storage/image7.png" alt-text="Screenshot of adding User Assigned Managed Identity to VM in Azure portal.":::
+   <!-- :::image type="content" source="media/tutorial-certificate-storage/image7.png" alt-text="Screenshot of adding User Assigned Managed Identity to VM in Azure portal."::: -->
 
-   :::image type="content" source="media/tutorial-certificate-storage/image8.png" alt-text="Screenshot of VM Identity settings in Azure portal.":::
+   <!-- :::image type="content" source="media/tutorial-certificate-storage/image8.png" alt-text="Screenshot of VM Identity settings in Azure portal."::: -->
 
 ## Configure the Azure Cloud HSM Client Tools
 
@@ -107,7 +108,7 @@ sudo ./azcloudhsm_util singlecmd loginHSM -u CU -s $PKCS11_S -p $PKCS11_P genRSA
 
 > [!IMPORTANT] Please ensure that each of the HSM partitions returns to success.
 
-:::image type="content" source="media/tutorial-certificate-storage/image9.png" alt-text="Screenshot of azcloudhsm_util command output for creating RSA signing key pair.":::
+   <!-- :::image type="content" source="media/tutorial-certificate-storage/image9.png" alt-text="Screenshot of azcloudhsm_util command output for creating RSA signing key pair."::: -->
 
 ### Update Configuration Files
 
@@ -129,7 +130,7 @@ You will need to update the following parameters in the azcloudhsm_application.c
 
 Please refer to the PKCS#11 Integration Guide for sample-based validation of your PKCS#11 configuration.
 
-:::image type="content" source="media/tutorial-certificate-storage/image11.png" alt-text="Screenshot of PKCS#11 configuration validation output.":::
+   <!-- :::image type="content" source="media/tutorial-certificate-storage/image11.png" alt-text="Screenshot of PKCS#11 configuration validation output."::: -->
 
 ## Next Steps
 

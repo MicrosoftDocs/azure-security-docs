@@ -1,12 +1,13 @@
 ---
-title: Tutorial - Azure Cloud HSM Certificate Storage
-description: Learn how to configure certificate storage for Azure Cloud HSM using PKCS#11.
+title: PKCS#11 API for Certificate Storage in Azure Cloud HSM
+description: Learn how to use PKCS#11 APIs to manage X.509 certificates in Azure Cloud HSM, including creating, copying, deleting, and retrieving certificate attributes.
 author: keithp
 manager: keithp
 ms.service: azure-cloud-hsm
 ms.topic: tutorial
 ms.date: 03/20/2025
 ms.author: keithp
+ms.custom: pkcs11, certificate-management, x509-certificates, azure-cloud-hsm
 
 #Customer Intent: As an IT pro, I want to set up and use certificate storage for Azure Cloud HSM to help ensure security and compliance.
 
@@ -354,11 +355,11 @@ From both Azure Portal as well as from your Azure VM you can see the certificate
 
 ### Verify from Azure Portal
 
-:::image type="content" source="" alt-text="Screenshot of verifying certificates in Azure Portal.":::
+<!-- :::image type="content" source="" alt-text="Screenshot of verifying certificates in Azure Portal."::: -->
 
 ### Verify from Azure VM with AZ CLI installed
 
-:::image type="content" source="" alt-text="Screenshot of verifying certificates from Azure VM using AZ CLI.":::
+<!-- :::image type="content" source="" alt-text="Screenshot of verifying certificates from Azure VM using AZ CLI."::: -->
 
 Downloading the blob or viewing it in the Azure Portal and inspecting its contents will reveal that the certificate is stored as a JWS (JSON Web Signature) token. The token follows the standard JWS structure, which is divided into the following format:
 
