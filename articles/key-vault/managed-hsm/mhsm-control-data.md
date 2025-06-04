@@ -6,7 +6,7 @@ ms.subservice: managed-hsm
 ms.topic: concept-article
 author: nkondamudi
 ms.author: nkondamudi
-ms.date: 04/26/2024
+ms.date: 05/30/2025
 ---
 
 # Control your data in the cloud by using Managed HSM
@@ -31,7 +31,7 @@ Secure key management is essential to protect and control data in the cloud. Azu
 - **Customer-managed keys** are keys that are created, read, deleted, updated, and administered entirely by the customer. Customer-managed keys can be stored in a cloud key management service like Azure Key Vault.
 - **Azure Key Vault Standard** encrypts by using a software key and is FIPS 140-2 Level 1 compliant.
 - **Azure Key Vault Premium** encrypts by using keys protected by [FIPS 140 validated HSMs](/azure/key-vault/keys/about-keys#compliance).
-- **Azure Key Vault Managed HSM** encrypts by using single-tenant FIPS 140-2 Level 3 HSM protected keys and is fully managed by Microsoft.
+- **Azure Key Vault Managed HSM** encrypts by using single-tenant FIPS 140-3 Level 3 HSM protected keys and is fully managed by Microsoft.
 
 For added assurance, in Azure Key Vault Premium and Azure Key Vault Managed HSM, you can [bring your own key (BYOK)](../keys/hsm-protected-keys-byok.md) and import HSM-protected keys from an on-premises HSM.
 
@@ -40,7 +40,7 @@ For added assurance, in Azure Key Vault Premium and Azure Key Vault Managed HSM,
 |  | Azure Key Vault Standard | Azure Key Vault Premium | Azure Key Vault Managed HSM |
 |:-|-|-|-|
 | **Tenancy** | Multitenant | Multitenant | Single-tenant |
-| **Compliance** | FIPS 140-2 Level 1 | FIPS 140-2 Level 3 | FIPS 140-2 Level 3 |
+| **Compliance** | FIPS 140-2 Level 1 | FIPS 140-3 Level 3 | FIPS 140-3 Level 3 |
 | **High availability** | Automatic | Automatic | Automatic |
 | **Use cases** | Encryption at rest | Encryption at rest | Encryption at rest |
 | **Key controls** | Customer | Customer | Customer |
@@ -62,7 +62,7 @@ For more information, see [Azure Key Vault Concepts](../general/basic-concepts.m
 
 ## What is Azure Key Vault Managed HSM?
 
-Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that has a customer-controlled security domain that enables you to store cryptographic keys for your cloud applications by using FIPS 140-2 Level 3 validated HSMs.
+Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that has a customer-controlled security domain that enables you to store cryptographic keys for your cloud applications by using FIPS 140-3 Level 3 validated HSMs.
 
 ## How does Azure Key Vault Managed HSM protect your keys?
 
