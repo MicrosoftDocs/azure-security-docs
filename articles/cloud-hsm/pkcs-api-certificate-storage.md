@@ -355,15 +355,75 @@ From both Azure Portal as well as from your Azure VM you can see the certificate
 
 ### Verify from Azure Portal
 
-<!-- :::image type="content" source="" alt-text="Screenshot of verifying certificates in Azure Portal."::: -->
+:::image type="content" source="./media/pkcs-verify-portal.png" alt-text="Screenshot showing certificate blobs stored in Azure Portal for Azure Cloud HSM." lightbox="pkcs-verify-portal":::
 
 ### Verify from Azure VM with AZ CLI installed
 
-<!-- :::image type="content" source="" alt-text="Screenshot of verifying certificates from Azure VM using AZ CLI."::: -->
+```bash
+chsmVMAdmin@AdminVM:~$ az login --identity
+[
+  {
+    "environmentName": "AzureCloud",
+    "homeTenantId": "",
+    "id": "",
+    "isDefault": true,
+    "managedByTenants": [],
+    "name": "Test Subscription",
+    "state": "Enabled",
+    "tenantId": "",
+    "user": {
+      "assignedIdentityInfo": "MSI",
+      "name": "systemAssignedIdentity",
+      "type": "servicePrincipal"
+    }
+  }
+]
+
+chsmVMAdmin@AdminVM:~$ az storage blob list \
+  --account-name chsmstorage \
+  --container-name certificates \
+  --auth-mode login \
+  --output table
+
+Name                                  Blob Type    Blob Tier    Length    Content Type              Last Modified
+-----------------------------------  -----------  -----------  --------  ------------------------  -------------------------
+pkcs11_certificate_4293918720        BlockBlob    Hot          1305      application/octet-stream  2025-05-16T22:43:31+00:00
+pkcs11_certificate_4293918721        BlockBlob    Hot          1305      application/octet-stream  2025-05-16T22:47:25+00:00
+pkcs11_certificate_4293918722        BlockBlob    Hot          1305      application/octet-stream  2025-05-16T22:47:25+00:00
+pkcs11_certificate_4293918723        BlockBlob    Hot          3452      application/octet-stream  2025-05-16T22:56:28+00:00
+```
 
 Downloading the blob or viewing it in the Azure Portal and inspecting its contents will reveal that the certificate is stored as a JWS (JSON Web Signature) token. The token follows the standard JWS structure, which is divided into the following format:
 
-Header.Payload.Signature Example
+```bash
+chsmVMAdmin@AdminVM:~$ az storage blob list \
+  --account-name chsmstorage \
+  --container-name certificates \
+  --auth-mode login \
+  --output table
+
+Name                                  Blob Type    Blob Tier    Length    Content Type              Last Modified
+-----------------------------------  -----------  -----------  --------  ------------------------  -------------------------
+pkcs11_certificate_4293918720        BlockBlob    Hot          1305      application/octet-stream  2025-05-16T22:43:31+00:00
+pkcs11_certificate_4293918721        BlockBlob    Hot          1305      application/octet-stream  2025-05-16T22:47:25+00:00
+pkcs11_certificate_4293918722        BlockBlob    Hot          1305      application/octet-stream  2025-05-16T22:47:25+00:00
+pkcs11_certificate_4293918723        BlockBlob    Hot          3452      application/octet-stream  2025-05-16T22:56:28+00:00
+
+chsmVMAdmin@AdminVM:~$ az storage blob download \
+  --account-name chsmstorage \
+  --container-name certificates \
+  --name pkcs11_certificate_4293918723 \
+  --file pkcs11_certificate_4293918723.crt \
+  --auth-mode login
+Finished[########################################] 100.0000%
+{
+  "container": "certificates",
+  "content": ""
+}
+
+chsmVMAdmin@AdminVM:~$ cat pkcs11_certificate_4293918723.crt
+eyJhbgGciOiJSUzUxMiIsImp... (base64-encoded certificate continues)
+```
 
 ## Next Steps
 
