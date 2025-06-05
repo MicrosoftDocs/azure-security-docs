@@ -16,9 +16,9 @@ ms.author: keithp
 
 # What is Azure Cloud HSM Preview?
 
-Microsoft Azure Cloud HSM Preview is a highly available, FIPS 140-3 Level 3 validated single-tenant service that's compliant with industry standards. Azure Cloud HSM grants customers complete administrative authority over their hardware security module (HSM). It provides a secure and customer-owned HSM cluster for storing cryptographic keys and performing cryptographic operations.
+Microsoft Azure Cloud HSM Preview is a highly available, FIPS 140-3 Level 3 validated single-tenant service that complies with industry standards. Azure Cloud HSM grants customers complete administrative authority over their hardware security modules (HSMs). It provides a secure and customer-owned HSM cluster for storing cryptographic keys and performing cryptographic operations.
 
-Azure Cloud HSM is a solution for customers who require FIPS 140-3 Level 3 validated HSMs. It supports various applications, including PKCS#11, offloading of Secure Sockets Layer (SSL) or Transport Layer Security (TLS) processing, certificate authority (CA) private key protection, and transparent data encryption (TDE). It also supports document and code signing.
+Azure Cloud HSM supports various applications, including PKCS#11, offloading of Secure Sockets Layer (SSL) or Transport Layer Security (TLS) processing, certificate authority (CA) private key protection, and transparent data encryption (TDE). It also supports document and code signing.
 
 > [!NOTE]
 > Azure Cloud HSM is available in preview in the East US, East US 2, West US, West US 2, West Europe, North Europe, and UK West regions. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -27,9 +27,9 @@ Azure Cloud HSM is a solution for customers who require FIPS 140-3 Level 3 valid
 
 ### Fully managed solution
 
-Many customers require administrative control of their HSM but don't want the overhead and ancillary costs that come with cluster management for high availability, patching, and maintenance. Azure Cloud HSM customers have secure, direct end-to-end encrypted access to their HSM instances in their HSM cluster over a private, dedicated link from their virtual network.
+Many customers require administrative control of their HSM but don't want the overhead and ancillary costs that come with cluster management for high availability, patching, and maintenance. Azure Cloud HSM customers have secure, direct, end-to-end encrypted access to their HSM instances in their HSM cluster over a private, dedicated link from their virtual network.
 
-After a customer provisions an Azure Cloud HSM cluster, the customer maintains administrative access to their HSM. The Azure Cloud HSM service takes care of high availability, patching, and maintenance.
+After a customer provisions an Azure Cloud HSM cluster, the customer maintains administrative access to their HSMs. The Azure Cloud HSM service takes care of high availability, patching, and maintenance.
 
 ### Customer-owned, highly available, single-tenant HSM as a service
 
@@ -41,11 +41,11 @@ The Azure Cloud HSM cluster supports load balancing of cryptographic operations.
 
 ### Single-tenant HSM clusters
 
-Each Azure Cloud HSM instance is dedicated to a single customer and consists of a cluster of three HSM partitions. Each HSM cluster uses a separate customer-specific security domain that cryptographically isolates it.
+Each Azure Cloud HSM instance is dedicated to a single customer. Each HSM cluster uses a separate customer-specific security domain that cryptographically isolates it.
 
 ### FIPS 140-3 Level 3 compliance
 
-Many organizations have stringent industry regulations that dictate that cryptographic keys must be stored in [FIPS 140-3 Level 3](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4700) validated HSMs. Azure Cloud HSM helps customers from various industry segments (financial services industry, government agencies, and others) meet FIPS 140-2 Level-3 requirements.
+Many organizations have stringent industry regulations that dictate that cryptographic keys must be stored in [FIPS 140-3 Level 3](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4700) validated HSMs. Azure Cloud HSM helps customers from various industry segments (financial services industry, government agencies, and others) meet these FIPS requirements.
 
 ## Azure Cloud HSM suitability
 
@@ -80,7 +80,7 @@ Azure Cloud HSM is not a good fit for Microsoft cloud services that require supp
 
 ## Related content
 
-Integration guides and an SDK are available to help you facilitate the provisioning and configuration of HSMs into your existing virtual network environment:
+These resources are available to help you facilitate the provisioning and configuration of HSMs into your existing virtual network environment:
 
 - [Azure Cloud HSM SDK](https://github.com/microsoft/MicrosoftAzureCloudHSM)
 - [Key management in Azure](/azure/security/fundamentals/key-management)

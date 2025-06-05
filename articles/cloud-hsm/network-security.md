@@ -15,7 +15,7 @@ Ensuring robust network security is crucial when you're using Azure Cloud HSM. T
 
 ## Private endpoint
 
-To enhance the security of your Azure Cloud HSM deployment, employ private subnets and private endpoints. They enable secure connections to Azure Cloud HSM through a private link, to facilitate private IP address connectivity from your virtual network.
+To enhance the security of your Azure Cloud HSM deployment, use private subnets and private endpoints. They enable secure connections to Azure Cloud HSM through a private link, to facilitate private IP address connectivity from your virtual network.
 
 A private endpoint ensures that traffic between your virtual network and the Azure service traverses the Microsoft backbone network for security and private communication. This proactive approach strengthens your application's security posture by minimizing exposure to potential threats from the internet.
 

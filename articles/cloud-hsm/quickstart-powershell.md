@@ -54,7 +54,7 @@ New-AzResource @server -AsJob -Verbose
 > [!NOTE]
 > We recommend that you deploy your Cloud HSM resources in a separate resource group from your related client virtual network and virtual machine (VM) resources. Using a separate resource group provides better management and security isolation.
 
-## Configure managed identity (optional)
+## Configure a managed identity (optional)
 
 For backup and restore operations in Azure Cloud HSM, you need to create a user-assigned managed identity. This identity is used for transferring Cloud HSM backups to your designated storage account in business continuity and disaster recovery (BCDR) scenarios.
 
@@ -100,7 +100,7 @@ For detailed instructions on configuring backup and restore operations, see [Bac
 
 ## Set up networking (recommended)
 
-For production environments, we strongly recommend that you configure a private endpoint for your Cloud HSM instance to help ensure secure communication. You can use the following Azure PowerShell commands to create a private endpoint:
+For production environments, we strongly recommend that you configure a private endpoint for your Cloud HSM deployment to help ensure secure communication. You can use the following Azure PowerShell commands to create a private endpoint:
 
 ```azurepowershell-interactive
 # Define private endpoint parameters
@@ -142,8 +142,11 @@ You can't accomplish Azure Cloud HSM activation and configuration through Azure 
 After you deploy your Cloud HSM resource through Azure PowerShell, follow these steps:
 
 1. Download and install the Azure Cloud HSM SDK from [GitHub](https://github.com/microsoft/MicrosoftAzureCloudHSM/releases) on a VM that has network connectivity to your HSM.
+
 2. Initialize and configure your HSM by following the detailed steps in the [Azure Cloud HSM onboarding guide](onboarding-guide.md).
+
 3. Establish user management with appropriate cryptography officers and users, as described in [User management in Azure Cloud HSM](user-management.md).
+
 4. Implement proper key management practices to help ensure optimal security and performance, as outlined in [Key management in Azure Cloud HSM](key-management.md).
 
 ## Clean up resources

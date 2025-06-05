@@ -18,7 +18,7 @@ Effective key management is critical for optimizing the performance, security, a
 
 Hardware security modules (HSMs) have limits on the maximum number of tokens and session keys that can be stored at a single time. For details on these limits, refer to [Azure Cloud HSM service limits](service-limits.md).
 
-To avoid exceeding Azure Cloud HSM service limits, consider employing one or more of the following strategies for efficient key management:
+To avoid exceeding Azure Cloud HSM service limits, consider using one or more of the following strategies for efficient key management:
 
 - **Key rotation**: Rotate keys frequently to ensure that older keys are replaced and space is freed for new ones. Frequent rotation helps keep the HSM within storage limits while maintaining security.
 - **Key hierarchy**: Use a key hierarchy in which you use primary keys to encrypt other keys. This hierarchy reduces the number of keys that need to be stored in the HSM directly.
@@ -34,11 +34,11 @@ You use the `EXTRACTABLE` attribute in Azure Cloud HSM to mark keys as either ex
 
 In contrast, nonextractable keys can't be exported from Azure Cloud HSM under any circumstances. After you set keys as nonextractable, there's no way to change them to extractable. It's crucial to carefully consider whether you need your keys to be extractable and set the key attribute accordingly.
 
-If your application necessitates key wrapping, we recommend that you use *trusted key wrapping*. This approach restricts HSM users to wrap and unwrap only keys that an admin explicitly designated as trusted:
+If your application necessitates key wrapping, we advise you to use *trusted key wrapping*. This approach restricts HSM users to wrap and unwrap only keys that an admin explicitly designated as trusted:
 
 - `EXTRACTABLE=0`: Keys created with the `EXTRACTABLE` attribute set to `0` can't be exported, except as masked objects. They're ideal for keys that you don't ever want to leave the HSM.
 
-- `WRAP_WITH_TRUSTED=1`: By default, extractable keys created through the Azure Cloud HSM SDK use trusted key wrapping. However, the specification for PKCS#11 sets `WRAP_WITH_TRUSTED` to `CK_FALSE (0)` by default. Without trusted key wrapping, a cryptography user can export a key's private material without any authorization. Anyone who has access to a client application and uses those keys can export them in plain text.
+- `WRAP_WITH_TRUSTED=1`: By default, extractable keys created through the Azure Cloud HSM SDK use trusted key wrapping. However, the specification for PKCS#11 sets `WRAP_WITH_TRUSTED` to `CK_FALSE (0)` by default. Without trusted key wrapping, a cryptography user can export a key's private material without any authorization. Anyone who has access to a client application and uses those keys can export them in plaintext.
 
 ### Key attribute support for Azure Cloud HSM providers
 
@@ -58,7 +58,7 @@ In such cases, we recommend using `azcloudhsm_util` to generate the key if you d
 
 ## Employ key attributes to manage key permissions
 
-Use key attributes to manage key capabilities like permissions. When you're generating a key, use key attributes to specify permissions that permit or restrict specific operations for that key. We recommend that you generate keys with only the necessary attributes for their intended purpose.
+Use key attributes to manage key capabilities like permissions. When you're generating a key, use key attributes to specify permissions that permit or restrict specific operations for that key. We advise you to generate keys with only the necessary attributes for their intended purpose.
 
 For instance, an *Advanced Encryption Standard (AES) key that's used for encryption should not have the ability to wrap keys outside the HSM*. For more information on attributes for the Azure Cloud HSM SDK, see the [integration guides](integration-guides.md).
 
@@ -69,7 +69,7 @@ To reduce latency, consider caching key objects whenever possible. In searches f
 - For PKCS#11, key searches use the `C_FindObjects` API.
 - For Java Cryptography Extension (JCE), key searches use the `KeyStore` value.
 
-For optimal performance, we recommend that you use key-finding commands (such as `findKey` and `key list`) *only once during application startup*. Store the returned key object in application memory. When you need this key object later, retrieve it from the cache instead of querying for it with each operation. Querying for it incurs significant performance overhead.
+For optimal performance, we advise you to use key-finding commands (such as `findKey` and `key list`) *only once during application startup*. Store the returned key object in application memory. When you need this key object later, retrieve it from the cache instead of querying for it with each operation. Querying for it incurs significant performance overhead.
 
 ## Related content
 

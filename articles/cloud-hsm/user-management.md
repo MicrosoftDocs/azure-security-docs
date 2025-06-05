@@ -47,25 +47,25 @@ To prevent the risk of HSM lockout, we recommend that you designate at least two
 
 ## Establish multiple cryptography users with restricted permissions
 
-When responsibilities are distributed among cryptography users, no single user has absolute control over the entire system. You should create multiple cryptography users and restrict the permissions of each accordingly. This task often involves assigning distinct responsibilities and actions to cryptography users.
+When responsibilities are distributed among cryptography users (CUs), no single user has absolute control over the entire system. You should create multiple CUs and restrict the permissions of each accordingly. This task often involves assigning distinct responsibilities and actions to CUs.
 
-For instance, one cryptography user might be tasked with generating and distributing keys, whereas others use these keys within your application.
+For instance, one CU might be tasked with generating and distributing keys, whereas others use these keys within your application.
 
 ## Set up key sharing with multiple cryptography users
 
-Keys can be shared with other cryptography users. However, only the original owner of the key can wrap it. Additional users can use the key but can't perform a plaintext export, even if they have access to a key that the Controlling (CO) user marked as `TRUSTED`.
+Keys can be shared with other CUs. However, only the original owner of the key can wrap it. Additional users can use the key but can't perform a plaintext export, even if they have access to a key that the cryptography officer (CO) user marked as `TRUSTED`.
 
 ## Limit the ability of cryptography users to export keys
 
-The CO user can define a set of attributes to regulate the operations that a cryptography user can execute. These attributes include restricting the cryptography user's capability to wrap/unwrap keys and modify key attributes or derive keys. This limitation helps prevent the cryptography user from extracting private key material from the HSM.
+The CO user can define a set of attributes to regulate the operations that a CU can execute. These attributes include restricting the CU's capability to wrap/unwrap keys and modify key attributes or derive keys. This limitation helps prevent the CU from extracting private key material from the HSM.
 
 You can use the `setUserAttributes` command to configure these attributes.
 
 ## Limit CO control over cryptography users
 
-If you need to restrict CO users from accessing a cryptography user's key material, it's possible to revoke a CO user's management access. For example, you might want to prevent a CO user from both marking a key as trusted and performing a plaintext export by using that key.
+If you need to restrict CO users from accessing a CU's key material, it's possible to revoke a CO user's management access. For example, you might want to prevent a CO user from both marking a key as trusted and performing a plaintext export by using that key.
 
-The `disableUserAccess` command achieves this restriction by revoking a CO user's access to the specified cryptography user. However, a CO user could potentially circumvent this measure by using an earlier backup that lacks this restriction.
+The `disableUserAccess` command achieves this restriction by revoking a CO user's access to the specified CU. However, a CO user could potentially circumvent this measure by using an earlier backup that lacks this restriction.
 
 ## Related content
 

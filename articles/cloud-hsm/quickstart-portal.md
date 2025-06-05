@@ -28,7 +28,9 @@ ms.author: mbaldwin
 To create an Azure Cloud HSM resource via the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
+
 2. Search for and select **Azure Cloud HSMs**.
+
 3. Select **Create**.
 
 :::image type="content" source="./media/cloud-hsm-portal-1.png" lightbox="./media/cloud-hsm-portal-1.png" alt-text="Screenshot of the Azure portal that shows selections for creating a Cloud HSM resource.":::
@@ -38,12 +40,15 @@ To create an Azure Cloud HSM resource via the Azure portal:
 On the **Basics** tab:
 
 1. Select your Azure subscription.
+
 2. Choose an existing resource group or create a new one.
 
    We recommend that you deploy your Cloud HSM resources in a separate resource group from your related client virtual network and virtual machine (VM) resources. This separation provides for better management and security isolation.
+
 3. Specify the HSM **Name**, **Region**, and **Sku** (product tier) values.
 
    The HSM name must be unique. If you specify an HSM resource name that already exists in the chosen region, your deployment will fail.
+
 4. Keep the default **Domain Name Reuse** setting as **Tenant Reuse**. This setting helps prevent malicious subdomain takeover and ensure that the fully qualified domain name (FQDN) can be reused only within your tenant.
 
 :::image type="content" source="./media/cloud-hsm-portal-2.png" lightbox="./media/cloud-hsm-portal-2.png" alt-text="Screenshot of the Cloud HSM basic configuration settings for subscription, resource group, name, region, and product tier.":::
@@ -52,7 +57,7 @@ On the **Basics** tab:
 
 On the **Managed Identity** tab, consider the following options:
 
-- **No identity**: Select this option if you don't plan to use backup and restore operations.
+- **No Identity**: Select this option if you don't plan to use backup and restore operations.
 
    By default, Azure Cloud HSM is set to **No Identity** because it primarily uses password-based authentication with user management handled directly on the HSM. However, for backup and restore operations, you need a managed identity.
 
@@ -71,7 +76,9 @@ For secure connectivity, establish a private endpoint to Azure Cloud HSM. This t
 On the **Networking** tab:
 
 1. Select the subscription that contains your virtual network.
+
 2. Select your virtual network and subnet.
+
 3. Configure the Domain Name System (DNS) integration settings as needed.
 
 :::image type="content" source="./media/cloud-hsm-portal-5.png" lightbox="./media/cloud-hsm-portal-5.png" alt-text="Screenshot of the tab for network configuration, with the section for setting up a private endpoint for secure connectivity to Cloud HSM.":::
@@ -106,8 +113,11 @@ You can't activate or configure Azure Cloud HSM through the portal. You must use
 After you deploy your Cloud HSM resource, follow these steps:
 
 1. Download and install the Azure Cloud HSM SDK from [GitHub](https://github.com/microsoft/MicrosoftAzureCloudHSM/releases) on a VM that has network connectivity to your HSM.
+
 2. Initialize and configure your HSM by following the detailed steps in the [Azure Cloud HSM onboarding guide](onboarding-guide.md).
+
 3. Establish user management with appropriate cryptography officers and users, as described in [User management in Azure Cloud HSM](user-management.md).
+
 4. Implement proper key management practices to help ensure optimal security and performance, as outlined in [Key management in Azure Cloud HSM](key-management.md).
 
 ## Clean up resources
@@ -115,8 +125,10 @@ After you deploy your Cloud HSM resource, follow these steps:
 If you created a resource group solely for this quickstart and you don't need to keep these resources, you can delete the entire resource group:
 
 1. In the Azure portal, go to the resource group that contains your Cloud HSM resources.
+
 2. Select **Delete resource group**.
-3. Enter the resource group name to confirm deletion, and then select **Delete**.
+
+3. Enter the resource group name to confirm the deletion, and then select **Delete**.
 
 ## Troubleshoot common deployment problems
 

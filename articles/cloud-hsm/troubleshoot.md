@@ -343,7 +343,7 @@ The error message indicates that the specified user doesn't exist on one or more
 
 In such cases, a `critical_err_info_` file is generated within the `AzureCloudHSM-ClientSDK` directory. The file shows "Status: HSM Error: This user doesn't exist."
 
-To mitigate this error, you need to create a cryptography user that's replicated across all three nodes of your Azure Cloud HSM deployment. The following example shows starting `azcloudhsm_mgmt_util` and an administrator signing in as a Controlling (CO) user. The example then creates a `cu1` user with the role of a cryptography user.
+To mitigate this error, you need to create a cryptography user (CU) that's replicated across all three nodes of your Azure Cloud HSM deployment. The following example shows starting `azcloudhsm_mgmt_util` and an administrator signing in as a cryptography officer (CO) user. The example then creates a `cu1` user with the role of a CU.
 
 ```bash
 sudo ./azcloudhsm_mgmt_util ./azcloudhsm_mgmt_util.cfg

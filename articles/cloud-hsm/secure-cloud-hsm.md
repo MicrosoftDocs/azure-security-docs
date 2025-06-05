@@ -14,15 +14,15 @@ ms.author: mbaldwin
 
 # Secure your Azure Cloud HSM deployment
 
-Microsoft Azure Cloud HSM provides a high-assurance hardware security module (HSM) solution for protecting cryptographic keys and secure sensitive workloads in the cloud. Implementing security best practices is essential to prevent unauthorized access, maintain operational integrity, and optimize performance.
+Microsoft Azure Cloud HSM provides a high-assurance hardware security module (HSM) solution for protecting cryptographic keys and securing sensitive workloads in the cloud. Implementing security best practices is essential to prevent unauthorized access, maintain operational integrity, and optimize performance.
 
 This article provides guidance on how to best secure your Cloud HSM deployment.
 
 ## Security and compliance  
 
-- **Protect root of trust**: We advise customers to limit access to the Partition Owner of the Application Partition (POTA) private key (also called *PO.key*). The Admin of the Application Partition (AOTA) and POTA private keys are equivalent to root access. They can reset passwords for cryptography officer users in a partition (AOTA for partition 0, POTA for user partitions).
+- **Protect root of trust**: We advise customers to limit access to the Partition Owner of the Application Partition (POTA) private key (also called `PO.key`). The Admin of the Application Partition (AOTA) and POTA private keys are equivalent to root access. They can reset passwords for cryptography officer (CO) users in a partition (AOTA for partition 0, POTA for user partitions).
 
-  PO.key is unnecessary for HSM access during runtime. It's required only for the initial signing of Purchase Order Accruals (POAC) and Controlling (CO) password resets. We recommend storing PO.key offline and performing the initial POAC signing on an offline machine, if possible.
+  `PO.key` is unnecessary for HSM access during runtime. It's required only for the initial signing of Partition Owner Authentication Certificate (POAC) and CO password resets. We recommend storing `PO.key` offline and performing the initial POAC signing on an offline machine, if possible.
 
   > [!IMPORTANT]
   > Customers are accountable for safeguarding their POTA private key. Losing the POTA private key results in the inability to recover CO passwords. We advise customers to securely store their POTA private key and maintain suitable backups.
@@ -43,11 +43,11 @@ Effective user management is crucial for maintaining the security and integrity 
 
 - **Implement secondary admins for lockout prevention**: Designate at least two administrators to prevent HSM lockout in case one password is lost.
 
-- **Establish multiple cryptography users with restricted permissions**: Create multiple cryptography users with distinct responsibilities to prevent any single user from having full control.
+- **Establish multiple cryptography users (CUs) with restricted permissions**: Create multiple CUs with distinct responsibilities to prevent any single user from having full control.
 
-- **Limit the ability of cryptography users to export keys**: Restrict cryptography users from exporting key material by setting appropriate user attributes.
+- **Limit the ability of CUs to export keys**: Restrict CUs from exporting key material by setting appropriate user attributes.
 
-- **Limit CO control over cryptography users**: Use the `disableUserAccess` command to prevent CO users from managing specific cryptography users. However, this command can be bypassed with older backups.
+- **Limit CO control over CUs**: Use the `disableUserAccess` command to prevent CO users from managing specific CUs. However, CO users can bypass this command with older backups.
 
 ## Key management  
 
@@ -87,13 +87,13 @@ Authentication is a crucial aspect of securely accessing and operating within Az
 
   To maintain security and privacy, logs exclude sensitive data (such as key IDs, key names, and user details). They capture HSM operations, time stamps, and metadata, but they can't determine success or failure. They can only log the fact that the operation was executed. This limitation exists because the HSM operation occurs within the inner TLS channel, which is not exposed outside that boundary.  
 
-## Business continuity and disaster recovery (BCDR)  
+## Business continuity and disaster recovery
 
 - **Implement robust backup and disaster recovery**: Azure Cloud HSM provides high availability through clustered HSMs that synchronize keys and policies while automatically migrating partitions during failures. The service supports comprehensive backup and restore operations that preserve all keys, attributes, and role assignments. Backups are secured by HSM-derived keys that Microsoft can't access.
 
-  For disaster recovery:
+  For business continuity and disaster recovery (BCDR):
 
-  - Use managed service identities for authentication.
+  - Use managed identities for authentication.
   - Store backups in private Azure Blob Storage.
   - Implement minimal role-based access control (RBAC) permissions.
   - Disable shared key access.

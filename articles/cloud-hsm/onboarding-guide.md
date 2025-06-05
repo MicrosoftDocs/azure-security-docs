@@ -15,7 +15,7 @@ ms.author: keithp
 
 Microsoft Azure Cloud HSM provides dedicated, FIPS 140-2 Level 3 validated hardware security modules (HSMs) for customers who require high levels of cryptographic key security. To help new users get started, Microsoft published a comprehensive onboarding guide that outlines the steps for provisioning, configuring, and using Azure Cloud HSM effectively.
 
-The onboarding guide is available as a PDF. It includes detailed instructions, best practices, and prerequisites for a smooth setup process. You can access the full guide here: [Azure Cloud HSM onboarding guide (PDF)](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/OnboardingGuides/Azure%20Cloud%20HSM%20Onboarding.pdf).
+The onboarding guide is available as a PDF. It includes detailed instructions, best practices, and prerequisites for a smooth setup process. You can access the full guide here: [Microsoft Azure Cloud HSM Onboarding Guide](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/OnboardingGuides/Azure%20Cloud%20HSM%20Onboarding.pdf).
 
 ## Related content
 
