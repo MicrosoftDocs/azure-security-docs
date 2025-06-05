@@ -104,7 +104,7 @@ sudo ./azcloudhsm_util singlecmd loginHSM -u CU -s $PKCS11_S -p $PKCS11_P genRSA
 
 **Windows:**
 
-```powershell
+```bash
 .\azcloudhsm_util.exe singlecmd loginHSM -u CU -s %PKCS11_S% -p %PKCS11_P% genRSAKeyPair -m 2048 -e 65537 -l %SIGNING_KEY_ID% -id %SIGNING_KEY_ID%
 ```
 
