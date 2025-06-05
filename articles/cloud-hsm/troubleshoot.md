@@ -15,18 +15,20 @@ This article helps you troubleshoot common problems and errors that you might en
 
 ## Common error messages
 
+The following sections answer questions about common errors, including errors related to virtual machines (VMs) and hardware security modules (HSMs).
+
 ### Why am I getting the error message "Certificate ERROR: [Certificate signature failure]" when running azcloudhsm_mgmt_util?
 
-This common error can occur when you take these steps:
+This error can occur when you take these steps:
 
-1. Create and initialize your Azure Cloud HSM deployment from another virtual machine (VM).
+1. Create and initialize your Azure Cloud HSM deployment from another VM.
 1. Attempt to install the Cloud HSM Client SDK and run from another VM that's missing or doesn't have the correct `PO.crt` file from the admin VM that you initialized from.
 
-If you copy the `PO.crt` file from your admin VM to your new VM and rerun `azcloudhsm_mgmt_util`, you should see a successful connection to your hardware security module (HSM).
+If you copy the `PO.crt` file from your admin VM to your new VM and rerun `azcloudhsm_mgmt_util`, you should see a successful connection to your HSM.
 
 ### Why am I getting the error message "INF: shutdown_ssl_socket: SSL_shutdown sent close_notify alert" when running azcloudhsm_client?
 
-This common error can occur when you take these steps:
+This error can occur when you take these steps:
 
 1. Create and initialize your Azure Cloud HSM deployment from another VM.
 1. Attempt to install the Cloud HSM Client SDK and run from another VM that's missing or doesn't have the correct `PO.crt` file from the admin VM that you initialized from.
@@ -113,7 +115,7 @@ The error indicates a challenge in locating or authenticating the credentials re
 
 The `0xa3` error indicates a sign-in failure. The failure might be related to the format of the PIN parameter that you're passing, or the PIN (password) might be incorrect.
 
-The PIN should be provided in the following format: `char pPin[256] = "crypto_user:user123";`. The `pPin` value should follow the structure of "`<username>`:`<password>`". Verify that you're providing the `pPin` value in this format, because any deviation might result in a sign-in failure.
+The PIN should be provided in the following format: `char pPin[256] = "crypto_user:user123";`. The `pPin` value should follow the structure of `<username>`:`<password>`. Verify that you're providing the `pPin` value in this format, because any deviation might result in a sign-in failure.
 
 ### Why am I getting the error message "C_Initialize() failed with 00000005 (Failed to connect socket)"?
 
@@ -182,7 +184,7 @@ cd C:\Program Files\Microsoft Azure Cloud HSM Client SDK
 
 The PKCS#11 library knows how to find the client configuration because you must have a copy of your partition owner certificate (`PO.crt`) on the application server that's running your application and using the PKCS#11 library. In addition to the partition owner certificate:
 
-- You have to update `/azcloudhsm_client/azcloudhsm_client.cfg` on the application server that has the SDK installed to point to your Azure Cloud HSM deployment. (That is, point to `hsm1.chsm-<resourcename>-<uniquestring>.privatelink.cloudhsm.azure.net`.)
+- You have to update `/azcloudhsm_client/azcloudhsm_client.cfg` on the application server that has the SDK installed to point to your Azure Cloud HSM deployment (that is, `hsm1.chsm-<resourcename>-<uniquestring>.privatelink.cloudhsm.azure.net`).
 - The `azcloudhsm_client` tool must be running on the application server that connects to your Azure Cloud HSM deployment.
 - You must specify a PIN within your PKCS#11 application by using the syntax `<username>:<password>`. This PIN is used for calling `C_Login` to your Azure Cloud HSM deployment.
 - You must include `pkcs11_headers/include/cryptoki.h` and `pkcs11_headers/include/pkcs11t.h` in your PKCS#11 application to use the PKCS#11 library for Azure Cloud HSM.
@@ -191,7 +193,7 @@ The PKCS#11 library knows how to find the client configuration because you must 
 
 The `azcloudhsm_pkcs11.dll` file in the Azure Cloud HSM Windows SDK knows how to find the client configuration because you must have a copy of your partition owner certificate (`PO.crt`) on the application server that's running your application and using the PKCS#11 library. In addition to the partition owner certificate:
 
-- You have to update `/azcloudhsm_client/azcloudhsm_client.cfg` on your application server that has the SDK installed to point to your Azure Cloud HSM deployment. (That is, point to `hsm1.chsm-<resourcename>-<uniquestring>.privatelink.cloudhsm.azure.net`.)
+- You have to update `/azcloudhsm_client/azcloudhsm_client.cfg` on the application server that has the SDK installed to point to your Azure Cloud HSM deployment (that is, `hsm1.chsm-<resourcename>-<uniquestring>.privatelink.cloudhsm.azure.net`).
 - The `azcloudhsm_client` tool must run on the application server that connects to your Azure Cloud HSM deployment.
 - You must specify a PIN within your PKCS#11 application by using the syntax `<username>:<password>`. This PIN is used for calling `C_Login` to your Azure Cloud HSM deployment.
 - You must include `pkcs11_headers\include\cryptoki.h` and `pkcs11_headers\include\pkcs11t.h` in your PKCS#11 application to use the PKCS#11 library for Azure Cloud HSM.
@@ -223,6 +225,8 @@ pkcs11-tool.exe --sensitive --private --module "C:\AzureCloudHSM-ClientSDK\Azure
 ```
 
 ## SSL/TLS offloading for Azure Cloud HSM
+
+The following sections answer questions related to offloading of Secure Sockets Layer (SSL) or Transport Layer Security (TLS) processing.
 
 ### Does the OpenSSL engine for Azure Cloud HSM support PKCS#11 for SSL/TLS offloading?
 
@@ -353,7 +357,7 @@ logoutHSM
 loginHSM CU cu1 user1234
 ```
 
-### How do I display the contents of the CRT, CSR, and key files that I created?
+### How do I display the contents of the CRT, CSR, or key file that I created?
 
 To display the contents of the certificate (CRT), certificate signing request (CSR), or key file that you created in your terminal, use this command:
 
@@ -428,7 +432,7 @@ The following sections answer questions related to the Extensible Key Management
 
 ### Does a SQL Server EKM provider for Azure Cloud HSM support symmetric keys?
 
-No. Microsoft SQL Server doesn't support symmetric keys for transparent data encryption. Only asymmetric keys are supported.
+No. SQL Server doesn't support symmetric keys for transparent data encryption. Only asymmetric keys are supported.
 
 ### Does a SQL Server EKM provider for Azure Cloud HSM support SQL Server on Linux?
 
@@ -508,9 +512,9 @@ Supported algorithms are RSA (2048 to 4096 in multiples of 256), ECDSA, and ECDH
 You can connect through your virtual network. Use these tools:
 
 - The `azcloudhsm_mgmt_util` tool executes operations (admin tasks on the HSM). It requires partition cryptography officer (PCO) credentials.
-- The `azcloudhsm_client` tool (client daemon) connects via partition cryptography user (PCU).
+- The `azcloudhsm_client` tool (client daemon) connects via partition cryptography user (PCU) credentials.
 
-The `azcloudhsm_client` and your application need to run on the same VM within the virtual network. The reason is that the application connects to the client process via remote procedure call (RPC).
+The `azcloudhsm_client` tool and your application need to run on the same VM within the virtual network. The reason is that the application connects to the client process via remote procedure call (RPC).
 
 The Azure Cloud HSM service listens on port 443 (`azcloudhsm_client` requests), 444 (`azcloudhsm_mgmt_util` requests), and 445 (server-to-server communication).
 

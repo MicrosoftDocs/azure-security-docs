@@ -41,7 +41,7 @@ The following table describes the number of operations per second for RSA key op
 | Operation | 2,048-bit   | 3,072-bit | 4,096-bit |
 | ------------- | -------------- | ------------ |------------- |
 | Create key | 1 | 1 | 1 |
-| Encrypt | 12,000 | 8,800 | 5500 |
+| Encrypt | 12,000 | 8,800 | 5,500 |
 | Decrypt | 1,100 | 360 | 160 |
 | Wrap | 12,000 | 9,200 | 5,700 |
 | Unwrap | 1,100 | 360 | 160 |
@@ -63,8 +63,8 @@ The following table describes the number of operations per second for EC key ope
 The following table describes the number of operations per second for AES key operations, categorized by key size. In the table:
 
 - Encrypt and decrypt operations assume a 4-KB packet size.
-- Throughput limits for encrypt and decrypt apply to the AES-CBC and AES-GCM algorithms.
-- Throughput limits for wrap and unwrap apply to the AES-KW algorithm.
+- Throughput limits for encrypt and decrypt operations apply to the AES-CBC and AES-GCM algorithms.
+- Throughput limits for wrap and unwrap operations apply to the AES-KW algorithm.
 
 | Operation | 128-bit | 192-bit | 256-bit |
 | ------------- | ------------| ----------- | ----------- |
@@ -79,4 +79,4 @@ The following table describes the number of operations per second for AES key op
 - [Azure Cloud HSM overview](overview.md)
 - [Deploy Azure Cloud HSM by using the Azure portal](quickstart-portal.md)
 - [Deploy Azure Cloud HSM by using Azure PowerShell](quickstart-powershell.md)
-- [Azure Cloud HSM FAQs](faq.yml)
+- [FAQ about Azure Cloud HSM](faq.yml)

@@ -20,7 +20,7 @@ This article provides guidance on how to best secure your Cloud HSM deployment.
 
 ## Security and compliance  
 
-- **Protect root of trust**: We advise customers to limit access to the Partition Owner of the Application Partition (POTA) private key (also called `PO.key`). The Admin of the Application Partition (AOTA) and POTA private keys are equivalent to root access. They can reset passwords for cryptography officer (CO) users in a partition (AOTA for partition 0, POTA for user partitions).
+- **Protect root of trust**: We advise customers to limit access to the Partition Owner of the Application Partition (POTA) private key (`PO.key`). The Admin of the Application Partition (AOTA) and POTA private keys are equivalent to root access. They can reset passwords for cryptography officer (CO) users in a partition (AOTA for partition 0, POTA for user partitions).
 
   `PO.key` is unnecessary for HSM access during runtime. It's required only for the initial signing of Partition Owner Authentication Certificate (POAC) and CO password resets. We recommend storing `PO.key` offline and performing the initial POAC signing on an offline machine, if possible.
 

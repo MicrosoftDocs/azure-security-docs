@@ -61,7 +61,7 @@ The CO user can define a set of attributes to regulate the operations that a CU 
 
 You can use the `setUserAttributes` command to configure these attributes.
 
-## Limit CO control over cryptography users
+## Limit cryptography officer control over cryptography users
 
 If you need to restrict CO users from accessing a CU's key material, it's possible to revoke a CO user's management access. For example, you might want to prevent a CO user from both marking a key as trusted and performing a plaintext export by using that key.
 
