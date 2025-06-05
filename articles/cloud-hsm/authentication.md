@@ -32,7 +32,7 @@ sudo ./azcloudhsm_util singlecmd loginHSM -u CU -s cu1 -p user1234 findKey
 
 ## PKCS#11 authentication
 
-In PKCS#11, you log in by using the `C_Login` API after you open a session by using `C_OpenSession`. You need to use `C_Login` only once per slot (Cloud HSM cluster). After you successfully log in, you can open additional sessions by using `C_OpenSession` without logging in again.
+In PKCS#11, you sign in by using the `C_Login` API after you open a session by using `C_OpenSession`. You need to use `C_Login` only once per slot (Cloud HSM cluster). After you successfully sign in, you can open additional sessions by using `C_OpenSession` without signing in again.
 
 ```c
 char pPin[256] = "cu1:user1234";
@@ -48,9 +48,9 @@ To get code examples for authenticating to PKCS#11, see the [PDF guide for integ
 
 ## JCE authentication
 
-The JCE provider for Azure Cloud HSM offers support for both implicit and explicit login methods. Each is suitable for different use cases.
+The JCE provider for Azure Cloud HSM offers support for both implicit and explicit sign-in methods. Each is suitable for different use cases.
 
-We recommend that you use *implicit login* whenever possible, because the SDK autonomously manages authentication. This method is particularly beneficial if your application disconnects from the cluster and requires reauthentication. Implicit login also facilitates providing credentials to your application during integration with platforms where direct control over application code isn't feasible.
+We recommend that you use implicit sign-in whenever possible, because the SDK autonomously manages authentication. This method is particularly beneficial if your application disconnects from the cluster and requires reauthentication. Implicit sign-in also facilitates providing credentials to your application during integration with platforms where direct control over application code isn't feasible.
 
 ```java
 LoginManager lm = LoginManager.getInstance();
@@ -60,7 +60,7 @@ lm.logout();
 …
 ```
 
-For more details on login methods, refer to the [PDF guide for integrating JCE with Azure Cloud HSM](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20JCE%20Integration%20Guide.pdf).
+For more details on sign-in methods, refer to the [PDF guide for integrating JCE with Azure Cloud HSM](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20JCE%20Integration%20Guide.pdf).
 
 ## OpenSSL authentication
 
@@ -85,15 +85,15 @@ Azure Cloud HSM supports multithreaded applications, but there are consideration
 - **PKCS#11**: Initialize the PKCS#11 library by using `C_Initialize` only once. Assign each thread its own session by using `C_OpenSession`. Avoid using the same session across multiple threads.
 - **JCE**: Initialize the Azure Cloud HSM provider only once. Avoid sharing instances of Service Provider Interface (SPI) objects across threads. For example, use `Cipher`, `Signature`, `Digest`, `Mac`, `KeyFactory`, and `KeyGenerator` objects only within their respective thread contexts.
 
-## Retries for integration of HSM operation
+## Retries for integration of HSM operations
 
 Microsoft might swap out an HSM in your Azure Cloud HSM cluster for operational or maintenance purposes, like if a device fails. To prepare your application for such scenarios, we advise that you add client-side retry logic to all operations sent to your cluster. This setup anticipates that subsequent retries on failed operations, whether due to replacements or temporary maintenance outages, will be successful.
 
 ## Cloud HSM client session handling
 
-The Azure Cloud HSM client logs in and out of all HSM sessions whenever any application performs a login or logout. As a result, if a second application uses `azurecloudhsm_client`, it shares the same sessions and inherits the same login credentials if it's running from the same host. The `azurecloudhsm_client` instance keeps track of which applications attempt to log in. It allows properly logged-in applications to run commands that require authentication.
+The Azure Cloud HSM client signs in and out of all HSM sessions whenever any application performs a sign-in or sign-out. As a result, if a second application uses `azurecloudhsm_client`, it shares the same sessions and inherits the same sign-in credentials if it's running from the same host. The `azurecloudhsm_client` tool keeps track of which applications attempt to sign in. It allows properly signed-in applications to run commands that require authentication.
 
-For example, if you're logged in with `azurecloudhsm_util` and you attempt to run your application or key tool in another terminal window with the Azure Cloud HSM provider, you encounter an error because an active session is already open. You must close the `azurecloudhsm_util` session for your application to create the session with `azurecloudhsm_client` running on your host for it to authenticate.
+For example, if you're signed in with `azurecloudhsm_util` and you attempt to run your application or key tool in another terminal window with the Azure Cloud HSM provider, you encounter an error because an active session is already open. You must close the `azurecloudhsm_util` session for your application to create the session with `azurecloudhsm_client` running on your host for it to authenticate.
 
 ## Related content
 

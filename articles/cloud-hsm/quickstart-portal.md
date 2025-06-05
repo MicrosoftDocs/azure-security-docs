@@ -72,7 +72,7 @@ On the **Networking** tab:
 
 1. Select the subscription that contains your virtual network.
 2. Select your virtual network and subnet.
-3. Configure the DNS integration settings as needed.
+3. Configure the Domain Name System (DNS) integration settings as needed.
 
 :::image type="content" source="./media/cloud-hsm-portal-5.png" lightbox="./media/cloud-hsm-portal-5.png" alt-text="Screenshot of the tab for network configuration, with the section for setting up a private endpoint for secure connectivity to Cloud HSM.":::
 
