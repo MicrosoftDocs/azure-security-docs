@@ -128,7 +128,7 @@ You will need to update the following parameters in the azcloudhsm_application.c
 > [!NOTE]
 > These parameters only apply when running certificate operations in PKCS#11. It is not required for Key Operations.
 
-:::image type="content" source="media/tutorial-certificate-storage/image10.png" alt-text="Screenshot of azcloudhsm_application.cfg file with updated parameters.":::
+<!-- :::image type="content" source="media/tutorial-certificate-storage/image10.png" alt-text="Screenshot of azcloudhsm_application.cfg file with updated parameters."::: -->
 
 #### Validate PKCS#11 Configuration
 
