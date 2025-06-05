@@ -29,7 +29,7 @@ The tutorial shows you how to:
 > * Enable a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) for the Virtual Machine.
 > * Assign permissions to the VM identity.
 
-Before you begin, read [Key Vault basic concepts](basic-concepts.md). 
+Before you begin, read [Key Vault basic concepts](basic-concepts.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -61,7 +61,7 @@ Connect-AzAccount
 
 ## Create a resource group and key vault
 
-[!INCLUDE [Create a resource group and key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/create-resource-group-key-vault.md)]
+[!INCLUDE [Create a resource group and key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/create-resource-group-key-vault-pivot.md)]
 
 ## Populate your key vault with a secret
 
