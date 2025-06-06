@@ -44,7 +44,7 @@ rv = (func_list->C_Login) (session_rw, CKU_USER, (CK_UTF8CHAR_PTR) pPin, n_pin);
 …
 ```
 
-To get code examples for authenticating to PKCS#11, see the [PDF guide for integrating PKCS#11 with Azure Cloud HSM](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20PKCS11%20Integration%20Guide.pdf).
+To get code examples for authenticating to PKCS#11, see the [guide for integrating PKCS#11 with Azure Cloud HSM](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20PKCS11%20Integration%20Guide.pdf).
 
 ## JCE authentication
 
@@ -60,7 +60,7 @@ lm.logout();
 …
 ```
 
-For more details on sign-in methods, refer to the [PDF guide for integrating JCE with Azure Cloud HSM](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20JCE%20Integration%20Guide.pdf).
+For more details on sign-in methods, refer to the [guide for integrating JCE with Azure Cloud HSM](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20JCE%20Integration%20Guide.pdf).
 
 ## OpenSSL authentication
 
@@ -76,7 +76,7 @@ openssl genpkey -algorithm RSA -out private_key.pem -engine azcloudhsm_openssl
 …
 ```
 
-For authentication details with OpenSSL, consult the [PDF guide for integrating OpenSSL with Azure Cloud HSM](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20OpenSSL%20Integration%20Guide.pdf).
+For authentication details with OpenSSL, consult the [guide for integrating OpenSSL with Azure Cloud HSM](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20OpenSSL%20Integration%20Guide.pdf).
 
 ## Multithreading techniques
 
