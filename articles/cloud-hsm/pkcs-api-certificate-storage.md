@@ -355,7 +355,7 @@ From both Azure Portal as well as from your Azure VM you can see the certificate
 
 ### Verify from Azure Portal
 
-:::image type="content" source="./media/pkcs-verify-portal.png" alt-text="Screenshot showing certificate blobs stored in Azure Portal for Azure Cloud HSM." lightbox="pkcs-verify-portal.png":::
+:::image type="content" source="./media/pkcs-verify-portal.png" alt-text="Screenshot showing certificate blobs stored in Azure Portal for Azure Cloud HSM." lightbox="./media/pkcs-verify-portal.png":::
 
 ### Verify from Azure VM with AZ CLI installed
 
