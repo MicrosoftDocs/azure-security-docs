@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 03/31/2025
+ms.date: 05/24/2025
 ms.author: mbaldwin
 #Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
 ---
@@ -86,6 +86,8 @@ Access to vaults takes place through two interfaces or planes. These planes are 
 - The *data plane* allows you to work with the data stored in a key vault. You can add, delete, and modify keys, secrets, and certificates.
 
 Applications access the planes through endpoints. The access controls for the two planes work independently. To grant an application access to use keys in a key vault, you grant data plane access by using Azure RBAC or a Key Vault access policy. To grant a user read access to Key Vault properties and tags, but not access to data (keys, secrets, or certificates), you grant control plane access with Azure RBAC.
+
+## Endpoints for control and data planes
 
 The following table shows the endpoints for the control and data planes.
 
