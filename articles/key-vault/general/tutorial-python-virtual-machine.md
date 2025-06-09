@@ -46,7 +46,7 @@ az login
 
 ## Create a resource group and key vault
 
-[!INCLUDE [Create a resource group and key vault](../includes/key-vault-rg-kv-creation.md)]
+[!INCLUDE [Create a resource group and key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/create-resource-group-key-vault-pivot.md)]
 
 ## Populate your key vault with a secret
 
@@ -94,7 +94,7 @@ Note the system-assigned identity that's displayed in the following code. The ou
 
 ## Assign permissions to the VM identity
 
-[!INCLUDE [Using RBAC to provide access to a key vault](../includes/key-vault-quickstart-rbac.md)]
+[!INCLUDE [Using RBAC to provide access to a key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/rbac/upn-secrets-user-pivot.md)]
 
 ## Log in to the VM
 
