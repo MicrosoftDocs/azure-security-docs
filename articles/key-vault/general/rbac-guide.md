@@ -28,7 +28,9 @@ For more information, see [Azure role-based access control (Azure RBAC)](/azure/
 
 Our recommendation is to use a vault per application per environment (Development, Pre-Production, and Production) with roles assigned at the key vault scope.
 
-Assigning roles on individual keys, secrets and certificates should be avoided. An exception is a scenario where individual secrets must be shared between multiple applications; for example, where one application needs to access data from another application.
+Assigning roles on individual keys, secrets and certificates is not recommended. Exceptions include scenarios where:
+- individual secrets must be accessed by individual users; for example, where users must read their SSH private key to authenticate to a virtual machine using [Azure Bastion](/azure/bastion/bastion-overview).
+- individual secrets must be shared between multiple applications; for example, where one application needs to access data from another application.
 
 More about Azure Key Vault management guidelines, see:
 
