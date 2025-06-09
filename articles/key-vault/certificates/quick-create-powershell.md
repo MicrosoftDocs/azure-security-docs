@@ -31,7 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Give your user account permissions to manage certificates in Key Vault
 
-[!INCLUDE [Using RBAC to provide access to a key vault](../includes/rbac/upn-certificate-officer-powershell.md)]
+[!INCLUDE [Using RBAC to provide access to a key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/rbac/upn-certificate-officer-powershell.md)]
 
 ## Add a certificate to Key Vault
 
