@@ -13,7 +13,7 @@ ms.custom: certificate-storage, pkcs11, azure-blob-storage, managed-identity
 
 ---
 
-# Azure Cloud HSM Certificate Storage
+# Azure Cloud HSM certificate storage
 
 Azure Cloud HSM supports certificate storage via PKCS#11, enabling applications to manage X.509 certificates alongside keys. This tutorial provides step-by-step instructions for setting up certificate storage prerequisites, including Azure Blob Storage and Managed Identity configuration. For details on using PKCS#11 APIs to manage certificates, refer to the [PKCS#11 API for Certificate Storage](pkcs-api-certificate-storage.md).
 
@@ -21,7 +21,7 @@ Azure Cloud HSM supports certificate storage via PKCS#11, enabling applications 
 
 The following prerequisites are required to support certificate storage with Azure Cloud HSM. Reference [the Azure Cloud HSM Onboarding Guide for SDK Installation and configuration](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/OnboardingGuides/Azure%20Cloud%20HSM%20Onboarding.pdf) if HSM deployment is not complete.
 
-### System Requirements
+### System requirements
 
 - Azure Cloud HSM resource is deployed, initialized, and configured.
 - Azure Cloud HSM Client SDK
@@ -29,7 +29,7 @@ The following prerequisites are required to support certificate storage with Azu
 - Known address of your HSM "hsm1.chsm-\<resourcename\>-\<uniquestring\>.privatelink.cloudhsm.azure.net".
 - Knowledge of Crypto User credentials
 
-### Certificate Storage Prerequisites
+### Certificate storage prerequisites
 
 - Azure Blob Storage Account
 - Managed Identity to access storage
@@ -37,7 +37,7 @@ The following prerequisites are required to support certificate storage with Azu
 > [!IMPORTANT]
 > Customers using any version of Windows Server should install the most recent version of Visual C++ Redistributable.
 
-## Setting up an Azure Blob Storage Account
+## Setting up an Azure Blob Storage account
 
 Before you can use the PKCS#11 API for Certificate Storage, you must create an Azure Blob Storage Account. This storage account will hold the PKCS#11 certificate objects, which are saved and retrieved in JWS format.
 
@@ -54,7 +54,7 @@ Before you can use the PKCS#11 API for Certificate Storage, you must create an A
 
    :::image type="content" source="./media/certificate-storage-container-url.png" lightbox="./media/certificate-storage-container-url.png" alt-text="Screenshot of container URL in Azure Blob Storage properties.":::
 
-## Setting up User Assigned Managed Identity to access storage
+## Setting up user assigned managed identity to access storage
 
 The next prerequisite for certificate storage is to create a **User Assigned Managed Identity**. This identity is granted the necessary role to access the Azure Blob Storage Account and is used to authenticate from your designated Admin VM.
 
@@ -78,9 +78,9 @@ The next prerequisite for certificate storage is to create a **User Assigned Man
 
    :::image type="content" source="./media/certificate-storage-user-assigned-managed-identity.png" lightbox="./media/certificate-storage-user-assigned-managed-identity.png" alt-text="Screenshot of VM Identity settings in Azure portal.":::
 
-## Configure the Azure Cloud HSM Client Tools
+## Configure the Azure Cloud HSM client tools
 
-### Create a Storage Signing Key
+### Create a storage signing key
 
 The following azcloudhsm_util command can be used to create an RSA signing key pair for PKCS#11 certificate storage in a single step. By default, it generates a 2048-bit RSA key with a public exponent of 65537. You may modify the key size as needed. Before running the command, ensure that the azcloudhsm_client is running as a service in the background.
 
@@ -139,9 +139,9 @@ Node id 2 status: 0x00000000 : HSM Return: SUCCESS
 Node id 3 status: 0x00000000 : HSM Return: SUCCESS
 ```
 
-### Update Configuration Files
+### Update configuration files
 
-#### Update Application Config
+#### Update application config
 
 You will need to update the following parameters in the azcloudhsm_application.cfg file.
 
@@ -165,7 +165,7 @@ CERTSTORAGE_SIGNING_KEYID=hjgrwvvofe
 UAMI_CLIENT_ID=25e659cc-6570-4f3b-9617-adfbc84b2565  
 ```
 
-#### Validate PKCS#11 Configuration
+#### Validate PKCS#11 configuration
 
 Please refer to the PKCS#11 Integration Guide for sample-based validation of your PKCS#11 configuration.
 
@@ -182,7 +182,7 @@ chsmVMAdmin@AdminVM:/opt/azurecloudhsm$ sudo ./cust_p11_app -s cu1 -p user1234 -
 Add Your PKCS#11 Code Here
 ```
 
-## Next Steps
+## Next steps
 
 - [PKCS#11 API for Certificate Storage](pkcs-api-certificate-storage.md): Learn how to use PKCS#11 APIs to manage X.509 certificates in Azure Cloud HSM.
 - [Overview of Azure Cloud HSM](overview.md)

@@ -13,11 +13,11 @@ ms.custom: pkcs11, certificate-management, x509-certificates, azure-cloud-hsm
 
 ---
 
-# PKCS#11 API for Certificate Storage
+# PKCS#11 API for certificate storage
 
 Azure Cloud HSM provides robust support for certificate storage using the PKCS#11 API. This tutorial explains how to use the PKCS#11 API to manage X.509 certificates, including creating, copying, deleting, and retrieving certificate attributes. For a detailed overview of certificate storage setup, including prerequisites and configuration, refer to the [Azure Cloud HSM Certificate Storage Tutorial](tutorial-certificate-storage.md).
 
-## Using PKCS#11 API for X.509 Certificate Storage
+## Using PKCS#11 API for X.509 certificate storage
 
 The following existing APIs in PKCS#11 for Azure Cloud HSM have been expanded to add support for X.509 Public Key Certificates.
 
@@ -345,17 +345,17 @@ Below is a snippet showing how to call C_FindObjectsFinal to complete and clean 
 
 Azure Cloud HSM includes sample application code to help validate certificate storage, available in the Azure Cloud HSM Certificate Storage Integration Guide within the Azure Cloud HSM SDK on GitHub.
 
-## Certificate Structure in Storage
+## Certificate structure in storage
 
-Verify Certificates in Storage
+### Verify certificates in storage
 
 After a successful call to the C_CreateObject() API, the newly created certificate object will appear in your Azure Blob Storage account, as specified in the azcloudhsm_application.cfg file. The blob will be named using the format pkcs11_certificate_\<ObjectHandle\>, as shown below. Certificate objects are assigned object handles ranging from 0xFFF00000 to 0xFFFFFFFF (decimal range: 4,293,918,720 to 4,294,967,295), allowing support for up to 1,048,575 certificates.
 
-From both Azure Portal as well as from your Azure VM you can see the certificates stored.
+From both Azure portal as well as from your Azure VM you can see the certificates stored.
 
-### Verify from Azure Portal
+### Verify from Azure portal
 
-:::image type="content" source="./media/pkcs-verify-portal.png" alt-text="Screenshot showing certificate blobs stored in Azure Portal for Azure Cloud HSM." lightbox="./media/pkcs-verify-portal.png":::
+:::image type="content" source="./media/pkcs-verify-portal.png" alt-text="Screenshot showing certificate blobs stored in Azure portal for Azure Cloud HSM." lightbox="./media/pkcs-verify-portal.png":::
 
 ### Verify from Azure VM with AZ CLI installed
 
@@ -393,7 +393,7 @@ pkcs11_certificate_4293918722        BlockBlob    Hot          1305      applica
 pkcs11_certificate_4293918723        BlockBlob    Hot          3452      application/octet-stream  2025-05-16T22:56:28+00:00
 ```
 
-Downloading the blob or viewing it in the Azure Portal and inspecting its contents will reveal that the certificate is stored as a JWS (JSON Web Signature) token. The token follows the standard JWS structure, which is divided into the following format:
+Downloading the blob or viewing it in the Azure portal and inspecting its contents will reveal that the certificate is stored as a JWS (JSON Web Signature) token. The token follows the standard JWS structure, which is divided into the following format:
 
 ```bash
 chsmVMAdmin@AdminVM:~$ az storage blob list \
@@ -425,7 +425,7 @@ chsmVMAdmin@AdminVM:~$ cat pkcs11_certificate_4293918723.crt
 eyJhbgGciOiJSUzUxMiIsImp... (base64-encoded certificate continues)
 ```
 
-## Next Steps
+## Next steps
 
 - [Azure Cloud HSM Certificate Storage Tutorial](tutorial-certificate-storage.md): Learn how to set up certificate storage prerequisites and configure Azure Blob Storage for PKCS#11 applications.
 - [Overview of Azure Cloud HSM](overview.md)
