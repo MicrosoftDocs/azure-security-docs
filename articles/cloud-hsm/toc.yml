@@ -19,6 +19,9 @@ items:
     href: tutorial-operation-event-logging.md
   - name: Backup and restore
     href: backup-restore.md
+  - name: Certificate storage
+    href: tutorial-certificate-storage.md
+
 
 - name: How-to guides
   items:
@@ -45,6 +48,8 @@ items:
   items:
   - name: Troubleshooting
     href: troubleshoot.md
+  - name: PKCS#11 API for certificate storage
+    href: pkcs-api-certificate-storage.md
   - name: Azure Cloud HSM SDK
     href: https://github.com/microsoft/MicrosoftAzureCloudHSM 
   - name: Azure Cloud HSM Onboarding Guide
