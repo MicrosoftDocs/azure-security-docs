@@ -255,7 +255,7 @@ The command will return this JSON snippet:
 }
 ```
 
-[!INCLUDE [Using RBAC to provide access to a key vault](../includes/key-vault-quickstart-rbac.md)]
+[!INCLUDE [Using RBAC to provide access to a key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/rbac/upn-secrets-user-pivot.md)]
 
 ### Modify the app to access your key vault
 

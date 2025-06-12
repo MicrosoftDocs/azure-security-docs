@@ -91,7 +91,7 @@ This quickstart uses the Azure Identity library with Azure CLI or Azure PowerShe
 
 ### Grant access to your key vault
 
-[!INCLUDE [Using RBAC to provide access to a key vault](../includes/rbac/upn-certificate-officer-cli.md)]
+[!INCLUDE [Using RBAC to provide access to a key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/rbac/upn-certificate-officer-cli.md)]
 
 ## Create the sample code
 
