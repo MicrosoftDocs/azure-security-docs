@@ -45,7 +45,7 @@ sections:
       - question: |
           Does ACL offers querying on attributes other than the receipt/transaction ID?
         answer: |
-          Besides querying with the receipt/transaction ID, ACL offers historical querying capability to read the data from Genesis(or within a range) for a specific key using the collection ID (also called the sub ledger ID) parameter. We would be interested to know what other attributes would be useful for querying, as we are gathering input on for our product roadmap.
+          Besides querying with the receipt/transaction ID, ACL offers historical querying capability to read the data from Genesis(or within a range) for a specific key using the collection ID (also called the sub ledger ID) parameter. Additionally, the latest preview versions adds the ability to write and query data using tags which can be thought of as keys within a collection. We would be interested to know what other attributes would be useful for querying, as we are gathering input on for our product roadmap.
 
       - question: |
           Is the data on disk encrypted separately? If so, where are the keys stored?
