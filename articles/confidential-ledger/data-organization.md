@@ -93,7 +93,7 @@ append_result = ledger_client.create_ledger_entry(entry=sample_entry, collection
 
 Retrieving entries can be done as before:
 ```python
-# Get all entries in a collection which has a specified tag
+# Get all entries in a collection which has a specified tag. Only one tag is supported per query during a Read operation. 
 list_result = ledger_client.list_ledger_entries(collection_id="icecream-flavors", tag="chocolate")
 for entry in list_result:
     print(f"Transaction ID: {entry['transactionId']}")
