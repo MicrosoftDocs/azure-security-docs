@@ -29,6 +29,15 @@ Transaction ID: 2.10
 
 The transaction ID in the response can be used to retrieve the entry or do other operations such retrieve the receipt, etc. It's also possible to get a list of entries by providing a range of Transaction ID parameters similar to the following example.
 ```python
+# Get the latest transaction to the ledger default/global table
+get_result = ledger_client.get_current_ledger_entry()
+```
+```python
+# Get one transaction
+get_result = ledger_client.get_ledger_entry(transaction_id=2.10)
+```
+```python
+# Get a list of transactions within a range
 list_result = ledger_client.list_ledger_entries(from_transaction_id=2.1, to_transaction_id=2.50)
 ```
 
@@ -48,6 +57,10 @@ append_result = ledger_client.create_ledger_entry(entry=sample_entry, collection
 ```
 The transaction can then be retrieved by specifying the `collection ID` and the `transaction ID` during a read operation or by specifying just the collection ID in `list` operations.
 
+```python
+# Get the latest transaction in a collection
+get_result = ledger_client.get_ledger_entry(collection_id="icecream-flavors")
+```
 ```python
 # Get one specific in a collection
 list_result = ledger_client.get_ledger_entry(transaction_id=2.68,collection_id="icecream-flavors")
