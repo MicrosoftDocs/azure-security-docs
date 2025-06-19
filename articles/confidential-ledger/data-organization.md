@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 06/15/2025
 ---
 # Data Organization
-Data written to Azure Ledger is mainly orgnanized in two ways:
+Data written to Azure Ledger is organized in two primary ways:
 - Transaction ID 
-- Collection ID (or SubLedger ID)
+- Collection ID (or Subledger ID)
 
 ## Transaction ID
-Every write that is succesfully written to the ledger generates a transaction ID. This is returned in the response from the write endpoint.
-Using python sdk, it looks like the following:
+Every write that is written to the ledger generates a transaction ID, which is returned in the response from the write endpoint.
+It looks like the following example:
 
 ```python
 sample_entry = {"contents": "Hello world!"}
@@ -27,17 +27,17 @@ Response:
 Transaction ID: 2.10
 ```
 
-This transaction ID can be used to retrieve the entry or do other operations such retrieve the receipt, etc. It is also possible to get a list of entries by providing a range of Transaction IDs.
+The transaction ID in the response can be used to retrieve the entry or do other operations such retrieve the receipt, etc. It's also possible to get a list of entries by providing a range of Transaction ID parameters similar to the following example.
 ```python
 list_result = ledger_client.list_ledger_entries(from_transaction_id=2.1, to_transaction_id=2.50)
 ```
 
 ## Collection ID
-A Collection ID (also known as SubLedger ID) in Azure Ledger refers to a user-specified optional key for entries written to the ledger. It provides a way to add a key or marker to the data being written which can then used to retrieve the data later on. 
+A Collection ID (also known as Subledger ID) in Azure Ledger refers to a user-specified optional key for entries written to the ledger. It provides a way to add a key or marker to the data being written which can then be used to retrieve the data later on. 
 
-Collection ID are strings and have no size limit. This means the maximum size is dependant on the http request size limit. 
+Collection ID are strings and have no size limit at this time. It means the maximum size is dependent on the http request size limit. 
 
-It can used as unique keys for every entry written to the ledger or to group a subsection of entries.  
+They can be utilized as unique keys for every entry written to the ledger or to group a subsection of entries.  
 If no collection ID is specified, the data is written to the default table (known as subledger-0).
 
 In order to specify a collection ID, the user has to specify the collectionID parameter during write request.
@@ -46,7 +46,7 @@ In order to specify a collection ID, the user has to specify the collectionID pa
 sample_entry = {"contents": "Secret recipe ingredients...!"}
 append_result = ledger_client.create_ledger_entry(entry=sample_entry, collection_id="icecream-flavors")
 ```
-This can then be retrieved by specifying the `collection ID` and the `transaction ID` during a read operation or by specifying just the collection ID in `list` operations.
+The transaction can then be retrieved by specifying the `collection ID` and the `transaction ID` during a read operation or by specifying just the collection ID in `list` operations.
 
 ```python
 # Get one specific in a collection
@@ -60,16 +60,16 @@ for entry in list_result:
     print(f"Contents: {entry['contents']}")
 ```
 
-It is also possible to get a list of entries within a collection by specifying both the collection ID and a range of Transaction ID parameters.
+It's also possible to get a list of entries within a collection by specifying both the collection ID and a range of Transaction ID parameters.
 
 ```python
 list_result = ledger_client.list_ledger_entries(from_transaction_id=2.1, to_transaction_id=2.50, collection_id="icecream-flavors")
 ```
 
 ### Tags (Preview)
-Adding Tags to a collection is a preview feature available with the latest preview versions of the ledger. Upgrade to sdk version `2024-12-09-preview` or newer for access.
+Adding Tags to a collection is a preview feature available with the latest preview versions of the ledger. Upgrade to SDK versions based on REST API Reference `2024-12-09-preview` or newer for access.
 
-They allow for improved management of data within a collection by acting as secondary keys to a collection of data. Tags are limited to 64 character strings. Each collection can support at least 5 tags. If you are hitting an error on the number of tags supported, please reach out to Support.  
+They allow for improved management of data within a collection by acting as secondary keys to a collection of data. Tags are limited to 64 character strings. Each transaction can support upto five tags. If an error is seen related to the number of tags supported and a higher limit is required, reach out to Support.  
 
 In order to use tags inside a collection, tags parameter needs to be specified. 
 
