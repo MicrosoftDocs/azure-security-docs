@@ -392,7 +392,7 @@
     },
     {
       "source_path_from_root": "/articles/defender-for-cloud/enable-permissions-management#feature-matrix",
-      "redirect_url": "/azure/defender-for-cloud/permissions-management#feature-matrix",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-cloud/tenant-wide-permissions-management",
       "redirect_document_id": true
     },
     {
@@ -439,6 +439,26 @@
       "source_path_from_root": "/articles/defender-for-cloud/analyze-with-copilot.md",
       "redirect_url": "/azure/defender-for-cloud/summarize-with-copilot",
       "redirect_document_id": true
+    },        
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/episode-forty-three.md",
+      "redirect_url": "/azure/defender-for-cloud/episode-forty-four",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/episode-seventeen.md",
+      "redirect_url": "/azure/defender-for-cloud/episode-eighteen",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/enable-permissions-management.md",
+      "redirect_url": "/azure/defender-for-cloud/permissions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/permissions-management.md",
+      "redirect_url": "/azure/defender-for-cloud/permissions",
+      "redirect_document_id": false
     }
   ]
 }
