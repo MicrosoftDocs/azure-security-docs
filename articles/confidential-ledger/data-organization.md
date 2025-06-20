@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.date: 06/15/2025
 ---
 # Data Organization
+
 Data is structured within the Azure Confidential Ledger in two primary ways: Transaction ID, and Collection ID (or Subledger ID). Each write operation generates a unique transaction ID, which can be used to retrieve entries, obtain receipts, or perform other operations. Collection IDs are user-specified keys (optional) that help group or uniquely identify entries, allowing for more efficient data retrieval and management. This page shows examples demonstrating how to create ledger entries, retrieve entries by transaction ID, and list entries within a range or collection. 
 
 Additionally, data can be organized and queried through Tags (in Preview) that allows for improved data management within collections by acting as secondary keys. 
