@@ -26,6 +26,8 @@ items:
   items:
   - name: Architecture
     href: architecture.md
+  - name: Data organization
+    href: data-organization.md
   - name: User Authentication and authorization 
     items:
     - name: Authentication with Microsoft Entra ID
