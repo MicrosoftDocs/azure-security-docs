@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.service: azure-dedicated-hsm
 ms.date: 04/14/2025
 ms.author: mbaldwin
+ms.custom: sfi-image-nochange
 #Customer intent: As an IT Pro, Decision maker I am looking for key storage capability within Azure Cloud that meets FIPS 140-2 Level 3 certification and that gives me exclusive access to the hardware.
 ---
 

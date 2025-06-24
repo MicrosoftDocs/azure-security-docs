@@ -8,8 +8,8 @@ ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: how-to
 ms.date: 08/25/2024
-ms.author: mbaldwin 
-ms.custom: devx-track-azurepowershell
+ms.author: mbaldwin
+ms.custom: devx-track-azurepowershell, sfi-image-nochange
 ---
 
 # Integrating Key Vault with Integrated Certificate Authorities

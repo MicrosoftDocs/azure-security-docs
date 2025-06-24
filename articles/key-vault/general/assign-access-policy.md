@@ -3,7 +3,7 @@ title: Assign an Azure Key Vault access policy (CLI)
 description: How to use the Azure CLI to assign a Key Vault access policy to a security principal or application identity.
 services: key-vault
 author: msmbaldwin
-ms.custom: devx-track-azurecli, has-azure-ad-ps-ref
+ms.custom: devx-track-azurecli, has-azure-ad-ps-ref, sfi-image-nochange
 
 ms.service: azure-key-vault
 ms.subservice: general

@@ -7,6 +7,7 @@ ms.topic: concept-article
 author: davinune
 ms.author: davinune
 ms.date: 05/30/2025
+ms.custom: sfi-ga-nochange
 ---
 
 # Key sovereignty, availability, performance, and scalability in Managed HSM

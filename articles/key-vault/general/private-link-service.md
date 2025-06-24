@@ -7,8 +7,7 @@ ms.date: 04/17/2025
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.custom: devx-track-azurecli
-
+ms.custom: devx-track-azurecli, sfi-image-nochange
 ---
 
 # Integrate Key Vault with Azure Private Link

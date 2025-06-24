@@ -6,7 +6,7 @@ ms.service: azure-payment-hsm
 author: msmbaldwin
 ms.author: mbaldwin
 ms.topic: tutorial
-ms.custom: devx-track-azurepowershell, devx-track-arm-template, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-arm-template, devx-track-azurecli, sfi-image-nochange
 ms.date: 04/14/2025
 ---
 

@@ -10,6 +10,7 @@ ms.topic: overview
 ms.date: 04/14/2025
 
 ms.author: mbaldwin
+ms.custom: sfi-image-nochange
 ---
 
 # About Azure Key Vault certificates
