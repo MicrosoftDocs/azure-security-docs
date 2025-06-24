@@ -105,6 +105,8 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
+          - text: Organize data in the ledger
+            url: data-organization.md
           - text: Enabling data integrity for data sources
             url: overview.md#enabling-data-integrity-for-data-sources
           - text: Store your data securely in SQL Server with Ledger
