@@ -1,6 +1,6 @@
 ---
 title: Defender for Cloud Planning and Operations Guide
-description: This document helps you to plan before adopting Defender for Cloud and considerations regarding daily operations.
+description: This document helps you plan, adopt, and implement Defender for Cloud.
 ms.topic: concept-article
 ms.date: 05/16/2024
 #customer intent: As a reader, I want to understand the planning and operations considerations for adopting Defender for Cloud and how it fits into my organization's security requirements and cloud management model. I also want to learn about the security roles, access controls, security policies, data collection, and storage in Defender for Cloud.
@@ -8,59 +8,60 @@ ms.date: 05/16/2024
 
 # Planning and operations guide
 
-This guide is for information technology (IT) professionals, IT architects, information security analysts, and cloud administrators planning to use Defender for Cloud.
+This guide is for Information Technology (IT) professionals, including: Architects, Analysts, and Cloud Administrators planning to implement Defender for Cloud.
 
 ## Planning guide
 
-This guide provides the background for how Defender for Cloud fits into your organization's security requirements and cloud management model. It's important to understand how different individuals or teams in your organization use the service to meet secure development and operations, monitoring, governance, and incident response needs. The key areas to consider when planning to use Defender for Cloud are:
+This guide describes how Defender for Cloud aligns with your organization's specific security requirements and cloud management model. Before starting, it's essential to first understand how each individual and team  utilizes the service to meet their unique needs for secure monitoring, governance, incident response, development and operations. The key areas to consider when planning to use Defender for Cloud are:
 
-- Security Roles and Access Controls
+- Security Roles
+- Access Controls
 - Security Policies and Recommendations
 - Data Collection and Storage
 - Onboarding non-Azure resources
 - Ongoing Security Monitoring
 - Incident Response
 
-In the next section, you'll learn how to plan for each one of those areas and apply those recommendations based on your requirements.
+In the next section, you'll learn how to plan for each one of those areas and implement changes based on your specific needs.
 
 > [!NOTE]
-> Read [Defender for Cloud common questions](faq-general.yml) for a list of common questions that can also be useful during the designing and planning phase.
+> Read [Defender for Cloud common questions](faq-general.yml) for a list of common questions that can also be useful during the designing and planning phases.
 
-## Security roles and access controls
+## Security roles
 
-Depending on the size and structure of your organization, multiple individuals and teams might use Defender for Cloud to perform different security-related tasks. In the following diagram, you have an example of fictitious personas and their respective roles and security responsibilities:
+Depending on the size and structure of your organization, multiple individuals and teams might use Defender for Cloud to perform different security-related tasks. In the following diagram, you have an example of several fictitious personas and their respective roles and security responsibilities:
 
 :::image type="content" source="./media/defender-for-cloud-planning-and-operations-guide/defender-for-cloud-planning-and-operations-guide-fig01-new.png" alt-text="Conceptual image that shows various people and the roles that they fill in an organization.":::
 
-Defender for Cloud enables these individuals to meet these various responsibilities. For example:
+*Below, the guide will outline how, through Defender for Cloud, each user can accomplish their unique goals:*
 
 **Jeff (Workload Owner)**
 
-- Manage a cloud workload and its related resources.
+- Manage cloud workload and related resources.
 
-- Responsible for implementing and maintaining protections in accordance with company security policy.
+- Implement and maintain protections in accordance with the company security policy.
 
 **Ellen (CISO/CIO)**
 
-- Responsible for all aspects of security for the company.
+- Oversee all aspects of security for the company.
 
-- Wants to understand the company's security posture across cloud workloads.
+- Understand the company's security posture across cloud workloads.
 
-- Needs to be informed of major attacks and risks.
+- Informed of major attacks and risks.
 
 **David (IT Security)**
 
-- Sets company security policies to ensure the appropriate protections are in place.
+- Ensure all appropriate protections are in line with company security policies.
 
-- Monitors compliance with policies.
+- Monitor compliance via policies.
 
-- Generates reports for leadership or auditors.
+- Generate reports for leadership or auditors.
 
 **Judy (Security Operations)**
 
-- Monitors and responds to security alerts at any time.
+- Monitor and respond to security alerts at any time.
 
-- Escalates to Cloud Workload Owner or IT Security Analyst.
+- Escalate issues to Cloud Workload Owner or IT Security Analyst.
 
 **Sam (Security Analyst)**
 
@@ -68,13 +69,15 @@ Defender for Cloud enables these individuals to meet these various responsibilit
 
 - Work with Cloud Workload Owner to apply remediation.
 
-Defender for Cloud uses [Azure role-based access control (Azure Role-based access control)](/azure/role-based-access-control/role-assignments-portal), which provides [built-in roles](/azure/role-based-access-control/built-in-roles) that can be assigned to users, groups, and services in Azure. When a user opens Defender for Cloud, they only see information related to resources they have access to. Which means the user is assigned the role of Owner, Contributor, or Reader to the subscription or resource group that a resource belongs to. In addition to these roles, there are two roles specific to Defender for Cloud:
+## Access Controls
 
-- **Security reader**: a user that belongs to this role is able to view only Defender for Cloud configurations, which include recommendations, alerts, policy, and health, but it won't be able to make changes.
+Defender for Cloud uses [Azure role-based access control (Azure Role-based access control)](/azure/role-based-access-control/role-assignments-portal), which provides [built-in roles](/azure/role-based-access-control/built-in-roles) that can be assigned to users, groups, and services in Azure. Roles include Owner, Contributor, or Reader to the subscription or resource group. When a user opens Defender for Cloud, they only see information related to resources they have access to. In Addition to these roles, there are two roles specific to Defender for Cloud:
 
-- **Security admin**: same as security reader but it can also update the security policy, dismiss recommendations and alerts.
+- **Security reader**: Users assigned to this role can only view Defender for Cloud configurations, which include recommendations, alerts, policies, and health, but  cannot make changes.
 
-The personas explained in the previous diagram need these Azure Role-based access control roles:
+- **Security admin**: Users assigned to this role can view Defender for Cloud configurations but will also have access to update security policies or to dismiss recommendations and alerts.
+
+*Below, the guide will outline how the personas from the previous diagram can implement Azure Role-based access control roles:*
 
 **Jeff (Workload Owner)**
 
