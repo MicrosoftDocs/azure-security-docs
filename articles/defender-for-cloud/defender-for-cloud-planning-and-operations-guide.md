@@ -8,7 +8,7 @@ ms.date: 05/16/2024
 
 # Planning and operations guide
 
-This guide is for Information Technology (IT) professionals, including: Architects, Analysts, and Cloud Administrators planning to implement Defender for Cloud.
+This is a guide for implementing Defender for Cloud and is written to support Information Technology (IT) professionals in planning their adoption process.
 
 ## Planning guide
 
@@ -16,18 +16,17 @@ This guide describes how Defender for Cloud aligns with your organization's spec
 
 - Security Roles
 - Access Controls
-- Security Policies and Recommendations
+- Security Policies
 - Data Collection and Storage
-- Onboarding non-Azure resources
+- Onboarding Non-Azure Resources
 - Ongoing Security Monitoring
 - Incident Response
 
-In the next section, you'll learn how to plan for each one of those areas and implement changes based on your specific needs.
-
+  
 > [!NOTE]
 > Read [Defender for Cloud common questions](faq-general.yml) for a list of common questions that can also be useful during the designing and planning phases.
 
-## Security roles
+## Security Roles
 
 Depending on the size and structure of your organization, multiple individuals and teams might use Defender for Cloud to perform different security-related tasks. In the following diagram, you have an example of several fictitious personas and their respective roles and security responsibilities:
 
@@ -73,9 +72,9 @@ Depending on the size and structure of your organization, multiple individuals a
 
 Defender for Cloud uses [Azure role-based access control (Azure Role-based access control)](/azure/role-based-access-control/role-assignments-portal), which provides [built-in roles](/azure/role-based-access-control/built-in-roles) that can be assigned to users, groups, and services in Azure. Roles include Owner, Contributor, or Reader to the subscription or resource group. When a user opens Defender for Cloud, they only see information related to resources they have access to. In Addition to these roles, there are two roles specific to Defender for Cloud:
 
-- **Security reader**: Users assigned to this role can only view Defender for Cloud configurations, which include recommendations, alerts, policies, and health, but  cannot make changes.
+- **Security Reader**: Users assigned to this role can only view Defender for Cloud configurations, which include recommendations, alerts, policies, and health, but  cannot make changes.
 
-- **Security admin**: Users assigned to this role can view Defender for Cloud configurations but will also have access to update security policies or to dismiss recommendations and alerts.
+- **Security Admin**: Users assigned to this role can view Defender for Cloud configurations; in addition, they will also have access to update security policies or to dismiss recommendations and alerts.
 
 *Below, the guide will outline how the personas from the previous diagram can implement Azure Role-based access control roles:*
 
@@ -116,7 +115,7 @@ When planning access control using Azure Role-Based Access Control for Defender 
 > [!NOTE]
 > We recommend you assign the least permissive role needed for users to complete their tasks. For example, users who only need to view information about the security state of resources but not take action, such as applying recommendations or editing policies, should be assigned the Reader role.
 
-## Security policies and recommendations
+## Security Policies
 
 A security policy defines the desired configuration of your workloads and ensures compliance with company or regulatory security requirements. In Defender for Cloud, you can define policies for your Azure subscriptions, which can be tailored to the type of workload or the sensitivity of data.
 
@@ -132,7 +131,7 @@ Defenders for Cloud policies contain the following components:
 > [!NOTE]
 > Specifying a security contact ensures that Azure can notify the right person in your organization if a security incident occurs. Read [Provide security contact details in Defender for Cloud](configure-email-notifications.md) for more information on how to enable this.
 
-### Security policies definitions and recommendations
+### Security Policy Definitions
 
 Defender for Cloud automatically creates a default security policy for each of your Azure subscriptions. You can edit the policy in Defender for Cloud or use Azure Policy to create new definitions, define more policies, and assign policies across management groups. Management groups can represent the entire organization or a business unit within the organization. You can monitor policy compliance across these management groups.
 
@@ -144,7 +143,7 @@ Before configuring security policies, review each of the [security recommendatio
 
 - Determine who in your organization is responsible for monitoring and remediating new recommendations.
 
-## Data collection and storage
+## Data Collection and Storage
 
 Defender for Cloud uses the Log Analytics agent and the Azure Monitor Agent to collect security data from your virtual machines. [Data collected](monitoring-components.md) from this agent is stored in your Log Analytics workspaces.
 
@@ -174,11 +173,11 @@ If your agent reports to a workspace other than the **default** workspace, any D
 > [!NOTE]
 > Microsoft makes strong commitments to protect the privacy and security of this data. Microsoft adheres to strict compliance and security guidelines, from coding to operating a service. For more information about data handling and privacy, read [Defender for Cloud Data Security](data-security.md).
 
-## Monitor non-Azure resources
+## Monitor Non-Azure Resources
 
 Defender for Cloud monitors the security posture of your non-Azure computers, but to accomplish this, you first need to onboard the resources. Read [Onboard non-Azure computers](quickstart-onboard-machines.md) for more information on how to onboard non-Azure resources.
 
-## Ongoing security monitoring
+## Ongoing Security Monitoring
 
 > [!NOTE]
 > Only proceed to this step once you've completed the initial configuration and application of Defender for Cloud recommendations. 
@@ -194,7 +193,7 @@ When you first begin using Defender for Cloud for your current Azure environment
 
 It's also strongly encouraged to include visiting the threat intelligence option as part of your daily security operations. There you can identify security threats against the environment, such as identifying if a particular computer is part of a botnet.
 
-### Monitor for new or changed resources
+### Monitoring for New or Changed Resources
 
 Most Azure environments are dynamic, with resources regularly being created, spun up or down, reconfigured, and changed. Defender for Cloud helps ensure that you continue to have visibility into the security state of these new resources.
 
@@ -202,11 +201,11 @@ When you add new resources (VMs, SQL DBs) to your Azure environment, Defender fo
 
 You should also regularly monitor existing resources for configuration changes that could have created security risks, drift from recommended baselines, and security alerts.
 
-### Harden access and applications
+### Harden Access and Applications
 
 As part of your security operations, you should also adopt preventative measures to restrict access to VMs, and control the applications running on VMs. By locking down inbound traffic to your Azure VMs, you're reducing the exposure to attacks, and at the same time providing easy access to connect to VMs when needed. Use [just-in-time VM access](just-in-time-access-usage.yml) access feature to harden access to your VMs.
 
-## Incident response
+## Incident Response
 
 Defender for Cloud detects and alerts you to threats as they occur. Organizations should monitor for new security alerts and take action as needed to investigate further or remediate the attack. For more information on how Defender for Cloud threat protection works, read [How Defender for Cloud detects and responds to threats](alerts-overview.md#detect-threats).
 
@@ -238,7 +237,7 @@ Once you identify the compromised system, you can run a previously created [work
 > [!NOTE]
 > Read [Managing and responding to security alerts in Defender for Cloud](managing-and-responding-alerts.yml) for more information on how to use Defender for Cloud capabilities to assist you during your Incident Response process.
 
-## Next steps
+## Next Steps
 
 In this document, you learned how to plan for Defender for Cloud adoption. Learn more about Defender for Cloud:
 
