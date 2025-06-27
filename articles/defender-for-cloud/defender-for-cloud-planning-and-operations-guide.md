@@ -95,30 +95,30 @@ Defender for Cloud uses [Azure role-based access control (Azure Role-based acces
 
 - Subscription Reader or Security Reader to view alerts.
 
-- Subscription Owner/Contributor or Security Admin required to dismiss alerts.
+- Subscription Owner/Contributor or Security Admin to dismiss alerts.
 
 **Sam (Security Analyst)**
 
 - Subscription Reader to view alerts.
 
-- Subscription Owner/Contributor required to dismiss alerts.
+- Subscription Owner/Contributor to dismiss alerts.
 
 - Access to the workspace might be required.
 
 Some other important information to consider:
 
-- Only subscription Owners/Contributors and Security Admins can edit a security policy.
+- Only subscription Owners/Contributors and Security Admins can edit security policies.
 
-- Only subscription and resource group Owners and Contributors can apply security recommendations for a resource.
+- Only subscription and resource group Owners and Contributors can apply security recommendations for resources.
 
-When planning access control using Azure Role-based access control for Defender for Cloud, make sure you understand who in your organization needs access to Defender for Cloud the tasks they'll perform. Then you can configure Azure Role-based access control properly.
+When planning access control using Azure Role-Based Access Control for Defender for Cloud, ensure you understand who in your organization needs access to Defender for Cloud and the specific tasks they'll perform. Only using that information can you properly configure Azure Role-based access control.
 
 > [!NOTE]
-> We recommend that you assign the least permissive role needed for users to complete their tasks. For example, users who only need to view information about the security state of resources but not take action, such as applying recommendations or editing policies, should be assigned the Reader role.
+> We recommend you assign the least permissive role needed for users to complete their tasks. For example, users who only need to view information about the security state of resources but not take action, such as applying recommendations or editing policies, should be assigned the Reader role.
 
 ## Security policies and recommendations
 
-A security policy defines the desired configuration of your workloads and helps ensure compliance with company or regulatory security requirements. In Defender for Cloud, you can define policies for your Azure subscriptions, which can be tailored to the type of workload or the sensitivity of data.
+A security policy defines the desired configuration of your workloads and ensures compliance with company or regulatory security requirements. In Defender for Cloud, you can define policies for your Azure subscriptions, which can be tailored to the type of workload or the sensitivity of data.
 
 Defenders for Cloud policies contain the following components:
 
@@ -130,7 +130,7 @@ Defenders for Cloud policies contain the following components:
 - [Pricing tier](defender-for-cloud-introduction.md#protect-cloud-workloads): with or without Microsoft Defender for Cloud's Defender plans, which determine which Defender for Cloud features are available for resources in scope (can be specified for subscriptions and workspaces using the API).
 
 > [!NOTE]
-> Specifying a security contact ensures that Azure can reach the right person in your organization if a security incident occurs. Read [Provide security contact details in Defender for Cloud](configure-email-notifications.md) for more information on how to enable this recommendation.
+> Specifying a security contact ensures that Azure can notify the right person in your organization if a security incident occurs. Read [Provide security contact details in Defender for Cloud](configure-email-notifications.md) for more information on how to enable this.
 
 ### Security policies definitions and recommendations
 
@@ -152,13 +152,13 @@ Defender for Cloud uses the Log Analytics agent and the Azure Monitor Agent to c
 
 When automatic provisioning is enabled in the security policy, the [data collection agent](monitoring-components.md) is installed on all supported Azure VMs and any new supported VMs that are created. If the VM or computer already has the Log Analytics agent installed, Defender for Cloud uses the current installed agent. The agent's process is designed to be non-invasive and have minimal effect on VM performance.
 
-If at some point you want to disable Data Collection, you can turn it off in the security policy. However, because the Log Analytics agent might be used by other Azure management and monitoring services, the agent won't be uninstalled automatically when you turn off data collection in Defender for Cloud. You can manually uninstall the agent if needed.
+Disabling Data Collection is found in the security policy settings. However, because the Log Analytics agent might be used by other Azure management and monitoring services, the agent won't be uninstalled automatically when you turn off data collection in Defender for Cloud. If necissairy, the agent can be manually uninstalled.
 
 ### Workspace
 
-A workspace is an Azure resource that serves as a container for data. You or other members of your organization might use multiple workspaces to manage different sets of data that is collected from all or portions of your IT infrastructure.
+A workspace is an Azure resource that serves as a container for data. You or other members of your organization might use multiple workspaces to manage different sets of data collected from all or portions of your IT infrastructure.
 
-Data collected from the Log Analytics agent can be stored in an existing Log Analytics workspace associated with your Azure subscription or a new workspace.
+Data collected from the Log Analytics agent can be stored in an existing Log Analytics workspace associated with your Azure subscription or with a new workspace.
 
 In the Azure portal, you can browse to see a list of your Log Analytics workspaces, including any created by Defender for Cloud. A related resource group is created for new workspaces. Resources are created according to this naming convention:
 
@@ -166,12 +166,13 @@ In the Azure portal, you can browse to see a list of your Log Analytics workspac
 
 - Resource Group: *DefaultResourceGroup-[geo]*
 
-For workspaces created by Defender for Cloud, data is retained for 30 days. For existing workspaces, retention is based on the workspace pricing tier. If you want, you can also use an existing workspace.
+For workspaces created by Defender for Cloud, data is retained for 30 days. 
+For existing workspaces, retention is based on the workspace pricing tier.
 
 If your agent reports to a workspace other than the **default** workspace, any Defender for Cloud [Defender plans](defender-for-cloud-introduction.md#protect-cloud-workloads) that you've enabled on the subscription should also be enabled on the workspace.
 
 > [!NOTE]
-> Microsoft makes strong commitments to protect the privacy and security of this data. Microsoft adheres to strict compliance and security guidelines—from coding to operating a service. For more information about data handling and privacy, read [Defender for Cloud Data Security](data-security.md).
+> Microsoft makes strong commitments to protect the privacy and security of this data. Microsoft adheres to strict compliance and security guidelines, from coding to operating a service. For more information about data handling and privacy, read [Defender for Cloud Data Security](data-security.md).
 
 ## Onboard non-Azure resources
 
