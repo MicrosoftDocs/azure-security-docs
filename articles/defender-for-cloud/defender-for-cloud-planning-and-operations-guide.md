@@ -152,7 +152,7 @@ Defender for Cloud uses the Log Analytics agent and the Azure Monitor Agent to c
 
 When automatic provisioning is enabled in the security policy, the [data collection agent](monitoring-components.md) is installed on all supported Azure VMs and any new supported VMs that are created. If the VM or computer already has the Log Analytics agent installed, Defender for Cloud uses the current installed agent. The agent's process is designed to be non-invasive and have minimal effect on VM performance.
 
-Disabling Data Collection is found in the security policy settings. However, because the Log Analytics agent might be used by other Azure management and monitoring services, the agent won't be uninstalled automatically when you turn off data collection in Defender for Cloud. If necissairy, the agent can be manually uninstalled.
+Disabling Data Collection is found in the security policy settings. However, because the Log Analytics agent might be used by other Azure management and monitoring services, the agent won't be uninstalled automatically when you turn off data collection in Defender for Cloud. If necessary, the agent can be manually uninstalled.
 
 ### Workspace
 
@@ -174,36 +174,37 @@ If your agent reports to a workspace other than the **default** workspace, any D
 > [!NOTE]
 > Microsoft makes strong commitments to protect the privacy and security of this data. Microsoft adheres to strict compliance and security guidelines, from coding to operating a service. For more information about data handling and privacy, read [Defender for Cloud Data Security](data-security.md).
 
-## Onboard non-Azure resources
+## Monitor non-Azure resources
 
-Defender for Cloud can monitor the security posture of your non-Azure computers but you need to first onboard these resources. Read [Onboard non-Azure computers](quickstart-onboard-machines.md) for more information on how to onboard non-Azure resources.
+Defender for Cloud monitors the security posture of your non-Azure computers, but to accomplish this, you first need to onboard the resources. Read [Onboard non-Azure computers](quickstart-onboard-machines.md) for more information on how to onboard non-Azure resources.
 
 ## Ongoing security monitoring
 
-After initial configuration and application of Defender for Cloud recommendations, the next step is considering Defender for Cloud operational processes.
+> [!NOTE]
+> Only proceed to this step once you've completed the initial configuration and application of Defender for Cloud recommendations. 
 
-The Defender for Cloud Overview provides a unified view of security across all your Azure resources and any non-Azure resources you've connected. This example shows an environment with many issues to resolve:
+The Defender for Cloud dashboard provides a unified view of security across all your Azure resources and any non-Azure resources you've onboarded. This example shows an environment with many issues to resolve:
 
 :::image type="content" source="./media/overview-page/overview.png" alt-text="Screenshot of Defender for Cloud's overview page." lightbox="./media/overview-page/overview.png":::
 
 > [!NOTE]
 > Defender for Cloud doesn't interfere with your normal operational procedures. Defender for Cloud passively monitors your deployments and provides recommendations based on the security policies you enabled.
 
-When you first opt in to use Defender for Cloud for your current Azure environment, make sure that you review all recommendations, which can be done in the **Recommendations** page.
+When you first begin using Defender for Cloud for your current Azure environment, remember to review all recommendations on the **Recommendations** page.
 
-Plan to visit the threat intelligence option as part of your daily security operations. There you can identify security threats against the environment, such as identify if a particular computer is part of a botnet.
+It's also strongly encouraged to include visiting the threat intelligence option as part of your daily security operations. There you can identify security threats against the environment, such as identifying if a particular computer is part of a botnet.
 
 ### Monitor for new or changed resources
 
-Most Azure environments are dynamic, with resources regularly being created, spun up or down, reconfigured, and changed. Defender for Cloud helps ensure that you have visibility into the security state of these new resources.
+Most Azure environments are dynamic, with resources regularly being created, spun up or down, reconfigured, and changed. Defender for Cloud helps ensure that you continue to have visibility into the security state of these new resources.
 
-When you add new resources (VMs, SQL DBs) to your Azure environment, Defender for Cloud automatically discovers these resources and begins to monitor their security, including PaaS web roles and worker roles. If Data Collection is enabled in the [Security Policy](tutorial-security-policy.md), more monitoring capabilities are enabled automatically for your virtual machines.
+When you add new resources (VMs, SQL DBs) to your Azure environment, Defender for Cloud automatically discovers these resources and begins to monitor their security, including PaaS web roles and worker roles. If Data Collection is enabled in the [Security Policy](tutorial-security-policy.md), additional monitoring capabilities are enabled automatically for your virtual machines.
 
 You should also regularly monitor existing resources for configuration changes that could have created security risks, drift from recommended baselines, and security alerts.
 
 ### Harden access and applications
 
-As part of your security operations, you should also adopt preventative measures to restrict access to VMs, and control the applications that are running on VMs. By locking down inbound traffic to your Azure VMs, you're reducing the exposure to attacks, and at the same time providing easy access to connect to VMs when needed. Use [just-in-time VM access](just-in-time-access-usage.yml) access feature to hardening access to your VMs.
+As part of your security operations, you should also adopt preventative measures to restrict access to VMs, and control the applications running on VMs. By locking down inbound traffic to your Azure VMs, you're reducing the exposure to attacks, and at the same time providing easy access to connect to VMs when needed. Use [just-in-time VM access](just-in-time-access-usage.yml) access feature to harden access to your VMs.
 
 ## Incident response
 
@@ -214,25 +215,25 @@ Although we can't create your Incident Response plan, we'll use Microsoft Azure 
 :::image type="content" source="./media/defender-for-cloud-planning-and-operations-guide/defender-for-cloud-planning-and-operations-guide-fig5-1.png" alt-text="Stages of the incident response in the cloud lifecycle.":::
 
 > [!NOTE]
-> You can use the National Institute of Standards and Technology (NIST) [Computer Security Incident Handling Guide](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) as a reference to assist you building your own.
+> You can use the National Institute of Standards and Technology (NIST) [Computer Security Incident Handling Guide](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) as a reference to assist you in building your own.
 
 You can use Defender for Cloud alerts during the following stages:
 
-- **Detect**: identify a suspicious activity in one or more resources.
+- **Detect**: Identify a suspicious activity in one or more resources.
 
-- **Assess**: perform the initial assessment to obtain more information about the suspicious activity.
+- **Assess**: Perform an initial assessment to obtain more information about the suspicious activity.
 
-- **Diagnose**: use the remediation steps to conduct the technical procedure to address the issue.
+- **Diagnose**: Use remediation steps to conduct the technical procedure to address the issue.
 
-Each Security Alert provides information that can be used to better understand the nature of the attack and suggest possible mitigations. Some alerts also provide links to either more information or to other sources of information within Azure. You can use the information provided for further research and to begin mitigation, and you can also search security-related data that is stored in your workspace.
+Each Security Alert provides information that can be used to better understand the nature of the attack and suggest possible mitigations. Some alerts also provide links to either more information or to other sources of information within Azure to support your further research and to begin the specific mitigation steps needed. In addition, you can search security-related data that is stored in your workspace.
 
 The following example shows a suspicious RDP activity taking place:
 
 :::image type="content" source="./media/defender-for-cloud-planning-and-operations-guide/defender-for-cloud-planning-and-operations-guide-fig5-ga.png" alt-text="Screenshot of a suspicious activity report while it is taking place.":::
 
-This page shows the details regarding the time that the attack took place, the source hostname, the target VM and also gives recommendation steps. In some circumstances, the source information of the attack might be empty. Read [Missing Source Information in Defender for Cloud alerts](/archive/blogs/azuresecurity/missing-source-information-in-azure-security-center-alerts) for more information about this type of behavior.
+In addition to the details of an attack, this page shows the source hostname, the target VM, and provides recommended steps. In some circumstances, the source information of the attack might be empty. Read [Missing Source Information in Defender for Cloud alerts](/archive/blogs/azuresecurity/missing-source-information-in-azure-security-center-alerts) for more information about this type of behavior.
 
-Once you identify the compromised system, you can run a [workflow automation](workflow-automation.yml) that was previously created. Workflow automations are a collection of procedures that can be executed from Defender for Cloud once triggered by an alert.
+Once you identify the compromised system, you can run a previously created [workflow automation](workflow-automation.yml). Workflow automations are a collection of procedures that can be executed from Defender for Cloud once triggered by an alert.
 
 > [!NOTE]
 > Read [Managing and responding to security alerts in Defender for Cloud](managing-and-responding-alerts.yml) for more information on how to use Defender for Cloud capabilities to assist you during your Incident Response process.
