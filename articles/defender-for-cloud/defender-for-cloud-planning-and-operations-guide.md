@@ -1,19 +1,20 @@
 ---
 title: Defender for Cloud Planning and Operations Guide
-description: This document helps you to plan before adopting Defender for Cloud and considerations regarding daily operations.
+description: This document helps you plan for adopting Defender for Cloud and considerations regarding daily operations.
 ms.topic: concept-article
 ms.date: 05/16/2024
 #customer intent: As a reader, I want to understand the planning and operations considerations for adopting Defender for Cloud and how it fits into my organization's security requirements and cloud management model. I also want to learn about the security roles, access controls, security policies, data collection, and storage in Defender for Cloud.
 ---
 
-# Planning and operations guide
+# Planning and Operations Guide
 
-This guide is for information technology (IT) professionals, IT architects, information security analysts, and cloud administrators planning to use Defender for Cloud.
+This guide is for IT professionals, IT architects, security analysts, and cloud administrators planning to use Microsoft Defender for Cloud.
 
-## Planning guide
+## Planning Guide
 
-This guide provides the background for how Defender for Cloud fits into your organization's security requirements and cloud management model. It's important to understand how different individuals or teams in your organization use the service to meet secure development and operations, monitoring, governance, and incident response needs. The key areas to consider when planning to use Defender for Cloud are:
+This guide outlines how Defender for Cloud fits into your organization's security strategy and cloud management model. Understanding how individuals and teams interact with the service helps support secure development, monitoring, governance, and incident response.
 
+Key areas to consider:
 - Security Roles and Access Controls
 - Security Policies and Recommendations
 - Data Collection and Storage
@@ -24,9 +25,9 @@ This guide provides the background for how Defender for Cloud fits into your org
 In the next section, you'll learn how to plan for each one of those areas and apply those recommendations based on your requirements.
 
 > [!NOTE]
-> Read [Defender for Cloud common questions](faq-general.yml) for a list of common questions that can also be useful during the designing and planning phase.
+> Read [Defender for Cloud common questions](faq-general.yml) for FAQs relevant during the planning phase.
 
-## Security roles and access controls
+## Security Roles and Access Controls
 
 Depending on the size and structure of your organization, multiple individuals and teams might use Defender for Cloud to perform different security-related tasks. In the following diagram, you have an example of fictitious personas and their respective roles and security responsibilities:
 
@@ -66,13 +67,16 @@ Defender for Cloud enables these individuals to meet these various responsibilit
 
 - Investigate attacks.
 
-- Work with Cloud Workload Owner to apply remediation.
+- Work with the Cloud Workload Owner to apply remediation.
 
-Defender for Cloud uses [Azure role-based access control (Azure Role-based access control)](/azure/role-based-access-control/role-assignments-portal), which provides [built-in roles](/azure/role-based-access-control/built-in-roles) that can be assigned to users, groups, and services in Azure. When a user opens Defender for Cloud, they only see information related to resources they have access to. Which means the user is assigned the role of Owner, Contributor, or Reader to the subscription or resource group that a resource belongs to. In addition to these roles, there are two roles specific to Defender for Cloud:
+Defender for Cloud uses [Azure role-based access control (Azure Role-based access control)](/azure/role-based-access-control/role-assignments-portal), which provides [built-in roles](/azure/role-based-access-control/built-in-roles) that can be assigned to users, groups, and services in Azure.
 
-- **Security reader**: a user that belongs to this role is able to view only Defender for Cloud configurations, which include recommendations, alerts, policy, and health, but it won't be able to make changes.
 
-- **Security admin**: same as security reader but it can also update the security policy, dismiss recommendations and alerts.
+When a user opens Defender for Cloud, they only see information related to resources they have access to. This means the user is assigned the role of Owner, Contributor, or Reader to the subscription or resource group that a resource belongs to. In addition to these roles, there are two roles specific to Defender for Cloud:
+
+- **Security reader**: a user that belongs to this role is able to view only Defender for Cloud configurations, which include recommendations, alerts, policy, and health, but they won't be able to make changes.
+
+- **Security admin**: same as security reader, but it can also update the security policy, dismiss recommendations, and alerts.
 
 The personas explained in the previous diagram need these Azure Role-based access control roles:
 
@@ -108,7 +112,7 @@ Some other important information to consider:
 
 - Only subscription and resource group Owners and Contributors can apply security recommendations for a resource.
 
-When planning access control using Azure Role-based access control for Defender for Cloud, make sure you understand who in your organization needs access to Defender for Cloud the tasks they'll perform. Then you can configure Azure Role-based access control properly.
+When planning access control using Azure Role-based access control for Defender for Cloud, make sure you understand who in your organization needs access to Defender for Cloud and the tasks they'll perform. Then you can configure Azure Role-based access control properly.
 
 > [!NOTE]
 > We recommend that you assign the least permissive role needed for users to complete their tasks. For example, users who only need to view information about the security state of resources but not take action, such as applying recommendations or editing policies, should be assigned the Reader role.
