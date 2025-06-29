@@ -10,7 +10,7 @@ Microsoft Defender for Cloud monitors your cloud environment to detect vulnerabi
 
 ## Security roles and access controls
 
-Defender for Cloud uses [Azure role-based access control (RBAC)](/azure/role-based-access-control/role-assignments-portal) to manage permissions. Azure RBAC assigns built-in roles at the subscription or resource group level that determine what resources users can access and the actions they can perform. 
+Defender for Cloud uses [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) to manage permissions. Azure RBAC assigns built-in roles at the subscription or resource group level that determine what resources users can access and the actions they can perform. 
 
 Defender for Cloud also includes two additional roles to manage access within the service:
 
