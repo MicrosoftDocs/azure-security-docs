@@ -6,112 +6,35 @@ ms.date: 05/16/2024
 #customer intent: As a reader, I want to understand the planning and operations considerations for adopting Defender for Cloud and how it fits into my organization's security requirements and cloud management model. I also want to learn about the security roles, access controls, security policies, data collection, and storage in Defender for Cloud.
 ---
 
-# Planning and operations guide
-
-This guide is for information technology (IT) professionals, IT architects, information security analysts, and cloud administrators planning to use Defender for Cloud.
-
-## Planning guide
-
-This guide provides the background for how Defender for Cloud fits into your organization's security requirements and cloud management model. It's important to understand how different individuals or teams in your organization use the service to meet secure development and operations, monitoring, governance, and incident response needs. The key areas to consider when planning to use Defender for Cloud are:
-
-- Security roles and access controls
-- Security policies and recommendations
-- Data collection and storage
-- Onboarding non-Azure resources
-- Ongoing security monitoring
-- Incident response
-
-In the next section, you'll learn how to plan for each one of those areas and apply those recommendations based on your requirements.
-
-> [!NOTE]
-> Read [Defender for Cloud common questions](faq-general.yml) for a list of common questions that can also be useful during the designing and planning phase.
+Microsoft Defender for Cloud monitors your cloud environment to detect vulnerabilities, enforce security policies, and provide recommendations. This article provides information for IT professionals, security architects, and cloud administrators to plan, deploy, and operate Defender for Cloud.
 
 ## Security roles and access controls
 
-Depending on the size and structure of your organization, multiple individuals and teams might use Defender for Cloud to perform different security-related tasks. In the following diagram, you have an example of fictitious personas and their respective roles and security responsibilities:
+Defender for Cloud uses [Azure role-based access control (RBAC)](/azure/role-based-access-control/role-assignments-portal) to manage permissions. Azure RBAC assigns built-in roles at the subscription or resource group level that determine what resources users can access and the actions they can perform. 
+
+Defender for Cloud also includes two additional roles to manage access within the service:
+
+- **Security Reader**: Can view Defender for Cloud configurations, including recommendations, alerts, policies, and health status, but cannot make changes.
+
+- **Security Admin**: Has all Security Reader permissions and can also update security policies and dismiss alerts or recommendations.
 
 :::image type="content" source="./media/defender-for-cloud-planning-and-operations-guide/defender-for-cloud-planning-and-operations-guide-fig01-new.png" alt-text="Conceptual image that shows various people and the roles that they fill in an organization.":::
 
-Defender for Cloud enables these individuals to meet these various responsibilities. For example:
 
-**Jeff (Workload Owner)**
+| Persona                | Responsibilities                                                                                       | Azure RBAC Role Assignments                                  |
+|------------------------|----------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
+| **Jeff (Workload Owner)**       | - Manage a cloud workload and related resources<br>- Implement and maintain protections per company policy | Subscription Owner or Subscription Contributor           |
+| **Ellen (CISO/CIO)**            | - Oversee all security aspects<br>- Understand security posture<br>- Be informed of major attacks and risks | Subscription Owner or Subscription Contributor or Security Admin |
+| **David (IT Security)**         | - Set security policies<br>- Monitor compliance<br>- Generate reports for leadership or auditors      | Subscription Owner or Subscription Contributor or Security Admin |
+| **Judy (Security Operations)** | - Monitor and respond to security alerts<br>- Escalate as needed                                   | Subscription Reader or Security Reader (view alerts) or Subscription Owner or Subscription Contributor or Security Admin (dismiss alerts) |
+| **Sam (Security Analyst)**      | - Investigate attacks<br>- Collaborate on remediation                                               | Subscription Reader (view alerts) or Subscription Owner or Subscription Contributor (dismiss alerts); Access to workspace may be required |
 
-- Manage a cloud workload and its related resources.
-
-- Responsible for implementing and maintaining protections in accordance with company security policy.
-
-**Ellen (CISO/CIO)**
-
-- Responsible for all aspects of security for the company.
-
-- Wants to understand the company's security posture across cloud workloads.
-
-- Needs to be informed of major attacks and risks.
-
-**David (IT Security)**
-
-- Sets company security policies to ensure the appropriate protections are in place.
-
-- Monitors compliance with policies.
-
-- Generates reports for leadership or auditors.
-
-**Judy (Security Operations)**
-
-- Monitors and responds to security alerts at any time.
-
-- Escalates to Cloud Workload Owner or IT Security Analyst.
-
-**Sam (Security Analyst)**
-
-- Investigate attacks.
-
-- Work with Cloud Workload Owner to apply remediation.
-
-Defender for Cloud uses [Azure role-based access control (Azure Role-based access control)](/azure/role-based-access-control/role-assignments-portal), which provides [built-in roles](/azure/role-based-access-control/built-in-roles) that can be assigned to users, groups, and services in Azure. When a user opens Defender for Cloud, they only see information related to resources they have access to. Which means the user is assigned the role of Owner, Contributor, or Reader to the subscription or resource group that a resource belongs to. In addition to these roles, there are two roles specific to Defender for Cloud:
-
-- **Security reader**: a user that belongs to this role is able to view only Defender for Cloud configurations, which include recommendations, alerts, policy, and health, but it won't be able to make changes.
-
-- **Security admin**: same as security reader but it can also update the security policy, dismiss recommendations and alerts.
-
-The personas explained in the previous diagram need these Azure Role-based access control roles:
-
-**Jeff (Workload Owner)**
-
-- Resource Group Owner/Contributor.
-
-**Ellen (CISO/CIO)**
-
-- Subscription Owner/Contributor or Security Admin.
-
-**David (IT Security)**
-
-- Subscription Owner/Contributor or Security Admin.
-
-**Judy (Security Operations)**
-
-- Subscription Reader or Security Reader to view alerts.
-
-- Subscription Owner/Contributor or Security Admin required to dismiss alerts.
-
-**Sam (Security Analyst)**
-
-- Subscription Reader to view alerts.
-
-- Subscription Owner/Contributor required to dismiss alerts.
-
-- Access to the workspace might be required.
-
-Some other important information to consider:
-
-- Only subscription Owners/Contributors and Security Admins can edit a security policy.
-
-- Only subscription and resource group Owners and Contributors can apply security recommendations for a resource.
-
-When planning access control using Azure Role-based access control for Defender for Cloud, make sure you understand who in your organization needs access to Defender for Cloud the tasks they'll perform. Then you can configure Azure Role-based access control properly.
+> **Important:**  
+> - Only subscription Owners/Contributors and Security Admins can edit security policies.  
+> - Only subscription and resource group Owners and Contributors can apply security recommendations for a resource.
 
 > [!NOTE]
-> We recommend that you assign the least permissive role needed for users to complete their tasks. For example, users who only need to view information about the security state of resources but not take action, such as applying recommendations or editing policies, should be assigned the Reader role.
+> It is recommended to assign the minimum permissions necessary.
 
 ## Security policies and recommendations
 
@@ -119,12 +42,13 @@ A security policy defines the desired configuration of your workloads and helps 
 
 Defenders for Cloud policies contain the following components:
 
-- [Data collection](monitoring-components.md): agent provisioning and data collection settings.
+- [Data collection](monitoring-components.md): agent provisioning and data collection settings
 
-- [Security policy](tutorial-security-policy.md): an [Azure Policy](/azure/governance/policy/overview) that determines which controls are monitored and recommended by Defender for Cloud. You can also use Azure Policy to create new definitions, define more policies, and assign policies across management groups.
+- [Security policy](tutorial-security-policy.md): an [Azure Policy](/azure/governance/policy/overview) that determines which controls are monitored and recommended by Defender for Cloud. You can also use Azure Policy to create new definitions, define more policies, and assign policies across management groups
 
-- [Email notifications](configure-email-notifications.md): security contacts and notification settings.
-- [Pricing tier](defender-for-cloud-introduction.md#protect-cloud-workloads): with or without Microsoft Defender for Cloud's Defender plans, which determine which Defender for Cloud features are available for resources in scope (can be specified for subscriptions and workspaces using the API).
+- [Email notifications](configure-email-notifications.md): security contacts and notification settings
+
+- [Pricing tier](defender-for-cloud-introduction.md#protect-cloud-workloads): with or without Microsoft Defender for Cloud's Defender plans, which determine which Defender for Cloud features are available for resources in scope (can be specified for subscriptions and workspaces using the API)
 
 > [!NOTE]
 > Specifying a security contact ensures that Azure can reach the right person in your organization if a security incident occurs. Read [Provide security contact details in Defender for Cloud](configure-email-notifications.md) for more information on how to enable this recommendation.
@@ -187,7 +111,7 @@ The Defender for Cloud Overview provides a unified view of security across all y
 
 When you first opt in to use Defender for Cloud for your current Azure environment, make sure that you review all recommendations, which can be done in the **Recommendations** page.
 
-Plan to visit the threat intelligence option as part of your daily security operations. There you can identify security threats against the environment, such as identify if a particular computer is part of a botnet.
+Include the threat intelligence option in your daily security operations. It helps you detect threats, such as whether a computer is part of a botnet.
 
 ### Monitor for new or changed resources
 
@@ -199,7 +123,7 @@ You should also regularly monitor existing resources for configuration changes t
 
 ### Harden access and applications
 
-As part of your security operations, you should also adopt preventative measures to restrict access to VMs, and control the applications that are running on VMs. By locking down inbound traffic to your Azure VMs, you're reducing the exposure to attacks, and at the same time providing easy access to connect to VMs when needed. Use [just-in-time VM access](just-in-time-access-usage.yml) access feature to hardening access to your VMs.
+As part of your security operations, you should also adopt preventative measures to restrict access to VMs, and control the applications that are running on VMs. By locking down inbound traffic to your Azure VMs, you're reducing the exposure to attacks, and at the same time providing easy access to connect to VMs when needed. Use [just-in-time VM access](just-in-time-access-usage.yml) access feature to harden access to your VMs.
 
 ## Incident response
 
