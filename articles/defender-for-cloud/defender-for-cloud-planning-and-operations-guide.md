@@ -10,9 +10,9 @@ ms.date: 05/16/2024
 
 This is a guide for implementing Defender for Cloud and is written to support Information Technology (IT) professionals in planning their adoption process.
 
-## Planning guide
+## Overview
 
-This guide describes how Defender for Cloud aligns with your organization's specific security requirements and cloud management model. Before starting, it's essential to first understand how each individual and team  utilizes the service to meet their unique needs for secure monitoring, governance, incident response, development and operations. The key areas to consider when planning to use Defender for Cloud are:
+This guide describes how Defender for Cloud aligns with your organization's specific security requirements and cloud management model. Before starting, it's essential to understand how each individual and each team  utilizes the service to meet their unique needs for secure monitoring, governance, incident response, and development and operations. The key areas to consider when planning to use Defender for Cloud are:
 
 - Security Roles
 - Access Controls
@@ -38,7 +38,7 @@ Depending on the size and structure of your organization, multiple individuals a
 
 - Manage cloud workload and related resources.
 
-- Implement and maintain protections in accordance with the company security policy.
+- Implement and maintain protections per the company security policy.
 
 **Ellen (CISO/CIO)**
 
@@ -46,7 +46,7 @@ Depending on the size and structure of your organization, multiple individuals a
 
 - Understand the company's security posture across cloud workloads.
 
-- Informed of major attacks and risks.
+- Informed on major attacks and risks.
 
 **David (IT Security)**
 
@@ -70,13 +70,13 @@ Depending on the size and structure of your organization, multiple individuals a
 
 ## Access Controls
 
-Defender for Cloud uses [Azure role-based access control (Azure Role-based access control)](/azure/role-based-access-control/role-assignments-portal), which provides [built-in roles](/azure/role-based-access-control/built-in-roles) that can be assigned to users, groups, and services in Azure. Roles include Owner, Contributor, or Reader to the subscription or resource group. When a user opens Defender for Cloud, they only see information related to resources they have access to. In Addition to these roles, there are two roles specific to Defender for Cloud:
+Defender for Cloud uses [Azure role-based access control](/azure/role-based-access-control/role-assignments-portal), which provides [built-in roles](/azure/role-based-access-control/built-in-roles) that can be assigned to users, groups, and services in Azure. Roles include Owner, Contributor, or Reader to the subscription or resource group. When a user opens Defender for Cloud, they only see information related to resources they have access to. In Addition to these roles, there are two roles specific to Defender for Cloud:
 
 - **Security Reader**: Users assigned to this role can only view Defender for Cloud configurations, which include recommendations, alerts, policies, and health, but  cannot make changes.
 
 - **Security Admin**: Users assigned to this role can view Defender for Cloud configurations; in addition, they will also have access to update security policies or to dismiss recommendations and alerts.
 
-*Below, the guide will outline how the personas from the previous diagram can implement Azure Role-based access control roles:*
+*Below, the guide will outline how the personas from the previous diagram can implement Azure role-based access control roles:*
 
 **Jeff (Workload Owner)**
 
@@ -110,7 +110,7 @@ Some other important information to consider:
 
 - Only subscription and resource group Owners and Contributors can apply security recommendations for resources.
 
-When planning access control using Azure Role-Based Access Control for Defender for Cloud, ensure you understand who in your organization needs access to Defender for Cloud and the specific tasks they'll perform. Only using that information can you properly configure Azure Role-based access control.
+When planning access control using Azure role-based access control for Defender for Cloud, ensure you understand who in your organization needs access to Defender for Cloud and the specific tasks they'll perform. Only using that information can you properly configure Azure role-based access control.
 
 > [!NOTE]
 > We recommend you assign the least permissive role needed for users to complete their tasks. For example, users who only need to view information about the security state of resources but not take action, such as applying recommendations or editing policies, should be assigned the Reader role.
@@ -133,7 +133,7 @@ Defenders for Cloud policies contain the following components:
 
 ### Security Policy Definitions
 
-Defender for Cloud automatically creates a default security policy for each of your Azure subscriptions. You can edit the policy in Defender for Cloud or use Azure Policy to create new definitions, define more policies, and assign policies across management groups. Management groups can represent the entire organization or a business unit within the organization. You can monitor policy compliance across these management groups.
+Defender for Cloud automatically creates a default security policy for each of your Azure subscriptions. You can edit the policy in Defender for Cloud or use Azure Policy to create new definitions, define more policies, and assign policies across management groups. Management groups can represent the entire organization or a business unit within the organization, and you can monitor policy compliance across all these management groups.
 
 Before configuring security policies, review each of the [security recommendations](review-security-recommendations.md):
 
@@ -191,7 +191,7 @@ The Defender for Cloud dashboard provides a unified view of security across all 
 
 When you first begin using Defender for Cloud for your current Azure environment, remember to review all recommendations on the **Recommendations** page.
 
-It's also strongly encouraged to include visiting the threat intelligence option as part of your daily security operations. There you can identify security threats against the environment, such as identifying if a particular computer is part of a botnet.
+It's also strongly encouraged to include visiting the threat intelligence section as part of your daily security operations. There, you can identify security threats against the environment, such as identifying if a particular computer is part of a botnet.
 
 ### Monitoring for New or Changed Resources
 
@@ -203,7 +203,7 @@ You should also regularly monitor existing resources for configuration changes t
 
 ### Harden Access and Applications
 
-As part of your security operations, you should also adopt preventative measures to restrict access to VMs, and control the applications running on VMs. By locking down inbound traffic to your Azure VMs, you're reducing the exposure to attacks, and at the same time providing easy access to connect to VMs when needed. Use [just-in-time VM access](just-in-time-access-usage.yml) access feature to harden access to your VMs.
+As part of your security operations, you should also adopt preventative measures to restrict access to VMs and control the applications running on VMs. By locking down inbound traffic to your Azure VMs, you're reducing the exposure to attacks, and at the same time providing easy access to connect to VMs when needed. Use [just-in-time VM access](just-in-time-access-usage.yml) access feature to harden access to your VMs.
 
 ## Incident Response
 
@@ -230,7 +230,7 @@ The following example shows a suspicious RDP activity taking place:
 
 :::image type="content" source="./media/defender-for-cloud-planning-and-operations-guide/defender-for-cloud-planning-and-operations-guide-fig5-ga.png" alt-text="Screenshot of a suspicious activity report while it is taking place.":::
 
-In addition to the details of an attack, this page shows the source hostname, the target VM, and provides recommended steps. In some circumstances, the source information of the attack might be empty. Read [Missing Source Information in Defender for Cloud alerts](/archive/blogs/azuresecurity/missing-source-information-in-azure-security-center-alerts) for more information about this type of behavior.
+In addition to the details of an attack, this page shows the source hostname, the target VM and provides recommended steps. In some circumstances, the source information of the attack might be empty. Read [Missing Source Information in Defender for Cloud alerts](/archive/blogs/azuresecurity/missing-source-information-in-azure-security-center-alerts) for more information about this type of behavior.
 
 Once you identify the compromised system, you can run a previously created [workflow automation](workflow-automation.yml). Workflow automations are a collection of procedures that can be executed from Defender for Cloud once triggered by an alert.
 
