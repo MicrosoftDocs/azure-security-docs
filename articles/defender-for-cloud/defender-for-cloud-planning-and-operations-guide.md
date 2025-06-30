@@ -179,7 +179,7 @@ A workspace in Azure is where your collected data lives. Your organization might
 
 Data gathered by the Log Analytics agent is stored in either an existing workspace linked to your Azure subscription or a new workspace.
 
-You can view all your Log Analytics workspaces in the Azure portal, including those created by Defender for Cloud. When a new workspace is created, a related resource group is also made. They follow this naming pattern:
+You can view all your Log Analytics workspaces in the Azure portal, including those created by Defender for Cloud. When a new workspace is created, a related resource group is also created. They follow this naming pattern:
 
 - Workspace: DefaultWorkspace-[subscription-ID]-[geo]
 
@@ -215,34 +215,36 @@ Once you start using Defender for Cloud for your current Azure environment, make
 
 ### Monitor Resource Changes
 
-Most Azure environments are dynamic, with resources regularly being created, spun up or down, reconfigured, and changed. Defender for Cloud helps ensure that you have visibility into the security state of these new resources.
+With most Azure environments being dynamic, Defender for Cloud helps ensure that you have visibility into the security state of all newly created or modified resources.
 
-When you add new resources (VMs, SQL DBs) to your Azure environment, Defender for Cloud automatically discovers these resources and begins to monitor their security, including PaaS web roles and worker roles. If Data Collection is enabled in the [Security Policy](tutorial-security-policy.md), more monitoring capabilities are enabled automatically for your virtual machines.
+Defender for Cloud automatically discovers new resources such as VMs, SQL DBs in your Azure environment, and begins to monitor their security, including PaaS web roles and worker roles. If Data Collection is turned on in your [Security Policy](tutorial-security-policy.md), Defender for Cloud will enable extra monitoring features for your virtual machines.
 
-You should also regularly monitor existing resources for configuration changes that could have created security risks, drift from recommended baselines, and security alerts.
+It’s also important to regularly check existing resources for any changes that could create security risks, cause them to drift from recommended settings, or trigger alerts.
 
 ### Harden Access and Applications
 
-As part of your security operations, you should also adopt preventative measures to restrict access to VMs, and control the applications that are running on VMs. By locking down inbound traffic to your Azure VMs, you're reducing the exposure to attacks, and at the same time providing easy access to connect to VMs when needed. Use [just-in-time VM access](just-in-time-access-usage.yml) access feature to hardening access to your VMs.
+A good security practice is to limit who can access your VMs and control which applications run on them.
+By restricting inbound traffic, you reduce the chance of attacks but still allow authorized users to connect when needed.
+Use [just-in-time VM access](just-in-time-access-usage.yml) to restrict access when necessary.
 
 ## Incident Response
 
-Defender for Cloud detects and alerts about threats in real time. Organizations should monitor for new security alerts and take action as needed to investigate further or remediate the attack. For more information on how Defender for Cloud threat protection works, read [How Defender for Cloud detects and responds to threats](alerts-overview.md#detect-threats).
+Defender for Cloud detects and alerts about threats in real time. Security teams should monitor these alerts and respond promptly. Learn more in [How Defender for Cloud detects and responds to threats](alerts-overview.md#detect-threats).
 
-Although we can't create your Incident Response plan, we'll use Microsoft Azure Security Response in the Cloud lifecycle as the foundation for incident response stages. The stages of incident response in the cloud lifecycle are:
+While this guide does not provide a full Incident Response plan, Microsoft’s Azure Security Response lifecycle is a useful framework. The stages include:
 
 :::image type="content" source="./media/defender-for-cloud-planning-and-operations-guide/defender-for-cloud-planning-and-operations-guide-fig5-1.png" alt-text="Stages of the incident response in the cloud lifecycle.":::
 
 > [!NOTE]
-> You can use the National Institute of Standards and Technology (NIST) [Computer Security Incident Handling Guide](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) as a reference to assist you building your own.
+> Consider the National Institute of Standards and Technology (NIST) [Computer Security Incident Handling Guide](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) when designing your response processes.
 
-You can use Defender for Cloud alerts during the following stages:
+Use Defender for Cloud alerts during these phases:
 
-- **Detect**: identify a suspicious activity in one or more resources
+- **Detect**: Identify a suspicious activity in one or more resources
 
-- **Assess**: perform the initial assessment to obtain more information about the suspicious activity
+- **Assess**: Perform the initial assessment to obtain more information about the suspicious activity
 
-- **Diagnose**: use the remediation steps to conduct the technical procedure to address the issue
+- **Diagnose**: Use the remediation steps to conduct the technical procedure to address the issue
 
 Each Security Alert provides information that can be used to better understand the nature of the attack and suggest possible mitigations. Some alerts also provide links to either more information or to other sources of information within Azure. You can use the information provided for further research and to begin mitigation, and you can also search security-related data that is stored in your workspace.
 
