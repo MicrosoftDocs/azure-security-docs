@@ -1,6 +1,6 @@
 ---
 title: Planning and Operations
-description: This document helps you to plan before adopting Defender for Cloud and considerations regarding daily operations.
+description: This document helps you plan before adopting Defender for Cloud and manage daily operations.
 ms.topic: concept-article
 ms.date: 05/16/2024
 #customer intent: As a reader, I want to understand the planning and operations considerations for adopting Defender for Cloud and how it fits into my organization's security requirements and cloud management model. I also want to learn about the security roles, access controls, security policies, data collection, and storage in Defender for Cloud.
@@ -25,35 +25,15 @@ Defender for Cloud also includes two additional roles to manage access within th
 | **Jeff (Workload Owner)** | - Manage workload resources<br>- Implement and maintain protections per company policy | - Subscription Owner<br>- Subscription Contributor |
 | **Ellen (CISO/CIO)** | - Oversee all security aspects<br>- Understand security posture<br>- Be informed of major attacks and risks | - Subscription Owner<br>- Contributor<br>- Security Admin |
 | **David (IT Security)** | - Set security policies<br>- Monitor compliance<br>- Generate reports for leadership or auditors | - Subscription Owner<br>- Contributor<br>- Security Admin |
-| **Judy (Security Operations)** | - Monitor and respond to security alerts<br>- Escalate as needed | - Subscription Reader<br>- Security Reader<br>- Subscription Owner<br>- Subscription Contributor<br>- Security Admin *(dismiss alerts)* |
-| **Sam (Security Analyst)** | - Investigate attacks<br>- Collaborate on remediation | - Subscription Reader *(view alerts)*<br>- Subscription Owner<br>- Subscription Contributor *(dismiss alerts)*<br>- May need workspace access |
+| **Judy (Security Operations)** | - Monitor and respond to security alerts<br>- Escalate as needed | - Subscription Reader<br>- Security Reader<br>- Subscription Owner<br>- Subscription Contributor<br>- Security Admin *(can dismiss alerts)* |
+| **Sam (Security Analyst)** | - Investigate attacks<br>- Collaborate on remediation | - Subscription Reader *(can view alerts)*<br>- Subscription Owner<br>- Subscription Contributor *(can dismiss alerts)*<br>- May need workspace access |
 
 > [!NOTE] 
 > - Only subscription Owners/Contributors and Security Admins can edit security policies
 > - Only subscription and resource group Owners and Contributors can apply security recommendations for a resource
 > - It is recommended to assign the minimum permissions needed for users
 
-## Security policy
-
-A security policy defines the desired configuration of your workloads and helps ensure compliance with company or regulatory security requirements. In Defender for Cloud, you can define policies for your Azure subscriptions, which can be tailored to the type of workload or the sensitivity of data.
-
-Defender for Cloud policies contain the following components:
-
-- [Security policy](tutorial-security-policy.md): Defines the controls and rules monitored by Defender for Cloud
-
-- [Email notifications](configure-email-notifications.md): Specifies security contacts and notification settings
-
-- [Pricing tier](defender-for-cloud-introduction.md#protect-cloud-workloads): Determines which Defender for Cloud features are enabled
-
-By default, Defender for Cloud creates a security policy for each subscription. You can edit this policy in Defender for Cloud or use Azure Policy to create new definitions and assign policies across management groups.
-
-> [!NOTE]
-> Before configuring security policies, review each of the [security recommendations](review-security-recommendations.md):
->- Ensure policies are appropriate for your subscriptions and resource groups
->- Understand what actions address the recommendations
->- Determine who is responsible for monitoring and remediating recommendations
-
-### Security policies
+## Security policies
 
 A security policy defines which security controls Defender for Cloud monitors and enforces across your resources. Policies help you maintain compliance with company standards and regulatory requirements.
 
