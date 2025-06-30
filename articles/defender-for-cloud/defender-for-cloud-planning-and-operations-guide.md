@@ -31,7 +31,7 @@ The following sections explain how to plan for each area.
 
 Depending on your organization’s size and structure, different people and teams may use Defender for Cloud for various security tasks.
 
->[!NOTE]
+>[!TIP]
 Give users the minimum permissions required to do their job effectively.
 
 The diagram below shows example roles and what each person is responsible for:
@@ -56,7 +56,7 @@ Defender for Cloud helps the following individuals to meet various responsibilit
 
 **David (IT Security)**
 
-- Defines security policies and monitors compliance
+- Defines security policies
 
 - Monitors compliance with policies
 
@@ -70,7 +70,7 @@ Defender for Cloud helps the following individuals to meet various responsibilit
 
 **Sam (Security Analyst)**
 
-- Investigate attacks
+- Investigates attacks
 
 - Collaborates with the Cloud Workload Owner to implement remediation
 
@@ -112,7 +112,7 @@ The roles shown earlier are typically assigned the following Azure Role-based Ac
 
 - Workspace access may be required
 
-> [!NOTE]
+> [!CAUTION]
 Only subscription Owners, Contributors, and Security Admins can edit security policies.
 Only subscription and resource group Owners and Contributors can apply security recommendations.
 
@@ -120,6 +120,8 @@ When planning access to Defender for Cloud, first figure out who needs access an
 
 > [!TIP]
 It's best to give each user only the access they need to do their job - nothing more.
+
+Assigning the right roles ensures users only have access to the resources and actions they need, helping maintain security while supporting productivity.
 
 ## Security Policies and Recommendations
 
@@ -137,6 +139,8 @@ Defender for Cloud policies include the following components:
 
 > [!NOTE]
 > Specifying a security contact ensures that Azure can reach the right person in your organization if a security incident occurs. Read [Provide security contact details in Defender for Cloud](configure-email-notifications.md) for more information on how to enable this recommendation.
+
+Security policies define how your environment should be secured. Reviewing and customizing these policies keeps your workloads aligned with company and regulatory standards.
 
 ### Policy Definitions and Recommendations
 
@@ -166,9 +170,9 @@ The agent is designed to have minimal impact on VM performance.
 
 #### Disabling the Data Collection
 
-To disable the data collection, you must turn it off in the security policy.
+To disable data collection, you must turn it off in the security policy.
 
-Turning off data collection in the security policy does not automatically uninstall the agent. You can manually uninstall the agent if needed.
+Turning off data collection in the security policy does not automatically uninstall the agent. Manually uninstall the agent if it’s no longer required.
 
 > [!NOTE]
 The Log Analytics agent might be used by other Azure management and monitoring services, so turning off data collection in Defender for Cloud does not remove the agent automatically.
@@ -194,7 +198,7 @@ If your agent sends data to a workspace other than the **default**, make sure th
 
 ## Onboard Non-Azure Resources
 
-Defender for Cloud can also monitor non-Azure machines, but you need to onboard them first. For help, see [Onboard non-Azure computers](quickstart-onboard-machines.md).
+Defender for Cloud can also monitor non-Azure machines, but you need to onboard them first. For help, check out [Onboard non-Azure computers](quickstart-onboard-machines.md).
 
 ## Ongoing Security Monitoring
 
@@ -213,6 +217,8 @@ Once you start using Defender for Cloud for your current Azure environment, make
 > Make it a habit to check the Recommendations page regularly.
 > Also, use the threat intelligence feature daily to spot threats like botnets or hacked machines.
 
+Regularly checking security recommendations and monitoring changes ensures you stay ahead of threats and maintain a healthy security posture.
+
 ### Monitor Resource Changes
 
 With most Azure environments being dynamic, Defender for Cloud helps ensure that you have visibility into the security state of all newly created or modified resources.
@@ -221,11 +227,15 @@ Defender for Cloud automatically discovers new resources such as VMs, SQL DBs in
 
 It’s also important to regularly check existing resources for any changes that could create security risks, cause them to drift from recommended settings, or trigger alerts.
 
+New or modified resources can introduce risks. Defender for Cloud automatically tracks these changes to help you respond quickly.
+
 ### Harden Access and Applications
 
 A good security practice is to limit who can access your VMs and control which applications run on them.
 By restricting inbound traffic, you reduce the chance of attacks but still allow authorized users to connect when needed.
 Use [just-in-time VM access](just-in-time-access-usage.yml) to restrict access when necessary.
+
+Restricting access to VMs and limiting application behavior reduces your attack surface and helps prevent unauthorized activity.
 
 ## Incident Response
 
@@ -257,7 +267,9 @@ This report shows details such as attack time, source hostname, target VM, and r
 Once you find the compromised system, run a [workflow automation](workflow-automation.yml) that was previously created. Workflow automations are triggered procedures that help respond quickly.
 
 > [!NOTE]
-> For more on alerts and incident response, read [Managing and responding to security alerts in Defender for Cloud](managing-and-responding-alerts.yml) 
+> For more on alerts and incident response, read [Managing and responding to security alerts in Defender for Cloud](managing-and-responding-alerts.yml)
+
+When a threat is detected, quick action is critical. Defender for Cloud provides the insights and tools to help you detect, assess, and respond effectively.
 
 ## Next Steps
 
