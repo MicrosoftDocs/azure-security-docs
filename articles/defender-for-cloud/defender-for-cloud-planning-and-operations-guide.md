@@ -130,8 +130,6 @@ Defender for Cloud alerts support these key incident response stages:
 
 - **Diagnose**: Take recommended steps to fix the issue
 
-### Alignment with Azure Security Response lifecycle
-
 Though Microsoft doesn’t create your incident response plan, Defender for Cloud aligns with the Azure Security Response in the Cloud lifecycle:
 
 :::image type="content" source="./media/defender-for-cloud-planning-and-operations-guide/defender-for-cloud-planning-and-operations-guide-fig5-1.png" alt-text="Stages of incident response in the cloud lifecycle.":::
