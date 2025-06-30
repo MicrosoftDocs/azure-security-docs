@@ -18,7 +18,9 @@ Defender for Cloud also includes two additional roles to manage access within th
 
 - **Security Admin**: Has all Security Reader permissions and can also update security policies and dismiss alerts or recommendations.
 
-:::image type="content" source="./media/defender-for-cloud-planning-and-operations-guide/defender-for-cloud-planning-and-operations-guide-fig01-new.png" alt-text="Conceptual image that shows various people and the roles that they fill in an organization.":::
+The diagram below shows common personas and their roles, while the table explains their responsibilities and RBAC assignments.
+
+:::image type="content" source="./media/defender-for-cloud-planning-and-operations-guide/defender-for-cloud-planning-and-operations-guide-fig01-new.png" alt-text="Conceptual image that shows various people and the roles that they fill in an organization."::: 
 
 | Persona | Responsibilities | Azure RBAC Role Assignments |
 |---|---|---|
