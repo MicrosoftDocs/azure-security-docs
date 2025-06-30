@@ -57,9 +57,9 @@ Defender for Cloud uses the Log Analytics agent and the Azure Monitor Agent to c
 
 ### Agent
 
-When automatic provisioning is enabled in your security policy, the [data collection agent](monitoring-components.md) is installed on all supported Azure VMs and any new supported VMs that are created. If a VM already has the Log Analytics agent, Defender for Cloud uses it. The agent’s process is designed to be non-invasive with minimal performance impact.
+When you enable automatic provisioning in your security policy, Defender for Cloud installs the [data collection agent](monitoring-components.md) on all supported Azure VMs and any new supported VMs that you create. If a VM already has the Log Analytics agent, Defender for Cloud uses it. The agent’s process minimizes impact on performance and operates non-invasively.
 
-If you disable Data Collection in your security policy later, the agent won’t be uninstalled automatically because other Azure services may also use it. You can manually uninstall it if needed.
+If you disable Data Collection in your security policy later, Defender for Cloud won’t uninstall the agent automatically because other Azure services may still use it. You can manually uninstall it if needed.
 
 ### Workspace
 
