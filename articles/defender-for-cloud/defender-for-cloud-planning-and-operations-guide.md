@@ -91,8 +91,9 @@ Defender for Cloud can monitor the security posture of your non-Azure machines o
 After you configure Defender for Cloud and apply its recommendations, it integrates with your operational processes and continuously monitors your environment based on your security policies.
 
 The Defender for Cloud [overview page](overview-page.md) offers a centralized view of security across your Azure and connected non-Azure resources. 
-
-<!--> Since this is a concept-focused article, mentioning specific portal screens feels out of scope. -->
+<!--
+Since this is a concept-focused article, mentioning specific portal screens feels out of scope.
+-->
 
 Here’s an example of what you’ll see:
 
@@ -100,7 +101,10 @@ Here’s an example of what you’ll see:
 
 > [!NOTE]
 > Consider enabling threat intelligence features to detect and respond to active threats, such as botnet activity or other suspicious behaviors.
-<!--> Not sure this note is too specific for this page. As an outsider, it seems like it is. If kept, is there a link we can add so users can learn more? -->
+<!--
+Not sure this note is too specific for this page. As an outsider, it seems like it is.
+If kept, is there a link we can add so users can learn more?
+-->
 
 ### Monitor for new or changed resources
 
