@@ -240,28 +240,28 @@ While this guide does not provide a full Incident Response plan, Microsoft’s A
 
 Use Defender for Cloud alerts during these phases:
 
-- **Detect**: Identify a suspicious activity in one or more resources
+- **Detect**: Identify suspicious activities
 
-- **Assess**: Perform the initial assessment to obtain more information about the suspicious activity
+- **Assess**: Investigate and collect data to understand the issue
 
-- **Diagnose**: Use the remediation steps to conduct the technical procedure to address the issue
+- **Diagnose**: Create and apply remediation procedures
 
-Each Security Alert provides information that can be used to better understand the nature of the attack and suggest possible mitigations. Some alerts also provide links to either more information or to other sources of information within Azure. You can use the information provided for further research and to begin mitigation, and you can also search security-related data that is stored in your workspace.
+Each alert provides information to help analyze the attack and suggests mitigation. Some alerts link to further resources within Azure.
 
 The following example shows a suspicious RDP activity taking place:
 
 :::image type="content" source="./media/defender-for-cloud-planning-and-operations-guide/defender-for-cloud-planning-and-operations-guide-fig5-ga.png" alt-text="Screenshot of a suspicious activity report while it is taking place.":::
 
-This page shows the details regarding the time that the attack took place, the source hostname, the target VM and also gives recommendation steps. In some circumstances, the source information of the attack might be empty. Read [Missing Source Information in Defender for Cloud alerts](/archive/blogs/azuresecurity/missing-source-information-in-azure-security-center-alerts) for more information about this type of behavior.
+This report shows details such as attack time, source hostname, target VM, and recommendations. If source details are missing, see [Missing Source Information in Defender for Cloud alerts](/archive/blogs/azuresecurity/missing-source-information-in-azure-security-center-alerts).
 
-Once you identify the compromised system, you can run a [workflow automation](workflow-automation.yml) that was previously created. Workflow automations are a collection of procedures that can be executed from Defender for Cloud once triggered by an alert.
+Once you find the compromised system, run a [workflow automation](workflow-automation.yml) that was previously created. Workflow automations are triggered procedures that help respond quickly.
 
 > [!NOTE]
-> Read [Managing and responding to security alerts in Defender for Cloud](managing-and-responding-alerts.yml) for more information on how to use Defender for Cloud capabilities to assist you during your Incident Response process.
+> For more on alerts and incident response, read [Managing and responding to security alerts in Defender for Cloud](managing-and-responding-alerts.yml) 
 
 ## Next Steps
 
-In this document, you learned how to plan for Defender for Cloud adoption. Learn more about Defender for Cloud:
+Now you know how to plan for using Defender for Cloud. To learn more, check out:
 
 - [Managing and responding to security alerts in Defender for Cloud](managing-and-responding-alerts.yml)
 - [Monitoring partner solutions with Defender for Cloud](./partner-integration.md) - Learn how to monitor the health status of your partner solutions.
