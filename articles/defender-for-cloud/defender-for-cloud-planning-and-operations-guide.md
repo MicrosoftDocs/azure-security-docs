@@ -31,6 +31,9 @@ The following sections explain how to plan for each area.
 
 Depending on your organization’s size and structure, different people and teams may use Defender for Cloud for various security tasks.
 
+>[!NOTE]
+Give users the minimum permissions required to do their job effectively.
+
 The diagram below shows example roles and what each person is responsible for:
 
 :::image type="content" source="./media/defender-for-cloud-planning-and-operations-guide/defender-for-cloud-planning-and-operations-guide-fig01-new.png" alt-text="Conceptual image that shows various people and the roles that they fill in an organization.":::
@@ -81,57 +84,56 @@ In addition to the roles mentioned above, there are two additional roles:
 
 - **Security Admin**: Has all the permissions of a **Security Reader**, plus the ability to update security policies and dismiss recommendations and alerts.
 
-The personas explained in the previous diagram need these Azure Role-based access control roles:
+The roles shown earlier are typically assigned the following Azure Role-based Access Control roles:
 
 **Jeff (Workload Owner)**
 
-- Resource Group Owner/Contributor
+- Resource Group Owner or Contributor
 
 **Ellen (CISO/CIO)**
 
-- Subscription Owner/Contributor or Security Admin
+- Subscription Owner, Contributor or Security Admin
 
 **David (IT Security)**
 
-- Subscription Owner/Contributor or Security Admin
+- Subscription Owner, Contributor or Security Admin
 
 **Judy (Security Operations)**
 
-- Subscription Reader or Security Reader to view alerts
+- Subscription Reader or Security Reader (to view alerts)
 
-- Subscription Owner/Contributor or Security Admin required to dismiss alerts
+- Subscription Owner, Contributor or Security Admin (required to dismiss alerts)
 
 **Sam (Security Analyst)**
 
-- Subscription Reader to view alerts
+- Subscription Reader (to view alerts)
 
-- Subscription Owner/Contributor required to dismiss alerts
+- Subscription Owner or Contributor (required to dismiss alerts)
 
-- Access to the workspace might be required
-
-Some other important information to consider:
-
-- Only subscription Owners/Contributors and Security Admins can edit a security policy.
-
-- Only subscription and resource group Owners and Contributors can apply security recommendations for a resource.
-
-When planning access control using Azure Role-based access control for Defender for Cloud, make sure you understand who in your organization needs access to Defender for Cloud and the tasks they'll perform. Then you can configure Azure Role-based access control properly.
+- Workspace access may be required
 
 > [!NOTE]
-> We recommend that you assign the least permissive role needed for users to complete their tasks. For example, users who only need to view information about the security state of resources but not take action, such as applying recommendations or editing policies, should be assigned the Reader role.
+Only subscription Owners, Contributors, and Security Admins can edit security policies.
+Only subscription and resource group Owners and Contributors can apply security recommendations.
+
+When planning access to Defender for Cloud, first figure out who needs access and what actions they need to take. Then, assign them the appropriate role.
+
+> [!TIP]
+It's best to give each user only the access they need to do their job - nothing more.
 
 ## Security Policies and Recommendations
 
-A security policy defines the desired configuration of your workloads and helps ensure compliance with company or regulatory security requirements. In Defender for Cloud, you can define policies for your Azure subscriptions, which can be tailored to the type of workload or the sensitivity of data.
+A security policy defines how your workloads should be configured to meet company and regulatory security requirements. In Defender for Cloud, you can create custom policies for your Azure subscriptions, adjusting them based on workload type or data sensitivity.
 
-Defenders for Cloud policies contain the following components:
+Defender for Cloud policies include the following components:
 
-- [Data collection](monitoring-components.md): agent provisioning and data collection settings.
+- [Data collection](monitoring-components.md):  Controls whether the monitoring agent is automatically installed and how security data is collected from your resources.
 
-- [Security policy](tutorial-security-policy.md): an [Azure Policy](/azure/governance/policy/overview) that determines which controls are monitored and recommended by Defender for Cloud. You can also use Azure Policy to create new definitions, define more policies, and assign policies across management groups.
+- [Security policy](tutorial-security-policy.md): An [Azure Policy](/azure/governance/policy/overview) that tells Defender for Cloud what to monitor and recommend. You can create and assign policies to organize and manage security rules across different parts of your organization.
 
-- [Email notifications](configure-email-notifications.md): security contacts and notification settings.
-- [Pricing tier](defender-for-cloud-introduction.md#protect-cloud-workloads): with or without Microsoft Defender for Cloud's Defender plans, which determine which Defender for Cloud features are available for resources in scope (can be specified for subscriptions and workspaces using the API).
+- [Email notifications](configure-email-notifications.md): Configure security contact details and alert settings
+  
+- [Pricing tier](defender-for-cloud-introduction.md#protect-cloud-workloads): Determines available features based on selected Defender plan, set per subscription or workspace using API.
 
 > [!NOTE]
 > Specifying a security contact ensures that Azure can reach the right person in your organization if a security incident occurs. Read [Provide security contact details in Defender for Cloud](configure-email-notifications.md) for more information on how to enable this recommendation.
