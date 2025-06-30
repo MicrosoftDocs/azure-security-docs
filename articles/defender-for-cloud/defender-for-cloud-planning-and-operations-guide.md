@@ -31,7 +31,7 @@ The diagram below shows common personas and their roles, while the table explain
 | **Sam (Security Analyst)** | - Investigate attacks<br>- Collaborate on remediation | - Subscription Reader *(can view alerts)*<br>- Subscription Owner<br>- Subscription Contributor *(can dismiss alerts)*<br>- May need workspace access |
 
 > [!NOTE] 
-> - Only subscription Owners/Contributors and Security Admins can edit security policies
+> - Only subscription and resource group Owners and Contributors can apply security recommendations for a resource
 > - Only subscription and resource group Owners and Contributors can apply security recommendations for a resource
 > - It is recommended to assign the minimum permissions needed for users
 
