@@ -52,7 +52,6 @@ By default, Defender for Cloud creates a security policy for each subscription. 
 >- Ensure policies are appropriate for your subscriptions and resource groups
 >- Understand what actions address the recommendations
 >- Determine who is responsible for monitoring and remediating recommendations
-<!-- check format here above-->
 
 ### Security policies
 
