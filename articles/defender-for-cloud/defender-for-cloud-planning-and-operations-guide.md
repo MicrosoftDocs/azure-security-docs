@@ -140,63 +140,78 @@ Defender for Cloud policies include the following components:
 
 ### Policy Definitions and Recommendations
 
-Defender for Cloud automatically creates a default security policy for each of your Azure subscriptions. You can edit the policy in Defender for Cloud or use Azure Policy to create new definitions, define more policies, and assign policies across management groups. Management groups can represent the entire organization or a business unit within the organization. You can monitor policy compliance across these management groups.
+A default security policy is automatically created for each of your Azure subscriptions in Defender for Cloud.
+You can edit this policy or use it as a base to create new definitions, add more policies, and assign them across different parts of your organization.
+Management groups can represent the entire organization or a specific business unit. You can track policy compliance across these groups.
 
 Before configuring security policies, review each of the [security recommendations](review-security-recommendations.md):
 
-- See if these policies are appropriate for your various subscriptions and resource groups.
+- Decide whether each recommendation applies to your subscriptions and resource groups
 
-- Understand what actions address the security recommendations.
+- Understand the actions needed to meet each recommendation
 
 - Determine who in your organization is responsible for monitoring and remediating new recommendations.
 
 ## Data Collection and Storage
 
-Defender for Cloud uses the Log Analytics agent and the Azure Monitor Agent to collect security data from your virtual machines. [Data collected](monitoring-components.md) from this agent is stored in your Log Analytics workspaces.
+Defender for Cloud uses both the Log Analytics agent and the Azure Monitor Agent (AMA) to collect security data from your virtual machines. The [data collected](monitoring-components.md) is stored in your Log Analytics workspace.
 
 ### Agent
 
-When automatic provisioning is enabled in the security policy, the [data collection agent](monitoring-components.md) is installed on all supported Azure VMs and any new supported VMs that are created. If the VM or computer already has the Log Analytics agent installed, Defender for Cloud uses the current installed agent. The agent's process is designed to be non-invasive and have minimal effect on VM performance.
+When automatic provisioning is enabled in the security policy, the [data collection agent](monitoring-components.md) is installed on all supported Azure VMs, both existing and newly created. 
 
-If at some point you want to disable Data Collection, you can turn it off in the security policy. However, because the Log Analytics agent might be used by other Azure management and monitoring services, the agent won't be uninstalled automatically when you turn off data collection in Defender for Cloud. You can manually uninstall the agent if needed.
+If the VM or computer already has the Log Analytics agent installed, Defender for Cloud uses the existing agent. 
+
+The agent is designed to have minimal impact on VM performance.
+
+#### Disabling the Data Collection
+
+To disable the data collection, you must turn it off in the security policy.
+
+Turning off data collection in the security policy does not automatically uninstall the agent. You can manually uninstall the agent if needed.
+
+> [!NOTE]
+The Log Analytics agent might be used by other Azure management and monitoring services, so turning off data collection in Defender for Cloud does not remove the agent automatically.
 
 ### Workspace
 
-A workspace is an Azure resource that serves as a container for data. You or other members of your organization might use multiple workspaces to manage different sets of data that is collected from all or portions of your IT infrastructure.
+A workspace in Azure is where your collected data lives. Your organization might have several workspaces to manage different sets of data from your infrastructure.
 
-Data collected from the Log Analytics agent can be stored in an existing Log Analytics workspace associated with your Azure subscription or a new workspace.
+Data gathered by the Log Analytics agent is stored in either an existing workspace linked to your Azure subscription or a new workspace.
 
-In the Azure portal, you can browse to see a list of your Log Analytics workspaces, including any created by Defender for Cloud. A related resource group is created for new workspaces. Resources are created according to this naming convention:
+You can view all your Log Analytics workspaces in the Azure portal, including those created by Defender for Cloud. When a new workspace is created, a related resource group is also made. They follow this naming pattern:
 
-- Workspace: *DefaultWorkspace-[subscription-ID]-[geo]*
+- Workspace: DefaultWorkspace-[subscription-ID]-[geo]
 
-- Resource Group: *DefaultResourceGroup-[geo]*
+- Resource Group: DefaultResourceGroup-[geo]
 
-For workspaces created by Defender for Cloud, data is retained for 30 days. For existing workspaces, retention is based on the workspace pricing tier. If you want, you can also use an existing workspace.
+Data in workspaces created by Defender for Cloud is kept for 30 days. Other workspaces keep data based on their pricing plan. You can choose to use an existing workspace if you want.
 
-If your agent reports to a workspace other than the **default** workspace, any Defender for Cloud [Defender plans](defender-for-cloud-introduction.md#protect-cloud-workloads) that you've enabled on the subscription should also be enabled on the workspace.
+If your agent sends data to a workspace other than the **default**, make sure the [Defender plans](defender-for-cloud-introduction.md#protect-cloud-workloads) you’ve enabled on your subscription are also turned on for that workspace.
 
 > [!NOTE]
-> Microsoft makes strong commitments to protect the privacy and security of this data. Microsoft adheres to strict compliance and security guidelines—from coding to operating a service. For more information about data handling and privacy, read [Defender for Cloud Data Security](data-security.md).
+> Microsoft takes your data privacy and security seriously, with strong protections throughout the process. To learn more, read [Defender for Cloud Data Security](data-security.md).
 
 ## Onboard Non-Azure Resources
 
-Defender for Cloud can monitor the security posture of your non-Azure computers but you need to first onboard these resources. Read [Onboard non-Azure computers](quickstart-onboard-machines.md) for more information on how to onboard non-Azure resources.
+Defender for Cloud can also monitor non-Azure machines, but you need to onboard them first. For help, see [Onboard non-Azure computers](quickstart-onboard-machines.md).
 
 ## Ongoing Security Monitoring
 
-After initial configuration and application of Defender for Cloud recommendations, the next step is considering Defender for Cloud operational processes.
+After initial configuration and application of Defender for Cloud recommendations, the next step is to consider Defender for Cloud operational processes.
 
-The Defender for Cloud Overview provides a unified view of security across all your Azure resources and any non-Azure resources you've connected. This example shows an environment with many issues to resolve:
+The Overview page gives you a complete look at security across your Azure resources and any non-Azure machines you’ve connected. Here’s an example showing an environment with several problems to fix:
 
 :::image type="content" source="./media/overview-page/overview.png" alt-text="Screenshot of Defender for Cloud's overview page." lightbox="./media/overview-page/overview.png":::
 
 > [!NOTE]
-> Defender for Cloud doesn't interfere with your normal operational procedures. Defender for Cloud passively monitors your deployments and provides recommendations based on the security policies you enabled.
+> Defender for Cloud works quietly in the background and **doesn’t interrupt** your usual work. It provides recommendations based on the security policies you have set.
 
-When you first opt in to use Defender for Cloud for your current Azure environment, make sure that you review all recommendations, which can be done in the **Recommendations** page.
+Once you start using Defender for Cloud for your current Azure environment, make sure that you review all recommendations via the **Recommendations** page.
 
-Plan to visit the threat intelligence option as part of your daily security operations. There you can identify security threats against the environment, such as identify if a particular computer is part of a botnet.
+> [!TIP]
+> Make it a habit to check the Recommendations page regularly.
+> Also, use the threat intelligence feature daily to spot threats like botnets or hacked machines.
 
 ### Monitor Resource Changes
 
