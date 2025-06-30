@@ -28,7 +28,7 @@ Defender for Cloud also includes two additional roles to manage access within th
 | **Judy (Security Operations)** | - Monitor and respond to security alerts<br>- Escalate as needed | - Subscription Reader<br>- Security Reader<br>- Subscription Owner<br>- Subscription Contributor<br>- Security Admin *(dismiss alerts)* |
 | **Sam (Security Analyst)** | - Investigate attacks<br>- Collaborate on remediation | - Subscription Reader *(view alerts)*<br>- Subscription Owner<br>- Subscription Contributor *(dismiss alerts)*<br>- May need workspace access |
 
-> [!NOTES] 
+> [!NOTE] 
 > - Only subscription Owners/Contributors and Security Admins can edit security policies
 > - Only subscription and resource group Owners and Contributors can apply security recommendations for a resource
 > - It is recommended to assign the minimum permissions needed for users
