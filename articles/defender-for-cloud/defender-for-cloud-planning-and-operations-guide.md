@@ -14,9 +14,9 @@ Defender for Cloud uses [Azure role-based access control (RBAC)](/azure/role-bas
 
 Defender for Cloud also includes two additional roles to manage access within the service:
 
-- **Security Reader**: Can view Defender for Cloud configurations, including recommendations, alerts, policies, and health status, but cannot make changes.
+- **Security Reader**: Can view Defender for Cloud configurations, including recommendations, alerts, policies, and health status, but cannot make changes
 
-- **Security Admin**: Has all Security Reader permissions and can also update security policies and dismiss alerts or recommendations.
+- **Security Admin**: Has all Security Reader permissions and can also update security policies and dismiss alerts or recommendations
 
 The diagram below shows common personas and their roles, while the table explains their responsibilities and RBAC assignments.
 
@@ -37,9 +37,9 @@ The diagram below shows common personas and their roles, while the table explain
 
 ## Security policies
 
-A security policy defines which security controls Defender for Cloud monitors and enforces across your resources. Policies help you maintain compliance with company standards and regulatory requirements.
+Security policies define which security controls Defender for Cloud monitors and enforce across your resources. They help you maintain compliance with company standards and regulatory requirements.
 
-Defender for Cloud includes a built-in default policy for each subscription — but every organization has unique risks and workloads. You should review, customize, and extend this policy to match your business and compliance needs.
+Defender for Cloud includes a built-in default policy for each subscription, but every organization has unique risks and workloads. You should review, customize, and extend this policy to match your business and compliance needs. You can also create and assign multiple custom security policies tailored to different scopes.
 
 A security policy typically covers:
 
@@ -103,7 +103,7 @@ Consider enabling threat intelligence features to detect and respond to active t
 
 ### Monitor for new or changed resources
 
-Cloud environments constantly change. Defender for Cloud automatically discovers new resources and monitors them — including VMs, SQL databases, and PaaS workloads. If Data Collection is enabled in your [Security Policy](tutorial-security-policy.md), extra monitoring capabilities activate for your VMs.
+Cloud environments constantly change. Defender for Cloud automatically discovers new resources and monitors them, including VMs, SQL databases, and PaaS workloads. If Data Collection is enabled in your [Security Policy](tutorial-security-policy.md), extra monitoring capabilities activate for your VMs.
 
 Regularly monitor existing resources for configuration drift, baseline mismatches, and new security alerts.
 
@@ -138,7 +138,7 @@ Each security alert includes context, impact, and suggested mitigations. Some al
 
 :::image type="content" source="./media/defender-for-cloud-planning-and-operations-guide/defender-for-cloud-planning-and-operations-guide-fig5-ga.png" alt-text="Screenshot of a suspicious activity report while it is taking place.":::
 
-This report shows the time of the attack, source hostname, target VM, and mitigation steps. Sometimes, source information may be missing—see [Missing Source Information in Defender for Cloud alerts](/archive/blogs/azuresecurity/missing-source-information-in-azure-security-center-alerts) for details.
+This report shows the time of the attack, source hostname, target VM, and mitigation steps. In some cases, source information may be missing. For more information, see [Missing Source Information in Defender for Cloud alerts](/archive/blogs/azuresecurity/missing-source-information-in-azure-security-center-alerts).
 
 If you confirm a compromise, you can run a [workflow automation](workflow-automation.yml) that you set up beforehand to respond automatically.
 
