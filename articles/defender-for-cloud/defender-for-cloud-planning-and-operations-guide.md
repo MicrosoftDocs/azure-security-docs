@@ -88,24 +88,25 @@ Defender for Cloud can monitor the security posture of your non-Azure machines o
 
 ## Ongoing security monitoring
 
-After you configure Defender for Cloud and apply its recommendations, it continuously monitors your environment to help maintain your security posture.
+After you configure Defender for Cloud and apply its recommendations, it integrates with your operational processes and continuously monitors your environment based on your security policies.
 
-The Defender for Cloud Overview page offers a centralized view of security across your Azure and connected non-Azure resources. Here’s an example showing active security issues:
+The Defender for Cloud [overview page](overview-page.md) offers a centralized view of security across your Azure and connected non-Azure resources. 
+
+<!--> Since this is a concept-focused article, mentioning specific portal screens feels out of scope. -->
+
+Here’s an example of what you’ll see:
 
 :::image type="content" source="./media/overview-page/overview.png" alt-text="Screenshot of Defender for Cloud's overview page." lightbox="./media/overview-page/overview.png":::
 
 > [!NOTE]
-> Defender for Cloud integrates with your existing operational processes. It passively monitors deployments and provides recommendations based on your configured security policies.
-
-When you onboard Defender for Cloud, regularly review the [Recommendations page](review-security-recommendations.md) to stay informed about potential risks and guidance for improving your security posture.
-
-Consider enabling threat intelligence features to detect and respond to active threats, such as botnet activity or other suspicious behaviors.
+> Consider enabling threat intelligence features to detect and respond to active threats, such as botnet activity or other suspicious behaviors.
+<!--> Not sure this note is too specific for this page. As an outsider, it seems like it is. If kept, is there a link we can add so users can learn more? -->
 
 ### Monitor for new or changed resources
 
 Cloud environments constantly change. Defender for Cloud automatically discovers new resources and monitors them, including VMs, SQL databases, and PaaS workloads. If Data Collection is enabled in your [Security Policy](tutorial-security-policy.md), extra monitoring capabilities activate for your VMs.
 
-Regularly monitor existing resources for configuration drift, baseline mismatches, and new security alerts.
+In addition, Defender for Cloud helps you track configuration drift, baseline mismatches, and new security alerts across your existing resources to maintain a strong security posture.
 
 ### Restrict access and control applications
 
@@ -113,16 +114,9 @@ As part of your daily security operations, implement measures to limit access to
 
 ## Incident response
 
-Incident response helps your organization quickly detect, assess, and remediate security threats using Defender for Cloud’s alerts and tools.
+Incident response is the process your organization uses to quickly detect, assess, and remediate security threats. Defender for Cloud supports your incident response efforts by providing [real-time alerts](alerts-overview.md) and tools to identify and investigate suspicious activity.
 
-Defender for Cloud detects threats and raises alerts in real time. Your team should monitor these alerts and respond promptly. Learn more: [How Defender for Cloud detects and responds to threats](alerts-overview.md#detect-threats).
-
-Though Microsoft doesn’t create your incident response plan, Defender for Cloud aligns with the Azure Security Response in the Cloud lifecycle:
-
-:::image type="content" source="./media/defender-for-cloud-planning-and-operations-guide/defender-for-cloud-planning-and-operations-guide-fig5-1.png" alt-text="Stages of incident response in the cloud lifecycle.":::
-
-> [!NOTE]
-> For guidance on building your own incident response plan, see the NIST [Computer Security Incident Handling Guide](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf).
+Each security alert includes context, impact, and suggested mitigations. Some alerts link to additional information or Azure resources. Your security team should actively monitor these alerts and respond promptly to minimize risk. 
 
 Defender for Cloud alerts support these key incident response stages:
 
@@ -132,7 +126,14 @@ Defender for Cloud alerts support these key incident response stages:
 
 - **Diagnose**: Take recommended steps to fix the issue
 
-Each security alert includes context, impact, and suggested mitigations. Some alerts link to additional information or Azure resources. Use these details to research further, begin remediation, or query related data in your workspace.
+### Alignment with Azure Security Response lifecycle
+
+Though Microsoft doesn’t create your incident response plan, Defender for Cloud aligns with the Azure Security Response in the Cloud lifecycle:
+
+:::image type="content" source="./media/defender-for-cloud-planning-and-operations-guide/defender-for-cloud-planning-and-operations-guide-fig5-1.png" alt-text="Stages of incident response in the cloud lifecycle.":::
+
+> [!NOTE]
+> For guidance on building your own incident response plan, see the NIST [Computer Security Incident Handling Guide](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf).
 
 ### Example: Suspicious RDP activity
 
@@ -141,9 +142,6 @@ Each security alert includes context, impact, and suggested mitigations. Some al
 This report shows the time of the attack, source hostname, target VM, and mitigation steps. In some cases, source information may be missing. For more information, see [Missing Source Information in Defender for Cloud alerts](/archive/blogs/azuresecurity/missing-source-information-in-azure-security-center-alerts).
 
 If you confirm a compromise, you can run a [workflow automation](workflow-automation.yml) that you set up beforehand to respond automatically.
-
-> [!NOTE]
-> See [Managing and responding to security alerts in Defender for Cloud](managing-and-responding-alerts.yml) for practical steps to improve your incident response process.
 
 ## Related Content
 
