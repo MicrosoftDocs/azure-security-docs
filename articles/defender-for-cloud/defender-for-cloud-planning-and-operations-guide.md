@@ -6,7 +6,7 @@ ms.date: 05/16/2024
 #customer intent: As a reader, I want to understand the planning and operations considerations for adopting Defender for Cloud and how it fits into my organization's security requirements and cloud management model. I also want to learn about the security roles, access controls, security policies, data collection, and storage in Defender for Cloud.
 ---
 
-Microsoft Defender for Cloud monitors your cloud environment to detect vulnerabilities, enforce security policies, and provide recommendations. This article provides information for IT professionals, security architects, and cloud administrators to plan, deploy, and operate Defender for Cloud.
+Microsoft Defender for Cloud monitors your cloud environment to detect vulnerabilities, enforce security policies, and recommend mitigations. This article helps IT professionals, security architects, and cloud administrators plan for, deploy, and operate Defender for Cloud as part of their organization’s cloud security strategy.
 
 ## Security roles and access control
 
@@ -14,32 +14,45 @@ Defender for Cloud uses [Azure role-based access control (RBAC)](/azure/role-bas
 
 Defender for Cloud also includes two additional roles to manage access within the service:
 
-- **Security Reader**: Can view Defender for Cloud configurations, including recommendations, alerts, policies, and health status, but cannot make changes
+- **Security Reader**: Can view Defender for Cloud configurations, including recommendations, alerts, policies, and health status, but cannot make changes.
 
-- **Security Admin**: Has all Security Reader permissions and can also update security policies and dismiss alerts or recommendations
+- **Security Admin**: Has all Security Reader permissions and can update security policies and dismiss alerts or recommendations.
 
-The diagram below illustrates example key security personas and the roles they play in planning and operating Microsoft Defender for Cloud:
+The diagram below illustrates example key security personas and the roles they play in planning and operating Defender for Cloud:
 
 :::image type="content" source="./media/defender-for-cloud-planning-and-operations-guide/defender-for-cloud-planning-and-operations-guide-fig01-new.png" alt-text="Conceptual image that shows various people and the roles that they fill in an organization."::: 
 
 This table shows each persona’s tasks and recommended RBAC roles.
 
-| Persona | Responsibilities | Azure RBAC Role Assignments |
-|---|---|---|
-| **Jeff (Workload Owner)** | - Manage workload resources<br>- Implement and maintain protections per company policy | - Subscription Owner<br>- Subscription Contributor |
-| **Ellen (CISO/CIO)** | - Oversee all security aspects<br>- Understand security posture<br>- Be informed of major attacks and risks | - Subscription Owner<br>- Contributor<br>- Security Admin |
-| **David (IT Security)** | - Set security policies<br>- Monitor compliance<br>- Generate reports for leadership or auditors | - Subscription Owner<br>- Contributor<br>- Security Admin |
-| **Judy (Security Operations)** | - Monitor and respond to security alerts<br>- Escalate as needed | - Subscription Reader<br>- Security Reader<br>- Subscription Owner<br>- Subscription Contributor<br>- Security Admin *(can dismiss alerts)* |
-| **Sam (Security Analyst)** | - Investigate attacks<br>- Collaborate on remediation | - Subscription Reader *(can view alerts)*<br>- Subscription Owner<br>- Subscription Contributor *(can dismiss alerts)*<br>- May need workspace access |
+| Persona                  | Responsibilities                                      | Azure RBAC Role Assignments                           |
+|--------------------------|-----------------------------------------------------|------------------------------------------------------|
+| **Jeff (Workload Owner)** | - Manage workload resources                          | - Subscription Owner                                 |
+|                          | - Implement and maintain protections per company policy | - Subscription Contributor                            |
+| **Ellen (CISO/CIO)**     | - Oversee all security aspects                       | - Subscription Owner                                 |
+|                          | - Understand security posture                        | - Contributor                                        |
+|                          | - Be informed of major attacks and risks            | - Security Admin                                     |
+| **David (IT Security)**  | - Set security policies                              | - Subscription Owner                                 |
+|                          | - Monitor compliance                                 | - Contributor                                        |
+|                          | - Generate reports for leadership or auditors       | - Security Admin                                     |
+| **Judy (Security Operations)** | - Monitor and respond to security alerts          | - Subscription Reader                               |
+|                          | - Escalate as needed                                 | - Security Reader                                   |
+|                          |                                                     | - Subscription Owner                                |
+|                          |                                                     | - Subscription Contributor                           |
+|                          |                                                     | - Security Admin *(can dismiss alerts)*              |
+| **Sam (Security Analyst)**| - Investigate attacks                               | - Subscription Reader *(can view alerts)*            |
+|                          | - Collaborate on remediation                         | - Subscription Owner                                 |
+|                          |                                                     | - Subscription Contributor *(can dismiss alerts)*    |
+|                          |                                                     | - May need workspace access                          |
 
+<!-- 
+Should the Azure RBAC role names in the table include the scope prefix (e.g., “Subscription Reader”) or just use the role name alone (e.g., “Reader”)?
+-->
 > [!NOTE] 
 > - Only subscription and resource group Owners and Contributors can apply security recommendations for a resource
-> - Only subscription and resource group Owners and Contributors can apply security recommendations for a resource
-> - It is recommended to assign the minimum permissions needed for users
 
 ## Security policies
 
-Security policies define which security controls Defender for Cloud monitors and enforce across your resources. They help you maintain compliance with company standards and regulatory requirements.
+Security policies define which security controls Defender for Cloud monitors and enforces across your resources. They help you maintain compliance with company standards and regulatory requirements.
 
 Defender for Cloud includes a built-in default policy for each subscription, but every organization has unique risks and workloads. You should review, customize, and extend this policy to match your business and compliance needs. You can also create and assign multiple custom security policies tailored to different scopes.
 
@@ -73,11 +86,11 @@ Data from the Log Analytics agent can go to an existing Log Analytics workspace 
 
 In the Azure portal, you can view all Log Analytics workspaces, including those created by Defender for Cloud. Related resource groups follow this naming convention:
 
-- Workspace: *DefaultWorkspace-[subscription-ID]-[geo]*
+- Workspace: `DefaultWorkspace-[subscription-ID]-[geo]`
 
-- Resource Group: *DefaultResourceGroup-[geo]*
+- Resource Group: `DefaultResourceGroup-[geo]`
 
-Workspaces created by Defender for Cloud retain data for 30 days by default. Retention for existing workspaces depends on the workspace pricing tier.
+Workspaces created by Defender for Cloud retain data for 30 days by default. For existing workspaces, retention periods depend on the workspace pricing tier and can be configured as needed.
 
 If your agent reports to a non-default workspace, any [Defender plans](defender-for-cloud-introduction.md#protect-cloud-workloads) enabled on the subscription should also be enabled on that workspace.
 
@@ -86,33 +99,23 @@ If your agent reports to a non-default workspace, any [Defender plans](defender-
 
 ### Onboarding non-Azure resources
 
-Defender for Cloud can monitor the security posture of your non-Azure machines once you onboard them. See [Onboard non-Azure computers](quickstart-onboard-machines.md) for guidance.
+Defender for Cloud can monitor the security posture of your non-Azure computers and servers once you onboard them. See [Onboard non-Azure computers](quickstart-onboard-machines.md) for guidance.
 
 ## Ongoing security monitoring
 
 After you configure Defender for Cloud and apply its recommendations, it integrates with your operational processes and continuously monitors your environment based on your security policies.
 
 The Defender for Cloud [overview page](overview-page.md) offers a centralized view of security across your Azure and connected non-Azure resources. 
-<!--
-Since this is a concept-focused article, mentioning specific portal screens feels out of scope.
--->
 
 Here’s an example of what you’ll see:
 
 :::image type="content" source="./media/overview-page/overview.png" alt-text="Screenshot of Defender for Cloud's overview page." lightbox="./media/overview-page/overview.png":::
 
-> [!NOTE]
-> Consider enabling threat intelligence features to detect and respond to active threats, such as botnet activity or other suspicious behaviors.
-<!--
-Not sure this note is too specific for this page. As an outsider, it seems like it is.
-If kept, is there a link we can add so users can learn more?
--->
-
 ### Monitor for new or changed resources
 
 Cloud environments constantly change. Defender for Cloud automatically discovers new resources and monitors them, including VMs, SQL databases, and PaaS workloads. If Data Collection is enabled in your [Security Policy](tutorial-security-policy.md), extra monitoring capabilities activate for your VMs.
 
-In addition, Defender for Cloud helps you track configuration drift, baseline mismatches, and new security alerts across your existing resources to maintain a strong security posture.
+In addition, Defender for Cloud monitors configuration drift, baseline mismatches, and new security alerts across your existing resources to maintain a strong security posture.
 
 ### Restrict access and control applications
 
@@ -132,7 +135,7 @@ Defender for Cloud alerts support these key incident response stages:
 
 - **Diagnose**: Take recommended steps to fix the issue
 
-Though Microsoft doesn’t create your incident response plan, Defender for Cloud aligns with the Azure Security Response in the Cloud lifecycle:
+Defender for Cloud aligns with the Azure Security Response in the Cloud lifecycle and provides tools to support the incident response plan your organization develops. The image below shows a diagram of the stages of incident response in the cloud lifecycle.
 
 :::image type="content" source="./media/defender-for-cloud-planning-and-operations-guide/defender-for-cloud-planning-and-operations-guide-fig5-1.png" alt-text="Stages of incident response in the cloud lifecycle.":::
 
@@ -140,6 +143,9 @@ Though Microsoft doesn’t create your incident response plan, Defender for Clou
 > For guidance on building your own incident response plan, see the NIST [Computer Security Incident Handling Guide](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf).
 
 ### Example: Suspicious RDP activity
+<!--
+This example might not be needed here. It's more relevant for a how-to guide about investigating or responding to alerts than for this high-level conceptual article.
+-->
 
 :::image type="content" source="./media/defender-for-cloud-planning-and-operations-guide/defender-for-cloud-planning-and-operations-guide-fig5-ga.png" alt-text="Screenshot of a suspicious activity report while it is taking place.":::
 
@@ -150,4 +156,5 @@ If you confirm a compromise, you can run a [workflow automation](workflow-automa
 ## Related Content
 
 - Learn more about [managing security alerts and daily operations](managing-and-responding-alerts.yml)
+- Learn more about [advanced threat protection](defender-for-cloud-introduction.md#protect-cloud-workloads) with Defender for Cloud
 - Find answers to [common questions](faq-general.yml)
