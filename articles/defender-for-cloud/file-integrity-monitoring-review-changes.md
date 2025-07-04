@@ -53,8 +53,8 @@ The file integrity monitoring data resides within the Azure Log Analytics worksp
     ```kusto  
     MDCFileIntegrityMonitoringEvents  
     | where TimeGenerated > ago(14d)  
-    | where ConfigChangeType in ('Registry', 'Files')  
-    | summarize count() by Computer, ConfigChangeType  
+    | where MonitoredEntityType in ('Registry', 'Files')  
+    | summarize count() by Computer, MonitoredEntityType, ChangeType  
     ```
 
 1. To view detailed information about registry changes:  
