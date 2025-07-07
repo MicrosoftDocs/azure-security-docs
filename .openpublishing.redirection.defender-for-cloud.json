@@ -441,6 +441,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/defender-for-cloud/enable-plan-workspace.md",
+      "redirect_url": "/azure/defender-for-cloud/prepare-deprecation-log-analytics-mma-agent",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/faq-data-collection-agents.yml",
+      "redirect_url": "/azure/defender-for-cloud/prepare-deprecation-log-analytics-mma-agent",
+      "redirect_document_id": false
+    },
+      {
+      "source_path_from_root": "/articles/defender-for-cloud/working-with-log-analytics-agent.yml",
+      "redirect_url": "/azure/defender-for-cloud/prepare-deprecation-log-analytics-mma-agent",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/defender-for-cloud/analyze-with-copilot.md",
       "redirect_url": "/azure/defender-for-cloud/summarize-with-copilot",
       "redirect_document_id": true
