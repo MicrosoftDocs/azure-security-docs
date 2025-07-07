@@ -108,7 +108,7 @@ $chsmMSIPatch = '{
 $sourceURI = "/subscriptions/$($identity.SubscriptionID)/resourceGroups/$($sourceCloudHSM.ResourceGroupName)/providers/Microsoft.HardwareSecurityModules/cloudHsmClusters/$($sourceCloudHSM.ResourceName)?api-version=2025-03-31"
 
 # Construct the destination URI
-$destinationURI = "/subscriptions/$($identity.SubscriptionID)/resourceGroups/$($destinationCloudHSM.ResourceGroupName)/providers/Microsoft.HardwareSecurityModules/cloudHsmClusters/$($destinationCloudHSM.ResourceName)?api-version=2024-06-30-preview"
+$destinationURI = "/subscriptions/$($identity.SubscriptionID)/resourceGroups/$($destinationCloudHSM.ResourceGroupName)/providers/Microsoft.HardwareSecurityModules/cloudHsmClusters/$($destinationCloudHSM.ResourceName)?api-version=2025-03-31"
 
 # Invoke the REST method to update the source Cloud HSM resource with the managed identity patch
 Invoke-AzRestMethod -Path $sourceURI -Method Put -Payload $chsmMSIPatch
