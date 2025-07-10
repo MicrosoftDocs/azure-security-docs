@@ -1,7 +1,7 @@
 ---
 title: Data Organization in Azure Confidential Ledger
 description: How to organize data in Azure Confidential Ledger.
-author: musabbirkhan
+author: musabbir
 ms.author: musabbirkhan
 ms.service: azure-confidential-ledger
 ms.topic: conceptual
@@ -82,6 +82,8 @@ list_result = ledger_client.list_ledger_entries(from_transaction_id=2.1, to_tran
 
 ### Tags (Preview)
 Adding Tags to a collection is a preview feature available with the latest preview versions of the ledger. Upgrade to SDK versions based on REST API Reference `2024-12-09-preview` or newer for access.
+
+Additionally, this feature is limited to Confidential Ledgers that are of the **Public** Ledger Type. **Private** Ledger Type is not supported.
 
 They allow for improved management of data within a collection by acting as secondary keys to a collection of data. Tags are limited to 64 character strings. Each transaction can support upto five tags. If an error is seen related to the number of tags supported and a higher limit is required, reach out to Support.  
 
