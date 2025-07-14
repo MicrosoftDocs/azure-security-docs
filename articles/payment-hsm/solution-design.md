@@ -39,6 +39,8 @@ The following table describes the network topologies supported by each network f
 > For Virtual WAN (VWAN) securedHub:  
 > - With Routing Intent: Add the delegated subnet prefix (x.x.x.x/27) to the Routing Intent's list of prefixes.  
 > - Without Routing Intent: Add a route to the VWAN's route table for x.x.x.x/27 and point the next hop to the firewall.
+>
+> For connectivity to a payment HSM in a peered virtual network (Cross region or global peering), use firewall/NVA with SNAT or reverse proxy as a workaround. See sample deployment scenario 2 (cross region connection setup with HSM) at [Use your browser to access the payShield manager for your Azure Payment HSM](/azure/payment-hsm/access-payshield-manager).
 
 ## Constraints
 
