@@ -22,7 +22,7 @@ The following table describes the network topologies supported by each network f
 | :------------------------------------------------------------- |:---------------:|
 |Connectivity to a payment HSM in a local virtual network | Yes |
 |Connectivity to a payment HSM in a peered virtual network (Same region) | Yes |
-|Connectivity to a payment HSM in a peered virtual network (Cross region or global peering) | No |
+|Connectivity to a payment HSM in a peered virtual network (Cross region or global peering)<br><br>For connectivity to a payment HSM in a peered virtual network (Cross region or global peering), use firewall/NVA with SNAT or reverse proxy as a workaround. See sample deployment scenario 2 (cross region connection setup with HSM) at [Use your browser to access the payShield manager for your Azure Payment HSM](access-payshield-manager.md). | No |
 |Connectivity to a payment HSM over ExpressRoute gateway | Yes |
 |ExpressRoute (ER) FastPath | No |
 |Connectivity from on-premises to a payment HSM in a spoke virtual network over ExpressRoute gateway and virtual network peering with gateway transit | Yes |
@@ -35,12 +35,10 @@ The following table describes the network topologies supported by each network f
 |Enables traffic inspection via virtual WAN securedHub | Yes |
 |On-premises connectivity via virtual WAN attached SD-WAN | No |
 
-> **Note:**  
+> [!NOTE]
 > For Virtual WAN (VWAN) securedHub:  
 > - With Routing Intent: Add the delegated subnet prefix (x.x.x.x/27) to the Routing Intent's list of prefixes.  
 > - Without Routing Intent: Add a route to the VWAN's route table for x.x.x.x/27 and point the next hop to the firewall.
->
-> For connectivity to a payment HSM in a peered virtual network (Cross region or global peering), use firewall/NVA with SNAT or reverse proxy as a workaround. See sample deployment scenario 2 (cross region connection setup with HSM) at [Use your browser to access the payShield manager for your Azure Payment HSM](/azure/payment-hsm/access-payshield-manager).
 
 ## Constraints
 
