@@ -41,7 +41,7 @@ The firewall **SNATs the client IP address** before forwarding traffic to the PH
 :::image type="content" source="./media/firewall-snat-architecture-diagram.png" alt-text="Architecture diagram of the firewall with SNAT" lightbox="./media/firewall-snat-architecture-diagram.png":::
 
 Route tables required:
-- On-premises to PHSM: a Route Table containing a UDR for the Payment HSM VNet range and pointing to the central hub Firewall is applied to the GatewaySubnet.
+- On-premises to PHSM: a Route Table containing a UDR for the Payment HSM subnet range and pointing to the central hub Firewall is applied to the GatewaySubnet.
 - Spoke VNets to PHSM: a Route Table containing the usual default route pointing to the central hub Firewall is applied to one or more Spoke VNets subnets.
 
 Results:
@@ -87,7 +87,7 @@ stream { 
 ```
 
 Route tables required:
-- On-premises to PHSM: a Route Table containing a UDR for the Payment HSM VNet range and pointing to the central hub Firewall is applied to the GatewaySubnet.
+- On-premises to PHSM: a Route Table containing a UDR for the Payment HSM subnet range and pointing to the central hub Firewall is applied to the GatewaySubnet.
 - Spoke VNet(s) to PHSM: a Route Table containing the usual default route pointing to the central hub Firewall is applied to one or more Spoke VNets subnets.
 
 > [!IMPORTANT]
