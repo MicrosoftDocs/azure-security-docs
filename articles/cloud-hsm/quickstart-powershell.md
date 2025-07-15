@@ -90,7 +90,7 @@ $chsmMSIPatch = @{
 } | ConvertTo-Json -Depth 4
 
 # Construct the URI for the Cloud HSM resource
-$resourceURI = "/subscriptions/$subscriptionId/resourceGroups/$($server.ResourceGroupName)/providers/Microsoft.HardwareSecurityModules/cloudHsmClusters/$($server.ResourceName)?api-version=2024-06-30-preview"
+$resourceURI = "/subscriptions/$subscriptionId/resourceGroups/$($server.ResourceGroupName)/providers/Microsoft.HardwareSecurityModules/cloudHsmClusters/$($server.ResourceName)?api-version=2025-03-31"
 
 # Update the Cloud HSM resource with the managed identity
 Invoke-AzRestMethod -Path $resourceURI -Method Put -Payload $chsmMSIPatch
@@ -98,7 +98,7 @@ Invoke-AzRestMethod -Path $resourceURI -Method Put -Payload $chsmMSIPatch
 
 For detailed instructions on configuring backup and restore operations, see [Back up and restore Azure Cloud HSM resources](backup-restore.md).
 
-## Set up networking (recommended)
+## Set up networking
 
 For production environments, we strongly recommend that you configure a private endpoint for your Cloud HSM deployment to help ensure secure communication. You can use the following Azure PowerShell commands to create a private endpoint:
 
