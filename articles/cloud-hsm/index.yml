@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure Cloud HSM Preview Documentation
+title: Azure Cloud HSM Documentation
 summary: Learn how Azure Cloud HSM offers cryptographic key storage within the Azure environment as a dedicated HSM service.
 
 metadata:
-  title: Azure Cloud HSM Preview Documentation
+  title: Azure Cloud HSM Documentation
   description: Learn how Azure Cloud HSM offers cryptographic key storage within the Azure environment as a dedicated HSM service.
   ms.service: azure-cloud-hsm
   ms.topic: landing-page # Required
@@ -15,11 +15,11 @@ metadata:
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
-  - title: About Azure Cloud HSM Preview
+  - title: About Azure Cloud HSM
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Cloud HSM Preview?
+          - text: What is Azure Cloud HSM?
             url: overview.md
 
   - title: Get Started
