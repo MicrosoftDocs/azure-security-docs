@@ -41,7 +41,6 @@ Here are the integration guides that can help you securely connect applications 
 - [Integrating Oracle TDE with Azure Cloud HSM (PDF)](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20Oracle%20TDE%20Integration%20Guide.pdf)
 - [Integrating PKCS#11 with Azure Cloud HSM (PDF)](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20PKCS11%20Integration%20Guide.pdf)
 - [Integrating SQL Server EKM with Azure Cloud HSM (PDF)](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20SQL%20EKM%20Integration%20Guide.pdf)
-- [Integrating Certificate Storage with Azure Cloud HSM](https://learn.microsoft.com/en-us/azure/cloud-hsm/integration-guides)
 - [Azure Cloud HSM SSL/TLS Offloading Integration Guide (PDF)](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20SSL%20TLS%20Offloading%20Integration%20Guide.pdf)
 
 ## Related content
