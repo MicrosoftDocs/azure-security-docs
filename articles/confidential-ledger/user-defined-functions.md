@@ -266,12 +266,12 @@ POST /app/transactions?collectionId=myCollection
   "contents": "myValue", 
   "preHooks": [ 
     { 
-        "id": "myPreHook"
+        "functionId": "myPreHook"
     } 
   ], 
   "postHooks": [ 
     { 
-        "id": "myPostHook" 
+        "functionId": "myPostHook" 
     }
   ] 
 } 
@@ -288,7 +288,7 @@ POST /app/transactions?collectionId=myCollection
   "contents": "myValue", 
   "preHooks": [ 
     { 
-        "id": "myPreHook", 
+        "functionId": "myPreHook", 
         "properties": { 
             "arguments": [ 
                 "arg1",
@@ -307,7 +307,7 @@ POST /app/transactions?collectionId=myCollection
   ], 
   "postHooks": [ 
     { 
-        "id": "myPostHook", 
+        "functionId": "myPostHook", 
         "properties": { 
             "arguments": [ 
                 "arg1"

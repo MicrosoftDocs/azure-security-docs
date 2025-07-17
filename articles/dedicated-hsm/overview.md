@@ -37,7 +37,6 @@ Many customers require full administrative control and sole access to their devi
  The customer is free to disable this monitoring needed. However, if they disable it, they won't receive proactive health alerts from Microsoft.
 
 ### High performance
-### High performance
 
 The Thales device was selected for this service for multiple reasons. It offers a broad range of cryptographic algorithm support, diverse supported operating systems, and broad API support. The specific model that's deployed offers excellent performance with 10,000 operations per second for RSA-2048. It supports 10 partitions that can be used for unique application instances. This device is a low latency, high capacity, and high throughput device.
 

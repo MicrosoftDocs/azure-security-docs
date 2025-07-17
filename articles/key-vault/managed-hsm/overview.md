@@ -5,7 +5,7 @@ services: azure-key-vault
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: overview
-ms.date: 08/30/2024
+ms.date: 05/30/2025
 ms.author: mbaldwin
 author: msmbaldwin
 ms.reviewer: nkondamudi
@@ -18,9 +18,9 @@ ms.collection:
 # What is Azure Key Vault Managed HSM?
 
 > [!IMPORTANT]
-> We are updating our HSM fleet to a FIPS 140-3 level 3 validated firmware for both Azure Key Vault Managed HSM and Azure Key Vault Premium. See full details at [Updating Managed HSM Firmware for Enhanced Security and Compliance](firmware-update.md).
+> We have updated our HSM fleet to a FIPS 140-3 level 3 validated firmware for both Azure Key Vault Managed HSM and Azure Key Vault Premium. See full details at [Updating Managed HSM Firmware for Enhanced Security and Compliance](firmware-update.md).
 
-Azure Key Vault Managed HSM (Hardware Security Module) is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using **FIPS 140-2 Level 3** validated HSMs. It is one of several [key management solutions in Azure](/azure/security/fundamentals/key-management).
+Azure Key Vault Managed HSM (Hardware Security Module) is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using **FIPS 140-3 Level 3** validated HSMs. It is one of several [key management solutions in Azure](/azure/security/fundamentals/key-management).
 
 For pricing information, see Managed HSM Pools section on [Azure Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/). For supported key types, see [About keys](../keys/about-keys.md).
 
@@ -41,7 +41,7 @@ The term "Managed HSM instance" is synonymous with "Managed HSM pool". To avoid 
 - **Centralized key management**: Manage critical, high-value keys across your organization in one place. With granular per key permissions, control access to each key on the 'least privileged access' principle.
 - **Isolated access control**: Managed HSM "local RBAC" access control model allows designated HSM cluster administrators to have complete control over the HSMs that even management group, subscription, or resource group administrators cannot override.
 - **Private endpoints**: Use private endpoints to securely and privately connect to Managed HSM from your application running in a virtual network.
-- **FIPS 140-2 Level 3 validated HSMs**: Protect your data and meet compliance requirements with FIPS (Federal Information Protection Standard) 140-2 Level 3 validated HSMs. Managed HSMs use Marvell LiquidSecurity HSM adapters.
+- **FIPS 140-3 Level 3 validated HSMs**: Protect your data and meet compliance requirements with FIPS (Federal Information Protection Standard) 140-3 Level 3 validated HSMs. Managed HSMs use Marvell LiquidSecurity HSM adapters.
 - **Monitor and audit**: fully integrated with Azure monitor. Get complete logs of all activity via Azure Monitor. Use Azure Log Analytics for analytics and alerts.
 - **Data residency**: Managed HSM doesn't store/process customer data outside the region the customer deploys the HSM instance in.
 

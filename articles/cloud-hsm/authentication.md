@@ -6,33 +6,33 @@ ms.service: azure-cloud-hsm
 ms.topic: conceptual
 ms.date: 03/20/2025
 ms.author: mbaldwin
-# Customer intent: As a Cloud HSM administrator, I want to learn how to secure and optimize my Cloud HSM deployment so that I can ensure the highest level of security and performance.
+#customer intent: As a Cloud HSM administrator, I want to learn how to secure and optimize my Cloud HSM deployment so that I can ensure the highest level of security and performance.
 ---
 
 # Authentication in Azure Cloud HSM
 
-Authentication is a crucial aspect of securely accessing and operating within Azure Cloud HSM. This article outlines various authentication methods, including CLI, PKCS#11, JCE, and OpenSSL, as well as best practices for multi-threading and session handling.
+Authentication is a crucial aspect of securely accessing and operating within Azure Cloud HSM. This article outlines authentication methods, including command-line interface (CLI), PKCS#11, Java Cryptography Extension (JCE), and OpenSSL. This article also provides best practices for multithreading and session handling.
 
-## Cloud HSM CLI Authentication
+## Cloud HSM CLI authentication
 
-You can authenticate with CLI utilities like `azcloudhsm_util` in either single command mode or interactive mode. In interactive mode, use the `login` command. For single command mode, include the `singlecmd` and parameters for `loginHSM`. Azure Cloud HSM advises securely storing your HSM credentials when not in use by your application.
+You can authenticate by using CLI tools like `azcloudhsm_util` in either interactive mode or single-command mode. In interactive mode, use the `login` command. For single-command mode, include `singlecmd` and parameters for `loginHSM`. We advise you to securely store your HSM credentials when your application isn't using them.
 
-### Interactive Mode
+### Interactive mode
 
 ```sh
 ./azcloudhsm_util
 loginHSM -u CU -s cu1 -p user1234
 ```
 
-### Single Command Mode
+### Single-command mode
 
 ```sh
 sudo ./azcloudhsm_util singlecmd loginHSM -u CU -s cu1 -p user1234 findKey
 ```
 
-## PKCS#11 Authentication
+## PKCS#11 authentication
 
-In PKCS#11, you login using the `C_Login` API after opening a session using `C_OpenSession`. You only need to perform one `C_Login` per slot (Cloud HSM Cluster). After you have successfully logged in, you can open additional sessions using `C_OpenSession` without the need to perform additional login operations. For examples on authenticating to PKCS#11, please see the Azure Cloud HSM PKCS#11 Integration Guide for code samples.
+In PKCS#11, you sign in by using the `C_Login` API after you open a session by using `C_OpenSession`. You need to use `C_Login` only once per slot (Cloud HSM cluster). After you successfully sign in, you can open additional sessions by using `C_OpenSession` without signing in again.
 
 ```c
 char pPin[256] = "cu1:user1234";
@@ -44,9 +44,13 @@ rv = (func_list->C_Login) (session_rw, CKU_USER, (CK_UTF8CHAR_PTR) pPin, n_pin);
 …
 ```
 
-## JCE Authentication
+To get code examples for authenticating to PKCS#11, see the [guide for integrating PKCS#11 with Azure Cloud HSM](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20PKCS11%20Integration%20Guide.pdf).
 
-The Azure Cloud HSM JCE Provider offers support for both implicit and explicit login methods, each suitable for different use cases. **Implicit Login** is recommended whenever possible because the SDK autonomously manages authentication. This is particularly beneficial if your application encounters disconnecting from the cluster and requires re-authentication. Implicit login also facilitates providing credentials to your application when integrating with platforms where direct control over application code isn't feasible. For further details on login methods, please refer to the Azure Cloud HSM JCE Integration Guide.
+## JCE authentication
+
+The JCE provider for Azure Cloud HSM offers support for both implicit and explicit sign-in methods. Each is suitable for different use cases.
+
+We recommend that you use implicit sign-in whenever possible, because the SDK autonomously manages authentication. This method is particularly beneficial if your application disconnects from the cluster and requires reauthentication. Implicit sign-in also facilitates providing credentials to your application during integration with platforms where direct control over application code isn't feasible.
 
 ```java
 LoginManager lm = LoginManager.getInstance();
@@ -56,9 +60,11 @@ lm.logout();
 …
 ```
 
-## OpenSSL Authentication
+For more details on sign-in methods, refer to the [guide for integrating JCE with Azure Cloud HSM](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20JCE%20Integration%20Guide.pdf).
 
-When utilizing the Azure Cloud HSM OpenSSL Engine, credentials are supplied via environmental variables. Microsoft advises securely storing your HSM credentials when not in use by your application. Ideally, configure your environment to automatically retrieve and set these environment variables to avoid manual entry. For authentication details with OpenSSL, please consult the Azure Cloud HSM OpenSSL Integration Guide.
+## OpenSSL authentication
+
+When you use an OpenSSL engine for Azure Cloud HSM, environmental variables supply the credentials. We advise you to securely store your HSM credentials when your application isn't using them. Ideally, configure your environment to automatically retrieve and set these environment variables to avoid manual entry.
 
 ```sh
 export azcloudhsm_password="cu1:user1234" 
@@ -70,27 +76,29 @@ openssl genpkey -algorithm RSA -out private_key.pem -engine azcloudhsm_openssl
 …
 ```
 
-## Employing Multi-threading Techniques
+For authentication details with OpenSSL, consult the [guide for integrating OpenSSL with Azure Cloud HSM](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20OpenSSL%20Integration%20Guide.pdf).
 
-Azure Cloud HSM supports multi-threaded applications, but there are considerations for handling them:
+## Multithreading techniques
 
-- **For PKCS#11**, initialize the PKCS#11 library using `C_Initialize` only once. Assign each thread its own session using `C_OpenSession`. Avoid using the same session across multiple threads.
-- **For JCE**, initialize the Azure Cloud HSM provider only once. Avoid sharing instances of SPI objects across threads. For instance, `Cipher`, `Signature`, `Digest`, `Mac`, `KeyFactory`, or `KeyGenerator` objects should only be used within their respective thread context.
+Azure Cloud HSM supports multithreaded applications, but there are considerations for handling them:
 
-## Incorporate Retries for HSM Operations Integration
+- **PKCS#11**: Initialize the PKCS#11 library by using `C_Initialize` only once. Assign each thread its own session by using `C_OpenSession`. Avoid using the same session across multiple threads.
+- **JCE**: Initialize the Azure Cloud HSM provider only once. Avoid sharing instances of Service Provider Interface (SPI) objects across threads. For example, use `Cipher`, `Signature`, `Digest`, `Mac`, `KeyFactory`, and `KeyGenerator` objects only within their respective thread contexts.
 
-Microsoft may swap out an HSM in your Azure Cloud HSM cluster for operational or maintenance purposes, like if a device fails. To prepare your application for such scenarios, Microsoft advises adding client-side retry logic to all operations sent to your cluster. This setup anticipates that subsequent retries on failed operations, whether due to replacements or temporary maintenance outages, will be successful.
+## Retries for integration of HSM operations
 
-## Cloud HSM Client Session Handling
+Microsoft might swap out an HSM in your Azure Cloud HSM cluster for operational or maintenance purposes, like if a device fails. To prepare your application for such scenarios, we advise that you add client-side retry logic to all operations sent to your cluster. This setup anticipates that subsequent retries on failed operations, whether due to replacements or temporary maintenance outages, will be successful.
 
-The Azure Cloud HSM client logs in and out of all HSM sessions whenever any application performs a login or logout. As a result, if a second application uses the `azurecloudhsm_client`, it shares the same sessions and inherits the same login credentials if running from the same host. The `azurecloudhsm_client` keeps track of which applications have attempted to log in and only allows properly logged-in applications to execute commands that require authentication. 
+## Cloud HSM client session handling
 
-For example, if you're logged in with `azurecloudhsm_util` and attempt to execute your application or key tool in another terminal window with the Azure Cloud HSM provider, you will encounter an error because an active session is already open. You must close the `azurecloudhsm_util` session for your application to create the session with the `azurecloudhsm_client` running on your host for it to authenticate.
+The Azure Cloud HSM client signs in and out of all HSM sessions whenever any application performs a sign-in or sign-out. As a result, if a second application uses `azurecloudhsm_client`, it shares the same sessions and inherits the same sign-in credentials if it's running from the same host. The `azurecloudhsm_client` tool keeps track of which applications attempt to sign in. It allows properly signed-in applications to run commands that require authentication.
 
-## Next steps
+For example, if you're signed in with `azurecloudhsm_util` and you attempt to run your application or key tool in another terminal window with the Azure Cloud HSM provider, you encounter an error because an active session is already open. You must close the `azurecloudhsm_util` session for your application to create the session with `azurecloudhsm_client` running on your host for it to authenticate.
 
-- [Secure your Azure Cloud HSM](secure-cloud-hsm.md)
-- [Network security](network-security.md)
-- [Key Management in Azure Cloud HSM](key-management.md)
-- [User Management in Azure Cloud HSM](user-management.md)
+## Related content
+
+- [Secure your Azure Cloud HSM deployment](secure-cloud-hsm.md)
+- [Network security in Azure Cloud HSM](network-security.md)
+- [Key management in Azure Cloud HSM](key-management.md)
+- [User management in Azure Cloud HSM](user-management.md)
 - [Overview of Azure Cloud HSM](overview.md)

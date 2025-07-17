@@ -13,7 +13,7 @@ ms.author: mbaldwin
 
 # Tutorial: Back up and restore Azure Cloud HSM resources
 
-Azure Cloud HSM Preview lets you back up and restore your hardware security module (HSM) in a way that preserves all keys, versions, attributes, tags, and role assignments.
+Azure Cloud HSM lets you back up and restore your hardware security module (HSM) in a way that preserves all keys, versions, attributes, tags, and role assignments.
 
 In this tutorial, you:
 
@@ -105,10 +105,10 @@ $chsmMSIPatch = '{
 }'
 
 # Construct the source URI
-$sourceURI = "/subscriptions/$($identity.SubscriptionID)/resourceGroups/$($sourceCloudHSM.ResourceGroupName)/providers/Microsoft.HardwareSecurityModules/cloudHsmClusters/$($sourceCloudHSM.ResourceName)?api-version=2024-06-30-preview"
+$sourceURI = "/subscriptions/$($identity.SubscriptionID)/resourceGroups/$($sourceCloudHSM.ResourceGroupName)/providers/Microsoft.HardwareSecurityModules/cloudHsmClusters/$($sourceCloudHSM.ResourceName)?api-version=2025-03-31"
 
 # Construct the destination URI
-$destinationURI = "/subscriptions/$($identity.SubscriptionID)/resourceGroups/$($destinationCloudHSM.ResourceGroupName)/providers/Microsoft.HardwareSecurityModules/cloudHsmClusters/$($destinationCloudHSM.ResourceName)?api-version=2024-06-30-preview"
+$destinationURI = "/subscriptions/$($identity.SubscriptionID)/resourceGroups/$($destinationCloudHSM.ResourceGroupName)/providers/Microsoft.HardwareSecurityModules/cloudHsmClusters/$($destinationCloudHSM.ResourceName)?api-version=2025-03-31"
 
 # Invoke the REST method to update the source Cloud HSM resource with the managed identity patch
 Invoke-AzRestMethod -Path $sourceURI -Method Put -Payload $chsmMSIPatch

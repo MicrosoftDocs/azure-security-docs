@@ -120,7 +120,7 @@ Open the *pom.xml* file in your text editor. Add the following dependency elemen
 
 #### Grant access to your key vault
 
-[!INCLUDE [Using RBAC to provide access to a key vault](../includes/rbac/upn-certificate-officer-cli.md)]
+[!INCLUDE [Using RBAC to provide access to a key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/rbac/upn-certificate-officer-cli.md)]
 
 #### Set environment variables
 

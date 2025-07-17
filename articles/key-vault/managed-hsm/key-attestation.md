@@ -6,18 +6,18 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 03/12/2025
+ms.date: 06/20/2025
 ms.author: mbaldwin
 
 ---
 
-# Validate Azure Managed HSM keys with key attestation (Preview)
+# Validate Azure Managed HSM keys with key attestation
 
 Key attestation is a functionality of Azure Managed HSM. It lets you validate the integrity and authenticity of cryptographic keys stored within the hardware security module (HSM). It lets organizations verify that keys are generated and stored within a trusted, FIPS 140-3 Level 3 certified HSM without ever leaving the FIPS boundary. By providing cryptographic proof that the keys are securely handled, key attestation enhances trust in key management processes, enabling compliance with stringent security standards and regulations. This feature is especially valuable in scenarios where customers need assurance that their keys are protected from unauthorized access, even from cloud providers.
 
 ## Prerequisites
 
-- **AZ CLI version (2.69.0 or higher)**: Run `az --version` for the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+- **AZ CLI version (2.73.0 or higher)**: Run `az --version` for the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 - **Python version (3.13.2 or higher)**: Run `python3 --version` for the version.
 - **Pip3 version (24.3.1 or higher)**: Run `pip3 --version` for the version.
 - **Permissions:** Crypto user of the Managed HSM or a custom role with getkey permissions
@@ -52,12 +52,17 @@ cd src/
 
 ## Get attestation data for a specific key from the HSM
 
-Get attestation data for a specific key from the HSM using the Azure CLI [az rest](/cli/azure/reference-index#az-rest) command. Including the key version in the URI is optional. The JSON file contains key properties, the attestation blob, and all certificates required for key attestation. In this example, the JSON file is named `attestation.json`.
+Get attestation data for a specific key from the HSM using the Azure CLI [az keyvault key get-attestation](/cli/azure/keyvault/key#az-keyvault-key-get-attestation) command. Including the key version is optional. The JSON file contains key properties, the attestation blob, and all certificates required for key attestation. In this example, the JSON file is named `attestation.json`.
 
 Usage:
 
 ```sh
-az rest --method get --uri https://<poolname>.managedhsm.azure.net/keys/<keyname>/<keyversion>/attestation?api-version=7.6-preview.1 --resource https://managedhsm.azure.net > <filename>.json
+az keyvault key get-attestation --hsm-name <poolname> --name <keyname> --version <keyversion> --file <filename>.json
+```
+or
+
+```sh
+az keyvault key get-attestation --id https://<poolname>.managedhsm.azure.net/keys/<keyname>/<keyversion> --file <filename>.json
 ```
 
 Examples:
@@ -65,13 +70,23 @@ Examples:
 - For a key named `contosokey` in HSM named `contoso`:
 
     ```sh
-    az rest --method get --uri https://contoso.managedhsm.azure.net/keys/contosokey/attestation?api-version=7.6-preview.1 --resource https://managedhsm.azure.net > attestation.json
+    az keyvault key get-attestation --hsm-name contoso --name contosokey --file attestation.json
+    ```
+    or
+
+  ```sh
+    az keyvault key get-attestation --id https://contoso.managedhsm.azure.net/keys/contosokey --file attestation.json
     ```
 
 - For a key named `contosokey` in HSM named `contoso`, with a specific key version `48293232e672449b9008602b80618`:
 
     ```sh
-    az rest --method get --uri https://contoso.managedhsm.azure.net/keys/contosokey/48293232e672449b9008602b80618/attestation?api-version=7.6-preview.1 --resource https://managedhsm.azure.net > attestation.json
+    az keyvault key get-attestation --hsm-name contoso --name contosokey --version 48293232e672449b9008602b80618 --file attestation.json
+    ```
+    or
+
+   ```sh
+    az keyvault key get-attestation --id https://contoso.managedhsm.azure.net/keys/contosokey/48293232e672449b9008602b80618 --file attestation.json
     ```
 
 ## Validate the attestation data

@@ -31,7 +31,7 @@ In this quickstart, you create a key vault in Azure Key Vault with Azure CLI. Az
 
 ## Give your user account permissions to manage certificates in Key Vault
 
-[!INCLUDE [Using RBAC to provide access to a key vault](../includes/rbac/upn-certificate-officer-cli.md)]
+[!INCLUDE [Using RBAC to provide access to a key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/rbac/upn-certificate-officer-cli.md)]
 
 ## Add a certificate to Key Vault
 
