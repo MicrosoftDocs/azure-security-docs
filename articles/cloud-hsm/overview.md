@@ -53,10 +53,11 @@ Microsoft Azure Cloud HSM is most suitable for the following types of scenarios:
 > [!NOTE]
 > Microsoft Azure Cloud HSM Supports:
 > 
-> - PKCS#11, OpenSSL, JCA/JCE, CNG/KSP
-> - ADCS (Active Directory Certificate Services)
+> - PKCS#11, OpenSSL, Java Cryptography Architecture (JCA), Java Cryptography Extension (JCE), Cryptography API: Next Generation (CNG), and key storage provider (KSP)
+> - Active Directory Certificate Services (AD CS)
 > - SSL/TLS Offloading (Apache/Nginx)
 > - MSSQL/Oracle TDE (Transparent Data Encryption)
+> - Certificate Storage
 > - Document/File/Code Signing
 
 ### Not a fit
