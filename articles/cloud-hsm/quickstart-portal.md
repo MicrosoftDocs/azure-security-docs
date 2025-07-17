@@ -69,7 +69,7 @@ On the **Managed Identity** tab, consider the following options:
 
 For detailed instructions on configuring a user-assigned identity for backup and restore operations, see [Apply a managed identity and create a storage account](backup-restore.md#apply-a-managed-identity-and-create-a-storage-account).
 
-## Set up networking (recommended)
+## Set up networking
 
 For secure connectivity, establish a private endpoint to Azure Cloud HSM. This task requires an existing virtual network.
 
