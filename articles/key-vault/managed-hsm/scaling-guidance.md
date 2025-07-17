@@ -73,7 +73,6 @@ This table describes number of operations per second for each curve type.
 
 ### AES key operations (number of operations per second per HSM instance)
 
-Throughput limits for Encrypt/Decrypt apply to AES-CBC and AES-GCM algorithms.
 Throughput limits for Wrap/Unwrap apply to AES-KW algorithm.
 
 | Operation | 128-bit | 192-bit | 256-bit |
@@ -93,5 +92,4 @@ Throughput limits for Wrap/Unwrap apply to AES-KW algorithm.
 |-----------|------------------------------------------------|
 | Full HSM Backup/Restore<br>(only one concurrent backup or restore operation per HSM instance supported) | 1 |
 
-For Azure Managed HSM service limits, see [Service limits](service-limits.md).
-
+For Azure Managed HSM service limits, see [Managed HSM service limits](service-limits.md).
