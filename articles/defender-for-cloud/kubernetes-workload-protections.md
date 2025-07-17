@@ -12,7 +12,7 @@ ms.date: 09/04/2023
 This page describes how to use Microsoft Defender for Cloud's set of security recommendations dedicated to Kubernetes data plane hardening.
 
 > [!TIP]
-> For a list of the security recommendations that might appear for Kubernetes clusters and nodes, review[container recommendations](recommendations-reference-container.md).
+> For a list of the security recommendations that might appear for Kubernetes clusters and nodes, review [container recommendations](recommendations-reference-container.md).
 
 ## Set up your workload protection
 
@@ -104,7 +104,7 @@ Approximately 30 minutes after the Azure Policy for Kubernetes installation comp
 > Some recommendations have parameters that must be customized via Azure Policy to use them effectively. For example, to benefit from the recommendation **Container images should be deployed only from trusted registries**, you'll have to define your trusted registries. If you don't enter the necessary parameters for the recommendations that require configuration, your workloads will be shown as unhealthy.
 
 > [!NOTE]
-> Microsoft components like the Defender sensor and Azure Monitor Agent (AMA) are deployed in the kube-system namespace by default. This setup ensures they are not marked as non-compliant in data plane recommendations. However, third-party vendor tools installed in a different namespace may be flagged as non-compliant. To exclude third-party vendors from these recommendations, you can add their namespace to the exclusion list.
+> Microsoft components like the Defender sensor are deployed in the kube-system namespace by default. This setup ensures they are not marked as non-compliant in data plane recommendations. However, third-party vendor tools installed in a different namespace may be flagged as non-compliant. To exclude third-party vendors from these recommendations, you can add their namespace to the exclusion list.
 
 | Recommendation name | Security Control | Configuration required |
 |---------------------|--------------------|------------------------|

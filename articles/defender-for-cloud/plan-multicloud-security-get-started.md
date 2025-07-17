@@ -4,7 +4,7 @@ description: Learn about designing a solution for securing and protecting your m
 ms.topic: how-to
 author: dcurwin
 ms.author: dacurwin
-ms.date: 05/30/2024
+ms.date: 05/25/2025
 ---
 
 # Start planning multicloud protection
@@ -17,7 +17,7 @@ Follow the guides in order. They build on each other to help you make design dec
 
 ## What should I get from this guide?
 
-Use this guide as an aid as you design Cloud Security Posture Management (CSPM) and Cloud Workload Protection Plan (CWPP) solutions across multicloud environments. After reading the articles you should have answers to the following:
+Use this guide as an aid as you design Cloud Security Posture Management (CSPM) and Cloud Workload Protection Platform (CWPP) solutions across multicloud environments. After reading the articles you should have answers to the following:
 
 - What questions should I ask and answer as I design my multicloud solution?
 - What steps do I need to complete to design a solution?

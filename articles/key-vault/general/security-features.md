@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 03/31/2025
+ms.date: 05/24/2025
 ms.author: mbaldwin
 #Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
 ---
@@ -87,6 +87,8 @@ Access to vaults takes place through two interfaces or planes. These planes are 
 
 Applications access the planes through endpoints. The access controls for the two planes work independently. To grant an application access to use keys in a key vault, you grant data plane access by using Azure RBAC or a Key Vault access policy. To grant a user read access to Key Vault properties and tags, but not access to data (keys, secrets, or certificates), you grant control plane access with Azure RBAC.
 
+## Endpoints for control and data planes
+
 The following table shows the endpoints for the control and data planes.
 
 | Access&nbsp;plane | Access endpoints | Operations | Access&nbsp;control mechanism |
@@ -104,7 +106,7 @@ When you create a key vault in a resource group, you manage access by using Micr
 
 There are several predefined roles. If a predefined role doesn't fit your needs, you can define your own role. For more information, see [Azure RBAC: Built-in roles](/azure/role-based-access-control/built-in-roles).
 
-[!INCLUDE [contributor-role-warning.md](~/reusable-content/ce-skilling/azure/includes/key-vault/includes/key-vault-contributor-role-warning.md)]
+[!INCLUDE [contributor-role-warning.md](~/reusable-content/ce-skilling/azure/includes/key-vault/key-vault-contributor-role-warning.md)]
 
 ### Controlling access to Key Vault data
 

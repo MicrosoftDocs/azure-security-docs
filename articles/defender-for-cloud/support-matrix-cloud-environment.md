@@ -4,7 +4,7 @@ author: Elazark
 ms.author: elkrieger
 description: This article provides an overview of the supported features and plans for Defender for Cloud in Azure commercial cloud and government clouds.
 ms.topic: limits-and-quotas
-ms.date: 05/01/2025
+ms.date: 05/06/2025
 ---
 
 # Defender for Cloud support matrices for Azure commercial/other clouds
@@ -26,6 +26,7 @@ In the support table, **NA** indicates that the feature isn't available.
 |[Alert bi-directional synchronization with Microsoft Sentinel](/azure/sentinel/connect-azure-security-center) | GA | GA | NA|
 |[Azure Workbooks integration for reporting](custom-dashboards-azure-workbooks.md) | GA | GA | GA|
 |[Automatic component/agent/extension provisioning](monitoring-components.md) | GA | GA | GA|
+|**FOUNDATIONAL Cloud Security Posture Management (CSPM) FEATURES (FREE)** | | ||
 |[Copilot in Defender for Cloud](copilot-security-in-defender-for-cloud.md) | GA | NA | NA |
 |**FOUNDATIONAL CSPM FEATURES (FREE)** | | ||
 |[Asset inventory](asset-inventory.md) | GA | GA | GA|
@@ -33,25 +34,26 @@ In the support table, **NA** indicates that the feature isn't available.
 |[Recommendation exemptions](exempt-resource.md) | Preview | NA | NA|
 |[Secure score](secure-score-security-controls.md) | GA | GA | GA|
 |[DevOps security posture](concept-devops-environment-posture-management-overview.md) | Preview | NA | NA|
-| **DEFENDER CSPM FEATURES** | | | |
+| **DEFENDER Cloud Security Posture Management (CSPM) FEATURES** | | | |
 | [Data and AI security dashboard](data-aware-security-dashboard-overview.md) | GA | NA | NA |
 | [Attack path](concept-attack-path.md) | GA | NA | NA |
 | [AI security posture management](ai-security-posture.md) | GA | NA | NA |
+| [Active user](active-user.md) | Public preview | NA | NA |
 |**DEFENDER FOR CLOUD PLANS** | | ||
-|[Defender CSPM](concept-cloud-security-posture-management.md)| GA | NA | NA|
-| [Defender for AI Services](ai-threat-protection.md) | GA | NA | NA |
+|[Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md)| GA | NA | NA|
+|[Defender for AI Services](ai-threat-protection.md) | GA | NA | NA |
 |[Defender for APIs](defender-for-apis-introduction.md) | GA | NA | NA|
 |[Defender for App Service](defender-for-app-service-introduction.md) | GA | NA | GA |
 |[Defender for Containers](defender-for-containers-introduction.md)<br/>[Review detailed feature support](support-matrix-defender-for-containers.md) | GA | GA | GA|
 |[DevOps Security](defender-for-devops-introduction.md) | GA | NA | NA|
-|[Defender for DNS](defender-for-dns-introduction.md) | GA | GA | GA|
+|[Defender for Domain Name System (DNS)](defender-for-dns-introduction.md) | GA | GA | GA|
 |[Defender for Key Vault](defender-for-key-vault-introduction.md) | GA | NA | NA|
 |[Defender for Resource Manager](defender-for-resource-manager-introduction.md) | GA | GA | GA|
 |[Defender for Servers](plan-defender-for-servers.md)<br/>[Review detailed feature support](support-matrix-defender-for-servers.md). | GA | GA | GA|
-|[Defender for Storage](defender-for-storage-introduction.md) | GA | GA | GA|
+|[Defender for Storage](defender-for-storage-introduction.md) | GA | GA | NA|
 | **DEFENDER FOR STORAGE FEATURES** | | | |
-| Activity monitoring (security alerts) | GA | GA| GA|
-| [Malware scanning](defender-for-storage-malware-scan.md) | GA<sup>[1](#footnote1)</sup> | GA | GA |
+| Activity monitoring (security alerts) | GA | GA| NA|
+| [Malware scanning](defender-for-storage-malware-scan.md) | GA<sup>[1](#footnote1)</sup> | GA | NA |
 | [Sensitive data threat detection (Sensitive Data Discovery)](defender-for-storage-data-sensitivity.md) | GA<sup>[1](#footnote1)</sup> | NA | NA |
 | **DEFENDER FOR DATABASES FEATURES** | | | |
 | [Defender for Azure SQL database servers](defender-for-sql-introduction.md) | GA | GA | GA<br/><br/>A subset of alerts/vulnerability assessments is available.<br/>Behavioral threat protection isn't available.|
@@ -62,12 +64,10 @@ In the support table, **NA** indicates that the feature isn't available.
 | [Defender for Open-Source Relational Databases](defender-for-databases-introduction.md) | GA | GA | GA |
 | [Defender for Azure Cosmos DB](concept-defender-for-cosmos.md) | GA | NA | NA|
 | **DEFENDER FOR SERVERS FEATURES** | | | |
-| [File Integrity Monitoring](/azure/defender-for-cloud/file-integrity-monitoring-overview) | GA | GA<sup>[2](#footnote2)</sup> |  NA |
+| [File Integrity Monitoring](file-integrity-monitoring-overview.md) | GA | GA<sup>[2](#footnote2)</sup> |  NA |
 
 <sup><a name="footnote1"></a>1</sup>: Azure DNS Zone isn't supported for malware scanning and sensitive data threat detection.
 <sup><a name="footnote2"></a>2</sup>: GovCon Cloud Moderate (GCCM) doesn't support File Integrity Monitoring.
-
-
 
 [!INCLUDE [Defender for DNS note](./includes/defender-for-dns-note.md)]
 

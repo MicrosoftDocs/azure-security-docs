@@ -17,9 +17,15 @@ This article covers two recovery features of Azure Key Vault, soft delete and pu
 > [!IMPORTANT]
 > If a key vault does not have soft-delete protection enabled, deleting a key deletes it permanently. Customers are strongly encouraged to turn on soft delete enforcement for their vaults via [Azure Policy](../policy-reference.md).
 
-For more information about Key Vault, see
-- [Key Vault overview](overview.md)
-- [Azure Key Vault keys, secrets, and certificates overview](about-keys-secrets-certificates.md)
+## Recovery options overview
+
+Azure Key Vault provides multiple options to ensure the availability and recoverability of your vault data:
+
+- **Automatic redundancy and failover**: Key Vault automatically replicates data across regions and handles failover during outages - see [Azure Key Vault availability and redundancy](disaster-recovery-guidance.md)
+- **Soft delete and purge protection** (covered in this article): Prevents accidental or malicious deletion of your vault or vault objects
+- **Manual backup and restore**: For individual secrets, keys, and certificates - see [Azure Key Vault backup](backup.md)
+
+This article focuses on soft delete and purge protection features that help protect against accidental or malicious deletion. 
 
 ## Prerequisites
 
@@ -48,6 +54,8 @@ It is important to note that **key vault names are globally unique**, so you are
 
 > [!NOTE]
 > Purge Protection is designed so that no administrator role or permission can override, disable, or circumvent purge protection. **When purge protection is enabled, it cannot be disabled or overridden by anyone including Microsoft.** This means you must recover a deleted key vault or wait for the retention period to elapse before reusing the key vault name.
+
+These features are strongly recommended for production environments.
 
 For more information about soft-delete, see [Azure Key Vault soft-delete overview](soft-delete-overview.md)
 
@@ -389,9 +397,10 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 
 ## Next steps
 
+- [Azure Key Vault availability and redundancy](disaster-recovery-guidance.md)
+- [Azure Key Vault backup](backup.md)
 - [Azure Key Vault PowerShell cmdlets](/powershell/module/az.keyvault)
 - [Key Vault Azure CLI commands](/cli/azure/keyvault)
-- [Azure Key Vault backup](backup.md)
 - [How to enable Key Vault logging](howto-logging.md)
 - [Azure Key Vault security features](security-features.md)
 - [Azure Key Vault developer's guide](developers-guide.md)

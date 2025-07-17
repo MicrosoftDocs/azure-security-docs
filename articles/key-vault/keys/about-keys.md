@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: overview
-ms.date: 02/27/2025
+ms.date: 05/30/2025
 ms.author: mbaldwin
 ---
 
@@ -38,8 +38,8 @@ The base JWK/JWA specifications are also extended to enable key types unique to 
 
 HSM Keys in vaults are protected by HSMs; Software keys aren't protected by HSMs.
 
-- Keys stored in vaults benefit from robust protection using **[FIPS 140 validated HSM](/azure/key-vault/keys/about-keys#compliance)**. There are two distinct HSM platforms available: 1, which protects key versions with **FIPS 140-2 Level 2**, and 2, which protects keys with **FIPS 140-2 Level 3** HSMs depending on when the key was created. All new keys and key versions are now created using platform 2 (except UK geo). To determine which HSM Platform is protecting a key version, get it's [hsmPlatform](about-keys-details.md#key-attributes). 
-- Managed HSM uses **FIPS 140-2 Level 3** validated HSM modules to protect your keys. Each HSM pool is an isolated single-tenant instance with its own [security domain](../managed-hsm/security-domain.md) providing complete cryptographic isolation from all other HSMs sharing the same hardware infrastructure. Managed HSM keys are protected in single-tenant HSM-pools. You can import an RSA, EC, and symmetric key, in soft form or by exporting from a supported HSM device. You can also generate keys in HSM pools. When you import HSM keys using the method described in the [BYOK (bring your own key) specification](../keys/byok-specification.md), it enables secure transportation key material into Managed HSM pools. 
+- Keys stored in vaults benefit from robust protection using **[FIPS 140 validated HSM](/azure/key-vault/keys/about-keys#compliance)**. There are two distinct HSM platforms available: HSM Platform 1, which protects key versions with **FIPS 140-2 Level 2**, and HSM Platform 2, which protects keys with **FIPS 140-3 Level 3** HSMs depending on when the key was created. All new keys and key versions are now created using HSM Platform 2 (except UK geo). To determine which HSM platform is protecting a key version, get its [hsmPlatform](about-keys-details.md#key-attributes) attribute. 
+- Managed HSM uses **FIPS 140-3 Level 3** validated HSM modules to protect your keys. Each HSM pool is an isolated single-tenant instance with its own [security domain](../managed-hsm/security-domain.md) providing complete cryptographic isolation from all other HSMs sharing the same hardware infrastructure. Managed HSM keys are protected in single-tenant HSM-pools. You can import an RSA, EC, and symmetric key, in soft form or by exporting from a supported HSM device. You can also generate keys in HSM pools. When you import HSM keys using the method described in the [BYOK (bring your own key) specification](../keys/byok-specification.md), it enables secure transportation key material into Managed HSM pools. 
 
 For more information on geographical boundaries, see [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)
 
@@ -68,10 +68,10 @@ Key Vault Premium and Standard support RSA and EC keys. Managed HSM supports RSA
 
 |Key type and destination|Compliance|
 |---|---|
-|Software-protected (hsmPlatform 0) keys in vaults | FIPS 140-2 Level 1 |
-|hsmPlatform 1 protected keys in vaults (Premium SKU)| FIPS 140-2 Level 2 |
-|hsmPlatform 2 protected keys in vaults (Premium SKU)| FIPS 140-2 Level 3 |
-|Keys in Managed HSM are always HSM protected | FIPS 140-2 Level 3 |
+|Software-protected (HSM Platform 0) keys in vaults | FIPS 140-2 Level 1 |
+|HSM Platform 1 protected keys in vaults (Premium SKU)| FIPS 140-2 Level 2 |
+|HSM Platform 2 protected keys in vaults (Premium SKU)| FIPS 140-3 Level 3 |
+|Keys in Managed HSM are always HSM protected | FIPS 140-3 Level 3 |
 |||
 
 ### Quantum-resistant, Quantum-safe, or Post-quantum Cryptography

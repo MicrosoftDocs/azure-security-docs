@@ -3,7 +3,7 @@ title: Alerts for AI services
 description: This article lists the security alerts for AI services visible in Microsoft Defender for Cloud.
 ms.topic: reference
 ms.custom: linux-related-content
-ms.date: 05/01/2025
+ms.date: 05/05/2025
 ai-usage: ai-assisted
 ---
 
@@ -169,6 +169,16 @@ This article lists the security alerts you might get for AI services from Micros
 **[MITRE tactics](alerts-reference.md#mitre-attck-tactics)**: Collection
 
 **Severity**: Medium
+
+### (Preview) **Anomalous tool invocation**
+
+(AI.Azure_AnomalousToolInvocation)
+
+**Description:** This alert analyzes anomalous activity from an AI application connected to an Azure OpenAI model deployment. The application attempted to invoke a tool in a manner that deviates from expected behavior. This behavior may indicate potential misuse or an attempted attack through one of the tools available to the application.
+
+**[MITRE tactics](alerts-reference.md#mitre-attck-tactics)**: Execution
+
+**Severity**: Low
 
 > [!NOTE]
 > For alerts that are in preview: [!INCLUDE [Legalese](./includes/defender-for-cloud-preview-legal-text.md)]

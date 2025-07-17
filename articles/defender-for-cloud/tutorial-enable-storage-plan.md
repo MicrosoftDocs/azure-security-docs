@@ -2,7 +2,7 @@
 title: Deploy Microsoft Defender for Storage
 description: Learn how to enable the Defender for Storage on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.date: 10/10/2024
+ms.date: 05/13/2025
 ---
 
 # Deploy Microsoft Defender for Storage
@@ -14,7 +14,7 @@ With Microsoft Defender for Storage, organizations can customize their protectio
    > [!TIP]
    > If you're currently using Microsoft Defender for Storage classic, consider [migrating to the new plan](defender-for-storage-classic-migrate.md), which offers several benefits over the classic plan.
 
-Check out the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) to learn about pricing and regional availability.
+Check out the [Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) to learn about pricing and regional availability. You can also [estimate costs with the Defender for Cloud cost calculator](cost-calculator.md).
 
 ## Prerequisites
 
@@ -36,16 +36,18 @@ To enable and configure Microsoft Defender for Storage and ensure maximum protec
 
 - [Override subscription-level settings to configure specific storage accounts](advanced-configurations-for-malware-scanning.md#override-defender-for-storage-subscription-level-settings) with custom configurations that differ from the settings configured at the subscription level.
 
-There are several ways to enable and configure Defender for Storage:
+### Enablement options for Microsoft Defender for Storage
 
-- Using the [Azure built-in policy](defender-for-storage-policy-enablement.md) (the recommended method),
-- Programmatically using Infrastructure as Code templates, including
+There are several ways to enable and configure Defender for Storage. The following links provide direct access to enablement pages for each supported deployment method:
+
+- [Azure built-in policy](defender-for-storage-policy-enablement.md) (recommended)
+- Infrastructure as Code templates, including
   - [Terraform](defender-for-storage-infrastructure-as-code-enablement.md?tabs=enable-subscription#terraform-template)
   - [Bicep](defender-for-storage-infrastructure-as-code-enablement.md?tabs=enable-subscription#bicep-template)
-  - [ARM](defender-for-storage-infrastructure-as-code-enablement.md?tabs=enable-subscription#azure-resource-manager-template) templates
-- Using the [Azure portal](defender-for-storage-azure-portal-enablement.md?tabs=enable-subscription)
-- Using [PowerShell](defender-for-storage-powershell-enablement.md??tabs=enable-subscription)
-- Directly with the [REST API](defender-for-storage-rest-api-enablement.md?tabs=enable-subscription).
+  - [ARM](defender-for-storage-infrastructure-as-code-enablement.md?tabs=enable-subscription#azure-resource-manager-template) 
+- [Azure portal](defender-for-storage-azure-portal-enablement.md?tabs=enable-subscription)
+- [PowerShell](defender-for-storage-powershell-enablement.md??tabs=enable-subscription)
+- [REST API](defender-for-storage-rest-api-enablement.md?tabs=enable-subscription).
 
 We recommend enabling Defender for Storage via a policy. This method facilitates enablement at scale and ensures a consistent security policy is applied across all existing and future storage accounts within the defined scope, such as entire management groups. This keeps the storage accounts protected with Defender for Storage according to the organization's defined configuration.
 

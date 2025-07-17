@@ -13,7 +13,7 @@ ms.author: mbaldwin
 
 Azure Key Vault allows you to securely access sensitive information from within your applications:
 
-- Keys, secrets, and certificates are protected without you're having to write the code yourself, and you can easily use them from your applications.
+- Keys, secrets, and certificates are protected without your having to write the code yourself, and you can easily use them from your applications.
 - You allow customers to own and manage their own keys, secrets, and certificates so you can concentrate on providing the core software features. In this way, your applications won't own the responsibility or potential liability for your customers' tenant keys, secrets, and certificates.
 - Your application can use keys for signing and encryption yet keep the key management external from your application. For more information, see [About keys](../keys/about-keys.md).
 - You can manage credentials like passwords, access keys, and SAS tokens by storing them in Key Vault as secrets. For more information, see [About secrets](../secrets/about-secrets.md).

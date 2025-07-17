@@ -7,7 +7,7 @@
     - name: What is Microsoft Defender for Cloud?
       displayName: Defender for cloud, servers, storage, sql, containers, app service,
         key vault, resource manager, dns, open-source relational databases,
-        Azure cosmos db, db, Azure, defender
+        Azure cosmos db, db, Azure, defender, CWPP, CSPM
       href: defender-for-cloud-introduction.md
     - name: What's new in Defender for Cloud features
       displayName: changelog, news, release notes
@@ -57,7 +57,7 @@
           displayName: strategy, adoption, ownership
           href: plan-multicloud-security-define-adoption-strategy.md
         - name: Determine plan and agents requirements
-          displayName: data, residency, cspm, cwp, plan
+          displayName: data, residency, cspm, cwpp, plan
           href: plan-multicloud-security-determine-data-residency-requirements.md
         - name: Determine compliance requirements
           displayName: compliance, standards
@@ -129,6 +129,8 @@
               displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises,
                 azure arc, multicloud
               href: defender-for-containers-enable.md
+            - name: Deploy with Helm
+              href: deploy-helm.md
             - name: Defender for Containers resources and offboarding
               displayName: defender, containers, offboard, resources
               href: defender-for-containers-offboard.md
@@ -222,11 +224,6 @@
               - name: Overview Microsoft Defender XDR integration
                 displayName: CSPM, cloud security, posture, management, Microsoft Defender XDR
                 href: concept-integration-365.md
-          - name: Microsoft Entra Permissions Management
-            items:
-              - name: Enable the Microsoft Entra Permissions Management integration
-                displayName: CSPM, cloud security, posture, management, Microsoft Entra Permissions Management
-                href: enable-permissions-management.md
           - name: Microsoft Defender external attack surface management (EASM)
             items:
               - name: Overview Microsoft Defender EASM integration
@@ -280,6 +277,8 @@
         - name: Defender for Cloud cloud support matrices
           displayName: matrices, gov, government, 21via, net, support
           href: support-matrix-cloud-environment.md
+        - name: Regional availability for Defender for Cloud plans
+          href: regional-availability.md
         - name: Defender for Servers support matrices
           displayName: coverage, machines, windows, linux, multicloud, supported features,
             endpoint protections
@@ -316,7 +315,7 @@
         href: concept-easm.md
       - name: Critical assets protection
         href: critical-assets-protection.md
-      - name: Permissions management (CIEM)
+      - name: Cloud infrastructure entitlement management (CIEM)
         displayName: permissions, management, role-based access control, RBAC, azure, azure ad, active directory
         href: permissions-management.md
       - name: Agentless machine scanning
@@ -472,7 +471,7 @@
               href: alerts-azure-ddos-protection.md
             - name: Alerts for Defender for APIs
               href: alerts-defender-for-apis.md
-            - name: Alerts for AI workloads (Preview)
+            - name: Alerts for AI services
               href: alerts-ai-workloads.md
             - name: Deprecated security alerts
               href: deprecated-alerts.md
@@ -504,7 +503,7 @@
         - name: Track secure score
           displayName: secure score, rest api, resource graph
           href: secure-score-access-and-track.md
-        - name: Enable permissions management (CIEM)
+        - name: Enable cloud infrastructure entitlement management (CIEM)
           displayName: permissions, management, role-based access control, RBAC, azure, azure ad, active directory
           href: enable-permissions-management.md
     - name: API security posture
@@ -577,6 +576,9 @@
           href: review-security-recommendations.md
         - name: Review resources exempted from recommendations
           href: review-exemptions.md
+        - name: Assign a recommendation to an active user
+          displayName: assign, recommendation, user, owner
+          href: active-user.md
         - name: Remediate recommendations
           displayName: remediation, steps, recommendations, fix, actions, activity log
           href: implement-security-recommendations.md
@@ -688,10 +690,31 @@
         - name: Automate responses to alerts
           displayName: workflow, alerts, response
           href: workflow-automation.yml
-
+    - name: Resolve connector issues
+      items:
+      - name: Troubleshoot connectors guide
+        displayName: troubleshoot, connectors, guide 
+        href: troubleshoot-connectors.md
+      - name: Amazon Web Services (AWS) connector
+        items:
+        - name: Connect a Sentinel connected AWS account
+          displayName: hybrid, multicloud, multicloud, amazon, arc, AWS, accounts, Microsoft Defender XDR, alerts, integration, m365, m365d, m365 defender, Sentinel
+          href: sentinel-connected-aws.md
+      - name: Google Cloud Platform (GCP) connector
+        items:
+        - name: Resolve Domain Restricted Sharing policy
+          displayName: connector, GCP, domain, restricted, sharing, policy
+          href: resolve-gcp-sharing-policy.md
+        - name: Resolve agentless scanning error
+          displayName: connector, GCP, disc, scanning, error
+          href: resolve-disk-scanning-error.md
+        - name: Resolve VPC Service Controls restriction issues
+          displayName: connector, GCP, VPC, service, controls, restriction, issues
+          href: resolve-vpc-service-controls-issues.md
+        
 - name: Protect data
   items:
-  - name: Overview data and AI security dashboard (Preview)
+  - name: Overview data and AI security dashboard
     href: data-aware-security-dashboard-overview.md
   - name: Data security posture
     items:
@@ -873,13 +896,10 @@
           - name: Overview
             displayName: fim, change
             href: file-integrity-monitoring-overview.md
-          - name: Migrate from previous version
+          - name: Migrate from the Microsoft Monitoring Agent or the Azure Monitor Agent 
             href: migrate-file-integrity-monitoring.md
           - name: Enable file integrity monitoring
             href: file-integrity-monitoring-enable-defender-endpoint.md
-          - name: Enable file integrity monitoring (legacy MMA)
-            displayName: fim, change, log analytics, mma
-            href: file-integrity-monitoring-enable-log-analytics.md
       - name: Just-in-time machine access
         items:
           - name: Overview
@@ -893,8 +913,6 @@
       - name: Remediate EDR solutions (agentless)
         displayName: defender for endpoint, endpoint, edr
         href: endpoint-detection-response-solution-recommendations.md   
-      - name: Remediate EDR solutions (MMA)
-        href: endpoint-protection-recommendations-technical.md 
       - name: Remediate Defender for Endpoint misconfigurations
         href: endpoint-detection-misconfiguration.md
       - name: Remediate machine vulnerabilities
@@ -926,6 +944,8 @@
       - name: How does Defender for Containers work?
         displayName: containers
         href: defender-for-containers-architecture.md
+      - name: Defender sensor for Containers changelog
+        href: defender-sensor-change-log.md
       - name: Kubernetes node protection
         items:
           - name: Overview
@@ -991,9 +1011,6 @@
       - name: Investigate clusters with Cloud Security Explorer
         displayName: k8s, containers
         href: cloud-security-explorer-kubernetes-clusters.md
-      - name: Defender for Kubernetes (deprecated)
-        displayName: clusters, k8s, aks
-        href: defender-for-kubernetes-introduction.md
       - name: Defender for container registries (deprecated)
         displayName: ACR, registry, images
         href: defender-for-container-registries-introduction.md
@@ -1043,9 +1060,12 @@
         - name: Troubleshoot SQL machine protection configuration
           displayName: Troubleshoot guide, SQL, servers, machines
           href: troubleshoot-sql-machines-guide.md
-        - name: Migrate to AMA
-          displayName: vulnerability, assessment, findings, migrate
-          href: defender-for-sql-autoprovisioning.md
+        - name: Identify SQL Servers protected by MMA
+          displayName: SQL, SQL servers, defender, machines, MMA, Microsoft Monitor Agent
+          href: identify-sql-servers-protected-by-mma.md
+        - name: Enable Defender for SQL servers on machines at scale
+          displayName: SQL, enable, scale, Defender, machines, SQL server, SQL servers, sql
+          href: enable-defender-sql-at-scale.md
         - name: Disable Defender for SQL Servers on Machines
           displayName: SQL, SQL servers, defender, machines, disable
           href: disable-sql-on-machines.md
@@ -1060,9 +1080,9 @@
           - name: Troubleshoot SQL machine protection configuration government
             displayName: Troubleshoot guide, SQL, servers, machines
             href: troubleshoot-sql-machines-guide-gov.md
-          - name: Enable Defender for SQL servers on machines at scale
-            displayName: SQL, enable, scale, Defender, machines, SQL server, SQL servers, sql
-            href: enable-defender-sql-at-scale.md
+          - name: Migrate to AMA
+            displayName: vulnerability, assessment, findings, migrate
+            href: defender-for-sql-autoprovisioning.md
       - name: Defender for Open-Source Relational Databases
         items:
         - name: Overview
@@ -1258,7 +1278,7 @@
         items:
           - name: Connect Azure DevOps environments
             href: quickstart-onboard-devops.md
-          - name: Configure agentless code scanning for Azure DevOps
+          - name: Configure agentless code scanning (Preview)
             href: agentless-code-scanning.md
           - name: Connect GitHub environments
             href: quickstart-onboard-github.md

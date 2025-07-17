@@ -3,7 +3,7 @@ title: 'Quickstart: Manage secrets by using the Azure Key Vault Go client librar
 description: Learn how to create, retrieve, and delete secrets from an Azure key vault by using the Go client library.
 author: Duffney
 ms.author: jduffney
-ms.date: 01/10/2024
+ms.date: 06/03/2025
 ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: quickstart
@@ -13,9 +13,9 @@ ms.custom: devx-track-go
 
 # Quickstart: Manage secrets by using the Azure Key Vault Go client library
 
-In this quickstart, you'll learn how to use the Azure SDK for Go to create, retrieve, list, and delete secrets from an Azure key vault.
+In this quickstart, you learn how to use the Azure SDK for Go to create, retrieve, list, and delete secrets from an Azure key vault.
 
-You can store a variety of [object types](../general/about-keys-secrets-certificates.md#object-types) in an Azure key vault. When you store secrets in a key vault, you avoid having to store them in your code, which helps improve the security of your applications.
+You can store various [object types](../general/about-keys-secrets-certificates.md#object-types) in an Azure key vault. When you store secrets in a key vault, you avoid having to store them in your code, which helps improve the security of your applications.
 
 Get started with the [azsecrets](https://aka.ms/azsdk/go/keyvault-secrets/docs) package and learn how to manage your secrets in an Azure key vault by using Go.
 
@@ -37,9 +37,9 @@ For purposes of this quickstart, you use the [azidentity](https://pkg.go.dev/git
     az login
     ```
 
-    If the Azure CLI can open your default browser, it will do so on the Azure portal sign-in page.
+    If the Azure CLI can open your default browser, it does so on the Azure portal sign-in page.
 
-    If the page doesn't open automatically, go to [https://aka.ms/devicelogin](https://aka.ms/devicelogin), and then enter the authorization code that's displayed in your terminal.
+    If the page doesn't open automatically, go to [https://aka.ms/devicelogin](https://aka.ms/devicelogin), and then enter the authorization code displayed in your terminal.
 
 1. Sign in to the Azure portal with your account credentials.
 
@@ -49,7 +49,7 @@ For purposes of this quickstart, you use the [azidentity](https://pkg.go.dev/git
 
 ### Grant access to your key vault
 
-[!INCLUDE [Using RBAC to provide access to a key vault](../includes/rbac/upn-secrets-officer-cli.md)]
+[!INCLUDE [Using RBAC to provide access to a key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/rbac/upn-secrets-officer-cli.md)]
 
 ### Create a new Go module and install packages
 

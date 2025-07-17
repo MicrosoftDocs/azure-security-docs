@@ -4,7 +4,7 @@ description: This article lists all Microsoft Defender for Cloud container secur
 author: dcurwin
 ms.service: defender-for-cloud
 ms.topic: reference
-ms.date: 03/13/2024
+ms.date: 05/18/2025
 ms.author: dacurwin
 ms.custom: generated
 ai-usage: ai-assisted
@@ -40,7 +40,7 @@ The recommendations that appear in your environment are based on the resources t
 
 ### Azure Arc-enabled Kubernetes clusters should have the Defender extension installed
 
-**Description**: Defender's extension for Azure Arc provides threat protection for your Arc-enabled Kubernetes clusters. The extension collects data from all control plane (master) nodes in the cluster and sends it to the [Microsoft Defender for Kubernetes backend](defender-for-containers-enable.md?pivots=defender-for-container-arc&tabs=aks-deploy-portal) in the cloud for further analysis.
+**Description**: Defender's extension for Azure Arc provides threat protection for your Arc-enabled Kubernetes clusters. The extension collects data from all control plane (master) nodes in the cluster and sends it to the [Microsoft Defender for Containers backend](defender-for-containers-enable.md?pivots=defender-for-container-arc&tabs=aks-deploy-portal) in the cloud for further analysis.
 (No related policy)
 
 **Severity**: High

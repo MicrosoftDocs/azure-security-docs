@@ -41,9 +41,9 @@ The Defender for SQL Servers on Machines plan is one of the Defender for Databas
         - Publisher: Microsoft.AzureData
         - Type: WindowsAgent.SqlServer
 
-- **Supported SQL Server versions** - SQL Server 2012 R2 (11.x) and later versions.
+- **Supported SQL Server versions** - SQL Server 2012 (11.x) and later versions.
 
-- **Supported operating systems**- SQL Server 2012 R2 and later versions.
+- **Supported operating systems**- Windows Server 2012 R2 and later versions.
 
 ## Enable the plan
 
@@ -88,6 +88,8 @@ To enable the Defender for SQL servers on machines plan, you need to enable the 
 1. Select **Save**.
 
 ## Enable the plan at the SQL Server resource level
+
+Although we recommend enabling the plan for an entire Azure subscription, you might need to enable Defender for SQL on machines on specific machines only. To do this, [disable the plan on the subscription](disable-sql-on-machines.md) and follow instructions below on the resource level. 
 
 1. In the Azure portal, search for and select:
     - **Azure Arc** > **Data services** > **SQL Server instances**.

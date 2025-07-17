@@ -1,7 +1,7 @@
 ---
 
 title: Azure Cloud HSM Integration Guides
-description: Step-by-step integration guides for securely connecting applications and systems to Azure Cloud HSM.
+description: Get step-by-step integration guides for securely connecting applications and systems to Azure Cloud HSM.
 services: cloud-hsm
 author: keithp
 manager: keithp
@@ -10,31 +10,41 @@ ms.topic: overview
 ms.date: 03/20/2025
 ms.author: keithp
 
-#CustomerIntent: Provide detailed integration guides for securely connecting applications and systems to Azure Cloud HSM.
+#customer intent: As an IT pro decision-maker, I want detailed integration guides so that I can connect applications and systems to Azure Cloud HSM in a way that meets security requirements.
 
 ---
 
 # Azure Cloud HSM integration guides
 
-Microsoft Azure Cloud HSM offers a suite of integration guides to help customers securely connect their applications and systems to Azure's hardware security modules. These guides provide detailed, step-by-step instructions for integrating Azure Cloud HSM with widely used platforms and technologies, including Active Directory Certificate Services (AD CS), Java Cryptography Extension (JCE), OpenSSL, Oracle Transparent Data Encryption (TDE), PKCS#11, SQL Server Extensible Key Management (EKM), Certificate Storage, and SSL/TLS Offloading for web servers like Apache and NGINX.
+Microsoft Azure Cloud HSM offers a suite of integration guides to help customers securely connect their applications and systems to Azure hardware security modules. These guides provide detailed, step-by-step instructions for integrating Azure Cloud HSM with widely used platforms and technologies, including:
 
-Each guide includes prerequisites, system requirements, configuration steps, and validation procedures tailored to the specific integration scenario. For example, the SSL/TLS Offloading guide details how to configure Apache and NGINX to leverage Azure Cloud HSM for cryptographic operations, ensuring secure and efficient SSL/TLS handshakes. To explore all available integration resources, visit the repository: [Azure Cloud HSM Integration Guides](https://github.com/microsoft/MicrosoftAzureCloudHSM/tree/main/IntegrationGuides).
+- Active Directory Certificate Services (AD CS)
+- Java Cryptography Extension (JCE)
+- OpenSSL
+- Oracle Transparent Data Encryption (TDE)
+- PKCS#11
+- SQL Server Extensible Key Management (EKM)
+- Offloading of Secure Sockets Layer (SSL) or Transport Layer Security (TLS) for web servers like Apache and NGINX
+
+Each guide includes prerequisites, system requirements, configuration steps, and validation procedures tailored to a specific integration scenario. For example, the guide for SSL/TLS offloading details how to configure Apache and NGINX to use Azure Cloud HSM for cryptographic operations, to help ensure secure and efficient SSL/TLS handshakes.
+
+To explore all available integration resources, go to the [GitHub repository](https://github.com/microsoft/MicrosoftAzureCloudHSM/tree/main/IntegrationGuides).
 
 ## Available integration guides
 
-Here are the integration guides available for securely connecting various applications and systems to Azure Cloud HSM.
+Here are the integration guides that can help you securely connect applications and systems to Azure Cloud HSM:
 
-- [Azure Cloud HSM ADCS Integration Guide (PDF)](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20ADCS%20Integration%20Guide.pdf)
-- [Azure Cloud HSM JCE Integration Guide (PDF)](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20JCE%20Integration%20Guide.pdf)
-- [Azure Cloud HSM OpenSSL Integration Guide (PDF)](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20OpenSSL%20Integration%20Guide.pdf)
-- [Azure Cloud HSM Oracle TDE Integration Guide (PDF)](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20Oracle%20TDE%20Integration%20Guide.pdf)
-- [Azure Cloud HSM PKCS11 Integration Guide (PDF)](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20PKCS11%20Integration%20Guide.pdf)
-- [Azure Cloud HSM SQL EKM Integration Guide (PDF)](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20SQL%20EKM%20Integration%20Guide.pdf)
-- [Azure Cloud HSM Certificate Storage Integration Guide (PDF)](https://learn.microsoft.com/en-us/azure/cloud-hsm/integration-guides)
-- [Azure Cloud HSM SSL TLS Offloading Integration Guide (PDF)](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20SSL%20TLS%20Offloading%20Integration%20Guide.pdf)
+- [Integrating Active Directory Certificate Services with Azure Cloud HSM (PDF)](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20ADCS%20Integration%20Guide.pdf)
+- [Integrating JCE with Azure Cloud HSM (PDF)](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20JCE%20Integration%20Guide.pdf)
+- [Integrating OpenSSL with Azure Cloud HSM (PDF)](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20OpenSSL%20Integration%20Guide.pdf)
+- [Integrating Oracle TDE with Azure Cloud HSM (PDF)](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20Oracle%20TDE%20Integration%20Guide.pdf)
+- [Integrating PKCS#11 with Azure Cloud HSM (PDF)](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20PKCS11%20Integration%20Guide.pdf)
+- [Integrating SQL Server EKM with Azure Cloud HSM (PDF)](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20SQL%20EKM%20Integration%20Guide.pdf)
+- [Azure Cloud HSM SSL/TLS Offloading Integration Guide (PDF)](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20SSL%20TLS%20Offloading%20Integration%20Guide.pdf)
 
-## Next Steps
+## Related content
+
 - [Azure Cloud HSM overview](overview.md)
-- [Deploy Azure Cloud HSM using the Azure portal](quickstart-portal.md)
-- [Deploy Azure Cloud HSM using Azure PowerShell](quickstart-powershell.md)
-- [Azure Cloud HSM Onboarding Guide](onboarding-guide.md)
+- [Deploy Azure Cloud HSM by using the Azure portal](quickstart-portal.md)
+- [Deploy Azure Cloud HSM by using Azure PowerShell](quickstart-powershell.md)
+- [Azure Cloud HSM onboarding guide](onboarding-guide.md)

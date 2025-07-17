@@ -10,14 +10,14 @@ author: dcurwin
 
 # Overview of Microsoft Defender for SQL servers on machines
 
-Microsoft Defender for Cloud's Defender for Databases plan provides protection for SQL servers on machines. Defender for SQL servers on machines protects SQL servers hosted on Azure, Amazon Web Service (AWS), Google Cloud Project (GCP), and on premises machines. Defender for SQL servers on machines helps you identify and mitigate potential database vulnerabilities and detect anomalous activities that could indicate threats to your databases.
+Microsoft Defender for Cloud's Defender for Databases plan provides protection for SQL servers on machines. Defender for SQL servers on machines protects SQL servers hosted on Azure, Amazon Web Service (AWS), Google Cloud Platform (GCP), and on premises machines. Defender for SQL servers on machines helps you identify and mitigate potential database vulnerabilities and detect anomalous activities that could indicate threats to your databases.
 
 ## What are the benefits of Defender for SQL servers on machines?
 
 Defender for SQL servers on machines provides the following features:
 
 - [Vulnerability assessment](sql-azure-vulnerability-assessment-overview.md): Scan databases to discover, track, and remediate vulnerabilities.
-- [Advanced threat protection](/azure/azure-sql/database/threat-detection-overview?toc=/azure/defender-for-cloud/toc.json): Mitigate threats by receiving detailed security alerts and recommended actions based on SQL Advanced Threat Protection.
+- [Advanced threat protection](/azure/azure-sql/database/threat-detection-overview): Mitigate threats by receiving detailed security alerts and recommended actions based on SQL Advanced Threat Protection.
 
 When you [enable Defender for SQL servers on machines](defender-for-sql-usage.md), all supported resources that exist within the subscription are protected. Future resources created on the same subscription ware also be protected.
 

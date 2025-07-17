@@ -2,7 +2,7 @@
 title: Protect your Azure containers with the Defender for Containers plan on your Azure subscription
 description: Learn how to enable the Defender for Containers plan on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.date: 06/29/2023
+ms.date: 05/13/2025
 ---
 
 # Protect your Azure containers with Defender for Containers
@@ -11,7 +11,7 @@ Microsoft Defender for Containers is a cloud-native solution to improve, monitor
 
 Learn more about [Overview of Microsoft Defender for Containers](defender-for-containers-introduction.md).
 
-You can learn more about Defender for Container's pricing on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+You can learn more about Defender for Container's pricing on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). You can also [estimate costs with the Defender for Cloud cost calculator](cost-calculator.md).
 
 ## Prerequisites
 
@@ -52,6 +52,8 @@ If you would prefer to [assign a custom workspace](defender-for-containers-enabl
 > To enable or disable individual Defender for Containers capabilities, either globally or for specific resources, see [How to enable Microsoft Defender for Containers components](defender-for-containers-enable.md).
 
 You can enable the Defender for Containers plan and deploy all of the relevant components in different ways. We walk you through the steps to accomplish this using the Azure portal. Learn how to [deploy the Defender sensor](defender-for-containers-enable.md#deploy-the-defender-sensor) with REST API, Azure CLI or with a Resource Manager template.
+
+[!INCLUDE [Install with Helm note](./includes/helm-install-note.md)]
 
 **To deploy the Defender sensor in Azure:**
 
