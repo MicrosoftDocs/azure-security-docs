@@ -240,7 +240,7 @@ $backupProperties = ConvertTo-Json @{
 }
 
 # Construct the URI for the backup operation by using the provided parameters
-$backupUri = "/subscriptions/$($identity.SubscriptionID)/resourceGroups/$($sourceCloudHSM.ResourceGroupName)/providers/Microsoft.HardwareSecurityModules/cloudHsmClusters/$($sourceCloudHSM.ResourceName)/backup?api-version=2024-06-30-preview"
+$backupUri = "/subscriptions/$($identity.SubscriptionID)/resourceGroups/$($sourceCloudHSM.ResourceGroupName)/providers/Microsoft.HardwareSecurityModules/cloudHsmClusters/$($sourceCloudHSM.ResourceName)/backup?api-version=2025-03-31"
 
 # Initiate the backup operation by sending a POST request with the backup properties
 $response = Invoke-AzRestMethod -Path $backupUri -Method Post -Payload $backupProperties
@@ -272,7 +272,7 @@ $restoreProperties = ConvertTo-Json @{
 }
 
 # Set the URI for the restore API endpoint by using the subscription ID, resource group, and destination server details
-$restoreUri = "/subscriptions/$($identity.SubscriptionID)/resourceGroups/$($destinationCloudHSM.ResourceGroupName)/providers/Microsoft.HardwareSecurityModules/cloudHsmClusters/$($destinationCloudHSM.ResourceName)/restore?api-version=2024-06-30-preview"
+$restoreUri = "/subscriptions/$($identity.SubscriptionID)/resourceGroups/$($destinationCloudHSM.ResourceGroupName)/providers/Microsoft.HardwareSecurityModules/cloudHsmClusters/$($destinationCloudHSM.ResourceName)/restore?api-version=2025-03-31"
 
 # Initiate the restore operation by sending a POST request to the restore API endpoint with the defined properties
 $response = Invoke-AzRestMethod -Path $restoreUri -Method Post -Payload $restoreProperties 
