@@ -4,7 +4,7 @@ description: Review the service limits for Azure Key Vault, including transactio
 ms.service: key-vault
 ms.subservice: general
 ms.topic: limit-reference
-ms.date: 04/15/2025
+ms.date: 07/20/2025
 author: msmbaldwin
 ms.author: mbaldwin
 ---
