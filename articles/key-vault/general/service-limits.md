@@ -1,9 +1,9 @@
 ---
 title: Azure Key Vault service limits
 description: Review the service limits for Azure Key Vault, including transaction throughput, API request limits, and Managed HSM capacity.
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
-ms.topic: limit-reference
+ms.topic: reference
 ms.date: 07/20/2025
 author: msmbaldwin
 ms.author: mbaldwin
