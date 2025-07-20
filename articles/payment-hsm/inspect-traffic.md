@@ -21,6 +21,8 @@ When Payment HSM is deployed, it comes with a host network interface and a manag
 
 In all of the above scenarios, Payment HSM is a VNet-injected service in a delegated subnet: `hsmSubnet` and `managementHsmSubnet` must be delegated to `Microsoft.HardwareSecurityModules/dedicatedHSMs` service.
 
+If you want to configure a route table (UDR route) to control the routing of packets through a network virtual appliance or firewall destined to an Azure Payment HSM from a source in the same VNet or a peered VNet, the UDR prefix must be more specific or equal to the delegated subnet size of the Azure Payment HSM. If the UDR prefix is less specific than the delegated subnet size, it isn't effective. For example, if your delegated subnet is x.x.x.x/24, you must configure your UDR to x.x.x.x/24 (equal) or x.x.x.x/32 (more specific). If you configure the UDR route to be x.x.x.x/16, undefined behaviors such as asymmetric routing can cause a network drop at the firewall.
+
 > [!IMPORTANT]
 > The `FastPathEnabled` feature must be [registered and approved](register-payment-hsm-resource-providers.md?tabs=azure-cli#register-the-resource-providers-and-features) on all subscriptions that need access to Payment HSM. You must also enable the `fastpathenabled` tag on the VNet hosting the Payment HSM delegated subnet and on every peered VNet requiring [connectivity to the Payment HSM devices](peer-vnets.md?tabs=azure-cli).
 > 
@@ -39,7 +41,7 @@ The firewall **SNATs the client IP address** before forwarding traffic to the PH
 :::image type="content" source="./media/firewall-snat-architecture-diagram.png" alt-text="Architecture diagram of the firewall with SNAT" lightbox="./media/firewall-snat-architecture-diagram.png":::
 
 Route tables required:
-- On-premises to PHSM: a Route Table containing a UDR for the Payment HSM VNet range and pointing to the central hub Firewall is applied to the GatewaySubnet.
+- On-premises to PHSM: a Route Table containing a UDR for the Payment HSM subnet range and pointing to the central hub Firewall is applied to the GatewaySubnet.
 - Spoke VNets to PHSM: a Route Table containing the usual default route pointing to the central hub Firewall is applied to one or more Spoke VNets subnets.
 
 Results:
@@ -85,7 +87,7 @@ stream { 
 ```
 
 Route tables required:
-- On-premises to PHSM: a Route Table containing a UDR for the Payment HSM VNet range and pointing to the central hub Firewall is applied to the GatewaySubnet.
+- On-premises to PHSM: a Route Table containing a UDR for the Payment HSM subnet range and pointing to the central hub Firewall is applied to the GatewaySubnet.
 - Spoke VNet(s) to PHSM: a Route Table containing the usual default route pointing to the central hub Firewall is applied to one or more Spoke VNets subnets.
 
 > [!IMPORTANT]
@@ -103,5 +105,7 @@ Results:
 - [Azure Payment HSM solution design](solution-design.md)
 - [Azure Payment HSM deployment scenarios](deployment-scenarios.md)
 - [Get started with Azure Payment HSM](getting-started.md)
+- [Create a payment HSM](create-payment-hsm.md)
+- [Frequently asked questions](faq.yml)
 - [Create a payment HSM](create-payment-hsm.md)
 - [Frequently asked questions](faq.yml)
