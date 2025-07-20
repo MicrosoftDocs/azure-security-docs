@@ -2,7 +2,7 @@
 title: Azure Managed HSM service limits
 description: Learn about service limits and quotas for Azure Key Vault Managed HSM, including object limits, transaction capacity, and scaling guidance.
 author: msmbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: reference
 ms.date: 06/10/2024
