@@ -52,6 +52,7 @@ Azure Cloud HSM supports:
 - Active Directory Certificate Services (AD CS).
 - SSL/TLS offloading (Apache or NGINX).
 - TDE (Microsoft SQL Server or Oracle).
+- Certificate Storage
 - Document, file, and code signing.
 
 Azure Cloud HSM is *not*:
