@@ -1,0 +1,15 @@
+---
+author: msmbaldwin
+ms.service: azure-key-vault
+ms.topic: include
+ms.date: 04/14/2025
+
+ms.author: msmbaldwin
+
+---
+
+Our script will use the value assigned to the `KEY_VAULT_NAME` environment variable as the name of the key vault. You must therefore set this value using the following command:
+
+```console
+export KEY_VAULT_NAME=<your-unique-keyvault-name>
+````
