@@ -24,6 +24,7 @@ Microsoft Azure Cloud HSM offers a suite of integration guides to help customers
 - Oracle Transparent Data Encryption (TDE)
 - PKCS#11
 - SQL Server Extensible Key Management (EKM)
+- Certificate Storage
 - Offloading of Secure Sockets Layer (SSL) or Transport Layer Security (TLS) for web servers like Apache and NGINX
 
 Each guide includes prerequisites, system requirements, configuration steps, and validation procedures tailored to a specific integration scenario. For example, the guide for SSL/TLS offloading details how to configure Apache and NGINX to use Azure Cloud HSM for cryptographic operations, to help ensure secure and efficient SSL/TLS handshakes.
