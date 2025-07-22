@@ -9,6 +9,7 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 04/16/2025
 ms.author: mbaldwin
+ms.custom: sfi-image-nochange
 # Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults.
 ---
 

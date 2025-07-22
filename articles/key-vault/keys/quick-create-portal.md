@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.custom: mvc, mode-ui
+ms.custom: mvc, mode-ui, sfi-image-nochange
 ms.date: 04/14/2025
 
 ms.author: mbaldwin

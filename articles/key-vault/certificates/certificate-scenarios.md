@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 04/14/2025
 
 ms.author: mbaldwin
-
+ms.custom: sfi-image-nochange
 ---
 
 # Get started with Key Vault certificates

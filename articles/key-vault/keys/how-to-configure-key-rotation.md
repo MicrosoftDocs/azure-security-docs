@@ -4,7 +4,7 @@ description: Use this guide to learn how to configure automated the rotation of 
 services: key-vault
 author: msmbaldwin
 tags: 'rotation'
-ms.custom: devx-track-arm-template
+ms.custom: devx-track-arm-template, sfi-image-nochange
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: how-to

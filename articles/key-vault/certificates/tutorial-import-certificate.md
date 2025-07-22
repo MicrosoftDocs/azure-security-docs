@@ -7,10 +7,10 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, sfi-image-nochange
 ms.date: 04/14/2025
 
-ms.author: sebansal 
+ms.author: sebansal
 ms.devlang: azurecli
 ---
 # Tutorial: Import a certificate in Azure Key Vault
