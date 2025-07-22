@@ -223,7 +223,7 @@ The `receipt` field contains the following fields.
 
 The `leafComponents` field contains the following fields.
 
-* **claimsDigest**: Hexadecimal string representing the SHA-256 hash digest of the [application claim](https://microsoft.github.io/CCF/main/use_apps/verify_tx.html#application-claims) attached by the Confidential Ledger application at the time the transaction was executed. See [application claims](#application-claims)
+* **claimsDigest**: Hexadecimal string representing the SHA-256 hash digest of the [application claim](https://microsoft.github.io/CCF/main/use_apps/verify_tx.html#application-claims) attached by the Confidential Ledger application at the time the transaction was executed. To attach application claims, refer to the section [application claims](#application-claims) .
 
 * **commitEvidence**: A unique string produced per transaction, derived from the transaction ID and the ledger secrets. For more information about the commit evidence, see the related [CCF documentation](https://microsoft.github.io/CCF/main/use_apps/verify_tx.html#commit-evidence).
 
