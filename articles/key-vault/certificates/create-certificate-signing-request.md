@@ -1,6 +1,6 @@
 ---
-title: Creating and merging a certificate signing request in Azure Key Vault 
-description: Learn how to create and merge a CSR in Azure Key Vault. 
+title: Creating and merging a certificate signing request in Azure Key Vault
+description: Learn how to create and merge a CSR in Azure Key Vault.
 services: key-vault
 author: msmbaldwin
 
@@ -10,6 +10,7 @@ ms.topic: tutorial
 ms.date: 04/14/2025
 
 ms.author: sebansal
+ms.custom: sfi-image-nochange
 ---
 
 # Create and merge a certificate signing request in Key Vault

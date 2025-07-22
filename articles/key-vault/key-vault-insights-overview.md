@@ -1,14 +1,13 @@
 ---
 title: Monitor Key Vault with Key Vault insights | Microsoft Docs
-description: This article describes the Key Vault insights. 
+description: This article describes the Key Vault insights.
 author: msmbaldwin
 ms.author: mbaldwin
-services: azure-monitor 
+services: azure-monitor
 ms.topic: conceptual
 ms.service: azure-key-vault
 ms.date: 04/18/2025
-ms.custom: subject-monitoring
-
+ms.custom: subject-monitoring, sfi-image-nochange
 ---
 
 # Monitoring your key vault service with Key Vault insights

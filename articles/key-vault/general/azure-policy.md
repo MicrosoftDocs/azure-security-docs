@@ -7,7 +7,7 @@ ms.date: 04/17/2025
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-
+ms.custom: sfi-image-nochange
 ---
 
 # Integrate Azure Key Vault with Azure Policy

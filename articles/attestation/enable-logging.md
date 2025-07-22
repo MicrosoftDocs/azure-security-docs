@@ -1,13 +1,13 @@
 ---
-title: Enable logging in Azure Attestation 
-description: Enable logging in Azure Attestation 
+title: Enable logging in Azure Attestation
+description: Enable logging in Azure Attestation
 services: attestation
 author: msmbaldwin
 ms.service: azure-attestation
 ms.topic: overview
 ms.date: 04/15/2025
-ms.author: mbaldwin 
-ms.custom: devx-track-azurepowershell
+ms.author: mbaldwin
+ms.custom: devx-track-azurepowershell, sfi-image-nochange
 ---
 
 # Enable logging in Azure Attestation 

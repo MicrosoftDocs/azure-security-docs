@@ -7,7 +7,7 @@ tags: azure-resource-manager
 ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
+ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template, sfi-image-nochange
 ms.date: 10/14/2024
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
