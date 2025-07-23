@@ -10,7 +10,7 @@ ms.topic: tutorial
 ms.date: 04/14/2025
 
 ms.author: mbaldwin
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, sfi-image-nochange
 ---
 # Automate the rotation of a secret for resources that have two sets of authentication credentials
 

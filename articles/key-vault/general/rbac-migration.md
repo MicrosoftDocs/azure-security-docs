@@ -8,7 +8,7 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 04/17/2025
 ms.author: mbaldwin
-
+ms.custom: sfi-image-nochange
 ---
 # Migrate from vault access policy to an Azure role-based access control permission model
 
