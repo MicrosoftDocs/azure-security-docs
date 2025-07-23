@@ -12,8 +12,7 @@ ms.date: 05/08/2025
 
 ms.author: mbaldwin
 ms.devlang: csharp
-ms.custom: devx-track-csharp
-
+ms.custom: devx-track-csharp, sfi-image-nochange
 ---
 # Automate the rotation of a secret for resources that use one set of authentication credentials
 

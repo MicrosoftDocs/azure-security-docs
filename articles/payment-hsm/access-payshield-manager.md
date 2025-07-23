@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.topic: quickstart
 ms.devlang: azurecli
-ms.custom:
+ms.custom: sfi-image-nochange
 ms.date: 04/14/2025
 ---
 

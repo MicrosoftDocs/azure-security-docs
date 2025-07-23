@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.service: azure-key-vault
 subservice: general
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, sfi-image-nochange
 ms.topic: tutorial
 ms.date: 04/16/2025
 ---

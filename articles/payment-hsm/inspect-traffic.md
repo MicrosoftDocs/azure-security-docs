@@ -7,6 +7,7 @@ author: davidsntg
 ms.author: dasantiago
 ms.topic: quickstart
 ms.date: 04/10/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Azure Payment HSM traffic inspection
