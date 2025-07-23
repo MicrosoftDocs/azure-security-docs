@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, sfi-image-nochange
 ms.date: 05/08/2025
 
 ms.author: mbaldwin

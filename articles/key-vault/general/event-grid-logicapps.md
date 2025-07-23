@@ -9,7 +9,7 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 04/17/2025
 ms.author: mbaldwin
-
+ms.custom: sfi-image-nochange
 ---
 # Use Logic Apps to receive email about status changes of key vault secrets
 

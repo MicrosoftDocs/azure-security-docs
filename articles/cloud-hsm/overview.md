@@ -1,6 +1,6 @@
 ﻿---
-title: Overview of Azure Cloud HSM Preview
-description: Learn how Azure Cloud HSM Preview offers cryptographic key storage within the Azure environment as a dedicated HSM service.
+title: Overview of Azure Cloud HSM
+description: Learn how Azure Cloud HSM offers cryptographic key storage within the Azure environment as a dedicated HSM service.
 author: keithp
 ms.service: azure-cloud-hsm
 ms.topic: overview
@@ -14,14 +14,11 @@ ms.author: keithp
 #Not Supported Use Cases: Azure Cloud HSM is IaaS only. It doesn't integrate with other Azure services, doesn't have a REST API, and doesn't support encryption at rest.
 ---
 
-# What is Azure Cloud HSM Preview?
+# What is Azure Cloud HSM?
 
-Microsoft Azure Cloud HSM Preview is a highly available, FIPS 140-3 Level 3 validated single-tenant service that complies with industry standards. Azure Cloud HSM grants customers complete administrative authority over their hardware security modules (HSMs). It provides a secure and customer-owned HSM cluster for storing cryptographic keys and performing cryptographic operations.
+Microsoft Azure Cloud HSM is a highly available, FIPS 140-3 Level 3 validated single-tenant service that complies with industry standards. Azure Cloud HSM grants customers complete administrative authority over their hardware security modules (HSMs). It provides a secure and customer-owned HSM cluster for storing cryptographic keys and performing cryptographic operations.
 
 Azure Cloud HSM supports various applications, including PKCS#11, offloading of Secure Sockets Layer (SSL) or Transport Layer Security (TLS) processing, certificate authority (CA) private key protection, and transparent data encryption (TDE). It also supports document and code signing.
-
-> [!NOTE]
-> Azure Cloud HSM is available in preview in the East US, East US 2, West US, West US 2, West Europe, North Europe, and UK West regions. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Why use Azure Cloud HSM?
 
@@ -55,6 +52,7 @@ Azure Cloud HSM supports:
 - Active Directory Certificate Services (AD CS).
 - SSL/TLS offloading (Apache or NGINX).
 - TDE (Microsoft SQL Server or Oracle).
+- Certificate Storage
 - Document, file, and code signing.
 
 Azure Cloud HSM is *not*:
@@ -83,6 +81,9 @@ Azure Cloud HSM is not a good fit for Microsoft cloud services that require supp
 These resources are available to help you facilitate the provisioning and configuration of HSMs into your existing virtual network environment:
 
 - [Azure Cloud HSM SDK](https://github.com/microsoft/MicrosoftAzureCloudHSM)
+- [Key management in Azure](/azure/security/fundamentals/key-management)
+- [Deploy Azure Cloud HSM by using the Azure portal](quickstart-portal.md)
+- [Deploy Azure Cloud HSM by using Azure PowerShell](quickstart-powershell.md)
 - [Key management in Azure](/azure/security/fundamentals/key-management)
 - [Deploy Azure Cloud HSM by using the Azure portal](quickstart-portal.md)
 - [Deploy Azure Cloud HSM by using Azure PowerShell](quickstart-powershell.md)

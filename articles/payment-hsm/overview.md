@@ -8,6 +8,7 @@ ms.service: azure-payment-hsm
 ms.topic: overview
 ms.date: 04/10/2025
 ms.author: mbaldwin
+ms.custom: sfi-image-nochange
 ---
 # What is Azure Payment HSM?
 
