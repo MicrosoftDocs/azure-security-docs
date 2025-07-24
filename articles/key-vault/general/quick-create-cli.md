@@ -24,7 +24,7 @@ Azure Key Vault is a cloud service that provides a secure store for [keys](../ke
 
 ## Create a resource group
 
-[!INCLUDE [Create a resource group](~/reusable-content/ce-skilling/azure/includes/key-vault/create-resource-group-cli.md)]
+[!INCLUDE [Create a resource group](~/reusable-content/ce-skilling/azure/includes/create-resource-group-cli.md)]
 
 ## Create a key vault
 
@@ -32,7 +32,7 @@ Azure Key Vault is a cloud service that provides a secure store for [keys](../ke
 
 ## Clean up resources
 
-[!INCLUDE [Delete a key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/delete-key-vault-cli.md)]
+[!INCLUDE [Clean up resources](~/reusable-content/ce-skilling/azure/includes/delete-resource-group-cli.md)]
 
 ## Next steps
 

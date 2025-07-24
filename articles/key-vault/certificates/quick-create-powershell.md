@@ -67,7 +67,7 @@ Set-AzKeyVaultAccessPolicy -VaultName <KeyVaultName> -ObjectId <AzureObjectID> -
 
 ## Clean up resources
 
-[!INCLUDE [Create a key vault](~/reusable-content/azure-powershell/includes/delete-key-vault-powershell.md)]
+[!INCLUDE [Clean up resources](~/reusable-content/ce-skilling/azure/includes/delete-resource-group-powershell.md)]
 
 ## Next steps
 

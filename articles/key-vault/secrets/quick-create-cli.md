@@ -23,7 +23,7 @@ This quickstart requires version 2.0.4 or later of the Azure CLI. If using Azure
 
 ## Create a resource group
 
-[!INCLUDE [Create a resource group](~/reusable-content/ce-skilling/azure/includes/key-vault/create-resource-group-cli.md)]
+[!INCLUDE [Create a resource group](~/reusable-content/ce-skilling/azure/includes/create-resource-group-cli.md)]
 
 ## Create a key vault
 
@@ -57,7 +57,7 @@ Now, you have created a Key Vault, stored a secret, and retrieved it.
 
 ## Clean up resources
 
-[!INCLUDE [Create a key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/delete-key-vault-cli.md)]
+[!INCLUDE [Clean up resources](~/reusable-content/ce-skilling/azure/includes/delete-resource-group-cli.md)]
 
 ## Next steps
 

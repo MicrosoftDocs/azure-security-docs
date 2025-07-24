@@ -28,11 +28,11 @@ Connect-AzAccount
 
 ## Create a resource group
 
-[!INCLUDE [Create a resource group](../../../includes/powershell-rg-create.md)]
+[!INCLUDE [Create a resource group](~/reusable-content/ce-skilling/azure/includes/create-resource-group-powershell.md)]
 
 ## Create a key vault
 
-[!INCLUDE [Create a key vault](../includes/key-vault-creation-powershell.md)]
+[!INCLUDE [Create a key vault](~/reusable-content/ce-skilling/azure/includes/create-key-vault-powershell.md)]
 
 ## Give your user account permissions to manage secrets in Key Vault
 
