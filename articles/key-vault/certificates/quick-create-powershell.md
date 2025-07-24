@@ -23,11 +23,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create a resource group
 
-[!INCLUDE [Create a resource group](../../../includes/powershell-rg-create.md)]
+[!INCLUDE [Create a resource group](~/reusable-content/azure-powershell/create-resource-group-powershell.md)]
 
 ## Create a key vault
 
-[!INCLUDE [Create a key vault](../includes/key-vault-creation-powershell.md)]
+[!INCLUDE [Create a key vault](~/reusable-content/azure-powershell/key-vault-creation-powershell.md)]
 
 ## Give your user account permissions to manage certificates in Key Vault
 
@@ -67,7 +67,7 @@ Set-AzKeyVaultAccessPolicy -VaultName <KeyVaultName> -ObjectId <AzureObjectID> -
 
 ## Clean up resources
 
-[!INCLUDE [Create a key vault](../../../includes/powershell-rg-delete.md)]
+[!INCLUDE [Create a key vault](~/reusable-content/azure-powershell/includes/delete-key-vault-powershell.md)]
 
 ## Next steps
 

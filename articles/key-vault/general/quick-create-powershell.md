@@ -23,15 +23,15 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create a resource group
 
-[!INCLUDE [Create a resource group](../../../includes/powershell-rg-create.md)]
+[!INCLUDE [Create a resource group](~/reusable-content/azure-powershell/includes/create-resource-group-powershell.md)]
 
 ## Create a key vault
 
-[!INCLUDE [Create a key vault](../includes/key-vault-creation-powershell.md)]
+[!INCLUDE [Create a key vault](~/reusable-content/azure-powershell/includes/key-vault-creation-powershell.md)]
 
 ## Clean up resources
 
-[!INCLUDE [Create a key vault](../../../includes/powershell-rg-delete.md)]
+[!INCLUDE [Create a key vault](~/reusable-content/azure-powershell/includes/powershell-rg-delete.md)]
 
 ## Next steps
 

@@ -22,11 +22,11 @@ In this quickstart, you create a key vault in Azure Key Vault with Azure CLI. Az
 
 ## Create a resource group
 
-[!INCLUDE [Create a resource group](../../../includes/cli-rg-create.md)]
+[!INCLUDE [Create a resource group](~/reusable-content/ce-skilling/azure/includes/key-vault/create-resource-group-cli.md)]
 
 ## Create a key vault
 
-[!INCLUDE [Create a key vault](../includes/key-vault-creation-cli.md)]
+[!INCLUDE [Create a key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/create-key-vault-cli.md)]
 
 ## Give your user account permissions to manage keys in Key Vault
 
@@ -55,7 +55,7 @@ Now, you've created a Key Vault, stored a key, and retrieved it.
 
 ## Clean up resources
 
-[!INCLUDE [Create a key vault](../../../includes/cli-rg-delete.md)]
+[!INCLUDE [Create a key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/delete-key-vault-cli.md)]
 
 ## Next steps
 
