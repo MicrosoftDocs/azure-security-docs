@@ -4,6 +4,7 @@ description: Learn how to consume and export Defender for SQL's scan results.
 
 ms.topic: how-to
 ms.date: 06/04/2023
+ms.custom: sfi-image-nochange
 ---
 
 # How to consume and export scan results
@@ -60,6 +61,7 @@ These queries are editable and can be customized to a specific resource, set of 
     | where resourceId =~ "/subscriptions/resourcegroups/rgname/providers/microsoft.sql/servers/servername/databases/dbname"
     | where assessmentKey =~ "82e20e14-edc5-4373-bfc4-f13121257c37"
     | project resourceId,
+    subscriptionId,
     assessmentKey,
     subAssessmentId,
     name=properties.displayName,

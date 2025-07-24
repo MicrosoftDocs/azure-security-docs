@@ -124,8 +124,10 @@ items:
   - name: Service Level Agreement (SLA)
     href: https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/
   - name: Service limits
-    href: ../general/service-limits.md
-  - name: Service status
+    href: service-limits.md
+  - name: Scaling guidance
+    href: scaling-guidance.md
+  - name: Azure service status
     href: https://azure.microsoft.com/status/
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=key-vault

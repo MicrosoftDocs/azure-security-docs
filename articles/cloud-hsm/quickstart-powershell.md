@@ -1,6 +1,6 @@
 ﻿---
-title: Deploy Azure Cloud HSM using Azure PowerShell
-description: Learn how to deploy Azure Cloud HSM into an existing virtual network using Azure PowerShell.
+title: Deploy Azure Cloud HSM by Using Azure PowerShell
+description: Learn how to deploy Azure Cloud HSM into an existing virtual network by using Azure PowerShell.
 author: keithp
 manager: keithp
 ms.service: azure-cloud-hsm
@@ -8,32 +8,30 @@ ms.topic: quickstart
 ms.date: 03/20/2025
 ms.author: keithp
 
-#Customer Intent: As an IT pro decision maker, I'm looking for key storage capability within the Azure cloud platform that meets FIPS 140-3 Level 3 certification and that gives me exclusive access to a dedicated hardware security module.
+#customer intent: As an IT pro decision-maker, I'm looking for key storage capability within the Azure cloud platform that meets FIPS 140-3 Level 3 certification and that gives me exclusive access to a dedicated hardware security module.
 
-#Supported Use Cases: Azure Cloud HSM provides a secure and customer-managed HSM for storing cryptographic keys and performing cryptographic operations. It supports various applications, including PKCS#11, offload SSL/TLS processing, certificate authority private key protection, and transparent data encryption, including document and code signing.
+#Supported Use Cases: Azure Cloud HSM provides a secure and customer-owned HSM for storing cryptographic keys and performing cryptographic operations. It supports various applications, including PKCS#11, offload of SSL/TLS processing, CA private key protection, and transparent data encryption. It also supports document and code signing.
 
-#Not Supported Use Cases: Azure Cloud HSM is IaaS only. It doesn't integrate with other Azure services. Cloud HSM doesn't have a REST API and doesn't support encryption at rest.
+#Not Supported Use Cases: Azure Cloud HSM is IaaS only. It doesn't integrate with other Azure services, doesn't have a REST API, and doesn't support encryption at rest.
 ---
 
-# Deploy Azure Cloud HSM using Azure PowerShell
+# Quickstart: Deploy Azure Cloud HSM by using Azure PowerShell
 
-[Azure Cloud HSM](overview.md) is a highly available, FIPS 140-3 Level 3 validated single-tenant HSM service that enables you to deploy hardware security modules (HSMs) using various methods including Azure CLI, PowerShell, ARM templates, Terraform, or the Azure portal. This quickstart guides you through the deployment process using Azure PowerShell.
+[Azure Cloud HSM](overview.md) is a highly available, FIPS 140-3 Level 3 validated single-tenant service that enables you to deploy hardware security modules (HSMs) by using various methods. These methods include the Azure CLI, Azure PowerShell, Azure Resource Manager templates (ARM templates), Terraform, or the Azure portal. This quickstart guides you through the deployment process in Azure PowerShell.
 
 ## Prerequisites
-
-Before deploying Azure Cloud HSM:
 
 - An Azure account with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - The latest version of [Azure PowerShell](/powershell/azure/install-azure-powershell) installed.
 - Appropriate permissions to create resources in your subscription, including HSM resources.
-- For production environments, an existing virtual network (VNet) and subnet for configuring [private endpoints](/azure/private-link/private-endpoint-overview).
+- For production environments, an existing virtual network and subnet for configuring [private endpoints](/azure/private-link/private-endpoint-overview).
 
-## Create an Azure Cloud HSM
+## Create an Azure Cloud HSM instance
 
-The following example code creates a resource group and a Cloud HSM instance. You need to update the subscription, resource group, location, and hardware security module (HSM) names to match your environment.
+The following example code creates a resource group and a Cloud HSM instance. You need to update the subscription, resource group, location, and HSM name to match your environment.
 
 > [!IMPORTANT]
-> The HSM name must be unique. If you specify an HSM resource name that already exists in the chosen region, your deployment will fail.
+> The HSM name must be unique. If you specify an HSM name that already exists in the chosen region, your deployment will fail.
 
 ```azurepowershell-interactive
 # Define variables for your Cloud HSM deployment
@@ -46,21 +44,21 @@ $server = @{
     Force = $true
 }
 
-# Create HSM Cluster Resource Group
+# Create an HSM cluster resource group
 New-AzResourceGroup -Name $server.ResourceGroupName -Location $server.Location -Force
 
-# Create HSM Cluster
+# Create an HSM cluster
 New-AzResource @server -AsJob -Verbose
 ```
 
 > [!NOTE]
-> We recommend deploying your Cloud HSM resources in a separate resource group from your related client virtual network and virtual machine resources for better management and security isolation.
+> We recommend that you deploy your Cloud HSM resources in a separate resource group from your related client virtual network and virtual machine (VM) resources. Using a separate resource group provides better management and security isolation.
 
-## Configure managed identity (optional)
+## Configure a managed identity (optional)
 
-For backup and restore operations in Azure Cloud HSM, you need to create a user-assigned managed identity. This identity is used for transferring Cloud HSM backups to your designated storage account, enabling business continuity and disaster recovery (BCDR) scenarios.
+For backup and restore operations in Azure Cloud HSM, you need to create a user-assigned managed identity. This identity is used for transferring Cloud HSM backups to your designated storage account in business continuity and disaster recovery (BCDR) scenarios.
 
-If you plan to use backup and restore functionality, you can create and configure a managed identity using the following PowerShell commands:
+If you plan to use backup and restore functionality, you can create and configure a managed identity by using the following Azure PowerShell commands:
 
 ```azurepowershell-interactive
 # Define parameters for the new managed identity
@@ -73,10 +71,10 @@ $identity = @{
 # Create a new user-assigned managed identity
 New-AzUserAssignedIdentity -Name $identity.ResourceName -ResourceGroupName $identity.ResourceGroupName -Location $identity.Location
 
-# Get subscription ID
+# Get the subscription ID
 $subscriptionId = (Get-AzContext).Subscription.Id
 
-# Define the Cloud HSM managed identity patch payload
+# Define the Cloud HSM managed identity's patch payload
 $chsmMSIPatch = @{
     Sku = @{
         Family = "B"
@@ -92,7 +90,7 @@ $chsmMSIPatch = @{
 } | ConvertTo-Json -Depth 4
 
 # Construct the URI for the Cloud HSM resource
-$resourceURI = "/subscriptions/$subscriptionId/resourceGroups/$($server.ResourceGroupName)/providers/Microsoft.HardwareSecurityModules/cloudHsmClusters/$($server.ResourceName)?api-version=2024-06-30-preview"
+$resourceURI = "/subscriptions/$subscriptionId/resourceGroups/$($server.ResourceGroupName)/providers/Microsoft.HardwareSecurityModules/cloudHsmClusters/$($server.ResourceName)?api-version=2025-03-31"
 
 # Update the Cloud HSM resource with the managed identity
 Invoke-AzRestMethod -Path $resourceURI -Method Put -Payload $chsmMSIPatch
@@ -100,9 +98,9 @@ Invoke-AzRestMethod -Path $resourceURI -Method Put -Payload $chsmMSIPatch
 
 For detailed instructions on configuring backup and restore operations, see [Back up and restore Azure Cloud HSM resources](backup-restore.md).
 
-## Set up networking (recommended)
+## Set up networking
 
-For production environments, it's strongly recommended to configure a private endpoint for your Cloud HSM to ensure secure communication. The following PowerShell commands can be used to create a private endpoint:
+For production environments, we strongly recommend that you configure a private endpoint for your Cloud HSM deployment to help ensure secure communication. You can use the following Azure PowerShell commands to create a private endpoint:
 
 ```azurepowershell-interactive
 # Define private endpoint parameters
@@ -123,9 +121,9 @@ New-AzPrivateEndpoint @privateEndpoint
 ```
 
 > [!TIP]
-> Private endpoints are crucial for security as they enable secure connections to your Azure Cloud HSM through a private link, ensuring traffic between your virtual network and the service traverses the Microsoft backbone network. This eliminates exposure to the public internet, as described in [Network security](network-security.md).
+> Private endpoints are crucial for security. They enable secure connections to your Azure Cloud HSM instance through a private link. These connections ensure that traffic between your virtual network and the service traverses the Microsoft backbone network. This configuration eliminates exposure to the public internet, as described in [Network security for Azure Cloud HSM](network-security.md).
 
-## Deploy your Cloud HSM
+## Deploy your Cloud HSM resource
 
 When you run the `New-AzResource` command with the `-AsJob` parameter, it creates a background job to deploy your Cloud HSM resource. You can check the status of the deployment by running:
 
@@ -133,43 +131,45 @@ When you run the `New-AzResource` command with the `-AsJob` parameter, it create
 Get-Job -Id <JobId> | Receive-Job
 ```
 
-Where `<JobId>` is the ID returned when you ran the `New-AzResource` command.
+In the preceding command, `<JobId>` is the ID that the system returned when you ran the `New-AzResource` command.
 
-The deployment is complete when you see a successful result from the job or when you can verify the resource exists in your Azure subscription.
+The deployment is complete when you see a successful result from the job or when you can verify that the resource exists in your Azure subscription.
 
 ## Initialize and configure your HSM
 
-> [!IMPORTANT]
-> Azure Cloud HSM activation and configuration cannot be done through PowerShell directly and requires the Azure Cloud HSM SDK and Client Tools.
+You can't accomplish Azure Cloud HSM activation and configuration through Azure PowerShell directly. You need the Azure Cloud HSM SDK and client tools.
 
-After deploying your Cloud HSM resource through Azure PowerShell, you need to follow these steps:
+After you deploy your Cloud HSM resource through Azure PowerShell, follow these steps:
 
-1. **Download and install the Azure Cloud HSM SDK** from [GitHub](https://github.com/microsoft/MicrosoftAzureCloudHSM/releases) on a VM that has network connectivity to your HSM.
-2. **Initialize and configure your HSM** following the detailed steps in the [Azure Cloud HSM Onboarding Guide](onboarding-guide.md).
-3. **Establish user management** with appropriate crypto officers and crypto users, as described in [User management in Azure Cloud HSM](user-management.md).
-4. **Implement proper key management practices** to ensure optimal security and performance, as outlined in [Key management in Azure Cloud HSM](key-management.md).
+1. Download and install the Azure Cloud HSM SDK from [GitHub](https://github.com/microsoft/MicrosoftAzureCloudHSM/releases) on a VM that has network connectivity to your HSM.
+
+2. Initialize and configure your HSM by following the detailed steps in the [Azure Cloud HSM onboarding guide](onboarding-guide.md).
+
+3. Establish user management with appropriate cryptography officers and users, as described in [User management in Azure Cloud HSM](user-management.md).
+
+4. Implement proper key management practices to help ensure optimal security and performance, as outlined in [Key management in Azure Cloud HSM](key-management.md).
 
 ## Clean up resources
 
-If you created a resource group solely for this quickstart and don't need to keep these resources, you can delete the entire resource group:
+If you created a resource group solely for this quickstart and you don't need to keep these resources, you can delete the entire resource group:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $server.ResourceGroupName -Force
 ```
 
-## Troubleshooting common deployment issues
+## Troubleshoot common deployment problems
 
-If you encounter issues during deployment:
+If you encounter problems during deployment:
 
-- **Resource name conflicts**: Ensure your HSM name is unique in the region. If deployment fails with a naming conflict, try a different name.
-- **Network connectivity**: If using private endpoints, verify your VM has proper network access to the HSM. See [Network security](network-security.md) for best practices.
-- **Authentication failures**: When initializing the HSM, ensure you're using the correct credentials format as detailed in [Authentication in Azure Cloud HSM](authentication.md).
-- **Managed identity issues**: If backup operations fail, verify that the managed identity has been properly assigned and has the necessary permissions.
+- **Resource name conflicts**: Ensure that your HSM name is unique in the region. If deployment fails with a naming conflict, try a different name.
+- **Network connectivity problems**: If you're using private endpoints, verify that your VM has proper network access to the HSM. For best practices, see [Network security for Azure Cloud HSM](network-security.md).
+- **Authentication failures**: When you're initializing the HSM, ensure that you use the correct format for credentials, as detailed in [Authentication in Azure Cloud HSM](authentication.md).
+- **Managed identity problems**: If backup operations fail, verify that the managed identity was properly assigned and has the necessary permissions.
 
-## Next steps
+## Related content
 
-- [Azure Cloud HSM Onboarding Guide](onboarding-guide.md)
-- [Configure backup and restore for Cloud HSM](backup-restore.md)
-- [Secure your Cloud HSM](secure-cloud-hsm.md)
-- [Network security for Cloud HSM](network-security.md)
-- [Deploy Azure Cloud HSM using the Azure portal](quickstart-portal.md)
+- [Azure Cloud HSM onboarding guide](onboarding-guide.md)
+- [Back up and restore Azure Cloud HSM resources](backup-restore.md)
+- [Secure your Azure Cloud HSM deployment](secure-cloud-hsm.md)
+- [Network security for Azure Cloud HSM](network-security.md)
+- [Deploy Azure Cloud HSM by using the Azure portal](quickstart-portal.md)

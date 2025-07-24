@@ -5,6 +5,7 @@ author: dcurwin
 ms.author: dacurwin
 ms.topic: how-to
 ms.date: 02/19/2025
+ms.custom: sfi-image-nochange
 ---
 # Review Docker host hardening recommendations
 
@@ -16,7 +17,7 @@ When vulnerabilities are found, they're grouped inside a single recommendation.
 
 > [!NOTE]
 > Docker host hardening uses the Log Analytics agent (also known as the Microsoft Monitoring agent (MMA)) to collect host information for assessment.
-> The MMA is retiring, and the Docker host hardening feature will be deprecated in November 2024.
+> The MMA is retired, and the Docker host hardening feature was deprecated in November 2024.
 
 ## Prerequisites
 

@@ -3,6 +3,7 @@ title: Protect your Amazon Web Service (AWS) accounts containers with Defender f
 description: Learn how to enable the Defender for Containers plan on your Amazon Web Service (AWS) accounts for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
 ms.date: 05/13/2025
+ms.custom: sfi-image-blocked
 ---
 
 # Protect your Amazon Web Service (AWS) containers with Defender for Containers
@@ -65,6 +66,8 @@ To protect your EKS clusters, you need to enable the Containers plan on the rele
 > To enable or disable individual Defender for Containers capabilities, either globally or for specific resources, see [How to enable Microsoft Defender for Containers components](defender-for-containers-enable.md).
 
 ## Deploy the Defender sensor in EKS clusters
+
+[!INCLUDE [Install with Helm note](./includes/helm-install-note.md)]
 
 Azure Arc-enabled Kubernetes, the Defender sensor, and Azure Policy for Kubernetes should be installed and running on your EKS clusters. There's a dedicated Defender for Cloud recommendation that can be used to install these extensions (and Azure Arc if necessary):
 

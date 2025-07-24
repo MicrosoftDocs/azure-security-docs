@@ -4,7 +4,7 @@ description: Tutorial showing how to deploy a dedicated HSM using the CLI into a
 services: dedicated-hsm
 author: msmbaldwin
 ms.topic: tutorial
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, sfi-image-nochange
 ms.service: azure-dedicated-hsm
 ms.date: 04/15/2025
 ms.author: mbaldwin

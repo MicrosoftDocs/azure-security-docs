@@ -4,6 +4,7 @@ ms.topic: include
 ms.date: 01/10/2024
 ms.author: dacurwin
 author: dcurwin
+ms.custom: sfi-image-nochange
 ---
 
 ## Enable the plan
@@ -117,6 +118,8 @@ To deploy the solution to specific clusters:
 1. Select **Ok**.
 
 ## Deploy the Defender sensor
+
+[!INCLUDE [Install with Helm note](helm-install-note.md)]
 
 To deploy the Defender sensor on your GCP clusters:
 
