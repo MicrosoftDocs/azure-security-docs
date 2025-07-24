@@ -31,7 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Clean up resources
 
-[!INCLUDE [Create a key vault](~/reusable-content/azure-powershell/includes/powershell-rg-delete.md)]
+[!INCLUDE [Clean up resources](~/reusable-content/ce-skilling/azure/includes/delete-resource-group-powershell.md)]
 
 ## Next steps
 

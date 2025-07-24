@@ -23,11 +23,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create a resource group
 
-[!INCLUDE [Create a resource group](~/reusable-content/azure-powershell/create-resource-group-powershell.md)]
+[!INCLUDE [Create a resource group](~/reusable-content/ce-skilling/azure/includes/create-resource-group-powershell.md)]
 
 ## Create a key vault
 
-[!INCLUDE [Create a key vault](~/reusable-content/azure-powershell/key-vault-creation-powershell.md)]
+[!INCLUDE [Create a key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/create-key-vault-powershell.md)]
 
 ## Give your user account permissions to manage certificates in Key Vault
 

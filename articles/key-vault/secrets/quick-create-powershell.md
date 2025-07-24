@@ -32,7 +32,7 @@ Connect-AzAccount
 
 ## Create a key vault
 
-[!INCLUDE [Create a key vault](~/reusable-content/ce-skilling/azure/includes/create-key-vault-powershell.md)]
+[!INCLUDE [Create a key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/create-key-vault-powershell.md)]
 
 ## Give your user account permissions to manage secrets in Key Vault
 
