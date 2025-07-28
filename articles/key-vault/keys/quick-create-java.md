@@ -183,7 +183,7 @@ KeyClient keyClient = new KeyClientBuilder()
 
 ### Create a key
 
-Now that your application is authenticated, you can create a key in your key vault using the `keyClient.createKey` method. This requires a name for the key and a key type. We've assigned the value "myKey" to the `keyName` variable and use a an RSA `KeyType` in this sample.
+Now that your application is authenticated, you can create a key in your key vault using the `keyClient.createKey` method. This requires a name for the key and a key type. We've assigned the value "myKey" to the `keyName` variable and use an RSA `KeyType` in this sample.
 
 ```java
 keyClient.createKey(keyName, KeyType.RSA);
