@@ -23,15 +23,15 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create a resource group
 
-[!INCLUDE [Create a resource group](../../../includes/powershell-rg-create.md)]
+[!INCLUDE [Create a resource group](~/reusable-content/ce-skilling/azure/includes/create-resource-group-powershell.md)]
 
 ## Create a key vault
 
-[!INCLUDE [Create a key vault](../includes/key-vault-creation-powershell.md)]
+[!INCLUDE [Create a key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/create-key-vault-powershell.md)]
 
 ## Clean up resources
 
-[!INCLUDE [Create a key vault](../../../includes/powershell-rg-delete.md)]
+[!INCLUDE [Clean up resources](~/reusable-content/ce-skilling/azure/includes/delete-resource-group-powershell.md)]
 
 ## Next steps
 
@@ -40,4 +40,3 @@ In this quickstart you created a Key Vault using Azure PowerShell. To learn more
 - Read an [Overview of Azure Key Vault](overview.md)
 - See the reference for the [Azure PowerShell Key Vault cmdlets](/powershell/module/az.keyvault/)
 - Review the [Azure Key Vault security overview](security-features.md)
-.md)

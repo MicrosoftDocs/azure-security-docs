@@ -21,14 +21,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/azure-powershell/azure-powershell-requirements-no-header.md)]
 
-
 ## Create a resource group
 
-[!INCLUDE [Create a resource group](../../../includes/powershell-rg-create.md)]
+[!INCLUDE [Create a resource group](~/reusable-content/ce-skilling/azure/includes/create-resource-group-powershell.md)]
 
 ## Create a key vault
 
-[!INCLUDE [Create a key vault](../includes/key-vault-creation-powershell.md)]
+[!INCLUDE [Create a key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/create-key-vault-powershell.md)]
 
 ## Give your user account permissions to manage keys in Key Vault
 
@@ -36,7 +35,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Add a key to Key Vault
 
-To add a key to the vault, you just need to take a couple of additional steps. This key could be used by an application. 
+To add a key to the vault, you just need to take a couple of additional steps. This key could be used by an application.
 
 Type this command to create a called **ExampleKey** :
 
@@ -56,7 +55,7 @@ Now, you've created a Key Vault, stored a key, and retrieved it.
 
 ## Clean up resources
 
-[!INCLUDE [Create a key vault](../../../includes/powershell-rg-delete.md)]
+[!INCLUDE [Clean up resources](~/reusable-content/ce-skilling/azure/includes/delete-resource-group-powershell.md)]
 
 ## Next steps
 
