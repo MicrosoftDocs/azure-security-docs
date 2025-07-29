@@ -2,11 +2,9 @@
 title: Azure Dedicated HSM Migration Guide: Move Keys to Managed or Cloud HSM
 description: Learn how to migrate from Azure Dedicated HSM to Azure Managed HSM or Azure Cloud HSM, including key migration restrictions, onboarding steps, and best practices.
 author: msmbaldwin
-contributors:
+ms.author: mbaldwin
 ms.topic: how-to
 ms.date: 07/28/2025
-ms.author: mbaldwin
-ms.reviewer: mbaldwin
 ---
 
 # Azure Dedicated HSM Migration Guide
@@ -27,7 +25,7 @@ Customers of Azure Dedicated make use of High-Availability Groups to support the
 - Thales Luna HSMs that have partition policies set to ‘cloning mode on’ cannot export keys!
 
 > [!WARNING]
-> Changing partition policies on your Thales Luna HSM is a destructive process. If you apply partition change policy to your HSM it will zeroize and all key materials and contents will be lost. If you are not sure of your partition policy state for your Thales Luna HSM you can run [partition showpolicies](/gphsm/luna/7/docs/network/Content/lunacm/commands/partition/partition_showpolicies.htm?Highlight=partition%20show%20policies) on your Azure Dedicated HSM to get a listing of current policies set on your device.
+> Changing partition policies on your Thales Luna HSM is a destructive process. If you apply partition change policy to your HSM it will zeroize and all key materials and contents will be lost. If you are not sure of your partition policy state for your Thales Luna HSM you can run [partition showpolicies](https://www.thalesgroup.com/gphsm/luna/7/docs/network/Content/lunacm/commands/partition/partition_showpolicies.htm) on your Azure Dedicated HSM to get a listing of current policies set on your device.
 
 ## Getting started with Azure Cloud HSM
 
@@ -95,7 +93,9 @@ If your Dedicated HSM is enabled with HA Grouping you cannot migrate keys!
 
 To learn more about Azure Cloud HSM and Azure Managed HSM, explore the following resources:
 
-- [Azure Cloud HSM Overview](https://learn.microsoft.com/en-us/azure/cloud-hsm/overview): Learn about the features and capabilities of Azure Cloud HSM.
-- [Azure Managed HSM Overview](https://learn.microsoft.com/en-us/azure/key-vault/managed-hsm/overview): Understand the benefits and use cases of Azure Managed HSM.
+- [Azure Cloud HSM Overview](/azure/cloud-hsm/overview): Learn about the features and capabilities of Azure Cloud HSM.
+- [Azure Managed HSM Overview](/azure/key-vault/managed-hsm/overview): Understand the benefits and use cases of Azure Managed HSM.
+- [Azure Cloud HSM Onboarding Guide](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/OnboardingGuides/Azure%20Cloud%20HSM%20Onboarding.pdf): Step-by-step instructions for getting started with Azure Cloud HSM.
+- [Azure Managed HSM Quickstart](/azure/key-vault/managed-hsm/quick-create-cli): Quickstart guide for provisioning and activating Azure Managed HSM.
 - [Azure Cloud HSM Onboarding Guide](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/OnboardingGuides/Azure%20Cloud%20HSM%20Onboarding.pdf): Step-by-step instructions for getting started with Azure Cloud HSM.
 - [Azure Managed HSM Quickstart](https://learn.microsoft.com/en-us/azure/key-vault/managed-hsm/quick-create-cli): Quickstart guide for provisioning and activating Azure Managed HSM.
