@@ -42,7 +42,7 @@ Follow this guide to learn how to use the [azcertificates](https://aka.ms/azsdk/
 
 ### Create a resource group and key vault
 
-[!INCLUDE [Create a resource group and key vault](../includes/key-vault-rg-kv-creation.md)]
+[!INCLUDE [Create a resource group and key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/create-resource-group-key-vault-cli.md)]
 
 ### Grant access to your key vault
 

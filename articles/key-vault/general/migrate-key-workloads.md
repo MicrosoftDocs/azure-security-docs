@@ -90,6 +90,24 @@ To transition your workloads to keys protected by HSM Platform 2:
 
 The benefits of transitioning to HSM Platform 2 include enhanced security compliance with FIPS 140 Level 3 validation. Since all new keys are automatically created on the latest platform, this transition mainly applies to updating existing workloads to use newer key versions.
 
+## Managing Customer Keys for Microsoft 365
+
+For organizations transitioning from HSM Platform 1, managing customer keys effectively is critical. Microsoft 365 provides robust tools and guidance for rolling or rotating customer-managed root keys and availability keys. Below are key resources to help you manage this process:
+
+- [Roll or rotate a Customer Key or an availability key](/purview/customer-key-availability-key-roll): Learn how to roll customer-managed root keys or availability keys, including creating new versions or generating new keys.
+- [Understand the availability key](/purview/customer-key-availability-key-understand): Detailed information about the availability key and its role in Microsoft 365 encryption.
+- [Manage Customer Key for Microsoft 365](/purview/customer-key-manage): Comprehensive guidance on managing customer keys, including creating and assigning data encryption policies (DEPs).
+
+### Key Considerations for HSM Platform 1 Retirement
+
+As HSM Platform 1 is retired, ensure that you:
+
+1. Roll or rotate your customer-managed root keys as needed to maintain compliance and security.
+2. Update data encryption policies (DEPs) to reference new keys or key versions.
+3. Follow best practices for key management, including minimizing permissions and monitoring key usage.
+
+For more details, refer to the [Microsoft Purview Customer Key documentation](/purview/customer-key-overview).
+
 ## Next steps
 
 - [About Azure Key Vault](overview.md)

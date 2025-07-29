@@ -112,7 +112,7 @@ Open the *pom.xml* file in your text editor. Add the following dependency elemen
 
 ### Create a resource group and key vault
 
-[!INCLUDE [Create a resource group and key vault](../includes/key-vault-rg-kv-creation.md)]
+[!INCLUDE [Create a resource group and key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/create-resource-group-key-vault-cli.md)]
 
 #### Grant access to your key vault
 
@@ -183,7 +183,7 @@ KeyClient keyClient = new KeyClientBuilder()
 
 ### Create a key
 
-Now that your application is authenticated, you can create a key in your key vault using the `keyClient.createKey` method. This requires a name for the key and a key type. We've assigned the value "myKey" to the `keyName` variable and use a an RSA `KeyType` in this sample.
+Now that your application is authenticated, you can create a key in your key vault using the `keyClient.createKey` method. This requires a name for the key and a key type. We've assigned the value "myKey" to the `keyName` variable and use an RSA `KeyType` in this sample.
 
 ```java
 keyClient.createKey(keyName, KeyType.RSA);
