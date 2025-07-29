@@ -8,7 +8,7 @@ manager: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: conceptual
-ms.date: 02/27/2025
+ms.date: 07/22/2025
 ms.author: mbaldwin
 ---
 
@@ -134,7 +134,7 @@ There are more read-only attributes that are included in any response that inclu
 - *hsmPlatform*: string, optional. The underlying HSM Platform that is protecting a key.
     - A hsmPlatform value of 2 means the key is protected by our latest FIPS 140 Level 3 validated HSM platform.
     - A hsmPlatform value of 1 means the key is protected by our previous FIPS 140 Level 2 validated HSM platform.
-    - A hsmPlatform value of 0 means the key is protected by a FIPS 140 Level 1 HSM software cryptographic module.
+    - A hsmPlatform value of 0 means the key is protected by a FIPS 140 Level 1 software cryptographic module.
     - if this is not set by a Managed HSM pool, it is protected by our latest FIPS 140 Level 3 validated HSM platform.
  
 It’s important to note that keys are bound to the HSM in which they were created. New keys are seamlessly created and stored in the new HSMs. While there is no way to migrate or transfer keys, new key versions are automatically in the new HSMs. For more information on how to migrate to a new key, see [How to migrate key workloads](../general/migrate-key-workloads.md).

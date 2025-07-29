@@ -115,7 +115,7 @@ Open the *pom.xml* file in your text editor. Add the following dependency elemen
 
 ### Create a resource group and key vault
 
-[!INCLUDE [Create a resource group and key vault](../includes/key-vault-rg-kv-creation.md)]
+[!INCLUDE [Create a resource group and key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/create-resource-group-key-vault-cli.md)]
 
 #### Grant access to your key vault
 

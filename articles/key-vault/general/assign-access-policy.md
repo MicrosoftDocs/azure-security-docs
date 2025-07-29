@@ -3,7 +3,7 @@ title: Assign an Azure Key Vault access policy (CLI)
 description: How to use the Azure CLI to assign a Key Vault access policy to a security principal or application identity.
 services: key-vault
 author: msmbaldwin
-ms.custom: devx-track-azurecli, has-azure-ad-ps-ref
+ms.custom: devx-track-azurecli, has-azure-ad-ps-ref, sfi-image-nochange
 
 ms.service: azure-key-vault
 ms.subservice: general
@@ -19,7 +19,7 @@ ms.author: mbaldwin
 
 A Key Vault access policy determines whether a given security principal, namely a user, application or user group, can perform different operations on Key Vault [secrets](../secrets/index.yml), [keys](../keys/index.yml), and [certificates](../certificates/index.yml). You can assign access policies using the [Azure portal](assign-access-policy-portal.md), the Azure CLI, or [Azure PowerShell](assign-access-policy-powershell.md).
 
-[!INCLUDE [key-vault-access-policy-limits.md](../includes/key-vault-access-policy-limits.md)]
+Key vault supports up to 1024 access policy entries, with each entry granting a distinct set of permissions to a particular security principal. Because of this limitation, we recommend assigning access policies to groups of users, where possible, rather than individual users. Using groups makes it much easier to manage permissions for multiple people in your organization. For more information, see [Manage app and resource access using Microsoft Entra groups](/entra/fundamentals/how-to-manage-groups).
 
 # [Azure portal](#tab/azure-portal)
 

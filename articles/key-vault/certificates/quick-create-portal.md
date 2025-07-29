@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.custom: mvc, mode-ui
+ms.custom: mvc, mode-ui, sfi-image-nochange
 ms.date: 04/14/2025
 
 ms.author: mbaldwin
@@ -45,7 +45,7 @@ Once that you receive the message that the certificate has been successfully cre
 
 ## Export certificate from Key Vault
 
-By clicking "Download in CER format" or "Download in PFX/PEM format" button, you can download the certificate. 
+By clicking "Download in CER format" or "Download in PFX/PEM format" button, you can download the certificate.
 
 ![Certificate download](../media/certificates/quick-create-portal/current-version-shown.png)
 
@@ -57,7 +57,6 @@ When no longer needed, delete the resource group, which deletes the Key Vault an
 1. Enter the name of your resource group in the Search box at the top of the portal. When you see the resource group used in this quickstart in the search results, select it.
 2. Select **Delete resource group**.
 3. In the **TYPE THE RESOURCE GROUP NAME:** box type in the name of the resource group and select **Delete**.
-
 
 ## Next steps
 

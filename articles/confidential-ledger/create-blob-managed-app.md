@@ -6,6 +6,7 @@ ms.author: pallabpaul
 ms.date: 10/26/2023
 ms.service: azure-confidential-ledger
 ms.topic: overview
+ms.custom: sfi-ropc-nochange, sfi-image-nochange
 ---
 
 # Create a Managed Application to Store Blob Digests
