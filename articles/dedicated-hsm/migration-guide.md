@@ -1,12 +1,11 @@
 ---
-title: Azure Dedicated HSM Migration Guide: Move Keys to Managed or Cloud HSM
-description: Learn how to migrate from Azure Dedicated HSM to Azure Managed HSM or Azure Cloud HSM, including key migration restrictions, onboarding steps, and best practices.
+title: Azure Dedicated HSM Migration Guide
+description: Guidance on migrating from Azure Dedicated HSM to Azure Managed HSM or Azure Cloud HSM, including restrictions, onboarding steps, and best practices.
 author: msmbaldwin
 ms.author: mbaldwin
 ms.topic: how-to
 ms.date: 07/28/2025
 services: dedicated-hsm
-ms.topic: how-to
 ms.service: azure-dedicated-hsm
 ---
 
@@ -98,7 +97,5 @@ To learn more about Azure Cloud HSM and Azure Managed HSM, explore the following
 
 - [Azure Cloud HSM Overview](/azure/cloud-hsm/overview): Learn about the features and capabilities of Azure Cloud HSM.
 - [Azure Managed HSM Overview](/azure/key-vault/managed-hsm/overview): Understand the benefits and use cases of Azure Managed HSM.
-- [Azure Cloud HSM Onboarding Guide](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/OnboardingGuides/Azure%20Cloud%20HSM%20Onboarding.pdf): Step-by-step instructions for getting started with Azure Cloud HSM.
-- [Azure Managed HSM Quickstart](/azure/key-vault/managed-hsm/quick-create-cli): Quickstart guide for provisioning and activating Azure Managed HSM.
 - [Azure Cloud HSM Onboarding Guide](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/OnboardingGuides/Azure%20Cloud%20HSM%20Onboarding.pdf): Step-by-step instructions for getting started with Azure Cloud HSM.
 - [Azure Managed HSM Quickstart](/azure/key-vault/managed-hsm/quick-create-cli): Quickstart guide for provisioning and activating Azure Managed HSM.
