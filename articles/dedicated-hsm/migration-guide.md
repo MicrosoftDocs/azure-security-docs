@@ -31,7 +31,7 @@ Thales Luna HSMs with "cloning mode on" and "key export" disabled cannot export 
 
 ## Transitioning to Azure Cloud HSM
 
-Customers can refer to the Azure Cloud HSM onboarding guide, integration guides, and overview documentation to provision and activate their Azure Cloud HSM resources.
+Customers can refer to the Azure Cloud HSM onboarding guide, integration guides, and overview documentation to provision and activate their Azure Cloud HSM resources. For additional details on usage scenarios and best practices, see the [Azure Cloud HSM FAQ](../cloud-hsm/faq.yml#what-usage-scenarios-best-suit-azure-cloud-hsm).
 
 ### Provision and activate your Azure Cloud HSM
 
@@ -90,5 +90,4 @@ To learn more about Azure Cloud HSM and Azure Managed HSM, explore the following
 - [Azure Managed HSM Overview](../key-vault/managed-hsm/overview.md): Understand the benefits and use cases of Azure Managed HSM.
 - [Azure Cloud HSM Onboarding Guide](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/OnboardingGuides/Azure%20Cloud%20HSM%20Onboarding.pdf): Step-by-step instructions for getting started with Azure Cloud HSM.
 - [Azure Managed HSM Quickstart](../key-vault/managed-hsm/quick-create-cli.md): Quickstart guide for provisioning and activating Azure Managed HSM.
-
-
+- [Azure Cloud HSM FAQ](../cloud-hsm/faq.yml): Explore usage scenarios and best practices for Azure Cloud HSM.
