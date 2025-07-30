@@ -11,23 +11,23 @@ ms.service: azure-dedicated-hsm
 
 # Azure Dedicated HSM Migration Guide
 
-Azure Dedicated HSM customers interested in the possibility of migrating keys can find guidance here about moving to Azure Managed HSM or Azure Cloud HSM.
+Azure Dedicated HSM customers who want to migrate keys can find guidance in this article about moving to [Azure Cloud HSM](../cloud-hsm/overview.md) or [Azure Managed HSM](/../key-vault/managed-hsm/overview.md).
 
 > [!WARNING]
-> Customers looking to move to Azure Managed HSM or Azure Cloud HSM will not be able to migrate their existing key materials from Azure Dedicated HSM due to known preconditions and restrictions of the Thales Luna HSM. You will need to create new keys in Azure Managed HSM or Azure Cloud HSM when transitioning off Azure Dedicated HSM.
+> Customers can not migrate existing key materials from Azure Dedicated HSM to Azure Cloud HSM or Azure Managed HSM due to known preconditions and restrictions of the Thales Luna HSM. You must create new keys in Azure Cloud HSM or Azure Managed HSM when transitioning off Azure Dedicated HSM.
 
-Microsoft does not have access to Dedicated HSMs allocated to customers as devices are allocated within the customers' private IP address space. Because customers have full administrative control of their Dedicated HSMs they are responsible for coordinating with their internal teams to create new keys in Azure Cloud HSM, updating their applications to use new keys in Azure Cloud HSM and testing to ensure safe migration to Azure Cloud HSM.
+Microsoft doesn't have access to Dedicated HSMs allocated to customers because devices are allocated within the customers' private IP address space. Because customers have full administrative control of their Dedicated HSMs, they are responsible for coordinating with their internal teams to create new keys in Azure Cloud HSM, update their applications to use new keys in Azure Cloud HSM, and test to ensure safe migration to Azure Cloud HSM.
 
 ## Thales Luna HSM restrictions
 
-Exporting HSM protected keys from a Thales Luna HSM into Azure Managed HSM or Azure Cloud HSM is only possible if private key wrapping is on (enabled), and private key cloning is off (disabled). The Thales Luna HSM default setting for partition policy is ‘cloning mode on’. In this mode, private keys are never allowed to exist outside of a trusted Luna HSM in the designated cloning domain.
+Exporting HSM-protected keys from a Thales Luna HSM to Azure Cloud HSM or Azure Managed HSM is possible only if private key wrapping is on (enabled) and private key cloning is off (disabled). The default partition policy setting for Thales Luna HSM is "cloning mode on". In this mode, private keys are never allowed to exist outside of a trusted Luna HSM in the designated cloning domain.
 
-Customers of Azure Dedicated make use of High-Availability Groups to support their BCDR across multiple devices. Thales requires ‘cloning mode on’ to support that HA feature, concluding that Azure Dedicated HSM customers that have existing keys have cloning mode enabled and thus will not be able to migrate their existing key materials and will have to create new keys in Azure Managed HSM or Azure Cloud HSM.
+Customers of Azure Dedicated make use of High-Availability (HA) Groups to support their BCDR across multiple devices. Thales requires ‘cloning mode on’ to support the HA feature, concluding that Azure Dedicated HSM customers that have existing keys have cloning mode enabled and thus will not be able to migrate their existing key materials and will have to create new keys in Azure Cloud HSM or Azure Managed HSM.
 
 - Thales Luna HSMs that have partition policies set to ‘cloning mode on’ cannot export keys!
 
 > [!WARNING]
-> Changing partition policies on your Thales Luna HSM is a destructive process. If you apply partition change policy to your HSM it will zeroize and all key materials and contents will be lost. If you are not sure of your partition policy state for your Thales Luna HSM you can run [partition showpolicies](https://www.thalesgroup.com/gphsm/luna/7/docs/network/Content/lunacm/commands/partition/partition_showpolicies.htm) on your Azure Dedicated HSM to get a listing of current policies set on your device.
+> Changing partition policies on your Thales Luna HSM is a destructive process. If you apply partition change policy to your HSM, it zeroizes and all key materials and contents are lost. If you are not sure of your partition policy state for your Thales Luna HSM, you can run [partition showpolicies](https://www.thalesgroup.com/gphsm/luna/7/docs/network/Content/lunacm/commands/partition/partition_showpolicies.htm) on your Azure Dedicated HSM to get a listing of current policies set on your device.
 
 ## Getting started with Azure Cloud HSM
 
@@ -37,41 +37,36 @@ Customers can refer to the Azure Cloud HSM onboarding guide, integration guides,
 
 To get started with Azure Cloud HSM, you need to provision and activate your HSM resources. Follow the guides below for detailed instructions.
 
-- [Azure Cloud HSM Onboarding Guide](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/OnboardingGuides/Azure%20Cloud%20HSM%20Onboarding.pdf)
-
-- [Azure Cloud HSM Integration Guides](https://github.com/microsoft/MicrosoftAzureCloudHSM/tree/main/IntegrationGuides)
-
 - [Overview of Azure Cloud HSM](/azure/cloud-hsm/overview)
+- [Azure Cloud HSM Onboarding Guide](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/OnboardingGuides/Azure%20Cloud%20HSM%20Onboarding.pdf)
+- [Azure Cloud HSM Integration Guides](https://github.com/microsoft/MicrosoftAzureCloudHSM/tree/main/IntegrationGuides)
 
 ### Create keys in Azure Cloud HSM
 
-Creating keys in Azure Cloud HSM is a straightforward process. You can learn how to create, list, delete, backup, recover, or import keys by referring to the [Azure Cloud Overview](/azure/cloud-hsm/overview), which provides all the necessary commands and guidance for managing HSM keys.
+Creating keys in Azure cloud HSM is straightforward. You can learn how to create, list, delete, backup, recover, or import keys by referring to the [Azure Cloud HSM Overview](/azure/cloud-hsm/overview), which provides all the necessary commands and guidance for managing HSM keys.
 
 ### Read best practices using Azure Cloud HSM
 
-Azure Cloud HSM is a cloud service that safeguards encryption keys. As these keys are sensitive and business critical, make sure to secure access to your Cloud HSMs by allowing only authorized applications and users. Our [Best Practices](/azure/cloud-hsm/secure-cloud-hsm) and article about [Key Management and Security](/azure/cloud-hsm/key-management) and [User Management](/azure/cloud-hsm/user-management) provides an overview of the access model. It explains authentication and authorization, and role-based access control that you will want to adhere to.
+Azure Cloud HSM is a cloud service that safeguards encryption keys. As these keys are sensitive and business critical, make sure to secure access to your Cloud HSMs by allowing only authorized applications and users. The [best practices](/azure/cloud-hsm/secure-cloud-hsm) article, along with [key management and security](/azure/cloud-hsm/key-management) and [user management](/azure/cloud-hsm/user-management), provides an overview of the access model. It explains authentication, authorization, and role-based access control that you should follow.
 
 ## Getting started with Azure Managed HSM
 
-Customers can quickly provision and activate a Managed HSM using the QuickStart references guides shared below:
+Customers can quickly provision and activate a Managed HSM using the QuickStart reference guides below:
 
 ### Provision and activate a Managed HSM
 
 To begin using Azure Managed HSM, you need to provision and activate it. Use the following guides for step-by-step instructions.
 
+- [Overview of Azure Managed HSM](/azure/key-vault/managed-hsm/overview)
 - [Provision and activate a Managed HSM using Azure CLI](/azure/key-vault/managed-hsm/quick-create-cli)
-
 - [Provision and activate a Managed HSM using PowerShell](/azure/key-vault/managed-hsm/quick-create-powershell)
-
 - [Provision and activate a Managed HSM using Azure Resource Manager Template](/azure/key-vault/managed-hsm/quick-create-template)
 
 ### Create keys in Azure Managed HSM
 
 Creating keys in Azure Managed HSM is essential for securing your data. Refer to the following resources for detailed instructions.
 
-- [Azure Cloud HSM Onboarding Guide](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/OnboardingGuides/Azure%20Cloud%20HSM%20Onboarding.pdf)
-
-- [Azure Cloud HSM Integration Guides](https://github.com/microsoft/MicrosoftAzureCloudHSM/tree/main/IntegrationGuides)
+- [Create, list, delete, backup, recover, or import keys in Azure Managed HSM](/azure/key-vault/managed-hsm/keys-overview)
 
 ### Read best practices using Azure Managed HSM
 
@@ -79,17 +74,17 @@ Azure Managed HSM is a cloud service that safeguards encryption keys. As these k
 
 ## Frequently asked questions
 
-**Can customers migrate Dedicated HSM keys to Managed HSM or Cloud HSM?**
+**Can customers migrate Dedicated HSM keys to Cloud HSM or Managed HSM?**
 
-If your Dedicated HSM is enabled with HA Grouping you cannot migrate keys!
+If your Dedicated HSM is enabled with HA Grouping, you cannot migrate keys.
 
-- Asymmetric Keys are not migratable from Dedicated HSM to Managed HSM or Cloud HSM when HA Grouping is configured for Luna HSM due to export disabled state.
+- Asymmetric Keys are not migratable from Dedicated HSM to Cloud HSM or Managed HSM when HA Grouping is configured for Luna HSM due to export disabled state.
 
 - Symmetric Keys are migratable regardless of HA Grouping, export enabled/disabled state.
 
 **Can customers change partitions policies on Dedicated HSM to export disabled to migrate keys?**
 
-- No. Changing partition policies for key cloning or key export is a destructive process. Only at the time of partition creation can this policy be set. If you change this policy after creating keys you will factory reset and lose all your key materials. This policy is enforced through Thales firmware.
+- No. Changing partition policies for key cloning or key export is a destructive process. Only at the time of partition creation can this policy be set. If you change this policy after creating keys, you will factory reset and lose all your key materials. This policy is enforced through Thales firmware.
 
 ## Next steps
 
