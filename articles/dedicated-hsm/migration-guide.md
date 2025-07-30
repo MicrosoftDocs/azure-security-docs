@@ -20,11 +20,11 @@ Microsoft doesn't have access to Dedicated HSMs allocated to customers because d
 
 ## Thales Luna HSM restrictions
 
-Exporting HSM-protected keys from a Thales Luna HSM to Azure Cloud HSM or Azure Managed HSM is not possible if the default partition policy setting, "cloning mode on," is enabled. This mode prevents private keys from existing outside of a trusted Luna HSM in the designated cloning domain.
+Exporting HSM-protected keys from a Thales Luna HSM to Azure Cloud HSM or Azure Managed HSM is not possible if the default partition policy setting, "key export," is disabled. This mode prevents private keys from existing outside of a trusted Luna HSM in the designated cloning domain.
 
-Azure Dedicated HSM customers using High-Availability (HA) Groups to support their BCDR across multiple devices typically have "cloning mode on" enabled. As a result, existing key materials cannot be transitioned and new keys must be created in Azure Cloud HSM or Azure Managed HSM.
+Azure Dedicated HSM customers using High-Availability (HA) Groups to support their BCDR across multiple devices typically have "cloning mode on" enabled and "key export" disabled. As a result, existing key materials cannot be transitioned, and new keys must be created in Azure Cloud HSM or Azure Managed HSM.
 
-- Thales Luna HSMs with "cloning mode on" cannot export keys!
+Thales Luna HSMs with "cloning mode on" and "key export" disabled cannot export keys.
 
 > [!WARNING]
 > Changing partition policies on your Thales Luna HSM is a destructive process. If you apply a partition policy change, it zeroizes the HSM, and all key materials and contents are lost. If you are unsure of your partition policy state, you can run [partition showPolicies](https://thalesdocs.com/gphsm/luna/7/docs/network/Content/lunash/commands/partition/partition_showpolicies.htm) on your Azure Dedicated HSM to view the current policies.
