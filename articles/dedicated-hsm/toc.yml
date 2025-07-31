@@ -30,6 +30,8 @@
     href: supportability.md
 - name: How-to guides
   items:
+  - name: Migrate to Cloud or Managed HSM
+    href: migration-guide.md
   - name: Deciding on deployment architecture
     href: deployment-architecture.md
   - name: Troubleshooting
