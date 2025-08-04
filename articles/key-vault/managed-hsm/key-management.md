@@ -1,5 +1,5 @@
 ---
-title: Manage keys in a managed HSM - Azure Key Vault | Microsoft Docs
+title: Manage keys in a Managed HSM 
 description: Use this article to manage keys in a managed HSM
 services: key-vault
 author: msmbaldwin
@@ -13,7 +13,7 @@ ms.date: 04/14/2025
 ms.author: mbaldwin
 ---
 
-# Manage a Managed HSM using the Azure CLI
+# Manage keys in an Azure Managed HSM using the Azure CLI
 
 > [!NOTE]
 > Key Vault supports two types of resources: vaults and managed HSMs. This article is about **Managed HSM**. If you want to learn how to manage a vault, see [Manage Key Vault using the Azure CLI](../general/manage-with-cli2.md).
