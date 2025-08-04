@@ -450,9 +450,14 @@
       "redirect_url": "/azure/defender-for-cloud/prepare-deprecation-log-analytics-mma-agent",
       "redirect_document_id": false
     },
-      {
+    {
       "source_path_from_root": "/articles/defender-for-cloud/working-with-log-analytics-agent.md",
       "redirect_url": "/azure/defender-for-cloud/prepare-deprecation-log-analytics-mma-agent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/windows-admin-center-integration.md",
+      "redirect_url": "/azure/defender-for-cloud/",
       "redirect_document_id": false
     },
     {
