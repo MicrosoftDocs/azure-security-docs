@@ -5,7 +5,7 @@ items:
   items:
   - name: About Azure confidential ledger
     href: overview.md
-  - name: Transition from Managed CCF to Azure confidential ledger
+  - name: Migration from Managed CCF to Azure confidential ledger
     href: mccf-transition.md
 - name: Quickstarts
   expanded: true
