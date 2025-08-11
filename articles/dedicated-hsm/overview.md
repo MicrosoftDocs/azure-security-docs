@@ -15,7 +15,7 @@ ms.author: mbaldwin
 > [!IMPORTANT]
 > **Azure Dedicated HSM is being retired.** Microsoft will fully support existing Dedicated HSM customers until July 31, 2028. No new customer onboardings are accepted. For full details and required actions, see the [official Azure update](https://azure.microsoft.com/updates?id=499214).
 >
-> If you are currently using Dedicated HSM, see [Migrate from Azure Dedicated HSM to Azure Managed HSM or Azure Cloud HSM](migration-guide). **[Azure Cloud HSM](../dedicated-hsm/overview.md) is now generally available and is the successor to Azure Dedicated HSM.**
+> If you are currently using Dedicated HSM, see [Migrate from Azure Dedicated HSM to Azure Managed HSM or Azure Cloud HSM](migration-guide.md). **[Azure Cloud HSM](../dedicated-hsm/overview.md) is now generally available and is the successor to Azure Dedicated HSM.**
 >
 > New customers should evaluate and onboard to [Azure Cloud HSM](../cloud-hsm/overview.md), [Azure Managed HSM](../key-vault/managed-hsm/overview.md), or [Azure Key Vault](../key-vault/general/overview.md) based on their workload requirements. For guidance, see [How to choose the right Azure key management solution](/azure/security/fundamentals/key-management-choose).
 
