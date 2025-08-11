@@ -1,5 +1,5 @@
 ---
-title: Azure Managed Confidential Consortium Framework deprecation announcement
+title: Migrating from Azure Managed Confidential Consortium Framework to Microsoft Azure confidential ledger
 description: This article explains the deprecation of Azure Managed Confidential Consortium Framework and provides guidance for migrating to Microsoft Azure confidential ledger. All previous Managed CCF documentation now redirects here.
 ms.service: azure-confidential-ledger
 ms.topic: overview
@@ -9,7 +9,7 @@ ms.author: mbaldwin
 
 ---
 
-# Migration from Azure Managed Confidential Consortium Framework to Microsoft Azure confidential ledger
+# Migrating from Azure Managed CCF to Azure confidential ledger
 
 Azure Managed Confidential Consortium Framework (Managed CCF) is being **deprecated** and will no longer receive updates or support.
 
