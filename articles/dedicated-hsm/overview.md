@@ -13,7 +13,7 @@ ms.author: mbaldwin
 # What is Azure Dedicated HSM?
 
 > [!IMPORTANT]
-> **Azure Dedicated HSM is being retired.** Microsoft will fully support existing Dedicated HSM customers until July 31, 2028. No new customer onboardings are accepted. For full details and required actions, see the [official Azure update](https://azure.microsoft.com/en-us/updates?id=499214).
+> **Azure Dedicated HSM is being retired.** Microsoft will fully support existing Dedicated HSM customers until July 31, 2028. No new customer onboardings are accepted. For full details and required actions, see the [official Azure update](https://azure.microsoft.com/updates?id=499214).
 >
 > If you are currently using Dedicated HSM, see [Migrate from Azure Dedicated HSM to Azure Managed HSM or Azure Cloud HSM](migration-guide). **[Azure Cloud HSM](../dedicated-hsm/overview.md) is now generally available and is the successor to Azure Dedicated HSM.**
 >
