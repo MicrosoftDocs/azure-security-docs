@@ -13,6 +13,9 @@ ms.author: mbaldwin
 
 Azure Managed Confidential Consortium Framework (Managed CCF) is being **deprecated** and will no longer receive updates or support.
 
+> [!NOTE]
+> Previous Managed CCF documentation has been archived and can be accessed at [https://learn.microsoft.com/en-us/previous-versions/azure/managed-ccf/](https://learn.microsoft.com/en-us/previous-versions/azure/managed-ccf/).
+
 We recommend that customers migrate to [Microsoft Azure confidential ledger (ACL)](overview.md), a fully managed, highly secure ledger service built on trusted execution environments. Azure confidential ledger offers:
 
 - **Tamperproof storage**: Blockchain-backed, ensuring data integrity and immutability.
