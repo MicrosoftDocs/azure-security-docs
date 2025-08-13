@@ -96,6 +96,8 @@ items:
     href: /java/api/overview/azure/security-confidentialledger-readme
 - name: Resources
   items:
+  - name: Migration from Managed CCF to Azure confidential ledger
+    href: managed-confidential-consortium-framework-migration.md
   - name: Build your skills with Microsoft Learn training
     href: /training/browse/
   - name: Pricing
