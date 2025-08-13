@@ -139,6 +139,9 @@ Use Azure PowerShell [Invoke-AzKeyVaultKeyRotation](/powershell/module/az.keyvau
 Invoke-AzKeyVaultKeyRotation -VaultName <vault-name> -Name <key-name>
 ```
 
+> [!NOTE]
+> When manually creating a new version of your customer-managed key, ensure that both the old and new key versions are in the Enabled state. This allows Azure Container Registry (ACR) to automatically detect and apply the new version. After ACR updates to the new key version, you can safely disable the old version.
+
 ## Configure key near expiry notification
 
 Configuration of expiry notification for Event Grid key near expiry event. In case when automated rotation cannot be used, like when a key is imported from local HSM, you can configure near expiry notification as a reminder for manual rotation or as a trigger to custom automated rotation through integration with Event Grid. You can configure notification with days, months and years before expiry to trigger near expiry event. 
