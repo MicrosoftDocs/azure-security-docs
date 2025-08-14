@@ -9,23 +9,16 @@ ms.author: mbaldwin
 #customer intent: As a security architect or developer, I want to know which cryptographic algorithms are supported by Azure Cloud HSM so I can plan my application integration and compliance.
 ---
 
+
 # Supported cryptographic algorithms in Azure Cloud HSM
 
-Azure Cloud HSM supports a variety of cryptographic algorithms. Only the algorithms, modes/methods, and key lengths/curves/moduli supported by its hardware security modules are listed below.
+Azure Cloud HSM supports various cryptographic algorithms. Only the algorithms, modes/methods, and key lengths/curves/moduli supported by its hardware security modules are listed below.
 
 For an overview of the service, see [Overview of Azure Cloud HSM](overview.md). For key management, see [Key management in Azure Cloud HSM](key-management.md). For authentication, see [Authentication in Azure Cloud HSM](authentication.md).
 
 ## Supported non-FIPS algorithms
 
 Azure Cloud HSM and its hardware security modules support the following non-FIPS-approved algorithms:
-
-# Algorithms supported
-
-Azure Cloud HSM supports a variety of cryptographic algorithms. Only the algorithms, modes/methods, and key lengths/curves/moduli supported by its hardware security modules are listed below.
-
-## Supported Non-FIPS Algorithms
-
-Azure Cloud HSM and its hardware security modules support the following non-FIPS-approved algorithms.
 
 
 | Algorithm                      | Use / Function |
@@ -46,17 +39,13 @@ Azure Cloud HSM and its hardware security modules support the following non-FIPS
 
 ### Algorithm caveats
 
-
 Some algorithms are non-FIPS due to legacy or curve restrictions:
 
 - **AES** Cert A1947/A1948: Legacy key unwrap only (ECB/CBC decrypt; 128/192/256-bit)
-- **EC Diffie-Hellman** (non-NIST curves) – e.g., Secp256k1, brainpoolP-series, FRP256v1
+- **EC Diffie-Hellman** (non-NIST curves) – for example, Secp256k1, brainpoolP-series, FRP256v1
 - **ECDSA** (non-NIST curves) – same curves as above
 - **SHA-1** – no security claimed (fingerprints only)
 - **Triple-DES SP 800-38B** – no security claimed (fingerprints only)
-
----
-
 
 ## Supported NIST FIPS-approved algorithms
 
@@ -86,8 +75,6 @@ Additional **A1948** certs cover similar AES, ECDSA, HMAC, KAS, KDA, KDF, and KT
 - KDA (HKDF, OneStep, TwoStep)
 - KDF (ANS 9.63, SP 800-108)
 - KTS-IFC (SP 800-56B)
-
----
 
 ## What's next?
 
