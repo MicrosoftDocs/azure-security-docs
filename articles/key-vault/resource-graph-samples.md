@@ -8,7 +8,6 @@ ms.author: mbaldwin
 ms.service: azure-key-vault
 ms.custom: subject-resourcegraph-sample
 ---
-
 # Azure Resource Graph sample queries for Azure Key Vault
 
 This page is a collection of [Azure Resource Graph](/azure/governance/resource-graph/overview) sample queries for Azure Key Vault.
