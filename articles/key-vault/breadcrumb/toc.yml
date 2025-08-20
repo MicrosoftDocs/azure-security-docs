@@ -76,3 +76,14 @@
   - name: Key Vault
     tocHref: /security/benchmark/azure/baselines
     topicHref: /azure/key-vault/general/index
+
+### Reliability 
+- name: Azure
+  tocHref: /reliability/
+  topicHref: /azure/index
+  items: 
+  - name: Key Vault
+    tocHref: /reliability/
+    topicHref: /azure/key-vault/general/index
+
+

@@ -169,7 +169,12 @@
   - name: Security controls by Azure Policy
     displayName: regulatory, compliance, standards, domains
     href: ../security-controls-policy.md?context=/azure/key-vault/general/context/context
-    
+- name: Reliability
+  items:
+  - name: Reliability in Key Vault
+    href: /azure/reliability/reliability-key-vault?toc=/azure/key-vault/general/toc.json
+  - name: Monitor Key Vault for reliability
+    href: monitor-key-vault-reliability.md
 - name: Reference
   items:
   - name: What's new
