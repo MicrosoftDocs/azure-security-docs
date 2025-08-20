@@ -74,10 +74,12 @@ To understand how to configure a private link connection on your key vault, see 
 
 To enhance network security, you can configure your vault to disable public access. This denies all public configurations and allows only connections through private endpoints.
 
-### Network security perimeter (preview)
-[Network Security Perimeter](/azure/private-link/network-security-perimeter-concepts) (preview) allows organizations to define a logical network isolation boundary for PaaS resources (for example, Azure Key Vault, Azure Storage and SQL Database) that are deployed outside your organization’s virtual networks. It restricts public network access to PaaS resources outside of the perimeter, access can be exempted by using explicit access rules for public inbound and outbound.
+### Network security perimeter
 
-Currently, Network Security Perimeter is in public preview for a subset of resources. See [Onboarded private-link resources](/azure/private-link/network-security-perimeter-concepts#onboarded-private-link-resources) and [Limitations of network security perimeter](/azure/private-link/network-security-perimeter-concepts#limitations-of-network-security-perimeter). For more information, see [Transition to a Network Security Perimeter](/azure/private-link/network-security-perimeter-transition).
+
+[Network Security Perimeter](/azure/private-link/network-security-perimeter-concepts) allows organizations to define a logical network isolation boundary for PaaS resources (for example, Azure Key Vault, Azure Storage and SQL Database) that are deployed outside your organization’s virtual networks. It restricts public network access to PaaS resources outside of the perimeter, access can be exempted by using explicit access rules for public inbound and outbound.
+
+Network Security Perimeter is now generally available for supported resources. See [Onboarded private-link resources](/azure/private-link/network-security-perimeter-concepts#onboarded-private-link-resources) and [Limitations of network security perimeter](/azure/private-link/network-security-perimeter-concepts#limitations-of-network-security-perimeter). For more information, see [Transition to a Network Security Perimeter](/azure/private-link/network-security-perimeter-transition).
 
 > [!IMPORTANT]
 > Private endpoint traffic is considered highly secure and therefore isn't subject to Network Security Perimeter rules. All other traffic, including trusted services, will be subject to Network Security Perimeter rules if the key vault is associated with a perimeter.
