@@ -173,8 +173,6 @@
   items:
   - name: Reliability in Key Vault
     href: /azure/reliability/reliability-key-vault?toc=/azure/key-vault/general/toc.json
-  - name: Monitor Key Vault for reliability
-    href: monitor-key-vault-reliability.md
 - name: Reference
   items:
   - name: What's new
