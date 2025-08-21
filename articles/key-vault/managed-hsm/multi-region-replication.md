@@ -32,12 +32,12 @@ Failover occurs when one of the regions in a multi-region Managed HSM becomes un
 | Affected Region | Reads Allowed | Writes Allowed |
 |--|--|--|
 | Extended Region | Yes | Yes |
-| Primary Region | Yes | Maybe |
+| Primary Region | Yes | Yes |
 
-If an extended region becomes unavailable, read operations (get key, list keys, all crypto operations, list role assignments) are available if the primary region is alive. Write operations (create and update keys, create and update role assignments, create and update role definitions) are also available.
-
-If the primary region is unavailable, read operations are available, but write operations may not, depending on the scope of the outage.
-
+If a primary or extended region goes down, you can still perform both read and write operations.
+- **Read operations**: get key, list keys, run cryptographic operations, and list role assignments.
+- **Write operations**: create or update keys, role assignments, and role definitions.
+ 
 ## Time to failover
 
 Under the hood, DNS resolution handles the redirection of requests to either the primary or the extended regions.
