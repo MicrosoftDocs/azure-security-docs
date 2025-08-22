@@ -534,6 +534,11 @@
     "source_path_from_root": "/articles/key-vault/vs-secure-secret-appsettings.md",
     "redirect_url": "/previous-versions/azure/key-vault/vs-secure-secret-appsettings",
     "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/key-vault/disaster-recovery-guidance.md",
+    "redirect_url": "/azure/reliability/reliability-key-vault",
+    "redirect_document_id": false
   }
 ]
 }
