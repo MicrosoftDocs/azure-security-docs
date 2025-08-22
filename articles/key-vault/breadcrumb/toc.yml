@@ -1,3 +1,4 @@
+items:
 - name: Azure
   tocHref: /azure/
   topicHref: /azure/index
@@ -21,7 +22,6 @@
     - name: Managed HSM
       tocHref: /azure/key-vault/managed-hsm/
       topicHref: /azure/key-vault/managed-hsm/index
-
 - name: Azure
   tocHref: /java/
   topicHref: /azure/index
@@ -33,7 +33,6 @@
     - name: Spring
       tocHref: /java/azure/spring-framework/
       topicHref: /java/azure/spring-framework/
-
 - name: Azure
   tocHref: /powershell/
   topicHref: /azure/index
@@ -45,7 +44,6 @@
     - name: Key Vault PowerShell cmdlets
       tocHref: /powershell/module/az.keyvault/
       topicHref: /powershell/module/az.keyvault/
-
 - name: Azure
   tocHref: /cli/
   topicHref: /azure/index
@@ -67,7 +65,6 @@
       - name: Secrets
         tocHref: /cli/azure/keyvault/secret
         topicHref: /azure/key-vault/
-
 ### Security baseline 
 - name: Azure
   tocHref: /security/benchmark/azure/
@@ -76,7 +73,6 @@
   - name: Key Vault
     tocHref: /security/benchmark/azure/baselines
     topicHref: /azure/key-vault/general/index
-
 ### Reliability 
 - name: Azure
   tocHref: /reliability/
