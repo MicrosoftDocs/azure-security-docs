@@ -9,7 +9,7 @@ services: dedicated-hsm
 ms.service: azure-dedicated-hsm
 ---
 
-# Transition from Azure Dedicated HSM to Azure Managed HSM or Azure Cloud HSM
+# Migrate from Azure Dedicated HSM to Azure Managed HSM or Azure Cloud HSM
 
 Azure Dedicated HSM customers who want to transition to [Azure Cloud HSM](../cloud-hsm/overview.md) or [Azure Managed HSM](../key-vault/managed-hsm/overview.md) can find guidance in this article. This transition involves creating new keys and updating applications to use the new services.
 
