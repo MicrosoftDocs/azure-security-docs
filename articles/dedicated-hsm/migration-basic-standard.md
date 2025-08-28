@@ -15,4 +15,8 @@ There is no smooth migration for Dedicated HSM using ExpressRoute Gateway (ERGW)
 
 If you have any concerns with this, please contact your customer success account manager, or cloud solution architect.
 
-For more information on Dedicated HSM, see [Azure Dedicated HSM documentation](https://docs.microsoft.com/en-us/azure/dedicated-hsm/). For information of migrating off Dedicated HSM, see [Migrate from Azure Dedicated HSM to Azure Managed HSM or Azure Cloud HSM](https://docs.microsoft.com/en-us/azure/dedicated-hsm/migration-guide.md).
+For more information, see:
+
+- [Azure Dedicated HSM overview](overview.md)
+- [Azure ExpressRoute documentation](/azure/expressroute/expressroute-about-virtual-network-gateways)
+- [Migrate from Azure Dedicated HSM to Azure Managed HSM or Azure Cloud HSM](migration-guide.md).
