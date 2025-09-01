@@ -4,6 +4,11 @@
       "source_path_from_root": "/articles/defender-for-cloud/kubeaudit-events-advanced-hunting.md",
       "redirect_url": "/defender-xdr/investigate-respond-container-threats",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/disaster-recovery-guidance.md",
+      "redirect_url": "/azure/reliability/reliability-key-vault",
+      "redirect_document_id": false
     }
   ]
 }
