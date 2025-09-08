@@ -17,7 +17,10 @@ ms.author: mbaldwin
 
 For added assurance when you use Azure Key Vault, you can import or generate a key in a hardware security module (HSM); the key will never leave the HSM boundary. This scenario often is referred to as *bring your own key (BYOK)*. Key Vault uses [FIPS 140 validated HSMs](/azure/key-vault/keys/about-keys#compliance) to protect your keys.
 
-Use the information in this article to help you plan for, generate, and transfer your own HSM-protected keys to use with Azure Key Vault.
+> [!IMPORTANT]
+> BYOK requires your source HSM to allow key wrapping (exporting keys in encrypted form), typically disabled by default for security. When enabled, you must manage who can export keys and secure the key exchange keys. With proper implementation as described here, your key material never leaves FIPS 140 validated boundaries during transfer from your HSM to Azure Key Vault Premium or Managed HSM.
+
+Use this article to understand the process for transferring keys from your on-premises HSM to Azure Key Vault.
 
 > [!NOTE]
 > This import method is available only for [supported HSMs](#supported-hsms).
@@ -161,7 +164,9 @@ Transfer the KEKforBYOK.publickey.pem file to your offline computer. You'll need
 
 ### Generate and prepare your key for transfer
 
-Refer to your HSM vendor's documentation to download and install the BYOK tool. Follow instructions from your HSM vendor to generate a target key, and then create a key transfer package (a BYOK file). The BYOK tool will use the `kid` from [Step 1](#generate-a-kek) and the KEKforBYOK.publickey.pem file you downloaded in [Step 2](#download-the-kek-public-key) to generate an encrypted target key in a BYOK file.
+Refer to your HSM vendor's documentation to download and install the BYOK tool. Follow instructions from your HSM vendor to generate a target key, and then create a key transfer package (a BYOK file).
+
+The BYOK tool will use the `kid` from [Step 1](#generate-a-kek) and the KEKforBYOK.publickey.pem file you downloaded in [Step 2](#download-the-kek-public-key) to generate an encrypted target key in a BYOK file.
 
 Transfer the BYOK file to your connected computer.
 
