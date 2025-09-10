@@ -145,7 +145,7 @@ Node id 3 status: 0x00000000 : HSM Return: SUCCESS
 
 You will need to update the following parameters in the azcloudhsm_application.cfg file.
 
-**CERTSTORAGE_URL**: This field refers to the URL of the container within the customer's Blob Storage Account and is used to store certificate information. (e.g. <https://chsmstorage.blob.core.windows.net/certificates>)
+**CERTSTORAGE_URL**: This field refers to the URL of the container within the customer's Blob Storage Account and is used to store certificate information. (e.g. `https://chsmstorage.blob.core.windows.net/certificates`)
 
 **CERTSTORAGE_SIGNING_KEYID**: This field refers to the ID assigned to the key pair, which is used to perform integrity checks during read and write operations to storage (signing and verification).
 
