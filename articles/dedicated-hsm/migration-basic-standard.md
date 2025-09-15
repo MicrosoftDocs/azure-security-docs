@@ -11,6 +11,9 @@ ms.service: azure-dedicated-hsm
 
 # Migrate ExpressRoute Gateway Basic SKU public IP to Standard SKU public IP
 
+> [!NOTE]
+> Basic SKU public IP support for Dedicated HSM ExpressRoute Gateway is extended to March of 2027.
+
 There is no smooth migration for Dedicated HSM using ExpressRoute Gateway (ERGW) Basic SKU public IP to Standard SKU public IP. Customer will need to create a new Dedicated HSM with a new VNET/ a new ERGW with Standard SKU public IP, clone keys to new HSM with HA setup, delete the old Dedicated HSM.
 
 If you have any concerns with this, please contact your customer success account manager, or cloud solution architect.
