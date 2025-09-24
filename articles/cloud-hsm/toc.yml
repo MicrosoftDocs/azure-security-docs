@@ -53,6 +53,8 @@ items:
         href: https://github.com/microsoft/MicrosoftAzureCloudHSM/tree/main/IntegrationGuides
   - name: Resources
     items:
+      - name: Azure Cloud HSM pricing details
+        href: https://azure.microsoft.com/en-us/pricing/details/azure-cloud-hsm/
       - name: Frequently asked questions
         href: faq.yml
       - name: Service limits
