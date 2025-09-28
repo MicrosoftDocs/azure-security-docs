@@ -36,6 +36,8 @@ Each HSM cluster consists of three HSM partitions. If an HSM resource becomes un
 
 The Azure Cloud HSM cluster supports load balancing of cryptographic operations. Periodic HSM backups help ensure secure and simple data recovery.
 
+**Data residency**: Cloud HSM doesn't store or process customer data outside the region in which the customer deploys the HSM instance.
+
 ### Single-tenant HSM clusters
 
 Each Azure Cloud HSM instance is dedicated to a single customer. Each HSM cluster uses a separate customer-specific security domain that cryptographically isolates it.

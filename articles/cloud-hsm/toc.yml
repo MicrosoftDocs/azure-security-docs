@@ -43,6 +43,8 @@ items:
         href: troubleshoot.md
       - name: PKCS#11 API for certificate storage
         href: pkcs-api-certificate-storage.md
+      - name: Supported cryptographic algorithms
+        href: supported-algorithms.md
       - name: Azure Cloud HSM SDK
         href: https://github.com/microsoft/MicrosoftAzureCloudHSM 
       - name: Azure Cloud HSM Onboarding Guide
@@ -51,6 +53,8 @@ items:
         href: https://github.com/microsoft/MicrosoftAzureCloudHSM/tree/main/IntegrationGuides
   - name: Resources
     items:
+      - name: Azure Cloud HSM pricing details
+        href: https://azure.microsoft.com/pricing/details/azure-cloud-hsm/
       - name: Frequently asked questions
         href: faq.yml
       - name: Service limits

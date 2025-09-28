@@ -51,7 +51,7 @@ These network security features are listed from most restricted to least restric
 
     - Some customer scenarios require trusted Microsoft services to bypass the firewall, in such cases the vault might need to be configured to allow Trusted Microsoft Services.
 
-- **Use Network Security Perimeter (preview)**: Define a logical network isolation boundary for PaaS resources (for example, Azure Key Vault, Azure Storage and SQL Database) that are deployed outside your organization’s virtual network perimeter and/or public static IP addresses. For full details, see [Network security: Network Security Perimeter (preview)](network-security.md#network-security-perimeter-preview)
+- **Use Network Security Perimeter**: Define a logical network isolation boundary for PaaS resources (for example, Azure Key Vault, Azure Storage and SQL Database) that are deployed outside your organization’s virtual network perimeter and/or public static IP addresses. For full details, see [Network security: Network Security Perimeter)](network-security.md#network-security-perimeter )
 
   - "publicNetworkAccess": "SecuredByPerimeter" overrides "Allow trusted Microsoft services to bypass the firewall", meaning that some scenarios that require that trust will not work.
 
