@@ -71,7 +71,7 @@ It is not safe to delete the old tenant key until you no longer need the content
 
 ## Transitioning to HSM Platform 2
 
-Azure Key Vault has updated its HSM platform to provide improved security with FIPS 140 Level 3 validation. All new keys and key versions are now created using HSM Platform 2 (except UK geo). You can check which HSM platform is protecting your key by looking at its [hsmPlatform](../keys/about-keys-details.md#key-attributes) attribute.
+Azure Key Vault has updated its HSM platform to provide improved security with FIPS 140 Level 3 validation. All new keys and key versions are now created using HSM Platform 2. You can check which HSM platform is protecting your key by looking at its [hsmPlatform](../keys/about-keys-details.md#key-attributes) attribute.
 
 To transition your workloads to keys protected by HSM Platform 2:
 
