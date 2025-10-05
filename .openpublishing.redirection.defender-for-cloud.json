@@ -469,6 +469,11 @@
       "source_path_from_root": "/articles/defender-for-cloud/analyze-with-copilot.md",
       "redirect_url": "/azure/defender-for-cloud/summarize-with-copilot",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/azure-devops-extension.yml",
+      "redirect_url": "/azure/defender-for-cloud/azure-devops-extension",
+      "redirect_document_id": true
     }
   ]
 }
