@@ -473,7 +473,7 @@
     {
       "source_path_from_root": "/articles/defender-for-cloud/how-to-transition-to-built-in.yml",
       "redirect_url": "/azure/defender-for-cloud/how-to-transition-to-built-in",
-      "redirect_document_id": false
+      "redirect_document_id": true
     }
   ]
 }
