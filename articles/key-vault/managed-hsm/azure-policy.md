@@ -86,6 +86,9 @@ Policy assignments have concrete values defined for policy definitions' paramete
 
 You can also do this operation using the Azure CLI. See [Create a policy assignment to identify noncompliant resources with Azure CLI](/azure/governance/policy/assign-policy-azurecli).
 
+> [!NOTE]
+> Azure Managed HSM does not support management group level policy assignment. Assign policies at the subscription level.
+
 ### Test your setup
 
 Try to update/create a key that violates the rule, if you have a policy assignment with effect "Deny", it returns 403 to your request.
@@ -93,7 +96,7 @@ Review the scan result of inventory keys of auditing policy assignments. After 1
 
 ## Troubleshooting
   
-If there are no compliance results of a pool after one day. Check if the Step 2 role assignment was successful. Without Step 2, the key governance service isn't able to access key's metadata. The Azure CLI `az keyvault role assignment list` command can verify whether the role is assigned.
+If there are no compliance results of a pool after one day, check if the Step 2 role assignment was successful. Without Step 2, the key governance service isn't able to access key's metadata. The Azure CLI `az keyvault role assignment list` command can verify whether the role is assigned. Also check what level the policy was assigned at. Managed HSM does not support management group level policy assignment.
 
 ## Next Steps
 
