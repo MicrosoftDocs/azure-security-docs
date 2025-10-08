@@ -469,6 +469,11 @@
       "source_path_from_root": "/articles/defender-for-cloud/analyze-with-copilot.md",
       "redirect_url": "/azure/defender-for-cloud/summarize-with-copilot",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/just-in-time-access-usage.yml",
+      "redirect_url": "/articles/defender-for-cloud/just-in-time-access-usage",
+      "redirect_document_id": true
     }
   ]
 }
