@@ -473,7 +473,7 @@
     {
       "source_path_from_root": "/articles/defender-for-cloud/just-in-time-access-usage.yml",
       "redirect_url": "/articles/defender-for-cloud/just-in-time-access-usage",
-      "redirect_document_id": true
+      "redirect_document_id": false
     }
   ]
 }
