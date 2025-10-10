@@ -35,7 +35,7 @@ In this solution, Azure Key Vault stores storage account individual access keys 
 1. The function app adds the new regenerated key to Azure Key Vault as the new version of the secret.
 
 ## Prerequisites
-* An Azure subscription. [Create one for free.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* An Azure subscription. [Create one for free.](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 * Azure [Cloud Shell](https://shell.azure.com/). This tutorial is using portal Cloud Shell with PowerShell env
 * Azure Key Vault.
 * Two Azure storage accounts.
