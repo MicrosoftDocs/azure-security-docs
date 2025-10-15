@@ -24,7 +24,7 @@ Azure Key Vault users can generate DigiCert/GlobalSign certificates directly fro
 
 For more general information about certificates, see [Azure Key Vault certificates](./about-certificates.md).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you start.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you start.
 
 ## Prerequisites
 

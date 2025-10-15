@@ -40,7 +40,7 @@ This quickstart describes how to create, update, and delete an Azure Payment HSM
 
   You can continue with this quick start if all four of these commands return "Registered".
 
-- You must have an Azure subscription. You can [create a free account](https://azure.microsoft.com/free/) if you don't have one.
+- You must have an Azure subscription. You can [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) if you don't have one.
   
   If you have more than one Azure subscription, set the subscription to use for billing with the Azure CLI [az account set](/cli/azure/account#az-account-set) command.
   
