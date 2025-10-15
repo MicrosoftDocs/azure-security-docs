@@ -17,7 +17,7 @@ This article describes how to create and manage an Azure Dedicated HSM by using 
 
 ## Prerequisites
 
-- An Azure subscription. You can [create a free account](https://azure.microsoft.com/free/) if you don't have one.
+- An Azure subscription. You can [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) if you don't have one.
   
   If you have more than one Azure subscription, set the subscription to use for billing with the Azure CLI [az account set](/cli/azure/account#az-account-set) command.
   

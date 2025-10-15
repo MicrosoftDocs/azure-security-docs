@@ -19,6 +19,11 @@
       "source_path_from_root": "/articles/confidential-ledger/simple-user-defined-function.md",
       "redirect_url": "/azure/confidential-ledger/user-defined-functions",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/confidential-ledger/authenticate-ledger-nodes.md",
+      "redirect_url": "/azure/confidential-ledger/overview",
+      "redirect_document_id": false
     }    
   ]
 }
