@@ -472,7 +472,7 @@
     },
     {
       "source_path_from_root": "/articles/defender-for-cloud/just-in-time-access-usage.yml",
-      "redirect_url": "/articles/defender-for-cloud/enable-just-in-time-access",
+      "redirect_url": "/azure/defender-for-cloud/enable-just-in-time-access",
       "redirect_document_id": false
     }
   ]
