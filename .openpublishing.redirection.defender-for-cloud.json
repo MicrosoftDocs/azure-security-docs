@@ -473,7 +473,7 @@
     {
       "source_path_from_root": "/articles/defender-for-cloud/workflow-automation.yml",
       "redirect_url": "/azure/defender-for-cloud/workflow-automation",
-      "redirect_document_id": true
+      "redirect_document_id": false
     }
-  ]
+  ] 
 }
