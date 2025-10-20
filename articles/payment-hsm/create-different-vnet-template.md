@@ -41,7 +41,7 @@ This tutorial describes how to create a payment HSM with static host and managem
   ```
 
   You can continue with this quick start if all four of these commands return "Registered".
-- You must have an Azure subscription. You can [create a free account](https://azure.microsoft.com/free/) if you don't have one.
+- You must have an Azure subscription. You can [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) if you don't have one.
 
 [!INCLUDE [Azure CLI prepare your environment](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
