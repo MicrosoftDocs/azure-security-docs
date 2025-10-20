@@ -25,8 +25,8 @@ Azure Key Vault is one of several [key management solutions in Azure](/azure/sec
 
 Azure Key Vault offers two service tiers to meet different security and compliance requirements:
 
-- **Standard tier** - Encrypts data using software-based keys, providing robust security for most applications
-- **Premium tier** - Includes hardware security module (HSM)-protected keys for enhanced security. Premium tier uses Marvell LiquidSecurity HSMs with FIPS 140-3 Level 3 validation for the highest level of cryptographic protection
+- **Standard tier** - Encrypts data using software libraries validated to FIPS 140 Level 1
+- **Premium tier** - Offers HSM-protected keys, generated and protected by FIPS 140-3 Level 3 validated Marvell LiquidSecurity HSMs, for the highest level of cryptographic protection
 
 For detailed pricing and feature comparisons between tiers, see the [Azure Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/).
 
