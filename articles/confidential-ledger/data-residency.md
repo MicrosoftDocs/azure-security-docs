@@ -39,9 +39,9 @@ Unlike some Azure services, Azure Confidential Ledger does not currently offer a
 
 Organizations with strict data residency requirements should:
 
-1. Review the regional pairs to understand where data will be replicated.
-1. Ensure that both the primary and paired regions meet their compliance and regulatory requirements.
-1. Select a primary region whose paired region aligns with their data sovereignty needs.
+- Review the regional pairs to understand where data will be replicated.
+- Ensure that both the primary and paired regions meet their compliance and regulatory requirements.
+- Select a primary region whose paired region aligns with their data sovereignty needs.
 
 ### Service resiliency
 
