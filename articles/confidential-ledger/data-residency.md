@@ -40,8 +40,8 @@ Unlike some Azure services, Azure Confidential Ledger does not currently offer a
 Organizations with strict data residency requirements should:
 
 1. Review the regional pairs to understand where data will be replicated.
-2. Ensure that both the primary and paired regions meet their compliance and regulatory requirements.
-3. Select a primary region whose paired region aligns with their data sovereignty needs.
+1. Ensure that both the primary and paired regions meet their compliance and regulatory requirements.
+1. Select a primary region whose paired region aligns with their data sovereignty needs.
 
 ### Service resiliency
 
@@ -50,7 +50,7 @@ Azure Confidential Ledger is designed to be resilient to:
 - **Zone-wide outages**: The service uses availability zones within a region where available.
 - **Region-wide outages**: Automatic replication to the paired region ensures data durability and enables disaster recovery.
 
-In the event of a region-wide outage affecting your primary region, Microsoft may initiate a failover to the paired region to restore service availability.
+In the event of a region-wide outage affecting your primary region, Microsoft may initiate a failover to the paired region to restore service availability, wherever possible.
 
 ## Data stored by Azure Confidential Ledger
 
@@ -65,6 +65,7 @@ All data is encrypted at rest and in transit. The confidential nature of the led
 
 Azure Confidential Ledger may integrate with other Azure services that have their own data residency policies:
 
+- **Azure Kubernetes Service**: May be used to host applications that interact with Confidential Ledger, with its own regional deployment and data storage considerations.
 - **Azure Storage**: Used for backing ledger data with GRS replication.
 - **Azure Key Vault**: May be used for key management, which has its own data residency characteristics.
 - **Azure Monitor**: If enabled, diagnostic logs may be stored according to your Log Analytics workspace configuration.
