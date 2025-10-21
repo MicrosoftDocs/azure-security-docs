@@ -16,7 +16,7 @@ This article describes the data residency and resiliency behavior for Azure Conf
 
 ## About data residency for Azure Confidential Ledger
 
-Azure Confidential Ledger uses geo-redundant storage (GRS) and Azure File Storage to ensure data durability and availability. The service leverages [Azure Regional Pairs](../reliability/cross-region-replication-azure.md#azure-paired-regions) for data replication across all regions where the service is available.
+Azure Confidential Ledger uses geo-redundant storage (GRS) and Azure File Storage to ensure data durability and availability. The service leverages [Azure Regional Pairs](/azure/reliability/cross-region-replication-azure#azure-paired-regions) for data replication across all regions where the service is available.
 
 When you create an Azure Confidential Ledger resource, your data is automatically replicated to the paired region to provide protection against regional outages. This replication behavior is built into the service and cannot be modified or disabled.
 
@@ -31,7 +31,7 @@ For example:
 
 - If you create a ledger in West US, data is automatically replicated to East US.
 
-To understand which regions are paired, see [Azure paired regions](../reliability/cross-region-replication-azure.md#azure-paired-regions).
+To understand which regions are paired, see [Azure paired regions](/azure/reliability/cross-region-replication-azure#azure-paired-regions).
 
 ### Data residency considerations
 
@@ -75,4 +75,4 @@ Review the data residency documentation for these services if you use them with 
 
 - Learn more about [Azure Confidential Ledger](/azure/confidential-ledger/overview)
 - Learn more about [Azure data residency requirements](https://azure.microsoft.com/global-infrastructure/data-residency/)
-- Understand [Azure paired regions](../reliability/cross-region-replication-azure.md#azure-paired-regions)
+- Understand [Azure paired regions](/azure/reliability/cross-region-replication-azure#azure-paired-regions)
