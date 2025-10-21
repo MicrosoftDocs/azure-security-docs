@@ -179,7 +179,7 @@ procedureSection:
 
       When a VM has a JIT enabled, you have to request access to connect to it. You can request access in any of the supported ways, regardless of how you enabled JIT.
 
-      ![Screenshot showing jit just-in-time request.](./media/just-in-time-access-usage/jit-request-vm.png)
+      ![Screenshot showing jit just-in-time request.](./media/just-in-time-access-usage/connectv3-jit-request-vm.png)
 
       To request access from Azure virtual machines:
 
