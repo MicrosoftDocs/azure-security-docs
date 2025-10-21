@@ -2,12 +2,12 @@
 title: Data residency for Azure Confidential Ledger
 description: Describes data residency posture for Azure Confidential Ledger.
 services: confidential-ledger
-author: taicchoumsft
+author: tachou
 
 ms.service: azure-confidential-ledger
 ms.topic: conceptual
 ms.date: 10/21/2025
-ms.author: taicchoumsft
+ms.author: tachou
 ---
 
 # Data residency for Azure Confidential Ledger
