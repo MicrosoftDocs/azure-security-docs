@@ -14,7 +14,7 @@ ms.custom: sfi-ropc-nochange, sfi-image-nochange
 
 ## Prerequisites
 
-- An Azure Confidential ledger Instance - to create an instance, follow the steps in [Create an Azure Confidential Ledger instance](create-confidential-ledger-instance.md)
+- An Azure Confidential ledger Instance - to create an instance, follow the steps in [Create an Azure Confidential Ledger instance](./quickstart-portal.md)
 - [A Power Automate Premium user license](https://learn.microsoft.com/en-us/power-platform/admin/power-automate-licensing/types?tabs=power-automate-premium%2Cpower-automate-process%2Cconnector-types)
 - [Azure CLI](/cli/azure/install-azure-cli) (optional)
 
@@ -25,7 +25,7 @@ The Azure confidential ledger now available as a connector in Power Automate. Yo
 ## How to Find the Azure Confidential Ledger Connector in Power Automate
 
 Simply search for "Azure Confidential Ledger" in the Power Automate connector list, then you can use the available actions to create your workflow. 
-:::image type="content" source="./media/power-automate/how_to_find_acl_connector.png" alt-text="Screenshot of the Power Automate connector list with Azure Confidential Ledger highlighted." lightbox="./media/power-automate/how_to_find_acl_connector.png":::
+:::image type="content" source="./media/power-automate/how-to-find-acl-connector.png" alt-text="Screenshot of the Power Automate connector list with Azure Confidential Ledger highlighted." lightbox="./media/power-automate/how-to-find-acl-connector.png":::
 
 ## Set up before creating an actions in Power Automate
 
@@ -40,7 +40,7 @@ az ad user show --id user@example.com --query id --output tsv
 
 Next, we need assign the correct role to the user. The available roles are Contributor, Administrator, and Reader. We can follow the steps outlined [here](manage-azure-ad-token-based-users.md) to assign roles to the user.
 To validate change, we can go to azure Portal -> Azure Confidential Ledger instance -> Operations -> Manage Users (Preview).
-:::image type="content" source="./media/power-automate/role_assignment.png" alt-text="Screenshot of the Role assignments page in Azure Portal for Azure Confidential Ledger." lightbox="./media/power-automate/role_assignment.png":::
+:::image type="content" source="./media/power-automate/role-assignment.png" alt-text="Screenshot of the Role assignments page in Azure Portal for Azure Confidential Ledger." lightbox="./media/power-automate/role-assignment.png":::
 
 ## Create a Power Automate Workflow and Use Azure Confidential Ledger Connector
 
@@ -91,7 +91,7 @@ Gets a specific ledger entry by transaction ID.
   - **Collection ID**: The collection containing the entry
   - **Transaction ID**: The transaction ID
 
-:::image type="content" source="./media/power-automate/get-ledger-entry-by-tx-id.png" alt-text="Screenshot of the Power Automate workflow showing the Get Ledger Entry by Transaction ID action." lightbox="./media/power-automate/get-ledger-entry-by-tx-id.png":::
+:::image type="content" source="./media/power-automate/get-ledger-entry-by-txid.png" alt-text="Screenshot of the Power Automate workflow showing the Get Ledger Entry by Transaction ID action." lightbox="./media/power-automate/get-ledger-entry-by-txid.png":::
 
 ### Get Current Ledger Entry
 Gets the current (most recent) ledger entry from a collection.
@@ -186,13 +186,13 @@ Create a workflow that:
 3. **Parse JSON Action** (to extract transaction ID from headers):
    - Use `outputs('Create_Ledger_Entry')['headers']['x-ms-ccf-transaction-id']` to get the transaction ID
 
-:::image type="content" source="./media/power-automate/PA_example_1.png" alt-text="Screenshot of the Power Automate workflow showing the Create Ledger Entry action." lightbox="./media/power-automate/PA_example_1.png":::
+:::image type="content" source="./media/power-automate/pa_example_1.png" alt-text="Screenshot of the Power Automate workflow showing the Create Ledger Entry action." lightbox="./media/power-automate/pa_example_1.png":::
 
 4. **Store in Cosmos DB Action**:
    - Use the parsed transaction ID from the previous step
    - Store it along with relevant metadata for future reference
    - For detailed information about the Cosmos DB connector, see [Azure Cosmos DB connector documentation](https://learn.microsoft.com/en-us/connectors/documentdb/)
-:::image type="content" source="./media/power-automate/PA_example_2.png" alt-text="Screenshot of the Power Automate workflow showing the Cosmos DB action." lightbox="./media/power-automate/PA_example_2.png":::
+:::image type="content" source="./media/power-automate/pa_example_2.png" alt-text="Screenshot of the Power Automate workflow showing the Cosmos DB action." lightbox="./media/power-automate/pa_example_2.png":::
 
 ### Example Entry Content Formats
 
