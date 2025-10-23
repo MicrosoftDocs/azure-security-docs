@@ -186,13 +186,13 @@ Create a workflow that:
 3. **Parse JSON Action** (to extract transaction ID from headers):
    - Use `outputs('Create_Ledger_Entry')['headers']['x-ms-ccf-transaction-id']` to get the transaction ID
 
-:::image type="content" source="./media/power-automate/pa_example_1.png" alt-text="Screenshot of the Power Automate workflow showing the Create Ledger Entry action." lightbox="./media/power-automate/pa_example_1.png":::
+:::image type="content" source="./media/power-automate/pa-example-1.png" alt-text="Screenshot of the Power Automate workflow showing the Create Ledger Entry action." lightbox="./media/power-automate/pa-example-1.png":::
 
 4. **Store in Cosmos DB Action**:
    - Use the parsed transaction ID from the previous step
    - Store it along with relevant metadata for future reference
    - For detailed information about the Cosmos DB connector, see [Azure Cosmos DB connector documentation](https://learn.microsoft.com/en-us/connectors/documentdb/)
-:::image type="content" source="./media/power-automate/pa_example_2.png" alt-text="Screenshot of the Power Automate workflow showing the Cosmos DB action." lightbox="./media/power-automate/pa_example_2.png":::
+:::image type="content" source="./media/power-automate/pa-example-2.png" alt-text="Screenshot of the Power Automate workflow showing the Cosmos DB action." lightbox="./media/power-automate/pa-example-2.png":::
 
 ### Example Entry Content Formats
 
