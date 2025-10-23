@@ -72,6 +72,7 @@ Writes a ledger entry to the confidential ledger.
 **Returns:**
 - **Collection ID**: The collection where the entry was stored
 - **Transaction ID**: Unique identifier for the transaction (returned in response header `x-ms-ccf-transaction-id`)
+:::image type="content" source="./media/power-automate/write-ledger-entry.png" alt-text="Screenshot of the Power Automate workflow showing the Write Ledger Entry action." lightbox="./media/power-automate/write-ledger-entry.png":::
 
 ### Get Ledger Entry
 Gets a specific ledger entry by transaction ID.
@@ -90,6 +91,8 @@ Gets a specific ledger entry by transaction ID.
   - **Collection ID**: The collection containing the entry
   - **Transaction ID**: The transaction ID
 
+:::image type="content" source="./media/power-automate/get-ledger-entry-by-tx-id.png" alt-text="Screenshot of the Power Automate workflow showing the Get Ledger Entry by Transaction ID action." lightbox="./media/power-automate/get-ledger-entry-by-tx-id.png":::
+
 ### Get Current Ledger Entry
 Gets the current (most recent) ledger entry from a collection.
 
@@ -103,6 +106,8 @@ Gets the current (most recent) ledger entry from a collection.
 - **Contents**: Contents of the most recent ledger entry
 - **Collection ID**: The collection containing the entry
 - **Transaction ID**: The transaction ID of the current entry
+
+:::image type="content" source="./media/power-automate/get-current-ledger-entry.png" alt-text="Screenshot of the Power Automate workflow showing the Get Current Ledger Entry action." lightbox="./media/power-automate/get-current-ledger-entry.png":::
 
 ### List Ledger Entries
 Gets ledger entries by collection and range.
@@ -119,6 +124,8 @@ Gets ledger entries by collection and range.
 - **State**: Query state (Loading or Ready)
 - **Entries**: Array of ledger entries
 - **Next Link**: Path to retrieve the next page of results (for pagination)
+
+:::image type="content" source="./media/power-automate/get-ledger-id-range.png" alt-text="Screenshot of the Power Automate workflow showing the Get Ledger ID Range action." lightbox="./media/power-automate/get-ledger-id-range.png":::
 
 ### Get Receipt
 Gets a cryptographic receipt for a transaction by transaction ID.
@@ -138,6 +145,8 @@ Gets a cryptographic receipt for a transaction by transaction ID.
   - **Proof**: Cryptographic proof elements
   - **Certificate**: Node certificate
 
+:::image type="content" source="./media/power-automate/get-ledger-receipt.png" alt-text="Screenshot of the Power Automate workflow showing the Get Receipt action." lightbox="./media/power-automate/get-ledger-receipt.png":::
+
 ### Get Transaction Status
 Gets the status of a transaction by transaction ID.
 
@@ -150,6 +159,8 @@ Gets the status of a transaction by transaction ID.
 **Returns:**
 - **State**: Transaction state (Committed or Pending)
 - **Transaction ID**: The transaction ID
+
+:::image type="content" source="./media/power-automate/get-ledger-tx-status.png" alt-text="Screenshot of the Power Automate workflow showing the Get Transaction Status action." lightbox="./media/power-automate/get-ledger-tx-status.png":::
 
 ## Example Workflow: Adding an Entry and Storing Transaction ID
 
@@ -169,16 +180,19 @@ Create a workflow that:
    - **Collection ID**: `audit-logs` (optional - leave empty for default collection)
    - **Entry Contents**: 
      ```
-     {"content": "{\"timestamp\": \"@{utcNow()}\", \"event\": \"Document processed\", \"user\": \"@{triggerOutputs()?['body']?['user']}\", \"documentId\": \"@{variables('documentId')}\"}"}
+     {"content": "entry_data_here"}
      ```
 
 3. **Parse JSON Action** (to extract transaction ID from headers):
    - Use `outputs('Create_Ledger_Entry')['headers']['x-ms-ccf-transaction-id']` to get the transaction ID
 
+:::image type="content" source="./media/power-automate/PA_example_1.png" alt-text="Screenshot of the Power Automate workflow showing the Create Ledger Entry action." lightbox="./media/power-automate/PA_example_1.png":::
+
 4. **Store in Cosmos DB Action**:
    - Use the parsed transaction ID from the previous step
    - Store it along with relevant metadata for future reference
    - For detailed information about the Cosmos DB connector, see [Azure Cosmos DB connector documentation](https://learn.microsoft.com/en-us/connectors/documentdb/)
+:::image type="content" source="./media/power-automate/PA_example_2.png" alt-text="Screenshot of the Power Automate workflow showing the Cosmos DB action." lightbox="./media/power-automate/PA_example_2.png":::
 
 ### Example Entry Content Formats
 
