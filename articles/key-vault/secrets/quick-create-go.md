@@ -21,7 +21,7 @@ Get started with the [azsecrets](https://aka.ms/azsdk/go/keyvault-secrets/docs) 
 
 ## Prerequisites
 
-- An Azure subscription. If you don't already have a subscription, you can [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription. If you don't already have a subscription, you can [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Go version 1.18 or later](https://go.dev/dl/), installed.
 - [The Azure CLI](/cli/azure/install-azure-cli), installed.
 

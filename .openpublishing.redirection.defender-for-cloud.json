@@ -474,6 +474,11 @@
       "source_path_from_root": "/articles/defender-for-cloud/azure-devops-extension.yml",
       "redirect_url": "/azure/defender-for-cloud/configure-azure-devops-extension",
       "redirect_document_id": true
-    }
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/update-regulatory-compliance-packages.yml",
+      "redirect_url": "/azure/defender-for-cloud/assign-regulatory-compliance-standards",
+      "redirect_document_id": false
+    }  
   ]
 }

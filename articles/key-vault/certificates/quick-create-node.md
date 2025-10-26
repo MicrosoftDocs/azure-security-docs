@@ -28,7 +28,7 @@ For more information about Key Vault and certificates, see:
 
 ## Prerequisites
 
-- An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Current [Node.js LTS](https://nodejs.org).
 - [Azure CLI](/cli/azure/install-azure-cli)
 - An existing Key Vault - you can create one using:
@@ -39,7 +39,7 @@ For more information about Key Vault and certificates, see:
 ::: zone-end
 
 ::: zone pivot="programming-language-typescript"
-- An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Current [Node.js LTS](https://nodejs.org).
 - [TypeScript 5+](https://www.typescriptlang.org/download/)
 - [Azure CLI](/cli/azure/install-azure-cli)
