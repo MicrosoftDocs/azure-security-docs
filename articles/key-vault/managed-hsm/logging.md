@@ -86,7 +86,7 @@ Use the Azure PowerShell `Get-AzKeyVault` cmdlet to find the Managed HSM that yo
 You can also use the Azure PowerShell `Get-AzStorageAccount` cmdlet to find the storage account that you want to use for logging, and/or the Azure PowerShell `Get-AzOperationalInsightsWorkspace` cmdlet to find the log analytics workspace that you want to use for logging.
 
 ```powershell
-$hsmresource = (Get-AzKeyVault -ResourceGroupName "ContosoResourceGroup" -VaultName "ContosoMHSM").ResourceId
+$hsmresource = (Get-AzKeyVaultManagedHSM -ResourceGroupName "ContosoResourceGroup" -Name "ContosoMHSM").ResourceId
 $storageresource = (Get-AzStorageAccount -ResourceGroupName "ContosoResourceGroup" -Name "ContosoMHSMLogs").Id
 $loganalyticsresource = (Get-AzOperationalInsightsWorkspace -ResourceGroupName "ContosoResourceGroup" -Name "ContosoLogs").ResourceId
 ```
