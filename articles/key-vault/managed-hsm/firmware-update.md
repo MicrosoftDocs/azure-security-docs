@@ -12,7 +12,7 @@ ms.author: mbaldwin
 
 # HSM Firmware update for Azure Key Vault Managed HSM and Azure Key Vault Premium
 
-We are excited to announce that the HSM firmware for both Azure Managed HSM and Azure Key Vault Premium are officially upgraded to a modern version validated to [FIPS 140-3 level 3 standard](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4700). This update represents a significant step forward in our commitment to providing best in class security to safeguard your valuable data.
+We are excited to announce that the HSM firmware for both Azure Managed HSM and Azure Key Vault Premium are officially upgraded to a modern version validated to [FIPS 140-3 level 3 standard](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4700). Both services use Marvell LiquidSecurity HSM hardware. This update represents a significant step forward in our commitment to providing best in class security to safeguard your valuable data.
 
 Here's what you need to know about this update.
 

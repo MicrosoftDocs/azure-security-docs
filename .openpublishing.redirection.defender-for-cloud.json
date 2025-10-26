@@ -474,6 +474,11 @@
       "source_path_from_root": "/articles/defender-for-cloud/workflow-automation.yml",
       "redirect_url": "/azure/defender-for-cloud/workflow-automations",
       "redirect_document_id": false
-    }
-  ] 
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/update-regulatory-compliance-packages.yml",
+      "redirect_url": "/azure/defender-for-cloud/assign-regulatory-compliance-standards",
+      "redirect_document_id": false
+    }  
+  ]
 }
