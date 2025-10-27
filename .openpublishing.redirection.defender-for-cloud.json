@@ -471,6 +471,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/defender-for-cloud/workflow-automation.yml",
+      "redirect_url": "/azure/defender-for-cloud/workflow-automations",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/defender-for-cloud/managing-and-responding-alerts.yml",
       "redirect_url": "/azure/defender-for-cloud/manage-respond-alerts",
       "redirect_document_id": false
