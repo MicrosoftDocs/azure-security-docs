@@ -436,6 +436,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/defender-for-cloud/support-matrix-cloud-environment.md",
+      "redirect_url": "/azure/defender-for-cloud/support-matrix-defender-for-cloud",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/defender-for-cloud/defender-for-kubernetes-introduction.md",
       "redirect_url": "/azure/defender-for-cloud/defender-for-containers-introduction",
       "redirect_document_id": true
