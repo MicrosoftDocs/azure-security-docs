@@ -337,7 +337,7 @@
     },
     {
       "source_path_from_root": "/articles/defender-for-cloud/tutorial-security-incident.md",
-      "redirect_url": "/azure/defender-for-cloud/managing-and-responding-alerts",
+      "redirect_url": "/azure/defender-for-cloud/",
       "redirect_document_id": false
     },
     {
@@ -427,7 +427,7 @@
     },
     {
       "source_path_from_root": "/articles/defender-for-cloud/review-ai-alerts.md",
-      "redirect_url": "/azure/defender-for-cloud/managing-and-responding-alerts",
+      "redirect_url": "/azure/defender-for-cloud/manage-respond-alerts",
       "redirect_document_id": true
     },
     {
@@ -476,9 +476,29 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/defender-for-cloud/just-in-time-access-usage.yml",
+      "redirect_url": "/azure/defender-for-cloud/enable-just-in-time-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/workflow-automation.yml",
+      "redirect_url": "/azure/defender-for-cloud/workflow-automations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/managing-and-responding-alerts.yml",
+      "redirect_url": "/azure/defender-for-cloud/manage-respond-alerts",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/defender-for-cloud/update-regulatory-compliance-packages.yml",
       "redirect_url": "/azure/defender-for-cloud/assign-regulatory-compliance-standards",
       "redirect_document_id": false
-    }  
+    },      
+    {
+      "source_path_from_root":  "/articles/defender-for-cloud/how-to-transition-to-built-in.yml",
+      "redirect_url":  "/azure/defender-for-cloud/transition-to-built-in",
+      "redirect_document_id":  false
+    }
   ]
 }
