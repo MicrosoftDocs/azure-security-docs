@@ -484,7 +484,17 @@
       "source_path_from_root": "/articles/defender-for-cloud/update-regulatory-compliance-packages.yml",
       "redirect_url": "/azure/defender-for-cloud/assign-regulatory-compliance-standards",
       "redirect_document_id": false
-    },      
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/gated-deployment-introduction.md",
+      "redirect_url": "/azure/defender-for-cloud/runtime-gated-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/enable-gated-deployment.md",
+      "redirect_url": "/azure/defender-for-cloud/enablement-guide-runtime-gated",
+      "redirect_document_id": false
+    },         
     {
       "source_path_from_root":  "/articles/defender-for-cloud/how-to-transition-to-built-in.yml",
        "redirect_url":  "/azure/defender-for-cloud/transition-to-built-in",
