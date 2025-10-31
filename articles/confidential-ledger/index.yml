@@ -125,6 +125,8 @@ landingContent:
             url: quickstart-ledger-explorer.md
           - text: Secure your Azure confidential ledger deployment
             url: secure-confidential-ledger.md
+          - text: Data residency for Azure Confidential Ledger
+            url: data-residency.md
   
   # Card
   - title: References
