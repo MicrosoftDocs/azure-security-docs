@@ -484,6 +484,11 @@
       "source_path_from_root": "/articles/defender-for-cloud/update-regulatory-compliance-packages.yml",
       "redirect_url": "/azure/defender-for-cloud/assign-regulatory-compliance-standards",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/secure-score-access-and-track.md",
+      "redirect_url": "/azure/defender-for-cloud/secure-score-security-controls",
+      "redirect_document_id": false
     }  
   ]
 }
