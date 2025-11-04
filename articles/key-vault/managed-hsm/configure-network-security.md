@@ -31,7 +31,7 @@ Here's how to configure Managed HSM firewalls by using the Azure portal:
 1.	Under **Public network access**, select **Manage**.
 1.	To add IP addresses to firewalls, next to **Public network access**, select **Enable** and next to **Default action**, select **Enable from selected networks**.
 1.	Under **IP Networks**, add IPv4 address ranges by typing IPv4 address ranges in CIDR (Classless Inter-domain Routing) notation or individual IP addresses.
-1.	If you want to allow Microsoft Trusted Services to bypass the Managed HSM Firewall, select **Yes**. For a full list of the current Managed HSM Trusted Services, see [Azure Key Vault Trusted Services](https://learn.microsoft.com/azure/key-vault/general/overview-trusted-services).
+1.	If you want to allow Microsoft Trusted Services to bypass the Managed HSM Firewall, select **Yes**. For a full list of the current Managed HSM Trusted Services, see [Azure Key Vault Trusted Services](/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services).
 1.	Select **Save**.
 
 # [Azure CLI](#tab/azure-cli)
