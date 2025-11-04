@@ -27,11 +27,9 @@ Network security protects your Managed HSM through secure connectivity and netwo
 
 - **Disable public network access and use Private Endpoints only**: Deploy Azure Private Link to establish private, secured connectivity to your Managed HSM instance by creating a private endpoint in your virtual network. Disabling public network access prevents access from public IP addresses by configuring your Managed HSM to deny public network access. This prevents exposure to the public internet and routes all traffic over the Microsoft backbone network. See [Integrate Managed HSM with Azure Private Link](private-link.md).
 
-  - Some customer scenarios require trusted Microsoft services to bypass the firewall, in such cases the HSM might need to be configured to allow Trusted Microsoft Services. Configure Managed HSM firewall rules to deny public internet access while allowing specific trusted Azure services through the `--bypass AzureServices` setting. This restricts the attack surface while maintaining necessary service integrations. For full details, see [Network security: Azure Managed HSM Firewall Enabled (Trusted Services Only)](network-security.md#managed-hsm-firewall-enabled-trusted-services).
+- **Configure Managed HSM firewall with trusted services**: Configure Managed HSM firewall rules to deny public internet access while allowing specific trusted Azure services through the `--bypass AzureServices` setting when required by your scenario. This restricts the attack surface while maintaining necessary service integrations. For full details, see [Network security: Azure Managed HSM Firewall Enabled (Trusted Services Only)](network-security.md#managed-hsm-firewall-enabled-trusted-services).
 
-- **Enable IP Firewall (PREVIEW)**: Limit access to public static IP addresses. For full details, see [Azure Key Vault Managed HSM network security: firewall settings](network-security.md#firewall-settings).
-
-  - Some customer scenarios require trusted Microsoft services to bypass the firewall, in such cases the HSM might need to be configured to allow Trusted Microsoft Services.
+- **Enable IP Firewall (PREVIEW)**: Limit access to public static IP addresses when network scenarios require controlled public access. For full details, see [Azure Key Vault Managed HSM network security: firewall settings](network-security.md#firewall-settings).
 
 For step-by-step configuration instructions, see [How to configure Azure Managed HSM networking settings](configure-network-security.md).
 
