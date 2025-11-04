@@ -178,3 +178,5 @@ For more information, see [Managed HSM soft-delete overview](soft-delete-overvie
 - [Key Vault Azure CLI commands](/cli/azure/keyvault)
 - [Managed HSM full backup and restore](backup-restore.md)
 - [How to enable Managed HSM logging](logging.md)
+- [Secure your Azure Managed HSM deployment](secure-managed-hsm.md)
+- [Network security for Azure Key Vault Managed HSM](network-security.md)
