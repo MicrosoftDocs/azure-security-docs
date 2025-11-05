@@ -26,8 +26,6 @@ By default, when you create a new managed HSM, the Azure Key Vault Managed HSM f
 
 If you want to authorize a particular service to access managed HSM through the Managed HSM Firewall, add its IP address to the managed HSM firewall allowlist using the IP Network Firewall (preview) feature. This configuration works best for services that use static IP addresses or well-known ranges. You can add up to 10 CIDR ranges for this configuration. 
 
-If you want to authorize a particular service to access managed HSM through the Managed HSM Firewall, add its IP address to the managed HSM firewall allowlist using the IP Network Firewall (PREVIEW) feature. This configuration works best for services that use static IP addresses or well-known ranges. You can add up to 10 CIDR ranges for this configuration. 
-
 > [!NOTE]
 > The IP Network Firewall (preview) feature requires subscription enablement. If you're interested in using this feature, create a support ticket with subscription and region information.
 
