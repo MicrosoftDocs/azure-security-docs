@@ -22,12 +22,14 @@ This section describes different ways to configure an Azure Key Vault Managed HS
 
 By default, when you create a new managed HSM, the Azure Key Vault Managed HSM firewall is disabled. All applications and Azure services can access the managed HSM and send requests to the managed HSM. This configuration doesn't grant any user permission to perform operations on your managed HSM. The managed HSM still restricts access to keys stored in the managed HSM by requiring Microsoft Entra authentication and access permissions. For more information about managed HSM authentication, see [Azure Key Vault Managed HSM access control](access-control.md).
 
-### Managed HSM Firewall Enabled (IPv4 Addresses and Ranges - Static IPs) (PREVIEW)
+### Managed HSM Firewall Enabled (IP Network Firewall (preview))
 
-If you want to authorize a particular service to access managed HSM through the Managed HSM Firewall, add its IP address to the managed HSM firewall allowlist. This configuration works best for services that use static IP addresses or well-known ranges. You can add up to 10 CIDR ranges for this configuration. 
+If you want to authorize a particular service to access managed HSM through the Managed HSM Firewall, add its IP address to the managed HSM firewall allowlist using the IP Network Firewall (preview) feature. This configuration works best for services that use static IP addresses or well-known ranges. You can add up to 10 CIDR ranges for this configuration. 
+
+If you want to authorize a particular service to access managed HSM through the Managed HSM Firewall, add its IP address to the managed HSM firewall allowlist using the IP Network Firewall (PREVIEW) feature. This configuration works best for services that use static IP addresses or well-known ranges. You can add up to 10 CIDR ranges for this configuration. 
 
 > [!NOTE]
-> This feature is in preview and requires subscription enablement. If you're interested in using this feature, create a support ticket with subscription and region information.
+> The IP Network Firewall (preview) feature requires subscription enablement. If you're interested in using this feature, create a support ticket with subscription and region information.
 
 To allow an IP address or range of an Azure resource, such as a Web App or Logic App, perform the following steps:
 
@@ -40,7 +42,7 @@ To allow an IP address or range of an Azure resource, such as a Web App or Logic
 To allow an entire Azure service through the managed HSM firewall, use the list of publicly documented data center IP addresses for Azure. Find the IP addresses associated with the service you want in the region you want and add those IP addresses to the managed HSM firewall.
 
 > [!NOTE]
-> Be aware of the following configuration limitations:
+> Be aware of the following IP Network Firewall (preview) configuration limitations:
 > - You can add up to 10 IPv4 rules.
 > - IP network rules are only allowed for public IP addresses. IP address ranges reserved for private networks (as defined in RFC 1918) aren't allowed in IP rules. 
 > - Only IPv4 addresses are supported at this time.

@@ -1,5 +1,5 @@
 ---
-title: How to configure Azure Managed HSM networking settings
+title: Configure Azure Managed HSM networking settings using IP Network Firewall (preview)
 description: Step-by-step instructions to configure Managed HSM firewalls and network access
 services: key-vault
 author: msmbaldwin
@@ -10,14 +10,14 @@ ms.date: 11/04/2025
 ms.author: mbaldwin 
 ---
 
-# How to configure Azure Managed HSM networking settings
+# Configure Azure Managed HSM networking settings with IP Network Firewall (preview)
 
-This article provides step-by-step guidance on how to configure Azure Key Vault Managed HSM networking settings to work with other applications and Azure services. For detailed information about different network security configurations and concepts, see [Network security for Azure Key Vault Managed HSM](network-security.md).
+This article provides step-by-step guidance on how to configure Azure Key Vault Managed HSM networking settings with IP Network Firewall (preview) to work with other applications and Azure services. For detailed information about different network security configurations and concepts, see [Network security for Azure Key Vault Managed HSM](network-security.md).
 
 Here are step-by-step instructions to configure Managed HSM firewall using the Azure portal, Azure CLI, and Azure PowerShell.
 
 > [!NOTE]
-> This feature is in preview and requires subscription enablement. If you're interested in using this feature, create a support ticket with subscription and region information.
+> The IP Network Firewall (preview) feature requires subscription enablement. If you're interested in using this feature, create a support ticket with subscription and region information.
 
 > [!IMPORTANT]
 > There is a limit of 10 IP address or address ranges you can add per resource.
