@@ -64,9 +64,9 @@ To enhance network security, you can configure your managed HSM to disable publi
 
 ## Restrictions & Considerations
 
-•	Setting Public Network Access to Disable can still allow trusted services. 
-•	Azure Key Vault Managed HSM firewall rules only apply to data plane operations. Control plane operations aren't subject to the restrictions specified in firewall rules.
-•	To access data by using tools such as the Azure portal, you must be on a machine within the trusted boundary that you establish when configuring network security rules.
+- Setting Public Network Access to Disable can still allow trusted services.
+- Azure Key Vault Managed HSM firewall rules only apply to data plane operations. Control plane operations aren't subject to the restrictions specified in firewall rules.
+- To access data by using tools such as the Azure portal, you must be on a machine within the trusted boundary that you establish when configuring network security rules.
 
 ## Next steps
 

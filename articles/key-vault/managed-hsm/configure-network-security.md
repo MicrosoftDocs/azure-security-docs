@@ -37,20 +37,21 @@ Here's how to configure Managed HSM firewalls by using the Azure portal:
 # [Azure CLI](#tab/azure-cli)
 
 Here's how to configure Managed HSM firewalls by using the Azure CLI:
-1.	Install Azure CLI and sign in.
-1.	Use the [az keyvault update-hsm](/cli/azure/keyvault#az-keyvault-update-hsm) command to set the default action to Deny before creating a firewall.
+
+1. Install Azure CLI and sign in.
+1. Use the [az keyvault update-hsm](/cli/azure/keyvault#az-keyvault-update-hsm) command to set the default action to Deny before creating a firewall.
 
 ```azurecli
 az keyvault update-hsm --resource-group "myresourcegroup" --hsm-name "mymanagedhsm" --default-action Deny
 ```
 
-1.	Use the [az keyvault network-rule add](/cli/azure/keyvault/network-rule#az-keyvault-network-rule-add) command to add an IP address range to allow traffic.
+3. Use the [az keyvault network-rule add](/cli/azure/keyvault/network-rule#az-keyvault-network-rule-add) command to add an IP address range to allow traffic.
 
 ```azurecli
 az keyvault network-rule add --resource-group "myresourcegroup" --hsm-name "mymanagedhsm" --ip-address "191.10.18.0/24"
 ```
 
-1.	If this key vault should be accessible by any trusted services, use the [az keyvault update](/cli/azure/keyvault#az-keyvault-update) command to set bypass to AzureServices.
+4. If this key vault should be accessible by any trusted services, use the [az keyvault update](/cli/azure/keyvault#az-keyvault-update) command to set bypass to AzureServices.
 
 ```azurecli
 az keyvault update --resource-group "myresourcegroup" --hsm-name "mymanagedhsm" --bypass AzureServices
@@ -59,15 +60,17 @@ az keyvault update --resource-group "myresourcegroup" --hsm-name "mymanagedhsm" 
 # [Azure PowerShell](#tab/azure-powershell)
 
 Here's how to configure Managed HSM firewalls by using PowerShell:
-1.	Install the latest Azure PowerShell, and sign in.
-1.	Use the [Update-AzKeyVaultManagedHsmNetworkRuleSet](/powershell/module/az.keyvault/update-azkeyvaultmanagedhsmnetworkruleset) cmdlet to set default action to Deny and add an IP address range to allow traffic.
+
+1. Install the latest Azure PowerShell, and sign in.
+1. Use the [Update-AzKeyVaultManagedHsmNetworkRuleSet](/powershell/module/az.keyvault/update-azkeyvaultmanagedhsmnetworkruleset) cmdlet to set default action to Deny and add an IP address range to allow traffic.
 
 ```powershell
 Update-AzKeyVaultManagedHsmNetworkRuleSet -Name "mymanagedhsm" -ResourceGroupName "myresourcegroup" -DefaultAction Deny -IpAddressRange @('16.17.18.0/24') -PassThru 
 ```
 
 Include `–ReplaceAllRules` to overwrite IP Lists. Otherwise, the command merges the newly included rules.
-1. If this managed HSM should be accessible by any trusted services, use the [Update-AzKeyVaultManagedHsmNetworkRuleSet](/powershell/module/az.keyvault/update-azkeyvaultmanagedhsmnetworkruleset) cmdlet to set bypass to AzureServices.
+
+3. If this managed HSM should be accessible by any trusted services, use the [Update-AzKeyVaultManagedHsmNetworkRuleSet](/powershell/module/az.keyvault/update-azkeyvaultmanagedhsmnetworkruleset) cmdlet to set bypass to AzureServices.
 
 ```powershell
 Update-AzKeyVaultManagedHsmNetworkRuleSet -Name "mymanagedhsm" -Bypass AzureServices
@@ -82,4 +85,3 @@ Update-AzKeyVaultManagedHsmNetworkRuleSet -Name "mymanagedhsm" -Bypass AzureServ
 - [Secure your Azure Managed HSM deployment](secure-managed-hsm.md)
 - [Access control](access-control.md)
 - [Azure Resource Manager template reference for Azure Key Vault Managed HSM](/azure/templates/microsoft.keyvault/managedhsms)
-- 
