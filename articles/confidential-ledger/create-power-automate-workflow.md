@@ -1,6 +1,6 @@
 ---
-title: Create a Power Automate workflow using Azure Confidential Ledger Connector
-description: Learn to create a Power Automate workflow using Azure Confidential Ledger Connector
+title: Data Ingress and Egress from Azure confidential Ledger using Power Automate Connecto
+description: Learn to ingress and egress data from Azure confidential Ledger using a Power Automate connector
 author: ryazhang
 ms.author: ryazhang
 ms.date: 10/21/2025
@@ -9,63 +9,59 @@ ms.topic: overview
 ms.custom: sfi-ropc-nochange, sfi-image-nochange
 ---
 
-
-# Create a Power Automate workflow using Azure Confidential Ledger Connector
-
+# Create a Power Automate workflow using Azure confidential Ledger Connector
 ## Prerequisites
-
-- An Azure Confidential ledger Instance - to create an instance, follow the steps in [Create an Azure Confidential Ledger instance](./quickstart-portal.md)
+- An Azure confidential Ledger Instance - to create an instance, follow the steps in [Create an Azure confidential Ledger instance](./quickstart-portal.md)
 - [A Power Automate Premium user license](https://learn.microsoft.com/power-platform/admin/power-automate-licensing/types?tabs=power-automate-premium%2Cpower-automate-process%2Cconnector-types)
 - [Azure CLI](/cli/azure/install-azure-cli) (optional)
 
 ## Overview
+The Azure confidential Ledger is now available as a connector in Power Automate. This connector can be used in a workflow to read from and write data into a ledger instance. This guide will walk you through the steps to create a sample workflow that adds an entry to a ledger instance and store the transaction ID into Cosmos DB.
 
-The Azure confidential ledger now available as a connector in Power Automate. You can use this connector to create workflows that interact with your confidential ledger instance. This guide walks you through the steps to create a sample workflow that adds an entry to your confidential ledger then store the transaction id to Cosmos DB.
+## Locate the Azure confidential Ledger connector
+Search for the Azure confidential Ledger connector in the Power Automate connectors list and create a workflow using the available actions.
 
-## How to Find the Azure Confidential Ledger Connector in Power Automate
+:::image type="content" source="./media/power-automate/how-to-find-acl-connector.png" alt-text="Screenshot of the Power Automate connector list with Azure confidential Ledger highlighted." lightbox="./media/power-automate/how-to-find-acl-connector.png":::
 
-Simply search for "Azure Confidential Ledger" in the Power Automate connector list, then you can use the available actions to create your workflow. 
-:::image type="content" source="./media/power-automate/how-to-find-acl-connector.png" alt-text="Screenshot of the Power Automate connector list with Azure Confidential Ledger highlighted." lightbox="./media/power-automate/how-to-find-acl-connector.png":::
+## Initial set up
+Before creating actions in Power Automate, ensure you have the necessary permissions and access to the Azure confidential Ledger instance. You need to configure authentication and authorization settings to allow Power Automate to interact with your confidential ledger.
 
-## Set up before creating actions in Power Automate
+Due to limitations in Power Automate, Azure confidential Ledger only supports Microsoft Entra ID token-based user authentication.
 
-Before creating actions in Power Automate, ensure you have the necessary permissions and access to the Azure Confidential Ledger instance. You need to configure authentication and authorization settings to allow Power Automate to interact with your confidential ledger.
+The connector performs read and write operations on-behalf of a user or service principal that has appropriate permission in the ledger. Currently it supports only Microsoft Entra ID token-based authentication. A Microsoft Entra ID principal is identified by a unique Object ID. Use the following command to get the Object ID of the principal. It will be used in the subsequent step to grant appropriate permission on the ledger.
 
-Due to limitations in Power Automate, Azure Confidential Ledger only supports Microsoft Entra ID token-based user authentication.
-
-To find user object id by email sign in into the Power Automate Platform, you can use the following Azure CLI command:
 ```bash
 az ad user show --id user@example.com --query id --output tsv
 ```
 
-Next, we need assign the correct role to the user. The available roles are Contributor, Administrator, and Reader. We can follow the steps outlined [here](manage-azure-ad-token-based-users.md) to assign roles to the user.
-To validate change, we can go to Azure portal -> Azure Confidential Ledger instance -> Operations -> Manage Users (Preview).
-:::image type="content" source="./media/power-automate/role-assignment.png" alt-text="Screenshot of the Role assignments page in Azure portal for Azure Confidential Ledger." lightbox="./media/power-automate/role-assignment.png":::
+Depending on the workflow requirement, assign either a Reader or Contributor role to the principal in the ledger. Follow the steps available here to assign a role.
+To validate change, we can go to Azure portal -> Azure confidential Ledger instance -> Operations -> Manage Users (Preview).
+:::image type="content" source="./media/power-automate/role-assignment.png" alt-text="Screenshot of the Role assignments page in Azure portal for Azure confidential Ledger." lightbox="./media/power-automate/role-assignment.png":::
 
-## Create a Power Automate Workflow and Use Azure Confidential Ledger Connector
+## Use Azure confidential Ledger Connector in a workflow
 
 1. Sign in to the [Power Automate](https://flow.microsoft.com/) platform.
-2. Select on "Create" from the left navigation pane.
-3. Choose "Automated cloud flow" or "Instant cloud flow" based on your requirements.
-4. Select on "Create" to start building your flow.
-5. In the flow editor, select on "New step" to add an action.
-6. Search for "Azure Confidential Ledger" in the action search bar and select the desired action such as "Add Entry to Ledger" and etc.
-7. Create connections if you didn't do so by providing the necessary authentication details.
-8. Configure the action by providing the necessary details such as the ledger instance URL, entry data, etc.
-9. Once you configured all the actions, select on "Save" to  save your flow.
+2. Select "Create" from the left Navigation pane
+3. Choose either "Automated cloud flow" or "Instant cloud flow".
+4. Click on "Create" to start building the flow.
+5. In the flow editor, click on "New step" to add an action.
+6. Search for "Azure confidential Ledger" in the action search bar and select a desired action such as "Add Entry to Ledger".
+7. Create a connection by providing the necessary details.
+8. Configure the action by providing the necessary details like the ledger URL, entry data, etc.
+9. Click "Save" to save the changes.
 10. Test your flow to ensure it works as expected.
 
-## Azure Confidential Ledger Connector supported actions
+## Supported Actions
 
-The Azure Confidential Ledger connector provides several actions that allow you to interact with your confidential ledger instance from Power Automate workflows. Following are the supported actions based on the connector specification:
+The Azure confidential Ledger connector supports the following actions that allows it to interact with a confidential ledger instance.
 
 ### Create Ledger Entry
-Writes a ledger entry to the confidential ledger.
+Write a ledger entry.
 
 **Operation ID**: `CreateLedgerEntry`
 
 **Parameters:**
-- **Ledger Name**: The name of your Azure Confidential Ledger instance
+- **Ledger Name**: The name of your Azure confidential Ledger instance
 - **Collection ID** (optional): The collection where you want to add the entry
 - **Entry Contents**: The data to be stored in the ledger entry (string format)
 
@@ -75,12 +71,12 @@ Writes a ledger entry to the confidential ledger.
 :::image type="content" source="./media/power-automate/write-ledger-entry.png" alt-text="Screenshot of the Power Automate workflow showing the Write Ledger Entry action." lightbox="./media/power-automate/write-ledger-entry.png":::
 
 ### Get Ledger Entry
-Gets a specific ledger entry by transaction ID.
+Get a ledger entry by its transaction ID.
 
 **Operation ID**: `GetLedgerEntry`
 
 **Parameters:**
-- **Ledger Name**: The name of your Azure Confidential Ledger instance
+- **Ledger Name**: The name of your Azure confidential Ledger instance
 - **Transaction ID**: The transaction ID of the entry to retrieve
 - **Collection ID** (optional): The collection ID from which to fetch the value
 
@@ -88,53 +84,53 @@ Gets a specific ledger entry by transaction ID.
 - **State**: Query state (Loading or Ready)
 - **Entry**: The ledger entry data (available only if state is "Ready")
   - **Contents**: Contents of the ledger entry
-  - **Collection ID**: The collection containing the entry
+  - **Collection ID**: The collection ID corresponding to the entry
   - **Transaction ID**: The transaction ID
 
 :::image type="content" source="./media/power-automate/get-ledger-entry-by-txid.png" alt-text="Screenshot of the Power Automate workflow showing the Get Ledger Entry by Transaction ID action." lightbox="./media/power-automate/get-ledger-entry-by-txid.png":::
 
 ### Get Current Ledger Entry
-Gets the current (most recent) ledger entry from a collection.
+Get the current (most recent) ledger entry from a collection
 
 **Operation ID**: `GetCurrentLedgerEntry`
 
 **Parameters:**
-- **Ledger Name**: The name of your Azure Confidential Ledger instance
-- **Collection ID** (optional): The collection containing the entry
+- **Ledger Name**: The name of your Azure confidential Ledger instance
+- **Collection ID** (optional): The collection ID corresponding to the entry
 
 **Returns:**
 - **Contents**: Contents of the most recent ledger entry
-- **Collection ID**: The collection containing the entry
+- **Collection ID**: The collection ID corresponding to the entry
 - **Transaction ID**: The transaction ID of the current entry
 
 :::image type="content" source="./media/power-automate/get-current-ledger-entry.png" alt-text="Screenshot of the Power Automate workflow showing the Get Current Ledger Entry action." lightbox="./media/power-automate/get-current-ledger-entry.png":::
 
 ### List Ledger Entries
-Gets ledger entries by collection and range.
+Get ledger entries by collection and range.
 
 **Operation ID**: `ListLedgerEntries`
 
 **Parameters:**
-- **Ledger Name**: The name of your Azure Confidential Ledger instance
+- **Ledger Name**: The name of your Azure confidential Ledger instance
 - **Collection ID** (optional): Only entries in the specified collection return
-- **From Transaction ID** (optional): Specify the first transaction ID in a range
-- **To Transaction ID** (optional): Specify the last transaction ID in a range
+- **From Transaction ID** (optional): Starting Transaction ID in the range
+- **To Transaction ID** (optional): Ending Transaction ID in the range
 
 **Returns:**
 - **State**: Query state (Loading or Ready)
-- **Entries**: Array of ledger entries
-- **Next Link**: Path to retrieve the next page of results (for pagination)
+- **Entries**: A collection of entries within the specified Transaction ID range
+- **Next Link**: A continuation link to retrieve the remaining entries.
 
 :::image type="content" source="./media/power-automate/get-ledger-id-range.png" alt-text="Screenshot of the Power Automate workflow showing the Get Ledger ID Range action." lightbox="./media/power-automate/get-ledger-id-range.png":::
 
 ### Get Receipt
-Gets a cryptographic receipt for a transaction by transaction ID.
+Get a cryptographic receipt for a transaction by transaction ID.
 
 **Operation ID**: `GetReceipt`
 
 **Parameters:**
-- **Ledger Name**: The name of your Azure Confidential Ledger instance
-- **Transaction ID**: The transaction ID for which to get the receipt
+- **Ledger Name**: The name of your Azure confidential Ledger instance
+- **Transaction ID**: Transaction ID corresponding to the receipt
 
 **Returns:**
 - **State**: Query state (Loading or Ready)
@@ -148,12 +144,12 @@ Gets a cryptographic receipt for a transaction by transaction ID.
 :::image type="content" source="./media/power-automate/get-ledger-receipt.png" alt-text="Screenshot of the Power Automate workflow showing the Get Receipt action." lightbox="./media/power-automate/get-ledger-receipt.png":::
 
 ### Get Transaction Status
-Gets the status of a transaction by transaction ID.
+Get the status of a transaction by transaction ID.
 
 **Operation ID**: `GetTransactionStatus`
 
 **Parameters:**
-- **Ledger Name**: The name of your Azure Confidential Ledger instance
+- **Ledger Name**: The name of your Azure confidential Ledger instance
 - **Transaction ID**: The transaction ID to check
 
 **Returns:**
@@ -162,13 +158,14 @@ Gets the status of a transaction by transaction ID.
 
 :::image type="content" source="./media/power-automate/get-ledger-tx-status.png" alt-text="Screenshot of the Power Automate workflow showing the Get Transaction Status action." lightbox="./media/power-automate/get-ledger-tx-status.png":::
 
-## Example Workflow: Adding an Entry and Storing Transaction ID
+## Example Workflow: Add an entry and store the Transaction ID
 
-Here's a practical example of how to use the Azure Confidential Ledger connector in a Power Automate workflow:
+The following section demonstrates how to use the connector to write a ledger entry
+
 
 ### Scenario
 Create a workflow that:
-1. Adds a new entry to the confidential ledger
+1. Adds a new entry to the confidential ledger, and,
 2. Stores the transaction ID in Azure Cosmos DB for reference
 
 ### Workflow Steps
@@ -196,7 +193,7 @@ Create a workflow that:
 
 ### Example Entry Content Formats
 
-The entry contents must be a string with a specific JSON structure containing a "content" field. Here are some common patterns:
+The entry content must be a string with a specific JSON structure containing a "content" field. Here are some common patterns:
 
 **JSON as String**:
 ```
@@ -213,11 +210,9 @@ The entry contents must be a string with a specific JSON structure containing a 
 {"content": "@{base64(variables('binaryData'))}"}
 ```
 
-This workflow ensures that all important events are tamper-proof recorded in the confidential ledger while maintaining easy access to transaction references through Cosmos DB.
-
 ## Next Steps
 
-- Learn more about [Azure Confidential Ledger concepts](overview.md)
+- Learn more about [Azure confidential Ledger concepts](overview.md)
 - Explore [authentication options](authentication-azure-ad.md) for advanced scenarios
 - Review [best practices](secure-confidential-ledger.md) for production workflows
 
