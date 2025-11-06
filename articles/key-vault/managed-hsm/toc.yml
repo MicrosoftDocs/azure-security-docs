@@ -41,6 +41,8 @@ items:
     href: how-to-secure-access.md
   - name: Use private endpoints
     href: private-link.md
+  - name: Configure network security
+    href: configure-network-security.md
   - name: Monitoring and logging
     items:
     - name: Managed HSM logging
@@ -71,6 +73,8 @@ items:
   items:
   - name: Secure your managed HSM
     href: secure-managed-hsm.md
+  - name: Network security
+    href: network-security.md
   - name: Security domain overview
     href: security-domain.md
   - name: Access control
