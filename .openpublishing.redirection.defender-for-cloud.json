@@ -471,6 +471,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/defender-for-cloud/azure-devops-extension.yml",
+      "redirect_url": "/azure/defender-for-cloud/configure-azure-devops-extension",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/just-in-time-access-usage.yml",
+      "redirect_url": "/azure/defender-for-cloud/enable-just-in-time-access",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/defender-for-cloud/workflow-automation.yml",
       "redirect_url": "/azure/defender-for-cloud/workflow-automations",
       "redirect_document_id": false
@@ -492,13 +502,8 @@
     },      
     {
       "source_path_from_root":  "/articles/defender-for-cloud/how-to-transition-to-built-in.yml",
-       "redirect_url":  "/azure/defender-for-cloud/transition-to-built-in",
-       "redirect_document_id":  false
-    },      
-    {
-      "source_path_from_root":  "/articles/defender-for-cloud/support-matrix-cloud-environment.md",
-       "redirect_url":  "/azure/defender-for-cloud/support-matrix-defender-for-cloud",
-       "redirect_document_id":  false
-    } 
+      "redirect_url":  "/azure/defender-for-cloud/transition-to-built-in",
+      "redirect_document_id":  false
+    }
   ]
 }
