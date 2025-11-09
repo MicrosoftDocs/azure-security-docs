@@ -12,7 +12,7 @@
     },
     {
       "source_path_from_root": "/articles/defender-for-cloud/sql-information-protection-policy.md",
-      "redirect_url": "sql/relational-databases/security/sql-data-discovery-and-classification"
+      "redirect_url": "/sql/relational-databases/security/sql-data-discovery-and-classification",
       "redirect_document_id": false
     }
   ]
