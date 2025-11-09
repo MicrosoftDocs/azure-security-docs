@@ -497,7 +497,7 @@
     },
     {
       "source_path_from_root": "/articles/defender-for-cloud/cli-cicd-integration.md",
-      "redirect_url": "/azure/defender-for-cloud/cicd-pipeline-scanning-with-defender-cli",
+      "redirect_url": "/azure/defender-for-cloud/ci-cd-pipeline-scanning-with-defender-cli",
       "redirect_document_id": false
     },         
     {
