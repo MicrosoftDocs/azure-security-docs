@@ -509,6 +509,11 @@
       "source_path_from_root": "/articles/defender-for-cloud/support-matrix-cloud-environment.md",
       "redirect_url": "/azure/defender-for-cloud/support-matrix-defender-for-cloud",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/overview-page.md",
+      "redirect_url": "/azure/defender-for-cloud/cloud-infrastructure-dashboard",
+      "redirect_document_id": false
     }
   ]
 }
