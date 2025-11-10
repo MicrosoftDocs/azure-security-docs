@@ -9,11 +9,6 @@
       "source_path_from_root": "/articles/key-vault/general/disaster-recovery-guidance.md",
       "redirect_url": "/azure/reliability/reliability-key-vault",
       "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/defender-for-cloud/sql-information-protection-policy.md",
-      "redirect_url": "/sql/relational-databases/security/sql-data-discovery-and-classification",
-      "redirect_document_id": false
     }
   ]
 }
