@@ -41,7 +41,7 @@ Restrict key operations to only those required for your application to minimize 
   - EC keys: Use P-256, P-384, or P-521 curves based on security requirements
 - **Separate keys by purpose**: Use different keys for encryption vs. signing operations to limit impact if a key is compromised
 
-For more information about key operations, see [Key operations](about-keys.md#key-operations).
+For more information about key operations, see [Key operations in Key Vault](about-keys-details.md#key-operations).
 
 ## Key rotation and versioning
 
