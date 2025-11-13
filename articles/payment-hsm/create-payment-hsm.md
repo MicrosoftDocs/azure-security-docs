@@ -47,7 +47,7 @@ This tutorial describes how to create an Azure Payment HSM with the host and man
   ```
 
   You can continue with this quick start if all four of these commands return "Registered".
-- You must have an Azure subscription. You can [create a free account](https://azure.microsoft.com/free/) if you don't have one.
+- You must have an Azure subscription. You can [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) if you don't have one.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]  
 
@@ -68,7 +68,7 @@ Get-AzProviderFeature -FeatureName "FastPathEnabled" -ProviderNamespace Microsof
 
   You can continue with this quick start if the "RegistrationState" of both commands returns "Registered".
 
-- You must have an Azure subscription. You can [create a free account](https://azure.microsoft.com/free/) if you don't have one.
+- You must have an Azure subscription. You can [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) if you don't have one.
   
 [!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]\
 
