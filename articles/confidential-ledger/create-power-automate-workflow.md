@@ -9,14 +9,14 @@ ms.topic: overview
 ms.custom: sfi-ropc-nochange, sfi-image-nochange
 ---
 
-# Create a Power Automate workflow using Azure confidential ledger Connector
+# Create a Power Automate workflow using Azure confidential ledger connector
+A Power Automate connector is now available for interacting with Azure confidential ledger. This guide explains how to build a workflow that adds an entry into a ledger instance and saves the transaction ID in Cosmos DB.
+
 ## Prerequisites
 - An Azure confidential ledger Instance - to create an instance, follow the steps in [Create an Azure confidential ledger instance](./quickstart-portal.md)
 - [A Power Automate Premium user license](https://learn.microsoft.com/power-platform/admin/power-automate-licensing/types?tabs=power-automate-premium%2Cpower-automate-process%2Cconnector-types)
 - [Azure CLI](/cli/azure/install-azure-cli) (optional)
 
-## Overview
-A Power Automate connector is now available for interacting with Azure confidential ledger. This guide explains how to build a workflow that adds an entry into a ledger instance and saves the transaction ID in Cosmos DB.
 ## Locate the Azure confidential ledger connector
 Search for the Azure confidential ledger connector in the Power Automate connectors list and create a workflow using the available actions.
 
@@ -85,7 +85,7 @@ Get a ledger entry by its transaction ID.
   - **Collection ID**: The collection ID that the entries belong to
   - **Transaction ID**: The transaction ID
 
-:::image type="content" source="./media/power-automate/get-ledger-entry-by-txid.png" alt-text="Screenshot of the Power Automate workflow showing the Get Ledger Entry by Transaction ID action." lightbox="./media/power-automate/get-ledger-entry-by-txid.png":::
+:::image type="content" source="./media/power-automate/get-ledger-entry-by-transaction-id.png" alt-text="Screenshot of the Power Automate workflow showing the Get Ledger Entry by Transaction ID action." lightbox="./media/power-automate/get-ledger-entry-by-transaction-id.png":::
 
 ### Get Current Ledger Entry
 Get the current (most recent) ledger entry from a collection
@@ -154,7 +154,7 @@ Get the status of a transaction by transaction ID.
 - **State**: Transaction state (Committed or Pending)
 - **Transaction ID**: The transaction ID
 
-:::image type="content" source="./media/power-automate/get-ledger-tx-status.png" alt-text="Screenshot of the Power Automate workflow showing the Get Transaction Status action." lightbox="./media/power-automate/get-ledger-tx-status.png":::
+:::image type="content" source="./media/power-automate/get-ledger-transaction-status.png" alt-text="Screenshot of the Power Automate workflow showing the Get Transaction Status action." lightbox="./media/power-automate/get-ledger-transaction-status.png":::
 
 ## Example Workflow: Add an entry and store the Transaction ID
 
@@ -163,8 +163,8 @@ The following section demonstrates how to use the connector to write a ledger en
 
 ### Scenario
 Create a workflow that:
-1. Adds a new entry to the confidential ledger, and,
-2. Stores the transaction ID in Azure Cosmos DB for reference
+- Adds a new entry to the confidential ledger, and,
+- Stores the transaction ID in Azure Cosmos DB for reference
 
 ### Workflow Steps
 
@@ -181,13 +181,13 @@ Create a workflow that:
 3. **Parse JSON Action** (to extract transaction ID from headers):
    - Use `outputs('Create_Ledger_Entry')['headers']['x-ms-ccf-transaction-id']` to get the transaction ID
 
-:::image type="content" source="./media/power-automate/pa-example-1.png" alt-text="Screenshot of the Power Automate workflow showing the Create Ledger Entry action." lightbox="./media/power-automate/pa-example-1.png":::
+:::image type="content" source="./media/power-automate/power-automate-example-1.png" alt-text="Screenshot of the Power Automate workflow showing the Create Ledger Entry action." lightbox="./media/power-automate/power-automate-example-1.png":::
 
 4. **Store in Cosmos DB Action**:
    - Use the parsed transaction ID from the previous step
    - Store it along with relevant metadata for future reference
    - For detailed information about the Cosmos DB connector, see [Azure Cosmos DB connector documentation](https://learn.microsoft.com/connectors/documentdb/)
-:::image type="content" source="./media/power-automate/pa-example-2.png" alt-text="Screenshot of the Power Automate workflow showing the Cosmos DB action." lightbox="./media/power-automate/pa-example-2.png":::
+:::image type="content" source="./media/power-automate/power-automate-example-2.png" alt-text="Screenshot of the Power Automate workflow showing the Cosmos DB action." lightbox="./media/power-automate/power-automate-example-2.png":::
 
 ### Example Entry Content Formats
 
@@ -195,12 +195,12 @@ The entry content must be a string with a specific JSON structure containing a "
 
 **JSON as String**:
 ```
-{"content": "{\"event\": \"user_login\", \"userId\": \"12345\", \"timestamp\": \"@{utcNow()}\"}"}
+{"content": "{\"event\": \"user_login\", \"oid\": \"12345\", \"timestamp\": \"@{utcNow()}\"}"}
 ```
 
 **Plain Text Content**:
 ```
-{"content": "User login event for user @{variables('userId')} at @{utcNow()}"}
+{"content": "User login event for user @{variables('oid')} at @{utcNow()}"}
 ```
 
 **Base64 Encoded Data**:
