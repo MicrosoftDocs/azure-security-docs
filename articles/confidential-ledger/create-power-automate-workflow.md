@@ -9,7 +9,7 @@ ms.topic: overview
 ms.custom: sfi-ropc-nochange, sfi-image-nochange
 ---
 
-# Create a Power Automate workflow using Azure confidential ledger connector
+# Data Ingress and Egress from Azure confidential ledger using Power Automate Connector
 A Power Automate connector is now available for interacting with Azure confidential ledger. This guide explains how to build a workflow that adds an entry into a ledger instance and saves the transaction ID in Cosmos DB.
 
 ## Prerequisites

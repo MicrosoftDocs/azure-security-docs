@@ -74,7 +74,7 @@ items:
       href: /sql/relational-databases/security/ledger/ledger-overview?branch=sql
     - name: Create a managed application to store blob digests
       href: create-blob-managed-app.md
-    - name: Create a Power Automate workflow using Azure Confidential Ledger Connector
+    - name: Data Ingress and Egress from Azure confidential ledger using Power Automate Connector
       href: create-power-automate-workflow.md
 - name: Security
   items:
