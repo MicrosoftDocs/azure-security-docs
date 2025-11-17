@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, sfi-image-nochange
 
 ---
 
-# Default access control: RBAC or access policies
+# RBAC and access policies: choosing a default authorization model
 
 Azure Key Vault supports two access control models: access policies and Azure role-based access control (RBAC). Transitioning to RBAC enhances security through granular permissions, centralized access management, and seamless integration with Azure governance tools.
 
@@ -21,7 +21,6 @@ This article guides you through checking your current Key Vault access configura
 
 > [!TIP]
 > For a complete migration guide with detailed steps—including inventorying access policies, creating RBAC role assignments, enabling RBAC, validating access, and configuring monitoring—see [Migrate from vault access policy to an Azure role-based access control permission model](rbac-migration.md).
-
 
 ## Prerequisites
 
@@ -254,7 +253,7 @@ For ARM, Bicep, and Terraform templates:
 Before creating new Key Vaults, ensure you have the latest version of your tools:
 
 - **PowerShell**: Run `Update-Module` or `Update-AzModule`
-- **Azure CLI**: Follow the [Azure CLI update guide](https://learn.microsoft.com/cli/azure/update-azure-cli)
+- **Azure CLI**: Follow the [Azure CLI update guide](/cli/azure/update-azure-cli)
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -324,5 +323,5 @@ New-AzResource `
 - [Provide access to Key Vault keys, certificates, and secrets with Azure role-based access control](rbac-guide.md)
 - [Azure role-based access control (Azure RBAC) vs. access policies](rbac-access-policy.md)
 - [Azure Key Vault security overview](secure-key-vault.md)
-- [Assign Azure roles using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-- [Assign Azure roles using Azure CLI](../../role-based-access-control/role-assignments-cli.md)
+- [Assign Azure roles using Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell)
+- [Assign Azure roles using Azure CLI](/azure/role-based-access-control/role-assignments-cli)
