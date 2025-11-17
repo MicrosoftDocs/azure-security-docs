@@ -13,11 +13,11 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, sfi-image-nochange
 
 ---
 
-# RBAC and access policies: choosing a default authorization model
+# RBAC and access policies: establishing a default authorization model
 
-Azure Key Vault supports two access control models: access policies and Azure role-based access control (RBAC). Transitioning to RBAC enhances security through granular permissions, centralized access management, and seamless integration with Azure governance tools.
+Azure Key Vault supports two access control models: access policies and Azure role-based access control (RBAC). Each model has different characteristics for managing permissions and access to Key Vault resources.
 
-This article guides you through checking your current Key Vault access configuration, migrating from access policies to RBAC, and updating your templates and scripts to the latest API version.
+This article helps you understand the two authorization models and guides you through choosing the appropriate model for your Key Vault deployments. You'll learn how to check your current configuration, migrate from access policies to RBAC if needed, or explicitly configure access policies, and update your templates and scripts to the latest API version.
 
 > [!TIP]
 > For a complete migration guide with detailed steps—including inventorying access policies, creating RBAC role assignments, enabling RBAC, validating access, and configuring monitoring—see [Migrate from vault access policy to an Azure role-based access control permission model](rbac-migration.md).
