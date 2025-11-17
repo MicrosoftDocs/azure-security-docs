@@ -111,6 +111,8 @@ landingContent:
             url: /sql/relational-databases/security/ledger/ledger-overview?branch=sql
           - text: Create a managed application to store blob digests
             url: create-blob-managed-app.md
+          - text: Data Ingress and Egress from Azure confidential ledger using Power Automate Connector
+            url: create-power-automate-workflow.md
 
   # Card
   - title: How-to guides
