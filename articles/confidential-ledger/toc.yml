@@ -88,7 +88,7 @@ items:
     href: faq.yml
   - name: Azure confidential ledger REST API reference
     href: /rest/api/confidentialledger/
-  - name: Azure MCP Server tools
+  - name: Azure MCP Server for confidential ledger
     href: /azure/developer/azure-mcp-server/tools/azure-confidential-ledger
   - name: .NET client library
     href: /dotnet/api/overview/azure/confidentialledger 
