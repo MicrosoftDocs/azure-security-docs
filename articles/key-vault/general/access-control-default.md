@@ -15,18 +15,22 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, sfi-image-nochange
 
 # Migrate Azure Key Vault from access policies to RBAC
 
-Azure Key Vault is undergoing a security change in API version 2026-02-01 in February 2026.
+Azure Key Vault is undergoing a security change in API version 2026-02-01 in February 2026. In our investment to protect your Key Vaults from becoming high-impact breach vectors, **the new Key Vault API version will set RBAC as the default access configuration**, aligning with the Azure portal. 
 
-- **Default to Azure role-based access control (RBAC)**: In our investment to protect your Key Vaults from becoming high-impact breach vectors, the new Key Vault API version will set RBAC as the default access configuration, aligning with the Azure portal. Customers currently using access policies are encouraged to migrate to RBAC prior to using the latest version of the API. For more information on why we recommend RBAC, see [Azure role-based access control (Azure RBAC) vs. access policies](rbac-access-policy.md). If you decide not to migrate to RBAC, for new Key Vaults you must explicitly set your Access Configuration to use vault access policy before upgrading to API version 2026-02-01.
+Customers currently using access policies are encouraged to migrate to RBAC prior to using the latest version of the API. For more information on why we recommend RBAC, see [Azure role-based access control (Azure RBAC) vs. access policies](rbac-access-policy.md). 
+
+If you decide not to migrate to RBAC, for new Key Vaults you must explicitly set your Access Configuration to use vault access policy before upgrading to API version 2026-02-01.
 
 All earlier versions of the 2026-02-01 API will be retired on February 27, 2027.
 
-We recommend that you follow the steps below and migrate to the new API version once it becomes available in February 2026. For more information about Key Vault access control, see [Secure your key vault](secure-key-vault.md).
+We recommend that you follow the steps below and migrate to the new API version once it becomes available in February 2026. For more information about Key Vault access control, see [Secure your key vault](secure-key-vault.md#identity-management).
 
 > [!WARNING]
 > You MUST complete the steps by February 27, 2027 to ensure uninterrupted service.
 
-## Check if your vault's access configuration is set to Azure RBAC or Access Policies
+## Check current configurations
+
+Check if your vault's access configuration is set to Azure RBAC or Access Policies.
 
 ### Check a single vault
 
@@ -53,6 +57,15 @@ We recommend that you follow the steps below and migrate to the new API version 
 ---
 
 ### Check multiple vaults by Resource Group
+
+# [Azure CLI](#tab/azure-cli)
+
+Use the [az keyvault list](/cli/azure/keyvault#az-keyvault-list) command to list all vaults in a resource group and check their RBAC authorization status:
+
+```azurecli
+# List all Key Vaults in the resource group and check RBAC status
+az keyvault list --resource-group <ResourceGroupName> --query "[].{name:name, rbacEnabled:properties.enableRbacAuthorization}" --output table
+```
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -95,6 +108,15 @@ We recommend that you follow the steps below and migrate to the new API version 
 
 ### Check multiple vaults by subscription ID
 
+# [Azure CLI](#tab/azure-cli)
+
+Use the [az keyvault list](/cli/azure/keyvault#az-keyvault-list) command to list all vaults in your subscription and check their RBAC authorization status:
+
+```azurecli
+# List all Key Vaults in the subscription and check RBAC status
+az keyvault list --query "[].{name:name, rbacEnabled:properties.enableRbacAuthorization}" --output table
+```
+
 # [PowerShell](#tab/azure-powershell)
 
 1. Create the following function in PowerShell:
@@ -129,13 +151,13 @@ We recommend that you follow the steps below and migrate to the new API version 
 
 ---
 
-## For vaults using Azure RBAC
+## For vaults already using Azure RBAC
 
-Update all Key Vault ARM, BICEP, Terraform templates and [REST API](/rest/api/keyvault/) calls to use API version 2026-02-01.
+If your key vaults already use Azure RBAC as their access control, update all Key Vault ARM, BICEP, Terraform templates and [REST API](/rest/api/keyvault/) calls to use API version 2026-02-01.
 
-## For vaults using Access Policies
+## For vaults using access policies
 
-Decide if you will migrate to using RBAC-based access (see [Step 4a](#step-4a-migrate-to-azure-rbac-recommended) - Recommended), or if you will continue using access policies (see [Step 4b](#step-4b-continue-using-access-policies)). For more information on access control models, see [Use an Azure RBAC for managing access to Key Vault](rbac-guide.md) and [Azure Key Vault best practices](best-practices.md).
+If your key vaults use access policies, decide if you will migrate to using RBAC-based access (recommended), or if you will continue using access policies. For more information on access control models, see [Use an Azure RBAC for managing access to Key Vault](rbac-guide.md) and [Azure Key Vault best practices](secure-key-vault.md#identity-management).
 
 ### Migrate to Azure RBAC (recommended)
 
@@ -143,9 +165,9 @@ Use this opportunity to increase your security posture by migrating from vault a
 
 Update all Key Vault ARM, BICEP, Terraform templates and REST API calls to use API version 2026-02-01.
 
-### Continue using Access Policies
+### Continue using access policies
 
-If you choose to use Access Policies:
+If you choose to use access policies, follow the instructions below.
 
 **When using ARM, BICEP, Terraform templates:** 
 
@@ -154,21 +176,37 @@ Update all Key Vault ARM, BICEP, Terraform templates and [REST API](/rest/api/ke
 **When using Create Key Vault commands:**
 
 1. Update your modules:
-   - [Update-Module (PowerShellGet) - PowerShell | Microsoft Learn](https://learn.microsoft.com/powershell/module/powershellget/update-module)
-   - [Update-AzModule (Az.Tools.Installer) | Microsoft Learn](https://learn.microsoft.com/powershell/module/az.tools.installer/update-azmodule)
-   - [How to update the Azure CLI | Microsoft Learn](https://learn.microsoft.com/cli/azure/update-azure-cli)
 
-2. For CLI workflows, use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command and set `--enable-rbac-authorization false`:
+# [Azure CLI](#tab/azure-cli)
 
-   ```azurecli
-   az keyvault create --name "testCreateTutorial" --resource-group "testResourceGroup" --enable-rbac-authorization false
-   ```
+Update Azure CLI to the latest version. For more information, see [How to update the Azure CLI](/cli/azure/update-azure-cli).
 
-3. For PowerShell workflows, use the [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault) cmdlet and set `-DisableRbacAuthorization`:
+# [PowerShell](#tab/azure-powershell)
 
-   ```azurepowershell
-   New-AzKeyVault -Name "testCreateTutorial" -ResourceGroupName "testResourceGroup" -Location "EastUS" -DisableRbacAuthorization
-   ```
+Update your PowerShell modules to the latest version:
+- [Update-Module (PowerShellGet)](/powershell/module/powershellget/update-module)
+- [Update-AzModule (Az.Tools.Installer)](/powershell/module/az.tools.installer/update-azmodule)
+
+---
+2. Use the appropriate command to create a Key Vault with access policies:
+
+# [Azure CLI](#tab/azure-cli)
+
+Use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command and set `--enable-rbac-authorization false`:
+
+```azurecli
+az keyvault create --name "testCreateTutorial" --resource-group "testResourceGroup" --enable-rbac-authorization false
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+Use the [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault) cmdlet and set `-DisableRbacAuthorization`:
+
+```azurepowershell
+New-AzKeyVault -Name "testCreateTutorial" -ResourceGroupName "testResourceGroup" -Location "EastUS" -DisableRbacAuthorization
+```
+
+---
 
 **When using Create Resource commands:**
 
