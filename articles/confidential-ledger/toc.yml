@@ -82,6 +82,8 @@ items:
     items:
     - name: Secure your Confidential Ledger 
       href: secure-confidential-ledger.md
+    - name: Data residency
+      href: data-residency.md
 - name: References
   items:
   - name: FAQ
