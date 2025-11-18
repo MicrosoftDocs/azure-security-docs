@@ -16,18 +16,18 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, sfi-image-nochange
 # Prepare for Key Vault API version 2026-02-01: Azure RBAC as default access control
 
 > [!IMPORTANT]
-> Starting February 2026, Azure Key Vault API version 2026-02-01 will set Azure RBAC as the default access control for new key vaults. If you're using access policies, you must migrate to Azure RBAC or explicitly configure access policies before upgrading. All API versions prior to 2026-02-01 will be retired on February 27, 2027.
+> Starting February 2026, Azure Key Vault API version 2026-02-01 will establish Azure RBAC as the default access control model. **New key vaults** created with this API version will use Azure RBAC by default unless you explicitly configure access policies. **Existing key vaults** will maintain their current access control model (Azure RBAC or access policies) unless you take action to change it. We strongly recommend that key vaults currently using access policies migrate to Azure RBAC for improved security. All API versions prior to 2026-02-01 will be retired on February 27, 2027.
 
-Azure Key Vault is implementing an important security enhancement in API version 2026-02-01, releasing in February 2026. To help protect your key vaults and reduce security risks, **the new Key Vault API version establishes Azure RBAC as the default access configuration**, consistent with the Azure portal experience.
+Azure Key Vault is implementing an important security enhancement in API version 2026-02-01, releasing in February 2026. To help protect your key vaults and reduce security risks, **the new Key Vault API version establishes Azure RBAC as the default access control model**, consistent with the Azure portal experience.
 
-If you're currently using access policies (legacy), migrate to Azure RBAC before using the latest version of the API. For more information on why we recommend Azure RBAC, see [Azure role-based access control (Azure RBAC) vs. access policies](rbac-access-policy.md). 
+If you're currently using access policies (legacy), we strongly encourage you to migrate to Azure RBAC before using the latest version of the API. For more information on why we recommend Azure RBAC, see [Azure role-based access control (Azure RBAC) vs. access policies](rbac-access-policy.md). 
 
 If you decide not to migrate to Azure RBAC, for new key vaults you must explicitly set your Access Configuration to use vault access policy before upgrading to API version 2026-02-01.
 
-Follow the steps below to check your current configuration and either migrate to Azure RBAC (recommended) or continue using access policies.
+Follow the steps below to check your current configuration and either migrate to Azure RBAC (recommended) or continue using access policies (legacy).
 
 > [!WARNING]
-> Complete these steps by February 27, 2027 to avoid service disruption. All API versions prior to 2026-02-01 will be retired on that date.
+> Complete these steps by February 27, 2027 to avoid service disruption.
 
 ## Step 1: Check current configurations
 
@@ -158,7 +158,7 @@ az keyvault list --query "[].{name:name, rbacEnabled:properties.enableRbacAuthor
 
 ## Step 2: For vaults already using Azure RBAC
 
-If your key vaults already use Azure RBAC as their access control, update all Key Vault ARM, BICEP, Terraform templates, and [REST API](/rest/api/keyvault/) calls to use API version 2026-02-01.
+If your key vaults already use Azure RBAC as their access control model, update all Key Vault ARM, BICEP, Terraform templates, and [REST API](/rest/api/keyvault/) calls to use API version 2026-02-01.
 
 ## Step 3: For vaults using access policies
 
