@@ -14,7 +14,7 @@ A Power Automate connector is now available for interacting with Azure confident
 
 ## Prerequisites
 - An Azure confidential ledger Instance - to create an instance, follow the steps in [Create an Azure confidential ledger instance](./quickstart-portal.md)
-- [A Power Automate Premium user license](https://learn.microsoft.com/power-platform/admin/power-automate-licensing/types?tabs=power-automate-premium%2Cpower-automate-process%2Cconnector-types)
+- [A Power Automate Premium user license](/power-platform/admin/power-automate-licensing/types?tabs=power-automate-premium%2Cpower-automate-process%2Cconnector-types)
 - [Azure CLI](/cli/azure/install-azure-cli) (optional)
 
 ## Locate the Azure confidential ledger connector
@@ -186,7 +186,7 @@ Create a workflow that:
 4. **Store in Cosmos DB Action**:
    - Use the parsed transaction ID from the previous step
    - Store it along with relevant metadata for future reference
-   - For detailed information about the Cosmos DB connector, see [Azure Cosmos DB connector documentation](https://learn.microsoft.com/connectors/documentdb/)
+   - For detailed information about the Cosmos DB connector, see [Azure Cosmos DB connector documentation](/connectors/documentdb/)
 :::image type="content" source="./media/power-automate/power-automate-example-2.png" alt-text="Screenshot of the Power Automate workflow showing the Cosmos DB action." lightbox="./media/power-automate/power-automate-example-2.png":::
 
 ### Example Entry Content Formats
