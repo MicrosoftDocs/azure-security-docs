@@ -500,6 +500,10 @@
       "redirect_url": "/azure/defender-for-cloud/secure-score-security-controls",
       "redirect_document_id": false
     },      
+      "source_path_from_root": "/articles/defender-for-cloud/cli-cicd-integration.md",
+      "redirect_url": "/azure/defender-for-cloud/ci-cd-pipeline-scanning-with-defender-cli",
+      "redirect_document_id": false
+    },         
     {
       "source_path_from_root":  "/articles/defender-for-cloud/how-to-transition-to-built-in.yml",
       "redirect_url":  "/azure/defender-for-cloud/transition-to-built-in",
