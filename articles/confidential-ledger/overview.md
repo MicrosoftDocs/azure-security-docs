@@ -79,6 +79,8 @@ Applications are encouraged to verify the authenticity of the ledger nodes by [a
 
 The confidential ledger nodes are deployed across Azure Availability Zones (AZ) to provide resiliency. The network can self-heal during zone-wide outages. To ensure business continuity, the ledger files are automatically replicated to a secondary storage account periodically. When a disaster happens, these files are used for recovery. Continuous monitoring is utilized to observe and automatically initiate recovery processes when the instance's health falls below a specified threshold.
 
+Data is automatically replicated to Azure regional pairs for disaster recovery. For information about data residency considerations, see [Data residency for Azure Confidential Ledger](data-residency.md).
+
 ## Constraints
 
 - Once a confidential ledger is created, you cannot change the ledger type (private or public).
