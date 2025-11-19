@@ -518,6 +518,11 @@
     {
       "source_path_from_root": "/articles/defender-for-cloud/overview-page.md",
       "redirect_url": "/azure/defender-for-cloud/cloud-infrastructure-dashboard",
+      "redirect_document_id":  false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/sql-information-protection-policy.md",
+      "redirect_url": "/sql/relational-databases/security/sql-data-discovery-and-classification",
       "redirect_document_id": false
     }
   ]
