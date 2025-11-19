@@ -31,7 +31,7 @@ Below we discuss several methods for migrating workloads to use a new key, eithe
 For most workloads that use keys in Key Vault, the most effective way to migrate a key into a new location (a new managed HSM or new key vault in a different subscription or region) is to:
 
 1. Create a new key in the new vault or managed HSM.
-2. Grant your workload access to the new key by assigning the workload's managed identity to the appropriate Azure RBAC role in [Azure Key Vault](rbac-guide.md) or the appropriate local RBAC role in [Azure Managed HSM](../managed-hsm/access-control.md).
+2. Grant your workload access to the new key by assigning the workload's managed identity to the appropriate Azure RBAC role in [Azure Key Vault](rbac-guide.md) or the appropriate Managed HSM local RBAC role in [Azure Managed HSM](../managed-hsm/access-control.md).
 1. Update the workload to use the new key as the customer managed encryption key.
 1. Retain the old key until you no longer want the backups of the workload data that they key originally protected.
 

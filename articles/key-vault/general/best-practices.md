@@ -60,7 +60,7 @@ A multitenant solution is built on an architecture where components are used to 
 
 ## Frequently Asked Questions:
 ### Can I use Key Vault role-based access control (Azure RBAC) permission model object-scope assignments to provide isolation for application teams within Key Vault?
-No. Azure RBAC permission model allows to assign access to individual objects in Key Vault to user or application, but only for read. Any administrative operations like network access control, monitoring, and objects management require vault level permissions. Having one Key Vault per application provides secure isolation for operators across application teams.
+No. Azure RBAC allows you to assign access to individual objects in Key Vault to user or application, but only for read. Any administrative operations like network access control, monitoring, and objects management require vault level permissions. Having one Key Vault per application provides secure isolation for operators across application teams.
 
 ## Next steps
 
