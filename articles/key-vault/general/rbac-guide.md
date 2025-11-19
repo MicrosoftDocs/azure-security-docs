@@ -350,8 +350,8 @@ For more Information about how to create custom roles, see:
 
 ## Frequently Asked Questions
 
-### Can I use Key Vault role-based access control (RBAC) permission model object-scope assignments to provide isolation for application teams within Key Vault?
-No. RBAC permission model allows you to assign access to individual objects in Key Vault to user or application, but any administrative operations like network access control, monitoring, and objects management require vault level permissions, which will then expose secure information to operators across application teams.
+### Can I use Key Vault role-based access control (Azure RBAC) permission model object-scope assignments to provide isolation for application teams within Key Vault?
+No. Azure RBAC permission model allows you to assign access to individual objects in Key Vault to user or application, but any administrative operations like network access control, monitoring, and objects management require vault level permissions, which will then expose secure information to operators across application teams.
 
 ## Learn more
 

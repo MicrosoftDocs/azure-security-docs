@@ -87,7 +87,7 @@ Here's a list of trusted services that are allowed to access a key vault if the 
 | Microsoft Purview|[Using credentials for source authentication in Microsoft Purview](/azure/purview/manage-credentials)
 
 > [!NOTE]
-> You must set up the relevant Key Vault RBAC role assignments or access policies(legacy) to allow the corresponding services to get access to Key Vault.
+> You must set up the relevant Key Vault Azure RBAC role assignments or access policies(legacy) to allow the corresponding services to get access to Key Vault.
 
 ## Next steps
 

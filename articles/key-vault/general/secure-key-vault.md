@@ -63,7 +63,7 @@ These network security features are listed from most restricted to least restric
 
     - **Do not use legacy access policies**: Do not use legacy access policies, as they lack support for Privileged Identity Management (PIM). Azure RBAC mitigates potential unauthorized Key Vault access risks. See [Azure role-based access control (Azure RBAC) vs. access policies (legacy)](rbac-access-policy.md).
 
-- **Assign just-in-time (JIT) privileged roles**: Use Azure Privileged Identity Management (PIM) to assign eligible JIT RBAC roles for administrators and operators of Key Vault. See [Privileged Identity Management (PIM) overview](/azure/active-directory/privileged-identity-management/pim-configure) for details.
+- **Assign just-in-time (JIT) privileged roles**: Use Azure Privileged Identity Management (PIM) to assign eligible JIT Azure RBAC roles for administrators and operators of Key Vault. See [Privileged Identity Management (PIM) overview](/azure/active-directory/privileged-identity-management/pim-configure) for details.
 
     - **Require approvals for privileged role activation**: Add an extra layer of security to prevent unauthorized access by ensuring that at least one approver is required to activate JIT roles. See [Configure Microsoft Entra role settings in Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-how-to-change-default-settings).
     - **Enforce multi-factor authentication for role activation**: Require MFA to activate JIT roles for operators and administrators. See [Microsoft Entra multifactor authentication](/entra/identity/authentication/concept-mfa-howitworks).
