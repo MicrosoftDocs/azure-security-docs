@@ -7,7 +7,7 @@ services: key-vault
 ms.subservice: general
 ms.topic: conceptual
 ms.service: azure-key-vault
-ms.date: 05/08/2025
+ms.date: 11/19/2025
 ---
 
 # How to migrate key workloads

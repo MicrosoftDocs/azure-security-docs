@@ -8,7 +8,7 @@ manager: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: conceptual
-ms.date: 07/22/2025
+ms.date: 11/19/2025
 ms.author: mbaldwin
 ---
 

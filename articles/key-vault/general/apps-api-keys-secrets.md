@@ -6,7 +6,7 @@ author: orin-thomas
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: overview
-ms.date: 01/15/2025
+ms.date: 11/19/2025
 ms.author: orthomas
 ---
 
