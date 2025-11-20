@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: general
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, sfi-image-nochange
 ms.topic: how-to
-ms.date: 03/31/2025
+ms.date: 11/19/2025
 ms.author: mbaldwin
 ---
 
@@ -68,7 +68,7 @@ The new Azure RBAC permission model for key vault provides alternative to the va
 
 ### Prerequisites
 
-You must have an Azure subscription. If you don't, you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+You must have an Azure subscription. If you don't, you can create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 To manage role assignments, you must have `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [Key Vault Data Access Administrator](/azure/role-based-access-control/built-in-roles#key-vault-data-access-administrator) (with restricted permissions to only assign/remove specific Key Vault roles), [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator), or [Owner](/azure/role-based-access-control/built-in-roles#owner).
 
@@ -350,8 +350,8 @@ For more Information about how to create custom roles, see:
 
 ## Frequently Asked Questions
 
-### Can I use Key Vault role-based access control (RBAC) permission model object-scope assignments to provide isolation for application teams within Key Vault?
-No. RBAC permission model allows you to assign access to individual objects in Key Vault to user or application, but any administrative operations like network access control, monitoring, and objects management require vault level permissions, which will then expose secure information to operators across application teams.
+### Can I use Azure RBAC object-scope assignments to provide isolation for application teams within Key Vault?
+No. Azure RBAC permission model allows you to assign access to individual objects in Key Vault to user or application, but any administrative operations like network access control, monitoring, and objects management require vault level permissions, which will then expose secure information to operators across application teams.
 
 ## Learn more
 

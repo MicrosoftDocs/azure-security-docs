@@ -1,3 +1,4 @@
+items:
 - name: General
   href: index.yml
 - name: Overview 
@@ -23,7 +24,6 @@
     href: quick-create-powershell.md
   - name: Portal
     href: quick-create-portal.md
-
 - name: Tutorials 
   items:
   - name: Azure Virtual Machine
@@ -47,21 +47,20 @@
     items: 
     - name: Access Azure Blob Storage using Azure Databricks and Azure Key Vault
       href: integrate-databricks-blob-storage.md
-  
-
 - name: Samples
   items:
   - name: Key Vault Code Samples
     href: /samples/browse/?expanded=azure&products=azure-key-vault
   - name: Azure Resource Graph queries
     href: ../resource-graph-samples.md
-
 - name: Concepts 
   items:
   - name: Basic concepts
     href: basic-concepts.md
   - name: Best practices
     href: best-practices.md
+  - name: Reliability in Key Vault
+    href: /azure/reliability/reliability-key-vault?toc=/azure/key-vault/general/toc.json
   - name: Understanding auto-rotation
     href: autorotation.md
   - name: Azure Key Vault logging
@@ -76,11 +75,8 @@
     href: authentication-requests-and-responses.md
   - name: Azure Key Vault throttling guidance
     href: overview-throttling.md
-  - name: Azure Key Vault availability and redundancy
-    href: disaster-recovery-guidance.md
   - name: Virtual network service endpoints for Azure Key Vault
     href: overview-vnet-service-endpoints.md
-
 - name: How-to guides
   items:
   - name: Authorize access
@@ -151,7 +147,6 @@
       href: move-subscription.md
     - name: Move Key Vault to Another Region
       href: /azure/operational-excellence/relocation-key-vault?toc=/azure/key-vault/general/toc.json
-
 - name: Security
   items:
   - name: Secure your Key Vault
@@ -169,7 +164,6 @@
   - name: Security controls by Azure Policy
     displayName: regulatory, compliance, standards, domains
     href: ../security-controls-policy.md?context=/azure/key-vault/general/context/context
-    
 - name: Reference
   items:
   - name: What's new
@@ -204,13 +198,14 @@
     href: /python/api/overview/azure/keyvault-keys-readme
   - name: REST
     href: /rest/api/keyvault
+  - name: Azure MCP Server for Key Vault
+    href: /azure/developer/azure-mcp-server/tools/azure-key-vault
   - name: Resource Manager template
     href: /azure/templates/microsoft.keyvault/allversions
     displayName: ARM
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ../policy-reference.md?context=/azure/key-vault/general/context/context
-
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn training

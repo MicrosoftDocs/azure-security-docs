@@ -8,7 +8,7 @@ ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
-ms.date: 04/14/2025
+ms.date: 11/19/2025
 
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
@@ -22,7 +22,7 @@ ms.author: mbaldwin
 
 To complete this article:
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - User would need to have an Azure built-in role assigned, recommended role **contributor**. [Learn more here](/azure/role-based-access-control/role-assignments-portal)
 
 ## Review the template
@@ -203,7 +203,7 @@ Write-Host "Press [ENTER] to continue..."
 ### Creating a key via ARM
 
 - It's only possible to create *new* keys. It isn't possible to update existing keys, nor create new versions of existing keys. If the key already exists, then the existing key is retrieved from storage and used (no write operations will occur).
-- To be authorized to use this API, the caller needs to have the **"Microsoft.KeyVault/vaults/keys/write"** role-based access control (RBAC) Action. The built-in "Key Vault Contributor" role is sufficient, since it authorizes all RBAC Actions that match the pattern "Microsoft.KeyVault/*".
+- To be authorized to use this API, the caller needs to have the **"Microsoft.KeyVault/vaults/keys/write"** role-based access control (Azure RBAC) Action. The built-in "Key Vault Contributor" role is sufficient, since it authorizes all Azure RBAC Actions that match the pattern "Microsoft.KeyVault/*".
 
   :::image type="content" source="../media/keys-quick-template-1.png" alt-text="Create a key via ARM 1":::
   :::image type="content" source="../media/keys-quick-template-2.png" alt-text="Create a key via ARM 2":::
@@ -211,7 +211,7 @@ Write-Host "Press [ENTER] to continue..."
 ### Existing API (creating key via data plane)
 
 - It's possible to create new keys, update existing keys, and create new versions of existing keys.
-- The caller must be authorized to use this API. If the vault uses access policies, the caller must have "create" key permission; if the vault is enabled for RBAC, the caller must have "Microsoft.KeyVault/vaults/keys/create/action" RBAC DataAction.
+- The caller must be authorized to use this API. If the vault uses access policies, the caller must have "create" key permission; if the vault is enabled for Azure RBAC, the caller must have "Microsoft.KeyVault/vaults/keys/create/action" Azure RBAC DataAction.
 
 ## Clean up resources
 
