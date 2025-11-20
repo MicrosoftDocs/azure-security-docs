@@ -4,7 +4,7 @@ description: Learn how virtual network service endpoints for Azure Key Vault all
 services: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 02/25/2025
+ms.date: 11/19/2025
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: conceptual
@@ -87,7 +87,7 @@ Here's a list of trusted services that are allowed to access a key vault if the 
 | Microsoft Purview|[Using credentials for source authentication in Microsoft Purview](/azure/purview/manage-credentials)
 
 > [!NOTE]
-> You must set up the relevant Key Vault RBAC role assignments or access policies(legacy) to allow the corresponding services to get access to Key Vault.
+> You must set up the relevant Azure RBAC for Key Vault role assignments or access policies(legacy) to allow the corresponding services to get access to Key Vault.
 
 ## Next steps
 
