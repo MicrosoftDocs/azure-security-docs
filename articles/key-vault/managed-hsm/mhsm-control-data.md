@@ -6,7 +6,7 @@ ms.subservice: managed-hsm
 ms.topic: concept-article
 author: nkondamudi
 ms.author: nkondamudi
-ms.date: 05/30/2025
+ms.date: 11/19/2025
 ---
 
 # Control your data in the cloud by using Managed HSM
@@ -117,7 +117,7 @@ Several layers of technical controls in Managed HSM further protect your key mat
   Both planes use Microsoft Entra ID for authentication. For authorization, they use different systems:
 
   - The control plane uses Azure role-based access control (Azure RBAC), an authorization system that's built on Azure Resource Manager.
-  - The data plane uses a managed HSM-level RBAC (Managed HSM local RBAC), an authorization system that's implemented and enforced at the managed HSM level. The local RBAC control model allows designated HSM administrators to have complete control over their HSM pool that even the management group, subscription, or resource group administrators can't override.
+  - The data plane uses a managed HSM-level RBAC (Managed HSM local RBAC), an authorization system that's implemented and enforced at the managed HSM level. The Managed HSM local RBAC control model allows designated HSM administrators to have complete control over their HSM pool that even the management group, subscription, or resource group administrators can't override.
   - **Encryption in transit**: All traffic to and from the Managed HSM is always encrypted with TLS (Transport Layer Security versions 1.3 and 1.2 are supported) to protect against data tampering and eavesdropping where the TLS termination happens inside the SGX enclave and not in the untrusted host
   - **Firewalls**: Managed HSM can be configured to restrict who can reach the service in the first place, which further shrinks the attack surface. We allow you to configure Managed HSM to deny access from the public internet and only allow traffic from trusted Azure services (such as Azure Storage)
   - **Private endpoints**: By enabling a private endpoint, you're bringing the Managed HSM service into your virtual network allowing you to isolate that service only to trusted endpoints like your virtual network and Azure services. All traffic to and from your managed HSM will travel along the secure Microsoft backbone network without having to traverse the public internet.

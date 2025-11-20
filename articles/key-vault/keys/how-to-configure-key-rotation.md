@@ -8,7 +8,7 @@ ms.custom: devx-track-arm-template, sfi-image-nochange
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: how-to
-ms.date: 05/08/2025
+ms.date: 11/19/2025
 ms.author: mbaldwin
 ---
 
@@ -36,7 +36,7 @@ There's an additional cost per scheduled key rotation. For more information, see
 
 Key Vault key rotation feature requires key management permissions. You can assign a "Key Vault Crypto Officer" role to manage rotation policy and on-demand rotation.
 
-For more information on how to use Key Vault RBAC permission model and assign Azure roles, see [Use an Azure RBAC to control access to keys, certificates and secrets](../general/rbac-guide.md)
+For more information on how to use Azure RBAC for Key Vault and assign Azure roles, see [Use an Azure RBAC to control access to keys, certificates and secrets](../general/rbac-guide.md)
 
 > [!NOTE]
 > If you use an access policies permission model, it is required to set 'Rotate', 'Set Rotation Policy', and 'Get Rotation Policy' key permissions to manage rotation policy on keys. 
