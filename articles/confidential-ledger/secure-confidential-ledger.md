@@ -67,6 +67,8 @@ Azure confidential ledger is designed with resiliency features to ensure high av
 
 - **Plan for business continuity**: Azure confidential ledger automatically replicates ledger files to secondary storage periodically to support disaster recovery. Understand that continuous monitoring is used to observe instance health and automatically initiate recovery processes when needed. For more details, see [Azure confidential ledger overview](overview.md).
 
+- **Understand data residency requirements**: Azure confidential ledger automatically replicates data to Azure regional pairs for disaster recovery purposes. Review the data residency implications to ensure both the primary and paired regions meet your compliance and regulatory requirements. For more information, see [Data residency for Azure Confidential Ledger](data-residency.md).
+
 - **Be aware of deletion implications**: Azure confidential ledger uses "hard delete" when a ledger is deleted, meaning your data will not be recoverable after deletion. Carefully consider any decision to delete a confidential ledger, as this action is permanent. For more information, see [Azure confidential ledger overview](overview.md).
 
 ## Next steps
