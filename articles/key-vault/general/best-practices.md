@@ -8,7 +8,7 @@ tags: azure-key-vault
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 04/16/2025
+ms.date: 11/19/2025
 ms.author: mbaldwin
 # Customer intent: As a developer who's using Key Vault, I want to know the best practices so I can implement them.
 ---
@@ -29,9 +29,9 @@ Key vaults define security boundaries for stored secrets. Grouping secrets into 
 Encryption keys and secrets like certificates, connection strings, and passwords are sensitive and business critical. You need to secure access to your key vaults by allowing only authorized applications and users. [Azure Key Vault security features](security-features.md) provides an overview of the Key Vault access model. It explains authentication and authorization. It also describes how to secure access to your key vaults.
 
 Recommendations for controlling access to your vault are as follows:
-- Lock down access to your subscription, resource group, and key vaults using role-based access control (RBAC) permission model for data plane.
-  - Assign RBAC roles at Key Vault scope for applications, services, and workloads requiring persistent access to Key Vault
-  - Assign just-in-time eligible RBAC roles for operators, administrators, and other user accounts requiring privileged access to Key Vault using [Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-configure) 
+- Lock down access to your subscription, resource group, and key vaults using Azure role-based access control (Azure RBAC) permission model for data plane.
+  - Assign Azure RBAC roles at Key Vault scope for applications, services, and workloads requiring persistent access to Key Vault
+  - Assign just-in-time eligible Azure RBAC roles for operators, administrators, and other user accounts requiring privileged access to Key Vault using [Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-configure) 
     - Require at least one approver
     - Enforce multi-factor authentication
 - Restrict network access with [Private Link](private-link-service.md), [firewall and virtual networks](network-security.md)
@@ -59,8 +59,8 @@ For more information about backup, see [Azure Key Vault backup and restore](back
 A multitenant solution is built on an architecture where components are used to serve multiple customers or tenants. Multitenant solutions are often used to support software as a service (SaaS) solutions. If you're building a multitenant solution that includes Key Vault, it is recommended to use one Key Vault per customer to provide isolation for customers data and workloads, review [Multitenancy and Azure Key Vault](/azure/architecture/guide/multitenant/service/key-vault).
 
 ## Frequently Asked Questions:
-### Can I use Key Vault role-based access control (RBAC) permission model object-scope assignments to provide isolation for application teams within Key Vault?
-No. RBAC permission model allows to assign access to individual objects in Key Vault to user or application, but only for read. Any administrative operations like network access control, monitoring, and objects management require vault level permissions. Having one Key Vault per application provides secure isolation for operators across application teams.
+### Can I use Key Vault role-based access control (Azure RBAC) permission model object-scope assignments to provide isolation for application teams within Key Vault?
+No. Azure RBAC allows you to assign access to individual objects in Key Vault to user or application, but only for read. Any administrative operations like network access control, monitoring, and objects management require vault level permissions. Having one Key Vault per application provides secure isolation for operators across application teams.
 
 ## Next steps
 
