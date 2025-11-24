@@ -65,9 +65,9 @@ Write a ledger entry.
 
 - **Operation ID**: `CreateLedgerEntry`
 - **Parameters:**
-   - **Ledger Name**: The name of your confidential ledger instance.
+   - **Ledger name**: The name of your confidential ledger instance.
    - **Collection ID** (optional): The collection where you want to add the entry.
-   - **Entry Contents**: The data to be stored in the ledger entry (string format).
+   - **Entry contents**: The data to be stored in the ledger entry (string format).
 - **Returns:**
    - **Collection ID**: The collection where the entry was stored.
    - **Transaction ID**: Unique identifier for the transaction (returned in the response header `x-ms-ccf-transaction-id`).
@@ -80,7 +80,7 @@ Get a ledger entry by its transaction ID.
 
 - **Operation ID**: `GetLedgerEntry`
 - **Parameters:**
-   - **Ledger Name**: The name of your confidential ledger instance.
+   - **Ledger name**: The name of your confidential ledger instance.
    - **Transaction ID**: The transaction ID of the entry to retrieve.
    - **Collection ID** (optional): The collection ID from which to fetch the value.
 - **Returns:**
@@ -98,7 +98,7 @@ Get the most recent ledger entry from a collection.
 
 - **Operation ID**: `GetCurrentLedgerEntry`
 - **Parameters:**
-   - **Ledger Name**: The name of your confidential ledger instance.
+   - **Ledger name**: The name of your confidential ledger instance.
    - **Collection ID** (optional): The collection ID that corresponds to the entry.
 - **Returns:**
    - **Contents**: Contents of the most recent ledger entry.
@@ -113,14 +113,14 @@ Get ledger entries by collection and range.
 
 - **Operation ID**: `ListLedgerEntries`
 - **Parameters:**
-   - **Ledger Name**: The name of your confidential ledger instance.
+   - **Ledger name**: The name of your confidential ledger instance.
    - **Collection ID** (optional): The collection ID to which the entries belong.
    - **From Transaction ID** (optional): The starting transaction ID in the range.
    - **To Transaction ID** (optional): The ending transaction ID in the range.
 - **Returns:**
    - **State**: The query state is either **Loading** or **Ready**.
    - **Entries**: A collection of entries within the specified transaction ID range.
-   - **Next Link**: A continuation link to retrieve the remaining entries.
+   - **Next link**: A continuation link to retrieve the remaining entries.
 
 :::image type="content" source="./media/power-automate/get-ledger-id-range.png" alt-text="Screenshot of the Power Automate workflow that shows the ListLedgerEntries action." lightbox="./media/power-automate/get-ledger-id-range.png":::
 
@@ -130,7 +130,7 @@ Get a cryptographic receipt for a transaction by transaction ID.
 
 - **Operation ID**: `GetReceipt`
 - **Parameters:**
-   - **Ledger Name**: The name of your confidential ledger instance.
+   - **Ledger name**: The name of your confidential ledger instance.
    - **Transaction ID**: The transaction ID that corresponds to the receipt.
 - **Returns:**
    - **State**: The query state is either **Loading** or **Ready**.
@@ -149,7 +149,7 @@ Get the status of a transaction by transaction ID.
 
 - **Operation ID**: `GetTransactionStatus`
 - **Parameters:**
-   - **Ledger Name**: The name of your confidential ledger instance.
+   - **Ledger name**: The name of your confidential ledger instance.
    - **Transaction ID**: The transaction ID to check.
 - **Returns:**
   - **State**: Transaction state (**Committed** or **Pending**).
@@ -174,9 +174,9 @@ Create a workflow that:
 
 1. Create a ledger entry action:
 
-   - **Ledger Name**: Use `your-ledger-name` (not the full URL, just the name).
+   - **Ledger name**: Use `your-ledger-name` (not the full URL, just the name).
    - **Collection ID**: Use `audit-logs` (optional: leave empty for default collection).
-   - **Entry Contents**: Use the following command:
+   - **Entry contents**: Use the following command:
 
      ```
      {"content": "entry_data_here"}

@@ -5,21 +5,19 @@ author: pallabpaul
 ms.author: pallabpaul
 ms.date: 10/26/2023
 ms.service: azure-confidential-ledger
-ms.topic: overview
+ms.topic: how-to
 ms.custom: sfi-ropc-nochange, sfi-image-nochange
 ---
 
 # Create a managed application to store blob digests
+
+You can use the Azure Blob Storage digest backed by the Azure confidential ledger managed application to help ensure that the blobs within a blob container are trusted and not tampered with. After the application is connected to a storage account, it tracks all blobs that are added to every container in the storage account in real time. It also calculates and stores the digests in confidential ledger. You can perform audits at any time to check the validity of the blobs and to ensure that the blob container wasn't tampered with.
 
 ## Prerequisites
 
 - An Azure Storage account.
 - The [Azure CLI](/cli/azure/install-azure-cli) (optional).
 - The Python version that's [supported by the Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python#prerequisites) (optional).
-
-## Overview
-
-You can use the Azure Blob Storage digest backed by the Azure confidential ledger managed application to help ensure that the blobs within a blob container are trusted and not tampered with. After the application is connected to a storage account, it tracks all blobs that are added to every container in the storage account in real time. It also calculates and stores the digests in confidential ledger. You can perform audits at any time to check the validity of the blobs and to ensure that the blob container wasn't tampered with.
 
 ## Deploy the managed application
 
