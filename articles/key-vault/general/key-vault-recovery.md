@@ -402,5 +402,5 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 - [Azure Key Vault PowerShell cmdlets](/powershell/module/az.keyvault)
 - [Key Vault Azure CLI commands](/cli/azure/keyvault)
 - [How to enable Key Vault logging](howto-logging.md)
-- [Azure Key Vault security features](security-features.md)
+- [Azure Key Vault security features](secure-key-vault.md)
 - [Azure Key Vault developer's guide](developers-guide.md)
