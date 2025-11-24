@@ -494,11 +494,21 @@
       "source_path_from_root": "/articles/defender-for-cloud/update-regulatory-compliance-packages.yml",
       "redirect_url": "/azure/defender-for-cloud/assign-regulatory-compliance-standards",
       "redirect_document_id": false
-    },      
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/cli-cicd-integration.md",
+      "redirect_url": "/azure/defender-for-cloud/ci-cd-pipeline-scanning-with-defender-cli",
+      "redirect_document_id": false
+    },         
     {
       "source_path_from_root":  "/articles/defender-for-cloud/how-to-transition-to-built-in.yml",
       "redirect_url":  "/azure/defender-for-cloud/transition-to-built-in",
       "redirect_document_id":  false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/sql-information-protection-policy.md",
+      "redirect_url": "/sql/relational-databases/security/sql-data-discovery-and-classification",
+      "redirect_document_id": false
     }
   ]
 }
