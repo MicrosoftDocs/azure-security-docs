@@ -1,5 +1,5 @@
 ---
-title: Data Ingress and Egress from Azure Confidential Ledger by using a Power Automate connector
+title: Data Ingress and Egress from Azure Confidential Ledger by Using a Power Automate Connector
 description: Learn to ingress and egress data from Azure confidential ledger by using a Power Automate connector.
 author: ryazhang
 ms.author: ryazhang
@@ -15,7 +15,7 @@ A Power Automate connector is now available for interacting with Azure confident
 
 ## Prerequisites
 
-- An Azure confidential ledger instance. To create an instance, follow the steps in [Create an Azure confidential ledger instance](./quickstart-portal.md).
+- A confidential ledger instance. To create an instance, follow the steps in [Create an Azure confidential ledger instance](./quickstart-portal.md).
 - A [Power Automate Premium user license](/power-platform/admin/power-automate-licensing/types?tabs=power-automate-premium%2Cpower-automate-process%2Cconnector-types).
 - The [Azure CLI](/cli/azure/install-azure-cli) (optional).
 
@@ -27,19 +27,20 @@ Search for the confidential ledger connector in the Power Automate connectors li
 
 ## Initial setup
 
-Before you create actions in Power Automate, ensure that you have the necessary permissions and access to the onfidential ledger instance. You need to configure authentication and authorization settings to allow Power Automate to interact with your ledger.
+Before you create actions in Power Automate, ensure that you have the necessary permissions and access to the confidential ledger instance. You need to configure authentication and authorization settings to allow Power Automate to interact with your ledger.
 
 Currently, Power Automate supports only Microsoft Entra ID token-based user authentication with confidential ledger.
 
-The connector performs read and write operations by using a user or service principal that has appropriate permission in the ledger. A service principal is identified by a unique object identifier (OID). Use the following command to get the OID. It's used in the following step to grant appropriate permission in the ledger.
+The connector performs read and write operations by using a user or service principal that has appropriate permission in the ledger. A unique object identifier (OID) identifies the service principal. Use the following command to get the OID. It's used in the following step to grant appropriate permission in the ledger.
 
 ```bash
 az ad user show --id user@example.com --query id --output tsv
 ```
 
-Depending on the workflow requirement, assign either a Reader or Contributor role to the service principal in the ledger. Follow these steps to assign a role.
+Depending on the workflow requirement, assign either a Reader or Contributor role to the service principal in the ledger. To assign a role, follow the next steps.
 
 To validate change, go to the Azure portal. Select the confidential ledger instance, and then select **Operations** > **Manage users (preview)**.
+
 :::image type="content" source="./media/power-automate/role-assignment.png" alt-text="Screenshot of the Role Assignments tab for Azure confidential ledger." lightbox="./media/power-automate/role-assignment.png":::
 
 ## Use a confidential ledger connector in a workflow
@@ -62,122 +63,99 @@ The confidential ledger connector supports the following actions.
 
 Write a ledger entry.
 
-**Operation ID**: `CreateLedgerEntry`
+- **Operation ID**: `CreateLedgerEntry`
+- **Parameters:**
+   - **Ledger Name**: The name of your confidential ledger instance.
+   - **Collection ID** (optional): The collection where you want to add the entry.
+   - **Entry Contents**: The data to be stored in the ledger entry (string format).
+- **Returns:**
+   - **Collection ID**: The collection where the entry was stored.
+   - **Transaction ID**: Unique identifier for the transaction (returned in the response header `x-ms-ccf-transaction-id`).
 
-**Parameters:**
-
-- **Ledger Name**: The name of your confidential ledger instance.
-- **Collection ID** (optional): The collection where you want to add the entry.
-- **Entry Contents**: The data to be stored in the ledger entry (string format).
-
-**Returns:**
-
-- **Collection ID**: The collection where the entry was stored.
-- **Transaction ID**: Unique identifier for the transaction (returned in the response header `x-ms-ccf-transaction-id`).
-:::image type="content" source="./media/power-automate/write-ledger-entry.png" alt-text="Screenshot of the Power Automate workflow that shows the Write ledger entry action." lightbox="./media/power-automate/write-ledger-entry.png":::
+:::image type="content" source="./media/power-automate/write-ledger-entry.png" alt-text="Screenshot of the Power Automate workflow that shows the CreateLedgerEntry action." lightbox="./media/power-automate/write-ledger-entry.png":::
 
 ### Get a ledger entry
 
 Get a ledger entry by its transaction ID.
 
-**Operation ID**: `GetLedgerEntry`
+- **Operation ID**: `GetLedgerEntry`
+- **Parameters:**
+   - **Ledger Name**: The name of your confidential ledger instance.
+   - **Transaction ID**: The transaction ID of the entry to retrieve.
+   - **Collection ID** (optional): The collection ID from which to fetch the value.
+- **Returns:**
+   - **State**: The query state is either **Loading** or **Ready**.
+   - **Entry**: The ledger entry data (available only if the state is **Ready**).
+     - **Contents**: Contents of the ledger entry.
+     - **Collection ID**: The collection ID to which the entries belong.
+     - **Transaction ID**: The transaction ID.
 
-**Parameters:**
-
-- **Ledger Name**: The name of your confidential ledger instance.
-- **Transaction ID**: The transaction ID of the entry to retrieve.
-- **Collection ID** (optional): The collection ID from which to fetch the value.
-
-**Returns:**
-
-- **State**: The query state is either **Loading** or **Ready**.
-- **Entry**: The ledger entry data (available only if the state is **Ready**).
-  - **Contents**: Contents of the ledger entry.
-  - **Collection ID**: The collection ID to which the entries belong.
-  - **Transaction ID**: The transaction ID.
-
-:::image type="content" source="./media/power-automate/get-ledger-entry-by-transaction-id.png" alt-text="Screenshot of the Power Automate workflow that shows the Get Ledger Entry by Transaction ID action." lightbox="./media/power-automate/get-ledger-entry-by-transaction-id.png":::
+:::image type="content" source="./media/power-automate/get-ledger-entry-by-transaction-id.png" alt-text="Screenshot of the Power Automate workflow that shows the GetLedgerEntry action." lightbox="./media/power-automate/get-ledger-entry-by-transaction-id.png":::
 
 ### Get the current ledger entry
 
 Get the most recent ledger entry from a collection.
 
-**Operation ID**: `GetCurrentLedgerEntry`
+- **Operation ID**: `GetCurrentLedgerEntry`
+- **Parameters:**
+   - **Ledger Name**: The name of your confidential ledger instance.
+   - **Collection ID** (optional): The collection ID that corresponds to the entry.
+- **Returns:**
+   - **Contents**: Contents of the most recent ledger entry.
+   - **Collection ID**: The collection ID to which the entries belong.
+   - **Transaction ID**: The transaction ID of the current entry.
 
-**Parameters:**
-
-- **Ledger Name**: The name of your confidential ledger instance.
-- **Collection ID** (optional): The collection ID that corresponds to the entry.
-
-**Returns:**
-
-- **Contents**: Contents of the most recent ledger entry.
-- **Collection ID**: The collection ID to which the entries belong.
-- **Transaction ID**: The transaction ID of the current entry.
-
-:::image type="content" source="./media/power-automate/get-current-ledger-entry.png" alt-text="Screenshot of the Power Automate workflow that shows the Get Current Ledger Entry action." lightbox="./media/power-automate/get-current-ledger-entry.png":::
+:::image type="content" source="./media/power-automate/get-current-ledger-entry.png" alt-text="Screenshot of the Power Automate workflow that shows the GetCurrentLedgerEntry action." lightbox="./media/power-automate/get-current-ledger-entry.png":::
 
 ### List ledger entries
 
 Get ledger entries by collection and range.
 
-**Operation ID**: `ListLedgerEntries`
+- **Operation ID**: `ListLedgerEntries`
+- **Parameters:**
+   - **Ledger Name**: The name of your confidential ledger instance.
+   - **Collection ID** (optional): The collection ID to which the entries belong.
+   - **From Transaction ID** (optional): The starting transaction ID in the range.
+   - **To Transaction ID** (optional): The ending transaction ID in the range.
+- **Returns:**
+   - **State**: The query state is either **Loading** or **Ready**.
+   - **Entries**: A collection of entries within the specified transaction ID range.
+   - **Next Link**: A continuation link to retrieve the remaining entries.
 
-**Parameters:**
-
-- **Ledger Name**: The name of your confidential ledger instance.
-- **Collection ID** (optional): The collection ID to which the entries belong.
-- **From Transaction ID** (optional): Starting transaction ID in the range.
-- **To Transaction ID** (optional): Ending transaction ID in the range.
-
-**Returns:**
-
-- **State**: The query state is either **Loading** or **Ready**.
-- **Entries**: A collection of entries within the specified Transaction ID range.
-- **Next Link**: A continuation link to retrieve the remaining entries.
-
-:::image type="content" source="./media/power-automate/get-ledger-id-range.png" alt-text="Screenshot of the Power Automate workflow that shows the Get Ledger ID Range action." lightbox="./media/power-automate/get-ledger-id-range.png":::
+:::image type="content" source="./media/power-automate/get-ledger-id-range.png" alt-text="Screenshot of the Power Automate workflow that shows the ListLedgerEntries action." lightbox="./media/power-automate/get-ledger-id-range.png":::
 
 ### Get a receipt
 
 Get a cryptographic receipt for a transaction by transaction ID.
 
-**Operation ID**: `GetReceipt`
+- **Operation ID**: `GetReceipt`
+- **Parameters:**
+   - **Ledger Name**: The name of your confidential ledger instance.
+   - **Transaction ID**: The transaction ID that corresponds to the receipt.
+- **Returns:**
+   - **State**: The query state is either **Loading** or **Ready**.
+   - **Transaction ID**: The transaction ID.
+   - **Receipt**: A cryptographic receipt containing:
+     - **Node ID**: Identifier of the node that processed the transaction.
+     - **Signature**: Digital signature.
+     - **Proof**: Cryptographic proof elements.
+     - **Certificate**: Node certificate.
 
-**Parameters:**
-
-- **Ledger Name**: The name of your confidential ledger instance.
-- **Transaction ID**: Transaction ID that corresponds to the receipt.
-
-**Returns:**
-
-- **State**: The query state is either **Loading** or **Ready**.
-- **Transaction ID**: The transaction ID.
-- **Receipt**: Cryptographic receipt containing:
-  - **Node ID**: Identifier of the node that processed the transaction.
-  - **Signature**: Digital signature.
-  - **Proof**: Cryptographic proof elements.
-  - **Certificate**: Node certificate.
-
-:::image type="content" source="./media/power-automate/get-ledger-receipt.png" alt-text="Screenshot of the Power Automate workflow that shows the Get Receipt action." lightbox="./media/power-automate/get-ledger-receipt.png":::
+:::image type="content" source="./media/power-automate/get-ledger-receipt.png" alt-text="Screenshot of the Power Automate workflow that shows the GetReceipt action." lightbox="./media/power-automate/get-ledger-receipt.png":::
 
 ### Get the transaction status
 
 Get the status of a transaction by transaction ID.
 
-**Operation ID**: `GetTransactionStatus`
+- **Operation ID**: `GetTransactionStatus`
+- **Parameters:**
+   - **Ledger Name**: The name of your confidential ledger instance.
+   - **Transaction ID**: The transaction ID to check.
+- **Returns:**
+  - **State**: Transaction state (**Committed** or **Pending**).
+   - **Transaction ID**: The transaction ID.
 
-**Parameters:**
-
-- **Ledger Name**: The name of your confidential ledger instance.
-- **Transaction ID**: The transaction ID to check.
-
-**Returns:**
-
-- **State**: Transaction state (**Committed** or **Pending**).
-- **Transaction ID**: The transaction ID.
-
-:::image type="content" source="./media/power-automate/get-ledger-transaction-status.png" alt-text="Screenshot of the Power Automate workflow that shows the Get Transaction Status action." lightbox="./media/power-automate/get-ledger-transaction-status.png":::
+:::image type="content" source="./media/power-automate/get-ledger-transaction-status.png" alt-text="Screenshot of the Power Automate workflow that shows the GetTransactionStatus action." lightbox="./media/power-automate/get-ledger-transaction-status.png":::
 
 ## Example workflow: Add an entry and store the transaction ID
 
@@ -192,27 +170,30 @@ Create a workflow that:
 
 ### Workflow steps
 
-1. **Trigger**: Choose your preferred trigger (manual, scheduled, or event-based).
+1. Choose your preferred trigger (manual, scheduled, or event-based).
 
-2. **Create ledger entry action**:
-   - **Ledger Name**: `your-ledger-name` (not the full URL, just the name).
-   - **Collection ID**: `audit-logs` (optional: leave empty for default collection).
-   - **Entry Contents**:
+1. Create a ledger entry action:
+
+   - **Ledger Name**: Use `your-ledger-name` (not the full URL, just the name).
+   - **Collection ID**: Use `audit-logs` (optional: leave empty for default collection).
+   - **Entry Contents**: Use the following command:
 
      ```
      {"content": "entry_data_here"}
      ```
 
-3. **Parse JSON action** (to extract transaction ID from headers):
+1. Parse the JSON action (to extract transaction ID from headers):
+
    - Use `outputs('Create_Ledger_Entry')['headers']['x-ms-ccf-transaction-id']` to get the transaction ID.
 
-:::image type="content" source="./media/power-automate/power-automate-example-1.png" alt-text="Screenshot of the Power Automate workflow that shows the Create ledger entry action." lightbox="./media/power-automate/power-automate-example-1.png":::
+   :::image type="content" source="./media/power-automate/power-automate-example-1.png" alt-text="Screenshot of the Power Automate workflow that shows the Create ledger entry action." lightbox="./media/power-automate/power-automate-example-1.png":::
 
-4. **Store in Cosmos DB action**:
+1. Store in the Azure Cosmos DB action:
+
    - Use the parsed transaction ID from the previous step.
    - Store it along with relevant metadata for future reference.
-   - For detailed information about the Cosmos DB connector, see [Azure Cosmos DB connector documentation](/connectors/documentdb/).
-:::image type="content" source="./media/power-automate/power-automate-example-2.png" alt-text="Screenshot of the Power Automate workflow that shows the Cosmos DB action." lightbox="./media/power-automate/power-automate-example-2.png":::
+   - For detailed information about the Azure Cosmos DB connector, see [Azure Cosmos DB connector documentation](/connectors/documentdb/).
+:::image type="content" source="./media/power-automate/power-automate-example-2.png" alt-text="Screenshot of the Power Automate workflow that shows the Azure Cosmos DB action." lightbox="./media/power-automate/power-automate-example-2.png":::
 
 ### Example entry content formats
 

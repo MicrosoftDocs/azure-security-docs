@@ -28,7 +28,7 @@ For more information, you can learn about [protecting data source integrity with
 
 ## What to store
 
-Here are a few examples of things you can store on your ledger:
+Here are a few examples of things you can store in your confidential ledger instance:
 
 - Records relating to your business transactions (for example, money transfers or confidential document edits).
 - Updates to trusted assets (for example, core applications or contracts).
@@ -39,7 +39,7 @@ Here are a few examples of things you can store on your ledger:
 
 - I have *relational data* that requires end to end data integrity guarantees: Store your data in the [Azure SQL Database ledger feature](/sql/relational-databases/security/ledger/ledger-overview) and turn on confidential ledger as your Trusted Digest store.
 - I have *blob data* that needs end to end integrity: Store your data in Azure Blob Storage and configure the [Azure Marketplace application backed by confidential ledger](https://azuremarketplace.microsoft.com/marketplace/apps/azureconfidentialledger.acl-blob-storage?tab=Overview) to [store signatures and verify against](/azure/confidential-ledger/create-blob-managed-app?tabs=azure-portal).
-- I have *system records* that need integrity protection with verifiability: Store your records in confidential ledger directly. For instance, have all your development records go to one ledger instance and have your production logs go to another instance. When you want to audit, only selectively share ledger transactions with the auditor.
+- I have *system records* that need integrity protection with verifiability: Store your records in confidential ledger directly. For example, have all your development records go to one confidential ledger instance and have your production logs go to another instance. When you want to audit, only selectively share confidential ledger transactions with the auditor.
 - I have *confidential transactional data* that needs confidentiality and integrity protection: Store your critical confidential data's application records in confidential ledger directly.
 
 ## Enable data integrity for data sources
@@ -52,7 +52,7 @@ SQL databases and storage systems are foundational to enterprise data architectu
 
 Confidential ledger runs exclusively on hardware-backed secure enclaves. This heavily monitored and isolated runtime environment keeps potential attacks at bay. Confidential ledger also runs on a minimalistic Trusted Computing Base (TCB). The TCB ensures that no one⁠, not even Microsoft⁠, is "above" the ledger.
 
-As the name suggests, the confidential ledger service uses the [Azure confidential computing platform](/azure/confidential-computing) and the [Confidential Consortium Framework](https://www.microsoft.com/research/project/confidential-consortium-framework) to provide a high-integrity solution that's tamper protected and tamper evident. One ledger spans across three or more identical instances. Each instance runs in a dedicated, fully attested hardware-backed enclave. The ledger's integrity is maintained through a consensus-based blockchain.
+As the name suggests, the confidential ledger service uses the [Azure confidential computing platform](/azure/confidential-computing) and the [Confidential Consortium Framework](https://www.microsoft.com/research/project/confidential-consortium-framework) to provide a high-integrity solution that's tamper protected and tamper evident. One ledger spans across three or more identical instances. Each instance runs in a dedicated, fully attested hardware-backed enclave. The integrity of the confidential ledger instance is maintained through a consensus-based blockchain.
 
 ## Key features
 
@@ -60,9 +60,9 @@ Confidential ledger exposes a REST interface, which makes it easier to integrate
 
 Confidential ledger supports collection ID for easy data management. Grouping data by using collection IDs is a great way to manage and query data efficiently. It allows for easy identification and retrieval of specific datasets. This method can significantly enhance data organization and make operations like searching and updating more streamlined.
 
-Each transaction on the ledger has an associated receipt that records the Merkle tree data structure, which is used to [verify the transaction's integrity](/azure/confidential-ledger/verify-write-transaction-receipts). Read more about how you can [verify transaction receipts](/azure/confidential-ledger/write-transaction-receipts).
+Each transaction on the confidential ledger instance has an associated receipt that records the Merkle tree data structure, which is used to [verify the transaction's integrity](/azure/confidential-ledger/verify-write-transaction-receipts). Read more about how you can [verify transaction receipts](/azure/confidential-ledger/write-transaction-receipts).
 
-## Data storage on confidential ledger
+## Data storage in confidential ledger
 
 Confidential ledger data is written in blocks that are chained together and stored in Azure-backed file storage. Transaction data can either be stored encrypted (for example, private ledger type) or in plain text (for example, public ledger type) depending on your needs.
 
@@ -78,13 +78,13 @@ Applications are encouraged to verify the authenticity of the ledger nodes by [a
 
 ## Resiliency and business continuity
 
-Confidential ledger nodes are deployed across Azure availability zones to provide resiliency. The network can self-heal during zone-wide outages. To ensure business continuity, the ledger files are automatically replicated to a secondary storage account periodically. When a disaster happens, these files are used for recovery. Continuous monitoring is used to observe and automatically initiate recovery processes when the instance's health falls below a specified threshold.
+Confidential ledger nodes are deployed across Azure availability zones to provide resiliency. The network can self-heal during zone-wide outages. To ensure business continuity, the files in the confidential ledger instance are automatically replicated to a secondary storage account periodically. When a disaster happens, these files are used for recovery. Continuous monitoring is used to observe and automatically initiate recovery processes when the health of the confidential instance falls below a specified threshold.
 
 Data is automatically replicated to Azure regional pairs for disaster recovery. For information about data residency considerations, see [Data residency for Azure confidential ledger](data-residency.md).
 
 ## Constraints
 
-- After a confidential ledger is created, you can't change the ledger type (private or public).
+- After a confidential ledger instance is created, you can't change the ledger type (private or public).
 - Confidential ledger deletion leads to a "hard delete," so your data can't be recovered after deletion.
 - Confidential ledger names must be globally unique. Ledgers with the same name aren't allowed, no matter their type.
 
@@ -94,8 +94,8 @@ Data is automatically replicated to Azure regional pairs for disaster recovery. 
 |--|--|
 | ACL | Azure confidential ledger. |
 | Ledger | An immutable append-only record of transactions (also known as a blockchain). |
-| Commit | A confirmation that a transaction was appended to the ledger. |
-| Receipt | Proof that the ledger processed a transaction. |
+| Commit | A confirmation that a transaction was appended to the confidential ledger instance. |
+| Receipt | Proof that the confidential ledger instance processed a transaction. |
 
 ## Related content
 

@@ -37,7 +37,7 @@ After the required fields are filled and the application is deployed, the follow
 
 ## Connect a storage account to the managed application
 
-After the managed application is successfully deployed, you can connect it to an Azure Storage account to enable the processing and recording of Blob Container digests into confidential ledger.
+After the managed application is successfully deployed, you can connect it to an Azure Storage account to enable the processing and recording of blob container digests into confidential ledger.
 
 The managed application currently supports the following types of storage accounts:
 
@@ -157,7 +157,7 @@ You can select a few digest settings when you create the managed application:
 - **Hash Contents**: Select **File Contents + Metadata** or **File Contents** to identify the value of each blob and what is hashed when each digest is created.
 - **Digest Size**: Select the number of blobs that are contained within each digest. The digest size ranges from **1** to **16** and is the number of blobs that are hashed together within each block.
 
-### View the digest on confidential ledger
+### View the digest in confidential ledger
 
 You can view the digests that are stored directly in confidential ledger by going to the **Ledger explorer** pane.
 
