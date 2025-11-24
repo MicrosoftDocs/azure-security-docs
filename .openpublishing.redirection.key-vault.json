@@ -1,6 +1,21 @@
 {
   "redirections": [
   {
+      "source_path_from_root": "/articles/key-vault/secrets/secrets-best-practices.md",
+      "redirect_url": "/azure/key-vault/secrets/secure-secrets",
+      "redirect_document_id": false
+    },
+  {
+      "source_path_from_root": "/articles/key-vault/general/best-practices.md",
+      "redirect_url": "/azure/key-vault/general/secure-key-vault",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/general/security-features.md",
+      "redirect_url": "/azure/key-vault/general/secure-key-vault",
+      "redirect_document_id": false
+    },
+  {
       "source_path_from_root": "/articles/key-vault/general/soft-delete-change.md",
       "redirect_url": "/azure/key-vault/general/soft-delete-overview",
       "redirect_document_id": false
@@ -131,21 +146,6 @@
     "redirect_document_id": false
   },
   {
-    "source_path_from_root": "/articles/key-vault/general/secure-your-key-vault.md",
-    "redirect_url": "/azure/key-vault/general/security-features",
-    "redirect_document_id": false
-  },
-  {
-    "source_path_from_root": "/articles/key-vault/general/security-overview.md",
-    "redirect_url": "/azure/key-vault/general/security-features",
-    "redirect_document_id": false
-  },
-  {
-    "source_path_from_root": "/articles/key-vault/general/security-recommendations.md",
-    "redirect_url": "/azure/key-vault/general/security-features",
-    "redirect_document_id": false
-  },
-  {
     "source_path_from_root": "/articles/key-vault/general/service-to-service-authentication.md",
     "redirect_url": "/dotnet/api/overview/azure/service-to-service-authentication",
     "redirect_document_id": false
@@ -193,11 +193,6 @@
   {
     "source_path_from_root": "/articles/key-vault/key-vault-access-behind-firewall.md",
     "redirect_url": "/azure/key-vault/general/access-behind-firewall",
-    "redirect_document_id": false
-  },
-  {
-    "source_path_from_root": "/articles/key-vault/key-vault-best-practices.md",
-    "redirect_url": "/azure/key-vault/general/security-features",
     "redirect_document_id": false
   },
   {
@@ -296,11 +291,6 @@
     "redirect_document_id": false
   },
   {
-    "source_path_from_root": "/articles/key-vault/key-vault-secure-your-key-vault.md",
-    "redirect_url": "/azure/key-vault/general/security-features",
-    "redirect_document_id": false
-  },
-  {
     "source_path_from_root": "/articles/key-vault/key-vault-security-controls.md",
     "redirect_url": "/azure/key-vault/general/security-baseline",
     "redirect_document_id": false
@@ -358,11 +348,6 @@
   {
     "source_path_from_root": "/articles/key-vault/managed-identity.md",
     "redirect_url": "/azure/key-vault/general/assign-access-policy-portal",
-    "redirect_document_id": false
-  },
-  {
-    "source_path_from_root": "/articles/key-vault/overview-security.md",
-    "redirect_url": "/azure/key-vault/general/security-features",
     "redirect_document_id": false
   },
   {
@@ -450,11 +435,7 @@
     "redirect_url": "/azure/key-vault/general/security-baseline",
     "redirect_document_id": false
   },
-  {
-    "source_path_from_root": "/articles/key-vault/security-recommendations.md",
-    "redirect_url": "/azure/key-vault/general/security-features",
-    "redirect_document_id": false
-  },
+
   {
     "source_path_from_root": "/articles/key-vault/service-to-service-authentication.md",
     "redirect_url": "/dotnet/api/overview/azure/service-to-service-authentication",
