@@ -39,10 +39,10 @@ After the managed application is successfully deployed, you can connect it to an
 
 The managed application currently supports the following types of storage accounts:
 
-- **Standard General-Purpose v2 storage accounts**, including the accounts configured for hot, cool, or archive tiers.
-- **Azure Data Lake Storage Gen2 accounts**, with **Hierarchical Namespace** enabled.
-- **Storage accounts with either public or private endpoint configurations** if appropriate network and identity permissions are granted.
-- **Standard or Premium performance tiers** if **Blob service** is enabled.
+- Standard General-Purpose v2 storage accounts, including the accounts configured for hot, cool, or archive tiers.
+- Azure Data Lake Storage Gen2 accounts, with **Hierarchical Namespace** enabled.
+- Storage accounts with either public or private endpoint configurations if appropriate network and identity permissions are granted.
+- Standard or Premium performance tiers if **Blob service** is enabled.
 
 Only Blob Storage is supported. Other services (for example, Azure Files, Table Storage, or Queue Storage) aren't applicable for use with the managed application.
 
@@ -151,9 +151,9 @@ The block table holds information related to every digest that was created for t
 
 You can select a few digest settings when you create the managed application:
 
-- **Hashing Algorithm**: Select **MD5** or **SHA256** for the algorithm that's used to create the digests.
-- **Hash Contents**: Select **File Contents + Metadata** or **File Contents** to identify the value of each blob and what is hashed when each digest is created.
-- **Digest Size**: Select the number of blobs that are contained within each digest. The digest size ranges from **1** to **16** and is the number of blobs that are hashed together within each block.
+- **Hashing algorithm**: Select **MD5** or **SHA256** for the algorithm that's used to create the digests.
+- **Hash contents**: Select **File Contents + Metadata** or **File Contents** to identify the value of each blob and what is hashed when each digest is created.
+- **Digest size**: Select the number of blobs that are contained within each digest. The digest size ranges from **1** to **16** and is the number of blobs that are hashed together within each block.
 
 ### View the digest in confidential ledger
 

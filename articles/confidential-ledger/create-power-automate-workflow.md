@@ -115,8 +115,8 @@ Get ledger entries by collection and range.
 - **Parameters:**
    - **Ledger name**: The name of your confidential ledger instance.
    - **Collection ID** (optional): The collection ID to which the entries belong.
-   - **From Transaction ID** (optional): The starting transaction ID in the range.
-   - **To Transaction ID** (optional): The ending transaction ID in the range.
+   - **From transaction ID** (optional): The starting transaction ID in the range.
+   - **To transaction ID** (optional): The ending transaction ID in the range.
 - **Returns:**
    - **State**: The query state is either **Loading** or **Ready**.
    - **Entries**: A collection of entries within the specified transaction ID range.
