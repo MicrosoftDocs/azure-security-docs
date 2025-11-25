@@ -263,7 +263,7 @@
     {
       "source_path_from_root": "/articles/defender-for-cloud/features-paas.md",
       "redirect_url": "/azure/defender-for-cloud/support-matrix-defender-for-cloud",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/defender-for-cloud/supported-machines-endpoint-solutions-clouds-containers.md",
@@ -432,8 +432,8 @@
     },
     {
       "source_path_from_root": "/articles/defender-for-cloud/multicloud-resource-types-support-foundational-cspm.md",
-      "redirect_url": "/azure/defender-for-cloud/support-matrix-cloud-environment",
-      "redirect_document_id": true
+      "redirect_url": "/azure/defender-for-cloud/support-matrix-defender-for-cloud",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/defender-for-cloud/defender-for-kubernetes-introduction.md",
@@ -501,13 +501,28 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/defender-for-cloud/secure-score-access-and-track.md",
+      "redirect_url": "/azure/defender-for-cloud/secure-score-security-controls",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/defender-for-cloud/cli-cicd-integration.md",
       "redirect_url": "/azure/defender-for-cloud/ci-cd-pipeline-scanning-with-defender-cli",
       "redirect_document_id": false
-    },         
+    },
     {
-      "source_path_from_root":  "/articles/defender-for-cloud/how-to-transition-to-built-in.yml",
-      "redirect_url":  "/azure/defender-for-cloud/transition-to-built-in",
+      "source_path_from_root": "/articles/defender-for-cloud/how-to-transition-to-built-in.yml",
+      "redirect_url": "/azure/defender-for-cloud/transition-to-built-in",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/support-matrix-cloud-environment.md",
+      "redirect_url": "/azure/defender-for-cloud/support-matrix-defender-for-cloud",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/overview-page.md",
+      "redirect_url": "/azure/defender-for-cloud/cloud-infrastructure-dashboard",
       "redirect_document_id":  false
     },
     {
