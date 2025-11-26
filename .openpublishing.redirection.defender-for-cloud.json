@@ -499,7 +499,7 @@
       "source_path_from_root": "/articles/defender-for-cloud/update-regulatory-compliance-packages.yml",
       "redirect_url": "/azure/defender-for-cloud/assign-regulatory-compliance-standards",
       "redirect_document_id": false
-    },
+    },      
     {
       "source_path_from_root": "/articles/defender-for-cloud/secure-score-access-and-track.md",
       "redirect_url": "/azure/defender-for-cloud/secure-score-security-controls",
@@ -523,6 +523,16 @@
     {
       "source_path_from_root": "/articles/defender-for-cloud/overview-page.md",
       "redirect_url": "/azure/defender-for-cloud/cloud-infrastructure-dashboard",
+      "redirect_document_id":  false
+    },
+    {
+      "source_path_from_root":  "/articles/defender-for-cloud/gated-deployment-introduction.md",
+      "redirect_url":  "/azure/defender-for-cloud/runtime-gated-overview",
+      "redirect_document_id":  false
+    },
+    {
+      "source_path_from_root":  "/articles/defender-for-cloud/enable-gated-deployment.md",
+      "redirect_url":  "/azure/defender-for-cloud/enablement-guide-runtime-gated",
       "redirect_document_id":  false
     },
     {
