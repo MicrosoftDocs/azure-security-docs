@@ -28,16 +28,14 @@ The ramifications of this change are as follows:
  
 - **Existing key vaults that do not have an access control model set**: Existing key vaults that do not have an access control model explicitly set (that is, currently have no value for `enableRbacAuthorization`) will have the `enableRbacAuthorization` property set to `true` the next time any change is made to the key vault's configuration using API version 2026-02-01 or later.
  
-We strongly recommend that key vaults currently using access policies migrate to Azure RBAC for improved security. All API versions prior to 2026-02-01 will be retired on February 27, 2027.
-
-If you're currently using access policies (legacy), we strongly encourage you to migrate to Azure RBAC before using the latest version of the API. For more information on why we recommend Azure RBAC, see [Azure role-based access control (Azure RBAC) vs. access policies](rbac-access-policy.md). 
+We strongly recommend that key vaults currently using access policies migrate to Azure RBAC for improved security.  For more information on why we recommend Azure RBAC, see [Azure role-based access control (Azure RBAC) vs. access policies](rbac-access-policy.md). 
 
 If you decide not to migrate to Azure RBAC, for new key vaults you must explicitly set your Access Configuration to use vault access policy before upgrading to API version 2026-02-01.
 
 Follow the steps below to check your current configuration and either migrate to Azure RBAC (recommended) or continue using access policies (legacy).
 
 > [!WARNING]
-> Complete these steps by February 27, 2027 to avoid service disruption.
+> All API versions prior to 2026-02-01 will be retired on February 27, 2027. Complete these steps by that date to avoid service disruption.
 
 ## Step 1: Check current configurations
 
@@ -186,10 +184,33 @@ Update all Key Vault ARM, BICEP, Terraform templates, and REST API calls to use 
 
 ## Step 5: Continue using access policies
 
-To continue using access policies, follow the instructions in this section. Choose one of the following methods based on how you create your key vaults:
-- [Using ARM, BICEP, Terraform templates](#using-arm-bicep-terraform-templates)
-- [Using Create Key Vault commands](#using-create-key-vault-commands)
-- [Using Create Resource commands](#using-create-resource-commands)
+To continue using access policies, follow the instructions in this section. Choose one of the following methods based on your scenario:
+- [For existing vaults with undefined access configuration](#for-existing-vaults-with-undefined-access-configuration) - Update existing vaults to explicitly use access policies
+- [Using ARM, BICEP, Terraform templates](#using-arm-bicep-terraform-templates) - For creating new vaults or updating existing vaults
+- [Using Create Key Vault commands](#using-create-key-vault-commands) - For creating new vaults
+- [Using Create Resource commands](#using-create-resource-commands) - For creating new vaults
+
+#### For existing vaults with undefined access configuration
+
+If your vault currently has no value for `enableRbacAuthorization` and you want to continue using access policies, explicitly set the property to `false` before upgrading to API version 2026-02-01.
+
+# [Azure CLI](#tab/azure-cli)
+
+Use the [az keyvault update](/cli/azure/keyvault#az-keyvault-update) command and set `--enable-rbac-authorization false`:
+
+```azurecli
+az keyvault update --name <KeyVaultName> --resource-group <ResourceGroupName> --enable-rbac-authorization false
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+Use the [Update-AzKeyVault](/powershell/module/az.keyvault/update-azkeyvault) cmdlet and set `-EnableRbacAuthorization $false`:
+
+```azurepowershell
+Update-AzKeyVault -ResourceGroupName <ResourceGroupName> -VaultName <KeyVaultName> -EnableRbacAuthorization $false
+```
+
+---
 
 #### Using ARM, BICEP, Terraform templates
 
