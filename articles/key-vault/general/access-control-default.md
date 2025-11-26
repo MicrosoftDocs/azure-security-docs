@@ -186,9 +186,9 @@ Update all Key Vault ARM, BICEP, Terraform templates, and REST API calls to use 
 
 To continue using access policies, follow the instructions in this section. Choose one of the following methods based on your scenario:
 - [For existing vaults with undefined access configuration](#for-existing-vaults-with-undefined-access-configuration) - Update existing vaults to explicitly use access policies
-- [Using ARM, BICEP, Terraform templates](#using-arm-bicep-terraform-templates) - For creating new vaults or updating existing vaults
-- [Using Create Key Vault commands](#using-create-key-vault-commands) - For creating new vaults
-- [Using Create Resource commands](#using-create-resource-commands) - For creating new vaults
+- [Using ARM, BICEP, Terraform templates](#using-arm-bicep-terraform-templates) - Create new vaults or update existing vaults to explicitly use access policies
+- [Using Create Key Vault commands](#using-create-key-vault-commands) - Create new vaults to explicitly use access policies
+- [Using Create Resource commands](#using-create-resource-commands) - Create new vaults to explicitly use access policies
 
 #### For existing vaults with undefined access configuration
 
