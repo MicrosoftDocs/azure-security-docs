@@ -16,26 +16,26 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, sfi-image-nochange
 # Prepare for Key Vault API version 2026-02-01: Azure RBAC as default access control
 
 > [!IMPORTANT]
-> Starting February 2026, Azure Key Vault API version 2026-02-01 will establish Azure RBAC as the default access control model. This is potentially a **breaking change** for existing key vault that do not have the `enableRbacAuthorization` property set to either `true` or `false`.
+> Starting February 2026, Azure Key Vault API version 2026-02-01 establishes Azure RBAC as the default access control model. This change might be a **breaking change** for existing key vaults with an undefined `enableRbacAuthorization` property.
 
 Azure Key Vault is implementing an important security enhancement in API version 2026-02-01, releasing in February 2026. To help protect your key vaults and reduce security risks, **the new Key Vault API version establishes Azure RBAC as the default access control model**, consistent with the Azure portal experience.
 
 The ramifications of this change are as follows:
 
-- **New key vaults**: New key vaults created with this API version will have the access control model set to Azure RBAC unless you explicitly configure access policies.
+- **New key vaults**: New key vaults created with this API version have the access control model set to Azure RBAC unless you explicitly configure access policies.
  
-- **Existing key vaults that have an access control model set**: Existing key vaults that are explicitly set to either Azure RBAC or access policies will continue using their current access control model.
+- **Existing key vaults that have an access control model set**: Existing key vaults that are explicitly set to either Azure RBAC or access policies continue using their current access control model.
  
-- **Existing key vaults that do not have an access control model set**: Existing key vaults that do not have an access control model explicitly set (that is, currently have no value for `enableRbacAuthorization`) will have the `enableRbacAuthorization` property set to `true` the next time any change is made to the key vault's configuration using API version 2026-02-01 or later.
+- **Existing key vaults that don't have an access control model set**: Existing key vaults that don't have an access control model explicitly set (that is, currently have no value for `enableRbacAuthorization`) have the `enableRbacAuthorization` property set to `true` the next time you make any change to the key vault's configuration by using API version 2026-02-01 or later.
  
 We strongly recommend that key vaults currently using access policies migrate to Azure RBAC for improved security.  For more information on why we recommend Azure RBAC, see [Azure role-based access control (Azure RBAC) vs. access policies](rbac-access-policy.md). 
 
 If you decide not to migrate to Azure RBAC, for new key vaults you must explicitly set your Access Configuration to use vault access policy before upgrading to API version 2026-02-01.
 
-Follow the steps below to check your current configuration and either migrate to Azure RBAC (recommended) or continue using access policies (legacy).
+Follow the steps in the following section to check your current configuration and either migrate to Azure RBAC (recommended) or continue using access policies (legacy).
 
 > [!WARNING]
-> All API versions prior to 2026-02-01 will be retired on February 27, 2027. Complete these steps by that date to avoid service disruption.
+> All API versions before 2026-02-01 retire on February 27, 2027. Complete these steps by that date to avoid service disruption.
 
 ## Step 1: Check current configurations
 
@@ -160,7 +160,7 @@ az keyvault list --query "[].{name:name, rbacEnabled:properties.enableRbacAuthor
    }
    ```
 
-1. Call function `Get-KeyVaultsFromSubscription` to see which vaults in the Subscription have access policies vs Azure RBAC enabled. Depending on the number of vaults in your subscription, the function might take more than 10 minutes to run.
+1. Call function `Get-KeyVaultsFromSubscription` to see which vaults in the subscription have access policies versus Azure RBAC enabled. Depending on the number of vaults in your subscription, the function might take more than 10 minutes to run.
 
 ---
 
@@ -186,7 +186,7 @@ Update all Key Vault ARM, BICEP, Terraform templates, and REST API calls to use 
 
 To continue using access policies, follow the instructions in this section. Choose one of the following methods based on your scenario:
 - [For existing vaults with undefined access configuration](#for-existing-vaults-with-undefined-access-configuration) - Update existing vaults to explicitly use access policies
-- [Using ARM, BICEP, Terraform templates](#using-arm-bicep-terraform-templates) - Create new vaults or update existing vaults to explicitly use access policies
+- [Using ARM, BICEP, Terraform templates](#using-arm-bicep-terraform-terraform-templates) - Create new vaults or update existing vaults to explicitly use access policies
 - [Using Create Key Vault commands](#using-create-key-vault-commands) - Create new vaults to explicitly use access policies
 - [Using Create Resource commands](#using-create-resource-commands) - Create new vaults to explicitly use access policies
 
