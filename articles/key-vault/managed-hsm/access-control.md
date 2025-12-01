@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: concept-article
-ms.date: 04/15/2025
+ms.date: 11/19/2025
 ms.author: mbaldwin
 ms.custom: sfi-ga-nochange
 # Customer intent: As the admin for managed HSMs, I want to set access policies and configure the Managed HSM, so that I can ensure it's secure and auditors can properly monitor all activities for these managed HSMs.
@@ -95,7 +95,7 @@ You grant a security principal access to execute specific key operations by assi
 - **`/` or `/keys`**: HSM-level scope. Security principals that are assigned a role at this scope can perform the operations that are defined in the role for all objects (keys) in the managed HSM.
 - **`/keys/<key-name>`**: Key-level scope. Security principals that are assigned a role at this scope can perform the operations that are defined in this role for all versions of the specified key only.
 
-Managed HSM local RBAC has several built-in roles to address different access control scenarios. For a complete list of roles and their permissions, see [Local RBAC built-in roles for Managed HSM](built-in-roles.md).
+Managed HSM local RBAC has several built-in roles to address different access control scenarios. For a complete list of roles and their permissions, see [Managed HSM local RBAC built-in roles for Managed HSM](built-in-roles.md).
 
 ### Microsoft Entra Privileged Identity Management (PIM)
 

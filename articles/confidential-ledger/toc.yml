@@ -74,18 +74,24 @@ items:
       href: /sql/relational-databases/security/ledger/ledger-overview?branch=sql
     - name: Create a managed application to store blob digests
       href: create-blob-managed-app.md
+    - name: Data Ingress and Egress from Azure confidential ledger using Power Automate Connector
+      href: create-power-automate-workflow.md
 - name: Security
   items:
   - name: Secure Confidential Ledger
     items:
     - name: Secure your Confidential Ledger 
       href: secure-confidential-ledger.md
+    - name: Data residency
+      href: data-residency.md
 - name: References
   items:
   - name: FAQ
     href: faq.yml
   - name: Azure confidential ledger REST API reference
     href: /rest/api/confidentialledger/
+  - name: Azure MCP Server for confidential ledger
+    href: /azure/developer/azure-mcp-server/tools/azure-confidential-ledger
   - name: .NET client library
     href: /dotnet/api/overview/azure/confidentialledger 
   - name: JavaScript client library
