@@ -81,7 +81,7 @@ Developers can also manage the keys directly, by using APIs. For more informatio
 
 ## Next steps
 
-- Learn about [Azure Key Vault security features](security-features.md).
+- Learn about [Azure Key Vault security features](secure-key-vault.md).
 - Learn how to [secure your managed HSM pools](../managed-hsm/access-control.md)
 
 <!--Image references-->
