@@ -101,5 +101,6 @@ These network security features are listed from most restricted to least restric
 ## Next steps
 
 - [Azure Key Vault security baseline](/security/benchmark/azure/baselines/key-vault-security-baseline)
+- [Secure your Azure Managed HSM deployment](../managed-hsm/secure-managed-hsm.md)
 - [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md)
 - [Azure RBAC: Built-in roles](/azure/role-based-access-control/built-in-roles)

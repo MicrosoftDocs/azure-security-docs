@@ -221,5 +221,5 @@ If you are sending your logs to a log analytics workspace, you can use Microsoft
 
 ## Next steps
 
-- Learn about [best practices](best-practices.md) to provision and use a managed HSM
-- Learn about [how to Backup and Restore](backup-restore.md) a Managed HSM
+- Learn about [Secure your Azure Managed HSM deployment](secure-managed-hsm.md) to provision and use a managed HSM
+- Learn about How to [Backup and Restore](backup-restore.md) a Managed HSM
