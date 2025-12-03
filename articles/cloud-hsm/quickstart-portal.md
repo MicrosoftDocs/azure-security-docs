@@ -4,7 +4,7 @@ description: Learn how to deploy and configure Azure Cloud HSM by using the Azur
 author: msmbaldwin
 ms.service: azure-cloud-hsm
 ms.topic: quickstart
-ms.date: 05/15/2024
+ms.date: 12/03/2025
 ms.author: mbaldwin
 
 #customer intent: As a cloud administrator, I want to deploy Azure Cloud HSM instances securely through the Azure portal.
