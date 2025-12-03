@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.custom: horz-security
-ms.topic: conceptual
+ms.topic: article
 ms.date: 11/19/2025
 ms.author: mbaldwin
 ai-usage: ai-assisted
@@ -136,6 +136,6 @@ For security best practices specific to keys, secrets, and certificates, see:
 ## Next steps
 
 - [Azure Key Vault security baseline](/security/benchmark/azure/baselines/key-vault-security-baseline)
-- [Best practices for Azure Managed HSM](../managed-hsm/best-practices.md)
+- [Secure your Azure Managed HSM deployment](../managed-hsm/secure-managed-hsm.md)
 - [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md)
 - [Azure RBAC: Built-in roles](/azure/role-based-access-control/built-in-roles)
