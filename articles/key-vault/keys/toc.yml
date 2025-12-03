@@ -82,6 +82,8 @@ items:
   items:
   - name: Key types, algorithms, and operations
     href: about-keys-details.md
+  - name: Secure your Key Vault keys
+    href: secure-keys.md
 
 - name: How-to guides
   items:
