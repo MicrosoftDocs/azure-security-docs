@@ -16,7 +16,7 @@ ms.author: mbaldwin
 
 # Client Libraries for Azure Key Vault
 
-The Azure Key Vault client libraries provide programmatic access to Key Vault functionality across multiple languages, including .NET, Python, Java, JavaScript, and Spring. These libraries follow the latest [Azure SDK guidelines](https://azure.github.io/azure-sdk/) and integrate with [Azure Identity](https://learn.microsoft.com/azure/developer/python/sdk/authentication) for authentication.
+The Azure Key Vault client libraries provide programmatic access to Key Vault functionality across multiple languages, including .NET, Python, Java, JavaScript, and Spring. These libraries follow the latest [Azure SDK guidelines](https://azure.github.io/azure-sdk/) and integrate with [Azure Identity](/azure/developer/intro/passwordless-overview) for authentication.
 
 ## Client libraries per language and object
 
