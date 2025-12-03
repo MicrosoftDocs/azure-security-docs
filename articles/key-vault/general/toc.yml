@@ -57,8 +57,6 @@ items:
   items:
   - name: Basic concepts
     href: basic-concepts.md
-  - name: Best practices
-    href: best-practices.md
   - name: Reliability in Key Vault
     href: /azure/reliability/reliability-key-vault?toc=/azure/key-vault/general/toc.json
   - name: Understanding auto-rotation
@@ -89,8 +87,6 @@ items:
         href: rbac-guide.md
       - name: Vault access policies to Azure RBAC migration guide
         href: rbac-migration.md
-    - name: Default access control
-      href: access-control-default.md
     - name: Assign an access policy (legacy)
       href: assign-access-policy.md
     - name: Troubleshoot access issues
@@ -153,8 +149,6 @@ items:
   items:
   - name: Secure your Key Vault
     href: secure-key-vault.md
-  - name: Security features
-    href: security-features.md
   - name: Key Vault authentication
     href: authentication.md
   - name: Security worlds and geographies
