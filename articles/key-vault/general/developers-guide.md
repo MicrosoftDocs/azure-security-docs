@@ -11,35 +11,51 @@ ms.author: mbaldwin
 ---
 # Azure Key Vault developer's guide
 
-Azure Key Vault allows you to securely access sensitive information from within your applications:
+Azure Key Vault is a cloud service that provides secure storage and management of cryptographic keys, secrets, and certificates. This guide helps developers integrate Key Vault into their applications.
 
-- Keys, secrets, and certificates are protected without your having to write the code yourself, and you can easily use them from your applications.
-- You allow customers to own and manage their own keys, secrets, and certificates so you can concentrate on providing the core software features. In this way, your applications won't own the responsibility or potential liability for your customers' tenant keys, secrets, and certificates.
-- Your application can use keys for signing and encryption yet keep the key management external from your application. For more information, see [About keys](../keys/about-keys.md).
-- You can manage credentials like passwords, access keys, and SAS tokens by storing them in Key Vault as secrets. For more information, see [About secrets](../secrets/about-secrets.md).
-- Manage certificates. For more information, see [About certificates](../certificates/about-certificates.md).
+## Overview
+
+Azure Key Vault enables you to:
+
+- **Secure storage**: Protect keys, secrets, and certificates without writing custom security code.
+- **Simplified key management**: Centralize cryptographic operations and key lifecycle management.
+- **Customer-owned keys**: Allow customers to manage their own keys while you focus on core application features.
+- **External key management**: Use keys for signing and encryption while keeping them external to your application.
 
 For general information on Azure Key Vault, see [About Azure Key Vault](overview.md).
 
+## Developer scenarios
+
+Common developer tasks with Key Vault include:
+
+- **Store and retrieve secrets**: Manage connection strings, passwords, API keys, and SAS tokens securely. For more information, see [About secrets](../secrets/about-secrets.md).
+- **Use keys for encryption and signing**: Perform cryptographic operations without exposing key material to your application. For more information, see [About keys](../keys/about-keys.md).
+- **Manage certificates**: Automate certificate provisioning, renewal, and deployment for SSL/TLS. For more information, see [About certificates](../certificates/about-certificates.md).
+
 ## Public previews
 
-Periodically, we release a public preview of a new Key Vault feature. Try out public preview features and let us know what you think via azurekeyvault@microsoft.com, our feedback email address.
+We periodically release public previews of new Key Vault features. To try preview features and provide feedback, contact us at azurekeyvault@microsoft.com. For information about the latest features and updates, see [What's new in Azure Key Vault](whats-new.md).
 
 ## Create and manage key vaults
 
-As with other Azure services, Key Vault is managed through [Azure Resource Manager](/azure/azure-resource-manager/management/overview). Azure Resource Manager is the deployment and management service for Azure. You can use it to create, update, and delete resources in your Azure account. 
+Key Vault uses a two-plane access model:
 
-[Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) controls access to the management layer, also known as the [control plane](secure-key-vault.md#identity-and-access-management). You use the control plane in Key Vault to create and manage key vaults and their attributes, including access policies. You use the *data plane* to manage keys, certificates, and secrets.
+- **Control plane**: Manages the Key Vault resource itself (create, delete, update properties, assign access policies). Operations are managed through [Azure Resource Manager](/azure/azure-resource-manager/management/overview). For access control, see [Assign a Key Vault access policy](assign-access-policy.md).
+- **Data plane**: Manages the data stored in Key Vault (keys, secrets, certificates). Access is controlled through [Azure RBAC with Key Vault](rbac-guide.md).
 
-You can use the predefined Key Vault Contributor role to grant management access to Key Vault.     
+Use the predefined **Key Vault Contributor** role to grant management access to Key Vault resources. For more information on authentication and authorization, see [Authentication in Azure Key Vault](authentication.md).
+
+### Network security
+
+Reduce network exposure by configuring private endpoints, firewalls, or service endpoints. For comprehensive network security guidance including configuration options from most to least restrictive, see [Secure your Azure Key Vault: Network Security](secure-key-vault.md#network-security) and [Configure Azure Key Vault networking settings](network-security.md).     
 
 ### APIs and SDKs for key vault management
 
+The following table lists SDKs and quickstarts for managing Key Vault resources (control plane operations). For the latest versions and installation instructions, see [Client libraries](client-libraries.md).
+
 | Azure CLI | PowerShell | REST API | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[Reference](/cli/azure/keyvault)<br>[Quickstart](quick-create-cli.md)|[Reference](/powershell/module/az.keyvault)<br>[Quickstart](quick-create-powershell.md)|[Reference](/rest/api/keyvault/)|[Reference](/azure/templates/microsoft.keyvault/vaults)<br>[Quickstart](./vault-create-template.md)|[Reference](/dotnet/api/microsoft.azure.management.keyvault)|[Reference](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)|[Reference](/java/api/overview/azure/resourcemanager-keyvault-readme?view=azure-java-stable&preserve-view=true)|[Reference](/javascript/api/@azure/arm-keyvault)|
-
-For installation packages and source code, see [Client libraries](client-libraries.md).
+|[Reference](/cli/azure/keyvault)<br>[Quickstart](quick-create-cli.md)|[Reference](/powershell/module/az.keyvault)<br>[Quickstart](quick-create-powershell.md)|[Reference](/rest/api/keyvault/)|[Reference](/azure/templates/microsoft.keyvault/vaults)<br>[Quickstart](./vault-create-template.md)|[Reference](/dotnet/api/microsoft.azure.management.keyvault)|[Reference](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)|[Reference](/java/api/overview/azure/resourcemanager-keyvault-readme)|[Reference](/javascript/api/@azure/arm-keyvault)|
 
 ## Authenticate to Key Vault in code
 
@@ -47,14 +63,7 @@ Key Vault uses Microsoft Entra authentication, which requires a Microsoft Entra 
 
 ### Authentication best practices
 
-We recommend that you use a managed identity for applications deployed to Azure. If you use Azure services that don't support managed identities or if applications are deployed on-premises, a [service principal with a certificate](/azure/active-directory/develop/howto-create-service-principal-portal) is a possible alternative. In that scenario, the certificate should be stored in Key Vault and frequently rotated.
-
-Use a service principal with a secret for development and testing environments. Use a user principal for local development and Azure Cloud Shell.
-
-We recommend these security principals in each environment:
-- **Production environment**: Managed identity or service principal with a certificate.
-- **Test and development environments**: Managed identity, service principal with certificate, or service principal with a secret.
-- **Local development**: User principal or service principal with a secret.
+For applications deployed to Azure, use managed identities to eliminate the need for storing credentials in code. For detailed authentication guidance and security principal recommendations for different environments (production, development, local), see [Authentication in Azure Key Vault](authentication.md) and [Secure your Azure Key Vault](secure-key-vault.md).
 
 ### Azure Identity client libraries
 
@@ -77,15 +86,17 @@ For tutorials on how to authenticate to Key Vault in applications, see:
 ## Manage keys, certificates, and secrets
 
 > [!Note]
-> SDKs for .NET, Python, Java, JavaScript, PowerShell, and the Azure CLI are part of the Key Vault feature release process through public preview and general availability with Key Vault service team support. Other SDK clients for Key Vault are available, but they are built and supported by individual SDK teams over GitHub and released in their teams schedule.
+> SDKs for .NET, Python, Java, JavaScript, PowerShell, and the Azure CLI are part of the Key Vault feature release process through public preview and general availability with Key Vault service team support. Other SDK clients for Key Vault are available, but they are built and supported by individual SDK teams over GitHub and released in their teams schedule. For the latest SDK versions and installation packages, see [Client libraries](client-libraries.md).
 
-The data plane controls access to keys, certificates, and secrets. You can use local vault access policies or Azure RBAC for access control through the data plane.
+The data plane controls access to keys, certificates, and secrets. You can use [Azure RBAC with Key Vault](rbac-guide.md) for access control through the data plane.
 
 ### APIs and SDKs for keys
 
+The following table lists SDKs and quickstarts for working with keys (data plane operations). For more information about keys, see [About keys](../keys/about-keys.md).
+
 | Azure CLI | PowerShell | REST API | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[Reference](/cli/azure/keyvault/key)<br>[Quickstart](../keys/quick-create-cli.md)|[Reference](/powershell/module/az.keyvault/)<br>[Quickstart](../keys/quick-create-powershell.md)|[Reference](/rest/api/keyvault/#key-operations)|[Reference](/azure/templates/microsoft.keyvault/vaults/keys)<br>[Quickstart](../keys/quick-create-template.md)|[Reference](/dotnet/api/azure.security.keyvault.keys)<br>[Quickstart](../keys/quick-create-net.md)|[Reference](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[Quickstart](../keys/quick-create-python.md)|[Reference](/java/api/overview/azure/security-keyvault-keys-readme)<br>[Quickstart](../keys/quick-create-java.md)|[Reference](/javascript/api/@azure/keyvault-keys/)<br>[Quickstart](../keys/quick-create-node.md)|
+|[Reference](/cli/azure/keyvault/key)<br>[Quickstart](../keys/quick-create-cli.md)|[Reference](/powershell/module/az.keyvault/)<br>[Quickstart](../keys/quick-create-powershell.md)|[Reference](/rest/api/keyvault/#key-operations)|[Reference](/azure/templates/microsoft.keyvault/vaults/keys)<br>[Quickstart](../keys/quick-create-template.md)|[Reference](/dotnet/api/azure.security.keyvault.keys)<br>[Quickstart](../keys/quick-create-net.md)|[Reference](/python/api/overview/azure/keyvault-keys-readme)<br>[Quickstart](../keys/quick-create-python.md)|[Reference](/java/api/overview/azure/security-keyvault-keys-readme)<br>[Quickstart](../keys/quick-create-java.md)|[Reference](/javascript/api/@azure/keyvault-keys/)<br>[Quickstart](../keys/quick-create-node.md)|
 
 #### Other Libraries
 
@@ -101,11 +112,15 @@ This module provides a cryptography client for the [Azure Key Vault Keys client 
 
 ### APIs and SDKs for certificates
 
+The following table lists SDKs and quickstarts for working with certificates (data plane operations). For more information about certificates, see [About certificates](../certificates/about-certificates.md).
+
 | Azure CLI | PowerShell | REST API | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
 |[Reference](/cli/azure/keyvault/certificate)<br>[Quickstart](../certificates/quick-create-cli.md)|[Reference](/powershell/module/az.keyvault)<br>[Quickstart](../certificates/quick-create-powershell.md)|[Reference](/rest/api/keyvault/#certificate-operations)|N/A|[Reference](/dotnet/api/azure.security.keyvault.certificates)<br>[Quickstart](../certificates/quick-create-net.md)|[Reference](/python/api/overview/azure/keyvault-certificates-readme)<br>[Quickstart](../certificates/quick-create-python.md)|[Reference](/java/api/overview/azure/security-keyvault-certificates-readme)<br>[Quickstart](../certificates/quick-create-java.md)|[Reference](/javascript/api/@azure/keyvault-certificates/)<br>[Quickstart](../certificates/quick-create-node.md)|
 
 ### APIs and SDKs for secrets
+
+The following table lists SDKs and quickstarts for working with secrets (data plane operations). For more information about secrets, see [About secrets](../secrets/about-secrets.md).
 
 | Azure CLI | PowerShell | REST API | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
@@ -122,11 +137,7 @@ Use Azure Key Vault to store only secrets for your application. Examples of secr
 
 Any secret-related information, like usernames and application IDs, can be stored as a tag in a secret. For any other sensitive configuration settings, you should use [Azure App Configuration](/azure/azure-app-configuration/overview).
  
-### References 
-
 For installation packages and source code, see [Client libraries](client-libraries.md).
-
-For information about data plane security for Key Vault, see [Azure Key Vault security features](secure-key-vault.md).
 
 ## Use Key Vault in applications
 
@@ -173,16 +184,62 @@ The following services and scenarios use or integrate with Key Vault:
 - Use secrets stored in Key Vault to [connect to Azure Storage from Azure Databricks](./integrate-databricks-blob-storage.md).
 - Configure and run the Azure Key Vault provider for the [Secrets Store CSI driver](./key-vault-integrate-kubernetes.md) on Kubernetes. 
 
-## Key Vault overviews and concepts
+## Disaster recovery and business continuity
 
-To learn about:
+Key Vault provides built-in disaster recovery with automatic regional replication. For production deployments, enable soft delete and purge protection, and implement regular backups. For more information, see [Azure Key Vault availability and redundancy](disaster-recovery-guidance.md), [Azure Key Vault recovery management](key-vault-recovery.md), and [Azure Key Vault backup](backup.md).
 
-- A feature that allows recovery of deleted objects, whether the deletion was accidental or intentional, see [Azure Key Vault soft-delete overview](soft-delete-overview.md).
-- The basic concepts of throttling and get an approach for your app, see [Azure Key Vault throttling guidance](overview-throttling.md).
-- The relationships between regions and security areas, see [Azure Key Vault security worlds and geographic boundaries](overview-security-worlds.md).
+## Performance and scalability
 
-## Social
+When developing applications that use Key Vault, consider the following performance and scalability best practices:
 
-- [Microsoft Q&A](/answers/products/)
-- [Stack Overflow for questions about Key Vault](https://stackoverflow.com/questions/tagged/azure-keyvault)
-- [Azure Feedback for features requests](https://feedback.azure.com/d365community/forum/285c5ae0-f524-ec11-b6e6-000d3a4f0da0)
+- **Service limits**: Key Vault has service limits for transactions per vault per region. Exceeding these limits results in throttling. For more information, see [Azure Key Vault service limits](service-limits.md).
+- **Throttling guidance**: Implement retry logic with exponential backoff to handle throttling responses. For more information, see [Azure Key Vault throttling guidance](overview-throttling.md).
+- **Caching**: Cache secrets and certificates in your application to reduce calls to Key Vault and improve performance.
+- **Connection management**: Reuse HTTP connections to Key Vault when possible to reduce latency and improve performance.
+
+## Monitoring and logging
+
+Enable logging and monitoring for security, compliance, and troubleshooting. Configure diagnostic settings, Event Grid notifications, and alerts for critical events. For detailed guidance, see [Monitor Azure Key Vault](monitor-key-vault.md), [Azure Key Vault logging](logging.md), [Monitoring Key Vault with Azure Event Grid](event-grid-overview.md), and [Secure your Azure Key Vault: Logging and Threat Detection](secure-key-vault.md#logging-and-threat-detection).
+
+## Common parameters and request patterns
+
+When working with the Key Vault REST API, understanding common parameters and request/response patterns is helpful:
+
+- **API versions**: Key Vault uses versioned APIs. Always specify the API version in your requests.
+- **Common headers**: Learn about required and optional HTTP headers for Key Vault requests. For more information, see [Azure Key Vault common parameters and headers](common-parameters-and-headers.md).
+- **Authentication requests**: Understand how authentication tokens are acquired and used. For more information, see [Authentication, requests, and responses](authentication-requests-and-responses.md).
+- **Error codes**: Familiarize yourself with common REST API error codes to handle failures gracefully. For more information, see [Azure Key Vault REST API error codes](rest-error-codes.md).
+
+## Troubleshooting
+
+For help resolving common issues:
+
+- **Access denied errors**: Verify your authentication credentials and that your security principal has the necessary permissions through RBAC assignments. See [Azure RBAC for Key Vault data plane operations](rbac-guide.md).
+- **Network connectivity**: If accessing Key Vault from behind a firewall, ensure required endpoints are accessible. See [Accessing Key Vault behind a firewall](access-behind-firewall.md).
+- **Throttling**: If receiving 429 (Too Many Requests) responses, implement exponential backoff. See [Azure Key Vault throttling guidance](overview-throttling.md).
+
+## Security best practices
+
+For comprehensive security guidance including identity and access management, data protection, compliance, governance, and backup strategies, see [Secure your Azure Key Vault](secure-key-vault.md).
+
+## Additional resources
+
+### Key Vault concepts
+
+- [Azure Key Vault basic concepts](basic-concepts.md) - Foundational concepts for working with Key Vault.
+- [Azure Key Vault soft-delete overview](soft-delete-overview.md) - Recovery of deleted objects.
+- [Azure Key Vault throttling guidance](overview-throttling.md) - Basic concepts and approach for your app.
+- [Azure Key Vault security worlds and geographic boundaries](overview-security-worlds.md) - Regional and security relationships.
+- [Azure Key Vault service limits](service-limits.md) - Transaction limits and other service restrictions.
+
+### Management and operations
+
+- [Manage Key Vault using Azure CLI](manage-with-cli2.md) - Command-line management operations.
+- [Monitor Azure Key Vault](monitor-key-vault.md) - Set up monitoring and diagnostics.
+- [Azure Key Vault logging](logging.md) - Enable and analyze Key Vault logs.
+
+### Community and support
+
+- [Microsoft Q&A](/answers/products/) - Ask questions and get answers from the community.
+- [Stack Overflow for Key Vault](https://stackoverflow.com/questions/tagged/azure-keyvault) - Technical Q&A from developers.
+- [Azure Feedback](https://feedback.azure.com/d365community/forum/285c5ae0-f524-ec11-b6e6-000d3a4f0da0) - Submit feature requests and feedback.
