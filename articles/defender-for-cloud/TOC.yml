@@ -12,6 +12,8 @@
     - name: What's new in Defender for Cloud features
       displayName: changelog, news, release notes
       href: release-notes.md
+    - name: What's new in recommendations, alerts, and incidents
+      href: release-notes-recommendations-alerts.md
 
 - name: Experience in the Defender portal
   expanded: true
@@ -47,7 +49,7 @@
       expanded: false
       items:
         - name: Connect Azure subscriptions
-          displayName: enable, defender for cloud, activate, turn on, Microsoft Defender XDR, alerts, integration, m365, m365d, m365 defender
+          displayName: enable, defender for cloud, activate, turn on, Microsoft Defender XDR, alerts, integration, m365, m365d, m365 defender, free, trial, free trial
           href: connect-azure-subscription.md
         - name: Connect AWS accounts
           displayName: hybrid, multicloud, multicloud, amazon, arc, AWS, accounts, Microsoft Defender XDR, alerts, integration, m365, m365d, m365 defender
@@ -306,6 +308,9 @@
           - name: Resolve VPC Service Controls restriction issues
             displayName: connector, GCP, VPC, service, controls, restriction, issues
             href: resolve-vpc-service-controls-issues.md
+        - name: Check the status of your free trial
+          displayName: free, trial, status
+          href: free-trial.md
 
 - name: Posture management
   items:
@@ -325,6 +330,9 @@
           href: enable-permissions-management.md
         - name: Agentless machine scanning
           href: concept-agentless-data-collection.md
+        - name: Serverless protection
+          displayName: serverless, functions, web apps, aws lambda, inventory, misconfigurations, vulnerabilities, dependencies
+          href: serverless-protection.md
     - name: Assess your security posture
       items:
         - name: Cloud overview dashboard
@@ -1017,8 +1025,6 @@
 
 - name: Investigation & response
   items:
-    - name: What's new in recommendations, alerts, and incidents
-      href: release-notes-recommendations-alerts.md
     - name: Defender for APIs
       items: 
         - name: Investigate findings, recommendations, alerts
@@ -1108,6 +1114,9 @@
           href: recommendations-reference-keyvault.md
         - name: Networking recommendations
           href: recommendations-reference-networking.md
+        - name: Serverless protection recommendations
+          displayName: serverless, protection, recommendations
+          href: recommendations-reference-serverless-protection.md
         - name: Assessment checks for endpoint detection and response solutions
           href: endpoint-protection-recommendations-technical.md
         - name: Deprecated recommendations

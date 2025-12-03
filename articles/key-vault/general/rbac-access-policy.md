@@ -35,5 +35,5 @@ To transition your Key Vault data plane access control from access policies to A
 
 - [Azure RBAC Overview](/azure/role-based-access-control/overview)
 - [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal)
-- [Migrating to Azure RBAC from access policies](/azure/role-based-access-control/tutorial-custom-role-cli)
-- [Azure Key Vault best practices](best-practices.md)
+- [Migrating from an access policy to RBAC](/azure/role-based-access-control/tutorial-custom-role-cli)
+- [Secure your Azure Key Vault](secure-key-vault.md)
