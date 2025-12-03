@@ -62,7 +62,7 @@ In this case, you should create the resource within a virtual network, and then 
 To understand how to configure a private link connection on your key vault, see the document [here](./private-link-service.md).
 
 > [!IMPORTANT]
-> After firewall rules are in effect, users can only perform Key Vault [data plane](security-features.md#privileged-access) operations when their requests originate from allowed virtual networks or IPv4 address ranges. This also applies to accessing Key Vault from the Azure portal. Although users can browse to a key vault from the Azure portal, they might not be able to list keys, secrets, or certificates if their client machine is not in the allowed list. This also affects the Key Vault Picker used by other Azure services. Users might be able to see a list of key vaults, but not list keys, if firewall rules prevent their client machine.
+> After firewall rules are in effect, users can only perform Key Vault [data plane](secure-key-vault.md#identity-and-access-management) operations when their requests originate from allowed virtual networks or IPv4 address ranges. This also applies to accessing Key Vault from the Azure portal. Although users can browse to a key vault from the Azure portal, they might not be able to list keys, secrets, or certificates if their client machine is not in the allowed list. This also affects the Key Vault Picker used by other Azure services. Users might be able to see a list of key vaults, but not list keys, if firewall rules prevent their client machine.
 
 > [!NOTE]
 > Be aware of the following configuration limitations:
@@ -148,4 +148,4 @@ See [Diagnostic logs for Network Security Perimeter](/azure/private-link/network
 
 #### Next steps
 * [Virtual network service endpoints for Key Vault](overview-vnet-service-endpoints.md)
-* [Azure Key Vault security overview](security-features.md)
+* [Azure Key Vault security overview](secure-key-vault.md)
