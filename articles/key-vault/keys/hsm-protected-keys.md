@@ -3,7 +3,6 @@ title: How to generate & transfer HSM-protected keys – Azure Key Vault
 description: Learn how to plan for, generate, and then transfer your own HSM-protected keys to use with Azure Key Vault. Also known as BYOK or bring your own key.
 services: key-vault
 author: msmbaldwin
-manager: devtiw
 
 ms.service: azure-key-vault
 ms.subservice: keys
