@@ -7,7 +7,7 @@ ms.author: mbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 01/30/2025
+ms.date: 12/03/2025
 #Customer intent: As a Managed HSM administrator, I want to enable logging for my Managed HSM so I can monitor how and when my HSMs are accessed, and by who.
 ---
 
