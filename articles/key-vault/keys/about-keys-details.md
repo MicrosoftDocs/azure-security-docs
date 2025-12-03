@@ -3,7 +3,6 @@ title: Key types, algorithms, and operations - Azure Key Vault
 description: Supported key types, algorithms, and operations (details).
 services: key-vault
 author: msmbaldwin
-manager: msmbaldwin
 
 ms.service: azure-key-vault
 ms.subservice: keys
