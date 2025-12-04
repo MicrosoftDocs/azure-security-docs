@@ -63,7 +63,7 @@ The term "Managed HSM instance" is synonymous with "Managed HSM pool". To avoid 
 - For technical details, see [How Managed HSM implements key sovereignty, availability, performance, and scalability without tradeoffs](managed-hsm-technical-details.md)
 - See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to create and activate a managed HSM
 - [Azure Managed HSM security baseline](/security/benchmark/azure/baselines/key-vault-managed-hsm-security-baseline)
-- See [Best Practices using Azure Key Vault Managed HSM](best-practices.md)
+- See [Secure your Azure Managed HSM deployment](secure-managed-hsm.md)
 - [Managed HSM Status](https://azure.status.microsoft)
 - [Managed HSM Service Level Agreement](https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/)
 - [Managed HSM region availability](https://azure.microsoft.com/global-infrastructure/services/?products=key-vault)

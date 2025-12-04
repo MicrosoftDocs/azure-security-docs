@@ -48,6 +48,8 @@ items:
     href: create-certificate.md
   - name: Certificate access control
     href: certificate-access-control.md
+  - name: Secure your Key Vault certificates
+    href: secure-certificates.md
     
 - name: How-to guides 
   items:

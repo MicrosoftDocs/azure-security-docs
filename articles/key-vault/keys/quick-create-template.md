@@ -243,4 +243,4 @@ In this quickstart, you created a key vault and a key using an ARM template, and
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - Learn more about [Azure Resource Manager](/azure/azure-resource-manager/management/overview)
-- Review the [Key Vault security overview](../general/security-features.md)
+- Review the [Key Vault security overview](../general/secure-key-vault.md)
