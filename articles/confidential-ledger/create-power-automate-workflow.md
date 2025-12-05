@@ -84,7 +84,7 @@ Get a ledger entry by its transaction ID.
    - **Transaction ID**: The transaction ID of the entry to retrieve.
    - **Collection ID** (optional): The collection ID from which to fetch the value.
 - **Returns:**
-   - **State**: The query state is either **Loading** or **Ready**.
+   - **State**: The query state (**Loading** or **Ready**).
    - **Entry**: The ledger entry data (available only if the state is **Ready**).
      - **Contents**: Contents of the ledger entry.
      - **Collection ID**: The collection ID to which the entries belong.
@@ -118,7 +118,7 @@ Get ledger entries by collection and range.
    - **From transaction ID** (optional): The starting transaction ID in the range.
    - **To transaction ID** (optional): The ending transaction ID in the range.
 - **Returns:**
-   - **State**: The query state is either **Loading** or **Ready**.
+   - **State**: The query state (**Loading** or **Ready**).
    - **Entries**: A collection of entries within the specified transaction ID range.
    - **Next link**: A continuation link to retrieve the remaining entries.
 
@@ -133,7 +133,7 @@ Get a cryptographic receipt for a transaction by transaction ID.
    - **Ledger name**: The name of your confidential ledger instance.
    - **Transaction ID**: The transaction ID that corresponds to the receipt.
 - **Returns:**
-   - **State**: The query state is either **Loading** or **Ready**.
+   - **State**: The query state (**Loading** or **Ready**).
    - **Transaction ID**: The transaction ID.
    - **Receipt**: A cryptographic receipt containing:
      - **Node ID**: Identifier of the node that processed the transaction.
