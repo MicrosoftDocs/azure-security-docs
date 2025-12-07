@@ -85,8 +85,8 @@ landingContent:
             url: ../general/overview.md
           - text: Basic concepts
             url: ../general/basic-concepts.md
-          - text: Security features
-            url: ../general/security-features.md
+          - text: Secure your Key Vault
+            url: ../general/secure-key-vault.md
           - text: Soft-delete overview
             url: ../general/soft-delete-overview.md
 
