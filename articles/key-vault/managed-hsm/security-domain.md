@@ -102,4 +102,4 @@ We highly recommend that you review [NIST Special Publication 800-57](https://cs
 
 - Read an [overview of Managed HSM](overview.md).
 - Learn about [managing your managed HSM by using the Azure CLI](key-management.md).
-- Review [Managed HSM best practices](best-practices.md).
+- Review [Secure your Azure Managed HSM deployment](secure-managed-hsm.md).
