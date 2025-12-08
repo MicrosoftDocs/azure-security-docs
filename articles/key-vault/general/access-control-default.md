@@ -170,7 +170,7 @@ If your key vaults already use Azure RBAC as their access control model, update 
 
 ## Step 3: For vaults using access policies
 
-If your key vaults use access policies, decide if you want to migrate to role-based access (recommended) or continue using access policies. For more information on access control models, see [Use Azure RBAC for managing access to Key Vault](rbac-guide.md) and [Azure Key Vault best practices](secure-key-vault.md#identity-management).
+If your key vaults use access policies, decide if you want to migrate to role-based access (recommended) or continue using access policies. For more information on access control models, see [Use Azure RBAC for managing access to Key Vault](rbac-guide.md) and [Azure Key Vault best practices](secure-key-vault.md).
 
 **Choose your path:**
 - **Recommended**: Go to [Step 4: Migrate to Azure RBAC](#step-4-migrate-to-azure-rbac-recommended)
@@ -186,7 +186,7 @@ Update all Key Vault ARM, BICEP, Terraform templates, and REST API calls to use 
 
 To continue using access policies, follow the instructions in this section. Choose one of the following methods based on your scenario:
 - [For existing vaults with undefined access configuration](#for-existing-vaults-with-undefined-access-configuration) - Update existing vaults to explicitly use access policies
-- [Using ARM, BICEP, Terraform templates](#using-arm-bicep-terraform-terraform-templates) - Create new vaults or update existing vaults to explicitly use access policies
+- [Using ARM, BICEP, Terraform templates](#using-arm-bicep-terraform-templates) - Create new vaults or update existing vaults to explicitly use access policies
 - [Using Create Key Vault commands](#using-create-key-vault-commands) - Create new vaults to explicitly use access policies
 - [Using Create Resource commands](#using-create-resource-commands) - Create new vaults to explicitly use access policies
 
