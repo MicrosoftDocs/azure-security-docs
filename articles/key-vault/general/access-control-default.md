@@ -22,7 +22,7 @@ Azure Key Vault is implementing an important security enhancement in API version
 
 The ramifications of this change are as follows:
 
-- **New key vaults created with API version 2026-02-01**: All new key vaults default to Azure RBAC (`enableRbacAuthorization` = `true`) unless you set `enableRbacAuthorization` to `false` during creation to use access policies.
+- **New key vaults created with API version 2026-02-01**: All key vaults created with API version 2026-02-01 default to Azure RBAC (`enableRbacAuthorization` = `true`) unless you set `enableRbacAuthorization` to `false` during creation to use access policies.
  
 - **Existing key vaults**: Existing key vaults continue using their current access control model. Vaults can be migrated between access control models by changing the `enableRbacAuthorization` property.
 
@@ -31,7 +31,7 @@ The ramifications of this change are as follows:
  
 We strongly recommend that key vaults currently using access policies migrate to Azure RBAC for improved security. For more information on why we recommend Azure RBAC, see [Azure role-based access control (Azure RBAC) vs. access policies](rbac-access-policy.md).
 
-Follow the steps in the following section to check your current configuration and either migrate to Azure RBAC (recommended) or continue using access policies (legacy).
+Follow the steps in this article to check your current configuration and then use either Azure RBAC (recommended) or access policies (legacy).
 
 > [!WARNING]
 > All API versions before 2026-02-01 retire on February 27, 2027. 
@@ -193,7 +193,6 @@ Choose one of the following methods based on your scenario:
 #### Using ARM, BICEP, Terraform templates
 
 When creating new key vaults with API version 2026-02-01 or updating existing vaults, set `enableRbacAuthorization` to `false` in all Key Vault ARM, BICEP, Terraform templates, and [REST API](/rest/api/keyvault/) calls to use access policies.
-
 
 #### Using Create Key Vault commands
 
