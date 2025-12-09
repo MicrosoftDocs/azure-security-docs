@@ -26,7 +26,7 @@ The ramifications of this change are as follows:
  
 - **Existing key vaults with `enableRbacAuthorization` set to `true` or `false`**: Existing key vaults that are explicitly set to either Azure RBAC (`true`) or access policies (`false`) continue using their current access control model. 
  
-- **Existing key vaults with undefined `enableRbacAuthorization` (NULL)**: Key vaults with an undefined `enableRbacAuthorization` property were created with an API version earlier than 2026-02-01 and are treated as using access policies (`enableRbacAuthorization` = `false`). These vaults can be migrated to Azure RBAC by explicitly setting `enableRbacAuthorization` to `true`.
+- **Existing key vaults with undefined `enableRbacAuthorization`**: Key vaults with an undefined `enableRbacAuthorization` property were created with an API version earlier than 2026-02-01 and are treated as using access policies (`enableRbacAuthorization` = `false`). These vaults can be migrated to Azure RBAC by explicitly setting `enableRbacAuthorization` to `true`.
 
 > [!IMPORTANT]
 > To change the `enableRbacAuthorization` property for a key vault, you must have the `Microsoft.Authorization/roleAssignments/write` permission. This permission is included in roles such as Owner and User Access Administrator. For more information, see [Enable Azure RBAC permissions on Key Vault](rbac-guide.md#enable-azure-rbac-permissions-on-key-vault).
@@ -40,14 +40,14 @@ Follow the steps in the following section to check your current configuration an
 
 ## Step 1: Check current configurations
 
-Check if your vault's access configuration is set to Azure RBAC, access policies, or undefined (NULL).
+Check if your vault's access configuration is set to Azure RBAC or access policies.
 
 After checking your configuration:
 - If your vaults use **Azure RBAC** (`enableRbacAuthorization` = `true`), go to [Step 2: For vaults already using Azure RBAC](#step-2-for-vaults-already-using-azure-rbac)
-- If your vaults use **access policies** (`enableRbacAuthorization` = `false` or NULL), go to [Step 3: For vaults using access policies](#step-3-for-vaults-using-access-policies)
+- If your vaults use **access policies** (`enableRbacAuthorization` = `false` or undefined), go to [Step 3: For vaults using access policies](#step-3-for-vaults-using-access-policies)
 
 > [!NOTE]
-> Key vaults with an undefined `enableRbacAuthorization` property (NULL) were created with an API version earlier than 2026-02-01 and are treated as using access policies.
+> Key vaults with an undefined `enableRbacAuthorization` property were created with an API version earlier than 2026-02-01 and are treated as using access policies.
 
 ### Check a single vault
 
@@ -174,10 +174,10 @@ If your key vaults already use Azure RBAC as their access control model, update 
 
 ## Step 3: For vaults using access policies
 
-If your key vaults use access policies (`enableRbacAuthorization` = `false` or undefined/NULL), decide if you want to migrate to role-based access (recommended) or continue using access policies. For more information on access control models, see [Use Azure RBAC for managing access to Key Vault](rbac-guide.md) and [Azure Key Vault best practices](secure-key-vault.md).
+If your key vaults use access policies (`enableRbacAuthorization` = `false` or undefined), decide if you want to migrate to role-based access (recommended) or continue using access policies. For more information on access control models, see [Use Azure RBAC for managing access to Key Vault](rbac-guide.md) and [Azure Key Vault best practices](secure-key-vault.md).
 
 > [!NOTE]
-> Key vaults with an undefined `enableRbacAuthorization` property (NULL) were created with an API version earlier than 2026-02-01 and are treated as using access policies. These vaults can be migrated to Azure RBAC.
+
 
 **Choose your path:**
 - **Recommended**: Go to [Step 4: Migrate to Azure RBAC](#step-4-migrate-to-azure-rbac-recommended)
@@ -193,8 +193,7 @@ Update all Key Vault ARM, BICEP, Terraform templates, and REST API calls to use 
 
 To continue using access policies, follow the instructions in this section. 
 
-> [!NOTE]
-> Key vaults with an undefined `enableRbacAuthorization` property (NULL) were created with an API version earlier than 2026-02-01 and are already treated as using access policies. These vaults will continue to function with access policies without any changes required. However, you can optionally explicitly set the property to `false` for clarity. 
+
 
 Choose one of the following methods based on your scenario:
 - [For existing vaults with undefined access configuration](#for-existing-vaults-with-undefined-access-configuration) - Optionally update existing vaults to explicitly use access policies
@@ -204,7 +203,7 @@ Choose one of the following methods based on your scenario:
 
 #### For existing vaults with undefined access configuration
 
-Key vaults with an undefined `enableRbacAuthorization` property (NULL) were created with an API version earlier than 2026-02-01 and are already treated as using access policies. These vaults will continue to function with access policies without any changes required.
+Key vaults with an undefined `enableRbacAuthorization` property were created with an API version earlier than 2026-02-01 and are already treated as using access policies. These vaults will continue to function with access policies without any changes required.
 
 If you want to explicitly set the `enableRbacAuthorization` property to `false` for clarity, you can do so using the following commands. This is optional and does not change the vault's behavior.
 
@@ -233,8 +232,6 @@ Update-AzKeyVault -ResourceGroupName <ResourceGroupName> -VaultName <KeyVaultNam
 
 When creating new key vaults with API version 2026-02-01 or updating existing vaults, explicitly set `enableRbacAuthorization` to `false` in all Key Vault ARM, BICEP, Terraform templates, and [REST API](/rest/api/keyvault/) calls to use access policies.
 
-> [!IMPORTANT]
-> When creating new key vaults with API version 2026-02-01, if you don't specify `enableRbacAuthorization`, it defaults to `true` (Azure RBAC). You must explicitly set it to `false` to use access policies.
 
 #### Using Create Key Vault commands
 
