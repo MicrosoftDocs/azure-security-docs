@@ -24,7 +24,7 @@ The ramifications of this change are as follows:
 
 - **New key vaults created with API version 2026-02-01**: All new key vaults default to Azure RBAC (`enableRbacAuthorization` = `true`) unless you set `enableRbacAuthorization` to `false` during creation to use access policies.
  
-- **Existing key vaults**: Existing key vaults that are set to either Azure RBAC (`enableRbacAuthorization` = `true`) or access policies (`enableRbacAuthorization` = `false`) continue using their current access control model. Vaults can be migrated between access control models by changing the `enableRbacAuthorization` property.
+- **Existing key vaults**: Existing key vaults continue using their current access control model. Vaults can be migrated between access control models by changing the `enableRbacAuthorization` property.
 
 > [!IMPORTANT]
 > To change the `enableRbacAuthorization` property for a key vault, you must have the `Microsoft.Authorization/roleAssignments/write` permission. This permission is included in roles such as Owner and User Access Administrator. For more information, see [Enable Azure RBAC permissions on Key Vault](rbac-guide.md#enable-azure-rbac-permissions-on-key-vault).
@@ -34,7 +34,7 @@ We strongly recommend that key vaults currently using access policies migrate to
 Follow the steps in the following section to check your current configuration and either migrate to Azure RBAC (recommended) or continue using access policies (legacy).
 
 > [!WARNING]
-> All API versions before 2026-02-01 retire on February 27, 2027. Complete these steps by that date to avoid service disruption.
+> All API versions before 2026-02-01 retire on February 27, 2027. 
 
 ## Step 1: Check current configurations
 
