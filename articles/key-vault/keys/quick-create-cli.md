@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.date: 10/17/2024
+ms.date: 12/03/2025
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli, mode-api
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
