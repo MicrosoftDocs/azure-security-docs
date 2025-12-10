@@ -20,9 +20,9 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, sfi-image-nochange
 > 
 > This is a **breaking change**. You must do the following before February 27, 2027:
 >
-> - **If you wish to use Azure RBAC (recommended)**: Set new and existing vaults to Azure RBAC.
-> - **If you wish to use access policies (legacy)**: Explicitly set new vaults to use access policies.
-> - **All**: Adopt API version 2026-02-01.
+> - **To use Azure RBAC (recommended)**: [Set new and existing vaults to Azure RBAC](#step-4-migrate-to-azure-rbac-recommended).
+> - **To use access policies (legacy)**: [Set new vaults to use access policies](#step-5-continue-using-access-policies).
+> - Adopt API version 2026-02-01.
 
 Azure Key Vault is implementing an important security enhancement in API version 2026-02-01, releasing in February 2026. To help protect your key vaults and reduce security risks, **the new Key Vault API version establishes Azure RBAC as the default access control model**, consistent with the Azure portal experience.
 
