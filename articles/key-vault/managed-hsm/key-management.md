@@ -229,4 +229,4 @@ To import a key from your on-premises HSM to managed HSM, see [Import HSM-protec
 - For complete Azure CLI reference for key vault commands, see [Key Vault CLI reference](/cli/azure/keyvault).
 - For programming references, see [the Azure Key Vault developer's guide](../general/developers-guide.md)
 - Learn more about [Managed HSM role management](role-management.md)
-- Learn more about [Managed HSM best practices](best-practices.md)
+- Learn more about [Secure your Azure Managed HSM deployment](secure-managed-hsm.md)

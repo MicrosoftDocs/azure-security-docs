@@ -466,6 +466,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-offboard.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-deployment-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/defender-for-cloud/analyze-with-copilot.md",
       "redirect_url": "/azure/defender-for-cloud/summarize-with-copilot",
       "redirect_document_id": true
@@ -533,6 +538,31 @@
     {
       "source_path_from_root": "/articles/defender-for-cloud/sql-information-protection-policy.md",
       "redirect_url": "/sql/relational-databases/security/sql-data-discovery-and-classification",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-enable.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-deployment-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/tutorial-enable-container-aws.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-aws-enable-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/tutorial-enable-container-gcp.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-gcp-enable-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/tutorial-enable-containers-azure.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-azure-enable-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/tutorial-enable-containers-arc.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-arc-enable-portal",
       "redirect_document_id": false
     }
   ]
