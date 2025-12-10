@@ -15,8 +15,14 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, sfi-image-nochange
 
 # Prepare for Key Vault API version 2026-02-01: Azure RBAC as default access control
 
-> [!IMPORTANT]
-> Starting February 2026, Azure Key Vault API version 2026-02-01 establishes Azure RBAC as the default access control model. This is a **breaking change** that affects all new key vault creation unless you explicitly configure access policies.
+> [!WARNING]
+> Starting February 2026, Azure Key Vault API version 2026-02-01 establishes Azure RBAC as the default access control model. All API versions before 2026-02-01 retire on February 27, 2027. 
+> 
+> This is a **breaking change**. You must do the following before February 27, 2027:
+>
+> - **If you wish to use Azure RBAC (recommended)**: Set new and existing vaults to Azure RBAC.
+> - **If you wish to use access policies (legacy)**: Explicitly set new vaults to use access policies.
+> - **All**: Adopt API version 2026-02-01.
 
 Azure Key Vault is implementing an important security enhancement in API version 2026-02-01, releasing in February 2026. To help protect your key vaults and reduce security risks, **the new Key Vault API version establishes Azure RBAC as the default access control model**, consistent with the Azure portal experience.
 
@@ -32,9 +38,6 @@ The ramifications of this change are as follows:
 We strongly recommend that key vaults currently using access policies migrate to Azure RBAC for improved security. For more information on why we recommend Azure RBAC, see [Azure role-based access control (Azure RBAC) vs. access policies](rbac-access-policy.md).
 
 Follow the steps in this article to check your current configuration and then use either Azure RBAC (recommended) or access policies (legacy).
-
-> [!WARNING]
-> All API versions before 2026-02-01 retire on February 27, 2027. 
 
 ## Step 1: Check current configurations
 
@@ -186,13 +189,13 @@ Update all Key Vault ARM, BICEP, Terraform templates, and REST API calls to use 
 To continue using access policies, follow the instructions in this section. 
 
 Choose one of the following methods based on your scenario:
-- [Using ARM, BICEP, Terraform templates](#using-arm-bicep-terraform-templates) - Create new vaults or update existing vaults to use access policies
-- [Using Create Key Vault commands](#using-create-key-vault-commands) - Create new vaults to use access policies
-- [Using Create Resource commands](#using-create-resource-commands) - Create new vaults to use access policies
+- [Using ARM, BICEP, Terraform templates](#using-arm-bicep-terraform-templates)
+- [Using Create Key Vault commands](#using-create-key-vault-commands)
+- [Using Create Resource commands](#using-create-resource-commands)
 
 #### Using ARM, BICEP, Terraform templates
 
-When creating new key vaults with API version 2026-02-01 or updating existing vaults, set `enableRbacAuthorization` to `false` in all Key Vault ARM, BICEP, Terraform templates, and [REST API](/rest/api/keyvault/) calls to use access policies.
+When creating new key vaults with API version 2026-02-01, set `enableRbacAuthorization` to `false` in all Key Vault ARM, BICEP, Terraform templates, and [REST API](/rest/api/keyvault/) calls to use access policies.
 
 #### Using Create Key Vault commands
 
