@@ -12,13 +12,13 @@ ms.author: mbaldwin
 
 # Azure Payment HSM known issues
 
-This article describes some known issues with Azure Payment HSM.
+This article describes some known issues with Azure Payment HSM. Before deploying Azure Payment HSM, review the [deployment scenarios](deployment-scenarios.md) and [solution design](solution-design.md) to ensure proper configuration.
 
 ## The PayShield fan is running too fast
 
 Sporadic problems have been observed with the PS10K HSM, where the error log indicates that one of the fans is running too fast. Once this error occurs, it's replicated once every 24 hours to the unit's error log. The error is benign and doesn't affect the HSMs operational functionalities. Clearing the specific error entry from the HSM involves a hard-reboot to the unit. The fan error problem will be fixed with Thales payShield firmware release version v1.8a and 1.6a.  
 
-If Azure Payment HSM customers observe the fan too fast error and want to do a hard-reboot to the unit, contact Microsoft support.
+If Azure Payment HSM customers observe the fan too fast error and want to do a hard-reboot to the unit, contact [Microsoft support](support-guide.md#microsoft-support). For more information on rebooting HSMs, see [Lifecycle management: Managing unresponsive HSM devices](lifecycle-management.md#managing-unresponsive-hsm-devices).
 
 See details in [Thales support portal KB0026952](https://supportportal.thalesgroup.com/csm?sys_kb_id=6fe423cec319259063ec26359901310c&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=18143570dba96d544f917828f496190c&sysparm_article=KB0026952). 
 
@@ -42,9 +42,27 @@ A fix is currently being worked on and will be released in a future payShield fi
 
 For more information and a workaround, see [Thales support portal KB0028943](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=ae8f0d9283b41a10fc177e126daad306&sysparm_article=KB0028943) (sign-in required). If you have questions regarding the issue or workaround, open a support ticket with Thales.
 
+## TLS certificates not removed during HSM release
+
+When executing the RELEASE function from the payShield Manager to fully zeroize the PayShield Cloud HSM to factory state, all HSM settings are removed except for loaded TLS certificates. This is due to a product bug where the TLS certificate deletion function was not implemented.
+
+> [!NOTE]
+> The residual TLS certificates after the RELEASE/RECLAIM operation are public certificates and pose no security risk.
+
+**Resolution**: This bug was fixed in payShield HSM firmware version 2.1a 2100 0000 (1.15.0) and later.
+
+**Recommended Actions**:
+- For firmware versions below 2.1a (1.15.0), run the 'SV' command on the virtual console to view certificates, then use the 'SD' command to delete any remaining certificate data.
+- Remove all certificate data before releasing or returning the HSM. See [Tutorial: Remove a commissioned payment HSM](remove-payment-hsm.md) for detailed steps.
+- Plan a firmware upgrade to version 2.1a (1.15.0) or later. For information on firmware versions, see [Support guide: Firmware and license support](support-guide.md#firmware-and-license-support).
+
+For more information, see the Thales Support Portal KB Article (sign-in required). If you need assistance, contact Thales Support.
+
 ## Next steps
 
 - Learn more about [Azure Payment HSM](overview.md)
 - See some common [deployment scenarios](deployment-scenarios.md)
+- Review [Azure Payment HSM lifecycle management](lifecycle-management.md)
 - Learn about [Certification and compliance](certification-compliance.md)
+- Understand [Azure Payment HSM support](support-guide.md)
 - Read the [frequently asked questions](faq.yml)
