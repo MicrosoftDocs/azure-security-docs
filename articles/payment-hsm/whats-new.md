@@ -12,6 +12,10 @@ ms.date: 04/10/2025
 
 Here's what's new with Azure Payment HSM. New features and improvements are also announced on the [Azure updates Key Vault channel](https://azure.microsoft.com/updates/?category=security&query=payment%20hsm).
 
+## Novemebr 2025
+
+Azure Payment HSM upgraded the base firmware to 2.2b. Please refer Thales release notes for new features and bug fixes.
+
 ## September 2024
 
 Azure Payment HSM upgraded the base firmware to 1.9a. Refer the [Thales payShield 10K](https://cpl.thalesgroup.com/encryption/hardware-security-modules/payment-hsms/payshield-10k) release notes for new features and bug fixes in the firmware1.8a release.
