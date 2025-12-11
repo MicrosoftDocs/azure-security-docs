@@ -34,7 +34,7 @@ After a reboot, either manual or as a result of a firmware upgrade, some Hosted 
 
 These errors occur under several circumstances: when accessing the payShield manager landing page, during sign-in or sign-out of payShield manager, and when using the JK host command. In the case of the JK host command, the error repeats after each attempt until a workaround is applied.
 
-This issue is limited in scope. The problem only affects HSMs in a HOSTED HSM environment, and specifically those HSMs use SNMP or the JK host command. Hosted HSMs with SNMP disabled or those not utilizing the JK command don't experience these errors or related problems.
+This issue is limited in scope. The problem only affects HSMs in a HOSTED HSM environment, and specifically those HSMs that use SNMP or the JK host command. Hosted HSMs with SNMP disabled or those not utilizing the JK command don't experience these errors or related problems.
 
 The impact of this problem is minimal. While it does cause entries to appear in the payShield error log, it doesn't affect the operation of the payShield 10k in any way. Essentially, the issue is confined to log entries and doesn't compromise the functionality or performance of the system.
 
