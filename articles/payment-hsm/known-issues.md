@@ -54,7 +54,7 @@ When you execute the RELEASE function from the payShield Manager to fully zeroiz
 **Recommended actions**:
 - For firmware versions earlier than 2.1a (1.15.0), run the `SV` command on the virtual console to view certificates, and then use the `SD` command to delete any remaining certificate data.
 - Remove all certificate data before releasing or returning the HSM. For detailed steps, see [Tutorial: Remove a commissioned payment HSM](remove-payment-hsm.md).
-- Plan a firmware upgrade to version 2.1a (1.15.0) or later. For information about firmware versions, see [Support guide: Firmware and license support](support-guide.md#firmware-and-license-support).
+- Plan a firmware upgrade to version 2.1a (1.15.0) or later.
 
 For more information, see the Thales Support Portal KB Article (sign-in required). If you need assistance, contact Thales Support.
 
