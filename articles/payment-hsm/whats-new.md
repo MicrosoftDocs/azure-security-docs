@@ -12,7 +12,7 @@ ms.date: 04/10/2025
 
 Here's what's new with Azure Payment HSM. 
 
-## Novemebr 2025
+## December 2025
 
 Azure Payment HSM upgraded the base firmware to 2.2b. Please refer Thales release notes for new features and bug fixes.
 
