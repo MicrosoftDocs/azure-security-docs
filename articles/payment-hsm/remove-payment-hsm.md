@@ -31,7 +31,7 @@ Navigate to the payShield manager by following the steps in [Access the payShiel
 
 Before releasing the HSM, complete the following steps:
 
-1. **Remove certificate data**: For HSMs running firmware versions earlier than 2.1a (1.15.0), use the `SV` command on the virtual console to view loaded certificates. Then, use the `SD` command to delete all certificate data. While residual certificates pose no security risk, remove them as a best practice. For more details, see [Known issues: TLS certificates not removed during HSM release](known-issues.md#tls-certificates-not-removed-during-hsm-release).
+1. **Remove certificate data**: For HSMs running firmware versions earlier than 2.1a (1.15.0), use the `SV` command on the virtual console to view loaded certificates. Then, use the `SD` command to delete all certificate data. While residual certificates pose no security risk, remove them as a best practice. For more details, see [Known issues: TLS certificates aren't removed during HSM release](known-issues.md#tls-certificates-arent-removed-during-hsm-release).
 
 1. **Set HSM to Secure state**: The payment HSM must be in a Secure state before the RELEASE button is enabled. To set this state, sign in by using both Left and Right Keys and change the state to Secure.
 
