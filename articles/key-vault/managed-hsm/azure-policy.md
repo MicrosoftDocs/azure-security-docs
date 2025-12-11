@@ -86,9 +86,6 @@ Policy assignments have concrete values defined for policy definitions' paramete
 
 You can also do this operation using the Azure CLI. See [Create a policy assignment to identify noncompliant resources with Azure CLI](/azure/governance/policy/assign-policy-azurecli).
 
-> [!NOTE]
-> Azure Managed HSM does not support management group level policy assignment. Assign policies at the subscription level.
-
 ### Test your setup
 
 Try to update/create a key that violates the rule, if you have a policy assignment with effect "Deny", it returns 403 to your request.
