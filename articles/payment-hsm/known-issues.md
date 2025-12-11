@@ -16,7 +16,7 @@ This article describes some known issues with Azure Payment HSM. Before deployin
 
 ## The PayShield fan is running too fast
 
-Sporadic problems have been observed with the PS10K HSM, where the error log indicates that one of the fans is running too fast. Once this error occurs, it's replicated once every 24 hours to the unit's error log. The error is benign and doesn't affect the HSMs operational functionalities. Clearing the specific error entry from the HSM involves a hard-reboot to the unit. The fan error problem will be fixed with Thales payShield firmware release version v1.8a and 1.6a.  
+Sporadic problems occur with the PS10K HSM, where the error log indicates that one of the fans is running too fast. Once this error occurs, the unit's error log replicates it once every 24 hours. The error is benign and doesn't affect the HSM's operational functionalities. Clearing the specific error entry from the HSM involves a hard-reboot to the unit. The fan error problem is fixed with Thales payShield firmware release versions v1.8a and 1.6a.  
 
 If Azure Payment HSM customers observe the fan too fast error and want to do a hard-reboot to the unit, contact [Microsoft support](support-guide.md#microsoft-support). For more information on rebooting HSMs, see [Lifecycle management: Managing unresponsive HSM devices](lifecycle-management.md#managing-unresponsive-hsm-devices).
 
@@ -24,7 +24,7 @@ See details in [Thales support portal KB0026952](https://supportportal.thalesgro
 
 ## Shared memory error logged in Hosted HSM after reboot
 
-After a reboot, either manual or as a result of a firmware upgrade, some Hosted HSMs have experienced the following shared memory permission errors:
+After a reboot, either manual or as a result of a firmware upgrade, some Hosted HSMs experience the following shared memory permission errors:
 
 ```bash
 ,bullsharkprod,ntfn:,mem.c:81,Failed to open/create shared memory because Permission denied
@@ -32,37 +32,37 @@ After a reboot, either manual or as a result of a firmware upgrade, some Hosted 
 ,bullsharkprod,ntfn:,mem.c:81,Failed to open/create shared memory because Permission denied
 ```
 
-These errors are logged under several circumstances: when accessing the payShield manager landing page, during sign-in or sign-out of payShield manager, and when using the JK host command. In the case of the JK host command, the error will repeat after each attempt until a workaround is applied.
+These errors occur under several circumstances: when accessing the payShield manager landing page, during sign-in or sign-out of payShield manager, and when using the JK host command. In the case of the JK host command, the error repeats after each attempt until a workaround is applied.
 
-It's important to note that this issue is limited in scope. The problem only affects HSMs in a HOSTED HSM environment, and specifically those using SNMP or the JK host command. Hosted HSMs with SNMP disabled or those not utilizing the JK command will not experience these errors or related issues.
+This issue is limited in scope. The problem only affects HSMs in a HOSTED HSM environment, and specifically those HSMs use SNMP or the JK host command. Hosted HSMs with SNMP disabled or those not utilizing the JK command don't experience these errors or related problems.
 
-The impact of this problem is minimal. While it does cause entries to appear in the payShield error log, it does not affect the operation of the payShield 10k in any way. Essentially, the issue is confined to log entries and does not compromise the functionality or performance of the system.
+The impact of this problem is minimal. While it does cause entries to appear in the payShield error log, it doesn't affect the operation of the payShield 10k in any way. Essentially, the issue is confined to log entries and doesn't compromise the functionality or performance of the system.
 
 A fix is currently being worked on and will be released in a future payShield firmware.
 
 For more information and a workaround, see [Thales support portal KB0028943](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=ae8f0d9283b41a10fc177e126daad306&sysparm_article=KB0028943) (sign-in required). If you have questions regarding the issue or workaround, open a support ticket with Thales.
 
-## TLS certificates not removed during HSM release
+## TLS certificates aren't removed during HSM release
 
-When executing the RELEASE function from the payShield Manager to fully zeroize the PayShield Cloud HSM to factory state, all HSM settings are removed except for loaded TLS certificates. This is due to a product bug where the TLS certificate deletion function was not implemented.
+When you execute the RELEASE function from the payShield Manager to fully zeroize the PayShield Cloud HSM to factory state, the process removes all HSM settings except for loaded TLS certificates. This exception occurs because of a product bug where the TLS certificate deletion function wasn't implemented.
 
 > [!NOTE]
 > The residual TLS certificates after the RELEASE/RECLAIM operation are public certificates and pose no security risk.
 
-**Resolution**: This bug was fixed in payShield HSM firmware version 2.1a 2100 0000 (1.15.0) and later.
+**Resolution**: The product team fixed this bug in payShield HSM firmware version 2.1a 2100 0000 (1.15.0) and later.
 
-**Recommended Actions**:
-- For firmware versions below 2.1a (1.15.0), run the 'SV' command on the virtual console to view certificates, then use the 'SD' command to delete any remaining certificate data.
-- Remove all certificate data before releasing or returning the HSM. See [Tutorial: Remove a commissioned payment HSM](remove-payment-hsm.md) for detailed steps.
-- Plan a firmware upgrade to version 2.1a (1.15.0) or later. For information on firmware versions, see [Support guide: Firmware and license support](support-guide.md#firmware-and-license-support).
+**Recommended actions**:
+- For firmware versions earlier than 2.1a (1.15.0), run the `SV` command on the virtual console to view certificates, and then use the `SD` command to delete any remaining certificate data.
+- Remove all certificate data before releasing or returning the HSM. For detailed steps, see [Tutorial: Remove a commissioned payment HSM](remove-payment-hsm.md).
+- Plan a firmware upgrade to version 2.1a (1.15.0) or later. For information about firmware versions, see [Support guide: Firmware and license support](support-guide.md#firmware-and-license-support).
 
 For more information, see the Thales Support Portal KB Article (sign-in required). If you need assistance, contact Thales Support.
 
 ## Next steps
 
-- Learn more about [Azure Payment HSM](overview.md)
-- See some common [deployment scenarios](deployment-scenarios.md)
-- Review [Azure Payment HSM lifecycle management](lifecycle-management.md)
-- Learn about [Certification and compliance](certification-compliance.md)
-- Understand [Azure Payment HSM support](support-guide.md)
-- Read the [frequently asked questions](faq.yml)
+- Learn more about [Azure Payment HSM](overview.md).
+- See some common [deployment scenarios](deployment-scenarios.md).
+- Review [Azure Payment HSM lifecycle management](lifecycle-management.md).
+- Learn about [Certification and compliance](certification-compliance.md).
+- Understand [Azure Payment HSM support](support-guide.md).
+- Read the [frequently asked questions](faq.yml).
