@@ -44,12 +44,12 @@ For more information and a workaround, see [Thales support portal KB0028943](htt
 
 ## TLS certificates aren't removed during HSM release
 
-When you execute the RELEASE function from the payShield Manager to fully zeroize the payShield Cloud HSM to factory state, the process removes all HSM settings except for loaded TLS certificates. This bug was addressed in payShield HSM base release version 2.1a 2100 0000 (1.15.0) and later. For more information, see [Thales support portal KB0030122](https://supportportal.thalesgroup.com/csm?sys_kb_id=cce73e702b39ba14cdc1f87df291bfcc&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=2d58b23c3bf1ba10381ecfaf55e45abe&sysparm_article=KB0030122) (sign-in required).
+In payShield HSM firmware versions earlier than 2.1a (1.15.0), executing the RELEASE function from payShield Manager to fully zeroize the payShield Cloud HSM to factory state removes all HSM settings except loaded TLS certificates. For more information, see [Thales support portal KB0030122](https://supportportal.thalesgroup.com/csm?sys_kb_id=cce73e702b39ba14cdc1f87df291bfcc&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=2d58b23c3bf1ba10381ecfaf55e45abe&sysparm_article=KB0030122) (sign-in required).
 
 > [!NOTE]
 > The residual TLS certificates after the RELEASE/RECLAIM operation are public certificates and pose no security risk.
 
-**Resolution**: Thales fixed this bug in payShield HSM firmware version 2.1a 2100 0000 (1.15.0) and later.
+**Resolution**: Thales fixed this issue in payShield HSM firmware version 2.1a (1.15.0) and later. For devices where certificates aren't manually removed before release, an automated mitigation cleans residual certificates as part of the payment HSM resource deletion process.
 
 **Recommended actions**:
 - For firmware versions earlier than 2.1a (1.15.0), run the `SV` command on the virtual console to view certificates, and then use the `SD` command to delete any remaining certificate data.
