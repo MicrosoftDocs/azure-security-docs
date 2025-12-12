@@ -95,11 +95,11 @@ With a network security perimeter:
 #### Restrictions and limitations
 
 - Setting Public Network Access to Disable still allows trusted services. Switching Public Network Access to Secure by perimeter, then forbids trusted services even if configured to allow trusted services.
-- Azure Key Vault firewall rules only apply to [data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane#data-plane) operations. [Control plane](/azure/azure-resource-manager/management/control-plane-and-data-plane#control-plane) operations are not subject to the restrictions specified in firewall rules.
 - To access data by using tools such as the Azure portal, you must be on a machine within the trusted boundary that you establish when configuring network security rules.
 - Azure Key Vault has no concept of outbound rules, you can still associate a key vault to a perimeter with outbound rules but the key vault will not use them.
 - The network security perimeter access logs for Azure Key Vault may not have the "count" or "timeGeneratedEndTime" fields.
-  
+- Certain Key Vault operations - such as creating or updating secrets or reading secret metadata, can be executed through the [control plane](/azure/azure-resource-manager/management/control-plane-and-data-plane#control-plane), not just the [data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane#data-plane). Control plane operations are authorized solely via Azure RBAC permissions, regardless of Key Vault network access restrictions. For a complete list of available Key Vault control and data plane actions, see [Azure permissions for Key Vault](/azure/role-based-access-control/permissions/security#microsoftkeyvault)
+
 #### Associate a network security perimeter with a key vault - Azure PowerShell
 
 To associate a Network Security Perimeter with a key vault in the Azure PowerShell, follow these [instructions](/azure/private-link/create-network-security-perimeter-powershell).
