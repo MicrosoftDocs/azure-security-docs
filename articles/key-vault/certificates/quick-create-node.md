@@ -28,7 +28,7 @@ For more information about Key Vault and certificates, see:
 
 ## Prerequisites
 
-- An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Current [Node.js LTS](https://nodejs.org).
 - [Azure CLI](/cli/azure/install-azure-cli)
 - An existing Key Vault - you can create one using:
@@ -39,7 +39,7 @@ For more information about Key Vault and certificates, see:
 ::: zone-end
 
 ::: zone pivot="programming-language-typescript"
-- An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Current [Node.js LTS](https://nodejs.org).
 - [TypeScript 5+](https://www.typescriptlang.org/download/)
 - [Azure CLI](/cli/azure/install-azure-cli)
@@ -336,4 +336,4 @@ In this quickstart, you created a key vault, stored a certificate, and retrieved
 - See an [Access Key Vault from App Service Application Tutorial](../general/tutorial-net-create-vault-azure-web-app.md)
 - See an [Access Key Vault from Virtual Machine Tutorial](../general/tutorial-net-virtual-machine.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
-- Review the [Key Vault security overview](../general/security-features.md)
+- Review the [Key Vault security overview](../general/secure-key-vault.md)

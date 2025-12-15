@@ -4,7 +4,7 @@ description: Learn how to deploy and configure Azure Cloud HSM by using the Azur
 author: msmbaldwin
 ms.service: azure-cloud-hsm
 ms.topic: quickstart
-ms.date: 05/15/2024
+ms.date: 12/03/2025
 ms.author: mbaldwin
 
 #customer intent: As a cloud administrator, I want to deploy Azure Cloud HSM instances securely through the Azure portal.
@@ -16,7 +16,7 @@ ms.author: mbaldwin
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure account with an active subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - Appropriate permissions to create resources in your subscription, including the ability to create HSM resources and managed identities.
 - For production environments, an existing virtual network and subnet for configuring [private endpoints](/azure/private-link/private-endpoint-overview).
 

@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurepowershell, mode-api
-ms.date: 08/27/2024
+ms.date: 12/03/2025
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
@@ -16,7 +16,7 @@ ms.author: mbaldwin
 
 Azure Key Vault is a cloud service that works as a secure secrets store. You can securely store keys, passwords, certificates, and other secrets. For more information on Key Vault, you may review the [Overview](../general/overview.md). In this quickstart, you use Azure PowerShell to create a key vault. You then store a secret in the newly created vault.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
@@ -82,4 +82,4 @@ In this quickstart, you created a Key Vault and stored a secret in it. To learn 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - Learn how to [store multiline secrets in Key Vault](multiline-secrets.md)
 - See the reference for the [Azure PowerShell Key Vault cmdlets](/powershell/module/az.keyvault/#key_vault)
-- Review the [Key Vault security overview](../general/security-features.md)
+- Review the [Key Vault security overview](../general/secure-key-vault.md)

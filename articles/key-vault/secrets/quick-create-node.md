@@ -28,7 +28,7 @@ For more information about Key Vault and secrets, see:
 
 ## Prerequisites
 
-- An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Current [Node.js LTS](https://nodejs.org).
 - [Azure CLI](/cli/azure/install-azure-cli)
 
@@ -38,7 +38,7 @@ For more information about Key Vault and secrets, see:
 
 ## Prerequisites
 
-- An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Current [Node.js LTS](https://nodejs.org).
 - [TypeScript 5+](https://www.typescriptlang.org/download/)
 - [Azure CLI](/cli/azure/install-azure-cli).
@@ -310,6 +310,6 @@ In this quickstart, you created a key vault, stored a secret, and retrieved that
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - Read an [Overview of Azure Key Vault Secrets](about-secrets.md)
-- How to [Secure access to a key vault](../general/security-features.md)
+- How to [Secure access to a key vault](../general/secure-key-vault.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
-- Review the [Key Vault security overview](../general/security-features.md)
+- Review the [Key Vault security overview](../general/secure-key-vault.md)

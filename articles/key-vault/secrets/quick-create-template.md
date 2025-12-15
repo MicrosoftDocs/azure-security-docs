@@ -8,7 +8,7 @@ ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template, sfi-image-nochange
-ms.date: 10/14/2024
+ms.date: 12/03/2025
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
 ---
@@ -27,7 +27,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 To complete this article:
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 * Your Microsoft Entra user object ID is needed by the template to configure permissions. The following procedure gets the object ID (GUID).
 
@@ -157,4 +157,4 @@ In this quickstart, you created a key vault and a secret using an ARM template, 
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - Learn more about [Azure Resource Manager](/azure/azure-resource-manager/management/overview)
-- Review the [Key Vault security overview](../general/security-features.md)
+- Review the [Key Vault security overview](../general/secure-key-vault.md)

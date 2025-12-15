@@ -20,7 +20,7 @@ Get started with the Azure Key Vault certificate client library for Python. Foll
 
 ## Prerequisites
 
-- An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Python 3.7+](/azure/developer/python/configure-local-development-environment)
 - [Azure CLI](/cli/azure/install-azure-cli)
 
@@ -224,7 +224,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 ## Next steps
 
 - [Overview of Azure Key Vault](../general/overview.md)
-- [Secure access to a key vault](../general/security-features.md)
+- [Secure access to a key vault](../general/secure-key-vault.md)
 - [Azure Key Vault developer's guide](../general/developers-guide.md)
-- [Key Vault security overview](../general/security-features.md)
+- [Key Vault security overview](../general/secure-key-vault.md)
 - [Authenticate with Key Vault](../general/authentication.md)

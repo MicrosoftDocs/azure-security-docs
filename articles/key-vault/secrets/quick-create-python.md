@@ -20,7 +20,7 @@ Get started with the Azure Key Vault secret client library for Python. Follow th
 
 ## Prerequisites
 
-- An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Python 3.7+](/azure/developer/python/configure-local-development-environment).
 - [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
@@ -220,5 +220,5 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 - [Overview of Azure Key Vault](../general/overview.md)
 - [Azure Key Vault developer's guide](../general/developers-guide.md)
-- [Key Vault security overview](../general/security-features.md)
+- [Key Vault security overview](../general/secure-key-vault.md)
 - [Authenticate with Key Vault](../general/authentication.md)

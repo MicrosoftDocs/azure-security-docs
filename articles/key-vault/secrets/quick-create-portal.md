@@ -20,7 +20,7 @@ For more information, see [Key Vault Overview](../general/overview.md) and [Secr
 
 ## Prerequisites
 
-To access Azure Key Vault, you'll need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+To access Azure Key Vault, you'll need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 All access to secrets takes place through Azure Key Vault. For this quickstart, create a key vault using the [Azure portal](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md).
 
@@ -74,8 +74,8 @@ When no longer needed, delete the resource group, which deletes the Key Vault an
 In this quickstart, you created a Key Vault and stored a secret in it. To learn more about Key Vault and how to integrate it with your applications, continue on to these articles.
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
-- Read [Secure access to a Key Vault](../general/security-features.md)
+- Read [Secure access to a Key Vault](../general/secure-key-vault.md)
 - See [Use Key Vault with App Service Web App](../general/tutorial-net-create-vault-azure-web-app.md)
 - See [Use Key Vault with application deployed to VM](../general/tutorial-net-virtual-machine.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
-- Review the [Key Vault security overview](../general/security-features.md)
+- Review the [Key Vault security overview](../general/secure-key-vault.md)

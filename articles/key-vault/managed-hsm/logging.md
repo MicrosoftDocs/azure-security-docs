@@ -7,7 +7,7 @@ ms.author: mbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 01/30/2025
+ms.date: 12/03/2025
 #Customer intent: As a Managed HSM administrator, I want to enable logging for my Managed HSM so I can monitor how and when my HSMs are accessed, and by who.
 ---
 
@@ -86,7 +86,7 @@ Use the Azure PowerShell `Get-AzKeyVault` cmdlet to find the Managed HSM that yo
 You can also use the Azure PowerShell `Get-AzStorageAccount` cmdlet to find the storage account that you want to use for logging, and/or the Azure PowerShell `Get-AzOperationalInsightsWorkspace` cmdlet to find the log analytics workspace that you want to use for logging.
 
 ```powershell
-$hsmresource = (Get-AzKeyVault -ResourceGroupName "ContosoResourceGroup" -VaultName "ContosoMHSM").ResourceId
+$hsmresource = (Get-AzKeyVaultManagedHSM -ResourceGroupName "ContosoResourceGroup" -Name "ContosoMHSM").ResourceId
 $storageresource = (Get-AzStorageAccount -ResourceGroupName "ContosoResourceGroup" -Name "ContosoMHSMLogs").Id
 $loganalyticsresource = (Get-AzOperationalInsightsWorkspace -ResourceGroupName "ContosoResourceGroup" -Name "ContosoLogs").ResourceId
 ```
@@ -221,5 +221,5 @@ If you are sending your logs to a log analytics workspace, you can use Microsoft
 
 ## Next steps
 
-- Learn about [best practices](best-practices.md) to provision and use a managed HSM
-- Learn about [how to Backup and Restore](backup-restore.md) a Managed HSM
+- Learn about [Secure your Azure Managed HSM deployment](secure-managed-hsm.md) to provision and use a managed HSM
+- Learn about How to [Backup and Restore](backup-restore.md) a Managed HSM

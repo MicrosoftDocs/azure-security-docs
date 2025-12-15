@@ -21,7 +21,7 @@ Follow this guide to learn how to use the [azcertificates](https://aka.ms/azsdk/
 
 ## Prerequisites
 
-- An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - **Go installed**: Version 1.18 or [above](https://go.dev/dl/)
 - [Azure CLI](/cli/azure/install-azure-cli)
 
@@ -222,7 +222,7 @@ az group delete --resource-group myResourceGroup
 ## Next steps
 
 - [Overview of Azure Key Vault](../general/overview.md)
-- [Secure access to a key vault](../general/security-features.md)
+- [Secure access to a key vault](../general/secure-key-vault.md)
 - [Azure Key Vault developer's guide](../general/developers-guide.md)
-- [Key Vault security overview](../general/security-features.md)
+- [Key Vault security overview](../general/secure-key-vault.md)
 - [Authenticate with Key Vault](../general/authentication.md)

@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: quickstart
-ms.date: 08/25/2024
+ms.date: 12/03/2025
 ms.author: mbaldwin
 ms.custom: mode-api, devx-track-azurepowershell
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
@@ -17,7 +17,7 @@ In this quickstart, you create a key vault with [Azure PowerShell](/powershell/a
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 [!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/azure-powershell/azure-powershell-requirements-no-header.md)]
 
@@ -39,4 +39,4 @@ In this quickstart you created a Key Vault using Azure PowerShell. To learn more
 
 - Read an [Overview of Azure Key Vault](overview.md)
 - See the reference for the [Azure PowerShell Key Vault cmdlets](/powershell/module/az.keyvault/)
-- Review the [Azure Key Vault security overview](security-features.md)
+- Review the [Azure Key Vault security overview](secure-key-vault.md)

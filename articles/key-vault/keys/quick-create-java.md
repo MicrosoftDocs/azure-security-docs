@@ -25,7 +25,7 @@ Additional resources:
 
 ## Prerequisites
 
-- An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above
 - [Apache Maven](https://maven.apache.org)
 - [Azure CLI](/cli/azure/install-azure-cli)
@@ -287,6 +287,6 @@ public class App {
 In this quickstart, you created a key vault, created a key, retrieved it, and then deleted it. To learn more about Key Vault and how to integrate it with your applications, continue on to these articles.
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
-- Read the [Key Vault security overview](../general/security-features.md)
+- Read the [Key Vault security overview](../general/secure-key-vault.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
-- How to [Secure access to a key vault](../general/security-features.md)
+- How to [Secure access to a key vault](../general/secure-key-vault.md)

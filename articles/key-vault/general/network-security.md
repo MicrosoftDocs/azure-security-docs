@@ -62,7 +62,7 @@ In this case, you should create the resource within a virtual network, and then 
 To understand how to configure a private link connection on your key vault, see the document [here](./private-link-service.md).
 
 > [!IMPORTANT]
-> After firewall rules are in effect, users can only perform Key Vault [data plane](security-features.md#privileged-access) operations when their requests originate from allowed virtual networks or IPv4 address ranges. This also applies to accessing Key Vault from the Azure portal. Although users can browse to a key vault from the Azure portal, they might not be able to list keys, secrets, or certificates if their client machine is not in the allowed list. This also affects the Key Vault Picker used by other Azure services. Users might be able to see a list of key vaults, but not list keys, if firewall rules prevent their client machine.
+> After firewall rules are in effect, users can only perform Key Vault [data plane](secure-key-vault.md#identity-and-access-management) operations when their requests originate from allowed virtual networks or IPv4 address ranges. This also applies to accessing Key Vault from the Azure portal. Although users can browse to a key vault from the Azure portal, they might not be able to list keys, secrets, or certificates if their client machine is not in the allowed list. This also affects the Key Vault Picker used by other Azure services. Users might be able to see a list of key vaults, but not list keys, if firewall rules prevent their client machine.
 
 > [!NOTE]
 > Be aware of the following configuration limitations:
@@ -74,10 +74,12 @@ To understand how to configure a private link connection on your key vault, see 
 
 To enhance network security, you can configure your vault to disable public access. This denies all public configurations and allows only connections through private endpoints.
 
-### Network security perimeter (preview)
-[Network Security Perimeter](/azure/private-link/network-security-perimeter-concepts) (preview) allows organizations to define a logical network isolation boundary for PaaS resources (for example, Azure Key Vault, Azure Storage and SQL Database) that are deployed outside your organization’s virtual networks. It restricts public network access to PaaS resources outside of the perimeter, access can be exempted by using explicit access rules for public inbound and outbound.
+### Network security perimeter
 
-Currently, Network Security Perimeter is in public preview for a subset of resources. See [Onboarded private-link resources](/azure/private-link/network-security-perimeter-concepts#onboarded-private-link-resources) and [Limitations of network security perimeter](/azure/private-link/network-security-perimeter-concepts#limitations-of-network-security-perimeter). For more information, see [Transition to a Network Security Perimeter](/azure/private-link/network-security-perimeter-transition).
+
+[Network Security Perimeter](/azure/private-link/network-security-perimeter-concepts) allows organizations to define a logical network isolation boundary for PaaS resources (for example, Azure Key Vault, Azure Storage and SQL Database) that are deployed outside your organization’s virtual networks. It restricts public network access to PaaS resources outside of the perimeter, access can be exempted by using explicit access rules for public inbound and outbound.
+
+Network Security Perimeter is now generally available for supported resources. See [Onboarded private-link resources](/azure/private-link/network-security-perimeter-concepts#onboarded-private-link-resources) and [Limitations of network security perimeter](/azure/private-link/network-security-perimeter-concepts#limitations-of-network-security-perimeter). For more information, see [Transition to a Network Security Perimeter](/azure/private-link/network-security-perimeter-transition).
 
 > [!IMPORTANT]
 > Private endpoint traffic is considered highly secure and therefore isn't subject to Network Security Perimeter rules. All other traffic, including trusted services, will be subject to Network Security Perimeter rules if the key vault is associated with a perimeter.
@@ -146,4 +148,4 @@ See [Diagnostic logs for Network Security Perimeter](/azure/private-link/network
 
 #### Next steps
 * [Virtual network service endpoints for Key Vault](overview-vnet-service-endpoints.md)
-* [Azure Key Vault security overview](security-features.md)
+* [Azure Key Vault security overview](secure-key-vault.md)

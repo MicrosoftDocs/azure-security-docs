@@ -25,7 +25,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 [!INCLUDE [Azure CLI prepare your environment](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -95,4 +95,4 @@ In this quickstart, you created a Managed HSM. This Managed HSM won't be fully f
 
 - Read an [Overview of Managed HSM](overview.md)
 - Learn about [Managing keys in a Managed HSM](key-management.md)
-- Review [Managed HSM best practices](best-practices.md)
+- Review [Secure your Azure Managed HSM deployment](secure-managed-hsm.md)
