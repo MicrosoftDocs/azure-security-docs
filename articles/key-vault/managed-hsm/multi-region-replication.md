@@ -51,7 +51,7 @@ If a region reports an unhealthy status to the Traffic Manager, future requests 
 All Azure Managed HSM regions are supported as primary regions (regions where you can replicate a Managed HSM pool from).
 
 > [!NOTE]
-> US East, Canada East, Qatar Central, Poland Central, and West India cannot be extended regions at this time. Other regions may be unavailable for extension due to capacity limitations in the region.
+> US East, West Europe, Canada East, Qatar Central, Poland Central, and West India cannot be extended regions at this time. Other regions may be unavailable for extension due to capacity limitations in the region.
 
 ## Billing
 
