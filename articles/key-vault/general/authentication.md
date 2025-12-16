@@ -31,6 +31,24 @@ For applications, there are two ways to obtain a service principal:
 
 * If you cannot use managed identity, you instead **register** the application with your Microsoft Entra tenant, as described on [Quickstart: Register an application with the Azure identity platform](/azure/active-directory/develop/quickstart-register-app). Registration also creates a second application object that identifies the app across all tenants.
 
+## Key Vault authentication scenarios
+
+When you create a key vault in an Azure subscription, it's automatically associated with the Microsoft Entra tenant of the subscription. All callers in both planes must register in this tenant and authenticate to access the key vault. Applications can access Key Vault in three ways:
+
+- **Application-only**: The application represents a service principal or managed identity. This identity is the most common scenario for applications that periodically need to access certificates, keys, or secrets from the key vault. For this scenario to work when using access policies (legacy), the `objectId` of the application must be specified in the access policy and the `applicationId` must _not_ be specified or must be `null`. When using Azure RBAC, assign appropriate roles to the application's managed identity or service principal.
+
+- **User-only**: The user accesses the key vault from any application registered in the tenant. Examples of this type of access include Azure PowerShell and the Azure portal. For this scenario to work when using access policies (legacy), the `objectId` of the user must be specified in the access policy and the `applicationId` must _not_ be specified or must be `null`. When using Azure RBAC, assign appropriate roles to the user.
+
+- **Application-plus-user** (sometimes referred as _compound identity_): The user is required to access the key vault from a specific application _and_ the application must use the on-behalf-of authentication (OBO) flow to impersonate the user. For this scenario to work with access policies (legacy), both `applicationId` and `objectId` must be specified in the access policy. The `applicationId` identifies the required application and the `objectId` identifies the user. Currently, this option isn't available for data plane Azure RBAC.
+
+In all types of access, the application authenticates with Microsoft Entra ID. The application uses any [supported authentication method](/azure/active-directory/develop/authentication-vs-authorization) based on the application type. The application acquires a token for a resource in the plane to grant access. The resource is an endpoint in the management or data plane, based on the Azure environment. The application uses the token and sends a REST API request to Key Vault. To learn more, review the [whole authentication flow](/azure/active-directory/develop/v2-oauth2-auth-code-flow).
+
+The model of a single mechanism for authentication to both planes has several benefits:
+
+- Organizations can control access centrally to all key vaults in their organization.
+- If a user leaves, they instantly lose access to all key vaults in the organization.
+- Organizations can customize authentication by using the options in Microsoft Entra ID, such as to enable multi-factor authentication for added security.
+
 ## Configure the Key Vault firewall
 
 By default, Key Vault allows access to resources through public IP addresses. For greater security, you can also restrict access to specific IP ranges, service endpoints, virtual networks, or private endpoints.

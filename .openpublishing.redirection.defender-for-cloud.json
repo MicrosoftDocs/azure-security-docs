@@ -263,7 +263,7 @@
     {
       "source_path_from_root": "/articles/defender-for-cloud/features-paas.md",
       "redirect_url": "/azure/defender-for-cloud/support-matrix-defender-for-cloud",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/defender-for-cloud/supported-machines-endpoint-solutions-clouds-containers.md",
@@ -337,7 +337,7 @@
     },
     {
       "source_path_from_root": "/articles/defender-for-cloud/tutorial-security-incident.md",
-      "redirect_url": "/azure/defender-for-cloud/managing-and-responding-alerts",
+      "redirect_url": "/azure/defender-for-cloud/",
       "redirect_document_id": false
     },
     {
@@ -427,13 +427,13 @@
     },
     {
       "source_path_from_root": "/articles/defender-for-cloud/review-ai-alerts.md",
-      "redirect_url": "/azure/defender-for-cloud/managing-and-responding-alerts",
+      "redirect_url": "/azure/defender-for-cloud/manage-respond-alerts",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/defender-for-cloud/multicloud-resource-types-support-foundational-cspm.md",
-      "redirect_url": "/azure/defender-for-cloud/support-matrix-cloud-environment",
-      "redirect_document_id": true
+      "redirect_url": "/azure/defender-for-cloud/support-matrix-defender-for-cloud",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/defender-for-cloud/defender-for-kubernetes-introduction.md",
@@ -466,9 +466,104 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-offboard.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-deployment-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/defender-for-cloud/analyze-with-copilot.md",
       "redirect_url": "/azure/defender-for-cloud/summarize-with-copilot",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/azure-devops-extension.yml",
+      "redirect_url": "/azure/defender-for-cloud/configure-azure-devops-extension",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/just-in-time-access-usage.yml",
+      "redirect_url": "/azure/defender-for-cloud/enable-just-in-time-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/workflow-automation.yml",
+      "redirect_url": "/azure/defender-for-cloud/workflow-automations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/managing-and-responding-alerts.yml",
+      "redirect_url": "/azure/defender-for-cloud/manage-respond-alerts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/update-regulatory-compliance-packages.yml",
+      "redirect_url": "/azure/defender-for-cloud/assign-regulatory-compliance-standards",
+      "redirect_document_id": false
+    },      
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/secure-score-access-and-track.md",
+      "redirect_url": "/azure/defender-for-cloud/secure-score-security-controls",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/cli-cicd-integration.md",
+      "redirect_url": "/azure/defender-for-cloud/ci-cd-pipeline-scanning-with-defender-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/how-to-transition-to-built-in.yml",
+      "redirect_url": "/azure/defender-for-cloud/transition-to-built-in",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/support-matrix-cloud-environment.md",
+      "redirect_url": "/azure/defender-for-cloud/support-matrix-defender-for-cloud",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/overview-page.md",
+      "redirect_url": "/azure/defender-for-cloud/cloud-infrastructure-dashboard",
+      "redirect_document_id":  false
+    },
+    {
+      "source_path_from_root":  "/articles/defender-for-cloud/gated-deployment-introduction.md",
+      "redirect_url":  "/azure/defender-for-cloud/runtime-gated-overview",
+      "redirect_document_id":  false
+    },
+    {
+      "source_path_from_root":  "/articles/defender-for-cloud/enable-gated-deployment.md",
+      "redirect_url":  "/azure/defender-for-cloud/enablement-guide-runtime-gated",
+      "redirect_document_id":  false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/sql-information-protection-policy.md",
+      "redirect_url": "/sql/relational-databases/security/sql-data-discovery-and-classification",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-enable.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-deployment-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/tutorial-enable-container-aws.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-aws-enable-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/tutorial-enable-container-gcp.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-gcp-enable-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/tutorial-enable-containers-azure.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-azure-enable-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/tutorial-enable-containers-arc.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-arc-enable-portal",
+      "redirect_document_id": false
     }
   ]
 }

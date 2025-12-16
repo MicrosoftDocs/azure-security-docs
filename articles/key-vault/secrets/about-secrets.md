@@ -87,10 +87,10 @@ You can specify more application-specific metadata in the form of tags. Key Vaul
 ## Next steps
 
 - [Key management in Azure](/azure/security/fundamentals/key-management)
-- [Best practices for secrets management in Key Vault](secrets-best-practices.md)
+- [Best practices for secrets management in Key Vault](secure-secrets.md)
 - [About Key Vault](../general/overview.md)
 - [About keys, secrets, and certificates](../general/about-keys-secrets-certificates.md)
 - [Assign a Key Vault access policy](../general/assign-access-policy.md)
 - [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../general/rbac-guide.md)
-- [Secure access to a key vault](../general/security-features.md)
+- [Secure access to a key vault](../general/secure-key-vault.md)
 - [Key Vault Developer's Guide](../general/developers-guide.md)

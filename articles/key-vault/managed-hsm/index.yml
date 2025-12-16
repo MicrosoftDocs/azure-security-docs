@@ -37,8 +37,8 @@ landingContent:
         links:
           - text: Key sovereignty, availability, performance, and scalability
             url: managed-hsm-technical-details.md
-          - text: Managed HSM best practices
-            url: best-practices.md
+          - text: Secure your Azure Managed HSM deployment
+            url: secure-managed-hsm.md
           - text: Managed HSM access control
             url: access-control.md
           - text: Security domain
@@ -93,7 +93,7 @@ landingContent:
             url: ../general/overview.md
           - text: Basic concepts
             url: ../general/basic-concepts.md
-          - text: Security features
-            url: ../general/security-features.md
+          - text: Secure your Key Vault
+            url: ../general/secure-key-vault.md
           - text: Soft-delete overview
             url: ../general/soft-delete-overview.md

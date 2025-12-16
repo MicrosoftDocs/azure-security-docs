@@ -23,7 +23,7 @@ ms.author: mbaldwin
 
 To complete the steps in this article:
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you start.
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you start.
 
 
 ## Create a Key Vault Resource Manager template
@@ -212,10 +212,10 @@ Write-Host "Press [ENTER] to continue..."
 
 - Read an [Overview of Azure Key Vault](../general/overview.md).
 - Learn more about [Azure Resource Manager](/azure/azure-resource-manager/management/overview).
-- Review the [Azure Key Vault security overview](security-features.md)
+- Review the [Azure Key Vault security overview](secure-key-vault.md)
 
 ## Next steps
 
-- [Secure access to a key vault](security-features.md)
+- [Secure access to a key vault](secure-key-vault.md)
 - [Authenticate to a key vault](authentication.md)
 - [Azure Key Vault Developer's Guide](developers-guide.md)

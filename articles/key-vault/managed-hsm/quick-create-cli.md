@@ -133,4 +133,4 @@ In this quickstart, you provisioned a Managed HSM and activated it. To learn mor
 - Read an [Overview of Managed HSM](overview.md)
 - Learn about [Managing keys in a managed HSM](key-management.md)
 - Learn about [Role management for a managed HSM](role-management.md)
-- Review [Managed HSM best practices](best-practices.md)
+- Review [Secure your Azure Managed HSM deployment](secure-managed-hsm.md)

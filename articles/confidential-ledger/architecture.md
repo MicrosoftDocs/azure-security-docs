@@ -24,5 +24,6 @@ This image provides an architectural overview of Azure confidential ledger, and 
 ## Next steps
 
 - [Overview of Microsoft Azure confidential ledger](overview.md)
+- [Data residency for Azure Confidential Ledger](data-residency.md)
 - [Authenticating Azure confidential ledger nodes](authenticate-ledger-nodes.md)
 - [Azure Confidential Ledger write transaction receipts](write-transaction-receipts.md)

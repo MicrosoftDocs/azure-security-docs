@@ -28,7 +28,7 @@ For more information about Azure App service web applications and deployment pre
 
 To complete this tutorial, you need:
 
-* An Azure subscription. [Create one for free.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* An Azure subscription. [Create one for free.](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 * The [.NET Core 3.1 SDK (or later)](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 * A [Git](https://www.git-scm.com/downloads) installation of version 2.28.0 or greater.
 * The [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/).
@@ -344,4 +344,4 @@ Where before you saw "Hello World!", you should now see the value of your secret
 - [Use Azure Key Vault with applications deployed to a virtual machine in .NET](./tutorial-net-virtual-machine.md)
 - Learn more about [managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview)
 - View the [Developer's Guide](./developers-guide.md)
-- [Secure access to a key vault](./security-features.md)
+- [Secure access to a key vault](./secure-key-vault.md)

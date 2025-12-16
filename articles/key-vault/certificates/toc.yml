@@ -48,6 +48,8 @@ items:
     href: create-certificate.md
   - name: Certificate access control
     href: certificate-access-control.md
+  - name: Secure your Key Vault certificates
+    href: secure-certificates.md
     
 - name: How-to guides 
   items:
@@ -85,6 +87,8 @@ items:
     href: /python/api/overview/azure/keyvault-certificates-readme
   - name: REST
     href: /rest/api/keyvault
+  - name: Azure MCP Server for Key Vault
+    href: /azure/developer/azure-mcp-server/tools/azure-key-vault
   - name: Resource Manager template
     href: /azure/templates/microsoft.keyvault/allversions
     displayName: ARM

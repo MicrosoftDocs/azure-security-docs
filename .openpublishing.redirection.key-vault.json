@@ -534,6 +534,21 @@
     "source_path_from_root": "/articles/key-vault/vs-secure-secret-appsettings.md",
     "redirect_url": "/previous-versions/azure/key-vault/vs-secure-secret-appsettings",
     "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/key-vault/general/best-practices.md",
+    "redirect_url": "/azure/key-vault/general/secure-key-vault",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/key-vault/general/security-features.md",
+    "redirect_url": "/azure/key-vault/general/secure-key-vault",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/key-vault/secrets/secrets-best-practices.md",
+    "redirect_url": "/azure/key-vault/secrets/secure-secrets",
+    "redirect_document_id": false
   }
 ]
 }

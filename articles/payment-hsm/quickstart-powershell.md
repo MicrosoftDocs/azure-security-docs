@@ -36,7 +36,7 @@ Get-AzProviderFeature -FeatureName "FastPathEnabled" -ProviderNamespace Microsof
 
 You can continue with this quick start if the "RegistrationState" of both commands returns "Registered".
 
-- You must have an Azure subscription. You can [create a free account](https://azure.microsoft.com/free/) if you don't have one.
+- You must have an Azure subscription. You can [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) if you don't have one.
   
     If you have more than one Azure subscription, set the subscription to use for billing with the Azure PowerShell [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
   

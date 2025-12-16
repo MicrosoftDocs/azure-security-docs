@@ -6,7 +6,7 @@ ms.subservice: managed-hsm
 ms.topic: concept-article
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 05/16/2023
+ms.date: 12/03/2025
 
 ---
 

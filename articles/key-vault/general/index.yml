@@ -51,8 +51,8 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Security features
-            url: security-features.md
+          - text: Secure your Key Vault
+            url: secure-key-vault.md
           - text: Security baseline
             url: security-baseline.md
       - linkListType: how-to-guide

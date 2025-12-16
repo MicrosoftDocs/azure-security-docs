@@ -6,7 +6,7 @@ author: orin-thomas
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: overview
-ms.date: 01/15/2025
+ms.date: 11/19/2025
 ms.author: orthomas
 ---
 
@@ -14,7 +14,7 @@ ms.author: orthomas
 
 Azure Key Vault is an Azure service that safeguards cryptographic keys, secrets, and certificates. It provides a centralized, secure, and highly available repository for sensitive information like API keys. One  method of avoiding the insecure practice of embedding API keys directly in your application's source code is to configure your app to securely interact with API keys that are stored in Azure Key Vault.
 
-In this article you learn how to create a Key Vault instance, add an API key as a secret to this key vault, and then configure the key vault using best practices. These best practices include restricting access using role based access control (RBAC), enabling monitoring, and restricting network access.
+In this article you learn how to create a Key Vault instance, add an API key as a secret to this key vault, and then configure the key vault using best practices. These best practices include restricting access using Azure role based access control (Azure RBAC), enabling monitoring, and restricting network access.
 
 ## Creating and securing an Azure Key Vault instance
 
@@ -55,13 +55,13 @@ Set-AzKeyVaultSecret -VaultName "<YourKeyVaultName>" -Name "MyApiKey" -SecretVal
 
 You should aim to rotate your API keys periodically. Depending on your organization's security needs, you may choose to rotate keys more or less frequently than every 180 days. You can configure an Event Grid subscription for the "SecretNearExpiry" event as a method of receiving notification about expiring API key secrets.
 
-### Restrict access to the Key Vault using RBAC
+### Restrict access to the Key Vault using Azure RBAC
 
 You can restrict access to the Azure Key Vault instance so that only the application's identity has access to Azure Key Vault. 
 
 # [Azure CLI](#tab/azure-cli)
 
-To do this configure a Role Based Access Control (RBAC) role using the Azure CLI [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command:
+To do this configure an Azure role-based access control (Azure RBAC) role using the Azure CLI [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command:
 
 ```azurecli
 az role assignment create --role "Key Vault Secrets User" \
@@ -71,7 +71,7 @@ az role assignment create --role "Key Vault Secrets User" \
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-To do this configure a Role Based Access Control (RBAC) role using the Azure PowerShell [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) cmdlet:
+To do this configure an Azure role-based access control (Azure RBAC) role using the Azure PowerShell [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) cmdlet:
 
 ```powershell
 New-AzRoleAssignment -RoleDefinitionName "Key Vault Secrets User" `

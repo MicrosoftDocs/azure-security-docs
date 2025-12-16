@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.service: azure-dedicated-hsm
 ms.topic: conceptual
-ms.date: 03/20/2025
+ms.date: 09/26/2025
 ms.custom: horz-security
 ---
 

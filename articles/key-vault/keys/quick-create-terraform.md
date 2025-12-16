@@ -113,4 +113,4 @@ In this article, you learn how to:
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Key Vault security overview](../general/security-features.md)
+> [Key Vault security overview](../general/secure-key-vault.md)

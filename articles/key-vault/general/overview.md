@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: overview
-ms.date: 09/06/2024
+ms.date: 12/03/2025
 ms.author: mbaldwin
 ms.collection:
   - zerotrust-extra
@@ -23,7 +23,12 @@ Azure Key Vault is one of several [key management solutions in Azure](/azure/sec
 - **Key Management** - Azure Key Vault can be used as a Key Management solution. Azure Key Vault makes it easy to create and control the encryption keys used to encrypt your data.
 - **Certificate Management** - Azure Key Vault lets you easily provision, manage, and deploy public and private Transport Layer Security/Secure Sockets Layer (TLS/SSL) certificates for use with Azure and your internal connected resources.
 
-Azure Key Vault has two service tiers: Standard, which encrypts with a software key, and a Premium tier, which includes hardware security module(HSM)-protected keys. To see a comparison between the Standard and Premium tiers, see the [Azure Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/).
+Azure Key Vault offers two service tiers to meet different security and compliance requirements:
+
+- **Standard tier** - Encrypts data using software libraries validated to FIPS 140 Level 1
+- **Premium tier** - Offers HSM-protected keys, generated and protected by FIPS 140-3 Level 3 validated Marvell LiquidSecurity HSMs, for the highest level of cryptographic protection
+
+For detailed pricing and feature comparisons between tiers, see the [Azure Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/).
 
 [!INCLUDE [Zero Trust principles ](~/reusable-content/ce-skilling/azure/includes/security/zero-trust-principles-key-management.md)]
 
@@ -41,7 +46,11 @@ Access to a key vault requires proper authentication and authorization before a 
 
 Authentication is done via Microsoft Entra ID. Authorization may be done via Azure role-based access control (Azure RBAC) or Key Vault access policy. Azure RBAC can be used for both management of the vaults and to access data stored in a vault, while key vault access policy can only be used when attempting to access data stored in a vault.
 
-Azure key vaults are encrypted at rest with a key stored in hardware security modules (HSMs). Azure safeguards keys, secrets, and certificates using industry-standard algorithms, key lengths, and software cryptographic modules. For added assurance, you can generate or import keys in HSMs (type RSA-HSM, EC-HSM, or OCT-HSM) that never leave the HSM boundary. Azure Key Vault uses [Federal Information Processing Standard 140 validated software cryptographic modules and HSMs](/azure/key-vault/keys/about-keys#compliance).
+Azure Key Vault provides multiple layers of security to protect your data. All key vaults are encrypted at rest using keys stored in hardware security modules (HSMs), and Azure safeguards your keys, secrets, and certificates using industry-standard algorithms, key lengths, and cryptographic protection.
+
+For organizations requiring the highest level of security, the Premium tier offers HSM-protected keys (RSA-HSM, EC-HSM, or OCT-HSM) that never leave the HSM boundary. These Premium tier HSMs utilize Marvell LiquidSecurity hardware with FIPS 140-3 Level 3 validation, ensuring the most stringent cryptographic protection available.
+
+Both Standard and Premium tiers use [Federal Information Processing Standard 140 validated software cryptographic modules and HSMs](/azure/key-vault/keys/about-keys#compliance) to meet rigorous security and compliance standards.
 
 Finally, Azure Key Vault is designed so that Microsoft doesn't see or extract your data.
 

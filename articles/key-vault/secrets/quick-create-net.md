@@ -3,7 +3,7 @@ title: Quickstart - Azure Key Vault secrets client library for .NET
 description: Learn how to create, retrieve, and delete secrets from an Azure key vault using the .NET client library
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 09/04/2024
+ms.date: 12/03/2025
 ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: quickstart
@@ -25,7 +25,7 @@ For more information about Key Vault and secrets, see:
 
 ## Prerequisites
 
-* An Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
+* An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 * [.NET 6 SDK or later](https://dotnet.microsoft.com/download)
 * [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
 * A Key Vault - you can create one using [Azure portal](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md)
@@ -277,4 +277,4 @@ To learn more about Key Vault and how to integrate it with your apps, see the fo
 - See an [Access Key Vault from App Service Application Tutorial](../general/tutorial-net-create-vault-azure-web-app.md)
 - See an [Access Key Vault from Virtual Machine Tutorial](../general/tutorial-net-virtual-machine.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
-- Review the [Key Vault security overview](../general/security-features.md)
+- Review the [Key Vault security overview](../general/secure-key-vault.md)

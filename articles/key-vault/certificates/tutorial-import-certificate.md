@@ -28,7 +28,7 @@ The tutorial shows you how to:
 
 Before you begin, read [Key Vault basic concepts](../general/basic-concepts.md). 
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Sign in to Azure
 
@@ -131,4 +131,4 @@ In this tutorial, you created a Key Vault and imported a certificate in it. To l
 
 - Read more about [Managing certificate creation in Azure Key Vault](./create-certificate-scenarios.md)
 - See examples of [Importing Certificates Using REST APIs](/rest/api/keyvault/certificates/import-certificate/import-certificate)
-- Review the [Key Vault security overview](../general/security-features.md)
+- Review the [Key Vault security overview](../general/secure-key-vault.md)
