@@ -93,8 +93,7 @@ Review the scan result of inventory keys of auditing policy assignments. After 1
 
 ## Troubleshooting
   
-If there are no compliance results of a pool after one day, check if the Step 2 role assignment was successful. Without Step 2, the key governance service isn't able to access key's metadata. The Azure CLI `az keyvault role assignment list` command can verify whether the role is assigned. Also check what level the policy was assigned at. Managed HSM does not support management group level policy assignment.
-
+If there are no compliance results of a pool after one day, check if the Step 2 role assignment was successful. Without Step 2, the key governance service isn't able to access key's metadata. The Azure CLI `az keyvault role assignment list` command can verify whether the role is assigned. Also check what level the policy was assigned at.
 ## Next Steps
 
 - [Logging and frequently asked questions for Azure policy for key vault](../general/troubleshoot-azure-policy-for-key-vault.md)
