@@ -561,8 +561,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/defender-for-cloud/transition-to-built-in.yml",
-      "redirect_url": "/azure/defender-for-cloud/transition-to-built-in",
+      "source_path_from_root": "/articles/defender-for-cloud/tutorial-enable-containers-arc.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-arc-enable-portal",
       "redirect_document_id": false
     },
     {
