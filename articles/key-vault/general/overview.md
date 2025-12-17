@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: overview
-ms.date: 09/06/2024
+ms.date: 12/03/2025
 ms.author: mbaldwin
 ms.collection:
   - zerotrust-extra
