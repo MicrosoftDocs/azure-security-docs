@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 10/02/2025
+ms.date: 11/19/2025
 ms.custom: horz-security
 ai-usage: ai-assisted
 
@@ -23,13 +23,15 @@ This article provides security recommendations to help protect your Azure Manage
 
 ## Network security
 
-Network security protects your Managed HSM through secure connectivity and network access controls. Unlike services that deploy into virtual networks, Managed HSM is accessed through secure endpoints and supports private connectivity via Azure Private Link.
+Network security protects your Managed HSM through secure connectivity and network access controls. These network security features are listed from most restricted to least restricted capabilities. Pick the configuration that best suits your organization's use case. For detailed information about all network security configurations, see [Network security for Azure Key Vault Managed HSM](network-security.md).
 
-- **Deploy private endpoints using Azure Private Link**: Establish private, secured connectivity to your Managed HSM instance by creating a private endpoint in your virtual network. This prevents exposure to the public internet and routes all traffic over the Microsoft backbone network. See [Integrate Managed HSM with Azure Private Link](/azure/key-vault/managed-hsm/private-link).
+- **Disable public network access and use Private Endpoints only**: Deploy Azure Private Link to establish private, secured connectivity to your Managed HSM instance by creating a private endpoint in your virtual network. Disabling public network access prevents access from public IP addresses by configuring your Managed HSM to deny public network access. This prevents exposure to the public internet and routes all traffic over the Microsoft backbone network. See [Integrate Managed HSM with Azure Private Link](private-link.md).
 
-- **Disable public network access**: Prevent access from public IP addresses by configuring your Managed HSM to deny public network access. This setting works with private endpoints to ensure only private network traffic reaches your HSM. See [Integrate Managed HSM with Azure Private Link](/azure/key-vault/managed-hsm/private-link).
+- **Configure Managed HSM firewall with trusted services**: Configure Managed HSM firewall rules to deny public internet access while allowing specific trusted Azure services through the `--bypass AzureServices` setting when required by your scenario. This restricts the attack surface while maintaining necessary service integrations. For full details, see [Network security: Azure Managed HSM Firewall Enabled (Trusted Services Only)](network-security.md#managed-hsm-firewall-enabled-trusted-services).
 
-- **Configure firewall rules for trusted services**: When you cannot disable public access entirely, use Managed HSM firewall rules to deny public internet access while allowing specific trusted Azure services through the `--bypass AzureServices` setting. This restricts the attack surface while maintaining necessary service integrations. See [Integrate Managed HSM with Azure Private Link](/azure/key-vault/managed-hsm/private-link).
+- **Enable IP Network Firewall (preview)**: Limit access to public static IP addresses when network scenarios require controlled public access. For full details, see [Azure Key Vault Managed HSM network security: firewall settings](network-security.md#firewall-settings).
+
+For step-by-step configuration instructions, see [How to configure Azure Managed HSM networking settings](configure-network-security.md).
 
 ## Identity and access management
 
@@ -115,9 +117,11 @@ Service-specific security addresses unique characteristics of Managed HSM includ
 
 ## Next steps
 
+- [Network security for Azure Key Vault Managed HSM](network-security.md)
+- [How to configure Azure Managed HSM networking settings](configure-network-security.md)
 - [Integrate with Azure Private Link](private-link.md)
 - [Access control](access-control.md)
-- [Local RBAC built-in roles](built-in-roles.md)
+- [Managed HSM local RBAC built-in roles](built-in-roles.md)
 - [Integrate with Azure Policy](azure-policy.md)
 - [Security domain overview](security-domain.md)
 - [Azure Security fundamentals](/azure/security/fundamentals)

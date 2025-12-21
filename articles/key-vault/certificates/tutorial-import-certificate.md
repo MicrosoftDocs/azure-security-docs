@@ -131,4 +131,4 @@ In this tutorial, you created a Key Vault and imported a certificate in it. To l
 
 - Read more about [Managing certificate creation in Azure Key Vault](./create-certificate-scenarios.md)
 - See examples of [Importing Certificates Using REST APIs](/rest/api/keyvault/certificates/import-certificate/import-certificate)
-- Review the [Key Vault security overview](../general/security-features.md)
+- Review the [Key Vault security overview](../general/secure-key-vault.md)

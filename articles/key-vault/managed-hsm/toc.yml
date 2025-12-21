@@ -41,6 +41,8 @@ items:
     href: how-to-secure-access.md
   - name: Use private endpoints
     href: private-link.md
+  - name: Configure network security
+    href: configure-network-security.md
   - name: Monitoring and logging
     items:
     - name: Managed HSM logging
@@ -71,6 +73,8 @@ items:
   items:
   - name: Secure your managed HSM
     href: secure-managed-hsm.md
+  - name: Network security
+    href: network-security.md
   - name: Security domain overview
     href: security-domain.md
   - name: Access control
@@ -104,6 +108,8 @@ items:
     href: /python/api/overview/azure/keyvault-keys-readme
   - name: REST
     href: /rest/api/keyvault
+  - name: Azure MCP Server for Key Vault
+    href: /azure/developer/azure-mcp-server/tools/azure-key-vault
   - name: Resource Manager template
     href: /azure/templates/microsoft.keyvault/allversions
     displayName: ARM

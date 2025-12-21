@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: general
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, sfi-image-nochange
 ms.topic: how-to
-ms.date: 03/31/2025
+ms.date: 11/19/2025
 ms.author: mbaldwin
 ---
 
@@ -24,6 +24,42 @@ The Azure RBAC model allows users to set permissions on different scope levels: 
 
 For more information, see [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview).
 
+## Key Vault access model overview
+
+Access to a key vault is controlled through two interfaces: the **control plane** and the **data plane**. 
+
+The **control plane** is where you manage Key Vault itself. Operations in this plane include creating and deleting key vaults, retrieving Key Vault properties, and updating access policies. 
+
+The **data plane** is where you work with the data stored in a key vault. You can add, delete, and modify keys, secrets, and certificates.
+
+Both planes use [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) for authentication. For authorization, the control plane uses [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) and the data plane uses a [Key Vault access policy](./assign-access-policy-portal.md) (legacy) or [Azure RBAC for Key Vault data plane operations](./rbac-guide.md).
+
+To access a key vault in either plane, all callers (users or applications) must have proper authentication and authorization. Authentication establishes the identity of the caller. Authorization determines which operations the caller can execute.
+
+Applications access the planes through endpoints. The access controls for the two planes work independently. To grant an application access to use keys in a key vault, you grant data plane access by using Azure RBAC or a Key Vault access policy. To grant a user read access to Key Vault properties and tags, but not access to data (keys, secrets, or certificates), you grant control plane access with Azure RBAC.
+
+### Access plane endpoints
+
+The following table shows the endpoints for the control and data planes.
+
+| Access&nbsp;plane | Access endpoints | Operations | Access&nbsp;control mechanism |
+| --- | --- | --- | --- |
+| Control plane | **Global:**<br> management.azure.com:443<br><br> **Microsoft Azure operated by 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Government:**<br> management.usgovcloudapi.net:443<br> | Create, read, update, and delete key vaults<br><br>Set Key Vault access policies<br><br>Set Key Vault tags | Azure RBAC |
+| Data plane | **Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Microsoft Azure operated by 21Vianet:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure US Government:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br> | **Keys**: encrypt, decrypt, wrapKey, unwrapKey, sign, verify, get, list, create, update, import, delete, recover, backup, restore, purge, rotate, getrotationpolicy, setrotationpolicy, release<br><br> **Certificates**: managecontacts, getissuers, listissuers, setissuers, deleteissuers, manageissuers, get, list, create, import, update, delete, recover, backup, restore, purge<br><br> **Secrets**: get, list, set, delete, recover, backup, restore, purge | Key Vault access policy (legacy) or Azure RBAC |
+
+### Managing administrative access to Key Vault
+
+When you create a key vault in a resource group, you manage access by using Microsoft Entra ID. You grant users or groups the ability to manage the key vaults in a resource group. You can grant access at a specific scope level by assigning the appropriate Azure roles. To grant access to a user to manage key vaults, you assign a predefined `Key Vault Contributor` role to the user at a specific scope. The following scopes levels can be assigned to an Azure role:
+
+- **Subscription**: An Azure role assigned at the subscription level applies to all resource groups and resources within that subscription.
+- **Resource group**: An Azure role assigned at the resource group level applies to all resources in that resource group.
+- **Specific resource**: An Azure role assigned for a specific resource applies to that resource. In this case, the resource is a specific key vault.
+
+There are several predefined roles. If a predefined role doesn't fit your needs, you can define your own role. For more information, see [Azure RBAC: Built-in roles](/azure/role-based-access-control/built-in-roles).
+
+> [!IMPORTANT]
+> If a user has `Contributor` permissions to a key vault control plane, the user can grant themselves access to the data plane by setting a Key Vault access policy. You should tightly control who has `Contributor` role access to your key vaults. Ensure that only authorized persons can access and manage your key vaults, keys, secrets, and certificates.
+
 ## Best Practices for individual keys, secrets, and certificates role assignments
 
 Our recommendation is to use a vault per application per environment (Development, Pre-Production, and Production) with roles assigned at the key vault scope.
@@ -32,7 +68,7 @@ Assigning roles on individual keys, secrets and certificates should be avoided. 
 
 More about Azure Key Vault management guidelines, see:
 
-- [Azure Key Vault best practices](best-practices.md)
+- [Secure your Azure Key Vault](secure-key-vault.md)
 - [Azure Key Vault service limits](service-limits.md)
 
 ## Azure built-in roles for Key Vault data plane operations
@@ -350,12 +386,12 @@ For more Information about how to create custom roles, see:
 
 ## Frequently Asked Questions
 
-### Can I use Key Vault role-based access control (RBAC) permission model object-scope assignments to provide isolation for application teams within Key Vault?
-No. RBAC permission model allows you to assign access to individual objects in Key Vault to user or application, but any administrative operations like network access control, monitoring, and objects management require vault level permissions, which will then expose secure information to operators across application teams.
+### Can I use Azure RBAC object-scope assignments to provide isolation for application teams within Key Vault?
+No. Azure RBAC permission model allows you to assign access to individual objects in Key Vault to user or application, but any administrative operations like network access control, monitoring, and objects management require vault level permissions, which will then expose secure information to operators across application teams.
 
 ## Learn more
 
 - [Azure RBAC Overview](/azure/role-based-access-control/overview)
 - [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal)
 - [Custom Roles Tutorial](/azure/role-based-access-control/tutorial-custom-role-cli)
-- [Azure Key Vault best practices](best-practices.md)
+- [Secure your Azure Key Vault](secure-key-vault.md)
