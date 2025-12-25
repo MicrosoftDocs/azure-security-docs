@@ -16,28 +16,28 @@ ms.custom: references_regions metadata
 This article outlines the Azure Payment HSM prerequisites, support channels, and division of support responsibility between Microsoft, Thales, and the customer.
 
 > [!NOTE]
-> If a customer's production environment does not has a High Availability setup as shown in [Deployment scenarios: high availability deployment](deployment-scenarios.md#high-availability-deployment), customer will not receive S2 level support.
+> If a customer's production environment doesn't have a high availability setup as shown in [Deployment scenarios: high availability deployment](deployment-scenarios.md#high-availability-deployment), the customer doesn't receive S2 level support.
 
 ## Prerequisites
 
 Microsoft works with Thales to ensure that customers meet the prerequisites before starting the onboarding process.
 
 - Customers must have access to the [Thales CPL Customer Support Portal](https://supportportal.thalesgroup.com/csm) (Customer ID).
-- Customers must have Thales smart cards and card readers for payShield Manager. If a customer need to purchase smart cards or card readers they should contact their Thales representatives, or find their contacts through the [Thales contact page](https://cpl.thalesgroup.com/contact-us):
+- Customers must have Thales smart cards and card readers for payShield Manager. If a customer needs to purchase smart cards or card readers, they should contact their Thales representatives or find their contacts through the [Thales contact page](https://cpl.thalesgroup.com/contact-us):
     - **Item**:  971-000135-001-000
     - **Description**: PS10-RMGT-KIT2 - payShield Manager Starter Kit - for software V1.4A (1.8.3) and higher
     - **Items Included**: 2 Thales Card Readers, 30 PayShield Manager Smartcards
     
     The only smart cards compatible with the ciphers used to enable over-network use smart cards have a blue band and are labeled "payShield Manager Card".
-- If a customer need to purchase a payShield Trusted Management Device (TMD), they should contact their Thales representatives or find their contacts through the [Thales contact page](https://cpl.thalesgroup.com/contact-us).
+- If a customer needs to purchase a payShield Trusted Management Device (TMD), they should contact their Thales representatives or find their contacts through the [Thales contact page](https://cpl.thalesgroup.com/contact-us).
 - Customers must download and review the "Hosted HSM End User Guide," which is available through the Thales CPL Customer Support Portal. The Hosted HSM End User Guide provides more details on the changes to payShield to this service.
-- Customers must review the "Azure Payment HSM - Get Ready for payShield 10K" guide that they received from Microsoft. (Customers who do not have the guide may request it from [Microsoft Support](#microsoft-support).)
+- Customers must review the "Azure Payment HSM - Get Ready for payShield 10K" guide that they received from Microsoft. (Customers who don't have the guide may request it from [Microsoft Support](#microsoft-support).)
 - If a customer is new to payShield or the remote management option, they should take the formal training courses available from Thales and its approved partners.
 - If a customer is using payShield on premises today with custom firmware, they must conduct a porting exercise to update the firmware to a version compatible with the Azure deployment. To request a quote, contact a Thales account manager.
 
 ## Firmware and license support
 
-The HSM base firmware installed is Thales payShield10K base software version 1.9a. Customer can upgrade or downgrade the firmware based on their needs. Versions less than 1.4a is not supported. Customers must ensure that they only upgrade or downgrade to a firmware version that meets their compliance requirements.
+The HSM base firmware installed is Thales payShield10K base software version 2.2b. Customer can upgrade or downgrade the firmware based on their needs. Versions less than 1.4a is not supported. Customers must ensure that they only upgrade or downgrade to a firmware version that meets their compliance requirements.
 
 The licenses included in Azure payment HSM:
 
