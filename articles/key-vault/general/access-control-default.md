@@ -22,6 +22,8 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, sfi-image-nochange
 >
 > - **Azure RBAC (recommended)**: [Set new and existing vaults to Azure RBAC](#step-4-migrate-to-azure-rbac-recommended) and adopt API version 2026-02-01.
 > - **Access policies (legacy)**: [Set new vaults to use access policies](#step-5-continue-using-access-policies) and adopt API version 2026-02-01.
+>
+> **Azure Cloud Shell users**: Cloud Shell always uses the latest API version. If you use Cloud Shell for Key Vault operations, you're already using API version 2026-02-01 and should follow the steps in this article immediately.
 
 Azure Key Vault is implementing an important security enhancement in API version 2026-02-01, releasing in February 2026. To help protect your key vaults and reduce security risks, **the new Key Vault API version establishes Azure RBAC as the default access control model**, consistent with the Azure portal experience.
 
