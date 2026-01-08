@@ -166,6 +166,8 @@ items:
     href: whats-new.md
   - name: Monitoring Key Vault data reference
     href: monitor-key-vault-reference.md
+  - name: Customer data and GDPR compliance
+    href: gdpr-customer-data.md
   - name: Key management in Azure
     href: /azure/security/fundamentals/key-management
   - name: Multitenancy and Azure Key Vault
