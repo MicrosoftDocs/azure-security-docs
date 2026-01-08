@@ -48,6 +48,8 @@ landingContent:
             url: quick-create-node.md
           - text: Java
             url: quick-create-java.md
+      - linkListType: quickstart
+        links:
           - text: Bicep
             url: quick-create-bicep.md
           - text: ARM Template
