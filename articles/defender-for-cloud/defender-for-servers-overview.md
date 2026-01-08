@@ -54,11 +54,11 @@ Plan features are summarized in the table.
 |--|--|--|--|
 | **Multicloud and hybrid support** | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png":::| Protects Virtual Machines (VMs) on Azure, AWS and GCP VMs, and on-premises machines that are connected to Microsoft Defender for Cloud. <br/><br/> Review Defender for Servers [support and requirements](support-matrix-defender-for-servers.md). |
 | **Defender for Endpoint automatic onboarding** | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png":::|  |
-| [Defender for Endpoint EDR](integration-defender-for-endpoint.md) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, and GCP |
-| [Integrated alerts and incidents](concept-integration-365.md) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, and GCP |
-| [Software inventory discovery](asset-inventory.md) <sup>[1](#footnote1)</sup> | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, and GCP |
+| [Defender for Endpoint EDR](integration-defender-for-endpoint.md) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, and on-premises |
+| [Integrated alerts and incidents](concept-integration-365.md) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, and on-premises |
+| [Software inventory discovery](asset-inventory.md) <sup>[1](#footnote1)</sup> | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, and on-premises |
 | [Regulatory compliance assessment](concept-regulatory-compliance-standards.md) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | Different standards are available for different environments. Learn more about [compliance cloud availability](concept-regulatory-compliance-standards.md#available-compliance-standards). |
-| [Vulnerability scanning (agent-based)](auto-deploy-vulnerability-assessment.md) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, and GCP |
+| [Vulnerability scanning (agent-based)](auto-deploy-vulnerability-assessment.md) | :::image type="icon" source="./media/icons/yes-icon.png"::: | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, and on-premises |
 | [Vulnerability scanning (agentless)](concept-agentless-data-collection.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, and GCP |
 | [Defender for DNS alerts](defender-for-dns-introduction.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, and GCP |
 | [Threat detection (Azure network layer)](alerts-azure-network-layer.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure |
@@ -66,7 +66,7 @@ Plan features are summarized in the table.
 | [Defender for Vulnerability Management premium features](/defender-vulnerability-management/defender-vulnerability-management-capabilities) <sup>[3](#footnote3)</sup> | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
 | [Malware scanning (agentless)](agentless-malware-scanning.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, and GCP |
 | [Machine secrets scanning (agentless)](concept-agentless-data-collection.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, and GCP |
-| [File integrity monitoring](file-integrity-monitoring-overview.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, and GCP <br><br> Only applicable to AWS and GCP machines onboarded with Azure ARC. |
+| [File integrity monitoring](file-integrity-monitoring-overview.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP, and on-premises <br><br> Only applicable to on-premises, AWS and GCP machines onboarded with Azure ARC. |
 | [Just-in-time virtual machine access](just-in-time-access-overview.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure and AWS |
 | [Network map](protect-network-resources.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure |
 | [Free data ingestion (500 MB)](data-ingestion-benefit.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: |  |
