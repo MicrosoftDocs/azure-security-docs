@@ -52,7 +52,7 @@ landingContent:
         links:
           - text: Bicep
             url: quick-create-bicep.md
-          - text: ARM Template
+          - text: ARM template
             url: quick-create-template.md
           - text: Terraform
             url: quick-create-terraform.md
@@ -92,7 +92,7 @@ landingContent:
             url: javascript-developer-guide-enable-disable-key.md
           - text: Import keys
             url: javascript-developer-guide-import-key.md
-          - text: Backup, delete, restore keys
+          - text: Back up, delete, restore keys
             url: javascript-developer-guide-backup-delete-restore-key.md
 
 # Card
