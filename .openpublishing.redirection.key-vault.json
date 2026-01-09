@@ -554,6 +554,11 @@
     "source_path_from_root": "/articles/key-vault/general/dotnet2api-release-notes.md",
     "redirect_url": "/azure/key-vault/general/client-libraries",
     "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/key-vault/general/customer-data.md",
+    "redirect_url": "/azure/key-vault/general/monitor-key-vault",
+    "redirect_document_id": false
   }
 ]
 }
