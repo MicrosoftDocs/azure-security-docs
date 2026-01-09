@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: msmbaldwin
   ms.author: mbaldwin
-  ms.date: 02/20/2024
+  ms.date: 01/08/2026
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -53,18 +53,16 @@ landingContent:
         links:
           - text: Secure your Key Vault
             url: secure-key-vault.md
-          - text: Security baseline
-            url: security-baseline.md
+          - text: Network security
+            url: network-security.md
       - linkListType: how-to-guide
         links:
           - text: Authenticate to Key Vault
             url: authentication.md
-          - text: Assign access policy (CLI)
-            url: assign-access-policy-CLI.md
-          - text: Assign access policy (PowerShell)
-            url: assign-access-policy-powershell.md
-          - text: Assign access policy (Portal)
-            url: assign-access-policy-portal.md
+          - text: Assign access policy
+            url: assign-access-policy.md
+          - text: Use Azure RBAC for access control
+            url: rbac-guide.md
       - linkListType: tutorial
         links:
           - text: Use private link
