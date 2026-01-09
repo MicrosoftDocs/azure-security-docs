@@ -25,6 +25,8 @@ landingContent:
         links:
           - text: What is Azure Key Vault?
             url: overview.md
+          - text: What's new
+            url: whats-new.md
       - linkListType: concept
         links:
           - text: Basic concepts
@@ -33,6 +35,8 @@ landingContent:
             url: soft-delete-overview.md
           - text: Throttling
             url: overview-throttling.md
+          - text: Versions
+            url: versions.md
 
   # Card
   - title: Tutorials
@@ -45,6 +49,12 @@ landingContent:
             url: tutorial-net-virtual-machine.md
           - text: Key Vault with a virtual machine in Python
             url: tutorial-python-virtual-machine.md
+          - text: Key Vault with a virtual machine in JavaScript
+            url: tutorial-javascript-virtual-machine.md
+          - text: Use Event Grid and Logic Apps
+            url: event-grid-logicapps.md
+          - text: Integrate with Azure Databricks
+            url: integrate-databricks-blob-storage.md
 
   # Card
   - title: Security
@@ -55,6 +65,8 @@ landingContent:
             url: secure-key-vault.md
           - text: Network security
             url: network-security.md
+          - text: Azure Private Link
+            url: private-link-service.md
       - linkListType: how-to-guide
         links:
           - text: Authenticate to Key Vault
@@ -63,6 +75,8 @@ landingContent:
             url: assign-access-policy.md
           - text: Use Azure RBAC for access control
             url: rbac-guide.md
+          - text: Migrate from access policies to RBAC
+            url: rbac-migration.md
       - linkListType: tutorial
         links:
           - text: Use private link
