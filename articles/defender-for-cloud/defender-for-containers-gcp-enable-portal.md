@@ -39,13 +39,11 @@ GCP-specific requirements:
 
 1. Go to **Microsoft Defender for Cloud**.
 
-1. Select **Environment settings** from the left menu.
+1. Select **Management** > **Environment settings** from the left menu.
 
 1. Select **Add environment** > **Google Cloud Platform**.
 
     :::image type="content" source="media/quickstart-onboard-gcp/add-gcp-project-environment-settings.png" alt-text="Screenshot showing how to connect a GCP project to Microsoft Defender for Cloud." lightbox="media/quickstart-onboard-gcp/add-gcp-project-environment-settings.png":::
-
-    :::image type="content" source="media/defender-for-kubernetes-intro/add-gcp-environment.png" alt-text="Screenshot showing adding GCP environment." lightbox="media/defender-for-kubernetes-intro/add-gcp-environment.png":::
 
 1. Select the relevant GCP connector if you have multiple:
 
@@ -53,9 +51,10 @@ GCP-specific requirements:
 
 ## Configure connector details
 
-1. In the **Account details** section, enter:
+1. In the **Organization details** section, enter:
    - **Connector name**: A descriptive name for your GCP project
-   - **GCP project ID**: Your GCP project identifier
+   - **Onboarding method**: Select **Single project**
+   - **GCP project ID**: Your GCP project identifier. The ID must be six characters long. 
    - **Resource group**: Select or create a resource group
 
    :::image type="content" source="media/defender-for-kubernetes-intro/add-gcp-account-details.png" alt-text="Screenshot showing GCP account details configuration." lightbox="media/defender-for-kubernetes-intro/add-gcp-account-details.png":::
@@ -66,9 +65,10 @@ GCP-specific requirements:
 
 1. In **Select plans**, toggle **Containers** to **On**.
 
-    :::image type="content" source="media/tutorial-enable-containers-gcp/containers-on.png" alt-text="Screenshot of enabling Defender for Containers for a GCP connector." lightbox="media/tutorial-enable-containers-gcp/containers-on.png":::
+    :::image type="content" source="media/tutorial-enable-containers-gcp/turn-on-gcp-containers.png" alt-text="Screenshot that shows how to turn on the Google cloud containers button in the Azure portal.":::
 
-1. Select **Configure** to access the plan settings.
+
+1. Select **Settings** to access the plan settings.
 
     :::image type="content" source="media/defender-for-containers-enable-plan-gke/containers-settings-gke.png" alt-text="Screenshot of settings for the Containers plan in the Defender for Cloud environment settings." lightbox="media/defender-for-containers-enable-plan-gke/containers-settings-gke.png":::
 
@@ -77,20 +77,44 @@ GCP-specific requirements:
    - **Enable specific components**: Select only the components you need
 
    Available components:
-   - **Agentless discovery for Kubernetes** - Discovers all GKE clusters
-   - **Agentless container vulnerability assessment** - Scans registry images
-   - **Defender DaemonSet** - Runtime threat detection
-   - **Azure Policy for Kubernetes** - Security recommendations
+   - **Agentless threat protection** - Discovers all GKE clusters
+   - **Auto provision Defender's sensor for Azure Arc** - The Defender sensor is an Azure Arc extension deployed as a DaemonSet that connects GKE clusters to Azure and sends security telemetry to Microsoft Defender for Cloud for runtime threat protection.
+   - **Registry access** - Scans registry images
+   - **Kubernetes API access** - Required to enable agentless container posture management, runtime vulnerability assessment, and container response actions.
 
-1. Select **Continue** and **Next: Configure access**.
+1. Select **Save** and **Next: Configure access**.
+
+### Configure GCP access
+
+1. Select permission type: Default access or Least privilege access.
+1. Select the deployment method: **GCP Cloud Shell.**
+1. Copy the GCP code template.
+
+    :::image type="content" source="media/defender-for-containers-enable-plan-gke/configure-gcp-access.png" alt-text="Screenshot that shows the Google Cloud Shell template in the Azure portal.":::
+
 
 ## Set up GCP permissions
 
-1. Download the setup script from the portal.
+You can use either Google Cloud Shell (recommended) or a local terminal with gcloud configured.
 
-1. Open Google Cloud Shell or your local terminal with gcloud configured.
+1. Log in to [Google Cloud Console](https://console.cloud.google.com/home/dashboard?project=123456&cloudshell=true).
 
-1. Run the setup script to create the required service account and permissions:
+1. Select the Activate Cloud Shell icon (terminal icon) in the top-right corner.
+
+Google Cloud Shell opens in a terminal pane at the bottom of the console.
+
+1.  Verify that the correct GCP project is active by running the following command:
+
+   ```bash
+   gcloud config get-value project
+   ```
+The returned value is your GCP project ID. You will use it in a later step.
+
+1. Run the setup script to create the required service account and permissions.These parameters are placeholders and must be replaced before running the script.
+
+- Replace <project-id> with your GCP project ID.
+
+- Replace the <workload-identity-pool> with a name you choose for the workload identity pool (for example, defender-containers-pool).
 
    ```bash
    # The portal provides a script similar to this
@@ -103,12 +127,6 @@ GCP-specific requirements:
    - Service account with necessary IAM roles
    - Workload identity federation
    - API enablement
-
-1. Copy the service account email from the script output.
-
-    :::image type="content" source="media/defender-for-containers-enable-plan-gke/copy-button.png" alt-text="Screenshot that shows the location of the copy button.":::
-
-1. Return to Azure portal and paste the service account email.
 
    :::image type="content" source="media/defender-for-kubernetes-intro/configure-access-gcp.png" alt-text="Screenshot showing GCP access configuration." lightbox="media/defender-for-kubernetes-intro/configure-access-gcp.png":::
 
