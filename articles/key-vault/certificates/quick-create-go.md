@@ -3,7 +3,7 @@ title: Quickstart – Azure Key Vault Go client library - Manage certificates
 description: Learn how to create, retrieve, and delete certificates from an Azure key vault using the Go client library
 author: Duffney
 ms.author: jduffney
-ms.date: 01/10/2024
+ms.date: 01/08/2026
 ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: quickstart
@@ -13,9 +13,9 @@ ms.custom: devx-track-go
 
 # Quickstart: Azure Key Vault certificate client library for Go
 
-In this quickstart, you'll learn to use the Azure SDK for Go to manage certificates in an Azure Key Vault.
+In this quickstart, you learn how to use the Azure SDK for Go to manage certificates in an Azure key vault.
 
-Azure Key Vault is a cloud service that works as a secure secrets store. You can securely store keys, passwords, certificates, and other secrets. For more information on Key Vault, you may review the [Overview](../general/overview.md).
+Azure Key Vault is a cloud service that works as a secure secrets store. You can securely store keys, passwords, certificates, and other secrets. For more information on Key Vault, review the [Overview](../general/overview.md).
 
 Follow this guide to learn how to use the [azcertificates](https://aka.ms/azsdk/go/keyvault-certificates/docs) package to manage your Azure Key Vault certificates using Go.
 
@@ -33,7 +33,7 @@ Follow this guide to learn how to use the [azcertificates](https://aka.ms/azsdk/
     az login
     ```
 
-    If the Azure CLI can open your default browser, it will do so on the Azure portal sign-in page.
+    If the Azure CLI can open your default browser, it does so on the Azure portal sign-in page.
 
     If the page doesn't open automatically, go to [https://aka.ms/devicelogin](https://aka.ms/devicelogin), and then enter the authorization code that's displayed in your terminal.
 
@@ -185,7 +185,7 @@ func main() {
 
 ## Run the code
 
-Before you run the code, create an environment variable named `KEY_VAULT_NAME`. Set the environment variable's value to the name of the Azure Key Vault created previously.
+Before you run the code, create an environment variable named `KEY_VAULT_NAME`. Set the environment variable's value to the name of the Azure Key Vault you created.
 
 # [Bash](#tab/bash)
 
@@ -209,7 +209,7 @@ go run main.go
 
 ## Code examples
 
-See the [module documentation](https://aka.ms/azsdk/go/keyvault-certificates/docs) for more examples.
+For more examples, see the [module documentation](https://aka.ms/azsdk/go/keyvault-certificates/docs).
 
 ## Clean up resources
 

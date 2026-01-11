@@ -15,7 +15,7 @@ Authentication is a crucial aspect of securely accessing and operating within Az
 
 ## Cloud HSM CLI authentication
 
-You can authenticate by using CLI tools like `azcloudhsm_util` in either interactive mode or single-command mode. In interactive mode, use the `login` command. For single-command mode, include `singlecmd` and parameters for `loginHSM`. We advise you to securely store your HSM credentials when your application isn't using them.
+You can authenticate by using CLI tools like `azcloudhsm_util` in either interactive mode or single-command mode. In interactive mode, use the `loginHSM` command. For single-command mode, include `singlecmd` and parameters for `loginHSM`. We advise you to securely store your HSM credentials when your application isn't using them.
 
 ### Interactive mode
 

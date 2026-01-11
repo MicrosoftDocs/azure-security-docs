@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: msmbaldwin
   ms.author: mbaldwin
-  ms.date: 02/20/2024
+  ms.date: 01/08/2026
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -45,6 +45,10 @@ landingContent:
             url: security-domain.md
           - text: Local RBAC built-in roles
             url: built-in-roles.md
+          - text: Soft-delete overview
+            url: soft-delete-overview.md
+          - text: Multi-region replication
+            url: multi-region-replication.md
 
   # Card
   - title: Get started
@@ -69,6 +73,16 @@ landingContent:
             url: role-management.md
           - text: Secure access to your Managed HSM
             url: how-to-secure-access.md
+          - text: Configure network security
+            url: configure-network-security.md
+          - text: Configure private link
+            url: private-link.md
+          - text: Configure alerts
+            url: configure-alerts.md
+          - text: Key rotation
+            url: key-rotation.md
+          - text: Key attestation
+            url: key-attestation.md
 
   # Card
   - title: Tutorials
@@ -83,6 +97,10 @@ landingContent:
             url: hsm-protected-keys-byok.md
           - text: Configure logging for your managed HSMs
             url: logging.md
+          - text: Configure logging with Azure Monitor
+            url: logging-azure-monitor.md
+          - text: Integrate with Microsoft Sentinel
+            url: sentinel.md
 
   # Card
   - title: More about Key Vault
