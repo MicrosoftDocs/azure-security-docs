@@ -11,7 +11,7 @@ metadata:
   ms.topic: hub-page
   author: msmbaldwin
   ms.author: mbaldwin
-  ms.date: 02/20/2024
+  ms.date: 01/08/2026
 
 highlightedContent:
   items:
@@ -33,6 +33,12 @@ highlightedContent:
     - title: Throttling
       itemType: overview
       url: ./general/overview-throttling.md
+    - title: Monitor Key Vault
+      itemType: overview
+      url: ./key-vault-insights-overview.md
+    - title: Azure Policy built-in definitions
+      itemType: reference
+      url: ./policy-reference.md
 conceptualContent:
   items:
     - title: Certificates
@@ -162,7 +168,7 @@ conceptualContent:
       links:
         - url: /azure/devops/pipelines/library/variable-groups?tabs=yaml#link-secrets-from-an-azure-key-vault
           itemType: overview
-          text: Azure Dev Ops - Reference Key Vault secrets in Azure Pipelines
+          text: Azure DevOps - Reference Key Vault secrets in Azure Pipelines
         - url: /azure/app-service/app-service-key-vault-references
           itemType: overview
           text: App Services - Reference Key Vault secrets in App Services

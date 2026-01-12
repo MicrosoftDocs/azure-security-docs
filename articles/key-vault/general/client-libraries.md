@@ -7,14 +7,14 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 03/31/2025
+ms.date: 01/08/2026
 ms.author: mbaldwin
 
 
 ---
 
 
-# Client Libraries for Azure Key Vault
+# Client libraries for Azure Key Vault
 
 The Azure Key Vault client libraries provide programmatic access to Key Vault functionality across multiple languages, including .NET, Python, Java, JavaScript, and Spring. These libraries follow the latest [Azure SDK guidelines](https://azure.github.io/azure-sdk/) and integrate with [Azure Identity](/azure/developer/intro/passwordless-overview) for authentication.
 
@@ -31,5 +31,5 @@ Each SDK has separate client libraries for secrets, keys, certificates, and mana
 | **Node.js** | - [API Reference](/javascript/api/@azure/keyvault-secrets/)<br>- [npm](https://www.npmjs.com/package/@azure/keyvault-secrets)<br>- [Source](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/keyvault-secrets)<br>- [Quickstart](../secrets/quick-create-node.md) | - [API Reference](/javascript/api/@azure/keyvault-keys/)<br>- [npm](https://www.npmjs.com/package/@azure/keyvault-keys)<br>- [Source](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/keyvault-keys)<br>- [Quickstart](../keys/quick-create-node.md) | - [API Reference](/javascript/api/@azure/keyvault-certificates/)<br>- [npm](https://www.npmjs.com/package/@azure/keyvault-certificates)<br>- [Source](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/keyvault-certificates)<br>- [Quickstart](../certificates/quick-create-node.md) | - [API Reference](/javascript/api/@azure/arm-keyvault/)<br>- [npm](https://www.npmjs.com/package/@azure/arm-keyvault)<br>- [Source](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/arm-keyvault) |
 
 ## Next steps
-- See the [Azure Key Vault developer's guide](developers-guide.md)
-- Learn more about [Authenticating to a Key Vault](authentication.md)
+- See the [Azure Key Vault developer's guide](developers-guide.md).
+- Learn more about [Authenticating to a Key Vault](authentication.md).

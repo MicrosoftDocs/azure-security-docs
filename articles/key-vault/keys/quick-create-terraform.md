@@ -8,7 +8,7 @@ ms.custom: devx-track-terraform
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.author: mbaldwin
-ms.date: 10/3/2023
+ms.date: 01/08/2026
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
@@ -16,18 +16,18 @@ ai-usage: ai-assisted
 
 # Quickstart: Create an Azure key vault and key using Terraform
 
-[Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for secrets, such as keys, passwords, and certificate. This article focuses on the process of deploying a Terraform file to create a key vault and a key.
+[Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for secrets, such as keys, passwords, and certificates. This article focuses on the process of deploying a Terraform file to create a key vault and a key.
 
 [!INCLUDE [Terraform abstract](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Create a random value for the Azure resource group name using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet)
-> * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
-> * Create a random value using [random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string)
-> * Create an Azure key vault using [azurerm_key_vault](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault)
-> * Create an Azure key vault key using [azurerm_key_vault_key](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault_key)
+> * Create a random value for the Azure resource group name by using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet)
+> * Create an Azure resource group by using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
+> * Create a random value by using [random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string)
+> * Create an Azure key vault by using [azurerm_key_vault](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault)
+> * Create an Azure key vault key by using [azurerm_key_vault_key](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault_key)
 
 ## Prerequisites
 
@@ -38,9 +38,9 @@ In this article, you learn how to:
 > [!NOTE]
 > The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-key-vault-key). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-key-vault-key/TestRecord.md).
 > 
-> See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
+> See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform).
 
-1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
+1. Create a directory to test and run the sample Terraform code. Make it the current directory.
 
 1. Create a file named `providers.tf` and insert the following code:
 
@@ -108,7 +108,7 @@ In this article, you learn how to:
 
 ## Troubleshoot Terraform on Azure
 
-[Troubleshoot common problems when using Terraform on Azure](/azure/developer/terraform/troubleshoot)
+[Troubleshoot common problems when using Terraform on Azure](/azure/developer/terraform/troubleshoot).
 
 ## Next steps
 

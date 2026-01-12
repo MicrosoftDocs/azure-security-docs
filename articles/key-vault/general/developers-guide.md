@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 03/31/2025
+ms.date: 01/08/2026
 ms.author: mbaldwin
 ---
 # Azure Key Vault developer's guide
@@ -34,7 +34,7 @@ Common developer tasks with Key Vault include:
 
 ## Public previews
 
-We periodically release public previews of new Key Vault features. To try preview features and provide feedback, contact us at azurekeyvault@microsoft.com. For information about the latest features and updates, see [What's new in Azure Key Vault](whats-new.md).
+Microsoft periodically releases public previews of new Key Vault features. To try preview features and provide feedback, contact the team at azurekeyvault@microsoft.com. For information about the latest features and updates, see [What's new in Azure Key Vault](whats-new.md).
 
 ## Create and manage key vaults
 

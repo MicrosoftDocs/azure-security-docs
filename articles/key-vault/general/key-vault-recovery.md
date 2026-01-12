@@ -7,7 +7,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, sfi-image-nochange
 ms.topic: how-to
 ms.author: mbaldwin
 author: msmbaldwin
-ms.date: 04/16/2025
+ms.date: 01/06/2026
 ---
 
 # Azure Key Vault recovery management with soft delete and purge protection
@@ -170,7 +170,10 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
     az keyvault set-policy --upn user@contoso.com --subscription {SUBSCRIPTION ID} -g {RESOURCE GROUP} -n {VAULT NAME}  --certificate-permissions recover purge
     ```
 
-* Delete certificate
+* Delete certificate (move to soft-deleted state)
+
+    > [!NOTE]
+    > The `az keyvault certificate delete` command is deprecated. When soft-delete is enabled on your key vault (which is now the default), this command moves the certificate to a soft-deleted state rather than permanently deleting it. You can then use `az keyvault certificate recover` to restore it, or `az keyvault certificate purge` to permanently delete it. For more information, see [Azure Key Vault soft-delete overview](soft-delete-overview.md).
 
     ```azurecli
     az keyvault certificate delete --subscription {SUBSCRIPTION ID} --vault-name {VAULT NAME} --name {CERTIFICATE NAME}
@@ -234,7 +237,10 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
     az keyvault set-policy --upn user@contoso.com --subscription {SUBSCRIPTION ID} -g {RESOURCE GROUP} -n {VAULT NAME}  --secret-permissions recover purge
     ```
 
-* Delete secret
+* Delete secret (move to soft-deleted state)
+
+    > [!NOTE]
+    > The `az keyvault secret delete` command is deprecated. When soft-delete is enabled on your key vault (which is now the default), this command moves the secret to a soft-deleted state rather than permanently deleting it. You can then use `az keyvault secret recover` to restore it, or `az keyvault secret purge` to permanently delete it. For more information, see [Azure Key Vault soft-delete overview](soft-delete-overview.md).
 
     ```azurecli
     az keyvault secret delete --subscription {SUBSCRIPTION ID} --vault-name {VAULT NAME} --name {SECRET NAME}

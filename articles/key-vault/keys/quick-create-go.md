@@ -3,7 +3,7 @@ title: Quickstart - Azure Key Vault Go client library - manage keys
 description: Learn how to create, retrieve, and delete keys from an Azure key vault using the Go client library
 author: Duffney
 ms.author: jduffney
-ms.date: 12/27/2023
+ms.date: 01/08/2026
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: quickstart
@@ -13,11 +13,11 @@ ms.custom: devx-track-go
 
 # Quickstart: Azure Key Vault keys client library for Go
 
-In this quickstart, you'll learn to use the Azure SDK for Go to create, retrieve, update, list, and delete Azure Key Vault keys.
+In this quickstart, you learn how to use the Azure SDK for Go to create, retrieve, update, list, and delete Azure Key Vault keys.
 
-Azure Key Vault is a cloud service that works as a secure secrets store. You can securely store keys, passwords, certificates, and other secrets. For more information on Key Vault, you may review the [Overview](../general/overview.md).
+Azure Key Vault is a cloud service that works as a secure secrets store. You can securely store keys, passwords, certificates, and other secrets. For more information on Key Vault, review the [Overview](../general/overview.md).
 
-Follow this guide to learn how to use the [azkeys](https://aka.ms/azsdk/go/keyvault-keys/docs) package to manage your Azure Key Vault keys using Go.
+Follow this guide to learn how to use the [azkeys](https://aka.ms/azsdk/go/keyvault-keys/docs) package to manage your Azure Key Vault keys by using Go.
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ Follow this guide to learn how to use the [azkeys](https://aka.ms/azsdk/go/keyva
     az login
     ```
 
-    If the Azure CLI can open your default browser, it will do so on the Azure portal sign-in page.
+    If the Azure CLI can open your default browser, it opens the browser to the Azure portal sign-in page.
 
     If the page doesn't open automatically, go to [https://aka.ms/devicelogin](https://aka.ms/devicelogin), and then enter the authorization code that's displayed in your terminal.
 
@@ -62,7 +62,7 @@ go get -u github.com/Azure/azure-sdk-for-go/sdk/keyvault/azkeys
 
 ## Create the sample code
 
-Create a file named main.go and copy the following code into the file:
+Create a file named `main.go` and copy the following code into the file:
 
 ```go
 package main
@@ -159,7 +159,7 @@ func main() {
 
 ## Run the code
 
-Before you run the code, create an environment variable named KEY_VAULT_NAME. Set the environment variable's value to the name of the Azure Key Vault created previously.
+Before you run the code, create an environment variable named `KEY_VAULT_NAME`. Set the environment variable's value to the name of the Azure Key Vault created previously.
 
 ```bash
 export KEY_VAULT_NAME=quickstart-kv
@@ -184,11 +184,11 @@ Successfully deleted key https://quickstart-kv.vault.azure.net/keys/new-rsa-key4
 ```
 
 > [!NOTE]
-> The output is for informational purposes only. Your return values may vary based on your Azure subscription and Azure Key Vault.
+> The output is for informational purposes only. Your return values might vary based on your Azure subscription and Azure Key Vault.
 
 ## Code examples
 
-See the [module documentation](https://aka.ms/azsdk/go/keyvault-keys/docs) for more examples.
+For more examples, see the [module documentation](https://aka.ms/azsdk/go/keyvault-keys/docs).
 
 ## Clean up resources
 

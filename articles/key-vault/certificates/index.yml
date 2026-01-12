@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: msmbaldwin
   ms.author: mbaldwin
-  ms.date: 10/03/2024
+  ms.date: 01/08/2026
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -55,8 +55,28 @@ landingContent:
             url: quick-create-java.md
           - text: Spring
             url: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates
+      - linkListType: tutorial
+        links:
           - text: Import a certificate in Key Vault 
             url: tutorial-import-certificate.md
+          - text: Rotate certificates
+            url: tutorial-rotate-certificates.md
+
+  # Card
+  - title: Manage certificates
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Export certificates
+            url: how-to-export-certificate.md
+          - text: Renew certificates
+            url: overview-renew-certificate.md
+          - text: Integrate with certificate authorities
+            url: how-to-integrate-certificate-authority.md
+          - text: Create signing requests
+            url: create-certificate-signing-request.md
+          - text: Secure your certificates
+            url: secure-certificates.md
 
 # Card
   - title: Client libraries for Key Vault certificates
@@ -68,7 +88,7 @@ landingContent:
           - text: Python client library
             url: /python/api/overview/azure/keyvault-certificates-readme
           - text: Java client library
-            url: https://apidocs.chargebee.com/docs/api?lang=java#client_library
+            url: /java/api/overview/azure/security-keyvault-certificates-readme
           - text: Node.js client library
             url: /javascript/api/@azure/keyvault-certificates/
 
