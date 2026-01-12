@@ -67,7 +67,7 @@ Defender for Containers on GCP supports the following deployment options:
 
 Choose the deployment method that meets your operational practices and security requirements.
 
-## Prerequisites
+## Google Cloud console requirements
 
 Before deploying Defender for Containers on GKE:
 
@@ -77,11 +77,10 @@ Before deploying Defender for Containers on GKE:
 - Enable these GCP APIs: Kubernetes Engine, Container Registry, and Cloud Asset
 - Network connectivity from GKE to Azure endpoints
 
-> [!NOTE]
-> For detailed prerequisites and network requirements, see:
->
-> - [Enable all components via portal](defender-for-containers-gcp-enable-portal.md#prerequisites)
-> - [Deploy programmatically](defender-for-containers-gcp-enable-programmatically.md#prerequisites)
+For detailed prerequisites and network requirements, see:
+
+- [Enable all components via portal](defender-for-containers-gcp-enable-portal.md#prerequisites)
+- [Deploy programmatically](defender-for-containers-gcp-enable-programmatically.md#prerequisites)
 
 ## View your current coverage
 
