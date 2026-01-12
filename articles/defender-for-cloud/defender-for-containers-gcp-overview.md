@@ -24,10 +24,7 @@ Defender for Containers uses a lightweight architecture that respects GCP's secu
 
 - Discovers all GKE clusters in your connected GCP projects
 - Connects clusters to Azure Arc for centralized management and monitoring
-- Deploys a lightweight sensor as a DaemonSet for runtime protection
-- Integrates with GCR and Artifact Registry for vulnerability scanning
-- Collects GKE audit logs and metrics for security analysis
-- Provides security recommendations based on the CIS GKE Benchmark
+
 
 This architecture is designed to minimize performance impact on your workloads while maintaining GCP security boundaries and compliance requirements.
 
@@ -67,20 +64,16 @@ Defender for Containers on GCP supports the following deployment options:
 
 Choose the deployment method that meets your operational practices and security requirements.
 
-## Google Cloud console requirements
+## Google Cloud console prerequisites
 
-Before deploying Defender for Containers on GKE:
+Before you deploy Defender for Containers on Google Kubernetes Engine (GKE), make sure that the following prerequisites are met:
 
-- Active Azure subscription with Defender for Cloud enabled
-- GCP project with Owner or Security Admin role
-- GKE clusters running version 1.19 or later
-- Enable these GCP APIs: Kubernetes Engine, Container Registry, and Cloud Asset
+- An active Azure subscription with Defender for Cloud enabled
+- A GCP project with Owner or Security Admin role
+- One or more GKE clusters running version 1.19 or later
+- The following GCP APIs enabled: Kubernetes Engine, Container Registry, and Cloud Asset
 - Network connectivity from GKE to Azure endpoints
 
-For detailed prerequisites and network requirements, see:
-
-- [Enable all components via portal](defender-for-containers-gcp-enable-portal.md#prerequisites)
-- [Deploy programmatically](defender-for-containers-gcp-enable-programmatically.md#prerequisites)
 
 ## View your current coverage
 
