@@ -17,7 +17,7 @@ This article provides step-by-step guidance on how to configure Azure Key Vault 
 Here are step-by-step instructions to configure Managed HSM firewall using the Azure portal, Azure CLI, and Azure PowerShell.
 
 > [!NOTE]
-> The IP Network Firewall (preview) feature requires subscription enablement. If you're interested in using this feature, create a support ticket with subscription and region information.
+> The IP Network Firewall (preview) feature is available in public preview in East US, West US, West US 2, West Central US, UK South, and West Europe.  
 
 > [!IMPORTANT]
 > There is a limit of 10 IP address or address ranges you can add per resource.
