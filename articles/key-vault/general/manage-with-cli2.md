@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 04/15/2025
+ms.date: 01/06/2026
 ms.author: mbaldwin 
 ms.custom: devx-track-azurecli
 
@@ -314,6 +314,9 @@ az keyvault key delete --vault-name "ContosoKeyVault" --name "ContosoFirstKey"
 ```
 
 Here's an example of how to remove a specific secret:
+
+> [!NOTE]
+> The `az keyvault secret delete` command is deprecated. When soft-delete is enabled on your key vault (which is now the default), this command moves the secret to a soft-deleted state rather than permanently deleting it. You can then use `az keyvault secret recover` to restore it, or `az keyvault secret purge` to permanently delete it. For more information, see [Azure Key Vault soft-delete overview](soft-delete-overview.md).
 
 ```azurecli
 az keyvault secret delete --vault-name "ContosoKeyVault" --name "SQLPassword"
