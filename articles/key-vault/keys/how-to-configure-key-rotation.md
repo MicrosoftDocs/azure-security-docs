@@ -15,6 +15,7 @@ ms.author: mbaldwin
 # Configure cryptographic key auto-rotation in Azure Key Vault
 
 ## Overview
+
 Automated cryptographic key rotation in [Key Vault](../general/overview.md) allows users to configure Key Vault to automatically generate a new key version at a specified frequency. To configure rotation you can use key rotation policy, which can be defined on each individual key. 
 
 Our recommendation is to rotate encryption keys at least every two years to meet cryptographic best practices.
@@ -23,6 +24,9 @@ For more information about how objects in Key Vault are versioned, see [Key Vaul
 
 ## Integration with Azure services
 This feature enables end-to-end zero-touch rotation for encryption at rest for Azure services with customer-managed key (CMK) stored in Azure Key Vault. Please refer to specific Azure service documentation to see if the service covers end-to-end rotation. 
+
+> [!NOTE]
+> When rotating customer-managed keys used by Azure services, the time required for each service to detect and apply the new key version varies (from one hour to 24 hours or more). Consult the specific Azure service documentation for guidance on when you can safely disable the old key version after rotation.
 
 For more information about data encryption in Azure, see:
 - [Azure Encryption at Rest](/azure/security/fundamentals/encryption-atrest#azure-encryption-at-rest-components)
