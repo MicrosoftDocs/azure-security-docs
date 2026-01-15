@@ -49,7 +49,7 @@ After checking your configuration:
 
 ### Check a single vault
 
-# [Azure CLI](#tab-azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 1. Use the [az keyvault show](/cli/azure/keyvault#az-keyvault-show) command to retrieve vault details:
 
@@ -73,7 +73,7 @@ After checking your configuration:
 
 ### Check multiple vaults by resource group
 
-# [Azure CLI](#tab-azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 Use the [az keyvault list](/cli/azure/keyvault#az-keyvault-list) command to list all vaults in a resource group and check their RBAC authorization status:
 
@@ -123,7 +123,7 @@ az keyvault list --resource-group <ResourceGroupName> --query "[].{name:name, rb
 
 ### Check multiple vaults by subscription ID
 
-# [Azure CLI](#tab-azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 Use the [az keyvault list](/cli/azure/keyvault#az-keyvault-list) command to list all vaults in your subscription and check their RBAC authorization status:
 
@@ -203,7 +203,7 @@ When creating new key vaults by using API version 2026-02-01, you must specify a
 
 Make sure you have the latest version of the Azure CLI or PowerShell modules.
 
-# [Azure CLI](#tab-azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 Update Azure CLI to the latest version. For more information, see [How to update the Azure CLI](/cli/azure/update-azure-cli).
 
@@ -216,7 +216,7 @@ Update your PowerShell modules to the latest version:
 ---
 Use the appropriate command to create a key vault with access policies:
 
-# [Azure CLI](#tab-azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 Use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command and set `--enable-rbac-authorization false`:
 
@@ -238,7 +238,7 @@ New-AzKeyVault -Name "testCreateTutorial" -ResourceGroupName "testResourceGroup"
 
 When you create new key vaults by using API version 2026-02-01, set `enableRbacAuthorization` to `false` to use access policies. If you don't specify this property, it defaults to `true` (Azure RBAC).
 
-# [Azure CLI](#tab-azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 Use the [az resource create](/cli/azure/resource#az-resource-create) command and set `"enableRbacAuthorization": false` and `--api-version "2026-02-01"`:
 
