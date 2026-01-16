@@ -12,7 +12,7 @@ ms.date: 01/30/2026
 
 ms.author: mbaldwin
 ms.devlang: csharp
-ms.custom: devx-track-csharp, sfi-image-nochange
+ms.custom: devx-track-csharp, sfi-image-nochange, copilot-scenario-highlight
 ---
 # Automate the rotation of a secret for resources that use one set of authentication credentials
 
@@ -247,6 +247,23 @@ Go to the deployed application URL:
 'https://akvrotation-app.azurewebsites.net/'
 
 When the application opens in the browser, you will see the **Generated Secret Value** and a **Database Connected** value of *true*.
+
+## Use AI to customize the rotation function for your database
+
+This tutorial demonstrates secret rotation for SQL Server, but you can adapt the rotation function for other database types. GitHub Copilot in VS Code can help you modify the rotation function code to work with your specific database or credential type.
+
+```copilot-prompt
+I'm using the Azure Key Vault secret rotation tutorial for SQL Server. Help me modify the rotation function to work with PostgreSQL instead. The function should:
+1. Generate a new secure password
+2. Update the PostgreSQL database user password
+3. Store the new password in Key Vault
+Show me the changes needed to the C# function code, including the correct PostgreSQL connection library and password update command.
+```
+
+Copilot can also help you adapt this pattern for other credential types like API keys, connection strings, or service account passwords.
+
+> [!TIP]
+> Copilot is powered by AI, so surprises and mistakes are possible. For more information, see [Copilot in Azure FAQs](https://aka.ms/Copilot/FAQs).
 
 ## Learn more
 
