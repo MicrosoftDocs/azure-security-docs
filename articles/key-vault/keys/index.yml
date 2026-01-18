@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: msmbaldwin
   ms.author: mbaldwin
-  ms.date: 10/03/2024
+  ms.date: 01/08/2026
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -48,8 +48,14 @@ landingContent:
             url: quick-create-node.md
           - text: Java
             url: quick-create-java.md
-          - text: Template
+      - linkListType: quickstart
+        links:
+          - text: Bicep
+            url: quick-create-bicep.md
+          - text: ARM template
             url: quick-create-template.md
+          - text: Terraform
+            url: quick-create-terraform.md
 
   # Card
   - title: Tutorials
@@ -60,6 +66,34 @@ landingContent:
             url: how-to-configure-key-rotation.md
           - text: Import HSM-protected keys (overview)
             url: hsm-protected-keys.md
+          - text: Import HSM-protected keys using BYOK
+            url: hsm-protected-keys-byok.md
+          - text: Secure your keys
+            url: secure-keys.md
+
+  # Card
+  - title: JavaScript developer guide
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Get started
+            url: javascript-developer-guide-get-started.md
+          - text: Create, update, rotate keys
+            url: javascript-developer-guide-create-update-rotate-key.md
+          - text: Get keys
+            url: javascript-developer-guide-get-key.md
+          - text: List key versions
+            url: javascript-developer-guide-list-key-version.md
+          - text: Encrypt and decrypt keys
+            url: javascript-developer-guide-encrypt-decrypt-key.md
+          - text: Sign and verify keys
+            url: javascript-developer-guide-sign-verify-key.md
+          - text: Enable and disable keys
+            url: javascript-developer-guide-enable-disable-key.md
+          - text: Import keys
+            url: javascript-developer-guide-import-key.md
+          - text: Back up, delete, restore keys
+            url: javascript-developer-guide-backup-delete-restore-key.md
 
 # Card
   - title: Client libraries for Key Vault keys
