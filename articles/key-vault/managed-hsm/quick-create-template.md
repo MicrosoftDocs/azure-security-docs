@@ -95,4 +95,4 @@ In this quickstart, you created a Managed HSM. This Managed HSM won't be fully f
 
 - Read an [Overview of Managed HSM](overview.md)
 - Learn about [Managing keys in a Managed HSM](key-management.md)
-- Review [Managed HSM best practices](best-practices.md)
+- Review [Secure your Azure Managed HSM deployment](secure-managed-hsm.md)

@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: reference
-ms.date: 06/10/2024
+ms.date: 12/03/2025
 ms.author: mbaldwin
 
 ---

@@ -224,7 +224,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 ## Next steps
 
 - [Overview of Azure Key Vault](../general/overview.md)
-- [Secure access to a key vault](../general/security-features.md)
+- [Secure access to a key vault](../general/secure-key-vault.md)
 - [Azure Key Vault developer's guide](../general/developers-guide.md)
-- [Key Vault security overview](../general/security-features.md)
+- [Key Vault security overview](../general/secure-key-vault.md)
 - [Authenticate with Key Vault](../general/authentication.md)

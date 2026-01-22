@@ -7,7 +7,7 @@ ms.author: mbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 01/30/2025
+ms.date: 12/03/2025
 #Customer intent: As a security administrator, I want to set up Microsoft Sentinel for Azure Managed HSM so I can monitor and detect suspicious activity effectively.
 ---
 

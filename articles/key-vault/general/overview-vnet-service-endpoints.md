@@ -4,7 +4,7 @@ description: Learn how virtual network service endpoints for Azure Key Vault all
 services: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 02/25/2025
+ms.date: 11/19/2025
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: conceptual
@@ -21,7 +21,7 @@ There is one important exception to this restriction. If a user has opted-in to 
 You can configure [Key Vault firewalls and virtual networks](network-security.md) to deny access to traffic from all networks (including internet traffic) by default. You can grant access to traffic from specific Azure virtual networks and public internet IP address ranges, allowing you to build a secure network boundary for your applications.
 
 > [!NOTE]
-> Key Vault firewalls and virtual network rules only apply to the [data plane](security-features.md#privileged-access) of Key Vault. Key Vault control plane operations (such as create, delete, and modify operations, setting access policies, setting firewalls, and virtual network rules and deployment of secrets or keys through ARM templates) are not affected by firewalls and virtual network rules.
+> Key Vault firewalls and virtual network rules only apply to the [data plane](secure-key-vault.md#identity-and-access-management) of Key Vault. Key Vault control plane operations (such as create, delete, and modify operations, setting access policies, setting firewalls, and virtual network rules and deployment of secrets or keys through ARM templates) are not affected by firewalls and virtual network rules.
 
 Here are some examples of how you might use service endpoints:
 
@@ -87,9 +87,9 @@ Here's a list of trusted services that are allowed to access a key vault if the 
 | Microsoft Purview|[Using credentials for source authentication in Microsoft Purview](/azure/purview/manage-credentials)
 
 > [!NOTE]
-> You must set up the relevant Key Vault RBAC role assignments or access policies(legacy) to allow the corresponding services to get access to Key Vault.
+> You must set up the relevant Azure RBAC for Key Vault role assignments or access policies(legacy) to allow the corresponding services to get access to Key Vault.
 
 ## Next steps
 
 - For step-by-step instructions, see [Configure Azure Key Vault firewalls and virtual networks](network-security.md)
-- see the [Azure Key Vault security overview](security-features.md)
+- see the [Azure Key Vault security overview](secure-key-vault.md)

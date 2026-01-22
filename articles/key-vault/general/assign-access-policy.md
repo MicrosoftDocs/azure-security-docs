@@ -161,5 +161,5 @@ You need only include `-PermissionsToSecrets`, `-PermissionsToKeys`, and `-Permi
 
 ## Next steps
 
-- [Azure Key Vault security](security-features.md)
+- [Azure Key Vault security](secure-key-vault.md)
 - [Azure Key Vault developer's guide](developers-guide.md)

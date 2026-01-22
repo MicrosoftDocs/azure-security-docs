@@ -7,7 +7,7 @@ ms.custom: devx-track-azurecli
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: how-to
-ms.date: 04/15/2025
+ms.date: 11/19/2025
 ms.author: mbaldwin
 # Customer intent: As a managed HSM administrator, I want to set access control and configure the Managed HSM, so that I can ensure it's secure and auditors can properly monitor all activities for this Managed HSM.
 ---
@@ -91,7 +91,7 @@ The three team roles need access to other resources along with managed HSM permi
 
 To assign control plane roles (Azure RBAC) you can use Azure portal or any of the other management interfaces such as Azure CLI or Azure PowerShell. To assign managed HSM data plane roles you must use Azure CLI or Azure REST API. 
 
-For more information on control plane roles, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles). For more information on Managed HSM data plane roles, see [Local RBAC built-in roles for Managed HSM](built-in-roles.md).
+For more information on control plane roles, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles). For more information on Managed HSM data plane roles, see [Managed HSM local RBAC built-in roles for Managed HSM](built-in-roles.md).
 
 The Azure CLI snippets below demonstrate how to implement the role assignments described above:
 

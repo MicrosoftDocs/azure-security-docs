@@ -7,7 +7,7 @@ tags: 'rotation'
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 04/14/2025
+ms.date: 11/19/2025
 
 ms.author: mbaldwin
 ---
@@ -33,7 +33,7 @@ Managed HSM key rotation is offered at no extra cost. For more information on Ma
 
 Rotating a key or setting a key rotation policy requires specific key management permissions. You can assign the "Managed HSM Crypto User" role to get sufficient permissions to manage rotation policy and on-demand rotation.
 
-For more information on how to configure Local RBAC permissions on Managed HSM, see:
+For more information on how to configure Managed HSM local RBAC permissions on Managed HSM, see:
 [Managed HSM role management](role-management.md)
 
 > [!NOTE]

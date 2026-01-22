@@ -130,4 +130,4 @@ In this quickstart, you created a key vault and a secret using Bicep and then va
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - Learn more about [Bicep](/azure/azure-resource-manager/bicep/overview)
-- Review the [Key Vault security overview](../general/security-features.md)
+- Review the [Key Vault security overview](../general/secure-key-vault.md)

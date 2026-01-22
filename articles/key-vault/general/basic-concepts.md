@@ -6,7 +6,7 @@ author: msmbaldwin
 
 ms.service: azure-key-vault
 ms.subservice: general
-ms.topic: conceptual
+ms.topic: article
 ms.date: 04/15/2025
 ms.author: mbaldwin
 
@@ -34,20 +34,22 @@ Here are other important terms:
 
 - **Resource group**: A resource group is a container that holds related resources for an Azure solution. The resource group can include all the resources for the solution, or only those resources that you want to manage as a group. You decide how you want to allocate resources to resource groups, based on what makes the most sense for your organization.
 
-- **Security principal**: An Azure security principal is a security identity that user-created apps, services, and automation tools use to access specific Azure resources. Think of it as a "user identity" (username and password or certificate) with a specific role, and tightly controlled permissions. A security principal should only need to do specific things, unlike a general user identity. It improves security if you grant it only the minimum permission level that it needs to perform its management tasks. A security principal used with an application or service is called a **service principal**.
+- **Security principal**: An Azure security principal is a security identity that user-created apps, services, and automation tools use to access specific Azure resources. Think of it as a "user identity" (username and password or certificate) with a specific role, and tightly controlled permissions. A security principal should only need to do specific things, unlike a general user identity. It improves security if you grant it only the minimum permission level that it needs to perform its management tasks. A security principal used with an application or service is called a **service principal**. For more information, see [Application and service principal objects](/entra/identity-platform/app-objects-and-service-principals).
 
-- [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis): Microsoft Entra ID is the Active Directory service for a tenant. Each directory has one or more domains. A directory can have many subscriptions associated with it, but only one tenant.
+- [Microsoft Entra ID](/entra/fundamentals/whatis): Microsoft Entra ID is the Active Directory service for a tenant. Each directory has one or more domains. A directory can have many subscriptions associated with it, but only one tenant.
 
 - **Azure tenant ID**: A tenant ID is a unique way to identify a Microsoft Entra instance within an Azure subscription.
 
-- **Managed identities**: Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. Using a managed identity makes solving this problem simpler by giving Azure services an automatically managed identity in Microsoft Entra ID. You can use this identity to authenticate to Key Vault or any service that supports Microsoft Entra authentication, without having any credentials in your code. For more information, see the following image and the [overview of managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview).
+- **Managed identities**: Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. Using a managed identity makes solving this problem simpler by giving Azure services an automatically managed identity in Microsoft Entra ID. You can use this identity to authenticate to Key Vault or any service that supports Microsoft Entra authentication, without having any credentials in your code. For more information, see the following image and the [overview of managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
 
 ## Authentication
 To do any operations with Key Vault, you first need to authenticate to it. There are three ways to authenticate to Key Vault:
 
-- [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview): When you deploy an app on a virtual machine in Azure, you can assign an identity to your virtual machine that has access to Key Vault. You can also assign identities to [other Azure resources](/azure/active-directory/managed-identities-azure-resources/overview). The benefit of this approach is that the app or service isn't managing the rotation of the first secret. Azure automatically rotates the identity. We recommend this approach as a best practice. 
-- **Service principal and certificate**: You can use a service principal and an associated certificate that has access to Key Vault. We don't recommend this approach because the application owner or developer must rotate the certificate.
+- [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview): When you deploy an app on a virtual machine in Azure, you can assign an identity to your virtual machine that has access to Key Vault. You can also assign identities to [other Azure resources](/entra/identity/managed-identities-azure-resources/overview). The benefit of this approach is that the app or service isn't managing the rotation of the first secret. Azure automatically rotates the identity. We recommend this approach as a best practice. 
+- **Service principal and certificate**: You can use a service principal and an associated certificate that has access to Key Vault. We don't recommend this approach because the application owner or developer must rotate the certificate. For more information, see [Create a service principal](/entra/identity-platform/howto-create-service-principal-portal).
 - **Service principal and secret**: Although you can use a service principal and a secret to authenticate to Key Vault, we don't recommend it. It's hard to automatically rotate the bootstrap secret that's used to authenticate to Key Vault.
+
+For comprehensive authentication guidance, see [Authentication in Azure Key Vault](authentication.md).
 
 ## Encryption of data in transit
 
@@ -77,11 +79,13 @@ This administrator then gives developers URIs to call from their applications. T
 
 ![Overview of how Azure Key Vault works][1]
 
-Developers can also manage the keys directly, by using APIs. For more information, see [the Key Vault developer's guide](developers-guide.md).
+Developers can also manage the keys directly, by using APIs. For more information, see [Azure Key Vault developer's guide](developers-guide.md).
 
 ## Next steps
 
-- Learn about [Azure Key Vault security features](security-features.md).
+- Get started with the [Azure Key Vault developer's guide](developers-guide.md)
+- Learn about [Azure Key Vault security features](secure-key-vault.md)
+- Learn about [Authentication in Azure Key Vault](authentication.md)
 - Learn how to [secure your managed HSM pools](../managed-hsm/access-control.md)
 
 <!--Image references-->

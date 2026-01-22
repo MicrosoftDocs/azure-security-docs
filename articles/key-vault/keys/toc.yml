@@ -82,6 +82,8 @@ items:
   items:
   - name: Key types, algorithms, and operations
     href: about-keys-details.md
+  - name: Secure your Key Vault keys
+    href: secure-keys.md
 
 - name: How-to guides
   items:
@@ -110,6 +112,8 @@ items:
     href: /python/api/overview/azure/keyvault-keys-readme
   - name: REST
     href: /rest/api/keyvault
+  - name: Azure MCP Server for Key Vault
+    href: /azure/developer/azure-mcp-server/tools/azure-key-vault
   - name: Resource Manager template
     href: /azure/templates/microsoft.keyvault/allversions
     displayName: ARM

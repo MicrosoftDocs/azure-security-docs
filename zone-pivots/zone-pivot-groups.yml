@@ -36,3 +36,12 @@ groups:
     title: JavaScript
   - id: programming-language-typescript
     title: TypeScript
+# Owner: deborahlanger
+- id: defender-portal-experience
+  title: Portal Experience
+  prompt: Choose your portal experience
+  pivots:
+  - id: defender-portal
+    title: Defender portal
+  - id: azure-portal
+    title: Azure portal

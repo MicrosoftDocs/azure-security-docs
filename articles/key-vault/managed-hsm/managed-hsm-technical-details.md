@@ -6,7 +6,7 @@ ms.subservice: managed-hsm
 ms.topic: concept-article
 author: davinune
 ms.author: davinune
-ms.date: 05/30/2025
+ms.date: 11/19/2025
 ms.custom: sfi-ga-nochange
 ---
 
@@ -96,5 +96,5 @@ Managed HSM removes the need for customers to make tradeoffs between availabilit
 - [Managed HSM: Control your data in the cloud](mhsm-control-data.md)
 - [About the Managed HSM security domain](security-domain.md)
 - [Managed HSM access control](access-control.md)
-- [Local RBAC built-in roles](built-in-roles.md)
+- [Managed HSM local RBAC built-in roles](built-in-roles.md)
 - [Managing compliance in the cloud](https://www.microsoft.com/trust-center/compliance/compliance-overview?rtc=1)

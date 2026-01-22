@@ -52,6 +52,11 @@ sections:
         answer: |
           When storing data on the ledger, you can choose the public or private option. The public option is not encrypted; plain-text and a good fit for certain use cases which require tamper-evident and auditable ledger use. The private option, however, is encrypted. The data is encrypted using three levels of encryption (i.e. Ledger Secrets, Ledger Secret Wrapping Key, and Recovery key Shares), which is explained in detail [here](https://microsoft.github.io/CCF/main/architecture/cryptography.html).
 
+      - question: |
+          Where is my data stored and replicated?
+        answer: |
+          Azure Confidential Ledger automatically replicates your data to Azure regional pairs for disaster recovery and high availability. When you create a ledger in a specific region (like West US), the service automatically replicates data to its paired region (like East US). This replication behavior cannot be modified or disabled. For organizations with strict data residency requirements, ensure that both the primary and paired regions meet your compliance and regulatory requirements. For more information, see [Data residency for Azure Confidential Ledger](data-residency.md).
+
   - name: User management
     questions:
 
@@ -77,6 +82,8 @@ additionalContent: |
   ## Next steps
   
   - [Azure confidential ledger](./overview.md)
+
+  - [Data residency for Azure Confidential Ledger](data-residency.md)
   
   - [User defined functions in Azure confidential ledger](server-side-programming.md)
 

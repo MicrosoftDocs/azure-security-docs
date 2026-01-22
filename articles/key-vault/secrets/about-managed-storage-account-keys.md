@@ -64,5 +64,5 @@ For more information, see the [Storage account operations in the Key Vault REST 
 - [Manage storage account keys with Key Vault and the Azure CLI](overview-storage-keys.md)
 - [About Key Vault](../general/overview.md)
 - [About keys, secrets, and certificates](../general/about-keys-secrets-certificates.md)
-- [Best practices for secrets management in Key Vault](secrets-best-practices.md)
+- [Best practices for secrets management in Key Vault](secure-secrets.md)
 - [Key Vault Developer's Guide](../general/developers-guide.md)

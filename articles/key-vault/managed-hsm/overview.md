@@ -5,7 +5,7 @@ services: azure-key-vault
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: overview
-ms.date: 05/30/2025
+ms.date: 11/19/2025
 ms.author: mbaldwin
 author: msmbaldwin
 ms.reviewer: nkondamudi
@@ -39,7 +39,7 @@ The term "Managed HSM instance" is synonymous with "Managed HSM pool". To avoid 
 ### Access control, enhanced data protection & compliance
 
 - **Centralized key management**: Manage critical, high-value keys across your organization in one place. With granular per key permissions, control access to each key on the 'least privileged access' principle.
-- **Isolated access control**: Managed HSM "local RBAC" access control model allows designated HSM cluster administrators to have complete control over the HSMs that even management group, subscription, or resource group administrators cannot override.
+- **Isolated access control**: Managed HSM local RBAC access control model allows designated HSM cluster administrators to have complete control over the HSMs that even management group, subscription, or resource group administrators cannot override.
 - **Private endpoints**: Use private endpoints to securely and privately connect to Managed HSM from your application running in a virtual network.
 - **FIPS 140-3 Level 3 validated HSMs**: Protect your data and meet compliance requirements with FIPS (Federal Information Protection Standard) 140-3 Level 3 validated HSMs. Managed HSMs use Marvell LiquidSecurity HSM adapters.
 - **Monitor and audit**: fully integrated with Azure monitor. Get complete logs of all activity via Azure Monitor. Use Azure Log Analytics for analytics and alerts.
@@ -63,7 +63,7 @@ The term "Managed HSM instance" is synonymous with "Managed HSM pool". To avoid 
 - For technical details, see [How Managed HSM implements key sovereignty, availability, performance, and scalability without tradeoffs](managed-hsm-technical-details.md)
 - See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to create and activate a managed HSM
 - [Azure Managed HSM security baseline](/security/benchmark/azure/baselines/key-vault-managed-hsm-security-baseline)
-- See [Best Practices using Azure Key Vault Managed HSM](best-practices.md)
+- See [Secure your Azure Managed HSM deployment](secure-managed-hsm.md)
 - [Managed HSM Status](https://azure.status.microsoft)
 - [Managed HSM Service Level Agreement](https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/)
 - [Managed HSM region availability](https://azure.microsoft.com/global-infrastructure/services/?products=key-vault)

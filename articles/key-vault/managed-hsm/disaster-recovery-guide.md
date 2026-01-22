@@ -175,4 +175,4 @@ Now you've completed a full disaster recovery process. The contents of the sourc
 ## Next steps
 
 - Learn more about Security Domain see [About Managed HSM Security Domain](security-domain.md)
-- Follow [Managed HSM best practices](best-practices.md)
+- Follow [Secure your Azure Managed HSM deployment](secure-managed-hsm.md)

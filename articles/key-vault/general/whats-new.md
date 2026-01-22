@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: reference
-ms.date: 10/03/2024
+ms.date: 11/19/2025
 ms.author: mbaldwin
 
 #Customer intent: As an Azure Key Vault administrator, I want to react to soft-delete being turned on for all key vaults.
@@ -35,7 +35,7 @@ For more information, please visit [Azure role-based access control (Azure RBAC)
 
 ## February 2023
 
-Built-in policy to govern the migration to Azure role-based access control (RBAC) is now in preview. With the built-in policy you can audit existing key vaults and enforce all new key vaults to use the Azure RBAC permission model. See [RBAC migration governance](../general/rbac-migration.md#migration-governance-with-azure-policy) to learn how to enforce the new built-in policy.
+Built-in policy to govern the migration to Azure role-based access control (Azure RBAC) is now in preview. With the built-in policy you can audit existing key vaults and enforce all new key vaults to use the Azure RBAC permission model. See [Azure RBAC migration governance](../general/rbac-migration.md#migration-governance-with-azure-policy) to learn how to enforce the new built-in policy.
 
 ## April 2022
 

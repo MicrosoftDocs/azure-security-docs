@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 10/02/2025
+ms.date: 11/19/2025
 ms.custom: horz-security
 ai-usage: ai-assisted
 
@@ -121,7 +121,7 @@ Service-specific security addresses unique characteristics of Managed HSM includ
 - [How to configure Azure Managed HSM networking settings](configure-network-security.md)
 - [Integrate with Azure Private Link](private-link.md)
 - [Access control](access-control.md)
-- [Local RBAC built-in roles](built-in-roles.md)
+- [Managed HSM local RBAC built-in roles](built-in-roles.md)
 - [Integrate with Azure Policy](azure-policy.md)
 - [Security domain overview](security-domain.md)
 - [Azure Security fundamentals](/azure/security/fundamentals)

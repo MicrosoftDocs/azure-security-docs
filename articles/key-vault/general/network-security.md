@@ -62,7 +62,7 @@ In this case, you should create the resource within a virtual network, and then 
 To understand how to configure a private link connection on your key vault, see the document [here](./private-link-service.md).
 
 > [!IMPORTANT]
-> After firewall rules are in effect, users can only perform Key Vault [data plane](security-features.md#privileged-access) operations when their requests originate from allowed virtual networks or IPv4 address ranges. This also applies to accessing Key Vault from the Azure portal. Although users can browse to a key vault from the Azure portal, they might not be able to list keys, secrets, or certificates if their client machine is not in the allowed list. This also affects the Key Vault Picker used by other Azure services. Users might be able to see a list of key vaults, but not list keys, if firewall rules prevent their client machine.
+> After firewall rules are in effect, users can only perform Key Vault [data plane](secure-key-vault.md#identity-and-access-management) operations when their requests originate from allowed virtual networks or IPv4 address ranges. This also applies to accessing Key Vault from the Azure portal. Although users can browse to a key vault from the Azure portal, they might not be able to list keys, secrets, or certificates if their client machine is not in the allowed list. This also affects the Key Vault Picker used by other Azure services. Users might be able to see a list of key vaults, but not list keys, if firewall rules prevent their client machine.
 
 > [!NOTE]
 > Be aware of the following configuration limitations:
@@ -95,7 +95,7 @@ With a network security perimeter:
 #### Restrictions and limitations
 
 - Setting Public Network Access to Disable still allows trusted services. Switching Public Network Access to Secure by perimeter, then forbids trusted services even if configured to allow trusted services.
-- Azure Key Vault firewall rules only apply to [data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane#data-plane) operations. [Control plane](/azure/azure-resource-manager/management/control-plane-and-data-plane#control-plane) operations are not subject to the restrictions specified in firewall rules.
+- Azure Key Vault firewall rules only apply to [data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane#data-plane) operations. [Control plane](/azure/azure-resource-manager/management/control-plane-and-data-plane#control-plane) operations are not subject to the restrictions specified in firewall rules. This includes deployment of secrets or keys through ARM templates, which use the Azure Resource Manager control plane endpoint (`management.azure.com`) rather than the Key Vault data plane endpoint (`<vault-name>.vault.azure.net`). For more information, see [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md#usage-scenarios).
 - To access data by using tools such as the Azure portal, you must be on a machine within the trusted boundary that you establish when configuring network security rules.
 - Azure Key Vault has no concept of outbound rules, you can still associate a key vault to a perimeter with outbound rules but the key vault will not use them.
 - The network security perimeter access logs for Azure Key Vault may not have the "count" or "timeGeneratedEndTime" fields.
@@ -148,4 +148,4 @@ See [Diagnostic logs for Network Security Perimeter](/azure/private-link/network
 
 #### Next steps
 * [Virtual network service endpoints for Key Vault](overview-vnet-service-endpoints.md)
-* [Azure Key Vault security overview](security-features.md)
+* [Azure Key Vault security overview](secure-key-vault.md)
