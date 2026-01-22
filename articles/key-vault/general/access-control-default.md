@@ -19,8 +19,8 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, sfi-image-nochange
 > Starting February 2026, Azure Key Vault API version 2026-02-01 establishes Azure RBAC as the default access control model. All API versions before 2026-02-01 retire on February 27, 2027. 
 > 
 > This change breaks compatibility. Before February 27, 2027, you **must either**:
-> - **Azure RBAC (recommended)**: [Set new and existing vaults to Azure RBAC](#step-4-migrate-to-azure-rbac-recommended) and adopt API version 2026-02-01.
-> - **Access policies (legacy)**: [Set new vaults to use access policies](#step-5-continue-using-access-policies) and adopt API version 2026-02-01.
+> - **Azure RBAC (recommended)**: [Set new and existing vaults to Azure RBAC](#step-4-migrate-to-azure-rbac-recommended) and adopt API version 2026-02-01 or later.
+> - **Access policies (legacy)**: [Set new vaults to use access policies](#step-5-continue-using-access-policies) and adopt API version 2026-02-01 or later.
 >
 > **Azure Cloud Shell users**: Cloud Shell always uses the latest API version, so you'll automatically start using API version 2026-02-01 as soon as it releases. Follow the steps in this article before the release of API version 2026-02-01 to avoid disruption.
 
@@ -168,7 +168,7 @@ az keyvault list --query "[].{name:name, rbacEnabled:properties.enableRbacAuthor
 
 ## Step 2: For vaults already using Azure RBAC
 
-If your key vaults already use Azure RBAC as their access control model, update all Key Vault ARM, BICEP, Terraform templates, and [REST API](/rest/api/keyvault/) calls to use API version 2026-02-01.
+If your key vaults already use Azure RBAC as their access control model, update all Key Vault ARM, BICEP, Terraform templates, and [REST API](/rest/api/keyvault/) calls to use API version 2026-02-01 or later.
 
 ## Step 3: For vaults using access policies
 
@@ -182,7 +182,7 @@ If your key vaults use access policies (`enableRbacAuthorization` = `false`), de
 
 Use this opportunity to increase your security posture by migrating from vault access policy to Azure RBAC for managing access. For detailed migration guidance, see [Migrate from vault access policy to an Azure role-based access control permission model](rbac-migration.md).
 
-Update all Key Vault ARM, BICEP, Terraform templates, and REST API calls to use API version 2026-02-01.
+Update all Key Vault ARM, BICEP, Terraform templates, and REST API calls to use API version 2026-02-01 or later.
 
 ## Step 5: Continue using access policies
 
