@@ -79,6 +79,8 @@ items:
   items:
   - name: Authorize access
     items:
+    - name: Prepare for Azure RBAC as default
+      href: access-control-default.md
     - name: RBAC vs. access policy (legacy)
       href: rbac-access-policy.md
     - name: Azure RBAC permission model
