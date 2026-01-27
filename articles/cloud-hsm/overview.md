@@ -78,14 +78,11 @@ Azure Cloud HSM doesn't integrate with other platform as a service (PaaS) or sof
 
 Azure Cloud HSM is not a good fit for Microsoft cloud services that require support for encryption with customer-managed keys. These services include Azure Information Protection, Azure Disk Encryption, Azure Data Lake Storage, Azure Storage, and Microsoft Purview Customer Key. For those scenarios, customers should use [Azure Key Vault Managed HSM](../key-vault/managed-hsm/overview.md).
 
-## Related content
+## Next steps
 
 These resources are available to help you facilitate the provisioning and configuration of HSMs into your existing virtual network environment:
 
 - [Azure Cloud HSM SDK](https://github.com/microsoft/MicrosoftAzureCloudHSM)
-- [Key management in Azure](/azure/security/fundamentals/key-management)
-- [Deploy Azure Cloud HSM by using the Azure portal](quickstart-portal.md)
-- [Deploy Azure Cloud HSM by using Azure PowerShell](quickstart-powershell.md)
 - [Key management in Azure](/azure/security/fundamentals/key-management)
 - [Deploy Azure Cloud HSM by using the Azure portal](quickstart-portal.md)
 - [Deploy Azure Cloud HSM by using Azure PowerShell](quickstart-powershell.md)
