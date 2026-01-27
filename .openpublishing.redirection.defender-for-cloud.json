@@ -579,6 +579,116 @@
       "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-azure-overview.md",
       "redirect_url": "/azure/defender-for-cloud/defender-for-containers-deployment-overview?tabs=aks",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-aws-overview.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-deployment-overview?tabs=aws",
+      "redirect_document_id": false
+    },
+        {
+      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-gcp-overview.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-deployment-overview?tabs=gcp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-arc-overview.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-deployment-overview?tabs=arc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-azure-enable-portal.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-enable-portal?tabs=aks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-aws-enable-portal.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-enable-portal?tabs=aws",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-gcp-enable-portal.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-enable-portal?tabs=gcp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-arc-enable-portal.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-enable-portal?tabs=arc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-azure-enable-programatically.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-enable-azure-cli?tabs=aks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-aws-enable-programatically.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-enable-azure-cli?tabs=aws",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-gcp-enable-programatically.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-enable-azure-cli?tabs=gcp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-arc-enable-programatically.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-enable-azure-cli?tabs=arc",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-azure-verify.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-enable-portal?tabs=aks#verify-deployment-in-azure-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-aws-verify.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-enable-portal?tabs=aws#verify-deployment-in-azure-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-gcp-verify.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-enable-portal?tabs=gcp#verify-deployment-in-azure-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-arc-verify.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-enable-portal?tabs=arc#verify-deployment-in-azure-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-azure-configure.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-enable-portal?tabs=aks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-aws-configure.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-enable-portal?tabs=aws",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-gcp-configure.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-enable-portal?tabs=gcp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-azure-remove.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-remove?tabs=aks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-aws-remove.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-remove?tabs=aws",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-gcp-remove.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-remove?tabs=gcp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-arc-remove.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-remove?tabs=arc",
+      "redirect_document_id": false
     }
   ]
 }
