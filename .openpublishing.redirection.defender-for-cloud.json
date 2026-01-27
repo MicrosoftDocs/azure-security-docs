@@ -616,22 +616,22 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-azure-enable-programatically.md",
+      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-azure-enable-programmatically.md",
       "redirect_url": "/azure/defender-for-cloud/defender-for-containers-enable-azure-cli?tabs=aks",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-aws-enable-programatically.md",
+      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-aws-enable-programmatically.md",
       "redirect_url": "/azure/defender-for-cloud/defender-for-containers-enable-azure-cli?tabs=aws",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-gcp-enable-programatically.md",
+      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-gcp-enable-programmatically.md",
       "redirect_url": "/azure/defender-for-cloud/defender-for-containers-enable-azure-cli?tabs=gcp",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-arc-enable-programatically.md",
+      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-arc-enable-programmatically.md",
       "redirect_url": "/azure/defender-for-cloud/defender-for-containers-enable-azure-cli?tabs=arc",
       "redirect_document_id": false
     },
