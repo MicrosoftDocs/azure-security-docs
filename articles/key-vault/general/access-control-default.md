@@ -1,12 +1,12 @@
 ---
-title: Migrate Azure Key Vault from access policies to Azure RBAC
-description: Learn how to migrate Azure Key Vault access control from access policies to Azure role-based access control (Azure RBAC) to improve security and management.
+title: Prepare for Key Vault API version 2026-02-01 - Azure RBAC as default
+description: Learn how to prepare for Azure Key Vault API version 2026-02-01, which establishes Azure RBAC as the default access control model and retires earlier API versions by February 2027.
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 11/17/2025
+ms.date: 01/28/2026
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, sfi-image-nochange
 
 #customer intent: As an Azure Key Vault administrator, I want to migrate from access policies to Azure RBAC so that I can improve security and simplify access management.
