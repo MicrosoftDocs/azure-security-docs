@@ -162,6 +162,12 @@ items:
   - name: Security controls by Azure Policy
     displayName: regulatory, compliance, standards, domains
     href: ../security-controls-policy.md?context=/azure/key-vault/general/context/context
+- name: AI
+  items:
+  - name: Azure MCP server for Key Vault
+    href: /azure/developer/azure-mcp-server/services/azure-mcp-server-for-key-vault?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
+  - name: GitHub Copilot for Azure
+    href: /azure/developer/github-copilot-azure
 - name: Reference
   items:
   - name: What's new
