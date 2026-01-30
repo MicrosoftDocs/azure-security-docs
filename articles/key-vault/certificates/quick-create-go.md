@@ -69,6 +69,7 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"os"
 	"time"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
