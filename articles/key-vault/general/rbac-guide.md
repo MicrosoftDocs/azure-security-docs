@@ -378,7 +378,7 @@ See [Create or update Azure custom roles using the Azure portal](/azure/role-bas
 
 ---
 
-For more Information about how to create custom roles, see:
+For more information about how to create custom roles, see:
 
 [Azure custom roles](/azure/role-based-access-control/custom-roles)
 
@@ -395,8 +395,7 @@ I need to set up Azure RBAC for my Key Vault. Help me create the role assignment
 Provide both Azure CLI and PowerShell commands, and explain which built-in role is most appropriate for this least-privilege scenario.
 ```
 
-> [!TIP]
-> Copilot is powered by AI, so surprises and mistakes are possible. For more information, see [Copilot in Azure FAQs](https://aka.ms/Copilot/FAQs).
+GitHub Copilot is powered by AI, so surprises and mistakes are possible. For more information, see [Copilot FAQs](https://aka.ms/copilot-general-use-faqs).
 
 ## Frequently Asked Questions
 

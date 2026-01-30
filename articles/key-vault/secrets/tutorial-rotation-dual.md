@@ -10,7 +10,7 @@ ms.topic: tutorial
 ms.date: 01/30/2026
 
 ms.author: mbaldwin
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, sfi-image-nochange
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, sfi-image-nochange, copilot-scenario-highlight
 ---
 # Automate the rotation of a secret for resources that have two sets of authentication credentials
 
@@ -330,6 +330,20 @@ Rotation functions template for two sets of credentials and several ready to use
 
 > [!NOTE]
 > These rotation functions are created by a member of the community and not by Microsoft. Community functions are not supported under any Microsoft support program or service, and are made available AS IS without warranty of any kind.
+
+## Use AI to customize the rotation function for other services
+
+This tutorial demonstrates secret rotation for Azure Storage accounts, but you can adapt the rotation function for other Azure services that use dual credentials. GitHub Copilot can help you modify the PowerShell rotation function code to work with your specific service.
+
+```copilot-prompt
+I'm using the Azure Key Vault dual-credential secret rotation tutorial for Storage accounts. Help me modify the PowerShell rotation function to work with Azure Cosmos DB instead. The function should:
+1. Connect to Cosmos DB and regenerate the secondary key
+2. Store the new key in Key Vault as a new secret version
+3. Alternate between primary and secondary keys on each rotation
+Show me the changes needed to the PowerShell function code, including the correct Cosmos DB PowerShell cmdlets.
+```
+
+GitHub Copilot is powered by AI, so surprises and mistakes are possible. For more information, see [Copilot FAQs](https://aka.ms/copilot-general-use-faqs).
 
 ## Next steps
 

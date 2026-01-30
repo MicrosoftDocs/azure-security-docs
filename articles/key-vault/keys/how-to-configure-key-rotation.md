@@ -4,7 +4,7 @@ description: Use this guide to learn how to configure automated the rotation of 
 services: key-vault
 author: msmbaldwin
 tags: 'rotation'
-ms.custom: devx-track-arm-template, sfi-image-nochange
+ms.custom: devx-track-arm-template, sfi-image-nochange, copilot-scenario-highlight
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: how-to
@@ -264,6 +264,22 @@ By using the Azure Policy service, you can govern the key lifecycle and ensure t
 After you assign the built-in policy, it can take up to 24 hours to complete the scan. When the scan finishes, you can see compliance results like the following.
 
 :::image type="content" source="../media/keys/key-rotation/key-rotation-policy.png" alt-text="Screenshot of key rotation policy compliance." lightbox="../media/keys/key-rotation/key-rotation-policy.png":::
+
+## Use AI to customize key rotation policies
+
+GitHub Copilot can help you create customized key rotation policies for your specific compliance requirements or Azure service integrations.
+
+```copilot-prompt
+I need to configure a key rotation policy for my Azure Key Vault key that's used for Azure Storage encryption. Help me create the rotation policy with these requirements:
+- Key vault name: my-storage-kv
+- Key name: storage-encryption-key
+- Rotate the key every 180 days
+- Send a notification 30 days before expiry
+- Set key expiration to 2 years
+Provide both Azure CLI commands and a JSON policy file I can use with the Azure CLI.
+```
+
+GitHub Copilot is powered by AI, so surprises and mistakes are possible. For more information, see [Copilot FAQs](https://aka.ms/copilot-general-use-faqs).
 
 ## Resources
 

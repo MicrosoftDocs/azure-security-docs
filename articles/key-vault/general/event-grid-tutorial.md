@@ -9,7 +9,7 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 04/16/2025
 ms.author: mbaldwin
-ms.custom: sfi-image-nochange
+ms.custom: sfi-image-nochange, copilot-scenario-highlight
 ---
 
 # Receive and respond to key vault notifications with Azure Event Grid
@@ -185,6 +185,21 @@ Reregister Event Grid and the key vault provider in your Azure subscription reso
 Congratulations! If you've correctly followed all these steps, you're now ready to programmatically respond to status changes of secrets stored in your key vault.
 
 If you've been using a polling-based system to search for status changes of secrets in your key vaults, you can now start using this notification feature. You can also replace the test script in your runbook with code to programmatically renew your secrets when they're about to expire.
+
+## Use AI to customize the runbook script
+
+GitHub Copilot can help you modify the PowerShell runbook script to implement custom actions when Key Vault events are triggered, such as sending notifications or automatically rotating secrets.
+
+```copilot-prompt
+I'm using the Azure Key Vault Event Grid tutorial with an Automation runbook. Help me modify the PowerShell runbook script to:
+1. Parse the Event Grid webhook payload to extract the secret name and vault name
+2. When a SecretNearExpiry event is received, automatically generate a new secret value
+3. Update the secret in Key Vault with the new value
+4. Send an email notification using an Automation credential for SMTP
+Show me the complete PowerShell script for the runbook.
+```
+
+GitHub Copilot is powered by AI, so surprises and mistakes are possible. For more information, see [Copilot FAQs](https://aka.ms/copilot-general-use-faqs).
 
 Learn more:
 

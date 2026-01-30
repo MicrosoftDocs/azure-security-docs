@@ -262,8 +262,7 @@ Show me the changes needed to the C# function code, including the correct Postgr
 
 Copilot can also help you adapt this pattern for other credential types like API keys, connection strings, or service account passwords.
 
-> [!TIP]
-> Copilot is powered by AI, so surprises and mistakes are possible. For more information, see [Copilot in Azure FAQs](https://aka.ms/Copilot/FAQs).
+GitHub Copilot is powered by AI, so surprises and mistakes are possible. For more information, see [Copilot FAQs](https://aka.ms/copilot-general-use-faqs).
 
 ## Learn more
 
