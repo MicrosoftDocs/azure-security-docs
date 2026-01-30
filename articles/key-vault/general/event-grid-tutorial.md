@@ -203,7 +203,6 @@ Show me the complete PowerShell script for the runbook.
 
 Learn more:
 
-
 - Overview: [Monitoring Key Vault with Azure Event Grid](event-grid-overview.md)
 - How to: [Receive email when a key vault secret changes](event-grid-logicapps.md)
 - [Azure Event Grid event schema for Azure Key Vault](/azure/event-grid/event-schema-key-vault)
