@@ -343,7 +343,7 @@ I'm using the Azure Key Vault dual-credential secret rotation tutorial for Stora
 Show me the changes needed to the PowerShell function code, including the correct Cosmos DB PowerShell cmdlets.
 ```
 
-GitHub Copilot is powered by AI, so surprises and mistakes are possible. For more information, see [Copilot FAQs](https://aka.ms/copilot-general-use-faqs).
+[!INCLUDE [copilot-highlights-disclaimer](~/../reusable-content/ce-skilling/azure/includes/copilot-highlights-disclaimer.md)]
 
 ## Next steps
 

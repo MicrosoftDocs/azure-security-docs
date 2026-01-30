@@ -395,7 +395,7 @@ I need to set up Azure RBAC for my Key Vault. Help me create the role assignment
 Provide both Azure CLI and PowerShell commands, and explain which built-in role is most appropriate for this least-privilege scenario.
 ```
 
-GitHub Copilot is powered by AI, so surprises and mistakes are possible. For more information, see [Copilot FAQs](https://aka.ms/copilot-general-use-faqs).
+[!INCLUDE [copilot-highlights-disclaimer](~/../reusable-content/ce-skilling/azure/includes/copilot-highlights-disclaimer.md)]
 
 ## Frequently Asked Questions
 

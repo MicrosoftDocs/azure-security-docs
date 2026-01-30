@@ -247,7 +247,7 @@ I'm trying to import an HSM-protected key to Azure Key Vault using BYOK. I have 
 My key vault name is "mycompany-prod-kv" and I want to import an RSA 4096-bit key named "encryption-master-key".
 ```
 
-GitHub Copilot is powered by AI, so surprises and mistakes are possible. For more information, see [Copilot FAQs](https://aka.ms/copilot-general-use-faqs).
+[!INCLUDE [copilot-highlights-disclaimer](~/../reusable-content/ce-skilling/azure/includes/copilot-highlights-disclaimer.md)]
 
 ## Next steps
 

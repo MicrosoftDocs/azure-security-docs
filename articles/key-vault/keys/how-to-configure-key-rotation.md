@@ -279,7 +279,7 @@ I need to configure a key rotation policy for my Azure Key Vault key that's used
 Provide both Azure CLI commands and a JSON policy file I can use with the Azure CLI.
 ```
 
-GitHub Copilot is powered by AI, so surprises and mistakes are possible. For more information, see [Copilot FAQs](https://aka.ms/copilot-general-use-faqs).
+[!INCLUDE [copilot-highlights-disclaimer](~/../reusable-content/ce-skilling/azure/includes/copilot-highlights-disclaimer.md)]
 
 ## Resources
 

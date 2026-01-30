@@ -199,7 +199,7 @@ I'm using the Azure Key Vault Event Grid tutorial with an Automation runbook. He
 Show me the complete PowerShell script for the runbook.
 ```
 
-GitHub Copilot is powered by AI, so surprises and mistakes are possible. For more information, see [Copilot FAQs](https://aka.ms/copilot-general-use-faqs).
+[!INCLUDE [copilot-highlights-disclaimer](~/../reusable-content/ce-skilling/azure/includes/copilot-highlights-disclaimer.md)]
 
 Learn more:
 
