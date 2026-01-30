@@ -8,7 +8,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 01/08/2026
+ms.date: 01/30/2026
 ms.author: mbaldwin
 ---
 
@@ -216,7 +216,7 @@ az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey
 For Managed HSM:
 
 ```azurecli
-az keyvault key import --hsm-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file --kty EC-HSM --curve-name "P-256" KeyTransferPackage-ContosoFirstHSMkey.byok
+az keyvault key import --hsm-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --kty EC-HSM --curve-name "P-256" --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
