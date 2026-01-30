@@ -8,7 +8,7 @@ ms.custom: devx-track-arm-template, sfi-image-nochange
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: how-to
-ms.date: 11/19/2025
+ms.date: 01/30/2026
 ms.author: mbaldwin
 ---
 
@@ -177,25 +177,25 @@ You can configure the key rotation policy by using ARM templates.
                 "description": "The name of the key to be created."
             }
         },
-        "rotatationTimeAfterCreate": {
+        "rotationTimeAfterCreate": {
             "defaultValue": "P18M",
             "type": "String",
             "metadata": {
-                "description": "Time duration to trigger key rotation. i.e. P30D, P1M, P2Y"
+                "description": "Time duration to trigger key rotation, for example, P30D, P1M, P2Y."
             }
         },
         "expiryTime": {
             "defaultValue": "P2Y",
             "type": "String",
             "metadata": {
-                "description": "The expiry time for new key version. i.e. P90D, P2M, P3Y"
+                "description": "The expiry time for new key version, for example, P90D, P2M, P3Y."
             }
         },
         "notifyTime": {
             "defaultValue": "P30D",
             "type": "String",
             "metadata": {
-                "description": "Near expiry Event Grid notification. i.e. P30D"
+                "description": "Near expiry Event Grid notification, for example, P30D."
             }
         }
 
@@ -213,7 +213,7 @@ You can configure the key rotation policy by using ARM templates.
                     "lifetimeActions": [
                         {
                             "trigger": {
-                                "timeAfterCreate": "[parameters('rotatationTimeAfterCreate')]",
+                                "timeAfterCreate": "[parameters('rotationTimeAfterCreate')]",
                                 "timeBeforeExpiry": ""
                             },
                             "action": {

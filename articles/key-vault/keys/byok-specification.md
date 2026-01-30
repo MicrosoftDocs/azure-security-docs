@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: conceptual
-ms.date: 04/14/2025
+ms.date: 01/30/2026
 ms.author: mbaldwin 
 ms.custom: devx-track-azurecli
 ---
@@ -134,7 +134,7 @@ az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey
 To import an EC key, you must specify key type and the curve name.
 
 ```azurecli
-az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file --kty EC-HSM --curve-name "P-256" KeyTransferPackage-ContosoFirstHSMkey.byok --ops sign verify
+az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --kty EC-HSM --curve-name "P-256" --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok --ops sign verify
 ```
 
 When this command is executed, it results in sending a REST API request as follows:
