@@ -121,7 +121,7 @@ You can use Azure PowerShell to create and manage Azure resources by using comma
    - **Location**: `EastUS`
 
     ```azurepowershell-interactive
-    New-AzKeyVault -Name 'Contoso-Vaultname' -ResourceGroupName 'ContosoResourceGroup' -Location 'EastUS'
+    New-AzKeyVault -Name 'Contoso-Vaultname' -ResourceGroupName 'ContosoResourceGroup' -Location 'EastUS' -EnableRbacAuthorization $true
    ```
 
 3. Define variables for the following values from your DigiCert CertCentral account:

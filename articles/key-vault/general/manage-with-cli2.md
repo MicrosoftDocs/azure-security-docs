@@ -32,7 +32,7 @@ Azure Key Vault is available in most regions. For more information, see the [Key
 > This article does not include instructions on how to write the Azure application that one of the steps includes, which shows how to authorize an application to use a key or secret in the key vault.
 >
 
-For an overview of Azure Key Vault, see [What is Azure Key Vault?](overview.md))
+For an overview of Azure Key Vault, see [What is Azure Key Vault?](overview.md)
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
@@ -119,7 +119,7 @@ Use the `az keyvault create` command to create a key vault. This script has thre
 To create a new vault with the name **ContosoKeyVault**, in the resource group  **ContosoResourceGroup**, residing in the **East Asia** location, type: 
 
 ```azurecli
-az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East Asia"
+az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East Asia" --enable-rbac-authorization true
 ```
 
 The output of this command shows properties of the key vault that you've created. The two most important properties are:
@@ -248,7 +248,7 @@ To create these HSM-protected keys, you must have a vault subscription that supp
 When you create the keyvault, add the 'sku' parameter:
 
 ```azurecli
-az keyvault create --name "ContosoKeyVaultHSM" --resource-group "ContosoResourceGroup" --location "East Asia" --sku "Premium"
+az keyvault create --name "ContosoKeyVaultHSM" --resource-group "ContosoResourceGroup" --location "East Asia" --sku "Premium" --enable-rbac-authorization true
 ```
 
 You can add software-protected keys (as shown earlier) and HSM-protected keys to this vault. To create an HSM-protected key, set the Destination parameter to 'HSM':
