@@ -4,7 +4,7 @@ description: Provides a quickstart for the Azure Key Vault Keys client library f
 author: msmbaldwin
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell, mode-api, passwordless-java, devx-track-extended-java
 ms.author: mbaldwin
-ms.date: 04/14/2025
+ms.date: 01/30/2026
 
 ms.service: azure-key-vault
 ms.subservice: keys
@@ -288,5 +288,6 @@ In this quickstart, you created a key vault, created a key, retrieved it, and th
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - Read the [Key Vault security overview](../general/secure-key-vault.md)
+- Review [keys-specific security best practices](secure-keys.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
 - How to [Secure access to a key vault](../general/secure-key-vault.md)

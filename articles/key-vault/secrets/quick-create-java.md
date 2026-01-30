@@ -4,7 +4,7 @@ description: Provides a quickstart for the Azure Key Vault Secret client library
 author: msmbaldwin
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell, mode-api, passwordless-java, devx-track-extended-java
 ms.author: mbaldwin
-ms.date: 04/14/2025
+ms.date: 01/30/2026
 
 ms.service: azure-key-vault
 ms.subservice: secrets
@@ -301,3 +301,4 @@ In this quickstart, you created a key vault, stored a secret, retrieved it, and 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
 - How to [Secure access to a key vault](../general/secure-key-vault.md)
+- Review [secrets-specific security best practices](secure-secrets.md)
