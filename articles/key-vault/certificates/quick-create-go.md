@@ -223,6 +223,7 @@ az group delete --resource-group myResourceGroup
 
 - [Overview of Azure Key Vault](../general/overview.md)
 - [Secure access to a key vault](../general/secure-key-vault.md)
+- [Certificates-specific security best practices](secure-certificates.md)
 - [Azure Key Vault developer's guide](../general/developers-guide.md)
 - [Key Vault security overview](../general/secure-key-vault.md)
 - [Authenticate with Key Vault](../general/authentication.md)

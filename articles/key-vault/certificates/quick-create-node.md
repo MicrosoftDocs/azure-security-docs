@@ -337,3 +337,4 @@ In this quickstart, you created a key vault, stored a certificate, and retrieved
 - See an [Access Key Vault from Virtual Machine Tutorial](../general/tutorial-net-virtual-machine.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
 - Review the [Key Vault security overview](../general/secure-key-vault.md)
+- Review [certificates-specific security best practices](secure-certificates.md)

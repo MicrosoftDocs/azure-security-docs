@@ -335,5 +335,6 @@ In this quickstart, you created a key vault, stored a key, and retrieved that ke
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - Read an [Overview of Azure Key Vault Keys](about-keys.md)
 - How to [Secure access to a key vault](../general/secure-key-vault.md)
+- Review [keys-specific security best practices](secure-keys.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
 - Review the [Key Vault security overview](../general/secure-key-vault.md)

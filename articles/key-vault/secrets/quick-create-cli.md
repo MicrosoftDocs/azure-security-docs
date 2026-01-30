@@ -67,3 +67,4 @@ In this quickstart you created a Key Vault and stored a secret in it. To learn m
 - Learn how to [store multiline secrets in Key Vault](multiline-secrets.md)
 - See the reference for the [Azure CLI az keyvault commands](/cli/azure/keyvault)
 - Review the [Key Vault security overview](../general/secure-key-vault.md)
+- Review [secrets-specific security best practices](secure-secrets.md)

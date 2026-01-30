@@ -60,3 +60,4 @@ In this quickstart, you created a Key Vault and stored a key in it. To learn mor
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
 - Review the [Key Vault security overview](../general/secure-key-vault.md)
+- Review [keys-specific security best practices](secure-keys.md)

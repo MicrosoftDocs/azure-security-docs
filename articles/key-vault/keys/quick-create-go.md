@@ -202,6 +202,7 @@ az group delete --resource-group quickstart-rg
 
 - [Overview of Azure Key Vault](../general/overview.md)
 - [Secure access to a key vault](../general/secure-key-vault.md)
+- [Keys-specific security best practices](secure-keys.md)
 - [Azure Key Vault developer's guide](../general/developers-guide.md)
 - [Key Vault security overview](../general/secure-key-vault.md)
 - [Authenticate with Key Vault](../general/authentication.md)

@@ -79,3 +79,4 @@ In this quickstart, you created a Key Vault and stored a secret in it. To learn 
 - See [Use Key Vault with application deployed to VM](../general/tutorial-net-virtual-machine.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
 - Review the [Key Vault security overview](../general/secure-key-vault.md)
+- Review [secrets-specific security best practices](secure-secrets.md)

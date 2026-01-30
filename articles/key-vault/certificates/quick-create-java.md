@@ -295,3 +295,4 @@ In this quickstart you created a key vault, created a certificate, retrieved it,
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
 - How to [Secure access to a key vault](../general/secure-key-vault.md)
+- Review [certificates-specific security best practices](secure-certificates.md)

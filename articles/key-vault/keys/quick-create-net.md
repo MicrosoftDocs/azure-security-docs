@@ -257,3 +257,4 @@ To learn more about Key Vault and how to integrate it with your apps, see the fo
 - See an [Access Key Vault from Virtual Machine Tutorial](../general/tutorial-net-virtual-machine.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
 - Review the [Key Vault security overview](../general/secure-key-vault.md)
+- Review [keys-specific security best practices](secure-keys.md)

@@ -219,6 +219,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 - [Overview of Azure Key Vault](../general/overview.md)
 - [Secure access to a key vault](../general/secure-key-vault.md)
+- [Keys-specific security best practices](secure-keys.md)
 - [RBAC Guide](../general/rbac-guide.md)
 - [Azure Key Vault developer's guide](../general/developers-guide.md)
 - [Authenticate with Key Vault](../general/authentication.md)
