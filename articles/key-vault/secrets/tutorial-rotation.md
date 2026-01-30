@@ -8,7 +8,7 @@ tags: 'rotation'
 ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: tutorial
-ms.date: 05/08/2025
+ms.date: 01/30/2026
 
 ms.author: mbaldwin
 ms.devlang: csharp
@@ -173,7 +173,7 @@ This rotation method reads database information from the secret, creates a new v
 
             //Check Service Provider connection
             CheckServiceConnection(secret);
-            log.LogInformation("Service  Connection Validated");
+            log.LogInformation("Service Connection Validated");
             
             //Create new password
             var randomPassword = CreateRandomPassword();
@@ -203,7 +203,7 @@ az keyvault set-policy --upn <email-address-of-user> --name akvrotation-kv --sec
 Create a new secret with tags that contain the SQL Server resource ID, the SQL Server login name, and validity period for the secret in days. Provide name of the secret, initial password from SQL database (in our example "Simple123") and include an expiration date that's set for tomorrow.
 
 ```azurecli
-$tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddThh:mm:ssZ")
+$tomorrowDate = (get-date).AddDays(+1).ToString("yyyy-MM-ddThh:mm:ssZ")
 az keyvault secret set --name sqlPassword --vault-name akvrotation-kv --value "Simple123" --tags "CredentialId=sqlAdmin" "ProviderAddress=<sql-database-resource-id>" "ValidityPeriodDays=90" --expires $tomorrowDate
 ```
 

@@ -7,7 +7,7 @@ tags: 'rotation'
 ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: tutorial
-ms.date: 04/14/2025
+ms.date: 01/30/2026
 
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, sfi-image-nochange
@@ -164,7 +164,7 @@ az keyvault secret set --name storageKey --vault-name vaultrotation-kv --value <
 # [Azure PowerShell](#tab/azurepowershell)
 
 ```azurepowershell
-$tomorrowDate = (Get-Date).AddDays(+1).ToString('yyy-MM-ddTHH:mm:ssZ')
+$tomorrowDate = (Get-Date).AddDays(+1).ToString('yyyy-MM-ddTHH:mm:ssZ')
 $secretValue = ConvertTo-SecureString -String '<key1Value>' -AsPlainText -Force
 $tags = @{
     CredentialId='key1'
@@ -316,7 +316,7 @@ Notice that `value` of the key is same as secret in key vault:
 
 ## Disable rotation for secret
 
-You can disable rotation of a secret simply by deleting the Event Grid subscription for that secret. Use the Azure PowerShell [Remove-AzEventGridSubscription](/powershell/module/az.eventgrid/remove-azeventgridsubscription) cmdlet or Azure CLI [az event grid event--subscription delete](/cli/azure/eventgrid/event-subscription?#az-eventgrid-event-subscription-delete) command.
+You can disable rotation of a secret simply by deleting the Event Grid subscription for that secret. Use the Azure PowerShell [Remove-AzEventGridSubscription](/powershell/module/az.eventgrid/remove-azeventgridsubscription) cmdlet or Azure CLI [az eventgrid event-subscription delete](/cli/azure/eventgrid/event-subscription?#az-eventgrid-event-subscription-delete) command.
 
 
 ## Key Vault rotation functions for two sets of credentials
