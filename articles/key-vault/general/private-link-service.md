@@ -3,7 +3,7 @@ title: Integrate Key Vault with Azure Private Link
 description: Learn how to integrate Azure Key Vault with Azure Private Link Service
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 04/17/2025
+ms.date: 01/30/2026
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
@@ -117,7 +117,7 @@ az login                                                         # Login to Azur
 az account set --subscription {SUBSCRIPTION ID}                  # Select your Azure Subscription
 az group create -n {RESOURCE GROUP} -l {REGION}                  # Create a new Resource Group
 az provider register -n Microsoft.KeyVault                       # Register KeyVault as a provider
-az keyvault create -n {VAULT NAME} -g {RG} -l {REGION}           # Create a Key Vault
+az keyvault create -n {VAULT NAME} -g {RG} -l {REGION} --enable-rbac-authorization true           # Create a Key Vault
 az keyvault update -n {VAULT NAME} -g {RG} --default-action deny # Turn on Key Vault Firewall
 az network vnet create -g {RG} -n {vNet NAME} -location {REGION} # Create a Virtual Network
 
@@ -242,7 +242,7 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 * Check to make sure the Private DNS Zone isn't missing an A record for the key vault. 
     1. Navigate to the Private DNS Zone page. 
-    2. Select Overview and check if there's an A record with the simple name of your key vault (i.e. fabrikam). Don't specify any suffix.
+    2. Select Overview and check if there's an A record with the simple name of your key vault (for example, fabrikam). Don't specify any suffix.
     3. Make sure you check the spelling, and either create or fix the A record. You can use a TTL of 600 (10 mins).
     4. Make sure you specify the correct private IP address. 
 

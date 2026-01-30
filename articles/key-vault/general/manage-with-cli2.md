@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 01/06/2026
+ms.date: 01/30/2026
 ms.author: mbaldwin 
 ms.custom: devx-track-azurecli
 
@@ -32,7 +32,7 @@ Azure Key Vault is available in most regions. For more information, see the [Key
 > This article does not include instructions on how to write the Azure application that one of the steps includes, which shows how to authorize an application to use a key or secret in the key vault.
 >
 
-For an overview of Azure Key Vault, see [What is Azure Key Vault?](overview.md))
+For an overview of Azure Key Vault, see [What is Azure Key Vault?](overview.md)
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
@@ -119,7 +119,7 @@ Use the `az keyvault create` command to create a key vault. This script has thre
 To create a new vault with the name **ContosoKeyVault**, in the resource group  **ContosoResourceGroup**, residing in the **East Asia** location, type: 
 
 ```azurecli
-az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East Asia"
+az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East Asia" --enable-rbac-authorization true
 ```
 
 The output of this command shows properties of the key vault that you've created. The two most important properties are:
@@ -192,7 +192,7 @@ Applications that use a key vault must authenticate by using a token from Micros
 
 The application must present both these values to Microsoft Entra ID, to get a token. How an application is configured to get a token will depend on the application. For the [Key Vault sample application](https://www.microsoft.com/download/details.aspx?id=45343), the application owner sets these values in the app.config file.
 
-For detailed steps on registering an application with Microsoft Entra ID you should review the articles titled [Integrating applications with Microsoft Entra ID](/azure/active-directory/develop/quickstart-register-app), [Use portal to create a Microsoft Entra application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal), and [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
+For detailed steps on registering an application with Microsoft Entra ID you should review the articles titled [Integrating applications with Microsoft Entra ID](/entra/identity-platform/quickstart-register-app), [Use portal to create a Microsoft Entra application and service principal that can access resources](/entra/identity-platform/howto-create-service-principal-portal), and [Create an Azure service principal with the Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 To register an application in Microsoft Entra ID:
 
@@ -248,7 +248,7 @@ To create these HSM-protected keys, you must have a vault subscription that supp
 When you create the keyvault, add the 'sku' parameter:
 
 ```azurecli
-az keyvault create --name "ContosoKeyVaultHSM" --resource-group "ContosoResourceGroup" --location "East Asia" --sku "Premium"
+az keyvault create --name "ContosoKeyVaultHSM" --resource-group "ContosoResourceGroup" --location "East Asia" --sku "Premium" --enable-rbac-authorization true
 ```
 
 You can add software-protected keys (as shown earlier) and HSM-protected keys to this vault. To create an HSM-protected key, set the Destination parameter to 'HSM':

@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 04/17/2025
+ms.date: 01/30/2026
 ms.author: mbaldwin 
 ---
 
@@ -43,7 +43,7 @@ To allow an IP Address or range of an Azure resource, such as a Web App or Logic
 1. Look for the **IP Address** field.
 1. Copy this value or range and enter it into the key vault firewall allowlist.
 
-To allow an entire Azure service, through the Key Vault firewall, use the list of publicly documented data center IP addresses for Azure [here](https://www.microsoft.com/download/details.aspx?id=56519). Find the IP addresses associated with the service you would like in the region you want and add those IP addresses to the key vault firewall.
+To allow an entire Azure service, through the Key Vault firewall, use the [list of publicly documented data center IP addresses for Azure](https://www.microsoft.com/download/details.aspx?id=56519). Find the IP addresses associated with the service you would like in the region you want and add those IP addresses to the key vault firewall.
 
 ### Key Vault firewall enabled (virtual networks - dynamic IPs)
 
@@ -59,7 +59,7 @@ In this case, you should create the resource within a virtual network, and then 
 
 ### Key Vault firewall enabled (private link)
 
-To understand how to configure a private link connection on your key vault, see the document [here](./private-link-service.md).
+To understand how to configure a private link connection on your key vault, see [Integrate Key Vault with Azure Private Link](./private-link-service.md).
 
 > [!IMPORTANT]
 > After firewall rules are in effect, users can only perform Key Vault [data plane](secure-key-vault.md#identity-and-access-management) operations when their requests originate from allowed virtual networks or IPv4 address ranges. This also applies to accessing Key Vault from the Azure portal. Although users can browse to a key vault from the Azure portal, they might not be able to list keys, secrets, or certificates if their client machine is not in the allowed list. This also affects the Key Vault Picker used by other Azure services. Users might be able to see a list of key vaults, but not list keys, if firewall rules prevent their client machine.

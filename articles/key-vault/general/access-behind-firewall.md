@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 01/08/2026
+ms.date: 01/30/2026
 ms.author: mbaldwin
 
 ---
@@ -38,7 +38,7 @@ Key vault client applications must access Microsoft Entra endpoints for authenti
 | User or service principal using a work or school account with Microsoft Entra ID (for example, user@contoso.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Microsoft Azure operated by 21Vianet:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government:**<br> login.microsoftonline.us:443<br> |
 | User or service principal using a work or school account, plus Active Directory Federation Services (AD FS) or other federated endpoint (for example, user@contoso.com) |All endpoints for a work or school account, plus AD FS or other federated endpoints |
 
-For more information about authentication scenarios and flows, see [Microsoft Entra authentication flow](/azure/active-directory/develop/authentication-vs-authorization), [Integrating Applications with Microsoft Entra ID](/azure/active-directory/develop/how-to-integrate), and [Active Directory Authentication Protocols](/previous-versions/azure/dn151124(v=azure.100)).  
+For more information about authentication scenarios and flows, see [Microsoft Entra authentication flow](/entra/identity-platform/authentication-vs-authorization), [Integrating Applications with Microsoft Entra ID](/entra/identity-platform/how-to-integrate), and [Active Directory Authentication Protocols](/previous-versions/azure/dn151124(v=azure.100)).  
 
 ## Control plane endpoints
 
