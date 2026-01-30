@@ -3,7 +3,7 @@ title: How to generate & transfer HSM-protected keys – BYOK – Azure Key Vaul
 description: Use this article to help you plan for, generate, and transfer your own HSM-protected keys to use with Azure Key Vault. Also known as bring your own key (BYOK).
 services: key-vault
 author: msmbaldwin
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, copilot-scenario-highlight
 
 ms.service: azure-key-vault
 ms.subservice: keys
@@ -234,6 +234,20 @@ Add-AzKeyVaultKey -HsmName 'ContosoKeyVaultHSM' -KeyName 'ContosoFirstHSMkey' -K
 ---
 
 If the upload is successful, Azure CLI displays the properties of the imported key.
+
+## Use AI to troubleshoot BYOK key transfers
+
+GitHub Copilot can help you troubleshoot issues with the BYOK key transfer process and generate the correct commands for your specific HSM vendor.
+
+```copilot-prompt
+I'm trying to import an HSM-protected key to Azure Key Vault using BYOK. I have a Thales Luna HSM and I'm getting an error during the key transfer. Help me with:
+1. The correct sequence of commands to generate a KEK in Azure Key Vault
+2. How to download and verify the KEK public key
+3. The Azure CLI command to import the wrapped key file
+My key vault name is "mycompany-prod-kv" and I want to import an RSA 4096-bit key named "encryption-master-key".
+```
+
+[!INCLUDE [copilot-highlights-disclaimer](~/reusable-content/ce-skilling/azure/includes/copilot-highlights-disclaimer.md)]
 
 ## Next steps
 

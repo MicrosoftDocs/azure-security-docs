@@ -5,7 +5,7 @@ services: key-vault
 author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, sfi-image-nochange
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, sfi-image-nochange, copilot-scenario-highlight
 ms.topic: how-to
 ms.date: 01/30/2026
 ms.author: mbaldwin
@@ -378,9 +378,24 @@ See [Create or update Azure custom roles using the Azure portal](/azure/role-bas
 
 ---
 
-For more Information about how to create custom roles, see:
+For more information about how to create custom roles, see:
 
 [Azure custom roles](/azure/role-based-access-control/custom-roles)
+
+## Use AI to generate Key Vault role assignments
+
+GitHub Copilot can help you construct the correct Azure CLI or PowerShell commands for Key Vault role assignments based on your specific requirements.
+
+```copilot-prompt
+I need to set up Azure RBAC for my Key Vault. Help me create the role assignment commands for the following scenario:
+- Key vault name: my-app-keyvault
+- Resource group: my-app-rg
+- Subscription ID: <my-subscription-id>
+- I need to grant a managed identity (client ID: <managed-identity-client-id>) the ability to read and write secrets, but not manage keys or certificates.
+Provide both Azure CLI and PowerShell commands, and explain which built-in role is most appropriate for this least-privilege scenario.
+```
+
+[!INCLUDE [copilot-highlights-disclaimer](~/reusable-content/ce-skilling/azure/includes/copilot-highlights-disclaimer.md)]
 
 ## Frequently Asked Questions
 
