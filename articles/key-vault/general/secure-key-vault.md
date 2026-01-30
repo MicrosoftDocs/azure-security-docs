@@ -63,7 +63,7 @@ These network security features are listed from most restricted to least restric
 
 Azure Key Vault supports TLS 1.2 and 1.3 protocol versions to ensure secure communication between clients and the service.
 
-- **Enforce TLS version control**: The Key Vault front end (data plane) is a multi-tenant server where key vaults from different customers can share the same public IP address. To achieve isolation, each HTTP request is authenticated and authorized independently. The HTTPS protocol allows clients to participate in TLS negotiation, and clients can enforce the TLS version to ensure the entire connection uses the corresponding level of protection. See [Key Vault logging](logging.md) for sample Kusto queries to monitor TLS versions used by clients.
+- **Enforce TLS version control**: The Key Vault front end (data plane) is a multitenant server where key vaults from different customers can share the same public IP address. To achieve isolation, each HTTP request is authenticated and authorized independently. The HTTPS protocol allows clients to participate in TLS negotiation, and clients can enforce the TLS version to ensure the entire connection uses the corresponding level of protection. See [Key Vault logging](logging.md) for sample Kusto queries to monitor TLS versions used by clients.
 
 ## Identity and access management
 
