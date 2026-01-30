@@ -25,7 +25,7 @@ For more information, see [Configure key rotation governance](../keys/how-to-con
 
 ## June 2023
 
-Key Vault enforces TLS 1.2 or higher for enhanced security. If you're still using an older TLS version, see [Enable support for TLS 1.2 in your environment](/troubleshoot/entra/entra-id/enable-support-tls-environment/#why-this-change-is-being-made) to update your clients and ensure uninterrupted access to Key Vault services. You can monitor TLS version used by clients by monitoring Key Vault logs with sample Kusto query [here](monitor-key-vault.md#sample-kusto-queries).
+Key Vault enforces TLS 1.2 or higher for enhanced security. If you're still using an older TLS version, see [Enable support for TLS 1.2 in your environment](/troubleshoot/entra/entra-id/ad-dmn-services/enable-support-tls-environment#why-this-change-is-being-made) to update your clients and ensure uninterrupted access to Key Vault services. You can monitor TLS version used by clients by monitoring Key Vault logs with sample Kusto query [here](monitor-key-vault.md#sample-kusto-queries).
 
 ## May 2023
 
