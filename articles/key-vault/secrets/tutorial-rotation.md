@@ -262,7 +262,7 @@ Show me the changes needed to the C# function code, including the correct Postgr
 
 Copilot can also help you adapt this pattern for other credential types like API keys, connection strings, or service account passwords.
 
-[!INCLUDE [copilot-highlights-disclaimer](~/../reusable-content/ce-skilling/azure/includes/copilot-highlights-disclaimer.md)]
+[!INCLUDE [copilot-highlights-disclaimer](~/reusable-content/ce-skilling/azure/includes/copilot-highlights-disclaimer.md)]
 
 ## Learn more
 

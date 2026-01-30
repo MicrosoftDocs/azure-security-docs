@@ -155,7 +155,7 @@ I need to create a certificate signing request in Azure Key Vault with a complex
 Show me how to properly escape the comma in the organization name, and provide both the certificate policy and the Add-AzKeyVaultCertificate command.
 ```
 
-[!INCLUDE [copilot-highlights-disclaimer](~/../reusable-content/ce-skilling/azure/includes/copilot-highlights-disclaimer.md)]
+[!INCLUDE [copilot-highlights-disclaimer](~/reusable-content/ce-skilling/azure/includes/copilot-highlights-disclaimer.md)]
 
 ---
 
