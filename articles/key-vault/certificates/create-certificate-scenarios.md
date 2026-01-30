@@ -48,7 +48,7 @@ The following examples require an object named "mydigicert" to already be availa
     },
     "issuer": {
       "name": "mydigicert",
-      "cty": "OV-SSL",
+      "cty": "OV-SSL"
     }
   }
 }

@@ -36,7 +36,7 @@ After a Key Vault certificate is created, you can retrieve it from the addressab
 Supported keytypes: RSA, RSA-HSM, EC, EC-HSM, oct (listed [here](/rest/api/keyvault/certificates/create-certificate/create-certificate#jsonwebkeytype))
 Exportable is only allowed with RSA and EC keys. HSM keys would be nonexportable.
 
-For more information, see [About Azure Key Vault certificates](./about-certificates.md#exportable-or-non-exportable-key) for more information.
+For more information, see [About Azure Key Vault certificates](./about-certificates.md#exportable-or-non-exportable-key).
 
 ## Export stored certificates
 

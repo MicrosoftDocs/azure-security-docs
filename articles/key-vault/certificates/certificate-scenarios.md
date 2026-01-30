@@ -32,8 +32,8 @@ Certificates are composed of three interrelated resources linked together as a K
  Before a certificate can be created in a Key Vault (KV), prerequisite steps 1 and 2 must be successfully accomplished and a key vault must exist for this user / organization.  
 
 **Step 1:** Certificate Authority (CA) Providers  
--   On-boarding as the IT Admin, PKI Admin or anyone managing accounts with CAs, for a given company (ex. Contoso)  is a prerequisite to using Key Vault certificates.  
-    The following CAs are the current partnered providers with Key Vault. Learn more [here](./create-certificate.md#partnered-ca-providers)   
+-   On-boarding as the IT Admin, PKI Admin or anyone managing accounts with CAs, for a given company (for example, Contoso) is a prerequisite to using Key Vault certificates.  
+    The following CAs are the current partnered providers with Key Vault. For more information, see [Partnered CA Providers](./create-certificate.md#partnered-ca-providers).   
     -   DigiCert - Key Vault offers OV TLS/SSL certificates with DigiCert.  
     -   GlobalSign - Key Vault offers OV TLS/SSL certificates with GlobalSign.  
 
@@ -42,7 +42,7 @@ Certificates are composed of three interrelated resources linked together as a K
 **Step 3a:** A Contoso admin, along with a Contoso employee (Key Vault user) who owns certificates, depending on the CA, can get a certificate from the admin or directly from the account with the CA.  
 
 - Begin an add credential operation to a key vault by [setting a certificate issuer](/rest/api/keyvault/certificates/set-certificate-issuer/set-certificate-issuer) resource. A certificate issuer is an entity represented in Azure Key Vault (KV) as a CertificateIssuer resource. It is used to provide information about the source of a KV certificate; issuer name, provider, credentials, and other administrative details.
-  - Ex. MyDigiCertIssuer  
+  - For example, MyDigiCertIssuer  
     -   Provider  
     -   Credentials – CA account credentials. Each CA has its own specific data.  
 
@@ -69,8 +69,8 @@ Note - This process, through **Step 3b**, is a onetime operation.
   -   Policy constraints  
       -   X509 properties  
       -   Key properties  
-      -   Provider reference - > ex. MyDigiCertIssure  
-      -   Renewal information - > ex. 90 days before expiry  
+      -   Provider reference -> for example, MyDigiCertIssuer  
+      -   Renewal information -> for example, 90 days before expiry  
 
   - A certificate creation process is usually an asynchronous process and involves polling your key vault for the state of the create certificate operation.  
 [Get certificate operation](/rest/api/keyvault/certificates/get-certificate-operation/get-certificate-operation)  
@@ -92,7 +92,7 @@ Key Vault service sends requests to CA (outbound traffic). Therefore, it’s ful
 
 -   If there are no further operations, the first thing the Key Vault does is send an expiration notice. 
 
--   Also, the user can edit the policy, which is functional at the time of import but, contains defaults where no information was specified at import. Ex. no issuer info  
+-   Also, the user can edit the policy, which is functional at the time of import but contains defaults where no information was specified at import. For example, no issuer info  
 
 ### Formats of Import we support
 Azure Key Vault supports .pem and .pfx certificate files for importing Certificates into Key vault.

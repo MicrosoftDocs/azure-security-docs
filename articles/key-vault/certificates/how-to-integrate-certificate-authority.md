@@ -78,7 +78,7 @@ After you gather the preceding information from your DigiCert CertCentral accoun
 
 1. Select **Create**.
    
-DigicertCA is now in the certificate authority list.
+DigiCertCA is now in the certificate authority list.
 
 ### Azure portal (GlobalSign)
 
