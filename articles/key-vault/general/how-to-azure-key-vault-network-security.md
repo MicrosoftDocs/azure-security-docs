@@ -6,13 +6,13 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 04/16/2025
+ms.date: 01/30/2026
 ms.author: mbaldwin 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 # Configure Azure Key Vault networking settings
 
-This article will provide you with guidance on how to configure the Azure Key Vault networking settings to work with other applications and Azure services. To learn about different network security configurations in detail, [read here](network-security.md).
+This article will provide you with guidance on how to configure the Azure Key Vault networking settings to work with other applications and Azure services. To learn about different network security configurations in detail, see [Network security for Azure Key Vault](network-security.md).
 
 Here's step-by-step instructions to configure Key Vault firewall and virtual networks by using the Azure portal, Azure CLI and Azure PowerShell
 
@@ -64,7 +64,7 @@ Here's how to configure Key Vault firewalls and virtual networks by using the Az
 
 7. Turn the network rules on by setting the default action to `Deny`.
    ```azurecli
-   az keyvault update --resource-group "myresourcegroup" --name "mekeyvault" --default-action Deny
+   az keyvault update --resource-group "myresourcegroup" --name "mykeyvault" --default-action Deny
    ```
 
 # [PowerShell](#tab/azure-powershell)

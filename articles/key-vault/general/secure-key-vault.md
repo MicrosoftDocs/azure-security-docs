@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: general
 ms.custom: horz-security
 ms.topic: article
-ms.date: 01/08/2026
+ms.date: 01/30/2026
 ms.author: mbaldwin
 ai-usage: ai-assisted
 #CustomerIntent: As a key vault administrator, I want to learn how to secure my key vaults
@@ -78,12 +78,12 @@ Azure Key Vault uses Microsoft Entra ID for authentication. Access is controlled
     > [!IMPORTANT]
     > RBAC permission model allows vault-level role assignments for persistent access and eligible (JIT) assignments for privileged operations. Object-scope assignments only support read operations; administrative operations like network access control, monitoring, and object management require vault-level permissions. For secure isolation across application teams, use one Key Vault per application.
 
-- **Assign just-in-time (JIT) privileged roles**: Use Azure Privileged Identity Management (PIM) to assign eligible JIT Azure RBAC roles for administrators and operators of Key Vault. See [Privileged Identity Management (PIM) overview](/azure/active-directory/privileged-identity-management/pim-configure) for details.
+- **Assign just-in-time (JIT) privileged roles**: Use Azure Privileged Identity Management (PIM) to assign eligible JIT Azure RBAC roles for administrators and operators of Key Vault. See [Privileged Identity Management (PIM) overview](/entra/id-governance/privileged-identity-management/pim-configure) for details.
 
     - **Require approvals for privileged role activation**: Add an extra layer of security to prevent unauthorized access by ensuring that at least one approver is required to activate JIT roles. See [Configure Microsoft Entra role settings in Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-how-to-change-default-settings).
     - **Enforce multi-factor authentication for role activation**: Require MFA to activate JIT roles for operators and administrators. See [Microsoft Entra multifactor authentication](/entra/identity/authentication/concept-mfa-howitworks).
 
-- **Enable Microsoft Entra Conditional Access Policies**: Key Vault supports Microsoft Entra Conditional Access policies to apply access controls based on conditions such as user location or device. For more information, see [Conditional Access overview](/azure/active-directory/conditional-access/overview).
+- **Enable Microsoft Entra Conditional Access Policies**: Key Vault supports Microsoft Entra Conditional Access policies to apply access controls based on conditions such as user location or device. For more information, see [Conditional Access overview](/entra/identity/conditional-access/overview).
 
 - **Apply the principle of least privilege**: Limit the number of users with administrative roles and ensure users are granted only the minimum permissions required for their role. See [Enhance security with the principle of least privilege](/entra/identity-platform/secure-least-privileged-access)
 
