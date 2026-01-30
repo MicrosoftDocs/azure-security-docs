@@ -269,3 +269,6 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 - Learn more about [Azure Private Link](/azure/private-link/private-link-service-overview)
 - Learn more about [Azure Key Vault](overview.md)
+- [Diagnose private links configuration issues](private-link-diagnostics.md)
+- [Configure network security for Azure Key Vault](network-security.md)
+- [Secure your Azure Key Vault](secure-key-vault.md)

@@ -3,7 +3,7 @@ title: Diagnose private links configuration issues on Azure Key Vault
 description: Resolve common private links issues with Key Vault and deep dive into the configuration
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 04/16/2025
+ms.date: 01/30/2026
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
@@ -410,3 +410,9 @@ This is a non-exhaustive list of items that can be found on advanced or complex 
 - Firewall settings, either the Azure Firewall connected to the Virtual Network, or a custom firewall solution deploying in the Virtual Network or in the machine.
 - Network peering, which may impact the DNS servers used and how traffic is routed.
 - Custom gateway (NAT) solutions, which may impact how traffic is routed, including traffic from DNS queries.
+
+## Next steps
+
+- [Integrate Key Vault with Azure Private Link](private-link-service.md)
+- [Configure network security for Azure Key Vault](network-security.md)
+- [Secure your Azure Key Vault](secure-key-vault.md)

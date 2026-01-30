@@ -22,7 +22,7 @@ To access a key vault from behind a firewall, your client application must be ab
 Depending on your configuration and environment, there are some variations.
 
 > [!NOTE]
-> For comprehensive network security guidance, including firewall configuration options from most to least restrictive, see [Secure your Azure Key Vault: Network security](secure-key-vault.md#network-security) and [Network security for Azure Key Vault](network-security.md).
+> For comprehensive network security guidance, including firewall configuration options from most to least restrictive, see [Secure your Azure Key Vault: Network security](secure-key-vault.md#network-security) and [Configure network security for Azure Key Vault](network-security.md).
 
 ## Ports
 
@@ -68,9 +68,8 @@ Authentication and Identity (Microsoft Entra ID) is a global service and can fai
 
 ## Next steps
 
-- [Network security for Azure Key Vault](network-security.md)
+- [Configure network security for Azure Key Vault](network-security.md)
 - [Secure your Azure Key Vault](secure-key-vault.md)
-- [Configure Azure Key Vault networking settings](how-to-azure-key-vault-network-security.md)
 - [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md)
 - [Integrate Key Vault with Azure Private Link](private-link-service.md)
 - [Authentication in Azure Key Vault](authentication.md)
