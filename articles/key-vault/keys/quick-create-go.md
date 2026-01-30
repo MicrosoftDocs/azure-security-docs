@@ -3,7 +3,7 @@ title: Quickstart - Azure Key Vault Go client library - manage keys
 description: Learn how to create, retrieve, and delete keys from an Azure key vault using the Go client library
 author: Duffney
 ms.author: jduffney
-ms.date: 01/08/2026
+ms.date: 01/30/2026
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: quickstart

@@ -3,7 +3,7 @@ title: Quickstart -  Azure Key Vault secret client library for JavaScript (versi
 description: Learn how to create, retrieve, and delete secrets from an Azure key vault using the JavaScript client library with either JavaScript or TypeScript
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 05/01/2025
+ms.date: 01/30/2026
 ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: quickstart
@@ -98,10 +98,6 @@ Create a Node.js application that uses your key vault.
     ```terminal
     npm install @azure/identity
     ```
-
-## Grant access to your key vault
-
-[!INCLUDE [Using RBAC to provide access to a key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/rbac/upn-secrets-officer-cli.md)]
 
 ## Set environment variables
 

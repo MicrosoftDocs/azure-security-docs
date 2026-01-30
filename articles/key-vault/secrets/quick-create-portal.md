@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.date: 04/14/2025
+ms.date: 01/30/2026
 
 ms.author: mbaldwin
 ms.custom: sfi-image-nochange

@@ -4,7 +4,7 @@ description: Learn about the Azure Key Vault Certificate client library for Java
 author: msmbaldwin
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell, mode-api, passwordless-java, devx-track-extended-java
 ms.author: mbaldwin
-ms.date: 04/14/2025
+ms.date: 01/30/2026
 
 ms.service: azure-key-vault
 ms.subservice: certificates
