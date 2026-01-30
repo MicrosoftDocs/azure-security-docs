@@ -3,7 +3,7 @@ title: Integrate Key Vault with Azure Private Link
 description: Learn how to integrate Azure Key Vault with Azure Private Link Service
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 04/17/2025
+ms.date: 01/30/2026
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
@@ -117,7 +117,7 @@ az login                                                         # Login to Azur
 az account set --subscription {SUBSCRIPTION ID}                  # Select your Azure Subscription
 az group create -n {RESOURCE GROUP} -l {REGION}                  # Create a new Resource Group
 az provider register -n Microsoft.KeyVault                       # Register KeyVault as a provider
-az keyvault create -n {VAULT NAME} -g {RG} -l {REGION}           # Create a Key Vault
+az keyvault create -n {VAULT NAME} -g {RG} -l {REGION} --enable-rbac-authorization true           # Create a Key Vault
 az keyvault update -n {VAULT NAME} -g {RG} --default-action deny # Turn on Key Vault Firewall
 az network vnet create -g {RG} -n {vNet NAME} -location {REGION} # Create a Virtual Network
 
