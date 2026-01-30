@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: general
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, sfi-image-nochange
 ms.topic: how-to
-ms.date: 11/19/2025
+ms.date: 01/30/2026
 ms.author: mbaldwin
 ---
 
@@ -32,7 +32,7 @@ The **control plane** is where you manage Key Vault itself. Operations in this p
 
 The **data plane** is where you work with the data stored in a key vault. You can add, delete, and modify keys, secrets, and certificates.
 
-Both planes use [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) for authentication. For authorization, the control plane uses [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) and the data plane uses a [Key Vault access policy](./assign-access-policy-portal.md) (legacy) or [Azure RBAC for Key Vault data plane operations](./rbac-guide.md).
+Both planes use [Microsoft Entra ID](/entra/fundamentals/whatis) for authentication. For authorization, the control plane uses [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) and the data plane uses a [Key Vault access policy](./assign-access-policy-portal.md) (legacy) or [Azure RBAC for Key Vault data plane operations](./rbac-guide.md).
 
 To access a key vault in either plane, all callers (users or applications) must have proper authentication and authorization. Authentication establishes the identity of the caller. Authorization determines which operations the caller can execute.
 
@@ -246,7 +246,7 @@ For full details, see [Assign Azure roles using Azure PowerShell](/azure/role-ba
 ### Secret scope role assignment
 
 > [!NOTE]
-> Key vault secret, certificate, key scope role assignments should only be used for limited scenarios described [here](#best-practices-for-individual-keys-secrets-and-certificates-role-assignments) to comply with security best practices.
+> Key vault secret, certificate, key scope role assignments should only be used for limited scenarios described in [Best practices for individual keys, secrets, and certificates role assignments](#best-practices-for-individual-keys-secrets-and-certificates-role-assignments) to comply with security best practices.
 
 # [Azure portal](#tab/azure-portal)
 
