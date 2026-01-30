@@ -8,7 +8,7 @@ ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: tutorial
 ms.custom: mvc, sfi-image-nochange
-ms.date: 04/14/2025
+ms.date: 01/30/2026
 
 ms.author: sebansal
 ms.devlang: azurecli

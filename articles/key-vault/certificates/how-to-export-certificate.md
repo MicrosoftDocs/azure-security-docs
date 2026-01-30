@@ -9,7 +9,7 @@ ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: how-to
 ms.custom: mvc, sfi-image-nochange
-ms.date: 04/14/2025
+ms.date: 01/30/2026
 
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure.

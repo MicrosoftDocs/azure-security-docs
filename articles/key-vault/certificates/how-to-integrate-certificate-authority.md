@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: how-to
-ms.date: 12/03/2025
+ms.date: 01/30/2026
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell, sfi-image-nochange
 ---
