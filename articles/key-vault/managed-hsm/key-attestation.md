@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 06/20/2025
+ms.date: 01/30/2026
 ms.author: mbaldwin
 
 ---
@@ -33,16 +33,16 @@ Set up a virtual environment and install the required Python packages from `requ
 # [Windows](#tab/windows)
 
 ```sh
-python3 –m venv attestation
+python3 -m venv attestation
 attestation\Scripts\activate.bat
-pip3 install –r requirements.txt
+pip3 install -r requirements.txt
 cd src/
 ```
 
 # [Linux](#tab/linux)
 
 ```sh
-python3 –m venv attestation
+python3 -m venv attestation
 source attestation/bin/activate 
 pip3 install -r requirements.txt
 cd src/

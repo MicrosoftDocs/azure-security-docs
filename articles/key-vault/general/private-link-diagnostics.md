@@ -3,7 +3,7 @@ title: Diagnose private links configuration issues on Azure Key Vault
 description: Resolve common private links issues with Key Vault and deep dive into the configuration
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 04/16/2025
+ms.date: 01/30/2026
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
@@ -20,7 +20,7 @@ If you are new to this feature, see [Integrate Key Vault with Azure Private Link
 ### Problems covered by this article
 
 - Your DNS queries still return a public IP address for the key vault, instead of a private IP address that you would expect from using the private links feature.
-- All requests made by a given client that is using private link, are failing with time-outs or network errors, and the problem is not intermittent.
+- All requests made by a given client that is using private link, are failing with timeouts or network errors, and the problem is not intermittent.
 - The key vault has a private IP address, but requests still get `403` response with the `ForbiddenByFirewall` inner error code.
 - You are using private links, but your key vault still accepts requests from the public Internet.
 - Your key vault has two Private Endpoints. Requests using one are working fine, but requests using the other are failing.
@@ -410,3 +410,9 @@ This is a non-exhaustive list of items that can be found on advanced or complex 
 - Firewall settings, either the Azure Firewall connected to the Virtual Network, or a custom firewall solution deploying in the Virtual Network or in the machine.
 - Network peering, which may impact the DNS servers used and how traffic is routed.
 - Custom gateway (NAT) solutions, which may impact how traffic is routed, including traffic from DNS queries.
+
+## Next steps
+
+- [Integrate Key Vault with Azure Private Link](private-link-service.md)
+- [Configure network security for Azure Key Vault](network-security.md)
+- [Secure your Azure Key Vault](secure-key-vault.md)

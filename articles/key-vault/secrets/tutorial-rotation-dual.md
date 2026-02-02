@@ -7,10 +7,10 @@ tags: 'rotation'
 ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: tutorial
-ms.date: 04/14/2025
+ms.date: 01/30/2026
 
 ms.author: mbaldwin
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, sfi-image-nochange
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, sfi-image-nochange, copilot-scenario-highlight
 ---
 # Automate the rotation of a secret for resources that have two sets of authentication credentials
 
@@ -164,7 +164,7 @@ az keyvault secret set --name storageKey --vault-name vaultrotation-kv --value <
 # [Azure PowerShell](#tab/azurepowershell)
 
 ```azurepowershell
-$tomorrowDate = (Get-Date).AddDays(+1).ToString('yyy-MM-ddTHH:mm:ssZ')
+$tomorrowDate = (Get-Date).AddDays(+1).ToString('yyyy-MM-ddTHH:mm:ssZ')
 $secretValue = ConvertTo-SecureString -String '<key1Value>' -AsPlainText -Force
 $tags = @{
     CredentialId='key1'
@@ -316,7 +316,7 @@ Notice that `value` of the key is same as secret in key vault:
 
 ## Disable rotation for secret
 
-You can disable rotation of a secret simply by deleting the Event Grid subscription for that secret. Use the Azure PowerShell [Remove-AzEventGridSubscription](/powershell/module/az.eventgrid/remove-azeventgridsubscription) cmdlet or Azure CLI [az event grid event--subscription delete](/cli/azure/eventgrid/event-subscription?#az-eventgrid-event-subscription-delete) command.
+You can disable rotation of a secret simply by deleting the Event Grid subscription for that secret. Use the Azure PowerShell [Remove-AzEventGridSubscription](/powershell/module/az.eventgrid/remove-azeventgridsubscription) cmdlet or Azure CLI [az eventgrid event-subscription delete](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-delete) command.
 
 
 ## Key Vault rotation functions for two sets of credentials
@@ -330,6 +330,20 @@ Rotation functions template for two sets of credentials and several ready to use
 
 > [!NOTE]
 > These rotation functions are created by a member of the community and not by Microsoft. Community functions are not supported under any Microsoft support program or service, and are made available AS IS without warranty of any kind.
+
+## Use AI to customize the rotation function for other services
+
+This tutorial demonstrates secret rotation for Azure Storage accounts, but you can adapt the rotation function for other Azure services that use dual credentials. GitHub Copilot can help you modify the PowerShell rotation function code to work with your specific service.
+
+```copilot-prompt
+I'm using the Azure Key Vault dual-credential secret rotation tutorial for Storage accounts. Help me modify the PowerShell rotation function to work with Azure Cosmos DB instead. The function should:
+1. Connect to Cosmos DB and regenerate the secondary key
+2. Store the new key in Key Vault as a new secret version
+3. Alternate between primary and secondary keys on each rotation
+Show me the changes needed to the PowerShell function code, including the correct Cosmos DB PowerShell cmdlets.
+```
+
+[!INCLUDE [copilot-highlights-disclaimer](~/reusable-content/ce-skilling/azure/includes/copilot-highlights-disclaimer.md)]
 
 ## Next steps
 

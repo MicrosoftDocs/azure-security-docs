@@ -3,7 +3,7 @@ title: Configure Azure Key Vault Managed HSM with private endpoints
 description: Learn how to integrate Azure Key Vault Managed HSM with Azure Private Link Service
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 04/14/2025
+ms.date: 01/30/2026
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: how-to
@@ -91,10 +91,10 @@ az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME}
 az network private-endpoint show --resource-group {RG} --name {Private Endpoint Name}
 
 # Approve a Private Link Connection Request
-az keyvault private-endpoint-connection approve --description {"OPTIONAL DESCRIPTION"} --resource-group {RG} --hsm-name {HSM NAME} –-name {PRIVATE LINK CONNECTION NAME}
+az keyvault private-endpoint-connection approve --description {"OPTIONAL DESCRIPTION"} --resource-group {RG} --hsm-name {HSM NAME} --name {PRIVATE LINK CONNECTION NAME}
 
 # Deny a Private Link Connection Request
-az keyvault private-endpoint-connection reject --description {"OPTIONAL DESCRIPTION"} --resource-group {RG} --hsm-name {HSM NAME} –-name {PRIVATE LINK CONNECTION NAME}
+az keyvault private-endpoint-connection reject --description {"OPTIONAL DESCRIPTION"} --resource-group {RG} --hsm-name {HSM NAME} --name {PRIVATE LINK CONNECTION NAME}
 
 # Delete a Private Link Connection Request
 az keyvault private-endpoint-connection delete --resource-group {RG} --hsm-name {HSM NAME} --name {PRIVATE LINK CONNECTION NAME}

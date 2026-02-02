@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: article
-ms.date: 11/19/2025
+ms.date: 01/30/2026
 ms.author: mbaldwin
 ---
 
@@ -138,7 +138,7 @@ There are more read-only attributes that are included in any response that inclu
  
 It’s important to note that keys are bound to the HSM in which they were created. New keys are seamlessly created and stored in the new HSMs. While there is no way to migrate or transfer keys, new key versions are automatically in the new HSMs. For more information on how to migrate to a new key, see [How to migrate key workloads](../general/migrate-key-workloads.md).
 
-For more information on IntDate and other data types, see [About keys, secrets, and certificates: [Data types](../general/about-keys-secrets-certificates.md#data-types).
+For more information on IntDate and other data types, see [About keys, secrets, and certificates: Data types](../general/about-keys-secrets-certificates.md#data-types).
 
 ### Date-time controlled operations
 

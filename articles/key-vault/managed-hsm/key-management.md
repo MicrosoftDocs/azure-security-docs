@@ -8,7 +8,7 @@ ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 11/19/2025
+ms.date: 01/30/2026
 
 ms.author: mbaldwin
 ---
@@ -73,12 +73,12 @@ Note, that the `get` operation only returns the public key and key attributes. I
 The example below shows how to create an **EC** key with P-256 curve that will be only used for **sign and verify** operations (--ops) and has two tags, **usage** and **appname**. Tags help you add additional metadata to the key for tracking and managing.
 
 ```azurecli-interactive
-az keyvault key create --hsm-name ContosoMHSM --name myec256key --ops sign verify  --tags ‘usage=signing] appname=myapp’ --kty EC-HSM --curve P-256
+az keyvault key create --hsm-name ContosoMHSM --name myec256key --ops sign verify  --tags 'usage=signing' 'appname=myapp' --kty EC-HSM --curve P-256
 
 ## OR
 # Note the key name (myec256key) in the URI
 
-az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myec256key --ops sign verify  --tags ‘usage=signing] appname=myapp’ --kty EC-HSM --curve P-256
+az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myec256key --ops sign verify  --tags 'usage=signing' 'appname=myapp' --kty EC-HSM --curve P-256
 ```
 
 ### Create a 256-bit symmetric key
@@ -86,12 +86,12 @@ az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myec25
 This example shows how to create a 256-bit **symmetric** key that will be only used for **encrypt and decrypt** operations (--ops).
 
 ```azurecli-interactive
-az keyvault key create --hsm-name ContosoMHSM --name myaeskey --ops encrypt decrypt  --tags --kty oct-HSM --size 256
+az keyvault key create --hsm-name ContosoMHSM --name myaeskey --ops encrypt decrypt  --tags 'usage=encryption' 'appname=myapp' --kty oct-HSM --size 256
 
 ## OR
 # Note the key name (myaeskey) in the URI
 
-az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myaeskey --ops encrypt decrypt  --tags ‘usage=signing] appname=myapp’ --kty oct-HSM --size 256
+az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myaeskey --ops encrypt decrypt  --tags 'usage=encryption' 'appname=myapp' --kty oct-HSM --size 256
 ```
 
 ## View key attributes and tags

@@ -3,7 +3,7 @@ title: Quickstart -  Azure Key Vault secret client library for JavaScript (versi
 description: Learn how to create, retrieve, and delete secrets from an Azure key vault using the JavaScript client library with either JavaScript or TypeScript
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 05/01/2025
+ms.date: 01/30/2026
 ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: quickstart
@@ -99,10 +99,6 @@ Create a Node.js application that uses your key vault.
     npm install @azure/identity
     ```
 
-## Grant access to your key vault
-
-[!INCLUDE [Using RBAC to provide access to a key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/rbac/upn-secrets-officer-cli.md)]
-
 ## Set environment variables
 
 This application is using key vault endpoint as an environment variable called `KEY_VAULT_URL`.
@@ -132,7 +128,7 @@ export KEY_VAULT_URL=<your-key-vault-endpoint>
 
 Application requests to most Azure services must be authorized. Using the [DefaultAzureCredential](/javascript/api/@azure/identity/#@azure-identity-getdefaultazurecredential) method provided by the [Azure Identity client library](/javascript/api/@azure/identity) is the recommended approach for implementing passwordless connections to Azure services in your code. `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code. 
 
-In this quickstart, `DefaultAzureCredential` authenticates to key vault using the credentials of the local development user logged into the Azure CLI. When the application is deployed to Azure, the same `DefaultAzureCredential` code can automatically discover and use a managed identity that is assigned to an App Service, Virtual Machine, or other services. For more information, see [Managed Identity Overview](/azure/active-directory/managed-identities-azure-resources/overview).
+In this quickstart, `DefaultAzureCredential` authenticates to key vault using the credentials of the local development user logged into the Azure CLI. When the application is deployed to Azure, the same `DefaultAzureCredential` code can automatically discover and use a managed identity that is assigned to an App Service, Virtual Machine, or other services. For more information, see [Managed Identity Overview](/entra/identity/managed-identities-azure-resources/overview).
 
 In this code, the endpoint of your key vault is used to create the key vault client. The endpoint format looks like `https://<your-key-vault-name>.vault.azure.net` but may change for sovereign clouds. For more information about authenticating to key vault, see [Developer's Guide](/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
 
@@ -162,8 +158,8 @@ This code uses the following [Key Vault Secret classes and methods](/javascript/
     async function main() {
       // If you're using MSI, DefaultAzureCredential should "just work".
       // Otherwise, DefaultAzureCredential expects the following three environment variables:
-      // - AZURE_TENANT_ID: The tenant ID in Azure Active Directory
-      // - AZURE_CLIENT_ID: The application (client) ID registered in the AAD tenant
+      // - AZURE_TENANT_ID: The tenant ID in Microsoft Entra ID
+      // - AZURE_CLIENT_ID: The application (client) ID registered in the Microsoft Entra tenant
       // - AZURE_CLIENT_SECRET: The client secret for the registered application
       const credential = new DefaultAzureCredential();
     
@@ -311,5 +307,6 @@ In this quickstart, you created a key vault, stored a secret, and retrieved that
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - Read an [Overview of Azure Key Vault Secrets](about-secrets.md)
 - How to [Secure access to a key vault](../general/secure-key-vault.md)
+- Review [secrets-specific security best practices](secure-secrets.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
 - Review the [Key Vault security overview](../general/secure-key-vault.md)

@@ -59,7 +59,7 @@ The following table lists SDKs and quickstarts for managing Key Vault resources 
 
 ## Authenticate to Key Vault in code
 
-Key Vault uses Microsoft Entra authentication, which requires a Microsoft Entra security principal to grant access. A Microsoft Entra security principal can be a user, an application service principal, a [managed identity for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview), or a group of any of these types.
+Key Vault uses Microsoft Entra authentication, which requires a Microsoft Entra security principal to grant access. A Microsoft Entra security principal can be a user, an application service principal, a [managed identity for Azure resources](/entra/identity/managed-identities-azure-resources/overview), or a group of any of these types.
 
 ### Authentication best practices
 

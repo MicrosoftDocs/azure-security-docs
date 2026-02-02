@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 04/15/2025
+ms.date: 01/30/2026
 ms.author: mbaldwin
 
 ---
@@ -29,7 +29,7 @@ Key Vault was originally created with the limits specified in [Azure Key Vault s
 3. Cache the secrets you retrieve from Azure Key Vault in memory, and reuse from memory whenever possible.  Re-read from Azure Key Vault only when the cached copy stops working (for example, because it got rotated at the source). 
 4. Key Vault is designed for your own services secrets. If you are storing your customers' secrets (especially for high-throughput key storage scenarios), consider putting the keys in a database or storage account with encryption, and storing just the primary key in Azure Key Vault.
 5. For public-key operations such as encryption, wrapping, and verification, perform these operations locally without accessing Key Vault by caching the public key material. This approach not only reduces the risk of throttling but also improves resiliency of your application.
-6. If you use Key Vault to store credentials for a service, check if that service supports Microsoft Entra authentication to authenticate directly. This reduces the load on Key Vault, improves resiliency, and simplifies your code since Key Vault can now use the Microsoft Entra token. Many services now use Microsoft Entra authentication. See the current list at [Services that support managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-managed-identities-for-azure-resources).
+6. If you use Key Vault to store credentials for a service, check if that service supports Microsoft Entra authentication to authenticate directly. This reduces the load on Key Vault, improves resiliency, and simplifies your code since Key Vault can now use the Microsoft Entra token. Many services now use Microsoft Entra authentication. See the current list at [Services that support managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/managed-identities-status#azure-services-that-support-managed-identities-for-azure-resources).
 7. Consider staggering your load/deployment over a longer period of time to stay under the current RPS limits.
 8. If your app comprises multiple nodes that need to read one or more same secrets, then consider using a fan-out pattern, where one entity reads the secret from Key Vault, and fans out to all nodes. Cache the retrieved secrets only in memory.
 

@@ -3,7 +3,7 @@ title: 'Quickstart: Manage secrets by using the Azure Key Vault Go client librar
 description: Learn how to create, retrieve, and delete secrets from an Azure key vault by using the Go client library.
 author: Duffney
 ms.author: jduffney
-ms.date: 06/03/2025
+ms.date: 01/30/2026
 ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: quickstart
@@ -168,5 +168,8 @@ az group delete --resource-group quickstart-rg
 
 - [Overview of Azure Key Vault](../general/overview.md)
 - [Azure Key Vault developers guide](../general/developers-guide.md)
+- [Key Vault security overview](../general/secure-key-vault.md)
+- [Secrets-specific security best practices](secure-secrets.md)
+- [Authenticate with Key Vault](../general/authentication.md)
 - [Key Vault security overview](../general/secure-key-vault.md)
 - [Authenticate with Key Vault](../general/authentication.md)

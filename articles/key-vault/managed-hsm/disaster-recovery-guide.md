@@ -8,7 +8,7 @@ ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 04/14/2025
+ms.date: 01/30/2026
 
 ms.author: mbaldwin
 ---
@@ -46,10 +46,10 @@ You must provide the following inputs to create a Managed HSM resource:
 - The Azure location.
 - A list of initial administrators.
 
-The following example creates an HSM named **ContosoMHSM2**, in the resource group  **ContosoResourceGroup**, residing in the **West US 3** location, with **the current signed in user** as the only administrator.
+The following example creates an HSM named **ContosoMHSM2**, in the resource group **ContosoResourceGroup**, residing in the **West US 3** location, with **the current signed in user** as the only administrator.
 
 ```azurecli-interactive
-oid=$(az ad signed-in-user show --query objectId -o tsv)
+oid=$(az ad signed-in-user show --query id -o tsv)
 az keyvault create --hsm-name "ContosoMHSM2" --resource-group "ContosoResourceGroup" --location "westus3" --administrators $oid
 ```
 
@@ -133,7 +133,7 @@ If using the SAS token method, we create a SAS token that expires in 30 minutes 
 ```azurecli-interactive
 end=$(date -u -d "500 minutes" '+%Y-%m-%dT%H:%MZ')
 skey=$(az storage account keys list --query '[0].value' -o tsv --account-name mhsmdemobackup)
-az storage container create --account-name  mhsmdemobackup --name mhsmbackupcontainer  --account-key $skey
+az storage container create --account-name mhsmdemobackup --name mhsmbackupcontainer --account-key $skey
 sas=$(az storage container generate-sas -n mhsmbackupcontainer --account-name mhsmdemobackup --permissions crdw --expiry $end --account-key $skey -o tsv)
 az keyvault backup start --hsm-name ContosoMHSM2 --storage-account-name mhsmdemobackup --blob-container-name mhsmbackupcontainer --storage-container-SAS-token $sas
 ```
@@ -150,7 +150,7 @@ We use az keyvault restore command to the new HSM ContosoMHSM2, using the backup
 
 ### [User assigned managed identity](#tab/uami)
 
-If using the user assigned managed identity method, we set the `--use-managed-identity` pramater to "true".
+If using the user assigned managed identity method, we set the `--use-managed-identity` parameter to "true".
 
 ```azurecli-interactive
 az keyvault restore start --hsm-name ContosoMHSM2 --storage-account-name ContosoBackup --blob-container-name mhsmdemobackupcontainer --backup-folder mhsm-ContosoMHSM-2020083120161860 --use-managed-identity true
