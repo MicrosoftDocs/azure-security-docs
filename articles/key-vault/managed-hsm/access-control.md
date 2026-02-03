@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: concept-article
-ms.date: 11/19/2025
+ms.date: 01/30/2026
 ms.author: mbaldwin
 ms.custom: sfi-ga-nochange
 # Customer intent: As the admin for managed HSMs, I want to set access policies and configure the Managed HSM, so that I can ensure it's secure and auditors can properly monitor all activities for these managed HSMs.
@@ -47,7 +47,7 @@ The permissions models for both planes use the same syntax, but they're enforced
 > [!IMPORTANT]
 > Granting control plane access to a security principal does *not* grant the security principal data plane access. For example, a security principal with control plane access doesn't automatically have access to keys or data plane role assignments. This isolation is by design, to prevent inadvertent expansion of privileges that affect access to keys that are stored in Managed HSM.
 >
-> But there's an exception: Members of the Microsoft Entra Global Administrator role can always add users to the Managed HSM Administrator role for recovery purposes, such as when there are no longer any valid Managed HSM Administrator accounts. For more information, see [Microsoft Entra ID best practices for securing the Global Administrator role](/azure/active-directory/roles/best-practices#5-limit-the-number-of-global-administrators-to-less-than-5).
+> But there's an exception: Members of the Microsoft Entra Global Administrator role can always add users to the Managed HSM Administrator role for recovery purposes, such as when there are no longer any valid Managed HSM Administrator accounts. For more information, see [Microsoft Entra ID best practices for securing the Global Administrator role](/entra/identity/role-based-access-control/best-practices#5-limit-the-number-of-global-administrators-to-less-than-5).
 
 For example, a subscription administrator (because they have Contributor permissions to all resources in the subscription) can delete a managed HSM in their subscription. But if they don't have data plane access granted through Managed HSM local RBAC, they can't gain access to keys or manage role assignments in the managed HSM to grant themselves or others access to the data plane.
 
@@ -55,7 +55,7 @@ For example, a subscription administrator (because they have Contributor permiss
 
 When you create a managed HSM in an Azure subscription, the managed HSM is automatically associated with the Microsoft Entra tenant of the subscription. All callers in both planes must be registered in this tenant and authenticate to access the managed HSM.
 
-The application authenticates with Microsoft Entra ID before calling either plane. The application can use any [supported authentication method](/azure/active-directory/develop/authentication-vs-authorization) depending on the application type. The application acquires a token for a resource in the plane to gain access. The resource is an endpoint in the control plane or data plane, depending on the Azure environment. The application uses the token and sends a REST API request to the managed HSM endpoint. To learn more, review the entire [authentication flow](/azure/active-directory/develop/v2-oauth2-auth-code-flow).
+The application authenticates with Microsoft Entra ID before calling either plane. The application can use any [supported authentication method](/entra/identity-platform/authentication-vs-authorization) depending on the application type. The application acquires a token for a resource in the plane to gain access. The resource is an endpoint in the control plane or data plane, depending on the Azure environment. The application uses the token and sends a REST API request to the managed HSM endpoint. To learn more, review the entire [authentication flow](/entra/identity-platform/v2-oauth2-auth-code-flow).
 
 Using a single authentication mechanism for both planes has several benefits:
 
@@ -81,7 +81,7 @@ In the control plane, you use Azure RBAC to authorize the operations that a call
 
 You create a key vault in a resource group and manage access by using Microsoft Entra ID. You grant users or groups the ability to manage the key vaults in a resource group. You grant the access at a specific scope level by assigning appropriate Azure roles. To grant access to a user to manage key vaults, you assign a predefined `key vault Contributor` role to the user at a specific scope. The following scope levels can be assigned to an Azure role:
 
-- **Management group**:  An Azure role assigned at the subscription level applies to all the subscriptions in that management group.
+- **Management group**: An Azure role assigned at the subscription level applies to all the subscriptions in that management group.
 - **Subscription**: An Azure role assigned at the subscription level applies to all resource groups and resources within that subscription.
 - **Resource group**: An Azure role assigned at the resource group level applies to all resources in that resource group.
 - **Specific resource**: An Azure role assigned for a specific resource applies to that resource. In this case, the resource is a specific key vault.

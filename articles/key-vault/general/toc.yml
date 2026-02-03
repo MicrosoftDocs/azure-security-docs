@@ -125,18 +125,6 @@ items:
       href: azure-policy.md
     - name: Troubleshoot issues with implementing Azure Key Vault with Azure Policy
       href: troubleshoot-azure-policy-for-key-vault.md
-  - name: Secure
-    items:
-    - name: Configure key vault networking settings 
-      href: how-to-azure-key-vault-network-security.md
-    - name: Access Key Vault behind a firewall
-      href: access-behind-firewall.md
-    - name: Azure Private Link
-      items:
-      - name: Integrate with Azure Private Link Service
-        href: private-link-service.md
-      - name: Diagnose Private Links Configuration Issues
-        href: private-link-diagnostics.md
   - name: Back up and restore objects
     href: backup.md
   - name: Move Key Vault
@@ -155,8 +143,16 @@ items:
     href: authentication.md
   - name: Security worlds and geographies
     href: overview-security-worlds.md
-  - name: Network Security
+  - name: Configure network security
     href: network-security.md
+  - name: Access Key Vault behind a firewall
+    href: access-behind-firewall.md
+  - name: Azure Private Link
+    items:
+    - name: Integrate with Azure Private Link Service
+      href: private-link-service.md
+    - name: Diagnose Private Links Configuration Issues
+      href: private-link-diagnostics.md
   - name: Security baseline
     href: /security/benchmark/azure/baselines/key-vault-security-baseline?context=/azure/key-vault/general/context/context
   - name: Security controls by Azure Policy

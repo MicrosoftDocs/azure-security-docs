@@ -9,7 +9,7 @@ ms.custom: devx-track-azurecli
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 04/15/2025
+ms.date: 01/30/2026
 ms.author: mbaldwin
 # Customer intent: As a developer using Key Vault I want to know the best practices so I can implement them.
 ---
@@ -44,10 +44,10 @@ You must provide the following information to execute a full backup:
 2. Create a user assigned managed identity.
 3. Create a storage account (or use an existing storage account). The storage account cannot have an immutability policy applied to it.
 4. If public network access is disabled on your storage account, enable trusted service bypass on the storage account in the "Networking" tab, under "Exceptions."
-5. Provide 'storage blob data contributor' role access to the user assigned managed identity created in step 2, by going to the "Access Control" tab on the portal and selecting "Add Role Assignment". Then select "managed identity" and select the managed identity created in step#2 -> Review + Assign
+5. Provide 'storage blob data contributor' role access to the user assigned managed identity created in step 2, by going to the "Access Control" tab on the portal and selecting "Add Role Assignment". Then select "managed identity" and select the managed identity created in step 2 -> Review + Assign
 6. Create the Managed HSM and associate the managed identity:
    ```azurecli-interactive
-   az keyvault create --hsm-name mhsmdemo2 –l mhsmlocation -- retention-days 7 --administrators "initialadmin" --mi-user-assigned "/subscriptions/subid/resourcegroups/mhsmrgname/providers/Microsoft.ManagedIdentity/userAssignedIdentities/userassignedidentitynamefromstep2" 
+   az keyvault create --hsm-name mhsmdemo2 -l mhsmlocation --retention-days 7 --administrators "initialadmin" --mi-user-assigned "/subscriptions/subid/resourcegroups/mhsmrgname/providers/Microsoft.ManagedIdentity/userAssignedIdentities/userassignedidentitynamefromstep2" 
    ```
  If you have an existing Managed HSM, associate the managed identity by updating the MHSM with the below command. 
   ```azurecli-interactive
@@ -80,7 +80,7 @@ skey=$(az storage account keys list --query '[0].value' -o tsv --account-name mh
 
 # Create a container
 
-az storage container create --account-name  mhsmdemobackup --name mhsmdemobackupcontainer  --account-key $skey
+az storage container create --account-name mhsmdemobackup --name mhsmdemobackupcontainer --account-key $skey
 
 # Generate a container sas token
 
@@ -145,7 +145,7 @@ az keyvault restore start --hsm-name mhsmdemo2 --storage-account-name mhsmdemoba
 
 ### Selective key restore using SAS token
 ```
-az keyvault restore start --hsm-name mhsmdemo2 --storage-account-name mhsmdemobackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas --backup-folder mhsm-mhsmdemo-2020083120161860 -–key-name rsa-key2
+az keyvault restore start --hsm-name mhsmdemo2 --storage-account-name mhsmdemobackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas --backup-folder mhsm-mhsmdemo-2020083120161860 --key-name rsa-key2
 ```
 
 ## Next Steps
