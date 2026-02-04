@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: how-to
 ms.custom: devx-track-js, devx-track-azurecli
-ms.date: 04/14/2025
+ms.date: 01/30/2026
 
 ms.author: mbaldwin
 #Customer intent: As a JavaScript developer who is new to Azure, I want to know the high level steps necessary to use Key Vault secrets in JavaScript.
@@ -52,7 +52,7 @@ This article shows you how to connect to Azure Key Vault by using the Azure Key 
 
 ## Authorize access and connect to Key Vault
 
-Microsoft Entra ID provides the most secure connection by managing the connection identity ([**managed identity**](/azure/active-directory/managed-identities-azure-resources/overview)). This **passwordless** functionality allows you to develop an application that doesn't require any secrets (keys or connection strings) stored in the code.
+Microsoft Entra ID provides the most secure connection by managing the connection identity ([**managed identity**](/entra/identity/managed-identities-azure-resources/overview)). This **passwordless** functionality allows you to develop an application that doesn't require any secrets (keys or connection strings) stored in the code.
 
 Before programmatically authenticating to Azure to use Azure Key Vault secrets, make sure you set up your environment. 
 
