@@ -9,7 +9,7 @@ ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: how-to
 ms.custom: mvc, sfi-image-nochange
-ms.date: 04/14/2025
+ms.date: 01/30/2026
 
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure.
@@ -36,7 +36,7 @@ After a Key Vault certificate is created, you can retrieve it from the addressab
 Supported keytypes: RSA, RSA-HSM, EC, EC-HSM, oct (listed [here](/rest/api/keyvault/certificates/create-certificate/create-certificate#jsonwebkeytype))
 Exportable is only allowed with RSA and EC keys. HSM keys would be nonexportable.
 
-For more information, see [About Azure Key Vault certificates](./about-certificates.md#exportable-or-non-exportable-key) for more information.
+For more information, see [About Azure Key Vault certificates](./about-certificates.md#exportable-or-non-exportable-key).
 
 ## Export stored certificates
 

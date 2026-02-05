@@ -4,7 +4,7 @@ description: Learn how virtual network service endpoints for Azure Key Vault all
 services: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 11/19/2025
+ms.date: 01/30/2026
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: conceptual
@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 The virtual network service endpoints for Azure Key Vault allow you to restrict access to a specified virtual network. The endpoints also allow you to restrict access to a list of IPv4 (internet protocol version 4) address ranges. Any user connecting to your key vault from outside those sources is denied access.
 
-There is one important exception to this restriction. If a user has opted-in to allow trusted Microsoft services, connections from those services are let through the firewall. For example, these services include Office 365 Exchange Online, Office 365 SharePoint Online, Azure compute, Azure Resource Manager, and Azure Backup. Such users still need to present a valid Microsoft Entra token, and must have permissions (configured as access policies) to perform the requested operation. For more information, see [Virtual network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview).
+There is one important exception to this restriction. If a user has opted-in to allow trusted Microsoft services, connections from those services are allowed through the firewall. For example, these services include Office 365 Exchange Online, Office 365 SharePoint Online, Azure compute, Azure Resource Manager, and Azure Backup. Such users still need to present a valid Microsoft Entra token, and must have permissions (configured as Azure RBAC role assignments or access policies) to perform the requested operation. For more information, see [Virtual network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview).
 
 ## Usage scenarios
 
@@ -34,7 +34,7 @@ Here are some examples of how you might use service endpoints:
 
 You can grant access to trusted Azure services to the key vault, while maintaining network rules for other apps. These trusted services will then use strong authentication to securely connect to your key vault. 
 
-You can grant access to trusted Azure services by configuring networking settings. For step-by-step guidance, see the [networking configuration options](how-to-azure-key-vault-network-security.md) of this article. 
+You can grant access to trusted Azure services by configuring networking settings. For step-by-step guidance, see [Configure network security for Azure Key Vault](network-security.md#key-vault-firewall-enabled-trusted-services-only).
 
 When you grant access to trusted Azure services, you grant the following types of access: 
 * Trusted access for select operations to resources that are registered in your subscription. 
@@ -87,9 +87,9 @@ Here's a list of trusted services that are allowed to access a key vault if the 
 | Microsoft Purview|[Using credentials for source authentication in Microsoft Purview](/azure/purview/manage-credentials)
 
 > [!NOTE]
-> You must set up the relevant Azure RBAC for Key Vault role assignments or access policies(legacy) to allow the corresponding services to get access to Key Vault.
+> You must set up the relevant Azure RBAC for Key Vault role assignments or access policies (legacy) to allow the corresponding services to get access to Key Vault.
 
 ## Next steps
 
-- For step-by-step instructions, see [Configure Azure Key Vault firewalls and virtual networks](network-security.md)
-- see the [Azure Key Vault security overview](secure-key-vault.md)
+- For step-by-step instructions, see [Configure network security for Azure Key Vault](network-security.md).
+- For security best practices, see [Secure your Azure Key Vault](secure-key-vault.md).
