@@ -45,6 +45,9 @@ The Defender for SQL Servers on Machines plan is one of the Defender for Databas
 
 - **Supported operating systems**- Windows Server 2012 R2 and later versions.
 
+>[!NOTE]
+>Azure Arc SQL resources with Arc proxy enabled are **not** currently supported.
+
 ## Enable the plan
 
 ### Enable the plan on an Azure subscription
