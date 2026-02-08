@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: how-to
-ms.date: 11/04/2025
+ms.date: 01/30/2026
 ms.author: mbaldwin 
 ---
 
@@ -68,7 +68,7 @@ Here's how to configure Managed HSM firewalls by using PowerShell:
    Update-AzKeyVaultManagedHsmNetworkRuleSet -Name "mymanagedhsm" -ResourceGroupName "myresourcegroup" -DefaultAction Deny -IpAddressRange @('16.17.18.0/24') -PassThru 
    ```
 
-   Include `–ReplaceAllRules` to overwrite IP Lists. Otherwise, the command merges the newly included rules.
+   Include `-ReplaceAllRules` to overwrite IP Lists. Otherwise, the command merges the newly included rules.
 
 1. If this managed HSM should be accessible by any trusted services, use the [Update-AzKeyVaultManagedHsmNetworkRuleSet](/powershell/module/az.keyvault/update-azkeyvaultmanagedhsmnetworkruleset) cmdlet to set bypass to AzureServices.
 
