@@ -11,7 +11,9 @@ ms.service: azure-dedicated-hsm
 
 # Migrate from Azure Dedicated HSM to Azure Managed HSM or Azure Cloud HSM
 
-Azure Dedicated HSM customers who want to transition to [Azure Cloud HSM](../cloud-hsm/overview.md) or [Azure Managed HSM](../key-vault/managed-hsm/overview.md) can find guidance in this article. This transition involves creating new keys and updating applications to use the new services.
+[Azure Dedicated HSM is being retired](https://azure.microsoft.com/updates?id=499214). Microsoft will fully support existing Dedicated HSM customers until July 31, 2028, but no new customer onboardings are accepted. Customers must transition to [Azure Cloud HSM](../cloud-hsm/overview.md) or [Azure Managed HSM](../key-vault/managed-hsm/overview.md).
+
+This article provides guidance for Azure Dedicated HSM customers who need to transition to Azure Cloud HSM or Azure Managed HSM. This transition involves creating new keys and updating applications to use the new services.
 
 > [!WARNING]
 > Customers cannot migrate existing key materials from Azure Dedicated HSM to Azure Cloud HSM or Azure Managed HSM due to known restrictions of the Thales Luna HSM. You must create new keys in Azure Cloud HSM or Azure Managed HSM when transitioning off Azure Dedicated HSM.

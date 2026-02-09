@@ -3,7 +3,7 @@ title: Troubleshooting Azure Key Vault access policy issues
 description: Troubleshooting Azure Key Vault access policy issues
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 04/17/2025
+ms.date: 01/30/2026
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
@@ -57,7 +57,7 @@ The application also needs at least one Identity and Access Management (IAM) rol
 
 Currently Key Vault redeployment deletes any access policy in Key Vault and replaces them with access policy in ARM template. There's no incremental option for Key Vault access policies. To preserve access policies in Key Vault, you need to read existing access policies in Key Vault and populate ARM template with those policies to avoid any access outages.
 
-Another option that can help for this scenario is using Azure RBAC and roles as an alternative to access policies. With Azure RBAC, you can redeploy the key vault without specifying the policy again. You can read more this solution [here](./rbac-guide.md).
+Another option that can help for this scenario is using Azure RBAC and roles as an alternative to access policies. With Azure RBAC, you can redeploy the key vault without specifying the policy again. For more information, see [Provide access to Key Vault keys, certificates, and secrets with Azure role-based access control](./rbac-guide.md).
 
 ### Recommended troubleshooting Steps for following error types
 
@@ -68,7 +68,7 @@ Another option that can help for this scenario is using Azure RBAC and roles as 
 * If you have problem with authenticate to key vault in code, use [Authentication SDK](https://azure.github.io/azure-sdk/posts/2020-02-25/defaultazurecredentials.html)
 
 ### What are the best practices I should implement when key vault is getting throttled?
-Follow the best practices, documented [here](overview-throttling.md#how-to-throttle-your-app-in-response-to-service-limits)
+Follow the [best practices for throttling your app in response to service limits](overview-throttling.md#how-to-throttle-your-app-in-response-to-service-limits).
 
 ## Next Steps
 

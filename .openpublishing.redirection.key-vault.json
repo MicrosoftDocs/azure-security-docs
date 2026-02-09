@@ -1,6 +1,11 @@
 {
   "redirections": [
   {
+      "source_path_from_root": "/articles/key-vault/general/how-to-azure-key-vault-network-security.md",
+      "redirect_url": "/azure/key-vault/general/network-security",
+      "redirect_document_id": false
+    },
+  {
       "source_path_from_root": "/articles/key-vault/general/soft-delete-change.md",
       "redirect_url": "/azure/key-vault/general/soft-delete-overview",
       "redirect_document_id": false

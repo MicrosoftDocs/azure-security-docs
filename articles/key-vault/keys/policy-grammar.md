@@ -6,9 +6,9 @@ author: msmbaldwin
 ms.author: mbaldwin
 
 ms.service: azure-key-vault
-ms.subservice: general
+ms.subservice: keys
 ms.topic: reference
-ms.date: 04/14/2025
+ms.date: 01/30/2026
 
 ---
  
