@@ -163,4 +163,4 @@ az keyvault storage sas-definition show --id https://<YourKeyVaultName>.vault.az
 
 - Learn more about [keys, secrets, and certificates](/rest/api/keyvault/).
 - Review articles on the [Azure Key Vault team blog](/archive/blogs/kv/).
-- See the [az keyvault storage](/cli/azure/keyvault/storage) reference documentation.
+- See the [az keyvault](/cli/azure/keyvault) reference documentation.
