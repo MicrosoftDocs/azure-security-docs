@@ -34,7 +34,7 @@ items:
       href: tutorial-python-virtual-machine.md
     - name: Use Azure Key Vault with a virtual machine in JavaScript
       href: tutorial-javascript-virtual-machine.md 
-      displayName: az keyvault create, az keyvault secret set, az vm create, az vm identity assign, az keyvault set-policy
+      displayName: az keyvault create, az keyvault secret set, az vm create, az vm identity assign, az role assignment create
   - name: Azure App Service
     items:
     - name: Use Azure Key Vault with a Web App in .NET
@@ -135,6 +135,8 @@ items:
       href: move-subscription.md
     - name: Move Key Vault to Another Region
       href: /azure/operational-excellence/relocation-key-vault?toc=/azure/key-vault/general/toc.json
+  - name: Migrate key workloads
+    href: migrate-key-workloads.md
 - name: Security
   items:
   - name: Secure your Key Vault
@@ -174,10 +176,6 @@ items:
     href: rest-error-codes.md
   - name: Common error codes
     href: common-error-codes.md
-  - name: Common parameters and headers 
-    href: common-parameters-and-headers.md
-  - name: Key vault versions 
-    href: versions.md
   - name: Azure PowerShell
     href: /powershell/module/az.keyvault/#key_vault
   - name: Azure CLI

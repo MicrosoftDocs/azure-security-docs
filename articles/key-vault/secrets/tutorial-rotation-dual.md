@@ -118,12 +118,12 @@ You can find deployment templates and code for the rotation function in [Azure S
 First, set your access policy to grant **manage secrets** permissions to your user principal:
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
-az keyvault set-policy --upn <email-address-of-user> --name vaultrotation-kv --secret-permissions set delete get list
+az role assignment create --role "Key Vault Secrets Officer" --assignee <email-address-of-user> --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.KeyVault/vaults/vaultrotation-kv
 ```
 # [Azure PowerShell](#tab/azurepowershell)
 
 ```azurepowershell
-Set-AzKeyVaultAccessPolicy -UserPrincipalName <email-address-of-user> --name vaultrotation-kv -PermissionsToSecrets set,delete,get,list
+New-AzRoleAssignment -SignInName <email-address-of-user> -RoleDefinitionName "Key Vault Secrets Officer" -Scope "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.KeyVault/vaults/vaultrotation-kv"
 ```
 ---
 

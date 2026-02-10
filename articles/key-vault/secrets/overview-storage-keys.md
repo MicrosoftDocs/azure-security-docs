@@ -82,12 +82,12 @@ az role assignment create --role "Storage Account Key Operator Service Role" --a
  ```
 ### Give your user account permission to managed storage accounts
 
-Use the Azure CLI [az keyvault-set-policy](/cli/azure/keyvault?#az-keyvault-set-policy) cmdlet to update the Key Vault access policy and grant storage account permissions to your user account.
+Use the Azure CLI [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to assign the **Key Vault Secrets Officer** role to your user account, granting storage account permissions.
 
 ```azurecli-interactive
 # Give your user principal access to all storage account permissions, on your Key Vault instance
 
-az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --storage-permissions get list delete set update regeneratekey getsas listsas deletesas setsas recover backup restore purge
+az role assignment create --role "Key Vault Secrets Officer" --assignee user@domain.com --scope /subscriptions/{subscriptionID}/resourceGroups/{resource-group}/providers/Microsoft.KeyVault/vaults/<YourKeyVaultName>
 ```
 
 Permissions for storage accounts aren't available on the storage account "Access policies" page in the Azure portal.
@@ -163,4 +163,4 @@ az keyvault storage sas-definition show --id https://<YourKeyVaultName>.vault.az
 
 - Learn more about [keys, secrets, and certificates](/rest/api/keyvault/).
 - Review articles on the [Azure Key Vault team blog](/archive/blogs/kv/).
-- See the [az keyvault storage](/azure/key-vault/general/manage-with-cli2) reference documentation.
+- See the [az keyvault storage](/cli/azure/keyvault/storage) reference documentation.
