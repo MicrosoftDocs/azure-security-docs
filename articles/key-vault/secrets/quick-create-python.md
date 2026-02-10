@@ -139,7 +139,7 @@ Make sure the code in the previous section is in a file named *kv_secrets.py*. T
 python kv_secrets.py
 ```
 
-- If you encounter permissions errors, make sure you ran the [`az keyvault set-policy` or `Set-AzKeyVaultAccessPolicy` command](#grant-access-to-your-key-vault).
+- If you encounter permissions errors, make sure you have the appropriate Azure RBAC role assigned. See the [Grant access to your key vault](#grant-access-to-your-key-vault) step.
 - Rerunning the code with the same secret name may produce the error, "(Conflict) Secret \<name\> is currently in a deleted but recoverable state." Use a different secret name.
 
 ## Code details
