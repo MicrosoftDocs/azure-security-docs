@@ -163,10 +163,9 @@ This code uses the following [Key Vault Key classes and methods](/javascript/api
     
     async function main() {
 
-        // DefaultAzureCredential expects the following three environment variables:
-        // - AZURE_TENANT_ID: The tenant ID in Azure Active Directory
-        // - AZURE_CLIENT_ID: The application (client) ID registered in the AAD tenant
-        // - AZURE_CLIENT_SECRET: The client secret for the registered application
+        // DefaultAzureCredential automatically uses managed identity in Azure environments.
+        // For local development, it uses credentials from Azure CLI, Azure PowerShell, or environment variables.
+        // See: https://learn.microsoft.com/javascript/api/@azure/identity/defaultazurecredential
         const credential = new DefaultAzureCredential();
         
         const keyVaultUrl = process.env["KEY_VAULT_URL"];
