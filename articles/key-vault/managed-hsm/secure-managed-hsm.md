@@ -29,7 +29,7 @@ Network security protects your Managed HSM through secure connectivity and netwo
 
 - **Configure Managed HSM firewall with trusted services**: Configure Managed HSM firewall rules to deny public internet access while allowing specific trusted Azure services through the `--bypass AzureServices` setting when required by your scenario. This restricts the attack surface while maintaining necessary service integrations. For full details, see [Network security: Managed HSM Firewall Enabled (Trusted Services)](network-security.md#managed-hsm-firewall-enabled-trusted-services).
 
-- **Enable IP Network Firewall**: Limit access to public static IP addresses when network scenarios require controlled public access. For full details, see [Network security: Managed HSM Firewall Enabled (IP Network Firewall)](network-security.md#managed-hsm-firewall-enabled-ip-network-firewall-preview).
+- **Enable IP Network Firewall**: Limit access to public static IP addresses when network scenarios require controlled public access. For full details, see [Network security: Managed HSM Firewall Enabled (IP Network Firewall)](network-security.md#managed-hsm-firewall-enabled-ip-network-firewall).
 
 For step-by-step configuration instructions, see [How to configure Azure Managed HSM networking settings](configure-network-security.md).
 
