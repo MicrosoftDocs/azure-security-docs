@@ -77,7 +77,7 @@ az storage account keys list -g contosoResourceGroup5 -n contosoblobstorage5
 You'll create a Key Vault using the following command. This command will display the metadata of the Key Vault as well. Copy down the **ID** and **vaultUri**.
 
 ```azurecli
-az keyvault create --name contosoKeyVault10 --resource-group contosoResourceGroup5 --location eastus --enable-rbac-authorization true
+az keyvault create --name contosoKeyVault10 --resource-group contosoResourceGroup5 --location eastus --enable-rbac-authorization true --enable-purge-protection true
 ```
 
 ![Image](../media/databricks-command-output-4.png)
