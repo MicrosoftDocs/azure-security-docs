@@ -24,7 +24,7 @@ ms.custom: devx-track-azurepowershell
 > Make sure you understand the impact of this change and follow the guidance in this article carefully before deciding to move key vault to a new subscription.
 > If you are using Managed Service Identities (MSI), read the post-move instructions at the end of the document. 
 
-[Azure Key Vault](overview.md) is automatically tied to the default [Microsoft Entra ID](/entra/fundamentals/whatis) tenant ID for the subscription in which it is created. You can find tenant ID associated with your subscription by following this [guide](/azure/active-directory-b2c/tenant-management-read-tenant-name). All access policy entries and roles assignments are also tied to this tenant ID. If you move your Azure subscription from tenant A to tenant B, your existing key vaults are inaccessible by the service principals (users and applications) in tenant B. To fix this issue, you need to:
+[Azure Key Vault](overview.md) is automatically tied to the default [Microsoft Entra ID](/entra/fundamentals/whatis) tenant ID for the subscription in which it is created. You can find tenant ID associated with your subscription by following this [guide](/entra/fundamentals/how-to-find-tenant). All access policy entries and roles assignments are also tied to this tenant ID. If you move your Azure subscription from tenant A to tenant B, your existing key vaults are inaccessible by the service principals (users and applications) in tenant B. To fix this issue, you need to:
 
 > [!NOTE]
 > If Key Vault is created through [Azure Lighthouse](/azure/lighthouse/overview), it is tied to managing tenant ID instead. Azure Lighthouse only supports the vault access policy permission model.
@@ -37,7 +37,7 @@ ms.custom: devx-track-azurepowershell
 For more information about Azure Key Vault and Microsoft Entra ID, see:
 - [About Azure Key Vault](overview.md)
 - [What is Microsoft Entra ID](/entra/fundamentals/whatis)
-- [How to find tenant ID](/azure/active-directory-b2c/tenant-management-read-tenant-name)
+- [How to find tenant ID](/entra/fundamentals/how-to-find-tenant)
 
 ## Limitations
 
