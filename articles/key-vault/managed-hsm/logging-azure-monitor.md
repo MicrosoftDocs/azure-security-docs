@@ -19,7 +19,7 @@ This article describes:
 - The types of monitoring data you can collect for this service.
 - Ways to analyze that data.
 
-When you have critical applications and business processes that rely on Azure resources, you need to monitor and get alerts for your system. The Azure Monitor service collects and aggregates metrics and logs from every component of your system. Azure Monitor provides you with a view of availability, performance, and resilience, and notifies you of issues. You can use the Azure portal, PowerShell, Azure CLI, REST API, or client libraries to set up and view monitoring data.
+When you have critical applications and business processes that rely on Azure resources, you need to monitor and get alerts for your system. The Azure Monitor service collects and aggregates metrics and logs from every component of your system. Azure Monitor provides you with a view of availability, performance, and reliability, and notifies you of issues. You can use the Azure portal, PowerShell, Azure CLI, REST API, or client libraries to set up and view monitoring data.
 
 For more information on Azure Monitor, see the [Azure Monitor overview](/azure/azure-monitor/overview). For more information on how to monitor Azure resources in general, see [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/overview).
 
@@ -94,8 +94,7 @@ For detailed information about collecting, storing, and routing resource logs, s
 
 For a list of all available resource log categories in Azure Monitor, see [Supported Resource log categories for Azure Monitor](/azure/azure-monitor/reference/logs-index).
 
-All resource logs in Azure Monitor have the same header fields, followed by service-specific fields. The common schema is outlined in [Common and service-specific schemas for Azure resource logs
-](/azure/azure-monitor/essentials/resource-logs-schema).
+All resource logs in Azure Monitor have the same header fields, followed by service-specific fields. The common schema is outlined in [Common and service-specific schemas for Azure resource logs](/azure/azure-monitor/essentials/resource-logs-schema).
 
 For the available resource log categories, their associated Log Analytics tables, and the log schemas for managed HSM, see [Azure Key Vault monitoring data reference](../general/monitor-key-vault-reference.md).
 

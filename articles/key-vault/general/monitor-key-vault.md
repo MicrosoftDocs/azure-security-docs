@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Key Vault
 description: Start here to learn how to monitor Azure Key Vault by using Azure Monitor.
-ms.date: 04/23/2025
+ms.date: 01/30/2026
 ms.custom: horz-monitor, subject-monitoring
 ms.topic: conceptual
 author: msmbaldwin
@@ -116,7 +116,7 @@ Here are some queries that you can enter into the **Log search** bar to help you
   | where ResourceProvider =="MICROSOFT.KEYVAULT" 
   | where httpStatusCode_d >= 300 and not(OperationName == "Authentication" and httpStatusCode_d == 401)
   | summarize count() by requestUri_s, ResultSignature, _ResourceId
-  // ResultSignature contains HTTP status, e.g. "OK" or "Forbidden"
+  // ResultSignature contains HTTP status, such as "OK" or "Forbidden"
   // httpStatusCode_d contains HTTP status code returned
   ```
 

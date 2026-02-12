@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 04/15/2025
+ms.date: 01/30/2026
 ms.author: mbaldwin
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-dotnet
@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-dotnet
 
 # Tutorial: Use a managed identity to connect Key Vault to an Azure web app in .NET
 
-[Azure Key Vault](./overview.md) provides a way to store credentials and other secrets with increased security. But your code needs to authenticate to Key Vault to retrieve them. [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview) help to solve this problem by giving Azure services an automatically managed identity in Microsoft Entra ID. You can use this identity to authenticate to any service that supports Microsoft Entra authentication, including Key Vault, without having to display credentials in your code.
+[Azure Key Vault](./overview.md) provides a way to store credentials and other secrets with increased security. But your code needs to authenticate to Key Vault to retrieve them. [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview) help to solve this problem by giving Azure services an automatically managed identity in Microsoft Entra ID. You can use this identity to authenticate to any service that supports Microsoft Entra authentication, including Key Vault, without having to display credentials in your code.
 
 In this tutorial, you'll create and deploy Azure web application to [Azure App Service](/azure/app-service/overview). You'll  use a managed identity to authenticate your Azure web app with an Azure key vault using [Azure Key Vault secret client library for .NET](/dotnet/api/overview/azure/key-vault) and the [Azure CLI](/cli/azure/get-started-with-azure-cli). The same basic principles apply when you use the development language of your choice, Azure PowerShell, and/or the Azure portal.
 
@@ -237,7 +237,7 @@ In this section, you'll configure web access to Key Vault and update your applic
 
 ### Create and assign access to a managed identity
 
-In this tutorial, we'll use [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) to authenticate to Key Vault. Managed identity automatically manages application credentials.
+In this tutorial, we'll use [managed identity](/entra/identity/managed-identities-azure-resources/overview) to authenticate to Key Vault. Managed identity automatically manages application credentials.
 
 In the Azure CLI, to create the identity for the application, run the [az webapp-identity assign](/cli/azure/webapp/identity?#az-webapp-identity-assign) command:
 
@@ -342,6 +342,6 @@ Where before you saw "Hello World!", you should now see the value of your secret
 ## Next steps
 
 - [Use Azure Key Vault with applications deployed to a virtual machine in .NET](./tutorial-net-virtual-machine.md)
-- Learn more about [managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview)
+- Learn more about [managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview)
 - View the [Developer's Guide](./developers-guide.md)
 - [Secure access to a key vault](./secure-key-vault.md)
