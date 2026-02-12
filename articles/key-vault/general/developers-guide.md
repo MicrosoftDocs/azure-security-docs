@@ -206,8 +206,7 @@ Enable logging and monitoring for security, compliance, and troubleshooting. Con
 When working with the Key Vault REST API, understanding common parameters and request/response patterns is helpful:
 
 - **API versions**: Key Vault uses versioned APIs. Always specify the API version in your requests.
-- **Common headers**: Learn about required and optional HTTP headers for Key Vault requests. For more information, see [Azure Key Vault common parameters and headers](common-parameters-and-headers.md).
-- **Authentication requests**: Understand how authentication tokens are acquired and used. For more information, see [Authentication, requests, and responses](authentication-requests-and-responses.md).
+- **Authentication requests**: Understand how authentication tokens are acquired and used, including common request headers and response formats. For more information, see [Authentication, requests, and responses](authentication-requests-and-responses.md).
 - **Error codes**: Familiarize yourself with common REST API error codes to handle failures gracefully. For more information, see [Azure Key Vault REST API error codes](rest-error-codes.md).
 
 ## Troubleshooting
@@ -234,7 +233,6 @@ For comprehensive security guidance including identity and access management, da
 
 ### Management and operations
 
-- [Manage Key Vault using Azure CLI](manage-with-cli2.md) - Command-line management operations.
 - [Monitor Azure Key Vault](monitor-key-vault.md) - Set up monitoring and diagnostics.
 - [Azure Key Vault logging](logging.md) - Enable and analyze Key Vault logs.
 
