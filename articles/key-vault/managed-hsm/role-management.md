@@ -13,7 +13,7 @@ ms.author: mbaldwin
 # Managed HSM role management
 
 > [!NOTE]
-> Key Vault supports two types of resource: vaults and managed HSMs. This article is about **Managed HSM**. If you want to learn how to manage a vault, see [Manage Key Vault using the Azure CLI](../general/manage-with-cli2.md).
+> Key Vault supports two types of resource: vaults and managed HSMs. This article is about **Managed HSM**. If you want to learn how to manage a vault, see [Quickstart: Create a key vault using the Azure CLI](../general/quick-create-cli.md).
 
 This article provides practical instructions for managing roles and role assignments for a Managed HSM using the Azure CLI. It implements the role-based access control model described in [Access control for Managed HSM](access-control.md) using the built-in roles documented in [Local RBAC built-in roles for Managed HSM](built-in-roles.md).
 

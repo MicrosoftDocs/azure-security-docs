@@ -22,7 +22,7 @@ ms.author: msmbaldwin
 1. Use `az keyvault create` to create the key vault:
 
     ```azurecli
-    az keyvault create --name <your-unique-keyvault-name> --resource-group myResourceGroup --enable-rbac-authorization true
+    az keyvault create --name <your-unique-keyvault-name> --resource-group myResourceGroup --enable-rbac-authorization true --enable-purge-protection true
     ```
 
     Replace `<your-unique-keyvault-name>` with a name that's unique across all of Azure. You typically use your personal or company name along with other numbers and identifiers.
@@ -40,7 +40,7 @@ ms.author: msmbaldwin
 1. Use `New-AzKeyVault` to create the key vault:
 
     ```azurepowershell
-    New-AzKeyVault -Name <your-unique-keyvault-name> -ResourceGroupName myResourceGroup -Location eastus -EnableRbacAuthorization $true
+    New-AzKeyVault -Name <your-unique-keyvault-name> -ResourceGroupName myResourceGroup -Location eastus -EnableRbacAuthorization $true -EnablePurgeProtection
     ```
 
     Replace `<your-unique-keyvault-name>` with a name that's unique across all of Azure. You typically use your personal or company name along with other numbers and identifiers.

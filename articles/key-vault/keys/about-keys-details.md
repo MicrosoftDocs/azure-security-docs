@@ -157,7 +157,7 @@ You can specify more application-specific metadata in the form of tags. Key Vaul
 
 ##  Key access control
 
-Access control for keys managed by Key Vault is provided at the level of a Key Vault that acts as the container of keys. You can control access to keys using Key Vault [Azure role-based access control](../general/rbac-guide.md) (recommended) or old [vault access policy](../general/assign-access-policy.md) permission model. Azure role-based permission model has three predefined roles to manage keys: 'Key Vault Crypto Officer', 'Key Vault Crypto User', 'Key Vault Service Encryption User' and can be scoped to subscription, resource group or vault level.
+Access control for keys managed by Key Vault is provided at the level of a Key Vault that acts as the container of keys. You can control access to keys using Key Vault [Azure role-based access control](../general/rbac-guide.md) (recommended) or legacy [vault access policy](../general/assign-access-policy.md) permission model. Azure RBAC is the default and recommended authorization model. It has three predefined roles to manage keys: 'Key Vault Crypto Officer', 'Key Vault Crypto User', 'Key Vault Service Encryption User' and can be scoped to subscription, resource group or vault level. For more information, see [Azure RBAC vs. access policies](../general/rbac-access-policy.md).
 
 Vault access policy permission model permissions:
 

@@ -21,7 +21,7 @@ This article shows you how to connect to Azure Key Vault by using the Azure Key 
 ## Prerequisites  
   
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free).
-- [Azure Key Vault](../general/quick-create-cli.md) instance. Review [the access policies](../general/assign-access-policy.md) on your Key Vault to include the permissions necessary for the specific tasks performed in code.
+- [Azure Key Vault](../general/quick-create-cli.md) instance. Ensure you have the appropriate [Azure RBAC role](../general/rbac-guide.md) assigned to perform the specific tasks in code.
 - [Node.js version LTS](https://nodejs.org/)  
 
 ## Set up your project

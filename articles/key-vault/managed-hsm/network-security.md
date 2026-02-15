@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: conceptual
-ms.date: 11/04/2025
+ms.date: 02/10/2026
 ms.author: mbaldwin 
 ---
 
@@ -22,12 +22,9 @@ This section describes different ways to configure an Azure Key Vault Managed HS
 
 By default, when you create a new managed HSM, the Azure Key Vault Managed HSM firewall is disabled. All applications and Azure services can access the managed HSM and send requests to the managed HSM. This configuration doesn't grant any user permission to perform operations on your managed HSM. The managed HSM still restricts access to keys stored in the managed HSM by requiring Microsoft Entra authentication and access permissions. For more information about managed HSM authentication, see [Azure Key Vault Managed HSM access control](access-control.md).
 
-### Managed HSM Firewall Enabled (IP Network Firewall (preview))
+### Managed HSM Firewall Enabled (IP Network Firewall)
 
-If you want to authorize a particular service to access managed HSM through the Managed HSM Firewall, add its IP address to the managed HSM firewall allowlist using the IP Network Firewall (preview) feature. This configuration works best for services that use static IP addresses or well-known ranges. You can add up to 10 CIDR ranges for this configuration. 
-
-> [!NOTE]
-> The IP Network Firewall (preview) feature requires subscription enablement. If you're interested in using this feature, create a support ticket with subscription and region information.
+If you want to authorize a particular service to access managed HSM through the Managed HSM Firewall, add its IP address to the managed HSM firewall allowlist using the IP Network Firewall feature. This configuration works best for services that use static IP addresses or well-known ranges. You can add up to 10 CIDR ranges for this configuration. 
 
 To allow an IP address or range of an Azure resource, such as a Web App or Logic App, perform the following steps:
 

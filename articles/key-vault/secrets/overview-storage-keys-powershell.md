@@ -127,12 +127,12 @@ If Key Vault has already been added to the role on your storage account, you'll 
 
 ### Give your user account permission to managed storage accounts
 
-Use the Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet to update the Key Vault access policy and grant storage account permissions to your user account.
+Use the Azure PowerShell [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) cmdlet to assign the **Key Vault Secrets Officer** role to your user account, granting storage account permissions.
 
 ```azurepowershell-interactive
 # Give your user principal access to all storage account permissions, on your Key Vault instance
 
-Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $userId -PermissionsToStorage get, list, delete, set, update, regeneratekey, getsas, listsas, deletesas, setsas, recover, backup, restore, purge
+New-AzRoleAssignment -SignInName $userId -RoleDefinitionName "Key Vault Secrets Officer" -Scope "/subscriptions/{subscriptionID}/resourceGroups/{resource-group}/providers/Microsoft.KeyVault/vaults/$keyVaultName"
 ```
 
 The permissions for storage accounts aren't available on the storage account "Access policies" page in the Azure portal.
