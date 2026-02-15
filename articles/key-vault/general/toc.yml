@@ -34,7 +34,7 @@ items:
       href: tutorial-python-virtual-machine.md
     - name: Use Azure Key Vault with a virtual machine in JavaScript
       href: tutorial-javascript-virtual-machine.md 
-      displayName: az keyvault create, az keyvault secret set, az vm create, az vm identity assign, az keyvault set-policy
+      displayName: az keyvault create, az keyvault secret set, az vm create, az vm identity assign, az role assignment create
   - name: Azure App Service
     items:
     - name: Use Azure Key Vault with a Web App in .NET
@@ -125,18 +125,6 @@ items:
       href: azure-policy.md
     - name: Troubleshoot issues with implementing Azure Key Vault with Azure Policy
       href: troubleshoot-azure-policy-for-key-vault.md
-  - name: Secure
-    items:
-    - name: Configure key vault networking settings 
-      href: how-to-azure-key-vault-network-security.md
-    - name: Access Key Vault behind a firewall
-      href: access-behind-firewall.md
-    - name: Azure Private Link
-      items:
-      - name: Integrate with Azure Private Link Service
-        href: private-link-service.md
-      - name: Diagnose Private Links Configuration Issues
-        href: private-link-diagnostics.md
   - name: Back up and restore objects
     href: backup.md
   - name: Move Key Vault
@@ -147,6 +135,8 @@ items:
       href: move-subscription.md
     - name: Move Key Vault to Another Region
       href: /azure/operational-excellence/relocation-key-vault?toc=/azure/key-vault/general/toc.json
+  - name: Migrate key workloads
+    href: migrate-key-workloads.md
 - name: Security
   items:
   - name: Secure your Key Vault
@@ -155,8 +145,16 @@ items:
     href: authentication.md
   - name: Security worlds and geographies
     href: overview-security-worlds.md
-  - name: Network Security
+  - name: Configure network security
     href: network-security.md
+  - name: Access Key Vault behind a firewall
+    href: access-behind-firewall.md
+  - name: Azure Private Link
+    items:
+    - name: Integrate with Azure Private Link Service
+      href: private-link-service.md
+    - name: Diagnose Private Links Configuration Issues
+      href: private-link-diagnostics.md
   - name: Security baseline
     href: /security/benchmark/azure/baselines/key-vault-security-baseline?context=/azure/key-vault/general/context/context
   - name: Security controls by Azure Policy
@@ -172,30 +170,28 @@ items:
     href: /azure/security/fundamentals/key-management
   - name: Multitenancy and Azure Key Vault
     href: /azure/architecture/guide/multitenant/service/key-vault
-  - name: Client libraries
-    href: client-libraries.md
-  - name: REST API error codes
-    href: rest-error-codes.md
-  - name: Common error codes
-    href: common-error-codes.md
-  - name: Common parameters and headers 
-    href: common-parameters-and-headers.md
-  - name: Key vault versions 
-    href: versions.md
+  - name: Client libraries and REST API
+    items:
+    - name: Client libraries
+      href: client-libraries.md
+    - name: .NET
+      href: /dotnet/api/overview/azure/key-vault
+    - name: Java
+      href: /java/api/overview/azure/keyvault
+    - name: Node.js
+      href: /javascript/api/overview/azure/key-vault
+    - name: Python
+      href: /python/api/overview/azure/keyvault-keys-readme
+    - name: REST
+      href: /rest/api/keyvault
+    - name: REST API error codes
+      href: rest-error-codes.md
+    - name: Common error codes
+      href: common-error-codes.md
   - name: Azure PowerShell
     href: /powershell/module/az.keyvault/#key_vault
   - name: Azure CLI
     href: /cli/azure/keyvault
-  - name: .NET
-    href: /dotnet/api/overview/azure/key-vault
-  - name: Java
-    href: /java/api/overview/azure/keyvault
-  - name: Node.js
-    href: /javascript/api/overview/azure/key-vault
-  - name: Python
-    href: /python/api/overview/azure/keyvault-keys-readme
-  - name: REST
-    href: /rest/api/keyvault
   - name: Azure MCP Server for Key Vault
     href: /azure/developer/azure-mcp-server/tools/azure-key-vault
   - name: Resource Manager template

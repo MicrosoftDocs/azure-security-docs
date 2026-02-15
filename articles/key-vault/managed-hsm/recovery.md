@@ -7,7 +7,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 ms.author: mbaldwin
 author: msmbaldwin
-ms.date: 04/14/2025
+ms.date: 01/30/2026
 
 ---
 
@@ -48,7 +48,7 @@ For more information, see [Managed HSM soft-delete overview](soft-delete-overvie
 *Purge protection* is designed to prevent the deletion of your HSMs and keys by a malicious insider. It's like a recycle bin with a time-based lock. You can recover items at any point during the configurable retention period. You won't be able to permanently delete or purge an HSM or a key until the retention period ends. When the retention period ends, the HSM or key will be purged automatically.
 
 > [!NOTE]
-> No administrator role or permission can  override, disable, or circumvent purge protection. *If purge protection is enabled, it can't be disabled or overridden by anyone, including Microsoft.* So you must recover a deleted HSM or wait for the retention period to end before you can reuse the HSM name.
+> No administrator role or permission can override, disable, or circumvent purge protection. *If purge protection is enabled, it can't be disabled or overridden by anyone, including Microsoft.* So you must recover a deleted HSM or wait for the retention period to end before you can reuse the HSM name.
 
 ## Manage keys and managed HSMs
 

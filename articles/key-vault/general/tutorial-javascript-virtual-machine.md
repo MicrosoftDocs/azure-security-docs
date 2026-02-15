@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 04/16/2025
+ms.date: 01/30/2026
 ms.author: mbaldwin
 ms.devlang: javascript
 ms.custom: mvc, devx-track-js, devx-track-azurecli, devx-track-azurepowershell
@@ -22,7 +22,7 @@ In this tutorial, you set up a Node.js application to read information from Azur
 > * Create a key vault
 > * Store a secret in Key Vault
 > * Create an Azure Linux virtual machine
-> * Enable a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) for the virtual machine
+> * Enable a [managed identity](/entra/identity/managed-identities-azure-resources/overview) for the virtual machine
 > * Grant the required permissions for the console application to read data from Key Vault
 > * Retrieve a secret from Key Vault
 
@@ -97,7 +97,7 @@ Note the system-assigned identity that's displayed in the following code. The ou
 Now you can assign the previously created identity permissions to your key vault by running the following command:
 
 ```azurecli
-az keyvault set-policy --name "<your-unique-keyvault-name>" --object-id "<systemAssignedIdentity>" --secret-permissions get list
+az role assignment create --role "Key Vault Secrets User" --assignee "<systemAssignedIdentity>" --scope /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/<your-unique-keyvault-name>
 ```
 
 ## Log in to the VM
