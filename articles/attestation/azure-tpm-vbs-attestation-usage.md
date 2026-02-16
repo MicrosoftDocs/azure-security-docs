@@ -30,7 +30,7 @@ Service endpoint setup is the first step for any attestation to be performed. Se
 
 Here's how you can set up an attestation endpoint using Portal
 
-1. Prerequisite: Access to the Microsoft Entra tenant and subscription under which you want to create the attestation endpoint. For more information, see [Microsoft Entra tenant](/azure/active-directory/develop/quickstart-create-new-tenant).
+1. Prerequisite: Access to the Microsoft Entra tenant and subscription under which you want to create the attestation endpoint. For more information, see [Microsoft Entra tenant](/entra/identity-platform/quickstart-create-new-tenant).
 1. Create an endpoint under the desired resource group, with the desired name.
     > [!VIDEO https://learn-video.azurefd.net/vod/player?id=8d3c6aa5-7712-4b47-b3ea-23c49539cd31]
 1. Add Attestation Contributor Role to the Identity who will be responsible to update the attestation policy.
@@ -48,7 +48,7 @@ Sample policies can be found in the [policy section](tpm-attestation-sample-poli
 
 A client to communicate with the attestation service endpoint needs to ensure it's following the protocol as described in the [protocol documentation](virtualization-based-security-protocol.md). Use the [Attestation Client NuGet](https://www.nuget.org/packages/Microsoft.Attestation.Client) to ease the integration.
 
-1. Prerequisite: a Microsoft Entra identity is needed to access the TPM endpoint. For more information, see [Microsoft Entra identity tokens](/azure/active-directory/develop/v2-overview).
+1. Prerequisite: a Microsoft Entra identity is needed to access the TPM endpoint. For more information, see [Microsoft Entra identity tokens](/entra/identity-platform/v2-overview).
 2. Add Attestation Reader Role to the identity that will be need for authentication against the endpoint.
   > [!VIDEO https://learn-video.azurefd.net/vod/player?id=1c70f4b2-e3e7-4b64-9fb1-ceb2810c669c]
 
