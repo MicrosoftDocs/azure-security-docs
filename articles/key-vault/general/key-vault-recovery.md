@@ -7,7 +7,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, sfi-image-nochange
 ms.topic: how-to
 ms.author: mbaldwin
 author: msmbaldwin
-ms.date: 04/16/2025
+ms.date: 01/06/2026
 ---
 
 # Azure Key Vault recovery management with soft delete and purge protection
@@ -167,10 +167,13 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 * Grant access to purge and recover certificates
 
     ```azurecli
-    az keyvault set-policy --upn user@contoso.com --subscription {SUBSCRIPTION ID} -g {RESOURCE GROUP} -n {VAULT NAME}  --certificate-permissions recover purge
+    az role assignment create --role "Key Vault Certificates Officer" --assignee user@contoso.com --scope /subscriptions/{SUBSCRIPTION ID}/resourceGroups/{RESOURCE GROUP}/providers/Microsoft.KeyVault/vaults/{VAULT NAME}
     ```
 
-* Delete certificate
+* Delete certificate (move to soft-deleted state)
+
+    > [!NOTE]
+    > The `az keyvault certificate delete` command is deprecated. When soft-delete is enabled on your key vault (which is now the default), this command moves the certificate to a soft-deleted state rather than permanently deleting it. You can then use `az keyvault certificate recover` to restore it, or `az keyvault certificate purge` to permanently delete it. For more information, see [Azure Key Vault soft-delete overview](soft-delete-overview.md).
 
     ```azurecli
     az keyvault certificate delete --subscription {SUBSCRIPTION ID} --vault-name {VAULT NAME} --name {CERTIFICATE NAME}
@@ -199,7 +202,7 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 * Grant access to purge and recover keys
 
     ```azurecli
-    az keyvault set-policy --upn user@contoso.com --subscription {SUBSCRIPTION ID} -g {RESOURCE GROUP} -n {VAULT NAME}  --key-permissions recover purge
+    az role assignment create --role "Key Vault Crypto Officer" --assignee user@contoso.com --scope /subscriptions/{SUBSCRIPTION ID}/resourceGroups/{RESOURCE GROUP}/providers/Microsoft.KeyVault/vaults/{VAULT NAME}
     ```
 
 * Delete key
@@ -231,10 +234,13 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 * Grant access to purge and recover secrets
 
     ```azurecli
-    az keyvault set-policy --upn user@contoso.com --subscription {SUBSCRIPTION ID} -g {RESOURCE GROUP} -n {VAULT NAME}  --secret-permissions recover purge
+    az role assignment create --role "Key Vault Secrets Officer" --assignee user@contoso.com --scope /subscriptions/{SUBSCRIPTION ID}/resourceGroups/{RESOURCE GROUP}/providers/Microsoft.KeyVault/vaults/{VAULT NAME}
     ```
 
-* Delete secret
+* Delete secret (move to soft-deleted state)
+
+    > [!NOTE]
+    > The `az keyvault secret delete` command is deprecated. When soft-delete is enabled on your key vault (which is now the default), this command moves the secret to a soft-deleted state rather than permanently deleting it. You can then use `az keyvault secret recover` to restore it, or `az keyvault secret purge` to permanently delete it. For more information, see [Azure Key Vault soft-delete overview](soft-delete-overview.md).
 
     ```azurecli
     az keyvault secret delete --subscription {SUBSCRIPTION ID} --vault-name {VAULT NAME} --name {SECRET NAME}
@@ -303,7 +309,7 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 * Grant permissions to recover and purge certificates
 
     ```azurepowershell
-    Set-AzKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@contoso.com -PermissionsToCertificates recover,purge
+    New-AzRoleAssignment -SignInName user@contoso.com -RoleDefinitionName "Key Vault Certificates Officer" -Scope "/subscriptions/{SUBSCRIPTION ID}/resourceGroups/ContosoRG/providers/Microsoft.KeyVault/vaults/ContosoVault"
     ```
 
 * Delete a Certificate
@@ -335,7 +341,7 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 * Grant permissions to recover and purge keys
 
     ```azurepowershell
-    Set-AzKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@contoso.com -PermissionsToKeys recover,purge
+    New-AzRoleAssignment -SignInName user@contoso.com -RoleDefinitionName "Key Vault Crypto Officer" -Scope "/subscriptions/{SUBSCRIPTION ID}/resourceGroups/ContosoRG/providers/Microsoft.KeyVault/vaults/ContosoVault"
     ```
 
 * Delete a key
@@ -367,7 +373,7 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 * Grant permissions to recover and purge secrets
 
     ```azurepowershell
-    Set-AzKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@contoso.com -PermissionsToSecrets recover,purge
+    New-AzRoleAssignment -SignInName user@contoso.com -RoleDefinitionName "Key Vault Secrets Officer" -Scope "/subscriptions/{SUBSCRIPTION ID}/resourceGroups/ContosoRG/providers/Microsoft.KeyVault/vaults/ContosoVault"
     ```
 
 * Delete a secret named SQLPassword

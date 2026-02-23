@@ -3,7 +3,7 @@ title: Authenticate to Azure Key Vault
 description: Learn how to authenticate to Azure Key Vault
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 04/16/2025
+ms.date: 01/30/2026
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: conceptual
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ---
 # Authentication in Azure Key Vault
 
-Authentication with Key Vault works in conjunction with [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis), which is responsible for authenticating the identity of any given **security principal**.
+Authentication with Key Vault works in conjunction with [Microsoft Entra ID](/entra/fundamentals/whatis), which is responsible for authenticating the identity of any given **security principal**.
 
 A security principal is an object that represents a user, group, service, or application that's requesting access to Azure resources. Azure assigns a unique **object ID** to every security principal.
 
@@ -27,9 +27,9 @@ For applications, there are two ways to obtain a service principal:
 
     With managed identity, Azure internally manages the application's service principal and automatically authenticates the application with other Azure services. Managed identity is available for applications deployed to a variety of services.
 
-    For more information, see the [Managed identity overview](/azure/active-directory/managed-identities-azure-resources/overview). Also see [Azure services that support managed identity](/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities), which links to articles that describe how to enable managed identity for specific services (such as App Service, Azure Functions, Virtual Machines, etc.).
+    For more information, see the [Managed identity overview](/entra/identity/managed-identities-azure-resources/overview). Also see [Azure services that support managed identity](/entra/identity/managed-identities-azure-resources/managed-identities-status), which links to articles that describe how to enable managed identity for specific services (such as App Service, Azure Functions, Virtual Machines, etc.).
 
-* If you cannot use managed identity, you instead **register** the application with your Microsoft Entra tenant, as described on [Quickstart: Register an application with the Azure identity platform](/azure/active-directory/develop/quickstart-register-app). Registration also creates a second application object that identifies the app across all tenants.
+* If you cannot use managed identity, you instead **register** the application with your Microsoft Entra tenant, as described on [Quickstart: Register an application with the Azure identity platform](/entra/identity-platform/quickstart-register-app). Registration also creates a second application object that identifies the app across all tenants.
 
 ## Key Vault authentication scenarios
 
@@ -41,7 +41,7 @@ When you create a key vault in an Azure subscription, it's automatically associa
 
 - **Application-plus-user** (sometimes referred as _compound identity_): The user is required to access the key vault from a specific application _and_ the application must use the on-behalf-of authentication (OBO) flow to impersonate the user. For this scenario to work with access policies (legacy), both `applicationId` and `objectId` must be specified in the access policy. The `applicationId` identifies the required application and the `objectId` identifies the user. Currently, this option isn't available for data plane Azure RBAC.
 
-In all types of access, the application authenticates with Microsoft Entra ID. The application uses any [supported authentication method](/azure/active-directory/develop/authentication-vs-authorization) based on the application type. The application acquires a token for a resource in the plane to grant access. The resource is an endpoint in the management or data plane, based on the Azure environment. The application uses the token and sends a REST API request to Key Vault. To learn more, review the [whole authentication flow](/azure/active-directory/develop/v2-oauth2-auth-code-flow).
+In all types of access, the application authenticates with Microsoft Entra ID. The application uses any [supported authentication method](/entra/identity-platform/authentication-vs-authorization) based on the application type. The application acquires a token for a resource in the plane to grant access. The resource is an endpoint in the management or data plane, based on the Azure environment. The application uses the token and sends a REST API request to Key Vault. To learn more, review the [whole authentication flow](/entra/identity-platform/v2-oauth2-auth-code-flow).
 
 The model of a single mechanism for authentication to both planes has several benefits:
 

@@ -564,6 +564,16 @@
       "source_path_from_root": "/articles/defender-for-cloud/tutorial-enable-containers-arc.md",
       "redirect_url": "/azure/defender-for-cloud/defender-for-containers-arc-enable-portal",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/extract-resource-identifiers-support.md",
+      "redirect_url": "/azure/defender-for-cloud/defender-portal/integration-faq#extracting-identifiers-for-support-cases",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/monitor-connected-aws-resources.md",
+      "redirect_url": "/azure/defender-for-cloud/quickstart-onboard-aws#validate-connector-health",
+      "redirect_document_id": false
     }
   ]
 }

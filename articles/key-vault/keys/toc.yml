@@ -20,7 +20,7 @@ items:
     href: quick-create-net.md
   - name: JavaScript
     href: quick-create-node.md?tabs=azure-cli%2Cwindows&pivots=programming-language-javascript
-    displayName: az ad sp create-for-rbac, az keyvault set-policy
+    displayName: DefaultAzureCredential, az role assignment create
   - name: Python
     href: quick-create-python.md
   - name: Go
@@ -29,7 +29,7 @@ items:
     href: quick-create-java.md
   - name: TypeScript
     href: quick-create-node.md?tabs=azure-cli%2Cwindows&pivots=programming-language-typescript
-    displayName: az ad sp create-for-rbac, az keyvault set-policy     
+    displayName: DefaultAzureCredential, az role assignment create
   - name: Bicep
     displayName: Azure Resource Manager, ARM
     href: quick-create-bicep.md

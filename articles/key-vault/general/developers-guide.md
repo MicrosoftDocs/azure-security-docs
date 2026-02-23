@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 03/31/2025
+ms.date: 01/08/2026
 ms.author: mbaldwin
 ---
 # Azure Key Vault developer's guide
@@ -34,7 +34,7 @@ Common developer tasks with Key Vault include:
 
 ## Public previews
 
-We periodically release public previews of new Key Vault features. To try preview features and provide feedback, contact us at azurekeyvault@microsoft.com. For information about the latest features and updates, see [What's new in Azure Key Vault](whats-new.md).
+Microsoft periodically releases public previews of new Key Vault features. To try preview features and provide feedback, contact the team at azurekeyvault@microsoft.com. For information about the latest features and updates, see [What's new in Azure Key Vault](whats-new.md).
 
 ## Create and manage key vaults
 
@@ -59,7 +59,7 @@ The following table lists SDKs and quickstarts for managing Key Vault resources 
 
 ## Authenticate to Key Vault in code
 
-Key Vault uses Microsoft Entra authentication, which requires a Microsoft Entra security principal to grant access. A Microsoft Entra security principal can be a user, an application service principal, a [managed identity for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview), or a group of any of these types.
+Key Vault uses Microsoft Entra authentication, which requires a Microsoft Entra security principal to grant access. A Microsoft Entra security principal can be a user, an application service principal, a [managed identity for Azure resources](/entra/identity/managed-identities-azure-resources/overview), or a group of any of these types.
 
 ### Authentication best practices
 
@@ -206,8 +206,7 @@ Enable logging and monitoring for security, compliance, and troubleshooting. Con
 When working with the Key Vault REST API, understanding common parameters and request/response patterns is helpful:
 
 - **API versions**: Key Vault uses versioned APIs. Always specify the API version in your requests.
-- **Common headers**: Learn about required and optional HTTP headers for Key Vault requests. For more information, see [Azure Key Vault common parameters and headers](common-parameters-and-headers.md).
-- **Authentication requests**: Understand how authentication tokens are acquired and used. For more information, see [Authentication, requests, and responses](authentication-requests-and-responses.md).
+- **Authentication requests**: Understand how authentication tokens are acquired and used, including common request headers and response formats. For more information, see [Authentication, requests, and responses](authentication-requests-and-responses.md).
 - **Error codes**: Familiarize yourself with common REST API error codes to handle failures gracefully. For more information, see [Azure Key Vault REST API error codes](rest-error-codes.md).
 
 ## Troubleshooting
@@ -234,7 +233,6 @@ For comprehensive security guidance including identity and access management, da
 
 ### Management and operations
 
-- [Manage Key Vault using Azure CLI](manage-with-cli2.md) - Command-line management operations.
 - [Monitor Azure Key Vault](monitor-key-vault.md) - Set up monitoring and diagnostics.
 - [Azure Key Vault logging](logging.md) - Enable and analyze Key Vault logs.
 

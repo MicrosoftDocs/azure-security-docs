@@ -4,10 +4,10 @@ description: In this tutorial, you'll learn how to access Azure Blob Storage fro
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: azure-key-vault
-subservice: general
+ms.subservice: general
 ms.custom: devx-track-azurecli, sfi-image-nochange
 ms.topic: tutorial
-ms.date: 04/16/2025
+ms.date: 01/30/2026
 ---
 
 # Tutorial: Access Azure Blob Storage using Azure Databricks and Azure Key Vault
@@ -44,7 +44,7 @@ Before you can create a container to upload the blob to, you'll need to assign t
 az role assignment create --role "Storage Blob Data Contributor" --assignee t-trtr@microsoft.com --scope "/subscriptions/{subscription-id}/resourceGroups/contosoResourceGroup5/providers/Microsoft.Storage/storageAccounts/contosoblobstorage5
 ```
 
-Now that you've assign the role to storage account, you can create a container for your blob.
+Now that you've assigned the role to storage account, you can create a container for your blob.
 
 ```azurecli
 az storage container create --account-name contosoblobstorage5 --name contosocontainer5 --auth-mode login
@@ -77,7 +77,7 @@ az storage account keys list -g contosoResourceGroup5 -n contosoblobstorage5
 You'll create a Key Vault using the following command. This command will display the metadata of the Key Vault as well. Copy down the **ID** and **vaultUri**.
 
 ```azurecli
-az keyvault create --name contosoKeyVault10 --resource-group contosoResourceGroup5 --location eastus
+az keyvault create --name contosoKeyVault10 --resource-group contosoResourceGroup5 --location eastus --enable-rbac-authorization true --enable-purge-protection true
 ```
 
 ![Image](../media/databricks-command-output-4.png)

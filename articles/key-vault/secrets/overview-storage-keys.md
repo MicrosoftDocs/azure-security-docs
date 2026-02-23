@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: secrets
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 04/14/2025
+ms.date: 01/30/2026
 
 ms.custom: devx-track-azurecli
 # Customer intent: As a developer, I want to use Azure Key Vault and Azure CLI for secure management of my storage credentials and shared access signature tokens.
@@ -23,7 +23,7 @@ ms.custom: devx-track-azurecli
 
 > [!IMPORTANT]
 > We recommend using Azure Storage integration with Microsoft Entra ID, Microsoft's cloud-based identity and access management service. Microsoft Entra integration is available for [Azure blobs, queues, and tables](/azure/storage/blobs/authorize-access-azure-active-directory), and provides OAuth2 token-based access to Azure Storage (just like Azure Key Vault). 
-> Microsoft Entra ID allows you to authenticate your client application by using an application or user identity, instead of storage account credentials. You can use an [Microsoft Entra managed identity](/azure/active-directory/managed-identities-azure-resources/) when you run on Azure. Managed identities remove the need for client authentication and storing credentials in or with your application. Use below solution only when Microsoft Entra authentication is not possible.
+> Microsoft Entra ID allows you to authenticate your client application by using an application or user identity, instead of storage account credentials. You can use an [Microsoft Entra managed identity](/entra/identity/managed-identities-azure-resources/overview) when you run on Azure. Managed identities remove the need for client authentication and storing credentials in or with your application. Use below solution only when Microsoft Entra authentication is not possible.
 
 An Azure storage account uses credentials comprising an account name and a key. The key is auto-generated and serves as a password, rather than an as a cryptographic key. Key Vault manages storage account keys by periodically regenerating them in storage account and provides shared access signature tokens for delegated access to resources in your storage account.
 
@@ -41,7 +41,7 @@ When you use the managed storage account key feature, consider the following poi
 
 ## Service principal application ID
 
-A Microsoft Entra tenant provides each registered application with a [service principal](/azure/active-directory/develop/developer-glossary#service-principal-object). The service principal serves as the Application ID, which is used during authorization setup for access to other Azure resources via Azure role-base access control (Azure RBAC).
+A Microsoft Entra tenant provides each registered application with a [service principal](/entra/identity-platform/developer-glossary#service-principal-object). The service principal serves as the Application ID, which is used during authorization setup for access to other Azure resources via Azure role-base access control (Azure RBAC).
 
 Key Vault is a Microsoft application that's pre-registered in all Microsoft Entra tenants. Key Vault is registered under the same Application ID in each Azure cloud.
 
@@ -82,12 +82,12 @@ az role assignment create --role "Storage Account Key Operator Service Role" --a
  ```
 ### Give your user account permission to managed storage accounts
 
-Use the Azure CLI [az keyvault-set-policy](/cli/azure/keyvault?#az-keyvault-set-policy) cmdlet to update the Key Vault access policy and grant storage account permissions to your user account.
+Use the Azure CLI [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to assign the **Key Vault Secrets Officer** role to your user account, granting storage account permissions.
 
 ```azurecli-interactive
 # Give your user principal access to all storage account permissions, on your Key Vault instance
 
-az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --storage-permissions get list delete set update regeneratekey getsas listsas deletesas setsas recover backup restore purge
+az role assignment create --role "Key Vault Secrets Officer" --assignee user@domain.com --scope /subscriptions/{subscriptionID}/resourceGroups/{resource-group}/providers/Microsoft.KeyVault/vaults/<YourKeyVaultName>
 ```
 
 Permissions for storage accounts aren't available on the storage account "Access policies" page in the Azure portal.
@@ -163,4 +163,4 @@ az keyvault storage sas-definition show --id https://<YourKeyVaultName>.vault.az
 
 - Learn more about [keys, secrets, and certificates](/rest/api/keyvault/).
 - Review articles on the [Azure Key Vault team blog](/archive/blogs/kv/).
-- See the [az keyvault storage](/azure/key-vault/general/manage-with-cli2) reference documentation.
+- See the [az keyvault](/cli/azure/keyvault) reference documentation.

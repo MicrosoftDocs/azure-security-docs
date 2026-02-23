@@ -8,7 +8,7 @@ ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: tutorial
 ms.custom: mvc, sfi-image-nochange
-ms.date: 04/14/2025
+ms.date: 01/30/2026
 
 ms.author: sebansal
 ms.devlang: azurecli
@@ -51,9 +51,9 @@ To import a certificate to the vault, you need to have a PEM or PFX certificate 
 > [!IMPORTANT]
 > In Azure Key Vault, supported certificate formats are PFX and PEM.
 > - .pem file format contains one or more X509 certificate files.
-> - .pfx file format is an archive file format for storing several cryptographic objects in a single file i.e. server certificate (issued for your domain), a matching private key, and may optionally include an intermediate CA.  
+> - .pfx file format is an archive file format for storing several cryptographic objects in a single file, such as server certificate (issued for your domain), a matching private key, and may optionally include an intermediate CA.  
 
-In this case, we will create a certificate called **ExampleCertificate**, or import a certificate called **ExampleCertificate**  with a path of **/path/to/cert.pem". You can import a certificate with the Azure portal, Azure CLI, or Azure PowerShell.
+In this case, we will create a certificate called **ExampleCertificate**, or import a certificate called **ExampleCertificate** with a path of **/path/to/cert.pem**. You can import a certificate with the Azure portal, Azure CLI, or Azure PowerShell.
 
 # [Azure portal](#tab/azure-portal)
 
@@ -77,7 +77,7 @@ MIID2TCCAsGg...<br>
 MIIEvQIBADAN...<br>
 -----END PRIVATE KEY-----<br>
 
-When importing a certificate, Azure Key vault will automatically populate certificate parameters (i.e. validity period, Issuer name, activation date etc.).
+When importing a certificate, Azure Key Vault will automatically populate certificate parameters (such as validity period, issuer name, activation date, and so on).
 
 Once you receive the message that the certificate has been successfully imported, you may click on it on the list to view its properties.
 

@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: how-to
 ms.custom: devx-track-js
-ms.date: 04/14/2025
+ms.date: 01/30/2026
 
 ms.author: mbaldwin
 #Customer intent: As a JavaScript developer who is new to Azure, I want to enable and disable cryptographic operations using a key to the Key Vault with the SDK.
@@ -15,7 +15,7 @@ ms.author: mbaldwin
 
 # Enable and disable a key in Azure Key Vault with JavaScript
 
-To enable a key for use with cryptographic operations in Azure Key Vault, use the [updateKeyProperties](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-updatekeyproperties) method of the [SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient) class. 
+To enable a key for use with cryptographic operations in Azure Key Vault, use the [updateKeyProperties](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-updatekeyproperties) method of the [KeyClient](/javascript/api/@azure/keyvault-keys/keyclient) class. 
 
 ## Enable a key
 

@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 04/16/2025
+ms.date: 01/30/2026
 ms.author: mbaldwin
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp, devx-track-azurepowershell, devx-track-azurecli, devx-track-dotnet
@@ -26,7 +26,7 @@ The tutorial shows you how to:
 > * Add a secret to the key vault.
 > * Retrieve a secret from the key vault.
 > * Create an Azure virtual machine.
-> * Enable a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) for the Virtual Machine.
+> * Enable a [managed identity](/entra/identity/managed-identities-azure-resources/overview) for the Virtual Machine.
 > * Assign permissions to the VM identity.
 
 Before you begin, read [Key Vault basic concepts](basic-concepts.md).

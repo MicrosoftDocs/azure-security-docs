@@ -6,18 +6,15 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: how-to
-ms.date: 11/04/2025
+ms.date: 02/10/2026
 ms.author: mbaldwin 
 ---
 
-# Configure Azure Managed HSM networking settings with IP Network Firewall (preview)
+# Configure Azure Managed HSM networking settings with IP Network Firewall
 
-This article provides step-by-step guidance on how to configure Azure Key Vault Managed HSM networking settings with IP Network Firewall (preview) to work with other applications and Azure services. For detailed information about different network security configurations and concepts, see [Network security for Azure Key Vault Managed HSM](network-security.md).
+This article provides step-by-step guidance on how to configure Azure Key Vault Managed HSM networking settings with IP Network Firewall to work with other applications and Azure services. For detailed information about different network security configurations and concepts, see [Network security for Azure Key Vault Managed HSM](network-security.md).
 
 Here are step-by-step instructions to configure Managed HSM firewall using the Azure portal, Azure CLI, and Azure PowerShell.
-
-> [!NOTE]
-> The IP Network Firewall (preview) feature requires subscription enablement. If you're interested in using this feature, create a support ticket with subscription and region information.
 
 > [!IMPORTANT]
 > There is a limit of 10 IP address or address ranges you can add per resource.
@@ -68,7 +65,7 @@ Here's how to configure Managed HSM firewalls by using PowerShell:
    Update-AzKeyVaultManagedHsmNetworkRuleSet -Name "mymanagedhsm" -ResourceGroupName "myresourcegroup" -DefaultAction Deny -IpAddressRange @('16.17.18.0/24') -PassThru 
    ```
 
-   Include `–ReplaceAllRules` to overwrite IP Lists. Otherwise, the command merges the newly included rules.
+   Include `-ReplaceAllRules` to overwrite IP Lists. Otherwise, the command merges the newly included rules.
 
 1. If this managed HSM should be accessible by any trusted services, use the [Update-AzKeyVaultManagedHsmNetworkRuleSet](/powershell/module/az.keyvault/update-azkeyvaultmanagedhsmnetworkruleset) cmdlet to set bypass to AzureServices.
 

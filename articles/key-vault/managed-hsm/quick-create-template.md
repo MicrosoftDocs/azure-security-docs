@@ -4,7 +4,7 @@ description: Quickstart showing how to create Azure an Azure Key Vault Managed H
 services: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 05/30/2025
+ms.date: 01/30/2026
 ms.topic: quickstart
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
@@ -44,7 +44,7 @@ The Azure resource defined in the template is:
 The template requires the object ID associated with your account. To find it, use the Azure CLI [az ad user show](/cli/azure/ad/user#az-ad-user-show) command, passing your email address to the `--id` parameter. You can limit the output to the object ID only with the `--query` parameter.
 
 ```azurecli-interactive
-az ad user show --id <your-email-address> --query "objectId"
+az ad user show --id <your-email-address> --query "id"
 ```
 
 You may also need your tenant ID. To find it, use the Azure CLI [az ad user show](/cli/azure/account#az-account-show) command. You can limit the output to the tenant ID only with the `--query` parameter.
