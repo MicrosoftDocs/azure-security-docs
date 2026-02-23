@@ -59,10 +59,10 @@ Operation returned an invalid status code 'Forbidden'
 
 If you receive this error, the account accessing the Azure Key Vault does not have the proper permissions to create certificates.
 
-Run the following Azure PowerShell command to assign the proper permissions:
+Run the following Azure PowerShell command to assign the proper RBAC role:
 
 ```azurepowershell-interactive
-Set-AzKeyVaultAccessPolicy -VaultName <KeyVaultName> -ObjectId <AzureObjectID> -PermissionsToCertificates get,list,update,create
+New-AzRoleAssignment -SignInName <your-email-address> -RoleDefinitionName "Key Vault Certificates Officer" -Scope "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.KeyVault/vaults/<KeyVaultName>"
 ```
 
 ## Clean up resources

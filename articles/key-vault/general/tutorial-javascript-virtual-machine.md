@@ -97,7 +97,7 @@ Note the system-assigned identity that's displayed in the following code. The ou
 Now you can assign the previously created identity permissions to your key vault by running the following command:
 
 ```azurecli
-az keyvault set-policy --name "<your-unique-keyvault-name>" --object-id "<systemAssignedIdentity>" --secret-permissions get list
+az role assignment create --role "Key Vault Secrets User" --assignee "<systemAssignedIdentity>" --scope /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/<your-unique-keyvault-name>
 ```
 
 ## Log in to the VM
