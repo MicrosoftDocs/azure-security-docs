@@ -1,6 +1,6 @@
 ---
-title: Create an Azure key vault and a vault access policy by using ARM template
-description: This article shows how to create Azure key vaults and vault access policies by using an Azure Resource Manager template.
+title: Create an Azure key vault by using ARM template
+description: This article shows how to create Azure key vaults by using an Azure Resource Manager template.
 services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
@@ -13,9 +13,12 @@ ms.author: mbaldwin
 #Customer intent: As a security admin who's new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
 ---
 
-# How to create an Azure key vault and vault access policy by using a Resource Manager template
+# How to create an Azure key vault by using a Resource Manager template
 
 [Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for secrets like keys, passwords, and certificates. This article describes the process for deploying an Azure Resource Manager template (ARM template) to create a key vault.
+
+> [!IMPORTANT]
+> Azure RBAC is the recommended authorization model for Azure Key Vault. For more information, see [Azure RBAC for Key Vault](rbac-guide.md). The legacy access policy model has known security vulnerabilities and should not be used for new deployments.
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
@@ -56,21 +59,24 @@ The following template shows a basic way to create a key vault. Some values are 
   "resources": [
     {
       "type": "Microsoft.KeyVault/vaults",
-      "apiVersion": "2019-09-01",
+      "apiVersion": "2023-07-01",
       "name": "[parameters('keyVaultName')]",
       "location": "[resourceGroup().location]",
       "properties": {
-        "enabledForDeployment": "false",
-        "enabledForDiskEncryption": "false",
-        "enabledForTemplateDeployment": "false",
+        "enabledForDeployment": false,
+        "enabledForDiskEncryption": false,
+        "enabledForTemplateDeployment": false,
         "tenantId": "[subscription().tenantId]",
-        "accessPolicies": [],
+        "enableRbacAuthorization": true,
+        "enableSoftDelete": true,
+        "softDeleteRetentionInDays": 90,
+        "enablePurgeProtection": true,
         "sku": {
           "name": "[parameters('skuName')]",
           "family": "A"
         },
         "networkAcls": {
-          "defaultAction": "Allow",
+          "defaultAction": "Deny",
           "bypass": "AzureServices"
         }
       }
@@ -82,83 +88,10 @@ The following template shows a basic way to create a key vault. Some values are 
 
 For more about Key Vault template settings, see [Key Vault ARM template reference](/azure/templates/microsoft.keyvault/vaults).
 
-> [!IMPORTANT]
-> If a template is redeployed, any existing access policies in the key vault will be overridden. We recommend that you populate the `accessPolicies` property with existing access policies to avoid losing access to the key vault. 
-
-## Add an access policy to a Key Vault Resource Manager template
-
-You can deploy access policies to an existing key vault without redeploying the entire key vault template. The following template shows a basic way to create access policies:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "keyVaultName": {
-      "type": "string",
-      "metadata": {
-        "description": "Specifies the name of the key vault."
-      }
-    },
-    "objectId": {
-      "type": "string",
-      "metadata": {
-        "description": "Specifies the object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies. Get it by using Get-AzADUser or Get-AzADServicePrincipal cmdlets."
-      }
-    },
-    "keysPermissions": {
-      "type": "array",
-      "defaultValue": [
-        "list"
-      ],
-      "metadata": {
-        "description": "Specifies the permissions to keys in the vault. Valid values are: all, encrypt, decrypt, wrapKey, unwrapKey, sign, verify, get, list, create, update, import, delete, backup, restore, recover, and purge."
-      }
-    },
-    "secretsPermissions": {
-      "type": "array",
-      "defaultValue": [
-        "list"
-      ],
-      "metadata": {
-        "description": "Specifies the permissions to secrets in the vault. Valid values are: all, get, list, set, delete, backup, restore, recover, and purge."
-      }
-    },
-    "certificatePermissions": {
-      "type": "array",
-      "defaultValue": [
-        "list"
-      ],
-      "metadata": {
-        "description": "Specifies the permissions to certificates in the vault. Valid values are: all,  create, delete, update, deleteissuers, get, getissuers, import, list, listissuers, managecontacts, manageissuers,  recover, backup, restore, setissuers, and purge."
-      }
-    }
-  },
-  "resources": [
-     {
-      "type": "Microsoft.KeyVault/vaults/accessPolicies",
-      "name": "[concat(parameters('keyVaultName'), '/add')]",
-      "apiVersion": "2019-09-01",
-      "properties": {
-        "accessPolicies": [
-          {
-            "tenantId": "[subscription().tenantId]",
-            "objectId": "[parameters('objectId')]",
-            "permissions": {
-              "keys": "[parameters('keysPermissions')]",
-              "secrets": "[parameters('secretsPermissions')]",
-              "certificates": "[parameters('certificatePermissions')]"
-            }
-          }
-        ]
-      }
-    }
-  ]
-}
-
-```
-
-For more information about Key Vault template settings, see [Key Vault ARM template reference](/azure/templates/microsoft.keyvault/vaults/accesspolicies).
+> [!NOTE]
+> This template uses Azure RBAC for authorization, which is the recommended approach. To grant access to Key Vault data, assign Azure RBAC roles (such as Key Vault Secrets Officer or Key Vault Crypto Officer) to users, groups, or service principals. For more information, see [Azure RBAC for Key Vault](rbac-guide.md).
+>
+> If you need to use legacy access policies instead, see [Assign a Key Vault access policy](assign-access-policy.md). Note that the legacy access policy model has known security vulnerabilities and lacks support for Privileged Identity Management (PIM).
 
 ## More Key Vault Resource Manager templates
 

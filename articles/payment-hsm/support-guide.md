@@ -69,6 +69,7 @@ Azure Payment HSM is currently available in the following regions:
 - North Europe
 - West Europe
 - Australia East
+- Australia Southeast
 
 ## Pricing
 
