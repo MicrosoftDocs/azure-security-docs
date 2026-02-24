@@ -254,13 +254,13 @@ You manage a key vault used by multiple teams that contains 100 certificates, an
 Assigning a policy with a "deny" effect may take up to 30 mins (average case) and 1 hour (worst case) to start denying the creation of non-compliant resources. The delay refers to following scenarios -
 1. A new policy is assigned.
 2. An existing policy assignment is modified.
-3. A new KeyVault (resource) is created in a scope with existing policies.
+3. A new Key Vault (resource) is created in a scope with existing policies.
 
 The policy evaluation of existing components in a vault may take up to 1 hour (average case) and 2 hours (worst case) before compliance results are viewable in the portal UI.
 
 If the compliance results show up as "Not Started" it may be due to the following reasons:
 
-- The policy valuation hasn't completed yet. Initial evaluation latency can take up to 2 hours in the worst-case scenario.
+- The policy evaluation hasn't completed yet. Initial evaluation latency can take up to 2 hours in the worst-case scenario.
 - There are no key vaults in the scope of the policy assignment.
 - There are no key vaults with certificates within the scope of the policy assignment.
 
