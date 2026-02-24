@@ -85,7 +85,7 @@ Adding Tags to a collection is a preview feature available with the latest previ
 
 Additionally, this feature is limited to Confidential Ledgers that are of the **Public** Ledger Type. **Private** Ledger Type is not supported.
 
-They allow for improved management of data within a collection by acting as secondary keys to a collection of data. Tags are limited to 64 character strings. Each transaction can support upto five tags. If an error is seen related to the number of tags supported and a higher limit is required, reach out to Support.  
+They allow for improved management of data within a collection by acting as secondary keys to acollection IDs vercus sus Tags. collection of data. Tags are limited to 64 character strings. Each transaction can support upto five tags. If an error is seen related to the number of tags supported and a higher limit is required, reach out to Support.  
 
 In order to use tags inside a collection, tags parameter needs to be specified. 
 
@@ -102,6 +102,18 @@ for entry in list_result:
     print(f"Transaction ID: {entry['transactionId']}")
     print(f"Contents: {entry['contents']}")
 ```
+
+## Sample Scenarios
+
+The following scenarios can help you decide when to use collection IDs versus Tags.
+
+| Scenario | Recommended approach | Why |
+|--|--|--|
+| You write general records and mostly read by transaction ID or latest entry. | Use the default collection ID (`subledger-0`). | This approach keeps data organization simple and avoids managing many collection IDs. |
+| You need strict logical separation of data sets, such as tenant-specific or workload-specific isolation. | Use dedicated collection IDs for each logical group. | Group-level collection IDs make it easier to isolate and list records by boundary. |
+| You need query-oriented lookups at a finer granularity, including per-entry categorization. | Prefer tags within a shared collection before creating a unique collection ID per entry. | You can achieve similar query outcomes without creating and managing a unique collection ID for every entry. |
+
+If your main goal is query flexibility, start with tags and add more collection IDs only when clear isolation boundaries are required.
 
 
 ## Next steps
