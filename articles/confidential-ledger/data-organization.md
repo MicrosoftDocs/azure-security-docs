@@ -85,7 +85,7 @@ Adding Tags to a collection is a preview feature available with the latest previ
 
 Additionally, this feature is limited to Confidential Ledgers that are of the **Public** Ledger Type. **Private** Ledger Type is not supported.
 
-They allow for improved management of data within a collection by acting as secondary keys to acollection IDs vercus sus Tags. collection of data. Tags are limited to 64 character strings. Each transaction can support upto five tags. If an error is seen related to the number of tags supported and a higher limit is required, reach out to Support.  
+They allow for improved management of data within a collection by acting as secondary keys to a collection of data. Tags are limited to 64 character strings. Each transaction can support upto five tags. If an error is seen related to the number of tags supported and a higher limit is required, reach out to Support.  
 
 In order to use tags inside a collection, tags parameter needs to be specified. 
 
