@@ -22,7 +22,7 @@ Adding the “FastPathEnabled” feature flag and enabling the “fastpathenable
 
 The "FastPathEnabled" feature flag must be added/registered to all subscriptions IDs that need access to Azure Payment HSM.  To apply the "FastPathEnabled" feature flag, see [Register the resource providers and features](register-payment-hsm-resource-providers.md).
 
-> [!IMPORTANT]
+> [!WARNING]
 > After registering the "FastPathEnabled" feature flag, you **must** contact the [Azure Payment HSM support team](support-guide.md#microsoft-support) team to have your registration approved. In your message to Microsoft support, include the subscription IDs of **every** subscription that needs access to Azure Payment HSM.
 
 ### Virtual networks
