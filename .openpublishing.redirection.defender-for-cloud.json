@@ -461,11 +461,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/defender-for-cloud/identify-sql-servers-protected-by-mma.md",
-      "redirect_url": "/azure/defender-for-cloud/defender-for-sql-servers-introduction",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-offboard.md",
       "redirect_url": "/azure/defender-for-cloud/defender-for-containers-deployment-overview",
       "redirect_document_id": false
