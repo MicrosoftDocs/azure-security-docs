@@ -45,9 +45,17 @@ This policy audits all keys in your Managed HSMs and flags keys that do not have
 
 If a key is too close to expiration, an organizational delay to rotate the key may result in an outage. Keys should be rotated at a specified number of days before expiration to provide sufficient time to react to a failure. This policy audits keys too close to their expiration date and allows you to set this threshold in days. You can also use this policy to prevent the creation of new keys too close to their expiration date.
 
+### Keys should be the specified cryptographic type
+
+You may be subject to audit and certification standards that mandate the use of a specific cryptographic algorithm or key type. This policy allows you to configure an allowed list of cryptographic key types for Managed HSM keys. You can audit keys that do not meet this requirement. This policy can also be used to restrict the cryptographic key types that can be created or imported into your Managed HSMs.
+
 ### Keys using RSA cryptography should have a specified minimum key size
 
-Using RSA keys with smaller key sizes is not a secure design practice. You may be subject to audit and certification standards that mandate the use of a minimum key size. The following policy allows you to set a minimum key size requirement on your Managed HSM. You can audit keys that do not meet this minimum requirement. This policy can also be used to block the creation of new keys that do not meet the minimum key size requirement.
+Using RSA keys with smaller key sizes is not a secure design practice. You may be subject to audit and certification standards that mandate the use of a minimum key size. The following policy allows you to set a minimum key size requirement on your Managed HSM. You can audit keys that do not meet this minimum requirement. This policy can also be used to block the creation or import of keys that do not meet the minimum key size requirement.
+
+### Keys using AES cryptography should have a specified minimum key size
+
+Using oct-HSM keys for AES algorithms with insufficient key sizes is not a secure design practice and may violate organizational or regulatory security requirements. This policy allows you to enforce a minimum key size for oct-HSM keys stored in your Managed HSM. You can audit keys that do not meet this minimum requirement. The policy can also be used to block the creation or import of keys that do not meet the minimum key size requirement.
 
 ## Enabling and managing a Managed HSM policy through the Azure CLI
 
@@ -80,8 +88,10 @@ az keyvault role assignment create --scope / --role "Managed HSM Crypto Auditor"
 Policy assignments have concrete values defined for policy definitions' parameters. In the [Azure portal](https://portal.azure.com/?Microsoft_Azure_ManagedHSM_assettypeoptions=%7B%22ManagedHSM%22:%7B%22options%22:%22%22%7D%7D&Microsoft_Azure_ManagedHSM=true&feature.canmodifyextensions=true}), go to "Policy", filter on the "Key Vault" category, find these four preview key governance policy definitions. Select one, then select "Assign" button on top. Fill in each field. If the policy assignment is for request denials, use a clear name about the policy because, when a request is denied, the policy assignment's name appears in the error. Select Next, uncheck "Only show parameters that need input or review", and enter values for parameters of the policy definition. Skip the "Remediation", and create the assignment. The service needs up to 30 minutes to enforce "Deny" assignments.
 
 - Azure Key Vault Managed HSM keys should have an expiration date
+- Azure Key Vault Managed HSM keys should be the specified cryptographic type
 - Azure Key Vault Managed HSM keys using RSA cryptography should have a specified minimum key size
-- Azure Key Vault Managed HSM Keys should have more than the specified number of days before expiration
+- Azure Key Vault Managed HSM keys using AES cryptography should have a specified minimum key size
+- Azure Key Vault Managed HSM keys should have more than the specified number of days before expiration
 - Azure Key Vault Managed HSM keys using elliptic curve cryptography should have the specified curve names
 
 You can also do this operation using the Azure CLI. See [Create a policy assignment to identify noncompliant resources with Azure CLI](/azure/governance/policy/assign-policy-azurecli).
