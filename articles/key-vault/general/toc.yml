@@ -99,6 +99,12 @@ items:
       href: developers-guide.md
     - name: Apps, API keys, and Key Vault secrets
       href: apps-api-keys-secrets.md
+    - name: Access Key Vault from a VM with managed identity (Python)
+      href: vm-managed-identity-key-vault-python.md
+    - name: Access Key Vault with certificate credentials (.NET)
+      href: dotnet-console-cert-client-credentials-key-vault.md
+    - name: Access Key Vault from Azure Functions
+      href: function-app-certificate-and-managed-identity-key-vault.md
     - name: Use Azure Resource Manager to deploy Key Vault
       href: vault-create-template.md
     - name: Use Key Vault Connected Service
