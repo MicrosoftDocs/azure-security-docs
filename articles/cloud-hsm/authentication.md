@@ -68,13 +68,16 @@ When you use an OpenSSL engine for Azure Cloud HSM, environmental variables supp
 
 ```sh
 export azcloudhsm_password="cu1:user1234" 
-export azcloudhsm_openssl_conf=/usr/local/bin/AzureCloudHSM-ClientSDK-1.0.4.0/azcloudhsm_openssl_dynamic.conf
-export LD_LIBRARY_PATH=/usr/local/lib64/AzureCloudHSM-ClientSDK-1.0.4.0/:$LD_LIBRARY_PATH
+export azcloudhsm_openssl_conf=/opt/azurecloudhsm/bin/azcloudhsm_openssl_dynamic.conf
+export LD_LIBRARY_PATH=/opt/azurecloudhsm/lib64/:$LD_LIBRARY_PATH
 …
 sudo ./azcloudhsm_client azcloudhsm_client.cfg > /dev/null 2>&1 &
 openssl genpkey -algorithm RSA -out private_key.pem -engine azcloudhsm_openssl
 …
 ```
+
+> [!NOTE]
+> Update the paths to match your installed SDK version. The default installation path is `/opt/azurecloudhsm/`. For the latest SDK, see the [Azure Cloud HSM SDK releases](https://github.com/microsoft/MicrosoftAzureCloudHSM/releases).
 
 For authentication details with OpenSSL, consult the [guide for integrating OpenSSL with Azure Cloud HSM](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20OpenSSL%20Integration%20Guide.pdf).
 

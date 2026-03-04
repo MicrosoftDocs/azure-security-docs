@@ -48,7 +48,7 @@ To ensure the successful execution of your application, you must meet these two 
 
 ### Does the OpenSSL engine for Azure Cloud HSM support Windows?
 
-No. The OpenSSL engine for Azure Cloud HSM supports Linux (Ubuntu 20.04, Ubuntu 22.04, RHEL 7, RHEL 8, and CBL Mariner 2) only.
+No. The OpenSSL engine for Azure Cloud HSM supports Linux (Ubuntu 20.04, Ubuntu 22.04, Ubuntu 24.04, RHEL 7, RHEL 8, RHEL 9, and CBL Mariner 2) only.
 
 ### Why am I getting the error message "invalid engine 'azcloudhsm_openssl' could not load the shared library"?
 
