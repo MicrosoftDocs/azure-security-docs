@@ -89,7 +89,7 @@ Authentication is a crucial aspect of securely accessing and operating within Az
 
 ## Business continuity and disaster recovery
 
-- **Implement robust backup and disaster recovery**: Azure Cloud HSM provides high availability through clustered HSMs that synchronize keys and policies while automatically migrating partitions during failures. The service supports comprehensive backup and restore operations that preserve all keys, attributes, and role assignments. Backups are secured by HSM-derived keys that Microsoft can't access.
+- **Implement robust backup and disaster recovery**: Azure Cloud HSM provides high availability through clustered HSMs that synchronize keys and policies while automatically migrating workloads during failures. The service supports comprehensive backup and restore operations that preserve all keys, attributes, and role assignments. Backups are secured by HSM-derived keys that Microsoft can't access.
 
   For business continuity and disaster recovery (BCDR):
 
