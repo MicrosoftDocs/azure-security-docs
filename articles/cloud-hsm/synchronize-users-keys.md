@@ -1,6 +1,6 @@
 ---
 title: Synchronize users and keys across Azure Cloud HSM nodes
-description: Learn how to identify and fix missing users or keys across Azure Cloud HSM cluster nodes to prevent data loss.
+description: Learn how to identify and fix missing users or keys across Azure Cloud HSM cluster nodes.
 author: keithp
 manager: davinune
 ms.service: azure-cloud-hsm
@@ -13,18 +13,12 @@ ms.author: keithp
 
 This article explains how to identify and resolve synchronization issues when users or keys are missing from one or more nodes in your Azure Cloud HSM cluster.
 
-> [!CAUTION]
-> **Missing users or keys can lead to unrecoverable data loss.** If a user or key exists on only one node and that node fails, you might be permanently locked out of your cryptographic operations with no way to recover. Always verify that all users and keys are synchronized across all three nodes in your cluster, and maintain regular backups.
+## Overview
 
-## Why synchronization matters
+In some earlier Azure Cloud HSM deployments, users or keys might not have been replicated to all nodes in the cluster. If you're experiencing intermittent authentication failures or cryptographic operation errors, you might have users or keys that need to be synchronized.
 
-Azure Cloud HSM operates as a cluster of three nodes. When you create users or keys, they should be replicated across all nodes. However, if creation fails on one or more nodes (for example, due to temporary network issues or node unavailability), the user or key might exist on only some nodes.
-
-This partial synchronization creates serious risks:
-
-- **Authentication failures**: Your application might intermittently fail to authenticate if it connects to a node that's missing the user.
-- **Cryptographic operation failures**: Operations might fail if the required key doesn't exist on the node handling the request.
-- **Permanent data loss**: If the only node containing a user or key fails and you don't have a backup, you lose access permanently with no recovery option.
+> [!IMPORTANT]
+> A user or key that exists on only one node is at risk of permanent, unrecoverable loss if that node fails. If you identify missing users or keys, synchronize them immediately and ensure you have current backups.
 
 ## Prerequisites
 

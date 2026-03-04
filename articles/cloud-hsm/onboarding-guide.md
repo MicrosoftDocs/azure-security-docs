@@ -17,9 +17,6 @@ Microsoft Azure Cloud HSM provides dedicated, FIPS 140-3 Level 3 validated hardw
 
 The onboarding guide is available as a PDF. It includes detailed instructions, best practices, and prerequisites for a smooth setup process. You can access the full guide here: [Microsoft Azure Cloud HSM Onboarding Guide](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/OnboardingGuides/Azure%20Cloud%20HSM%20Onboarding.pdf).
 
-> [!IMPORTANT]
-> After creating users and keys during onboarding, verify that they exist on all three nodes of your cluster. Missing users or keys can lead to unrecoverable data loss if a node fails. For verification and remediation steps, see [Synchronize users and keys across Azure Cloud HSM nodes](synchronize-users-keys.md).
-
 ## Related content
 
 - [Azure Cloud HSM overview](overview.md)
