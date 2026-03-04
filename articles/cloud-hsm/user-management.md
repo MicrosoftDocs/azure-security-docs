@@ -47,7 +47,7 @@ When you create a user, the user is created on all three nodes of the Cloud HSM 
 
 If user creation fails on one or more nodes (for example, due to a node being unavailable), you must recreate the user on the missing nodes after they recover and are healthy again. To do this, rerun the user create command with identical credentials, which forces an update on any missing nodes. After recreating the user, sign in as that cryptography user (CU) and confirm connectivity to all three cluster nodes.
 
-For information on user creation commands, see the [Azure Cloud HSM onboarding guide](onboarding-guide.md).
+For information on user creation commands, see the [Azure Cloud HSM onboarding guide](onboarding-guide.md). For detailed steps on identifying and synchronizing missing users, see [Synchronize users and keys across Azure Cloud HSM nodes](synchronize-users-keys.md).
 
 ## Implement secondary admins for lockout prevention
 
