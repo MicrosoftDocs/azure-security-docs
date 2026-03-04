@@ -41,6 +41,12 @@ Protecting your HSM user credentials is paramount, because these credentials gra
 
 Azure Cloud HSM does not retain access to your HSM user credentials. If you lose access to your credentials, Microsoft can't help.
 
+## Ensure your HSM users are available on all nodes of your cluster
+
+Azure Cloud HSM service does not perform backend user synchronization. User management is fully customer managed. If a user is missing on any node, rerun the user create command with identical credentials to update those nodes. Ensuring user consistency across all nodes is the customer's responsibility.
+
+For information on user creation commands, see the [Azure Cloud HSM onboarding guide](onboarding-guide.md).
+
 ## Implement secondary admins for lockout prevention
 
 To prevent the risk of HSM lockout, we recommend that you designate at least two administrators to provide continuity. If one admin password is lost, the other admin can reset it.
