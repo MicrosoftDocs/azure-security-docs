@@ -43,7 +43,9 @@ Azure Cloud HSM does not retain access to your HSM user credentials. If you lose
 
 ## Ensure your HSM users are available on all nodes of your cluster
 
-Azure Cloud HSM service does not perform backend user synchronization. User management is fully customer managed. If a user is missing on any node, rerun the user create command with identical credentials to update those nodes. Ensuring user consistency across all nodes is the customer's responsibility.
+When you create a user, the user is created on all three nodes of the Cloud HSM cluster if all nodes are available. However, unlike keys, Azure Cloud HSM service does not perform backend user synchronization. User management is fully customer managed.
+
+If user creation fails on one or more nodes (for example, due to a node being unavailable), you must recreate the user on the missing nodes after they recover and are healthy again. To do this, rerun the user create command with identical credentials, which forces an update on any missing nodes. After recreating the user, sign in as that cryptography user (CU) and confirm connectivity to all three cluster nodes.
 
 For information on user creation commands, see the [Azure Cloud HSM onboarding guide](onboarding-guide.md).
 
