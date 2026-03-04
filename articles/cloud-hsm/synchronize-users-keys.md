@@ -15,7 +15,7 @@ This article explains how to identify and resolve synchronization issues when us
 
 ## Overview
 
-In some earlier Azure Cloud HSM deployments, users or keys might not have been replicated to all nodes in the cluster. If you're experiencing intermittent authentication failures or cryptographic operation errors, you might have users or keys that need to be synchronized.
+In some cases, users or keys might not be replicated to all nodes in your Azure Cloud HSM cluster. This can occur during service events such as self-healing or upgrades, or if creation fails on one or more nodes. If you're experiencing intermittent authentication failures or cryptographic operation errors, you might have users or keys that need to be synchronized.
 
 > [!IMPORTANT]
 > A user or key that exists on only one node is at risk of permanent, unrecoverable loss if that node fails. If you identify missing users or keys, synchronize them immediately and ensure you have current backups.
