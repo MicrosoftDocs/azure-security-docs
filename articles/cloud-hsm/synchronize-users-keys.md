@@ -1,6 +1,6 @@
 ---
 title: Synchronize users and keys across Azure Cloud HSM nodes
-description: Learn how to identify and fix missing users or keys across Azure Cloud HSM cluster nodes.
+description: Learn how to identify and fix missing users or keys across Azure Cloud HSM cluster nodes to prevent data loss.
 author: keithp
 manager: davinune
 ms.service: azure-cloud-hsm
@@ -12,6 +12,19 @@ ms.author: keithp
 # Synchronize users and keys across Azure Cloud HSM nodes
 
 This article explains how to identify and resolve synchronization issues when users or keys are missing from one or more nodes in your Azure Cloud HSM cluster.
+
+> [!CAUTION]
+> **Missing users or keys can lead to unrecoverable data loss.** If a user or key exists on only one node and that node fails, you might be permanently locked out of your cryptographic operations with no way to recover. Always verify that all users and keys are synchronized across all three nodes in your cluster, and maintain regular backups.
+
+## Why synchronization matters
+
+Azure Cloud HSM operates as a cluster of three nodes. When you create users or keys, they should be replicated across all nodes. However, if creation fails on one or more nodes (for example, due to temporary network issues or node unavailability), the user or key might exist on only some nodes.
+
+This partial synchronization creates serious risks:
+
+- **Authentication failures**: Your application might intermittently fail to authenticate if it connects to a node that's missing the user.
+- **Cryptographic operation failures**: Operations might fail if the required key doesn't exist on the node handling the request.
+- **Permanent data loss**: If the only node containing a user or key fails and you don't have a backup, you lose access permanently with no recovery option.
 
 ## Prerequisites
 
@@ -96,7 +109,7 @@ All users in Azure Cloud HSM are fully managed by the customer. The service does
 When you create keys, it's your responsibility to ensure keys are present on all nodes. Although Azure Cloud HSM supports service-side key synchronization and restore operations, you must verify that keys are available on any missing nodes before use.
 
 > [!IMPORTANT]
-> If a key is missing or creation fails on any node, you must execute the appropriate commands and perform validation steps to restore consistency.
+> If a key is missing or creation fails on any node, you must execute the appropriate commands and perform validation steps to restore consistency. A key that exists on only one node is at risk of permanent loss if that node fails.
 
 ### Identify missing keys
 
@@ -164,8 +177,18 @@ When you create keys, it's your responsibility to ensure keys are present on all
    findAllKeys 0 0
    ```
 
+## Best practices
+
+To prevent synchronization issues and potential data loss:
+
+- **Verify after creation**: After creating any user or key, immediately verify that it exists on all three nodes.
+- **Maintain regular backups**: Use the [backup and restore](backup-restore.md) functionality to protect against node failures.
+- **Monitor for discrepancies**: Periodically run `listUsers` and `findAllKeys 0 0` to check for inconsistencies across nodes.
+- **Act quickly on failures**: If you notice a user or key creation failure, synchronize it to the missing nodes before a node failure occurs.
+
 ## Related content
 
 - [Troubleshoot Azure Cloud HSM](troubleshoot.md)
 - [User management in Azure Cloud HSM](user-management.md)
 - [Key management in Azure Cloud HSM](key-management.md)
+- [Backup and restore in Azure Cloud HSM](backup-restore.md)
