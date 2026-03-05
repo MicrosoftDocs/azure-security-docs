@@ -103,6 +103,8 @@ Authentication is a crucial aspect of securely accessing and operating within Az
 
   For detailed implementation instructions and additional recovery options, see [Backup and restore in Azure Cloud HSM](backup-restore.md). Additional recovery options include using `extractMaskedObject` to extract keys as encrypted blobs, storing them securely, and importing them with `insertMaskedObject` as needed. A BCDR best practice is to deploy in two regions for failover capability.
 
+- **Verify user and key synchronization across all nodes**: Azure Cloud HSM operates as a cluster of three nodes. During service events such as self-healing or upgrades, users or keys might not be replicated to all nodes. If you experience intermittent authentication or operation failures, verify that all users and keys exist on every node. For verification and remediation steps, see [Synchronize users and keys across Azure Cloud HSM nodes](synchronize-users-keys.md).
+
 ## Related content
 
 - [Security best practices for IaaS workloads in Azure](/azure/security/fundamentals/iaas)
