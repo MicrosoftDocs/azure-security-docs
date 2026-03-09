@@ -11,7 +11,7 @@ ms.author: keithp
 
 # Troubleshoot Azure Cloud HSM
 
-This article helps you troubleshoot common problems and errors that you might encounter when using the Azure Cloud HSM service.
+This article helps you troubleshoot common problems and errors that you might encounter when using the Azure Cloud HSM service. For guidance on fixing users or keys that are missing from specific cluster nodes, see [Synchronize users and keys across Azure Cloud HSM nodes](synchronize-users-keys.md).
 
 ## Common error messages
 
@@ -48,7 +48,7 @@ To ensure the successful execution of your application, you must meet these two 
 
 ### Does the OpenSSL engine for Azure Cloud HSM support Windows?
 
-No. The OpenSSL engine for Azure Cloud HSM supports Linux (Ubuntu 20.04, Ubuntu 22.04, RHEL 7, RHEL 8, and CBL Mariner 2) only.
+No. The OpenSSL engine for Azure Cloud HSM supports Linux (Ubuntu 20.04, Ubuntu 22.04, Ubuntu 24.04, RHEL 7, RHEL 8, RHEL 9, and CBL Mariner 2) only.
 
 ### Why am I getting the error message "invalid engine 'azcloudhsm_openssl' could not load the shared library"?
 
@@ -351,11 +351,13 @@ To mitigate this error, you need to create a cryptography user (CU) that's repli
 
 ```bash
 sudo ./azcloudhsm_mgmt_util ./azcloudhsm_mgmt_util.cfg
-loginHSM CO admin adminpassword 
+loginHSM CO admin adminpassword 
 createUser CU cu1 user1234
 logoutHSM
 loginHSM CU cu1 user1234
 ```
+
+If you have an existing user that's missing from one or more nodes, see [Synchronize users and keys across Azure Cloud HSM nodes](synchronize-users-keys.md) for detailed steps to identify and fix missing users.
 
 ### How do I display the contents of the CRT, CSR, or key file that I created?
 
