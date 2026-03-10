@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: how-to
 ms.custom: devx-track-js
-ms.date: 04/14/2025
+ms.date: 01/30/2026
 
 ms.author: mbaldwin
 #Customer intent: As a JavaScript developer who is new to Azure, I want to list keys to the Key Vault with the SDK.
@@ -41,7 +41,7 @@ The returned [KeyProperties](/javascript/api/@azure/keyvault-keys/keyproperties)
 
 ## List all keys by page
 
-To list all keys in Azure Key Vault, use the [listPropertiesOfKeys](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-listpropertiesofkeys) method to get secret properties a page at a time by setting the [PageSettings](/javascript/api/@azure/core-paging/pagesettings) object.
+To list all keys in Azure Key Vault, use the [listPropertiesOfKeys](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-listpropertiesofkeys) method to get key properties a page at a time by setting the [PageSettings](/javascript/api/@azure/core-paging/pagesettings) object.
 
 ```javascript
 import { KeyClient } from '@azure/keyvault-keys';

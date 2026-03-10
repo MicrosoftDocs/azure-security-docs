@@ -24,15 +24,15 @@ Azure Cloud HSM supports various applications, including PKCS#11, offloading of 
 
 ### Fully managed solution
 
-Many customers require administrative control of their HSM but don't want the overhead and ancillary costs that come with cluster management for high availability, patching, and maintenance. Azure Cloud HSM customers have secure, direct, end-to-end encrypted access to their HSM instances in their HSM cluster over a private, dedicated link from their virtual network.
+Many customers require administrative control of their HSM but don't want the overhead and ancillary costs that come with cluster management for high availability, patching, and maintenance. Azure Cloud HSM customers have secure, direct, end-to-end encrypted access to HSM nodes in their HSM cluster over a private, dedicated link from their virtual network.
 
 After a customer provisions an Azure Cloud HSM cluster, the customer maintains administrative access to their HSMs. The Azure Cloud HSM service takes care of high availability, patching, and maintenance.
 
 ### Customer-owned, highly available, single-tenant HSM as a service
 
-Azure Cloud HSM provides high availability and redundancy by grouping multiple HSMs into an HSM cluster. The service automatically synchronizes keys and policies across each HSM instance.
+Azure Cloud HSM provides high availability and redundancy by grouping multiple HSMs into an HSM cluster. The service automatically synchronizes keys and policies across each HSM node.
 
-Each HSM cluster consists of three HSM partitions. If an HSM resource becomes unavailable, member partitions for your HSM cluster are automatically and securely migrated to healthy nodes.
+Each HSM cluster consists of three HSM nodes. If an HSM resource becomes unavailable, member nodes for your HSM cluster are automatically and securely migrated to healthy nodes.
 
 The Azure Cloud HSM cluster supports load balancing of cryptographic operations. Periodic HSM backups help ensure secure and simple data recovery.
 
@@ -78,14 +78,11 @@ Azure Cloud HSM doesn't integrate with other platform as a service (PaaS) or sof
 
 Azure Cloud HSM is not a good fit for Microsoft cloud services that require support for encryption with customer-managed keys. These services include Azure Information Protection, Azure Disk Encryption, Azure Data Lake Storage, Azure Storage, and Microsoft Purview Customer Key. For those scenarios, customers should use [Azure Key Vault Managed HSM](../key-vault/managed-hsm/overview.md).
 
-## Related content
+## Next steps
 
 These resources are available to help you facilitate the provisioning and configuration of HSMs into your existing virtual network environment:
 
 - [Azure Cloud HSM SDK](https://github.com/microsoft/MicrosoftAzureCloudHSM)
-- [Key management in Azure](/azure/security/fundamentals/key-management)
-- [Deploy Azure Cloud HSM by using the Azure portal](quickstart-portal.md)
-- [Deploy Azure Cloud HSM by using Azure PowerShell](quickstart-powershell.md)
 - [Key management in Azure](/azure/security/fundamentals/key-management)
 - [Deploy Azure Cloud HSM by using the Azure portal](quickstart-portal.md)
 - [Deploy Azure Cloud HSM by using Azure PowerShell](quickstart-powershell.md)

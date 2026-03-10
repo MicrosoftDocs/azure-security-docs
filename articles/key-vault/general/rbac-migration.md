@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 11/19/2025
+ms.date: 01/30/2026
 ms.author: mbaldwin
 ms.custom: sfi-image-nochange
 ---
@@ -331,4 +331,4 @@ Once the policy is assigned, it can take up to 24 hours to complete the scan. Af
 
 - [Azure RBAC Overview](/azure/role-based-access-control/overview)
 - [Custom Roles Tutorial](/azure/role-based-access-control/tutorial-custom-role-cli)
-- [Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure)
+- [Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-configure)

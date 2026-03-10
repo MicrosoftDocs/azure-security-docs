@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: general
 ms.custom: horz-security
 ms.topic: article
-ms.date: 01/08/2026
+ms.date: 01/30/2026
 ms.author: mbaldwin
 ai-usage: ai-assisted
 #CustomerIntent: As a key vault administrator, I want to learn how to secure my key vaults
@@ -43,27 +43,27 @@ Azure Key Vault has unique security considerations related to vault architecture
 
 ## Network Security
 
-Reducing network exposure is critical to protecting Azure Key Vault from unauthorized access. Configure network restrictions based on your organization's requirements and use case.
+Reducing network exposure is critical to protecting Azure Key Vault from unauthorized access. Configure network restrictions based on your organization's requirements and use case. For detailed information and step-by-step configuration instructions, see [Configure network security for Azure Key Vault](network-security.md).
 
 These network security features are listed from most restricted to least restricted capabilities. Pick the configuration that best suits your organization's use case.
 
 - **Disable public network access and use Private Endpoints only**: Deploy Azure Private Link to establish a private access point from a virtual network to Azure Key Vault and prevent exposure to the public internet. For implementation steps, see [Integrate Key Vault with Azure Private Link](private-link-service.md).
 
-    - Some customer scenarios require trusted Microsoft services to bypass the firewall, in such cases the vault might need to be configured to allow Trusted Microsoft Services. For full details, see [Network security: Key Vault Firewall Enabled (Trusted Services Only)](network-security.md?#key-vault-firewall-enabled-trusted-services-only).
+    - Some customer scenarios require trusted Microsoft services to bypass the firewall, in such cases the vault might need to be configured to allow Trusted Microsoft Services. For full details, see [Configure network security: Key Vault Firewall Enabled (Trusted Services Only)](network-security.md#key-vault-firewall-enabled-trusted-services-only).
 
-- **Enable Key Vault Firewall**: Limit access to public static IP addresses or your virtual networks. For full details, see [Key Vault network security: firewall settings](network-security.md#firewall-settings).
+- **Enable Key Vault Firewall**: Limit access to public static IP addresses or your virtual networks. For full details, see [Configure network security: Firewall settings](network-security.md#firewall-settings).
 
     - Some customer scenarios require trusted Microsoft services to bypass the firewall, in such cases the vault might need to be configured to allow Trusted Microsoft Services.
 
-- **Use Network Security Perimeter**: Define a logical network isolation boundary for PaaS resources (for example, Azure Key Vault, Azure Storage and SQL Database) that are deployed outside your organization's virtual network perimeter and/or public static IP addresses. For full details, see [Network security: Network Security Perimeter)](network-security.md#network-security-perimeter )
+- **Use Network Security Perimeter**: Define a logical network isolation boundary for PaaS resources (for example, Azure Key Vault, Azure Storage and SQL Database) that are deployed outside your organization's virtual network perimeter and/or public static IP addresses. For full details, see [Configure network security: Network Security Perimeter](network-security.md#network-security-perimeter).
 
-  - "publicNetworkAccess": "SecuredByPerimeter" overrides "Allow trusted Microsoft services to bypass the firewall", meaning that some scenarios that require that trust will not work.
+  - `publicNetworkAccess: SecuredByPerimeter` overrides "Allow trusted Microsoft services to bypass the firewall", meaning that some scenarios that require that trust will not work.
 
 ## TLS and HTTPS
 
 Azure Key Vault supports TLS 1.2 and 1.3 protocol versions to ensure secure communication between clients and the service.
 
-- **Enforce TLS version control**: The Key Vault front end (data plane) is a multi-tenant server where key vaults from different customers can share the same public IP address. To achieve isolation, each HTTP request is authenticated and authorized independently. The HTTPS protocol allows clients to participate in TLS negotiation, and clients can enforce the TLS version to ensure the entire connection uses the corresponding level of protection. See [Key Vault logging](logging.md) for sample Kusto queries to monitor TLS versions used by clients.
+- **Enforce TLS version control**: The Key Vault front end (data plane) is a multitenant server where key vaults from different customers can share the same public IP address. To achieve isolation, each HTTP request is authenticated and authorized independently. The HTTPS protocol allows clients to participate in TLS negotiation, and clients can enforce the TLS version to ensure the entire connection uses the corresponding level of protection. See [Key Vault logging](logging.md) for sample Kusto queries to monitor TLS versions used by clients.
 
 ## Identity and access management
 
@@ -78,12 +78,12 @@ Azure Key Vault uses Microsoft Entra ID for authentication. Access is controlled
     > [!IMPORTANT]
     > RBAC permission model allows vault-level role assignments for persistent access and eligible (JIT) assignments for privileged operations. Object-scope assignments only support read operations; administrative operations like network access control, monitoring, and object management require vault-level permissions. For secure isolation across application teams, use one Key Vault per application.
 
-- **Assign just-in-time (JIT) privileged roles**: Use Azure Privileged Identity Management (PIM) to assign eligible JIT Azure RBAC roles for administrators and operators of Key Vault. See [Privileged Identity Management (PIM) overview](/azure/active-directory/privileged-identity-management/pim-configure) for details.
+- **Assign just-in-time (JIT) privileged roles**: Use Azure Privileged Identity Management (PIM) to assign eligible JIT Azure RBAC roles for administrators and operators of Key Vault. See [Privileged Identity Management (PIM) overview](/entra/id-governance/privileged-identity-management/pim-configure) for details.
 
     - **Require approvals for privileged role activation**: Add an extra layer of security to prevent unauthorized access by ensuring that at least one approver is required to activate JIT roles. See [Configure Microsoft Entra role settings in Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-how-to-change-default-settings).
     - **Enforce multi-factor authentication for role activation**: Require MFA to activate JIT roles for operators and administrators. See [Microsoft Entra multifactor authentication](/entra/identity/authentication/concept-mfa-howitworks).
 
-- **Enable Microsoft Entra Conditional Access Policies**: Key Vault supports Microsoft Entra Conditional Access policies to apply access controls based on conditions such as user location or device. For more information, see [Conditional Access overview](/azure/active-directory/conditional-access/overview).
+- **Enable Microsoft Entra Conditional Access Policies**: Key Vault supports Microsoft Entra Conditional Access policies to apply access controls based on conditions such as user location or device. For more information, see [Conditional Access overview](/entra/identity/conditional-access/overview).
 
 - **Apply the principle of least privilege**: Limit the number of users with administrative roles and ensure users are granted only the minimum permissions required for their role. See [Enhance security with the principle of least privilege](/entra/identity-platform/secure-least-privileged-access)
 

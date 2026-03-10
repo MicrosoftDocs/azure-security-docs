@@ -6,7 +6,7 @@ ms.service: azure-key-vault
 ms.subservice: secrets
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 04/14/2025
+ms.date: 01/30/2026
 
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
@@ -23,11 +23,11 @@ This article provides samples of .NET code that creates a SAS definition and fet
 
 ## Code samples
 
-In the following example we'll create a SAS template:
+In the following example, a SAS template is created:
 
 :::code language="csharp" source="~/azure-sdk-for-net/sdk/keyvault/samples/sharelink/Program.cs" range="91-97":::
 
-Using this template, we can create a SAS definition using the 
+Using this template, you can create a SAS definition by using the following code:
 
 :::code language="csharp" source="~/azure-sdk-for-net/sdk/keyvault/samples/sharelink/Program.cs" range="137-156":::
 
@@ -37,7 +37,7 @@ Once the SAS definition is created, you can retrieve SAS tokens like secrets usi
 
 If your shared access signature token is about to expire, you can fetch the same secret again to generate a new one.
 
-For guide on how to use retrieved from Key Vault SAS token to access Azure Storage services, see [Use an account SAS to access Blob service](/azure/storage/common/storage-account-sas-create-dotnet#use-an-account-sas-from-a-client)
+For a guide on how to use a SAS token retrieved from Key Vault to access Azure Storage services, see [Use an account SAS to access Blob service](/azure/storage/common/storage-account-sas-create-dotnet#use-an-account-sas-from-a-client)
 
 > [!NOTE]
 > Your app needs to be prepared to refresh the SAS if it gets a 403 from Storage so that you can handle the case where a key was compromised and you need to rotate them faster than the normal rotation period. 

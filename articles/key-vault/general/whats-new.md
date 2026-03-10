@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: reference
-ms.date: 11/19/2025
+ms.date: 01/30/2026
 ms.author: mbaldwin
 
 #Customer intent: As an Azure Key Vault administrator, I want to react to soft-delete being turned on for all key vaults.
@@ -25,7 +25,7 @@ For more information, see [Configure key rotation governance](../keys/how-to-con
 
 ## June 2023
 
-Key Vault enforces TLS 1.2 or higher for enhanced security. If you're still using an older TLS version, see [Enable support for TLS 1.2 in your environment](/troubleshoot/azure/active-directory/enable-support-tls-environment/#why-this-change-is-being-made) to update your clients and ensure uninterrupted access to Key Vault services. You can monitor TLS version used by clients by monitoring Key Vault logs with sample Kusto query [here](monitor-key-vault.md#sample-kusto-queries).
+Key Vault enforces TLS 1.2 or higher for enhanced security. If you're still using an older TLS version, see [Enable support for TLS 1.2 in your environment](/troubleshoot/entra/entra-id/ad-dmn-services/enable-support-tls-environment#why-this-change-is-being-made) to update your clients and ensure uninterrupted access to Key Vault services. You can monitor TLS version used by clients by monitoring Key Vault logs with sample Kusto query [here](monitor-key-vault.md#sample-kusto-queries).
 
 ## May 2023
 
@@ -47,7 +47,7 @@ For more information, see [Configure key auto-rotation in Key Vault](../keys/how
 
 Azure Key Vault service throughput limits have been increased to serve double its previous quota for each vault to help ensure high performance for applications. That is, for secret GET and RSA 2,048-bit software keys, you'll receive 4,000 GET transactions per 10 seconds versus 2,000 per 10 seconds previously. The service quotas are specific to operation type and the entire list can be accessed in [Azure Key Vault Service Limits](./service-limits.md). 
 
-For Azure update announcement, see [General availability: Azure Key Vault increased service limits for all its customers] (https://azure.microsoft.com/updates/azurekeyvaultincreasedservicelimits/)
+For Azure update announcement, see [General availability: Azure Key Vault increased service limits for all its customers](https://azure.microsoft.com/updates/azurekeyvaultincreasedservicelimits/).
 
 
 ## December 2021
@@ -60,7 +60,7 @@ For more information, see [Configure key auto-rotation in Key Vault](../keys/how
 
 Integration of Azure Key Vault with Azure Policy has reached general availability and is now ready for production use. This capability is a step towards our commitment to simplifying secure secrets management in Azure, while also enhancing policy enforcements that you can define on Key Vault, keys, secrets and certificates. Azure Policy allows you to place guardrails on Key Vault and its objects to ensure they're compliant with your organizations security recommendations and compliance regulations. It allows you to perform real time policy-based enforcement and on-demand compliance assessment of existing secrets in your Azure environment. The results of audits performed by policy will be available to you in a compliance dashboard where you'll be able to see a drill-down of which resources and components are compliant and which aren't. Azure policy for Key Vault will provide you with a full suite of built-in policies offering governance of your keys, secrets, and certificates.  
 
-You can learn more about how to [Integrate Azure Key Vault with Azure Policy](./azure-policy.md?tabs=certificates) and assign a new policy. Announcement is linked [here](https://azure.microsoft.com/updates/gaazurepolicyforkeyvault).
+You can learn more about how to [Integrate Azure Key Vault with Azure Policy](./azure-policy.md?tabs=certificates) and assign a new policy. See the [Azure Key Vault policy announcement](https://azure.microsoft.com/updates/gaazurepolicyforkeyvault) for more details.
 
 ## June 2021
 

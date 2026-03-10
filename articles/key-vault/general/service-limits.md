@@ -14,7 +14,7 @@ Azure Key Vault service supports two resource types: Vaults and Managed HSMs. Th
 
 ## Key Vault
 
-The following limits apply to standard Key Vault operations including transaction rate limits for keys, secrets, and certificates. Azure Key Vault includes limits on transaction throughput and API requests to ensure service reliability and availability. These limits are designed to help identify applications that may negatively impact other Key Vault customers while still allowing you to meet your operational requirements. For information on handling throttling when these limits are exceeded, see [Azure Key Vault throttling guidance](overview-throttling.md).
+The following limits apply to standard Key Vault operations including transaction rate limits for keys, secrets, and certificates. Azure Key Vault includes limits on transaction throughput and API requests to ensure service resiliency and availability. These limits are designed to help identify applications that may negatively impact other Key Vault customers while still allowing you to meet your operational requirements. For information on handling throttling when these limits are exceeded, see [Azure Key Vault throttling guidance](overview-throttling.md).
 
 [!INCLUDE [key-vault-limits](~/reusable-content/ce-skilling/azure/includes/key-vault/key-vault-service-limits.md)]
 
