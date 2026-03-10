@@ -25,6 +25,9 @@ When multi-region replication is enabled on a managed HSM, a second managed HSM 
 
 Any write operation to the Managed HSM, such as creating or updating a key, creating or updating a role definition, or creating or updating a role assignment, may take up to 6 minutes before both regions are fully replicated. Within this window, it isn't guaranteed that the written material has replicated between the regions. Therefore, it's best to wait six minutes between creating or updating the key and using the key to ensure that the key material has fully replicated between regions. The same applies for role assignments and role definitions.
 
+> [!NOTE]
+> When initially extending a Managed HSM to another region, the region extension command itself may take up to 30 minutes to complete before the extension region is live.
+
 ## Failover behavior
 
 Failover occurs when one of the regions in a multi-region Managed HSM becomes unavailable due to an outage and the other region begins to service all requests. The outage may be limited to your HSM pool only, the entire Managed HSM service, or the entire Azure region. During failover, you may notice a change in behavior depending on the affected region.

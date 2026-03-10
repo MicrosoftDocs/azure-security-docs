@@ -109,7 +109,7 @@ sudo ./azcloudhsm_util singlecmd loginHSM -u CU -s $PKCS11_S -p $PKCS11_P genRSA
 ```
 
 > [!IMPORTANT]
-> Please ensure that each of the HSM partitions returns to success.
+> Ensure that each of the HSM nodes returns success.
 
 ```bash
 chsmVMAdmin@AdminVM:/opt/azurecloudhsm/bin$ sudo ./azcloudhsm_util singlecmd loginHSM -u CU -s cu1 -p user1234 genRSAKeyPair -m 2048 -e 65537 -l signkeyid -id signkeyid
