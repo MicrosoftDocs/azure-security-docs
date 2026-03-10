@@ -25,6 +25,8 @@ items:
         href: onboarding-guide.md
       - name: Azure Cloud HSM Integration Guides
         href: integration-guides.md
+      - name: Synchronize users and keys across nodes
+        href: synchronize-users-keys.md
   - name: Security and best practices
     items:
       - name: Secure your Cloud HSM
