@@ -48,7 +48,7 @@ The payShield 10K uses a dual power supply unit (PSU) design for redundancy. Eac
 
 During scheduled datacenter power maintenance, power feeds are serviced one at a time while the other feed remains active, ensuring continuous operation through redundant power. You may see transient single-PSU messages in your HSM logs such as:
 
-```
+```text
 Power supply 1 AC outage
 Power supply 1 AC restored
 ```
