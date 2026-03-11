@@ -8,25 +8,26 @@ tags: 'rotation'
 ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: tutorial
-ms.date: 04/14/2025
+ms.date: 01/30/2026
 
 ms.author: mbaldwin
 ms.devlang: csharp
-ms.custom: devx-track-csharp
-
+ms.custom: devx-track-csharp, sfi-image-nochange, copilot-scenario-highlight
 ---
 # Automate the rotation of a secret for resources that use one set of authentication credentials
 
 The best way to authenticate to Azure services is by using a [managed identity](../general/authentication.md), but there are some scenarios where that isn't an option. In those cases, access keys or secrets are used. You should periodically rotate access keys or secrets.
 
-This tutorial shows how to automate the periodic rotation of secrets for databases and services that use one set of authentication credentials. Specifically, this tutorial rotates SQL Server passwords stored in Azure Key Vault by using a function triggered by Azure Event Grid notification:
+This tutorial shows how to automate the periodic rotation of secrets for databases and services that use one set of authentication credentials. For a comprehensive overview of autorotation concepts and benefits across different asset types, see [Understanding autorotation in Azure Key Vault](../general/autorotation.md).
+
+Specifically, this tutorial rotates SQL Server passwords stored in Azure Key Vault by using a function triggered by Azure Event Grid notification:
 
 :::image type="content" source="../media/rotate-1.png" alt-text="Diagram of rotation solution":::
 
 1. Thirty days before the expiration date of a secret, Key Vault publishes the "near expiry" event to Event Grid.
-1. Event Grid checks the event subscriptions and uses HTTP POST to call the function app endpoint subscribed to the event.
-1. The function app receives the secret information, generates a new random password, and creates a new version for the secret with the new password in Key Vault.
-1. The function app updates SQL Server with the new password.
+2. Event Grid checks the event subscriptions and uses HTTP POST to call the function app endpoint subscribed to the event.
+3. The function app receives the secret information, generates a new random password, and creates a new version for the secret with the new password in Key Vault.
+4. The function app updates SQL Server with the new password.
 
 > [!NOTE]
 > There could be a lag between steps 3 and 4. During that time, the secret in Key Vault won't be able to authenticate to SQL Server. 
@@ -34,7 +35,7 @@ This tutorial shows how to automate the periodic rotation of secrets for databas
 
 ## Prerequisites
 
-* An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * Azure Key Vault
 * SQL Server
 
@@ -172,7 +173,7 @@ This rotation method reads database information from the secret, creates a new v
 
             //Check Service Provider connection
             CheckServiceConnection(secret);
-            log.LogInformation("Service  Connection Validated");
+            log.LogInformation("Service Connection Validated");
             
             //Create new password
             var randomPassword = CreateRandomPassword();
@@ -196,13 +197,13 @@ You can find the complete code on [GitHub](https://github.com/Azure-Samples/KeyV
 Set your access policy to grant *manage secrets* permissions to users:
 
 ```azurecli
-az keyvault set-policy --upn <email-address-of-user> --name akvrotation-kv --secret-permissions set delete get list
+az role assignment create --role "Key Vault Secrets Officer" --assignee <email-address-of-user> --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.KeyVault/vaults/akvrotation-kv
 ```
 
 Create a new secret with tags that contain the SQL Server resource ID, the SQL Server login name, and validity period for the secret in days. Provide name of the secret, initial password from SQL database (in our example "Simple123") and include an expiration date that's set for tomorrow.
 
 ```azurecli
-$tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddThh:mm:ssZ")
+$tomorrowDate = (get-date).AddDays(+1).ToString("yyyy-MM-ddThh:mm:ssZ")
 az keyvault secret set --name sqlPassword --vault-name akvrotation-kv --value "Simple123" --tags "CredentialId=sqlAdmin" "ProviderAddress=<sql-database-resource-id>" "ValidityPeriodDays=90" --expires $tomorrowDate
 ```
 
@@ -247,10 +248,26 @@ Go to the deployed application URL:
 
 When the application opens in the browser, you will see the **Generated Secret Value** and a **Database Connected** value of *true*.
 
+## Use AI to customize the rotation function for your database
+
+This tutorial demonstrates secret rotation for SQL Server, but you can adapt the rotation function for other database types. GitHub Copilot in VS Code can help you modify the rotation function code to work with your specific database or credential type.
+
+```copilot-prompt
+I'm using the Azure Key Vault secret rotation tutorial for SQL Server. Help me modify the rotation function to work with PostgreSQL instead. The function should:
+1. Generate a new secure password
+2. Update the PostgreSQL database user password
+3. Store the new password in Key Vault
+Show me the changes needed to the C# function code, including the correct PostgreSQL connection library and password update command.
+```
+
+Copilot can also help you adapt this pattern for other credential types like API keys, connection strings, or service account passwords.
+
+[!INCLUDE [copilot-highlights-disclaimer](~/reusable-content/ce-skilling/azure/includes/copilot-highlights-disclaimer.md)]
+
 ## Learn more
 
-- Tutorial: [Rotation for resources with two sets of credentials](tutorial-rotation-dual.md)
-- Overview: [Monitoring Key Vault with Azure Event Grid](../general/event-grid-overview.md)
-- How to: [Receive email when a key vault secret changes](../general/event-grid-logicapps.md)
+- [Rotation for resources with two sets of credentials](tutorial-rotation-dual.md)
+- [Understanding autorotation in Azure Key Vault](../general/autorotation.md)
+- [Monitoring Key Vault with Azure Event Grid](../general/event-grid-overview.md)
+- [Receive email when a key vault secret changes](../general/event-grid-logicapps.md)
 - [Azure Event Grid event schema for Azure Key Vault](/azure/event-grid/event-schema-key-vault)
-

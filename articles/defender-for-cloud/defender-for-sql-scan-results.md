@@ -1,9 +1,9 @@
 ---
 title: How to consume and export scan results
 description: Learn how to consume and export Defender for SQL's scan results.
-
 ms.topic: how-to
-ms.date: 06/04/2023
+ms.date: 07/15/2025
+ms.custom: sfi-image-nochange
 ---
 
 # How to consume and export scan results
@@ -34,10 +34,12 @@ This article describes several ways to consume and export your scan results.
 
     - **Query returning affected resources** - Returns a list of the resources that are currently affected (recommendation status per resource).
     - **Query returning security findings** -  Returns a list of all security findings (findings and subassessments aggregated per applicable resources).
+    
+    :::image type="content" source="media/defender-for-sql-scan-results/open-query-options.png" alt-text="Screenshot of the Recommendations page, with the Open query dropdown indicated in the upper-left. The dropdown shows two options: query returning affected resource and query returning security findings." lightbox="media/defender-for-sql-scan-results/open-query-options.png":::
 
 1. Select **Run query**.
 
-1. Select **Download a CSV**, to export your results to a CSV file.
+1. Select **Download as CSV**.
 
 These queries are editable and can be customized to a specific resource, set of findings, findings status or more.
 
@@ -60,6 +62,7 @@ These queries are editable and can be customized to a specific resource, set of 
     | where resourceId =~ "/subscriptions/resourcegroups/rgname/providers/microsoft.sql/servers/servername/databases/dbname"
     | where assessmentKey =~ "82e20e14-edc5-4373-bfc4-f13121257c37"
     | project resourceId,
+    subscriptionId,
     assessmentKey,
     subAssessmentId,
     name=properties.displayName,
@@ -75,9 +78,9 @@ These queries are editable and can be customized to a specific resource, set of 
 
 1. Select **Run query**.
 
-1. Select **Download a CSV**, to export your results to a CSV file.
+1. Select **Download as CSV**.
 
-    :::image type="content" source="media/defender-for-sql-scan-results/run-and-download.png" alt-text="Screenshot that shows you where the run query button and the download  as csv button are located." lightbox="media/defender-for-sql-scan-results/run-and-download.png":::
+    :::image type="content" source="media/defender-for-sql-scan-results/run-and-download.png" alt-text="Screenshot that shows you where the run query button and the download as csv button are located." lightbox="media/defender-for-sql-scan-results/run-and-download.png":::
 
 This query is editable and can be customized to a specific resource, set of findings, findings status or more.
 
@@ -87,7 +90,11 @@ This query is editable and can be customized to a specific resource, set of find
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Navigate to `Your SQL database` > **Microsoft Defender for Cloud**.
+1. Navigate to the relevant SQL database.
+
+1. Go to **Security** > **Microsoft Defender for Cloud**.
+
+1. Select the relevant recommendation finding.
 
 1. Select **Open Query**.
 
@@ -95,7 +102,7 @@ This query is editable and can be customized to a specific resource, set of find
 
 1. Select **Run query**.
 
-1. Select **Download a CSV**, to export your results to a CSV file.
+1. Select **Download as CSV**.
 
     :::image type="content" source="media/defender-for-sql-scan-results/run-and-download.png" alt-text="Screenshot that shows you where the run query button and the download  as csv button are located." lightbox="media/defender-for-sql-scan-results/run-and-download.png":::
 
@@ -103,13 +110,13 @@ This query is editable and can be customized to a specific resource, set of find
 
 ## Automate email notifications with LogicApps
 
-Azure Logic Apps is a low-code or no-code cloud-based service that provides you with a way to automate workflows and integrate data and services across different systems, both in the cloud and on-premises. You can use Logic App to automate the reports of your vulnerability assessment findings across all supported versions of SQL, to send a weekly vulnerability report summary for any servers that were scanned. You can customize Logic App to run on different schedules such as daily, weekly, monthly or more. You can also customize Logic App to report on different scopes such as per database, server, resource group or more.
+Azure Logic Apps is a low-code or no-code cloud-based service that provides you with a way to automate workflows and integrate data and services across different systems, both in the cloud and on-premises. You can use Logic App to automate the reports of your vulnerability assessment findings across all supported versions of SQL, to send a weekly vulnerability report summary for any servers that were scanned. You can customize Logic App to run on different schedules such as daily, weekly, monthly, or more. You can also customize Logic App to report on different scopes such as per database, server, resource group or more.
 
 You can use [these instructions](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Workflow%20automation/Notify-SQLVulnerabilityReport), to learn how to use Logic Apps to automate email notifications using an example template.
 
 This example Logic App template automates a weekly email report that summarizes the vulnerability scan results for every database from a selected list of servers. After you deploy the template, you must authorize the Office 365 connector to generate a valid access token to authenticate your credentials.
 
-The recipients will then receive emails with the findings of the scan results.
+The recipients receive emails with the findings of the scan results.
 
 Sample email Azure SQL server:
 
@@ -121,7 +128,7 @@ Sample email SQL VM:
 
 ## Other options
 
-You can use [workflow automations](workflow-automation.yml) to trigger actions based on changes to the recommendation's status.
+You can use [workflow automations](workflow-automations.md) to trigger actions based on changes to the recommendation's status.
 
 You can also use the [Vulnerability Assessments workbook](defender-for-sql-on-machines-vulnerability-assessment.md#view-vulnerabilities-in-graphical-interactive-reports) to view an interactive report of your findings. The data from the workbook can be exported, and a copy of the workbook can be customized and stored. Learn how to [create rich, interactive reports of Defender for Cloud data](custom-dashboards-azure-workbooks.md)
 

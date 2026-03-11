@@ -11,7 +11,7 @@ ms.author: mbaldwin
 ---
 # Deployment scenarios
 
-Microsoft deploys payment hardware security modules (HSM) in stamps within a region and multi-region to enable high availability (HA) and disaster recovery. In a region, HSMs are deployed across different stamps to prevent single rack failure, and customers must provision two devices in a region from two separate stamps in order to achieve high availability. For disaster recovery, customer must provision HSM devices in an alternative region.
+Microsoft deploys payment hardware security modules (HSM) in stamps within a region and multi-region to enable high availability (HA) and disaster recovery. In a region, HSMs are deployed across two availability zones, and customers must provision two devices in a region from two separate stamps in order to achieve high availability. For disaster recovery, customer must provision HSM devices in an alternative region.
 
 Thales doesn't provide PayShield SDK to customers, which supports HA over a cluster (a collection of HSMs initialized with same Local Master Key). However, the customers usage scenario of the Thales PayShield devices is like a Stateless Server. Thus, no synchronization is required between HSMs during application runtime. Customers handle the HA using their custom client. One implementation would be to load balance between healthy HSMs connected to the application. Customers are responsible for implementing high availability by provisioning multiple devices, load balancing them, and using any kind of available backup mechanism to back up keys.
 
@@ -21,7 +21,7 @@ Thales doesn't provide PayShield SDK to customers, which supports HA over a clus
 > - Network Security Groups and User Defined Routes are not supported for payment HSM subnets.
 > - Virtual network peering does not support cross-region communication with payment HSM instances. A virtual machine in one region cannot communicate with a payment HSM instance in another region without the use of ExpressRoute or a VPN gateway.
 > - Customers can allocate a maximum of two payment HSMs from each stamp in one region under same subscription.
-> - If customer does not have a High Availability setup in their production environment, the customer cannot receive S2 support from Microsoft side.
+> - If customer does not have a High Availability setup in their production environment, the customer cannot receive Severity A support from Microsoft side.
 
 ## High availability deployment
 

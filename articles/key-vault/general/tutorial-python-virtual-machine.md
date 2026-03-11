@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 04/16/2025
+ms.date: 01/30/2026
 ms.author: mbaldwin
 ms.devlang: python
 ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell
@@ -22,13 +22,13 @@ In this tutorial, you set up a Python application to read information from Azure
 > * Create a key vault
 > * Store a secret in Key Vault
 > * Create an Azure Linux virtual machine
-> * Enable a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) for the virtual machine
+> * Enable a [managed identity](/entra/identity/managed-identities-azure-resources/overview) for the virtual machine
 > * Grant the required permissions for the console application to read data from Key Vault
 > * Retrieve a secret from Key Vault
 
 Before you begin, read [Key Vault basic concepts](basic-concepts.md). 
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Prerequisites
 
@@ -46,7 +46,7 @@ az login
 
 ## Create a resource group and key vault
 
-[!INCLUDE [Create a resource group and key vault](../includes/key-vault-rg-kv-creation.md)]
+[!INCLUDE [Create a resource group and key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/create-resource-group-key-vault-pivot.md)]
 
 ## Populate your key vault with a secret
 
@@ -94,7 +94,7 @@ Note the system-assigned identity that's displayed in the following code. The ou
 
 ## Assign permissions to the VM identity
 
-[!INCLUDE [Using RBAC to provide access to a key vault](../includes/key-vault-quickstart-rbac.md)]
+[!INCLUDE [Using RBAC to provide access to a key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/rbac/upn-secrets-user-pivot.md)]
 
 ## Log in to the VM
 
@@ -109,14 +109,14 @@ ssh azureuser@<PublicIpAddress>
 
 ## Install Python libraries on the VM
 
-On the virtual machine, install the two Python libraries we'll be using in our Python script: `azure-keyvault-secrets` and `azure.identity`.  
+On the virtual machine, install the two Python libraries we'll be using in our Python script: `azure-keyvault-secrets` and `azure-identity`.  
 
 On a Linux VM, for instance, you can install these using `pip3`:
 
 ```bash
 pip3 install azure-keyvault-secrets
 
-pip3 install azure.identity
+pip3 install azure-identity
 ```
 
 ## Create and edit the sample Python script

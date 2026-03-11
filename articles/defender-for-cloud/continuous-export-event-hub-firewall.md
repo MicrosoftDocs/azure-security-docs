@@ -1,10 +1,11 @@
 ---
 title: Set up continuous export to an event hub behind a firewall
 description: Learn how to set up continuous export of Microsoft Defender for Cloud security alerts and recommendations to an event hub behind a firewall.
-author: dcurwin
-ms.author: dacurwin
+author: Elazark
+ms.author: elkrieger
 ms.topic: how-to
 ms.date: 03/20/2024
+ms.custom: sfi-image-nochange
 #customer intent: As a security analyst, I want to learn how to set up continuous export of alerts and recommendations to an event hub behind a firewall so that I can analyze the data in Log Analytics or Azure Event Hubs.
 ---
 
@@ -32,7 +33,7 @@ You can enable continuous export as a trusted service so that you can send data 
 
 1. Select **Export as a trusted service**.
 
-    :::image type="content" source="media/continuous-export-event-hub-firewall/export-as-trusted.png" alt-text="Screenshot that shows where the checkbox is located to select export as trusted service.":::
+    :::image type="content" source="media/continuous-export-event-hub-firewall/export-as-trusted.png" alt-text="Screenshot that shows where the checkbox is located to select export as trusted service." lightbox="media/continuous-export-event-hub-firewall/export-as-trusted.png":::
 
 ## Add the relevant role assignment to the destination event hub.
 

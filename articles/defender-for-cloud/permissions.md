@@ -35,6 +35,8 @@ The following table displays roles and allowed actions in Defender for Cloud.
 | View alerts and recommendations | ✔ | ✔ | ✔ | ✔ | ✔ |
 | Exempt security recommendations | - |✔|-|-| ✔ |
 | Configure email notifications | - | ✔ | ✔| ✔ | ✔ |
+| View GitHub issue and its associated information | ✔ | ✔ | ✔ | ✔ | ✔ |
+| Generate GitHub issue + assign to "owner" | - | ✔ | ✔ | ✔ | ✔ |
 
 > [!NOTE]
 > While the three roles mentioned are sufficient for enabling and disabling Defender for Cloud plans, the Owner role is required to enable all capabilities of a plan.
@@ -89,5 +91,5 @@ This article explained how Defender for Cloud uses Azure  Role-Based Access Cont
 
 - [Set security policies in Defender for Cloud](tutorial-security-policy.md)
 - [Manage security recommendations in Defender for Cloud](review-security-recommendations.md)
-- [Manage and respond to security alerts in Defender for Cloud](managing-and-responding-alerts.yml)
+- [Manage and respond to security alerts in Defender for Cloud](manage-respond-alerts.md)
 - [Monitor partner security solutions](./partner-integration.md)

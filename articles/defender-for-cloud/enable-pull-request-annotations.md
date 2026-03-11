@@ -1,8 +1,8 @@
 ---
 title: Enable pull request annotations in GitHub or in Azure DevOps
-description: Add pull request annotations in GitHub or in Azure DevOps. By adding pull request annotations, your SecOps and developer teams so that they can be on the same page when it comes to mitigating issues.
+description: Add pull request annotations in GitHub or in Azure DevOps. By adding pull request annotations, your SecOps, and developer teams so that they can be on the same page when it comes to mitigating issues.
 ms.topic: overview
-ms.date: 06/06/2023
+ms.date: 07/15/2025
 ---
 
 # Enable pull request annotations in GitHub and Azure DevOps
@@ -11,27 +11,35 @@ DevOps security exposes security findings as annotations in Pull Requests (PR). 
 
 With Microsoft Defender for Cloud, you can configure PR annotations in Azure DevOps. You can get PR annotations in GitHub if you're a GitHub Advanced Security customer.
 
+> [!NOTE]
+> Pull request annotations, also known as merge request annotations (GitLab), aren't supported in GitLab projects that are connected to Defender for Cloud DevOps.
+>
+> Defender for Cloud will present security findings for any connected GitLab repositories. However, GitLab merge requests don't show these findings as inline annotations.
+> 
+> GitHub supports pull request annotations when you enable GitHub Advanced Security.
+
+
 ## What are pull request annotations
 
 Pull request annotations are comments that are added to a pull request in GitHub or Azure DevOps. These annotations provide feedback on the code changes made and identified security issues in the pull request and help reviewers understand the changes that are made.
 
-Annotations can be added by a user with access to the repository, and can be used to suggest changes, ask questions, or provide feedback on the code. Annotations can also be used to track issues and bugs that need to be fixed before the code is merged into the main branch. DevOps security in Defender for Cloud uses annotations to surface security findings.
+Users with access to the repository can add annotations, to suggest changes, ask questions, or provide feedback on the code. Annotations can also be used to track issues and bugs that need to be fixed before the code is merged into the main branch. DevOps security in Defender for Cloud uses annotations to surface security findings.
 
 ## Prerequisites
 
 **For GitHub**:
 
-- An Azure account. If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
+- An Azure account. If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Be a [GitHub Advanced Security](https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security) customer.
 - [Connect your GitHub repositories to Microsoft Defender for Cloud](quickstart-onboard-github.md).
 - [Configure the Microsoft Security DevOps GitHub action](github-action.md).
 
 **For Azure DevOps**:
 
-- An Azure account. If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
+- An Azure account. If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Have write access (owner/contributor) to the Azure subscription](/azure/active-directory/privileged-identity-management/pim-how-to-activate-role).
 - [Connect your Azure DevOps repositories to Microsoft Defender for Cloud](quickstart-onboard-devops.md).
-- [Configure the Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.yml).
+- [Configure the Microsoft Security DevOps Azure DevOps extension](configure-azure-devops-extension.md).
 
 ## Enable pull request annotations in GitHub
 
@@ -45,11 +53,11 @@ By enabling pull request annotations in GitHub, your developers gain the ability
 
 1. Navigate to **`Your repository's home page`** > **.github/workflows**.
 
-    :::image type="content" source="media/tutorial-enable-pr-annotations/workflow-folder.png" alt-text="Screenshot that shows where to navigate to, to select the GitHub workflow folder." lightbox="media/tutorial-enable-pr-annotations/workflow-folder.png":::
+    :::image type="content" source="media/tutorial-enable-pr-annotations/workflow-folder.png" alt-text="Screenshot that shows where to navigate to, to select the GitHub workflow folder." lightbox="media/tutorial-enable-pr-annotations/workflow-folder.png" :::
 
 1. Select **msdevopssec.yml**, which was created in the [prerequisites](#prerequisites).
 
-    :::image type="content" source="media/tutorial-enable-pr-annotations/devopssec.png" alt-text="Screenshot that shows you where on the screen to select the msdevopssec.yml file." lightbox="media/tutorial-enable-pr-annotations/devopssec.png":::
+    :::image type="content" source="media/tutorial-enable-pr-annotations/devopssec.png" alt-text="Screenshot that shows you where on the screen to select the msdevopssec.yml file." lightbox="media/tutorial-enable-pr-annotations/devopssec.png" :::
 
 1. Select **edit**.
 
@@ -106,7 +114,7 @@ Before you can enable pull request annotations, your main branch must have enabl
 
 1. Select **Save**.
 
-    :::image type="content" source="media/tutorial-enable-pr-annotations/validation-policy.png" alt-text="Screenshot that shows the build validation.":::
+    :::image type="content" source="media/tutorial-enable-pr-annotations/validation-policy.png" alt-text="Screenshot that shows the build validation." lightbox="media/tutorial-enable-pr-annotations/validation-policy.png":::
 
 Once you've completed these steps, you can select the build pipeline you created previously and customize its settings to suit your needs.  
 
@@ -122,11 +130,11 @@ Once you've completed these steps, you can select the build pipeline you created
 
 1. Select **Manage resources**.
 
-    :::image type="content" source="media/tutorial-enable-pr-annotations/manage-resources.png" alt-text="Screenshot that shows you how to manage resources.":::
+    :::image type="content" source="media/tutorial-enable-pr-annotations/manage-resources.png" alt-text="Screenshot that shows you how to manage resources." lightbox="media/tutorial-enable-pr-annotations/manage-resources.png":::
 
 1. Toggle pull request annotations to **On**.
 
-    :::image type="content" source="media/tutorial-enable-pr-annotations/annotation-on.png" alt-text="Screenshot that shows the toggle switched to on.":::
+    :::image type="content" source="media/tutorial-enable-pr-annotations/annotation-on.png" alt-text="Screenshot that shows the toggle switched to on." lightbox="media/tutorial-enable-pr-annotations/annotation-on.png":::
 
 1. (Optional) Select a category from the drop-down menu.
 
@@ -174,12 +182,12 @@ Parameters / Options Available
 **Options**: Enabled | Disabled
 
 **`<Category>`**
-**Description**: Category of Findings that will be annotated on pull requests.
+**Description**: Category of Findings that are annotated on pull requests.
 **Options**: IaC | Code | Artifacts | Dependencies | Containers
 **Note**: Only IaC is supported currently
 
 **`<Severity>`**
-**Description**: The minimum severity of a finding that will be considered when creating PR annotations.
+**Description**: The minimum severity of a finding that is considered when creating PR annotations.
 **Options**: High | Medium | Low
 
 Example of enabling an Azure DevOps Org's PR Annotations for the IaC category with a minimum severity of Medium using the az cli tool.

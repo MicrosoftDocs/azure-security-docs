@@ -1,10 +1,11 @@
 ---
 title: Review Docker host hardening recommendations
 description: How to protect your Docker hosts and verify they're compliant with the CIS Docker benchmark with Microsoft Defender for Cloud.
-author: dcurwin
-ms.author: dacurwin
+author: Elazark
+ms.author: elkrieger
 ms.topic: how-to
 ms.date: 02/19/2025
+ms.custom: sfi-image-nochange
 ---
 # Review Docker host hardening recommendations
 
@@ -13,10 +14,6 @@ The Defender for Servers plan in Microsoft Defender for Cloud identifies unmanag
 - Defender for Cloud includes the entire ruleset of the CIS Docker Benchmark and alerts you if your containers don't satisfy any of the controls.
 - When it finds misconfigurations, Defender for Servers generates security recommendations to address findings.-
 When vulnerabilities are found, they're grouped inside a single recommendation.
-
-> [!NOTE]
-> Docker host hardening uses the Log Analytics agent (also known as the Microsoft Monitoring agent (MMA)) to collect host information for assessment.
-> The MMA is retiring, and the Docker host hardening feature will be deprecated in November 2024.
 
 ## Prerequisites
 

@@ -1,11 +1,12 @@
 ---
 title: Protect your APIs with Defender for APIs
 description: Learn how to enable and deploy the Defender for APIs plan in the Microsoft Defender for Cloud portal.
-author: dcurwin
-ms.author: dacurwin
+author: Elazark
+ms.author: elkrieger
 ms.service: defender-for-cloud
-ms.topic: conceptual
-ms.date: 03/03/2024
+ms.topic: concept-article
+ms.date: 09/28/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Protect your APIs with Defender for APIs
@@ -43,7 +44,7 @@ When selecting a plan, consider these points:
 - The API traffic counted towards the billing is reset to 0 at the start of each month (every billing cycle).
 - The overages are computed on API traffic exceeding the entitlement limit per plan selection during the month for your entire subscription.
 
-To select the best plan for your subscription from the Microsoft Defender for Cloud [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/), follow these steps and choose the plan that matches your subscriptions’ API traffic requirements:  
+To select the best plan for your subscription from the Microsoft Defender for Cloud [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). You can also [estimate costs with the Defender for Cloud cost calculator](cost-calculator.md). Follow these steps to choose the plan that matches your subscriptions’ API traffic requirements:  
 
 1. Sign into the [portal](https://portal.azure.com/), and in Defender for Cloud, select **Environment settings**.
 
@@ -124,6 +125,12 @@ After onboarding the API resources, you can track their status in the Defender f
 You can also navigate to other collections to learn about what types of insights or risks might exist in the inventory:
 
 :::image type="content" source="media/defender-for-apis-deploy/collection-overview.png" alt-text="Screenshot showing the overview of API collections." lightbox="media/defender-for-apis-deploy/collection-overview.png":::
+
+## View your current coverage
+
+Defender for Cloud provides access to [workbooks](custom-dashboards-azure-workbooks.md) through [Azure workbooks](/azure/azure-monitor/visualize/workbooks-overview). Workbooks are customizable reports that provide insights into your security posture.
+
+The [coverage workbook](custom-dashboards-azure-workbooks.md#coverage-workbook) helps you understand your current coverage by showing which plans are enabled on your subscriptions and resources.
 
 ## Next steps
 

@@ -24,20 +24,20 @@ Azure Key Vault is a cloud service that provides a secure store for [keys](../ke
 
 ## Create a resource group
 
-[!INCLUDE [Create a resource group](../../../includes/cli-rg-create.md)]
+[!INCLUDE [Create a resource group](~/reusable-content/ce-skilling/azure/includes/create-resource-group-cli.md)]
 
 ## Create a key vault
 
-[!INCLUDE [Create a key vault](../includes/key-vault-creation-cli.md)]
+[!INCLUDE [Create a key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/create-key-vault-cli.md)]
 
 ## Clean up resources
 
-[!INCLUDE [Delete a key vault](../../../includes/cli-rg-delete.md)]
+[!INCLUDE [Clean up resources](~/reusable-content/ce-skilling/azure/includes/delete-resource-group-cli.md)]
 
 ## Next steps
 
 In this quickstart you created a Key Vault and deleted it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
 - Read an [Overview of Azure Key Vault](overview.md)
-- Review the [Azure Key Vault security overview](security-features.md)
+- Review the [Azure Key Vault security overview](secure-key-vault.md)
 - See the reference for the [Azure CLI az keyvault commands](/cli/azure/keyvault)

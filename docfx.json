@@ -134,8 +134,8 @@
         "articles/key-vault/*": true
       },
       "author": {
-        "articles/defender-for-cloud/*.md": "dcurwin",
-        "articles/defender-for-cloud/*.yml": "dcurwin"
+        "articles/defender-for-cloud/*.md": "ElazarK",
+        "articles/defender-for-cloud/*.yml": "ElazarK"
       },
       "featureFlags": {
         "articles/**/*.md": [
@@ -167,8 +167,8 @@
         "articles/defender-for-cloud/*.md": "raynew"
       },
       "ms.author": {
-        "articles/defender-for-cloud/*.md": "dacurwin",
-        "articles/defender-for-cloud/*.yml": "dacurwin"
+        "articles/defender-for-cloud/*.md": "elkrieger",
+        "articles/defender-for-cloud/*.yml": "elkrieger"
       },
       "ms.service": {
         "articles/defender-for-cloud/*.md": "defender-for-cloud",

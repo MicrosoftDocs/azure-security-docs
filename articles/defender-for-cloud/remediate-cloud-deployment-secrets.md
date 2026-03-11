@@ -2,7 +2,8 @@
 title: Remediate cloud deployment secrets security issues in Microsoft Defender for Cloud
 description: Learn how to remediate cloud deployment secrets security issues in Microsoft Defender for Cloud.
 ms.topic: overview
-ms.date: 04/16/2024
+ms.date: 05/25/2025
+ms.custom: sfi-image-nochange
 ---
 
 
@@ -14,7 +15,7 @@ This article helps you to identify and remediate security risks with cloud deplo
 
 ## Prerequisites
 
-- An Azure account. If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
+- An Azure account. If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - [Defender for Cloud](get-started.md) must be available in your Azure subscription.
 - The [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) plan.

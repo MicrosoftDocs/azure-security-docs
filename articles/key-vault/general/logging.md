@@ -89,11 +89,7 @@ The following table lists the **operationName** values and corresponding REST AP
 | **VaultPut** |[Create or update a key vault](/rest/api/keyvault/keyvault/vaults) |
 | **VaultDelete** |[Delete a key vault](/rest/api/keyvault/keyvault/vaults) |
 | **VaultPatch** |[Update a key vault](/rest/api/keyvault/keyvault/vaults) |
-| **VaultList** |[List all key vaults in a resource group](/rest/api/keyvault/keyvault/vaults) |
-| **VaultPurge** |[Purge deleted vault](/rest/api/keyvault/keyvault/vaults/purge-deleted) |
 | **VaultRecover** |Recover deleted vault|
-| **VaultGetDeleted** |[Get deleted vault](/rest/api/keyvault/keyvault/vaults/get-deleted) |
-| **VaultListDeleted** |[List deleted vaults](/rest/api/keyvault/keyvault/vaults/list-deleted) |
 | **VaultAccessPolicyChangedEventGridNotification** | Vault access policy changed event published.  It is logged regardless if an Event Grid subscription exists. |
 
 # [Keys](#tab/Keys)

@@ -12,7 +12,7 @@ ms.date: 04/14/2025
 
 # Security domain in Managed HSM overview
 
-A managed HSM is a single-tenant, [Federal Information Processing Standards (FIPS) 140-2 validated](https://csrc.nist.gov/publications/detail/fips/140/2/final), highly available, hardware security module (HSM) that has a customer-controlled security domain.  
+A managed HSM is a single-tenant, [Federal Information Processing Standards (FIPS) 140-3 validated](https://csrc.nist.gov/publications/detail/fips/140/3/final), highly available, hardware security module (HSM) that has a customer-controlled security domain.  
 
 To operate, a managed HSM must have a security domain. The security domain is an encrypted blob file that contains artifacts like the HSM backup, user credentials, the signing key, and the data encryption key that's unique to the managed HSM.
 
@@ -102,4 +102,4 @@ We highly recommend that you review [NIST Special Publication 800-57](https://cs
 
 - Read an [overview of Managed HSM](overview.md).
 - Learn about [managing your managed HSM by using the Azure CLI](key-management.md).
-- Review [Managed HSM best practices](best-practices.md).
+- Review [Secure your Azure Managed HSM deployment](secure-managed-hsm.md).

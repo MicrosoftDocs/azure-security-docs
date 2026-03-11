@@ -7,21 +7,23 @@ tags: 'rotation'
 ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: tutorial
-ms.date: 04/14/2025
+ms.date: 01/30/2026
 
 ms.author: mbaldwin
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, sfi-image-nochange, copilot-scenario-highlight
 ---
 # Automate the rotation of a secret for resources that have two sets of authentication credentials
 
 The best way to authenticate to Azure services is by using a [managed identity](../general/authentication.md), but there are some scenarios where that isn't an option. In those cases, access keys or passwords are used. You should rotate access keys and passwords frequently.
 
-This tutorial shows how to automate the periodic rotation of secrets for databases and services that use two sets of authentication credentials. Specifically, this tutorial shows how to rotate Azure Storage account keys stored in Azure Key Vault as secrets. You'll use a function triggered by Azure Event Grid notification. 
+This tutorial shows how to automate the periodic rotation of secrets for databases and services that use two sets of authentication credentials. For a comprehensive overview of autorotation concepts and benefits across different asset types, see [Understanding autorotation in Azure Key Vault](../general/autorotation.md).
+
+Specifically, this tutorial shows how to rotate Azure Storage account keys stored in Azure Key Vault as secrets. You'll use a function triggered by Azure Event Grid notification.
 
 > [!NOTE]
 > For Storage account services, using Microsoft Entra ID to authorize requests is recommended. For more information, see [Authorize access to blobs using Microsoft Entra ID](/azure/storage/blobs/authorize-access-azure-active-directory). There are services that require storage account connection strings with access keys. For that scenario, we recommend this solution.
 
-Here's the rotation solution described in this tutorial: 
+Here's the rotation solution described in this tutorial:
 
 ![Diagram that shows the rotation solution.](../media/secrets/rotation-dual/rotation-diagram.png)
 
@@ -33,7 +35,7 @@ In this solution, Azure Key Vault stores storage account individual access keys 
 1. The function app adds the new regenerated key to Azure Key Vault as the new version of the secret.
 
 ## Prerequisites
-* An Azure subscription. [Create one for free.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* An Azure subscription. [Create one for free.](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 * Azure [Cloud Shell](https://shell.azure.com/). This tutorial is using portal Cloud Shell with PowerShell env
 * Azure Key Vault.
 * Two Azure storage accounts.
@@ -116,12 +118,12 @@ You can find deployment templates and code for the rotation function in [Azure S
 First, set your access policy to grant **manage secrets** permissions to your user principal:
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
-az keyvault set-policy --upn <email-address-of-user> --name vaultrotation-kv --secret-permissions set delete get list
+az role assignment create --role "Key Vault Secrets Officer" --assignee <email-address-of-user> --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.KeyVault/vaults/vaultrotation-kv
 ```
 # [Azure PowerShell](#tab/azurepowershell)
 
 ```azurepowershell
-Set-AzKeyVaultAccessPolicy -UserPrincipalName <email-address-of-user> --name vaultrotation-kv -PermissionsToSecrets set,delete,get,list
+New-AzRoleAssignment -SignInName <email-address-of-user> -RoleDefinitionName "Key Vault Secrets Officer" -Scope "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.KeyVault/vaults/vaultrotation-kv"
 ```
 ---
 
@@ -162,7 +164,7 @@ az keyvault secret set --name storageKey --vault-name vaultrotation-kv --value <
 # [Azure PowerShell](#tab/azurepowershell)
 
 ```azurepowershell
-$tomorrowDate = (Get-Date).AddDays(+1).ToString('yyy-MM-ddTHH:mm:ssZ')
+$tomorrowDate = (Get-Date).AddDays(+1).ToString('yyyy-MM-ddTHH:mm:ssZ')
 $secretValue = ConvertTo-SecureString -String '<key1Value>' -AsPlainText -Force
 $tags = @{
     CredentialId='key1'
@@ -314,7 +316,7 @@ Notice that `value` of the key is same as secret in key vault:
 
 ## Disable rotation for secret
 
-You can disable rotation of a secret simply by deleting the Event Grid subscription for that secret. Use the Azure PowerShell [Remove-AzEventGridSubscription](/powershell/module/az.eventgrid/remove-azeventgridsubscription) cmdlet or Azure CLI [az event grid event--subscription delete](/cli/azure/eventgrid/event-subscription?#az-eventgrid-event-subscription-delete) command.
+You can disable rotation of a secret simply by deleting the Event Grid subscription for that secret. Use the Azure PowerShell [Remove-AzEventGridSubscription](/powershell/module/az.eventgrid/remove-azeventgridsubscription) cmdlet or Azure CLI [az eventgrid event-subscription delete](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-delete) command.
 
 
 ## Key Vault rotation functions for two sets of credentials
@@ -329,10 +331,25 @@ Rotation functions template for two sets of credentials and several ready to use
 > [!NOTE]
 > These rotation functions are created by a member of the community and not by Microsoft. Community functions are not supported under any Microsoft support program or service, and are made available AS IS without warranty of any kind.
 
+## Use AI to customize the rotation function for other services
+
+This tutorial demonstrates secret rotation for Azure Storage accounts, but you can adapt the rotation function for other Azure services that use dual credentials. GitHub Copilot can help you modify the PowerShell rotation function code to work with your specific service.
+
+```copilot-prompt
+I'm using the Azure Key Vault dual-credential secret rotation tutorial for Storage accounts. Help me modify the PowerShell rotation function to work with Azure Cosmos DB instead. The function should:
+1. Connect to Cosmos DB and regenerate the secondary key
+2. Store the new key in Key Vault as a new secret version
+3. Alternate between primary and secondary keys on each rotation
+Show me the changes needed to the PowerShell function code, including the correct Cosmos DB PowerShell cmdlets.
+```
+
+[!INCLUDE [copilot-highlights-disclaimer](~/reusable-content/ce-skilling/azure/includes/copilot-highlights-disclaimer.md)]
+
 ## Next steps
 
-- Tutorial: [Secrets rotation for one set of credentials](./tutorial-rotation.md)
-- Overview: [Monitoring Key Vault with Azure Event Grid](../general/event-grid-overview.md)
-- How to: [Create your first function in the Azure portal](/azure/azure-functions/functions-get-started)
-- How to: [Receive email when a Key Vault secret changes](../general/event-grid-logicapps.md)
-- Reference: [Azure Event Grid event schema for Azure Key Vault](/azure/event-grid/event-schema-key-vault)
+- [Secrets rotation for one set of credentials](./tutorial-rotation.md)
+- [Understanding autorotation in Azure Key Vault](../general/autorotation.md)
+- [Monitoring Key Vault with Azure Event Grid](../general/event-grid-overview.md)
+- [Create your first function in the Azure portal](/azure/azure-functions/functions-get-started)
+- [Receive email when a Key Vault secret changes](../general/event-grid-logicapps.md)
+- [Azure Event Grid event schema for Azure Key Vault](/azure/event-grid/event-schema-key-vault)

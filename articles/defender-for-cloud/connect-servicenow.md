@@ -1,8 +1,8 @@
 ---
 title: Connect ServiceNow's ITSM module to Defender for Cloud
 description: Learn how to connect ServiceNow with Microsoft Defender for Cloud to protect Azure, hybrid, and multicloud machines.
-author: dcurwin
-ms.author: dacurwin
+author: Elazark
+ms.author: elkrieger
 ms.topic: how-to
 ms.date: 10/13/2024
 ai-usage: ai-assisted
@@ -19,8 +19,9 @@ Microsoft Defender for Cloud's integration with ServiceNow's IT Service Manageme
 
 - Enable [Defender Cloud Security Posture Management (CSPM)](tutorial-enable-cspm-plan.md) on your Azure subscription.
 
-- The following roles are required:
-  - To create the integration: Security Admin, Contributor, or Owner.
+- To create the integration, you must have the Security Admin, Contributor, or Owner role.
+
+- To create ServiceNow tickets for recommendations on AWS or GCP resources, the ServiceNow integration must be configured at the connector level. An integration configured only at the Azure subscription level doesn’t apply to non-Azure resources.
 
 ## Connect a ServiceNow account to Defender for Cloud
 

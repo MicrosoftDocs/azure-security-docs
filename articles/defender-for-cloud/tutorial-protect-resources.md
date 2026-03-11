@@ -3,7 +3,7 @@ title: Protect your Virtual Machines (VMs) with Microsoft Defender for Servers
 description: This tutorial shows you how to configure a just-in-time VM access policy and an application control policy.
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/29/2023
+ms.date: 07/15/2025
 
 ---
 # Protect your Virtual Machines (VMs) with Microsoft Defender for Servers
@@ -42,4 +42,4 @@ In this tutorial, you learned how to limit your exposure to threats by:
 Advance to the next tutorial to learn about responding to security incidents.
 
 > [!div class="nextstepaction"]
-> [Manage and respond to alerts](managing-and-responding-alerts.yml)
+> [Manage and respond to alerts](manage-respond-alerts.md)

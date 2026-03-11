@@ -6,8 +6,8 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.custom: mvc, mode-ui
-ms.date: 04/14/2025
+ms.custom: mvc, mode-ui, sfi-image-nochange
+ms.date: 01/30/2026
 
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure
@@ -18,7 +18,7 @@ Azure Key Vault is a cloud service that provides a secure store for secrets. You
 
 ## Prerequisites
 
-To access Azure Key Vault, you'll need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+To access Azure Key Vault, you'll need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 All access to secrets takes place through Azure Key Vault. For this quickstart, create a key vault using the [Azure portal](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md).
 
@@ -39,13 +39,13 @@ To add a certificate to the vault, you just need to take a couple of additional 
     - Leave the other values to their defaults. (By default, if you don't specify anything special in Advanced policy, it'll be usable as a client auth certificate.)
  4. Click **Create**.
 
-Once that you receive the message that the certificate has been successfully created, you may click on it on the list. You can then see some of the properties. If you click on the current version, you can see the value you specified in the previous step.
+Once you receive the message that the certificate has been successfully created, you may click on it on the list. You can then see some of the properties. If you click on the current version, you can see the value you specified in the previous step.
 
 ![Certificate properties](../media/certificates/quick-create-portal/current-version-hidden.png)
 
 ## Export certificate from Key Vault
 
-By clicking "Download in CER format" or "Download in PFX/PEM format" button, you can download the certificate. 
+By clicking "Download in CER format" or "Download in PFX/PEM format" button, you can download the certificate.
 
 ![Certificate download](../media/certificates/quick-create-portal/current-version-shown.png)
 
@@ -58,11 +58,11 @@ When no longer needed, delete the resource group, which deletes the Key Vault an
 2. Select **Delete resource group**.
 3. In the **TYPE THE RESOURCE GROUP NAME:** box type in the name of the resource group and select **Delete**.
 
-
 ## Next steps
 
 In this quickstart, you created a Key Vault and stored a certificate in it. To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
-- Review the [Key Vault security overview](../general/security-features.md)
+- Review the [Key Vault security overview](../general/secure-key-vault.md)
+- Review [certificates-specific security best practices](secure-certificates.md)

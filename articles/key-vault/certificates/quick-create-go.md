@@ -3,7 +3,7 @@ title: Quickstart – Azure Key Vault Go client library - Manage certificates
 description: Learn how to create, retrieve, and delete certificates from an Azure key vault using the Go client library
 author: Duffney
 ms.author: jduffney
-ms.date: 01/10/2024
+ms.date: 01/30/2026
 ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: quickstart
@@ -13,15 +13,15 @@ ms.custom: devx-track-go
 
 # Quickstart: Azure Key Vault certificate client library for Go
 
-In this quickstart, you'll learn to use the Azure SDK for Go to manage certificates in an Azure Key Vault.
+In this quickstart, you learn how to use the Azure SDK for Go to manage certificates in an Azure key vault.
 
-Azure Key Vault is a cloud service that works as a secure secrets store. You can securely store keys, passwords, certificates, and other secrets. For more information on Key Vault, you may review the [Overview](../general/overview.md).
+Azure Key Vault is a cloud service that works as a secure secrets store. You can securely store keys, passwords, certificates, and other secrets. For more information on Key Vault, review the [Overview](../general/overview.md).
 
 Follow this guide to learn how to use the [azcertificates](https://aka.ms/azsdk/go/keyvault-certificates/docs) package to manage your Azure Key Vault certificates using Go.
 
 ## Prerequisites
 
-- An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - **Go installed**: Version 1.18 or [above](https://go.dev/dl/)
 - [Azure CLI](/cli/azure/install-azure-cli)
 
@@ -33,7 +33,7 @@ Follow this guide to learn how to use the [azcertificates](https://aka.ms/azsdk/
     az login
     ```
 
-    If the Azure CLI can open your default browser, it will do so on the Azure portal sign-in page.
+    If the Azure CLI can open your default browser, it does so on the Azure portal sign-in page.
 
     If the page doesn't open automatically, go to [https://aka.ms/devicelogin](https://aka.ms/devicelogin), and then enter the authorization code that's displayed in your terminal.
 
@@ -42,11 +42,11 @@ Follow this guide to learn how to use the [azcertificates](https://aka.ms/azsdk/
 
 ### Create a resource group and key vault
 
-[!INCLUDE [Create a resource group and key vault](../includes/key-vault-rg-kv-creation.md)]
+[!INCLUDE [Create a resource group and key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/create-resource-group-key-vault-cli.md)]
 
 ### Grant access to your key vault
 
-[!INCLUDE [Using RBAC to provide access to a key vault](../includes/rbac/upn-certificate-officer-cli.md)]
+[!INCLUDE [Using RBAC to provide access to a key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/rbac/upn-certificate-officer-cli.md)]
 
 ### Create a new Go module and install packages
 
@@ -69,6 +69,7 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"os"
 	"time"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
@@ -185,7 +186,7 @@ func main() {
 
 ## Run the code
 
-Before you run the code, create an environment variable named `KEY_VAULT_NAME`. Set the environment variable's value to the name of the Azure Key Vault created previously.
+Before you run the code, create an environment variable named `KEY_VAULT_NAME`. Set the environment variable's value to the name of the Azure Key Vault you created.
 
 # [Bash](#tab/bash)
 
@@ -209,7 +210,7 @@ go run main.go
 
 ## Code examples
 
-See the [module documentation](https://aka.ms/azsdk/go/keyvault-certificates/docs) for more examples.
+For more examples, see the [module documentation](https://aka.ms/azsdk/go/keyvault-certificates/docs).
 
 ## Clean up resources
 
@@ -222,7 +223,8 @@ az group delete --resource-group myResourceGroup
 ## Next steps
 
 - [Overview of Azure Key Vault](../general/overview.md)
-- [Secure access to a key vault](../general/security-features.md)
+- [Secure access to a key vault](../general/secure-key-vault.md)
+- [Certificates-specific security best practices](secure-certificates.md)
 - [Azure Key Vault developer's guide](../general/developers-guide.md)
-- [Key Vault security overview](../general/security-features.md)
+- [Key Vault security overview](../general/secure-key-vault.md)
 - [Authenticate with Key Vault](../general/authentication.md)

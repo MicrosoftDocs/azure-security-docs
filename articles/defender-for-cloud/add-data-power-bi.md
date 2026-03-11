@@ -1,11 +1,12 @@
 ---
 title: Add Defender for Cloud data to Power BI
 description: Learn how to connect Power BI to Microsoft Defender for Cloud to gain enhanced value from the data collected by Defender for Cloud.
-author: dcurwin
-ms.author: dacurwin
+ms.author: elkrieger
+author: Elazark
 ms.topic: how-to
 ms.date: 01/14/2025
 ai-usage: ai-assisted
+ms.custom: sfi-image-nochange
 #customer intent: As a user, I want to learn how to connect Power BI to Microsoft Defender for Cloud so that I can gain enhanced value from the data collected by Defender for Cloud.
 ---
 

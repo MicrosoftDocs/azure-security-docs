@@ -21,7 +21,7 @@ ms.author: mbaldwin
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 * Your Microsoft Entra user object ID is needed by the template to configure permissions. The following procedure gets the object ID (GUID).
 
@@ -130,4 +130,4 @@ In this quickstart, you created a key vault and a secret using Bicep and then va
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - Learn more about [Bicep](/azure/azure-resource-manager/bicep/overview)
-- Review the [Key Vault security overview](../general/security-features.md)
+- Review the [Key Vault security overview](../general/secure-key-vault.md)

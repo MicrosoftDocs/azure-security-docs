@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 04/16/2025
+ms.date: 01/30/2026
 ms.author: mbaldwin
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp, devx-track-azurepowershell, devx-track-azurecli, devx-track-dotnet
@@ -26,12 +26,12 @@ The tutorial shows you how to:
 > * Add a secret to the key vault.
 > * Retrieve a secret from the key vault.
 > * Create an Azure virtual machine.
-> * Enable a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) for the Virtual Machine.
+> * Enable a [managed identity](/entra/identity/managed-identities-azure-resources/overview) for the Virtual Machine.
 > * Assign permissions to the VM identity.
 
-Before you begin, read [Key Vault basic concepts](basic-concepts.md). 
+Before you begin, read [Key Vault basic concepts](basic-concepts.md).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ Connect-AzAccount
 
 ## Create a resource group and key vault
 
-[!INCLUDE [Create a resource group and key vault](../includes/key-vault-rg-kv-creation.md)]
+[!INCLUDE [Create a resource group and key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/create-resource-group-key-vault-pivot.md)]
 
 ## Populate your key vault with a secret
 
@@ -112,7 +112,7 @@ xxxxxxxx-xx-xxxxxx   xxxxxxxx-xxxx-xxxx   SystemAssigned
 
 ## Assign permissions to the VM identity
 
-[!INCLUDE [Using RBAC to provide access to a key vault](../includes/key-vault-quickstart-rbac.md)]
+[!INCLUDE [Using RBAC to provide access to a key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/rbac/upn-secrets-user-pivot.md)]
 
 ## Sign in to the virtual machine
 

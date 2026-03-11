@@ -3,12 +3,11 @@ title: Key types, algorithms, and operations - Azure Key Vault
 description: Supported key types, algorithms, and operations (details).
 services: key-vault
 author: msmbaldwin
-manager: msmbaldwin
 
 ms.service: azure-key-vault
 ms.subservice: keys
-ms.topic: conceptual
-ms.date: 02/27/2025
+ms.topic: article
+ms.date: 01/30/2026
 ms.author: mbaldwin
 ---
 
@@ -134,12 +133,12 @@ There are more read-only attributes that are included in any response that inclu
 - *hsmPlatform*: string, optional. The underlying HSM Platform that is protecting a key.
     - A hsmPlatform value of 2 means the key is protected by our latest FIPS 140 Level 3 validated HSM platform.
     - A hsmPlatform value of 1 means the key is protected by our previous FIPS 140 Level 2 validated HSM platform.
-    - A hsmPlatform value of 0 means the key is protected by a FIPS 140 Level 1 HSM software cryptographic module.
+    - A hsmPlatform value of 0 means the key is protected by a FIPS 140 Level 1 software cryptographic module.
     - if this is not set by a Managed HSM pool, it is protected by our latest FIPS 140 Level 3 validated HSM platform.
  
 It’s important to note that keys are bound to the HSM in which they were created. New keys are seamlessly created and stored in the new HSMs. While there is no way to migrate or transfer keys, new key versions are automatically in the new HSMs. For more information on how to migrate to a new key, see [How to migrate key workloads](../general/migrate-key-workloads.md).
 
-For more information on IntDate and other data types, see [About keys, secrets, and certificates: [Data types](../general/about-keys-secrets-certificates.md#data-types).
+For more information on IntDate and other data types, see [About keys, secrets, and certificates: Data types](../general/about-keys-secrets-certificates.md#data-types).
 
 ### Date-time controlled operations
 
@@ -158,7 +157,7 @@ You can specify more application-specific metadata in the form of tags. Key Vaul
 
 ##  Key access control
 
-Access control for keys managed by Key Vault is provided at the level of a Key Vault that acts as the container of keys. You can control access to keys using Key Vault [role-based access control](../general/rbac-guide.md) (recommended) or old [vault access policy](../general/assign-access-policy.md) permission model. Role-based permission model has three predefined roles to manage keys: 'Key Vault Crypto Officer', 'Key Vault Crypto User', 'Key Vault Service Encryption User' and can be scoped to subscription, resource group or vault level.
+Access control for keys managed by Key Vault is provided at the level of a Key Vault that acts as the container of keys. You can control access to keys using Key Vault [Azure role-based access control](../general/rbac-guide.md) (recommended) or legacy [vault access policy](../general/assign-access-policy.md) permission model. Azure RBAC is the default and recommended authorization model. It has three predefined roles to manage keys: 'Key Vault Crypto Officer', 'Key Vault Crypto User', 'Key Vault Service Encryption User' and can be scoped to subscription, resource group or vault level. For more information, see [Azure RBAC vs. access policies](../general/rbac-access-policy.md).
 
 Vault access policy permission model permissions:
 

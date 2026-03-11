@@ -1,9 +1,9 @@
 ---
 title: Microsoft Defender for Storage (classic)
 description: Learn about the benefits and features of Microsoft Defender for Storage (classic).
-ms.date: 06/15/2023
-author: dcurwin
-ms.author: dacurwin
+ms.date: 05/13/2025
+author: Elazark
+ms.author: elkrieger
 ms.topic: overview
 ---
 
@@ -36,7 +36,7 @@ For more clarification about Defender for Storage (classic), see the [commonly a
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|**Microsoft Defender for Storage (classic)** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/)|
+|Pricing:|**Microsoft Defender for Storage (classic)** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). You can also [estimate costs with the Defender for Cloud cost calculator](cost-calculator.md).|
 |Protected storage types:|[Blob Storage](https://azure.microsoft.com/services/storage/blobs/)  (Standard/Premium StorageV2, Block Blobs) <br>[Azure Files](/azure/storage/files/storage-files-introduction) (over REST API and SMB)<br>[Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction) (Standard/Premium accounts with hierarchical namespaces enabled)|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Microsoft Azure operated by 21Vianet<br>:::image type="icon" source="./media/icons/no-icon.png"::: Connected AWS accounts|
 
@@ -48,7 +48,7 @@ Defender for Storage (classic) provides:
 
 - **Rich detection suite** - Powered by Microsoft Threat Intelligence, the detections in Defender for Storage (classic) cover the top storage threats such as unauthenticated access, compromised credentials, social engineering attacks, data exfiltration, privilege abuse, and malicious content.
 
-- **Response at scale** - Defender for Cloud's automation tools make it easier to prevent and respond to identified threats. Learn more in [Automate responses to Defender for Cloud triggers](workflow-automation.yml).
+- **Response at scale** - Defender for Cloud's automation tools make it easier to prevent and respond to identified threats. Learn more in [Automate responses to Defender for Cloud triggers](workflow-automations.md).
 
 :::image type="content" source="media/defender-for-storage-introduction/defender-for-storage-high-level-overview.png" alt-text="Diagram that shows a high-level overview of the features of Microsoft Defender for Storage (classic).":::
 
@@ -74,7 +74,7 @@ Security alerts are triggered for the following scenarios (typically from 1-2 ho
 | **Phishing campaigns** | When content that's hosted on Azure Storage is identified as part of a phishing attack that's impacting Microsoft 365 users. |
 
 > [!TIP]
-> For a comprehensive list of all Defender for Storage (classic) alerts, see the [alerts reference page](alerts-azure-storage.md). It is essential to review the prerequisites, as certain security alerts are only accessible under the new Defender for Storage plan. The information in the reference page is beneficial for workload owners seeking to understand detectable threats and enables Security Operations Center (SOC) teams to familiarize themselves with detections prior to conducting investigations. Learn more about what's in a Defender for Cloud security alert, and how to manage your alerts in [Manage and respond to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.yml).
+> For a comprehensive list of all Defender for Storage (classic) alerts, see the [alerts reference page](alerts-azure-storage.md). It is essential to review the prerequisites, as certain security alerts are only accessible under the new Defender for Storage plan. The information in the reference page is beneficial for workload owners seeking to understand detectable threats and enables Security Operations Center (SOC) teams to familiarize themselves with detections prior to conducting investigations. Learn more about what's in a Defender for Cloud security alert, and how to manage your alerts in [Manage and respond to security alerts in Microsoft Defender for Cloud](manage-respond-alerts.md).
 
 Alerts include details of the incident that triggered them, and recommendations on how to investigate and remediate threats. Alerts can be exported to Microsoft Sentinel or any other third-party SIEM or any other external tool. Learn more in [Stream alerts to a SIEM, SOAR, or IT classic deployment model solution](export-to-siem.md).
 

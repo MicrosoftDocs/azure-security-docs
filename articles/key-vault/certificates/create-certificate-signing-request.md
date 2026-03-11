@@ -1,15 +1,16 @@
 ---
-title: Creating and merging a certificate signing request in Azure Key Vault 
-description: Learn how to create and merge a CSR in Azure Key Vault. 
+title: Creating and merging a certificate signing request in Azure Key Vault
+description: Learn how to create and merge a CSR in Azure Key Vault.
 services: key-vault
 author: msmbaldwin
 
 ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: tutorial
-ms.date: 04/14/2025
+ms.date: 01/30/2026
 
 ms.author: sebansal
+ms.custom: sfi-image-nochange, copilot-scenario-highlight
 ---
 
 # Create and merge a certificate signing request in Key Vault
@@ -18,7 +19,7 @@ Azure Key Vault supports storing digital certificates issued by any certificate 
 
 For more general information about certificates, see [Azure Key Vault certificates](./about-certificates.md).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Add certificates in Key Vault issued by partnered CAs
 
@@ -138,6 +139,24 @@ Example
 
 - Error type **The CSR used to get your certificate has already been used. Please try to generate a new certificate with a new CSR.**
      Go to 'Advanced Policy' section of the certificate and check if 'reuse key on renewal' option is turned off.
+
+## Use AI to create complex certificate subject names
+
+GitHub Copilot can help you construct the correct SubjectName format for certificate signing requests, especially when dealing with complex organizational structures or special characters.
+
+```copilot-prompt
+I need to create a certificate signing request in Azure Key Vault with a complex subject name. Help me create the PowerShell command with these requirements:
+- Common Name: api.contoso.com
+- Organization: Contoso, Ltd. (note the comma in the name)
+- Organizational Unit: Cloud Services
+- City: New York
+- State: NY
+- Country: US
+Show me how to properly escape the comma in the organization name, and provide both the certificate policy and the Add-AzKeyVaultCertificate command.
+```
+
+[!INCLUDE [copilot-highlights-disclaimer](~/reusable-content/ce-skilling/azure/includes/copilot-highlights-disclaimer.md)]
+
 ---
 
 ## Next steps

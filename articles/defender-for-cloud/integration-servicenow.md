@@ -1,10 +1,10 @@
 ---
 title: Overview of the ServiceNow integration
 description: Learn about integrating ServiceNow with Microsoft Defender for Cloud to protect Azure, hybrid, and multicloud machines.
-author: dcurwin
-ms.author: dacurwin
+author: Elazark
+ms.author: elkrieger
 ms.topic: overview
-ms.date: 10/28/2024
+ms.date: 05/20/2025
 ai-usage: ai-assisted
 #customer intent: As a user, I want to learn about the integration that exists between ServiceNow and Microsoft Defender for Cloud so that I can protect my Azure, hybrid, and multicloud machines.
 ---
@@ -30,7 +30,7 @@ As part of the integration, you can create and monitor tickets in ServiceNow dir
 
 As part of the governance capabilities within Defender for Cloud, you can enable a bi-directional integration between ServiceNow and Defender for Cloud, for the creation of ITSM incidents, changes or problem tickets.
 
-Tickets can be initiated manually or automatically by leveraging governance automation rules.
+Tickets can be initiated manually or automatically by leveraging governance automation rules. When using governance automation rules with the ServiceNow integration, the selected owner must resolve to a ServiceNow user or assignment group.
 
 > [!NOTE]
 > Synchronization occurs every 24 hrs.
@@ -44,7 +44,7 @@ When you ingest Defender for Cloud's findings into ServiceNow's Configuration Co
 To integrate Defender for Cloud's findings into ServiceNow's Configuration Compliance module:
 
 - **In the Azure portal**:
-  - An Azure account with Defender for Cloud onboarded. If you don't already have an Azure account, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+  - An Azure account with Defender for Cloud onboarded. If you don't already have an Azure account, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
   - [Enable Defender for Cloud Foundational CSPM or Defender CSPM](tutorial-enable-cspm-plan.md) on the relevant Azure subscriptions, AWS accounts or GCP projects.
 
 - **In ServiceNow**:

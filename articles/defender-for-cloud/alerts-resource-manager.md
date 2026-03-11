@@ -3,7 +3,7 @@ title: Alerts for Resource Manager
 description: This article lists the security alerts for Resource Manager visible in Microsoft Defender for Cloud.
 ms.topic: reference
 ms.custom: linux-related-content
-ms.date: 06/03/2024
+ms.date: 06/09/2025
 ai-usage: ai-assisted
 ---
 
@@ -14,7 +14,7 @@ This article lists the security alerts you might get for Resource Manager from M
 > [!NOTE]
 > Some of the recently added alerts powered by Microsoft Defender Threat Intelligence and Microsoft Defender for Endpoint might be undocumented.
 
-[Learn how to respond to these alerts](managing-and-responding-alerts.yml).
+[Learn how to respond to these alerts](manage-respond-alerts.md).
 
 [Learn how to export alerts](continuous-export.md).
 
@@ -482,16 +482,6 @@ This article lists the security alerts you might get for Resource Manager from M
 
 **Severity**: High
 
-### **Usage of PowerZure function to maintain persistence in your Azure environment**
-
-(ARM_PowerZure.MaintainPersistence)
-
-**Description**: PowerZure exploitation toolkit detected creating a webhook backdoor to maintain persistence in your Azure environment. This was detected by analyzing Azure Resource Manager operations in your subscription.
-
-**[MITRE tactics](alerts-reference.md#mitre-attck-tactics)**: -
-
-**Severity**: High
-
 ### **Suspicious classic role assignment detected (Preview)**
 
 (ARM_AnomalousClassicRoleAssignment)
@@ -508,5 +498,5 @@ This article lists the security alerts you might get for Resource Manager from M
 ## Next steps
 
 - [Security alerts in Microsoft Defender for Cloud](alerts-overview.md)
-- [Manage and respond to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.yml)
+- [Manage and respond to security alerts in Microsoft Defender for Cloud](manage-respond-alerts.md)
 - [Continuously export Defender for Cloud data](continuous-export.md)

@@ -3,7 +3,7 @@ title: Create and retrieve attributes of a managed key in Azure Key Vault – Az
 description: Quickstart showing how to set and retrieve a managed key from Azure Key Vault using Azure PowerShell
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 08/25/2024
+ms.date: 01/30/2026
 ms.topic: quickstart
 ms.service: azure-key-vault
 ms.subservice: keys
@@ -12,11 +12,11 @@ ms.custom: devx-track-azurepowershell, mode-api
 ---
 # Quickstart: Provision and activate a Managed HSM using PowerShell
 
-In this quickstart, you create and activate an Azure Key Vault Managed HSM (Hardware Security Module) with PowerShell. Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using **FIPS 140-2 Level 3** validated HSMs. For more information on Managed HSM, you may review the [Overview](overview.md).
+In this quickstart, you create and activate an Azure Key Vault Managed HSM (Hardware Security Module) with PowerShell. Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using **FIPS 140-3 Level 3** validated HSMs. For more information on Managed HSM, you may review the [Overview](overview.md).
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 [!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/azure-powershell/azure-powershell-requirements-no-header.md)]
 
@@ -81,7 +81,7 @@ To activate your HSM, you will need:
 
 To activate the HSM, you send at least three (maximum 10) RSA public keys to the HSM. The HSM encrypts the security domain with these keys and sends it back. Once this security domain download is successfully completed, your HSM is ready to use. You also need to specify quorum, which is the minimum number of private keys required to decrypt the security domain.
 
-The following example shows how to use `openssl` (available for Windows [here](https://slproweb.com/products/Win32OpenSSL.html)) to generate three self-signed certificates.
+The following example shows how to use `openssl` (available for Windows from [the OpenSSL website](https://slproweb.com/products/Win32OpenSSL.html)) to generate three self-signed certificates.
 
 ```console
 openssl req -newkey rsa:2048 -nodes -keyout cert_0.key -x509 -days 365 -out cert_0.cer
@@ -107,7 +107,7 @@ After successfully downloading the security domain, your HSM will be in an activ
 
 ## Clean up resources
 
-[!INCLUDE [Create a key vault](../../../includes/powershell-rg-delete.md)]
+[!INCLUDE [Create a key vault](~/reusable-content/ce-skilling/azure/includes/delete-resource-group-powershell.md)]
 
 > [!WARNING]
 > Deleting the resource group puts the Managed HSM into a soft-deleted state. The Managed HSM will continue to be billed until it is purged. See [Managed HSM soft-delete and purge protection](recovery.md)
@@ -117,4 +117,4 @@ In this quickstart, you created and activated a Managed HSM. To learn more about
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - See the reference for the [Azure PowerShell Key Vault cmdlets](/powershell/module/az.keyvault/)
-- Review the [Key Vault security overview](../general/security-features.md)
+- Review the [Key Vault security overview](../general/secure-key-vault.md)

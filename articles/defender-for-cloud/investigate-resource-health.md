@@ -2,7 +2,8 @@
 title: Tutorial - Investigate the health of your resources
 description: 'Tutorial: Learn how to investigate the health of your resources using Microsoft Defender for Cloud.'
 ms.topic: tutorial
-ms.date: 02/21/2024
+ms.date: 05/20/2025
+ms.custom: sfi-image-blocked
 ---
 
 # Tutorial: Investigate the health of your resources
@@ -11,10 +12,10 @@ The resource health page provides a snapshot view of the overall health of a sin
 
 This single page, in Defender for Cloud's portal pages shows:
 
-1. **Resource information** - The resource group and subscription it's attached to, the geographic location, and more.
-1. **Applied security feature** - Whether a Microsoft Defender plan is enabled for the resource.
-1. **Counts of outstanding recommendations and alerts** - The number of outstanding security recommendations and Defender for Cloud alerts.
-1. **Actionable recommendations and alerts** - Two tabs list the recommendations and alerts that apply to the resource.
+- **Resource information** - The resource group and subscription it's attached to, the geographic location, and more.
+- **Applied security feature** - Whether a Microsoft Defender plan is enabled for the resource.
+- **Counts of outstanding recommendations and alerts** - The number of outstanding security recommendations and Defender for Cloud alerts.
+- **Actionable recommendations and alerts** - Two tabs list the recommendations and alerts that apply to the resource.
 
 :::image type="content" source="media/investigate-resource-health/resource-health-page-virtual-machine.gif" alt-text="Microsoft Defender for Cloud's resource health page showing the health information for a virtual machine":::
 
@@ -30,7 +31,7 @@ In this tutorial you'll learn how to:
 
 To step through the features covered in this tutorial:
 
-- You need an Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- You need an Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 - [Microsoft Defender for Cloud enabled on your subscription](connect-azure-subscription.md).
 
@@ -89,7 +90,7 @@ To ensure your resource is hardened according to the policies applied to your su
 
 1. From the right pane, select an alert.
 
-1. Follow the instructions in [Respond to security alerts](managing-and-responding-alerts.yml).
+1. Follow the instructions in [Respond to security alerts](manage-respond-alerts.md).
 
 ## Next steps
 
@@ -97,5 +98,5 @@ In this tutorial, you learned about using Defender for Cloud’s resource health
 
 To learn more, see these related pages:
 
-- [Respond to security alerts](managing-and-responding-alerts.yml#respond-to-a-security-alert)
+- [Respond to security alerts](manage-respond-alerts.md#respond-to-a-security-alert)
 - [Review your security recommendations](review-security-recommendations.md)

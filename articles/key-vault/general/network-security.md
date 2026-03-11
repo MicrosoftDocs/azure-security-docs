@@ -1,39 +1,66 @@
 ---
-title: Network security for Azure Key Vault and virtual networks - Azure Key Vault 
-description: Learn about Network security for Azure Key Vault
+title: Configure network security for Azure Key Vault
+description: Learn about and configure network security for Azure Key Vault, including firewall settings, Private Link, and Network Security Perimeter.
 services: key-vault
 author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
-ms.topic: tutorial
-ms.date: 04/17/2025
-ms.author: mbaldwin 
+ms.topic: how-to
+ms.date: 01/30/2026
+ms.author: mbaldwin
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# Network security for Azure Key Vault
+# Configure network security for Azure Key Vault
 
-This document covers the different configurations for an Azure Key Vault firewall in detail. To follow the step-by-step instructions on how to configure these settings, see [Configure Azure Key Vault networking settings](how-to-azure-key-vault-network-security.md).
+This article covers the different network security configurations for Azure Key Vault and provides step-by-step instructions to configure them. For security best practices, see [Secure your Azure Key Vault: Network security](secure-key-vault.md#network-security).
 
-For more information, see [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md).
+For more information about virtual network service endpoints, see [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md).
 
-## Firewall Settings
+## Firewall settings
 
 This section covers the different ways that an Azure Key Vault firewall can be configured.
 
-### Key Vault Firewall Disabled (Default)
+### Key Vault firewall disabled (default)
 
 By default, when you create a new key vault, the Azure Key Vault firewall is disabled. All applications and Azure services can access the key vault and send requests to the key vault. This configuration doesn't mean that any user will be able to perform operations on your key vault. The key vault still restricts access to secrets, keys, and certificates stored in key vault by requiring Microsoft Entra authentication and access policy permissions. To understand key vault authentication in more detail, see [Authentication in Azure Key Vault](authentication.md). For more information, see [Access Azure Key Vault behind a firewall](access-behind-firewall.md).
 
-### Key Vault Firewall Enabled (Trusted Services Only)
+### Key Vault firewall enabled (trusted services only)
 
 When you enable the Key Vault Firewall, you are given an option to 'Allow Trusted Microsoft Services to bypass this firewall.' The trusted services list does not cover every single Azure service. For example, Azure DevOps isn't on the trusted services list. **This does not imply that services that do not appear on the trusted services list are not trusted or are insecure.** The trusted services list encompasses services where Microsoft controls all of the code that runs on the service. Since users can write custom code in Azure services such as Azure DevOps, Microsoft does not provide the option to create a blanket approval for the service. Furthermore, just because a service appears on the trusted service list, doesn't mean it is allowed for all scenarios.
 
 To determine if a service you are trying to use is on the trusted service list, see [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md#trusted-services).
-For a how-to guide, follow the instructions here for [Portal, Azure CLI, and PowerShell](how-to-azure-key-vault-network-security.md)
 
-### Key Vault Firewall Enabled (IPv4 Addresses and Ranges - Static IPs)
+To allow trusted services to bypass the firewall:
 
-If you would like to authorize a particular service to access key vault through the Key Vault Firewall, you can add its IP Address to the key vault firewall allowlist. This configuration is best for services that use static IP addresses or well-known ranges. There is a limit of 1000 CIDR ranges for this case.
+# [Portal](#tab/azure-portal)
+
+1. Browse to your key vault in the Azure portal.
+2. Select **Networking** in the left menu.
+3. On the **Firewalls and virtual networks** tab, under **Exception**, select **Allow trusted Microsoft services to bypass this firewall**.
+4. Select **Save**.
+
+# [Azure CLI](#tab/azure-cli)
+
+Use the Azure CLI [az keyvault update](/cli/azure/keyvault#az-keyvault-update) command to allow trusted services to bypass the firewall.
+
+```azurecli
+az keyvault update --resource-group "myresourcegroup" --name "mykeyvault" --bypass AzureServices
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+Use the Azure PowerShell [Update-AzKeyVaultNetworkRuleSet](/powershell/module/az.keyvault/update-azkeyvaultnetworkruleset) cmdlet to allow trusted services to bypass the firewall.
+
+```powershell
+Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -Bypass AzureServices
+```
+
+---
+
+### Key Vault firewall enabled (IPv4 addresses and ranges - static IPs)
+
+If you would like to authorize a particular service to access key vault through the Key Vault Firewall, you can add its IP Address to the key vault firewall allow list. This configuration is best for services that use static IP addresses or well-known ranges. There is a limit of 1000 CIDR ranges for this case.
 
 To allow an IP Address or range of an Azure resource, such as a Web App or Logic App, perform the following steps.
 
@@ -41,28 +68,180 @@ To allow an IP Address or range of an Azure resource, such as a Web App or Logic
 1. Select the resource (specific instance of the service).
 1. Select the **Properties** blade under **Settings**.
 1. Look for the **IP Address** field.
-1. Copy this value or range and enter it into the key vault firewall allowlist.
+1. Copy this value or range and enter it into the key vault firewall allow list.
 
-To allow an entire Azure service, through the Key Vault firewall, use the list of publicly documented data center IP addresses for Azure [here](https://www.microsoft.com/download/details.aspx?id=56519). Find the IP addresses associated with the service you would like in the region you want and add those IP addresses to the key vault firewall.
+To allow an entire Azure service, through the Key Vault firewall, use the [list of publicly documented data center IP addresses for Azure](https://www.microsoft.com/download/details.aspx?id=56519). Find the IP addresses associated with the service you would like in the region you want and add those IP addresses to the key vault firewall.
 
-### Key Vault Firewall Enabled (Virtual Networks - Dynamic IPs)
+To add IP address rules:
+
+# [Portal](#tab/azure-portal)
+
+1. Browse to your key vault and select **Networking**.
+2. On the **Firewalls and virtual networks** tab, under **Firewall**, enter IPv4 addresses or CIDR ranges.
+3. Select **Save**.
+
+# [Azure CLI](#tab/azure-cli)
+
+Use the Azure CLI [az keyvault network-rule add](/cli/azure/keyvault/network-rule#az-keyvault-network-rule-add) command to add an IP address rule.
+
+```azurecli
+az keyvault network-rule add --resource-group "myresourcegroup" --name "mykeyvault" --ip-address "191.10.18.0/24"
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+Use the Azure PowerShell [Add-AzKeyVaultNetworkRule](/powershell/module/az.keyvault/add-azkeyvaultnetworkrule) cmdlet to add an IP address rule.
+
+```powershell
+Add-AzKeyVaultNetworkRule -VaultName "mykeyvault" -IpAddressRange "16.17.18.0/24"
+```
+
+---
+
+### Key Vault firewall enabled (virtual networks - dynamic IPs)
 
 If you are trying to allow an Azure resource such as a virtual machine through key vault, you may not be able to use Static IP addresses, and you may not want to allow all IP addresses for Azure Virtual Machines to access your key vault.
 
-In this case, you should create the resource within a virtual network, and then allow traffic from the specific virtual network and subnet to access your key vault. 
+In this case, you should create the resource within a virtual network, and then allow traffic from the specific virtual network and subnet to access your key vault.
 
-1. Sign in to the Azure portal.
-1. Select the key vault you wish to configure.
-1. Select the 'Networking' blade.
-1. Select '+ Add existing virtual network'.
-1. Select the virtual network and subnet you would like to allow through the key vault firewall.
+# [Portal](#tab/azure-portal)
 
-### Key Vault Firewall Enabled (Private Link)
+1. Browse to the key vault you wish to configure.
+2. Select **Networking**, and then select the **Firewalls and virtual networks** tab.
+3. Under **Allow access from**, select **Allow public access from specific virtual networks and IP addresses**.
+4. Select **+ Add a virtual network** > **Add existing virtual networks**.
+5. Select the subscription, virtual networks, and subnets that you want to allow access. If service endpoints aren't enabled, select **Enable** when prompted. It might take up to 15 minutes to take effect.
+6. Select **Add**, then select **Save**.
 
-To understand how to configure a private link connection on your key vault, see the document [here](./private-link-service.md).
+To add a new virtual network, select **+ Add a virtual network** > **Add new virtual network** and follow the prompts.
+
+# [Azure CLI](#tab/azure-cli)
+
+Use the Azure CLI [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) command to enable the service endpoint. Use [az network vnet subnet show](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-show) to get the subnet ID, then use [az keyvault network-rule add](/cli/azure/keyvault/network-rule#az-keyvault-network-rule-add) to add the virtual network rule.
+
+1. Enable a service endpoint for Key Vault on an existing virtual network and subnet:
+
+   ```azurecli
+   az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --service-endpoints "Microsoft.KeyVault"
+   ```
+
+2. Add a network rule for the virtual network and subnet:
+
+   ```azurecli
+   subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
+   az keyvault network-rule add --resource-group "myresourcegroup" --name "mykeyvault" --subnet $subnetid
+   ```
+
+3. Use the [az keyvault update](/cli/azure/keyvault#az-keyvault-update) command to set the default action to deny:
+
+   ```azurecli
+   az keyvault update --resource-group "myresourcegroup" --name "mykeyvault" --default-action Deny
+   ```
+
+# [PowerShell](#tab/azure-powershell)
+
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
+
+Use the Azure PowerShell [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) cmdlet to get the virtual network, [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) to enable the service endpoint, and [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) to save the changes. Then use [Add-AzKeyVaultNetworkRule](/powershell/module/az.keyvault/add-azkeyvaultnetworkrule) to add the virtual network rule.
+
+1. Enable service endpoint for Key Vault on an existing virtual network and subnet:
+
+   ```powershell
+   Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.1.1.0/24" -ServiceEndpoint "Microsoft.KeyVault" | Set-AzVirtualNetwork
+   ```
+
+2. Use [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) to get the subnet, then add a network rule:
+
+   ```powershell
+   $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
+   Add-AzKeyVaultNetworkRule -VaultName "mykeyvault" -VirtualNetworkResourceId $subnet.Id
+   ```
+
+3. Use the [Update-AzKeyVaultNetworkRuleSet](/powershell/module/az.keyvault/update-azkeyvaultnetworkruleset) cmdlet to set the default action to deny:
+
+   ```powershell
+   Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -DefaultAction Deny
+   ```
+
+---
+
+### Key Vault firewall enabled (private link)
+
+To understand how to configure a private link connection on your key vault, see [Integrate Key Vault with Azure Private Link](./private-link-service.md).
+
+### List network rules
+
+To view the current network rules configured for your key vault:
+
+# [Portal](#tab/azure-portal)
+
+1. Browse to your key vault and select **Networking**.
+2. Review the configured virtual networks and IP addresses on the **Firewalls and virtual networks** tab.
+
+# [Azure CLI](#tab/azure-cli)
+
+Use the Azure CLI [az keyvault network-rule list](/cli/azure/keyvault/network-rule#az-keyvault-network-rule-list) command to list network rules.
+
+```azurecli
+az keyvault network-rule list --resource-group "myresourcegroup" --name "mykeyvault"
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+Use the Azure PowerShell [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault) cmdlet to retrieve the network ACLs.
+
+```powershell
+(Get-AzKeyVault -VaultName "mykeyvault").NetworkAcls
+```
+
+---
+
+### Remove network rules
+
+# [Portal](#tab/azure-portal)
+
+1. Browse to your key vault and select **Networking**.
+2. On the **Firewalls and virtual networks** tab, select the delete icon next to the rule you want to remove.
+3. Select **Save**.
+
+# [Azure CLI](#tab/azure-cli)
+
+Use the Azure CLI [az keyvault network-rule remove](/cli/azure/keyvault/network-rule#az-keyvault-network-rule-remove) command.
+
+To remove a virtual network rule:
+
+```azurecli
+subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
+az keyvault network-rule remove --resource-group "myresourcegroup" --name "mykeyvault" --subnet $subnetid
+```
+
+To remove an IP address rule:
+
+```azurecli
+az keyvault network-rule remove --resource-group "myresourcegroup" --name "mykeyvault" --ip-address "191.10.18.0/24"
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+Use the Azure PowerShell [Remove-AzKeyVaultNetworkRule](/powershell/module/az.keyvault/remove-azkeyvaultnetworkrule) cmdlet.
+
+To remove a virtual network rule:
+
+```powershell
+$subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
+Remove-AzKeyVaultNetworkRule -VaultName "mykeyvault" -VirtualNetworkResourceId $subnet.Id
+```
+
+To remove an IP address rule:
+
+```powershell
+Remove-AzKeyVaultNetworkRule -VaultName "mykeyvault" -IpAddressRange "16.17.18.0/24"
+```
+
+---
 
 > [!IMPORTANT]
-> After firewall rules are in effect, users can only perform Key Vault [data plane](security-features.md#privileged-access) operations when their requests originate from allowed virtual networks or IPv4 address ranges. This also applies to accessing Key Vault from the Azure portal. Although users can browse to a key vault from the Azure portal, they might not be able to list keys, secrets, or certificates if their client machine is not in the allowed list. This also affects the Key Vault Picker used by other Azure services. Users might be able to see a list of key vaults, but not list keys, if firewall rules prevent their client machine.
+> After firewall rules are in effect, users can only perform Key Vault [data plane](secure-key-vault.md#identity-and-access-management) operations when their requests originate from allowed virtual networks or IPv4 address ranges. This also applies to accessing Key Vault from the Azure portal. Although users can browse to a key vault from the Azure portal, they might not be able to list keys, secrets, or certificates if their client machine is not in the allowed list. This also affects the Key Vault Picker used by other Azure services. Users might be able to see a list of key vaults, but not list keys, if firewall rules prevent their client machine.
 
 > [!NOTE]
 > Be aware of the following configuration limitations:
@@ -70,14 +249,49 @@ To understand how to configure a private link connection on your key vault, see 
 > * IP network rules are only allowed for public IP addresses. IP address ranges reserved for private networks (as defined in RFC 1918) are not allowed in IP rules. Private networks include addresses that start with **10.**, **172.16-31**, and **192.168.**. 
 > * Only IPv4 addresses are supported at this time.
 
-### Public Access Disabled (Private Endpoint Only)
+### Public access disabled (private endpoint only)
 
 To enhance network security, you can configure your vault to disable public access. This denies all public configurations and allows only connections through private endpoints.
 
-### Network Security Perimeter (preview)
-[Network Security Perimeter](/azure/private-link/network-security-perimeter-concepts) (preview) allows organizations to define a logical network isolation boundary for PaaS resources (for example, Azure Key Vault, Azure Storage and SQL Database) that are deployed outside your organization’s virtual networks. It restricts public network access to PaaS resources outside of the perimeter, access can be exempted by using explicit access rules for public inbound and outbound.
+For complete Private Link setup instructions, see [Integrate Key Vault with Azure Private Link](./private-link-service.md).
 
-Currently, Network Security Perimeter is in public preview for a subset of resources. See [Onboarded private-link resources](/azure/private-link/network-security-perimeter-concepts#onboarded-private-link-resources) and [Limitations of network security perimeter](/azure/private-link/network-security-perimeter-concepts#limitations-of-network-security-perimeter). For more information, see [Transition to a Network Security Perimeter](/azure/private-link/network-security-perimeter-transition).
+To disable public access after configuring Private Link:
+
+# [Portal](#tab/azure-portal)
+
+1. Browse to your key vault in the Azure portal.
+2. Select **Networking** in the left menu.
+3. Select the **Firewalls and virtual networks** tab.
+4. Under **Allow access from**, select **Disable public access**.
+5. Select **Save**.
+
+# [Azure CLI](#tab/azure-cli)
+
+Use the Azure CLI [az keyvault update](/cli/azure/keyvault#az-keyvault-update) command to disable public network access.
+
+```azurecli
+az keyvault update --resource-group "myresourcegroup" --name "mykeyvault" --public-network-access Disabled
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+Use the Azure PowerShell [Update-AzKeyVault](/powershell/module/az.keyvault/update-azkeyvault) cmdlet to disable public network access.
+
+```powershell
+Update-AzKeyVault -ResourceGroupName "myresourcegroup" -VaultName "mykeyvault" -PublicNetworkAccess "Disabled"
+```
+
+---
+
+> [!IMPORTANT]
+> After disabling public access, the key vault is only accessible through private endpoints. Ensure your private endpoint configuration is complete before disabling public access.
+
+### Network security perimeter
+
+
+[Network Security Perimeter](/azure/private-link/network-security-perimeter-concepts) allows organizations to define a logical network isolation boundary for PaaS resources (for example, Azure Key Vault, Azure Storage and SQL Database) that are deployed outside your organization’s virtual networks. It restricts public network access to PaaS resources outside of the perimeter, access can be exempted by using explicit access rules for public inbound and outbound.
+
+Network Security Perimeter is now generally available for supported resources. See [Onboarded private-link resources](/azure/private-link/network-security-perimeter-concepts#onboarded-private-link-resources) and [Limitations of network security perimeter](/azure/private-link/network-security-perimeter-concepts#limitations-of-network-security-perimeter). For more information, see [Transition to a Network Security Perimeter](/azure/private-link/network-security-perimeter-transition).
 
 > [!IMPORTANT]
 > Private endpoint traffic is considered highly secure and therefore isn't subject to Network Security Perimeter rules. All other traffic, including trusted services, will be subject to Network Security Perimeter rules if the key vault is associated with a perimeter.
@@ -90,20 +304,21 @@ With a network security perimeter:
   * Public outbound can be approved using FQDNs (Fully Qualified Domain Names) of the external destinations.
 * Diagnostic Logs are enabled for PaaS resources within perimeter for Audit and Compliance.
   
-#### Restrictions & Considerations
+#### Restrictions and limitations
 
 - Setting Public Network Access to Disable still allows trusted services. Switching Public Network Access to Secure by perimeter, then forbids trusted services even if configured to allow trusted services.
-- Azure Key Vault firewall rules only apply to [data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane#data-plane) operations. [Control plane](/azure/azure-resource-manager/management/control-plane-and-data-plane#control-plane) operations are not subject to the restrictions specified in firewall rules.
+- Azure Key Vault firewall rules only apply to [data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane#data-plane) operations. [Control plane](/azure/azure-resource-manager/management/control-plane-and-data-plane#control-plane) operations are not subject to the restrictions specified in firewall rules. This includes deployment of secrets or keys through ARM templates, which use the Azure Resource Manager control plane endpoint (`management.azure.com`) rather than the Key Vault data plane endpoint (`<vault-name>.vault.azure.net`). For more information, see [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md#usage-scenarios).
 - To access data by using tools such as the Azure portal, you must be on a machine within the trusted boundary that you establish when configuring network security rules.
 - Azure Key Vault has no concept of outbound rules, you can still associate a key vault to a perimeter with outbound rules but the key vault will not use them.
+- The network security perimeter access logs for Azure Key Vault may not have the "count" or "timeGeneratedEndTime" fields.
   
-#### Associate a Network Security Perimeter with a key vault - Azure PowerShell
+#### Associate a network security perimeter with a key vault - Azure PowerShell
 
 To associate a Network Security Perimeter with a key vault in the Azure PowerShell, follow these [instructions](/azure/private-link/create-network-security-perimeter-powershell).
 
-#### Associate a Network Security Perimeter with a key vault - Azure CLI
+#### Associate a network security perimeter with a key vault - Azure CLI
 
-To associate a Network Security Perimeter with a key vault in the Azure CLI, follow these [instructions](/azure/private-link/create-network-security-perimeter-cli)
+To associate a Network Security Perimeter with a key vault in the Azure CLI, follow these [instructions](/azure/private-link/create-network-security-perimeter-cli).
 
 ### Network security perimeter access modes
 
@@ -111,14 +326,14 @@ Network security perimeter supports two different access modes for associated re
 
 | **Mode** | **Description** |
 |----------------|--------|
-| **Learning mode**  | The default access mode. In *learning* mode, network security perimeter logs all traffic to the search service that would have been denied if the perimeter was in enforced mode. This allows network administrators to understand the existing access patterns of the search service before implementing enforcement of access rules. |
+| **Transition mode** (formerly "Learning mode")  | The default access mode. In *Transition* mode, network security perimeter logs all traffic to the search service that would have been denied if the perimeter was in enforced mode. This allows network administrators to understand the existing access patterns of the search service before implementing enforcement of access rules. |
 | **Enforced mode**  | In *Enforced* mode, network security perimeter logs and denies all traffic that isn't explicitly allowed by access rules. |
 
 #### Network security perimeter and key vault networking settings
 
 The `publicNetworkAccess` setting determines the key vault's association with a network security perimeter.
 
-* In Learning mode, the `publicNetworkAccess` setting controls public access to the resource.
+* In Transition mode, the `publicNetworkAccess` setting controls public access to the resource.
 
 * In Enforced mode, the `publicNetworkAccess` setting is overridden by the network security perimeter rules. For example, if a search service with a `publicNetworkAccess` setting of `enabled` is associated with a network security perimeter in Enforced mode, access to the search service is still controlled by network security perimeter access rules.
 
@@ -138,11 +353,15 @@ The `publicNetworkAccess` setting determines the key vault's association with a 
 
 See [Diagnostic logs for Network Security Perimeter](/azure/private-link/network-security-perimeter-diagnostic-logs).
 
-#### References
-* ARM Template Reference: [Azure Key Vault ARM Template Reference](/azure/templates/Microsoft.KeyVault/vaults)
-* Azure CLI commands: [az keyvault network-rule](/cli/azure/keyvault/network-rule)
-* Azure PowerShell cmdlets: [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault), [Add-AzKeyVaultNetworkRule](/powershell/module/az.KeyVault/Add-azKeyVaultNetworkRule), [Remove-AzKeyVaultNetworkRule](/powershell/module/az.KeyVault/Remove-azKeyVaultNetworkRule), [Update-AzKeyVaultNetworkRuleSet](/powershell/module/az.KeyVault/Update-azKeyVaultNetworkRuleSet)
+## References
 
-#### Next steps
-* [Virtual network service endpoints for Key Vault](overview-vnet-service-endpoints.md)
-* [Azure Key Vault security overview](security-features.md)
+- ARM Template Reference: [Azure Key Vault ARM Template Reference](/azure/templates/Microsoft.KeyVault/vaults)
+- Azure CLI commands: [az keyvault network-rule](/cli/azure/keyvault/network-rule)
+- Azure PowerShell cmdlets: [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault), [Add-AzKeyVaultNetworkRule](/powershell/module/az.KeyVault/Add-azKeyVaultNetworkRule), [Remove-AzKeyVaultNetworkRule](/powershell/module/az.KeyVault/Remove-azKeyVaultNetworkRule), [Update-AzKeyVaultNetworkRuleSet](/powershell/module/az.KeyVault/Update-azKeyVaultNetworkRuleSet)
+
+## Next steps
+
+- [Integrate Key Vault with Azure Private Link](private-link-service.md)
+- [Virtual network service endpoints for Key Vault](overview-vnet-service-endpoints.md)
+- [Access Key Vault behind a firewall](access-behind-firewall.md)
+- [Secure your Azure Key Vault](secure-key-vault.md)

@@ -2,9 +2,9 @@
 title: Stream alerts to monitoring solutions
 description: Learn how to stream your security alerts to Microsoft Sentinel, SIEMs, SOAR, or ITSM solutions.
 ms.topic: how-to
-ms.author: dacurwin
-author: dcurwin
-ms.date: 01/15/2024
+ms.author: elkrieger
+author: Elazark
+ms.date: 07/14/2025
 ---
 
 # Stream alerts to monitoring solutions
@@ -20,6 +20,7 @@ There are built-in Azure tools that are available that ensure you can view your 
 - **IBM's QRadar**
 - **Palo Alto Networks**
 - **ArcSight**
+- **Dynatrace**
 
 ## Stream alerts to Defender XDR with the Defender XDR API
 
@@ -65,7 +66,7 @@ To export security alerts to Splunk and QRadar, you need to use Event Hubs and a
 
 Before you set up the Azure services for exporting alerts, make sure you have:
 
-- Azure subscription ([Create a free account](https://azure.microsoft.com/free/))
+- Azure subscription ([Create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn))
 - Azure resource group ([Create a resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal))
 - **Owner** role on the alerts scope (subscription, management group or tenant), or these specific permissions:
   - Write permissions for event hubs and the Event Hubs Policy
@@ -138,10 +139,10 @@ Each SIEM platform has a tool to enable it to receive alerts from Azure Event Hu
 
 ## Stream alerts with continuous export
 
-To stream alerts into **ArcSight**, **SumoLogic**, **Syslog servers**, **LogRhythm**, **Logz.io Cloud Observability Platform**, and other monitoring solutions, connect Defender for Cloud using continuous export and Azure Event Hubs.
+To stream alerts into **ArcSight**, **SumoLogic**, **Syslog servers**, **LogRhythm**, **Logz.io Cloud Observability Platform**, **Dynatrace**, and other monitoring solutions, connect Defender for Cloud using continuous export and Azure Event Hubs.
 
 > [!NOTE]
-> To stream alerts at the tenant level, use this Azure policy and set the scope at the root management group. You'll need permissions for the root management group as explained in [Defender for Cloud permissions](permissions.md): [Deploy export to an event hub for Microsoft Defender for Cloud alerts and recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb).
+> To stream alerts at the tenant level, use this Azure policy and set the scope at the root management group. You need permissions for the root management group as explained in [Defender for Cloud permissions](permissions.md): [Deploy export to an event hub for Microsoft Defender for Cloud alerts and recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb).
 
 **To stream alerts with continuous export**:
 
@@ -158,6 +159,7 @@ To stream alerts into **ArcSight**, **SumoLogic**, **Syslog servers**, **LogRhyt
     | Syslog server | No | If you want to stream Azure Monitor data directly to a syslog server, you can use a [solution based on an Azure function](https://github.com/miguelangelopereira/azuremonitor2syslog/).|
     | LogRhythm | No| Instructions to set up LogRhythm to collect logs from an event hub are available [here](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/).|
     |Logz.io | Yes | For more information, see [Getting started with monitoring and logging using Logz.io for Java apps running on Azure](/azure/developer/java/fundamentals/java-get-started-with-logzio)|
+    |Dynatrace | No | For instructions to set up the integration in Dynatrace, read [Ingest Microsoft Defender for Cloud security events](https://dt-url.net/ft03w4b)
 
 1. (Optional) Stream the raw logs to the event hub and connect to your preferred solution. Learn more in [Monitoring data available](/azure/azure-monitor/essentials/stream-monitoring-data-event-hubs#monitoring-data-available).
 
@@ -173,7 +175,7 @@ You can use this API to stream alerts from your **entire tenant** (and data from
 - **Power BI** - [Connect to the Microsoft Graph Security API in Power BI Desktop](/power-bi/connect-data/desktop-connect-graph-security).
 - **ServiceNow** - [Install and configure the Microsoft Graph Security API application from the ServiceNow Store](https://docs.servicenow.com/bundle/sandiego-security-management/page/product/secops-integration-sir/secops-integration-ms-graph/task/ms-graph-install.html?cshalt=yes).
 - **QRadar** - [Use IBM's Device Support Module for Microsoft Defender for Cloud via Microsoft Graph API](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/com.ibm.dsm.doc/c_dsm_guide_ms_azure_security_center_overview.html).
-- **Palo Alto Networks**, **Anomali**, **Lookout**, **InSpark**, and more - [Use the Microsoft Graph Security API](https://www.microsoft.com/security/business/graph-security-api#office-MultiFeatureCarousel-09jr2ji).
+- **Palo Alto Networks**, **Anomali**, **Lookout**, **InSpark**, and more - [Use the Microsoft Graph Security API](/graph/security-concept-overview).
 
 > [!NOTE]
 > The preferred way to export alerts is through [Continuously export Microsoft Defender for Cloud data](continuous-export.md).

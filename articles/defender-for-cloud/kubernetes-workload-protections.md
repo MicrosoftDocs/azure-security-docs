@@ -2,9 +2,9 @@
 title: Kubernetes data plane hardening
 description: Learn how to use Microsoft Defender for Cloud's set of Kubernetes data plane hardening security recommendations
 ms.topic: how-to
-author: dcurwin
-ms.author: dacurwin
-ms.date: 09/04/2023
+author: Elazark
+ms.author: elkrieger
+ms.date: 07/15/2025
 ---
 
 # Protect your Kubernetes data plane hardening
@@ -12,7 +12,7 @@ ms.date: 09/04/2023
 This page describes how to use Microsoft Defender for Cloud's set of security recommendations dedicated to Kubernetes data plane hardening.
 
 > [!TIP]
-> For a list of the security recommendations that might appear for Kubernetes clusters and nodes, review[container recommendations](recommendations-reference-container.md).
+> For a list of the security recommendations that might appear for Kubernetes clusters and nodes, review [container recommendations](recommendations-reference-container.md).
 
 ## Set up your workload protection
 
@@ -38,7 +38,7 @@ You can enable the Azure Policy for Kubernetes by one of two ways:
 > When you enable this setting, the Azure Policy for Kubernetes pods are installed on the cluster. Doing so allocates a small amount of CPU and memory for the pods to use. This allocation might reach maximum capacity, but it doesn't affect the rest of the CPU and memory on the resource.
 
 > [!NOTE]
-> Enablement for AWS via the connector is not supported due to a limitation in EKS that requires the cluster admin to add permissions for a new IAM role on the cluster itself.
+> Enablement for AWS via the connector isn't supported due to a limitation in EKS that requires the cluster admin to add permissions for a new IAM role on the cluster itself.
 
 #### Enable for Azure subscriptions or on-premises
 
@@ -73,7 +73,7 @@ If you disabled the "Azure Policy Extension for Azure Arc" settings under the GC
 You can manually configure the Azure Policy for Kubernetes on existing Kubernetes clusters through the Recommendations page. Once enabled, the hardening recommendations become available (some of the recommendations require another configuration to work).
 
 > [!NOTE]
-> For AWS it isn't possible to do onboarding at scale using the connector, but it can be installed on all existing clusters or on specific clusters using the recommendation [Azure Arc-enabled Kubernetes clusters should have the Azure policy extension for Kubernetes extension installed](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/0642d770-b189-42ef-a2ce-9dcc3ec6c169/subscriptionIds~/%5B%22212f9889-769e-45ae-ab43-6da33674bd26%22%2C%2204cd6fff-ef34-415e-b907-3c90df65c0e5%22%5D/showSecurityCenterCommandBar~/false/assessmentOwners~/null).
+> For AWS it isn't possible to do onboarding at scale using the connector, but it can be installed on all existing clusters or on specific clusters using the recommendation Azure Arc-enabled Kubernetes clusters should have the Azure policy extension for Kubernetes extension installed**.
 
 **To deploy the** **Azure Policy for Kubernetes** **to specified clusters**:
 
@@ -98,13 +98,13 @@ You can manually configure the Azure Policy for Kubernetes on existing Kubernete
 Approximately 30 minutes after the Azure Policy for Kubernetes installation completes, Defender for Cloud shows the clusters’ health status for the following recommendations, each in the relevant security control as shown:
 
 > [!NOTE]
-> If you're installing the Azure Policy for Kubernetes for the first time, these recommendations will appear as new additions in the list of recommendations.
+> If you're installing the Azure Policy for Kubernetes for the first time, these recommendations appear as new additions in the list of recommendations.
 
 > [!TIP]
-> Some recommendations have parameters that must be customized via Azure Policy to use them effectively. For example, to benefit from the recommendation **Container images should be deployed only from trusted registries**, you'll have to define your trusted registries. If you don't enter the necessary parameters for the recommendations that require configuration, your workloads will be shown as unhealthy.
+> Some recommendations have parameters that must be customized via Azure Policy to use them effectively. For example, to benefit from the recommendation **Container images should be deployed only from trusted registries**, you have to define your trusted registries. If you don't enter the necessary parameters for the recommendations that require configuration, your workloads will be shown as unhealthy.
 
 > [!NOTE]
-> Microsoft components like the Defender sensor and Azure Monitor Agent (AMA) are deployed in the kube-system namespace by default. This setup ensures they are not marked as non-compliant in data plane recommendations. However, third-party vendor tools installed in a different namespace may be flagged as non-compliant. To exclude third-party vendors from these recommendations, you can add their namespace to the exclusion list.
+> Microsoft components like the Defender sensor are deployed in the kube-system namespace by default. This setup ensures they aren't marked as non-compliant in data plane recommendations. However, third-party vendor tools installed in a different namespace might be flagged as non-compliant. To exclude third-party vendors from these recommendations, you can add their namespace to the exclusion list.
 
 | Recommendation name | Security Control | Configuration required |
 |---------------------|--------------------|------------------------|
@@ -120,8 +120,8 @@ Approximately 30 minutes after the Azure Policy for Kubernetes installation comp
 | Immutable (read-only) root filesystem should be enforced for containers     | Manage access and permissions            | No                     |
 | Kubernetes clusters should be accessible only over HTTPS                    | Encrypt data in transit                  | No                     |
 | Kubernetes clusters should disable automounting API credentials             | Manage access and permissions            | No                     |
-| Kubernetes clusters should not use the default namespace                    | Implement security best practices        | No                     |
-| Kubernetes clusters should not grant CAPSYSADMIN security capabilities      | Manage access and permissions            | No                     |
+| Kubernetes clusters shouldn't use the default namespace                    | Implement security best practices        | No                     |
+| Kubernetes clusters shouldn't grant CAPSYSADMIN security capabilities      | Manage access and permissions            | No                     |
 | Privileged containers should be avoided                                     | Manage access and permissions            | No                     |
 | Running containers as root user should be avoided                           | Manage access and permissions            | No                     |
 

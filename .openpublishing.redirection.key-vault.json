@@ -1,6 +1,11 @@
 {
   "redirections": [
   {
+      "source_path_from_root": "/articles/key-vault/general/how-to-azure-key-vault-network-security.md",
+      "redirect_url": "/azure/key-vault/general/network-security",
+      "redirect_document_id": false
+    },
+  {
       "source_path_from_root": "/articles/key-vault/general/soft-delete-change.md",
       "redirect_url": "/azure/key-vault/general/soft-delete-overview",
       "redirect_document_id": false
@@ -42,7 +47,12 @@
   },
   {
     "source_path_from_root": "/articles/key-vault/common-parameters-and-headers.md",
-    "redirect_url": "/azure/key-vault/general/common-parameters-and-headers",
+    "redirect_url": "/azure/key-vault/general/authentication-requests-and-responses",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/key-vault/general/common-parameters-and-headers.md",
+    "redirect_url": "/azure/key-vault/general/authentication-requests-and-responses",
     "redirect_document_id": false
   },
   {
@@ -247,12 +257,17 @@
   },
   {
     "source_path_from_root": "/articles/key-vault/key-vault-manage-with-cli.md",
-    "redirect_url": "/azure/key-vault/key-vault-manage-with-cli2",
+    "redirect_url": "/azure/key-vault/general/quick-create-cli",
     "redirect_document_id": false
   },
   {
     "source_path_from_root": "/articles/key-vault/key-vault-manage-with-cli2.md",
-    "redirect_url": "/azure/key-vault/general/manage-with-cli2",
+    "redirect_url": "/azure/key-vault/general/quick-create-cli",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/key-vault/general/manage-with-cli2.md",
+    "redirect_url": "/azure/key-vault/general/quick-create-cli",
     "redirect_document_id": false
   },
   {
@@ -332,7 +347,12 @@
   },
   {
     "source_path_from_root": "/articles/key-vault/key-vault-versions.md",
-    "redirect_url": "/azure/key-vault",
+    "redirect_url": "/azure/key-vault/general/whats-new",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/key-vault/general/versions.md",
+    "redirect_url": "/azure/key-vault/general/whats-new",
     "redirect_document_id": false
   },
   {
@@ -533,6 +553,31 @@
   {
     "source_path_from_root": "/articles/key-vault/vs-secure-secret-appsettings.md",
     "redirect_url": "/previous-versions/azure/key-vault/vs-secure-secret-appsettings",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/key-vault/general/best-practices.md",
+    "redirect_url": "/azure/key-vault/general/secure-key-vault",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/key-vault/general/security-features.md",
+    "redirect_url": "/azure/key-vault/general/secure-key-vault",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/key-vault/secrets/secrets-best-practices.md",
+    "redirect_url": "/azure/key-vault/secrets/secure-secrets",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/key-vault/general/dotnet2api-release-notes.md",
+    "redirect_url": "/azure/key-vault/general/client-libraries",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/key-vault/general/customer-data.md",
+    "redirect_url": "/azure/key-vault/general/monitor-key-vault",
     "redirect_document_id": false
   }
 ]

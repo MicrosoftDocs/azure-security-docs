@@ -3,7 +3,7 @@ title: Create a security automation for specific security alerts by using an Azu
 description: Learn how to create a Microsoft Defender for Cloud automation to trigger a logic app, which will be triggered by specific Defender for Cloud alerts by using an Azure Resource Manager template (ARM template) or Bicep.
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep, devx-track-arm-template
-ms.date: 05/30/2024
+ms.date: 05/18/2025
 ---
 
 # Quickstart: Create an automatic response to a specific security alert using an ARM template or Bicep
@@ -12,11 +12,11 @@ In this quickstart, you'll learn how to use an Azure Resource Manager template (
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
-For a list of the roles and permissions required to work with Microsoft Defender for Cloud's workflow automation feature, see [workflow automation](workflow-automation.yml).
+For a list of the roles and permissions required to work with Microsoft Defender for Cloud's workflow automation feature, see [workflow automation](workflow-automations.md).
 
-The examples in this quickstart assume you have an existing Logic App. To deploy the example, you pass in parameters that contain the logic app name and resource group. For information about deploying a logic app, see [Quickstart: Create and deploy a Consumption logic app workflow in multi-tenant Azure Logic Apps with Bicep](/azure/logic-apps/quickstart-create-deploy-bicep) or [Quickstart: Create and deploy a Consumption logic app workflow in multi-tenant Azure Logic Apps with an ARM template](/azure/logic-apps/quickstart-create-deploy-azure-resource-manager-template).
+The examples in this quickstart assume you have an existing Logic App. To deploy the example, you pass in parameters that contain the logic app name and resource group. For information about deploying a logic app, see [Quickstart: Create and deploy a Consumption logic app workflow in multitenant Azure Logic Apps with Bicep](/azure/logic-apps/quickstart-create-deploy-bicep) or [Quickstart: Create and deploy a Consumption logic app workflow in multitenant Azure Logic Apps with an ARM template](/azure/logic-apps/quickstart-create-deploy-azure-resource-manager-template).
 
 ## ARM template tutorial
 

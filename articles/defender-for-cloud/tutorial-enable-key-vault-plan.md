@@ -2,7 +2,7 @@
 title: Protect your key vaults with the Defender for Key Vault plan
 description: Learn how to enable the Defender for Key Vault plan on your Azure subscription for Microsoft Defender for Cloud.
 ms.topic: install-set-up-deploy
-ms.date: 06/29/2023
+ms.date: 05/13/2025
 ---
 
 # Protect your key vaults with Defender for Key Vault
@@ -13,7 +13,7 @@ Enable Microsoft Defender for Key Vault for Azure-native, advanced threat protec
 
 Learn more about [Microsoft Defender for Key Vault](defender-for-key-vault-introduction.md).
 
-You can learn more about Defender for Key Vault's pricing on [the pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+You can learn more about Defender for Key Vault's pricing on [the pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). You can also [estimate costs with the Defender for Cloud cost calculator](cost-calculator.md).
 
 ## Prerequisites
 
@@ -40,6 +40,12 @@ Microsoft Defender for Key Vault detects unusual and potentially harmful attempt
     :::image type="content" source="media/tutorial-enable-key-vault-plan/enable-key-vault.png" alt-text="Screenshot of the Defender for Cloud plans that shows where to enable the key vault plan toggle." lightbox="media/tutorial-enable-key-vault-plan/enable-key-vault.png":::
 
 1. Select **Save**.
+
+## View your current coverage
+
+Defender for Cloud provides access to [workbooks](custom-dashboards-azure-workbooks.md) through [Azure workbooks](/azure/azure-monitor/visualize/workbooks-overview). Workbooks are customizable reports that provide insights into your security posture.
+
+The [coverage workbook](custom-dashboards-azure-workbooks.md#coverage-workbook) helps you understand your current coverage by showing which plans are enabled on your subscriptions and resources.
 
 ## Next steps
 

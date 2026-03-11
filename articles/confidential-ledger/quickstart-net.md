@@ -22,7 +22,7 @@ Azure confidential ledger client library resources:
 
 ## Prerequisites
 
-- An Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
+- An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - [.NET Core 3.1 SDK or later](https://dotnet.microsoft.com/download/dotnet-core)
 - [Azure CLI](/cli/azure/install-azure-cli)
 

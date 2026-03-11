@@ -1,5 +1,5 @@
 ---
-title: Manage keys in a managed HSM - Azure Key Vault | Microsoft Docs
+title: Manage keys in a Managed HSM 
 description: Use this article to manage keys in a managed HSM
 services: key-vault
 author: msmbaldwin
@@ -8,15 +8,15 @@ ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 04/14/2025
+ms.date: 01/30/2026
 
 ms.author: mbaldwin
 ---
 
-# Manage a Managed HSM using the Azure CLI
+# Manage keys in an Azure Managed HSM using the Azure CLI
 
 > [!NOTE]
-> Key Vault supports two types of resources: vaults and managed HSMs. This article is about **Managed HSM**. If you want to learn how to manage a vault, see [Manage Key Vault using the Azure CLI](../general/manage-with-cli2.md).
+> Key Vault supports two types of resources: vaults and managed HSMs. This article is about **Managed HSM**. If you want to learn how to manage a vault, see [Quickstart: Create a key vault using the Azure CLI](../general/quick-create-cli.md).
 
 For an overview of Managed HSM, see [What is Managed HSM?](overview.md)
 
@@ -44,7 +44,7 @@ For more information on sign in options via the CLI, see [sign in with Azure CLI
 > All the commands following commands show two usage methods. One using `--hsm-name` and `--name` (for key name) parameters and another using `--id` parameter where you can specify the entire url including the key name where appropriate. The latter method is useful when the caller (a user or an application) has no read access on the control plane and only restricted access on the data plane.
 
 > [!NOTE]
-> Some interactions with key material require specific Local RBAC permissions. For a full list of built-in Local RBAC roles and permissions, see [Managed HSM local RBAC built-in roles](./built-in-roles.md). To assign these permissions to a user, see [Secure access to your managed HSMs](./how-to-secure-access.md)
+> Some interactions with key material require specific Managed HSM local RBAC permissions. For a full list of built-in Managed HSM local RBAC roles and permissions, see [Managed HSM local RBAC built-in roles](./built-in-roles.md). To assign these permissions to a user, see [Secure access to your managed HSMs](./how-to-secure-access.md)
 ## Create an HSM key
 
 > [!NOTE]
@@ -73,12 +73,12 @@ Note, that the `get` operation only returns the public key and key attributes. I
 The example below shows how to create an **EC** key with P-256 curve that will be only used for **sign and verify** operations (--ops) and has two tags, **usage** and **appname**. Tags help you add additional metadata to the key for tracking and managing.
 
 ```azurecli-interactive
-az keyvault key create --hsm-name ContosoMHSM --name myec256key --ops sign verify  --tags ‘usage=signing] appname=myapp’ --kty EC-HSM --curve P-256
+az keyvault key create --hsm-name ContosoMHSM --name myec256key --ops sign verify  --tags 'usage=signing' 'appname=myapp' --kty EC-HSM --curve P-256
 
 ## OR
 # Note the key name (myec256key) in the URI
 
-az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myec256key --ops sign verify  --tags ‘usage=signing] appname=myapp’ --kty EC-HSM --curve P-256
+az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myec256key --ops sign verify  --tags 'usage=signing' 'appname=myapp' --kty EC-HSM --curve P-256
 ```
 
 ### Create a 256-bit symmetric key
@@ -86,12 +86,12 @@ az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myec25
 This example shows how to create a 256-bit **symmetric** key that will be only used for **encrypt and decrypt** operations (--ops).
 
 ```azurecli-interactive
-az keyvault key create --hsm-name ContosoMHSM --name myaeskey --ops encrypt decrypt  --tags --kty oct-HSM --size 256
+az keyvault key create --hsm-name ContosoMHSM --name myaeskey --ops encrypt decrypt  --tags 'usage=encryption' 'appname=myapp' --kty oct-HSM --size 256
 
 ## OR
 # Note the key name (myaeskey) in the URI
 
-az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myaeskey --ops encrypt decrypt  --tags ‘usage=signing] appname=myapp’ --kty oct-HSM --size 256
+az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myaeskey --ops encrypt decrypt  --tags 'usage=encryption' 'appname=myapp' --kty oct-HSM --size 256
 ```
 
 ## View key attributes and tags
@@ -229,4 +229,4 @@ To import a key from your on-premises HSM to managed HSM, see [Import HSM-protec
 - For complete Azure CLI reference for key vault commands, see [Key Vault CLI reference](/cli/azure/keyvault).
 - For programming references, see [the Azure Key Vault developer's guide](../general/developers-guide.md)
 - Learn more about [Managed HSM role management](role-management.md)
-- Learn more about [Managed HSM best practices](best-practices.md)
+- Learn more about [Secure your Azure Managed HSM deployment](secure-managed-hsm.md)

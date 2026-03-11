@@ -4,7 +4,7 @@ description: Quickstart showing how to create Azure an Azure Key Vault Managed H
 services: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 04/15/2025
+ms.date: 01/30/2026
 ms.topic: quickstart
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
@@ -15,7 +15,7 @@ ms.custom: subject-armqs, devx-track-arm-template, devx-track-azurecli
 
 # Quickstart: Create a Managed HSM using an ARM template
 
-This quickstart describes how to use an Azure Resource Manager template (ARM template) to create an Azure Key Vault managed HSM.  Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguards cryptographic keys for your cloud applications, using **FIPS 140-2 Level 3** validated HSMs.  
+This quickstart describes how to use an Azure Resource Manager template (ARM template) to create an Azure Key Vault managed HSM.  Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguards cryptographic keys for your cloud applications, using **FIPS 140-3 Level 3** validated HSMs.  
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
@@ -25,7 +25,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 [!INCLUDE [Azure CLI prepare your environment](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -44,7 +44,7 @@ The Azure resource defined in the template is:
 The template requires the object ID associated with your account. To find it, use the Azure CLI [az ad user show](/cli/azure/ad/user#az-ad-user-show) command, passing your email address to the `--id` parameter. You can limit the output to the object ID only with the `--query` parameter.
 
 ```azurecli-interactive
-az ad user show --id <your-email-address> --query "objectId"
+az ad user show --id <your-email-address> --query "id"
 ```
 
 You may also need your tenant ID. To find it, use the Azure CLI [az ad user show](/cli/azure/account#az-account-show) command. You can limit the output to the tenant ID only with the `--query` parameter.
@@ -95,4 +95,4 @@ In this quickstart, you created a Managed HSM. This Managed HSM won't be fully f
 
 - Read an [Overview of Managed HSM](overview.md)
 - Learn about [Managing keys in a Managed HSM](key-management.md)
-- Review [Managed HSM best practices](best-practices.md)
+- Review [Secure your Azure Managed HSM deployment](secure-managed-hsm.md)

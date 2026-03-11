@@ -6,7 +6,7 @@ ms.author: mbaldwin
 ms.date: 04/14/2025
 ms.service: azure-confidential-ledger
 ms.topic: quickstart
-ms.custom: mode-ui
+ms.custom: mode-ui, sfi-image-nochange
 ---
 
 # Quickstart: Create a confidential ledger using the Azure portal

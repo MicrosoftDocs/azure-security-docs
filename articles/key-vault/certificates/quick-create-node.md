@@ -3,7 +3,7 @@ title: Quickstart -  Azure Key Vault certificate client library for JavaScript (
 description: Learn how to create, retrieve, and delete certificates from an Azure key vault using the JavaScript client library with either JavaScript or TypeScript
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 07/30/2024
+ms.date: 01/30/2026
 ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: quickstart
@@ -28,7 +28,7 @@ For more information about Key Vault and certificates, see:
 
 ## Prerequisites
 
-- An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Current [Node.js LTS](https://nodejs.org).
 - [Azure CLI](/cli/azure/install-azure-cli)
 - An existing Key Vault - you can create one using:
@@ -39,7 +39,7 @@ For more information about Key Vault and certificates, see:
 ::: zone-end
 
 ::: zone pivot="programming-language-typescript"
-- An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Current [Node.js LTS](https://nodejs.org).
 - [TypeScript 5+](https://www.typescriptlang.org/download/)
 - [Azure CLI](/cli/azure/install-azure-cli)
@@ -98,7 +98,7 @@ Create a Node.js application that uses your key vault.
 
 ## Grant access to your key vault
 
-[!INCLUDE [Using RBAC to provide access to a key vault](../includes/rbac/upn-certificate-officer-cli.md)]
+[!INCLUDE [Using RBAC to provide access to a key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/rbac/upn-certificate-officer-cli.md)]
 
 ## Set environment variables
 
@@ -128,7 +128,7 @@ export KEY_VAULT_URL=<your-key-vault-endpoint>
 
 Application requests to most Azure services must be authorized. Using the [DefaultAzureCredential](/javascript/api/@azure/identity/#@azure-identity-getdefaultazurecredential) method provided by the [Azure Identity client library](/javascript/api/@azure/identity) is the recommended approach for implementing passwordless connections to Azure services in your code. `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code. 
 
-In this quickstart, `DefaultAzureCredential` authenticates to key vault using the credentials of the local development user logged into the Azure CLI. When the application is deployed to Azure, the same `DefaultAzureCredential` code can automatically discover and use a managed identity that is assigned to an App Service, Virtual Machine, or other services. For more information, see [Managed Identity Overview](/azure/active-directory/managed-identities-azure-resources/overview).
+In this quickstart, `DefaultAzureCredential` authenticates to key vault using the credentials of the local development user logged into the Azure CLI. When the application is deployed to Azure, the same `DefaultAzureCredential` code can automatically discover and use a managed identity that is assigned to an App Service, Virtual Machine, or other services. For more information, see [Managed Identity Overview](/entra/identity/managed-identities-azure-resources/overview).
 
 In this code, the endpoint of your key vault is used to create the key vault client. The endpoint format looks like `https://<your-key-vault-name>.vault.azure.net` but may change for sovereign clouds. For more information about authenticating to key vault, see [Developer's Guide](/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
 
@@ -159,11 +159,9 @@ This code uses the following [Key Vault Certificate classes and methods](/javasc
     const { DefaultAzureCredential } = require("@azure/identity");
     
     async function main() {
-      // If you're using MSI, DefaultAzureCredential should "just work".
-      // Otherwise, DefaultAzureCredential expects the following three environment variables:
-      // - AZURE_TENANT_ID: The tenant ID in Azure Active Directory
-      // - AZURE_CLIENT_ID: The application (client) ID registered in the AAD tenant
-      // - AZURE_CLIENT_SECRET: The client secret for the registered application
+      // DefaultAzureCredential automatically uses managed identity in Azure environments.
+      // For local development, it uses credentials from Azure CLI, Azure PowerShell, or environment variables.
+      // See: https://learn.microsoft.com/javascript/api/@azure/identity/defaultazurecredential
       const credential = new DefaultAzureCredential();
 
       const keyVaultUrl = process.env["KEY_VAULT_URL"];
@@ -336,4 +334,5 @@ In this quickstart, you created a key vault, stored a certificate, and retrieved
 - See an [Access Key Vault from App Service Application Tutorial](../general/tutorial-net-create-vault-azure-web-app.md)
 - See an [Access Key Vault from Virtual Machine Tutorial](../general/tutorial-net-virtual-machine.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
-- Review the [Key Vault security overview](../general/security-features.md)
+- Review the [Key Vault security overview](../general/secure-key-vault.md)
+- Review [certificates-specific security best practices](secure-certificates.md)

@@ -18,7 +18,7 @@ This article describes how you can create an Azure Dedicated HSM using the
 
 ## Requirements
 
-* If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+* If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) account before you begin.
 
 [!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 

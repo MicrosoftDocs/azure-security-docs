@@ -6,7 +6,7 @@ ms.service: azure-payment-hsm
 author: msmbaldwin
 ms.author: mbaldwin
 ms.topic: tutorial
-ms.custom: devx-track-azurepowershell, devx-track-arm-template, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-arm-template, devx-track-azurecli, sfi-image-nochange
 ms.date: 04/14/2025
 ---
 
@@ -41,7 +41,7 @@ This tutorial describes how to create a payment HSM with the host and management
   ```
 
   You can continue with this quick start if all four of these commands return "Registered".
-- You must have an Azure subscription. You can [create a free account](https://azure.microsoft.com/free/) if you don't have one.
+- You must have an Azure subscription. You can [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) if you don't have one.
 
 [!INCLUDE [Azure CLI prepare your environment](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 

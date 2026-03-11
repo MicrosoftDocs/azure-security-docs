@@ -2,7 +2,7 @@
 title: Onboard a management group
 description: Learn how to use a supplied Azure Policy definition to enable Microsoft Defender for Cloud for all the subscriptions in a management group.
 ms.topic: how-to
-ms.date: 03/20/2024
+ms.date: 07/15/2025
 ---
 
 # Enable Defender for Cloud on all subscriptions in a management group
@@ -27,14 +27,14 @@ az provider register --namespace Microsoft.Security --management-group-id …
 
 1. Select **Assign** and ensure you set the scope to the MG level.
 
-    :::image type="content" source="./media/get-started/assign-policy.png" alt-text="Screenshot showing how to assign the definition Enable Defender for Cloud on your subscription.":::
+    :::image type="content" source="./media/get-started/assign-policy.png" alt-text="Screenshot showing how to assign the definition Enable Defender for Cloud on your subscription." lightbox="media/get-started/assign-policy.png":::
 
     > [!TIP]
     > Other than the scope, there are no required parameters.
 
 1. Select **Remediation**, and select **Create a remediation task** to ensure all existing subscriptions that don't have Defender for Cloud enabled will get onboarded.
 
-    :::image type="content" source="./media/get-started/remediation-task.png" alt-text="Screenshot that shows how to create a remediation task for the Azure Policy definition Enable Defender for Cloud on your subscription.":::
+    :::image type="content" source="./media/get-started/remediation-task.png" alt-text="Screenshot that shows how to create a remediation task for the Azure Policy definition Enable Defender for Cloud on your subscription." lightbox="media/get-started/remediation-task.png":::
 
 1. Select **Review + create**.
 
@@ -57,7 +57,7 @@ There are various ways you might choose to modify the Azure Policy definition:
     The supplied definition, defines *either* of the 'pricing' settings below as compliant. Meaning that a subscription set to 'standard' or 'free' is compliant.
 
     > [!TIP]
-    > When any Microsoft Defender plan is enabled, it's described in a policy definition as being on the 'Standard' setting. When it's disabled, it's 'Free'. To learn about the differences between these plans, see [Microsoft Defender for Cloud's Defender plans](defender-for-cloud-introduction.md#protect-cloud-workloads).
+    > When any Microsoft Defender plan is enabled, it's described in a policy definition as being on the 'Standard' setting. When it's disabled, it's 'Free'. To learn about the differences between these plans, see [Microsoft Defender for Cloud's Defender plans](defender-for-cloud-introduction.md#cloud-workload-protection-platform-cwpp).
 
     ```json
     "existenceCondition": {

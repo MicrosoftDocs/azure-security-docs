@@ -1,11 +1,12 @@
 ---
 title: Integrate partner integrations
 description: Learn how to integrate partner integrations in to Microsoft Defender for Cloud.
-author: dcurwin
-ms.author: dacurwin
+author: Elazark
+ms.author: elkrieger
 ms.service: defender-for-cloud
 ms.topic: how-to
-ms.date: 10/13/2024
+ms.date: 05/20/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Integrate partner integrations

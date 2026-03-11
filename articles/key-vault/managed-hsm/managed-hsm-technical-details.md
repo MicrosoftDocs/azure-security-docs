@@ -6,7 +6,8 @@ ms.subservice: managed-hsm
 ms.topic: concept-article
 author: davinune
 ms.author: davinune
-ms.date: 07/16/2024
+ms.date: 01/30/2026
+ms.custom: sfi-ga-nochange
 ---
 
 # Key sovereignty, availability, performance, and scalability in Managed HSM
@@ -21,18 +22,18 @@ This article explains how we solved this problem in the Azure Key Vault Managed 
 
 ## Managed HSM hardware environment
 
-A customer's Managed HSM pool in any Azure region is in a [secure Azure datacenter](/azure/security/fundamentals/physical-security). Three instances are spread over several servers. Each instance is deployed in a different rack to ensure redundancy. Each server has a [FIPS 140-2 Level 3](https://csrc.nist.gov/publications/detail/fips/140/2/final) validated Marvell LiquidSecurity HSM Adapter with multiple cryptographic cores. The cores are used to create fully isolated HSM partitions, including fully isolated credentials, data storage, and access control.
+A customer's Managed HSM pool in any Azure region is in a [secure Azure datacenter](/azure/security/fundamentals/physical-security). Three instances are spread over several servers. Each instance is deployed in a different rack to ensure redundancy. Each server has a [FIPS 140-3 Level 3](https://csrc.nist.gov/publications/detail/fips/140/3/final) validated Marvell LiquidSecurity HSM Adapter with multiple cryptographic cores. The cores are used to create fully isolated HSM partitions, including fully isolated credentials, data storage, and access control.
 
-The physical separation of the instances inside the datacenter is critical to ensuring that the loss of a single component (for example, the top-of-rack switch or a power management unit in a rack) can't affect all the instances of a pool. These servers are dedicated to the Azure Security HSM team. The servers aren't shared with other Azure teams, and no customer workloads are deployed on these servers. Physical access controls, including locked racks, are used to prevent unauthorized access to the servers. These controls meet FedRAMP-High, PCI, SOC 1/2/3, ISO 270x, and other security and privacy standards, and are regularly independently verified as part of the [Azure compliance program](https://www.microsoft.com/trust-center/compliance/compliance-overview?rtc=1). The HSMs have enhanced physical security, validated to meet FIPS 140-2 Level 3 requirements. The entire Managed HSM service is built on top of the standard [secure Azure platform](/azure/security/fundamentals/platform), including [trusted launch](/azure/virtual-machines/trusted-launch), which protects against advanced persistent threats.
+The physical separation of the instances inside the datacenter is critical to ensuring that the loss of a single component (for example, the top-of-rack switch or a power management unit in a rack) can't affect all the instances of a pool. These servers are dedicated to the Azure Security HSM team. The servers aren't shared with other Azure teams, and no customer workloads are deployed on these servers. Physical access controls, including locked racks, are used to prevent unauthorized access to the servers. These controls meet FedRAMP-High, PCI, SOC 1/2/3, ISO 270x, and other security and privacy standards, and are regularly independently verified as part of the [Azure compliance program](https://www.microsoft.com/trust-center/compliance/compliance-overview?rtc=1). The HSMs have enhanced physical security, validated to meet FIPS 140-3 Level 3 requirements. The entire Managed HSM service is built on top of the standard [secure Azure platform](/azure/security/fundamentals/platform), including [trusted launch](/azure/virtual-machines/trusted-launch), which protects against advanced persistent threats.
 
-The HSM adapters can support dozens of isolated HSM partitions. Running on each server is a control process called *Node Service*. Node Service takes ownership of each adapter and installs the credentials for the adapter owner, in this case, Microsoft. The HSM is designed so that ownership of the adapter doesn't provide Microsoft with access to data that's stored in customer partitions. It  allows only Microsoft to create, resize, and delete customer partitions. It supports taking blind backups of any partition for the customer. In a *blind backup*, the backup is wrapped by a customer-provided key that can be restored by the service code only inside a Managed HSM instance that's owned by the customer, and whose contents aren't readable by Microsoft.
+The HSM adapters can support dozens of isolated HSM partitions. Running on each server is a control process called *Node Service*. Node Service takes ownership of each adapter and installs the credentials for the adapter owner, in this case, Microsoft. The HSM is designed so that ownership of the adapter doesn't provide Microsoft with access to data that's stored in customer partitions. It allows only Microsoft to create, resize, and delete customer partitions. It supports taking blind backups of any partition for the customer. In a *blind backup*, the backup is wrapped by a customer-provided key that can be restored by the service code only inside a Managed HSM instance that's owned by the customer, and whose contents aren't readable by Microsoft.
 
 ### Architecture of a Managed HSM pool
 
 Figure 1 shows the architecture of an HSM pool, which consists of three Linux VMs, each running on an HSM server in its own datacenter rack to support availability. The important components are:
 
 - The HSM fabric controller (HFC) is the control plane for the service. The HFC drives automated patching and repairs for the pool.
-- An exclusive cryptographic boundary for each customer composed of three [Intel Secure Guard Extensions (Intel SGX)](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) confidential enclaves connected to three FIPS 140-2 Level 3 compliant HSM instances. The root keys for this boundary are generated and stored in the three HSMs. As we describe later in this article, no person associated with Microsoft has access to the data that's within this boundary. Only service code that's running in the Intel SGX enclave (including the Node Service agent), acting on behalf of the customer, has access.
+- An exclusive cryptographic boundary for each customer composed of three [Intel Secure Guard Extensions (Intel SGX)](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) confidential enclaves connected to three FIPS 140-3 Level 3 compliant HSM instances. The root keys for this boundary are generated and stored in the three HSMs. As we describe later in this article, no person associated with Microsoft has access to the data that's within this boundary. Only service code that's running in the Intel SGX enclave (including the Node Service agent), acting on behalf of the customer, has access.
 
 :::image type="content" source="./media/managed-hsm-architecture.png" lightbox="./media/managed-hsm-architecture.png" alt-text="Diagram of a Managed HSM pool that shows TEEs inside a customer cryptographic boundary and health maintenance operations outside the boundary.":::
 
@@ -95,5 +96,5 @@ Managed HSM removes the need for customers to make tradeoffs between availabilit
 - [Managed HSM: Control your data in the cloud](mhsm-control-data.md)
 - [About the Managed HSM security domain](security-domain.md)
 - [Managed HSM access control](access-control.md)
-- [Local RBAC built-in roles](built-in-roles.md)
+- [Managed HSM local RBAC built-in roles](built-in-roles.md)
 - [Managing compliance in the cloud](https://www.microsoft.com/trust-center/compliance/compliance-overview?rtc=1)

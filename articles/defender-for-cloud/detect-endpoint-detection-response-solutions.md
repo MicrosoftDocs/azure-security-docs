@@ -1,8 +1,8 @@
 ---
 title: Detecting endpoint detection and response solutions
 description: Learn about detection for endpoint detection and response solutions in Microsoft Defender for Cloud
-author: dcurwin
-ms.author: dacurwin
+author: Elazark
+ms.author: elkrieger
 ms.topic: how-to
 ms.date: 02/19/2025
 ai-usage: ai-assisted
@@ -30,17 +30,17 @@ Based on EDR solution findings, Defender for Cloud provides the following recomm
 
 ## Supported EDR solutions
 
-**Solution** | **Supported platform**
---- | ---
-Microsoft Defender for Endpoint | Windows
-Microsoft Defender for Endpoint | Linux
-Microsoft Defender for Endpoint Unified Solution | Windows Server 2012/2012 R2
-CrowdStrike (Falcon) | Windows and Linux
-Trellix | Windows and Linux
-Symantec | Windows and Linux
-Sophos | Windows and Linux
-Singularity Platform by SentinelOne | Windows and Linux
-Cortex XDR | Windows and Linux
+|**Solution** | **Supported platform**|
+|--- | ---|
+|Microsoft Defender for Endpoint | Windows|
+|Microsoft Defender for Endpoint | Linux|
+|Microsoft Defender for Endpoint Unified Solution | Windows Server 2012/2012 R2|
+|CrowdStrike (Falcon) | Windows and Linux|
+|Trellix | Windows and Linux|
+|Symantec | Windows and Linux|
+|Sophos | Windows and Linux|
+|Singularity Platform by SentinelOne | Windows and Linux|
+|Cortex XDR | Windows and Linux (Supported only when installed via package manager on Linux)|
 
 ## Next steps
 

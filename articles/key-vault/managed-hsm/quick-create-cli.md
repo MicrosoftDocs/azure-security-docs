@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: quickstart
-ms.date: 04/15/2025
+ms.date: 05/30/2025
 ms.author: mbaldwin
 ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
@@ -15,7 +15,7 @@ ms.devlang: azurecli
 
 # Quickstart: Provision and activate a Managed HSM using Azure CLI
 
-In this quickstart, you create and activate an Azure Key Vault Managed HSM (Hardware Security Module) with Azure CLI. Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using **FIPS 140-2 Level 3** validated HSMs. For more information on Managed HSM, you may review the [Overview](overview.md).
+In this quickstart, you create and activate an Azure Key Vault Managed HSM (Hardware Security Module) with Azure CLI. Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using **FIPS 140-3 Level 3** validated HSMs. For more information on Managed HSM, you may review the [Overview](overview.md).
 
 ## Prerequisites
 
@@ -133,4 +133,4 @@ In this quickstart, you provisioned a Managed HSM and activated it. To learn mor
 - Read an [Overview of Managed HSM](overview.md)
 - Learn about [Managing keys in a managed HSM](key-management.md)
 - Learn about [Role management for a managed HSM](role-management.md)
-- Review [Managed HSM best practices](best-practices.md)
+- Review [Secure your Azure Managed HSM deployment](secure-managed-hsm.md)

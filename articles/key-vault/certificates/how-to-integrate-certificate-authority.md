@@ -7,9 +7,9 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: how-to
-ms.date: 08/25/2024
-ms.author: mbaldwin 
-ms.custom: devx-track-azurepowershell
+ms.date: 01/30/2026
+ms.author: mbaldwin
+ms.custom: devx-track-azurepowershell, sfi-image-nochange
 ---
 
 # Integrating Key Vault with Integrated Certificate Authorities
@@ -24,7 +24,7 @@ Azure Key Vault users can generate DigiCert/GlobalSign certificates directly fro
 
 For more general information about certificates, see [Azure Key Vault certificates](./about-certificates.md).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you start.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you start.
 
 ## Prerequisites
 
@@ -78,7 +78,7 @@ After you gather the preceding information from your DigiCert CertCentral accoun
 
 1. Select **Create**.
    
-DigicertCA is now in the certificate authority list.
+DigiCertCA is now in the certificate authority list.
 
 ### Azure portal (GlobalSign)
 
@@ -121,7 +121,7 @@ You can use Azure PowerShell to create and manage Azure resources by using comma
    - **Location**: `EastUS`
 
     ```azurepowershell-interactive
-    New-AzKeyVault -Name 'Contoso-Vaultname' -ResourceGroupName 'ContosoResourceGroup' -Location 'EastUS'
+    New-AzKeyVault -Name 'Contoso-Vaultname' -ResourceGroupName 'ContosoResourceGroup' -Location 'EastUS' -EnableRbacAuthorization $true
    ```
 
 3. Define variables for the following values from your DigiCert CertCentral account:

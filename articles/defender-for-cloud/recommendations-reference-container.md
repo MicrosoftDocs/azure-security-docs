@@ -1,11 +1,11 @@
 ---
 title: Reference table for all container security recommendations in Microsoft Defender for Cloud
 description: This article lists all Microsoft Defender for Cloud container security recommendations that help you harden and protect your resources.
-author: dcurwin
+author: Elazark
 ms.service: defender-for-cloud
 ms.topic: reference
-ms.date: 03/13/2024
-ms.author: dacurwin
+ms.date: 03/04/2026
+ms.author: elkrieger
 ms.custom: generated
 ai-usage: ai-assisted
 ---
@@ -40,7 +40,7 @@ The recommendations that appear in your environment are based on the resources t
 
 ### Azure Arc-enabled Kubernetes clusters should have the Defender extension installed
 
-**Description**: Defender's extension for Azure Arc provides threat protection for your Arc-enabled Kubernetes clusters. The extension collects data from all control plane (master) nodes in the cluster and sends it to the [Microsoft Defender for Kubernetes backend](defender-for-containers-enable.md?pivots=defender-for-container-arc&tabs=aks-deploy-portal) in the cloud for further analysis.
+**Description**: Defender's extension for Azure Arc provides threat protection for your Arc-enabled Kubernetes clusters. The extension collects data from all control plane (master) nodes in the cluster and sends it to the [Microsoft Defender for Containers backend](defender-for-containers-enable.md?pivots=defender-for-container-arc&tabs=aks-deploy-portal) in the cloud for further analysis.
 (No related policy)
 
 **Severity**: High
@@ -111,6 +111,9 @@ Images running on your Kubernetes cluster should come from known and monitored c
 
 ### [Preview] Container images in Azure registry should have vulnerability findings resolved
 
+>[!NOTE]
+> This preview recommendation is going to be deprecated on April 13, 2026. [Deprecation of preview of container and container images vulnerability recommendations](release-notes.md#deprecation-of-preview-of-container-and-container-images-vulnerability-recommendations)
+
 **Description**: Defender for Cloud scans your registry images for known vulnerabilities (CVEs) and provides detailed findings for each scanned image. Scanning and remediating vulnerabilities for container images in the registry helps maintain a secure and reliable software supply chain, reduces the risk of security incidents, and ensures compliance with industry standards.
 
 The new recommendation is in preview and not used for secure score calculation.
@@ -150,6 +153,9 @@ Use customer-managed keys to manage the encryption at rest of the contents of yo
 **Type**: Control plane
 
 ### [Preview] Containers running in Azure should have vulnerability findings resolved
+
+>[!NOTE]
+> This preview recommendation is going to be deprecated on April 13, 2026. [Deprecation of preview of container and container images vulnerability recommendations](release-notes.md#deprecation-of-preview-of-container-and-container-images-vulnerability-recommendations)
 
 **Description**: Defender for Cloud creates an inventory of all container workloads currently running in your Kubernetes clusters, and provides vulnerability reports for those workloads by matching the images and the vulnerability reports created for the registry images. Scanning and remediating vulnerabilities of container workloads is critical to ensure a robust and secure software supply chain, reduce the risk of security incidents, and ensures compliance with industry standards.
 
@@ -342,6 +348,9 @@ Privileged containers have all of the root capabilities of a host machine. They 
 
 ### [Preview] Container images in AWS registry should have vulnerability findings resolved
 
+>[!NOTE]
+> This preview recommendation is going to be deprecated on April 13, 2026. [Deprecation of preview of container and container images vulnerability recommendations](release-notes.md#deprecation-of-preview-of-container-and-container-images-vulnerability-recommendations)
+
 **Description**: Defender for Cloud scans your registry images for known vulnerabilities (CVEs) and provides detailed findings for each scanned image. Scanning and remediating vulnerabilities for container images in the registry helps maintain a secure and reliable software supply chain, reduces the risk of security incidents, and ensures compliance with industry standards.
 
 The new recommendation is in preview and not used for secure score calculation.
@@ -359,6 +368,9 @@ The new recommendation is in preview and not used for secure score calculation.
 **Type**: Vulnerability Assessment
 
 ### [Preview] Containers running in AWS should have vulnerability findings resolved
+
+>[!NOTE]
+> This preview recommendation is going to be deprecated on April 13, 2026. [Deprecation of preview of container and container images vulnerability recommendations](release-notes.md#deprecation-of-preview-of-container-and-container-images-vulnerability-recommendations)
 
 **Description**: Defender for Cloud creates an inventory of all container workloads currently running in your Kubernetes clusters and provides vulnerability reports for those workloads by matching the images and the vulnerability reports created for the registry images. Scanning and remediating vulnerabilities of container workloads is critical to ensure a robust and secure software supply chain, reduce the risk of security incidents, and ensures compliance with industry standards.
 
@@ -421,6 +433,9 @@ All the [Kubernetes data plane security recommendations](kubernetes-workload-pro
 
 ### [Preview] Container images in GCP registry should have vulnerability findings resolved
 
+>[!NOTE]
+> This preview recommendation is going to be deprecated on April 13, 2026. [Deprecation of preview of container and container images vulnerability recommendations](release-notes.md#deprecation-of-preview-of-container-and-container-images-vulnerability-recommendations)
+
 **Description**: Defender for Cloud scans your registry images for known vulnerabilities (CVEs) and provides detailed findings for each scanned image. Scanning and remediating vulnerabilities for container images in the registry helps maintain a secure and reliable software supply chain, reduces the risk of security incidents, and ensures compliance with industry standards.
 
 Recommendation ***GCP registry container images should have vulnerability findings resolved (powered by Microsoft Defender vulnerability Management)*** will be removed when the new recommendation is generally available. 
@@ -440,6 +455,9 @@ The new recommendation is in preview and not used for secure score calculation.
 **Type**: Vulnerability Assessment
 
 ### [Preview] Containers running in GCP should have vulnerability findings resolved
+
+>[!NOTE]
+> This preview recommendation is going to be deprecated on April 13, 2026. [Deprecation of preview of container and container images vulnerability recommendations](release-notes.md#deprecation-of-preview-of-container-and-container-images-vulnerability-recommendations)
 
 **Description**: Defender for Cloud creates an inventory of all container workloads currently running in your Kubernetes clusters and provides vulnerability reports for those workloads by matching the images and the vulnerability reports created for the registry images. Scanning and remediating vulnerabilities of container workloads is critical to ensure a robust and secure software supply chain, reduce the risk of security incidents, and ensures compliance with industry standards.
 
@@ -550,7 +568,7 @@ All the [Kubernetes data plane security recommendations](kubernetes-workload-pro
 
 ### [Preview] Container images in Docker Hub registry should have vulnerability findings resolved
 
-**Description**: Defender for Cloud scans your registry images for known vulnerabilities (CVEs) and provides detailed findings for each scanned image. Remediating vulnerabilities in container images helps maintain a secure and reliable software supply chain, reduces the risk of security incidents, and ensures compliance with industry standards.",
+**Description**: Defender for Cloud scans your registry images for known vulnerabilities (CVEs) and provides detailed findings for each scanned image. Remediating vulnerabilities in container images helps maintain a secure and reliable software supply chain, reduces the risk of security incidents, and ensures compliance with industry standards."
 
 **Severity**: High
 

@@ -1,11 +1,12 @@
 ---
 title: Endpoint detection and response with Defender for Endpoint Microsoft Defender for Cloud
 description: Learn about endpoint detection and response capabilities in Microsoft Defender for Cloud
-author: dcurwin
-ms.author: dacurwin
+author: Elazark
+ms.author: elkrieger
 ms.topic: how-to
 ms.date: 02/19/2025
 ai-usage: ai-assisted
+ms.custom: sfi-image-nochange
 #customer intent: As a user, I want to learn how Microsoft Defender for Cloud can help me to protect enterprise endpoints, improve endpoint posture, and respond to security threats.
 ---
 

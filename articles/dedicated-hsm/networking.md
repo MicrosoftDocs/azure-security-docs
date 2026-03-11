@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.service: azure-dedicated-hsm
 ms.date: 04/15/2025
 ms.author: mbaldwin
+ms.custom: sfi-image-nochange
 ---
 
 # Azure Dedicated HSM networking

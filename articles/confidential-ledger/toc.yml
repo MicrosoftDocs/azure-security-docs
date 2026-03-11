@@ -26,22 +26,24 @@ items:
   items:
   - name: Architecture
     href: architecture.md
+  - name: Data organization
+    href: data-organization.md
   - name: User Authentication and authorization 
     items:
     - name: Authentication with Microsoft Entra ID
       href: authentication-azure-ad.md
   - name: Verifying your Ledger Data
     items:
-    - name: Authenticating ledger nodes
-      href: authenticate-ledger-nodes.md
     - name: Write transaction receipts
       href: write-transaction-receipts.md
-  - name: User Defined Functions (UDFs)
+  - name: User defined functions (UDFs)
     items:
+    - name: UDF overview
+      href: server-side-programming.md
     - name: Simple UDFs
-      href: simple-user-defined-function.md
+      href: user-defined-functions.md
     - name: Advanced UDFs
-      href: advanced-user-defined-function.md
+      href: user-defined-endpoints.md
 - name: How To Guides
   items:
   - name: Manage your Ledger
@@ -72,18 +74,24 @@ items:
       href: /sql/relational-databases/security/ledger/ledger-overview?branch=sql
     - name: Create a managed application to store blob digests
       href: create-blob-managed-app.md
+    - name: Data Ingress and Egress from Azure confidential ledger using Power Automate Connector
+      href: create-power-automate-workflow.md
 - name: Security
   items:
   - name: Secure Confidential Ledger
     items:
     - name: Secure your Confidential Ledger 
       href: secure-confidential-ledger.md
+    - name: Data residency
+      href: data-residency.md
 - name: References
   items:
   - name: FAQ
     href: faq.yml
   - name: Azure confidential ledger REST API reference
     href: /rest/api/confidentialledger/
+  - name: Azure MCP Server for confidential ledger
+    href: /azure/developer/azure-mcp-server/tools/azure-confidential-ledger
   - name: .NET client library
     href: /dotnet/api/overview/azure/confidentialledger 
   - name: JavaScript client library
@@ -92,6 +100,8 @@ items:
     href: /java/api/overview/azure/security-confidentialledger-readme
 - name: Resources
   items:
+  - name: Migration from Managed CCF to Azure confidential ledger
+    href: managed-confidential-consortium-framework-migration.md
   - name: Build your skills with Microsoft Learn training
     href: /training/browse/
   - name: Pricing

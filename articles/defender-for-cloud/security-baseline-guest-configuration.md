@@ -2,8 +2,8 @@
 title: Set up Azure Policy guest configuration on machines protected by Microsoft Defender for Cloud
 description: Learn how to install the guest configuration on machines protected by Microsoft Defender for Cloud to assess OS misconfigurations. 
 ms.topic: how-to
-ms.author: dacurwin
-author: dcurwin
+ms.author: elkrieger
+author: Elazark
 ms.date: 02/19/2025
 ---
 
@@ -25,7 +25,7 @@ This article describes how to deploy the extension.
 **Permissions** | To view the recommendations and explore the OS baseline data, you need Read permission on the relevant Azure subscription.
 
 > [!NOTE]
-> Collection with the machine configuration extension replaces the older method of data collection that used the Log Analytics agent (also known as the Microsoft Monitoring Agent (MMA)). Use of the MMA will be supported until November 2024.
+> Collection with the machine configuration extension replaces the older method of data collection that used the Log Analytics agent (also known as the Microsoft Monitoring Agent (MMA)). Use of the MMA was supported until November 2024.
 
 ## Install on AWS/GCP
 

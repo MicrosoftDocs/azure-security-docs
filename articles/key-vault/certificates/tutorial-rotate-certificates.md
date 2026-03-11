@@ -3,21 +3,23 @@ title: Tutorial - Updating certificate autorotation frequency in Key Vault | Mic
 description: Tutorial showing how to update a certificate's autorotation frequency in Azure Key Vault using the Azure portal
 services: key-vault
 author: msmbaldwin
-
 ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: tutorial
-ms.custom: mvc
-ms.date: 04/14/2025
+ms.custom: mvc, sfi-image-nochange
+ms.date: 01/30/2026
 
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure.
 ---
+
 # Tutorial: Configure certificate autorotation in Key Vault
 
-You can easily provision, manage, and deploy digital certificates by using Azure Key Vault. The certificates can be public and private Secure Sockets Layer (SSL)/Transport Layer Security (TLS) certificates signed by a certificate authority (CA), or a self-signed certificate. Key Vault can also request and renew certificates through partnerships with CAs, providing a robust solution for certificate lifecycle management. In this tutorial, you update a certificate's validity period, autorotation frequency, and CA attributes.
+You can easily provision, manage, and deploy digital certificates by using Azure Key Vault. The certificates can be public and private Secure Sockets Layer (SSL)/Transport Layer Security (TLS) certificates signed by a certificate authority (CA), or a self-signed certificate. Key Vault can also request and renew certificates through partnerships with CAs, providing a robust solution for certificate lifecycle management.
 
-The tutorial shows you how to:
+For a comprehensive understanding of autorotation concepts and benefits across different asset types in Azure Key Vault, see [Understanding autorotation in Azure Key Vault](../general/autorotation.md).
+
+In this tutorial, you update a certificate's validity period, autorotation frequency, and CA attributes.
 
 > [!div class="checklist"]
 > * Manage a certificate by using the Azure portal.
@@ -28,7 +30,7 @@ The tutorial shows you how to:
 
 Before you begin, read [Key Vault basic concepts](../general/basic-concepts.md).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Sign in to Azure
 
@@ -112,11 +114,9 @@ Key Vault autorotates certificates through established partnerships with CAs. Be
 ### Update certificate attributes by using PowerShell
 
 ```azurepowershell
-
-
-Set-AzureKeyVaultCertificatePolicy -VaultName $vaultName 
-                                   -Name $certificateName 
-                                   -RenewAtNumberOfDaysBeforeExpiry [276 or appropriate calculated value]
+Set-AzKeyVaultCertificatePolicy -VaultName $vaultName `
+                                -Name $certificateName `
+                                -RenewAtNumberOfDaysBeforeExpiry [276 or appropriate calculated value]
 ```
 
 > [!TIP]
@@ -130,10 +130,9 @@ Set-AzureKeyVaultCertificatePolicy -VaultName $vaultName
 >  $file = Import-CSV C:\Users\myfolder\ReadCSVUsingPowershell\File.csv ​
 > foreach($line in $file)​
 > {​
-> Set-AzureKeyVaultCertificatePolicy -VaultName $vaultName -Name $certificateName -RenewAtNumberOfDaysBeforeExpiry [276 or appropriate calculated value]
+> Set-AzKeyVaultCertificatePolicy -VaultName $vaultName -Name $certificateName -RenewAtNumberOfDaysBeforeExpiry [276 or appropriate calculated value]
 > }
 >  ```
-> 
 To learn more about the parameters, see [az keyvault certificate](/cli/azure/keyvault/certificate#az-keyvault-certificate-set-attributes).
 
 ## Clean up resources
@@ -152,5 +151,6 @@ To delete the resource group by using the portal:
 
 In this tutorial, you updated a certificate's lifecycle attributes. To learn more about Key Vault and how to integrate it with your applications, continue on to the following articles:
 
-- Read more about [Managing certificate creation in Azure Key Vault](./create-certificate-scenarios.md).
-- Review the [Key Vault Overview](../general/overview.md).
+- [Key Vault Overview](../general/overview.md).
+- [Managing certificate creation in Azure Key Vault](./create-certificate-scenarios.md).
+- [Understanding autorotation in Azure Key Vault](../general/autorotation.md)

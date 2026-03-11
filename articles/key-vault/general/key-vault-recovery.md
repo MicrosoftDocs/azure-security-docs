@@ -3,11 +3,11 @@ title: Azure Key Vault recovery overview | Microsoft Docs
 description: Key Vault Recovery features are designed to prevent the accidental or malicious deletion of your key vault and secrets, keys, and certificate stored inside key-vault.
 ms.service: azure-key-vault
 ms.subservice: general
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, sfi-image-nochange
 ms.topic: how-to
 ms.author: mbaldwin
 author: msmbaldwin
-ms.date: 04/16/2025
+ms.date: 01/06/2026
 ---
 
 # Azure Key Vault recovery management with soft delete and purge protection
@@ -17,13 +17,19 @@ This article covers two recovery features of Azure Key Vault, soft delete and pu
 > [!IMPORTANT]
 > If a key vault does not have soft-delete protection enabled, deleting a key deletes it permanently. Customers are strongly encouraged to turn on soft delete enforcement for their vaults via [Azure Policy](../policy-reference.md).
 
-For more information about Key Vault, see
-- [Key Vault overview](overview.md)
-- [Azure Key Vault keys, secrets, and certificates overview](about-keys-secrets-certificates.md)
+## Recovery options overview
+
+Azure Key Vault provides multiple options to ensure the availability and recoverability of your vault data:
+
+- **Automatic redundancy and failover**: Key Vault automatically replicates data across regions and handles failover during outages - see [Azure Key Vault availability and redundancy](disaster-recovery-guidance.md)
+- **Soft delete and purge protection** (covered in this article): Prevents accidental or malicious deletion of your vault or vault objects
+- **Manual backup and restore**: For individual secrets, keys, and certificates - see [Azure Key Vault backup](backup.md)
+
+This article focuses on soft delete and purge protection features that help protect against accidental or malicious deletion. 
 
 ## Prerequisites
 
-* An Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
+* An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 * [Azure PowerShell](/powershell/azure/install-azure-powershell).
 * [Azure CLI](/cli/azure/install-azure-cli)
 * A Key Vault - you can create one using [Azure portal](../general/quick-create-portal.md) [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md)
@@ -48,6 +54,8 @@ It is important to note that **key vault names are globally unique**, so you are
 
 > [!NOTE]
 > Purge Protection is designed so that no administrator role or permission can override, disable, or circumvent purge protection. **When purge protection is enabled, it cannot be disabled or overridden by anyone including Microsoft.** This means you must recover a deleted key vault or wait for the retention period to elapse before reusing the key vault name.
+
+These features are strongly recommended for production environments.
 
 For more information about soft-delete, see [Azure Key Vault soft-delete overview](soft-delete-overview.md)
 
@@ -159,10 +167,13 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 * Grant access to purge and recover certificates
 
     ```azurecli
-    az keyvault set-policy --upn user@contoso.com --subscription {SUBSCRIPTION ID} -g {RESOURCE GROUP} -n {VAULT NAME}  --certificate-permissions recover purge
+    az role assignment create --role "Key Vault Certificates Officer" --assignee user@contoso.com --scope /subscriptions/{SUBSCRIPTION ID}/resourceGroups/{RESOURCE GROUP}/providers/Microsoft.KeyVault/vaults/{VAULT NAME}
     ```
 
-* Delete certificate
+* Delete certificate (move to soft-deleted state)
+
+    > [!NOTE]
+    > The `az keyvault certificate delete` command is deprecated. When soft-delete is enabled on your key vault (which is now the default), this command moves the certificate to a soft-deleted state rather than permanently deleting it. You can then use `az keyvault certificate recover` to restore it, or `az keyvault certificate purge` to permanently delete it. For more information, see [Azure Key Vault soft-delete overview](soft-delete-overview.md).
 
     ```azurecli
     az keyvault certificate delete --subscription {SUBSCRIPTION ID} --vault-name {VAULT NAME} --name {CERTIFICATE NAME}
@@ -191,7 +202,7 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 * Grant access to purge and recover keys
 
     ```azurecli
-    az keyvault set-policy --upn user@contoso.com --subscription {SUBSCRIPTION ID} -g {RESOURCE GROUP} -n {VAULT NAME}  --key-permissions recover purge
+    az role assignment create --role "Key Vault Crypto Officer" --assignee user@contoso.com --scope /subscriptions/{SUBSCRIPTION ID}/resourceGroups/{RESOURCE GROUP}/providers/Microsoft.KeyVault/vaults/{VAULT NAME}
     ```
 
 * Delete key
@@ -223,10 +234,13 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 * Grant access to purge and recover secrets
 
     ```azurecli
-    az keyvault set-policy --upn user@contoso.com --subscription {SUBSCRIPTION ID} -g {RESOURCE GROUP} -n {VAULT NAME}  --secret-permissions recover purge
+    az role assignment create --role "Key Vault Secrets Officer" --assignee user@contoso.com --scope /subscriptions/{SUBSCRIPTION ID}/resourceGroups/{RESOURCE GROUP}/providers/Microsoft.KeyVault/vaults/{VAULT NAME}
     ```
 
-* Delete secret
+* Delete secret (move to soft-deleted state)
+
+    > [!NOTE]
+    > The `az keyvault secret delete` command is deprecated. When soft-delete is enabled on your key vault (which is now the default), this command moves the secret to a soft-deleted state rather than permanently deleting it. You can then use `az keyvault secret recover` to restore it, or `az keyvault secret purge` to permanently delete it. For more information, see [Azure Key Vault soft-delete overview](soft-delete-overview.md).
 
     ```azurecli
     az keyvault secret delete --subscription {SUBSCRIPTION ID} --vault-name {VAULT NAME} --name {SECRET NAME}
@@ -295,7 +309,7 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 * Grant permissions to recover and purge certificates
 
     ```azurepowershell
-    Set-AzKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@contoso.com -PermissionsToCertificates recover,purge
+    New-AzRoleAssignment -SignInName user@contoso.com -RoleDefinitionName "Key Vault Certificates Officer" -Scope "/subscriptions/{SUBSCRIPTION ID}/resourceGroups/ContosoRG/providers/Microsoft.KeyVault/vaults/ContosoVault"
     ```
 
 * Delete a Certificate
@@ -327,7 +341,7 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 * Grant permissions to recover and purge keys
 
     ```azurepowershell
-    Set-AzKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@contoso.com -PermissionsToKeys recover,purge
+    New-AzRoleAssignment -SignInName user@contoso.com -RoleDefinitionName "Key Vault Crypto Officer" -Scope "/subscriptions/{SUBSCRIPTION ID}/resourceGroups/ContosoRG/providers/Microsoft.KeyVault/vaults/ContosoVault"
     ```
 
 * Delete a key
@@ -359,7 +373,7 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 * Grant permissions to recover and purge secrets
 
     ```azurepowershell
-    Set-AzKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@contoso.com -PermissionsToSecrets recover,purge
+    New-AzRoleAssignment -SignInName user@contoso.com -RoleDefinitionName "Key Vault Secrets Officer" -Scope "/subscriptions/{SUBSCRIPTION ID}/resourceGroups/ContosoRG/providers/Microsoft.KeyVault/vaults/ContosoVault"
     ```
 
 * Delete a secret named SQLPassword
@@ -389,9 +403,10 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 
 ## Next steps
 
+- [Azure Key Vault availability and redundancy](disaster-recovery-guidance.md)
+- [Azure Key Vault backup](backup.md)
 - [Azure Key Vault PowerShell cmdlets](/powershell/module/az.keyvault)
 - [Key Vault Azure CLI commands](/cli/azure/keyvault)
-- [Azure Key Vault backup](backup.md)
 - [How to enable Key Vault logging](howto-logging.md)
-- [Azure Key Vault security features](security-features.md)
+- [Azure Key Vault security features](secure-key-vault.md)
 - [Azure Key Vault developer's guide](developers-guide.md)

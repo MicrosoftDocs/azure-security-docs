@@ -6,7 +6,7 @@ ms.subservice: managed-hsm
 ms.topic: concept-article
 author: nkondamudi
 ms.author: nkondamudi
-ms.date: 04/26/2024
+ms.date: 01/08/2026
 ---
 
 # Control your data in the cloud by using Managed HSM
@@ -31,7 +31,7 @@ Secure key management is essential to protect and control data in the cloud. Azu
 - **Customer-managed keys** are keys that are created, read, deleted, updated, and administered entirely by the customer. Customer-managed keys can be stored in a cloud key management service like Azure Key Vault.
 - **Azure Key Vault Standard** encrypts by using a software key and is FIPS 140-2 Level 1 compliant.
 - **Azure Key Vault Premium** encrypts by using keys protected by [FIPS 140 validated HSMs](/azure/key-vault/keys/about-keys#compliance).
-- **Azure Key Vault Managed HSM** encrypts by using single-tenant FIPS 140-2 Level 3 HSM protected keys and is fully managed by Microsoft.
+- **Azure Key Vault Managed HSM** encrypts by using single-tenant FIPS 140-3 Level 3 HSM protected keys and is fully managed by Microsoft.
 
 For added assurance, in Azure Key Vault Premium and Azure Key Vault Managed HSM, you can [bring your own key (BYOK)](../keys/hsm-protected-keys-byok.md) and import HSM-protected keys from an on-premises HSM.
 
@@ -40,7 +40,7 @@ For added assurance, in Azure Key Vault Premium and Azure Key Vault Managed HSM,
 |  | Azure Key Vault Standard | Azure Key Vault Premium | Azure Key Vault Managed HSM |
 |:-|-|-|-|
 | **Tenancy** | Multitenant | Multitenant | Single-tenant |
-| **Compliance** | FIPS 140-2 Level 1 | FIPS 140-2 Level 3 | FIPS 140-2 Level 3 |
+| **Compliance** | FIPS 140-2 Level 1 | FIPS 140-3 Level 3 | FIPS 140-3 Level 3 |
 | **High availability** | Automatic | Automatic | Automatic |
 | **Use cases** | Encryption at rest | Encryption at rest | Encryption at rest |
 | **Key controls** | Customer | Customer | Customer |
@@ -62,7 +62,7 @@ For more information, see [Azure Key Vault Concepts](../general/basic-concepts.m
 
 ## What is Azure Key Vault Managed HSM?
 
-Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that has a customer-controlled security domain that enables you to store cryptographic keys for your cloud applications by using FIPS 140-2 Level 3 validated HSMs.
+Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that has a customer-controlled security domain that enables you to store cryptographic keys for your cloud applications by using FIPS 140-3 Level 3 validated HSMs.
 
 ## How does Azure Key Vault Managed HSM protect your keys?
 
@@ -88,7 +88,7 @@ Azure Key Vault Managed HSM uses the following types of security controls:
 
 #### Physical security controls
 
-The core of Managed HSM is the hardware security module (HSM). An HSM is a specialized, hardened, tamper-resistant, high-entropy, dedicated cryptographic processor that is validated to the FIPS 140-2 Level 3 standard. All components of the HSM are further covered in hardened epoxy and a metal casing to keep your keys safe from an attacker. The HSMs are housed in racks of servers across several datacenters, regions, and geographies. These geographically dispersed datacenters comply with key industry standards such as [ISO/IEC 27001:2013](/azure/compliance/offerings/offering-iso-27001) and [NIST SP 800-53](/azure/governance/policy/samples/nist-sp-800-53-r4) for security and reliability.
+The core of Managed HSM is the hardware security module (HSM). An HSM is a specialized, hardened, tamper-resistant, high-entropy, dedicated cryptographic processor that is validated to the FIPS 140-3 Level 3 standard. All components of the HSM are further covered in hardened epoxy and a metal casing to keep your keys safe from an attacker. The HSMs are housed in racks of servers across several datacenters, regions, and geographies. These geographically dispersed datacenters comply with key industry standards such as [ISO/IEC 27001:2013](/azure/compliance/offerings/offering-iso-27001) and [NIST SP 800-53](/azure/governance/policy/samples/nist-sp-800-53-r4) for security and reliability.
 
 Microsoft designs, builds, and operates datacenters in a way that strictly controls physical access to the areas where your keys and data are stored. Additional layers of [physical security](/azure/security/fundamentals/physical-security), such as tall fences made of concrete and steel, dead-bolt steel doors, thermal alarm systems, closed-circuit live camera monitoring, 24x7 security personnel, need-to-access basis with approval per floor, rigorous staff training, biometrics, background checks, and access request and approval are mandated. The HSM devices and related servers are locked in a cage, and cameras film the front and back of the servers.
 
@@ -117,7 +117,7 @@ Several layers of technical controls in Managed HSM further protect your key mat
   Both planes use Microsoft Entra ID for authentication. For authorization, they use different systems:
 
   - The control plane uses Azure role-based access control (Azure RBAC), an authorization system that's built on Azure Resource Manager.
-  - The data plane uses a managed HSM-level RBAC (Managed HSM local RBAC), an authorization system that's implemented and enforced at the managed HSM level. The local RBAC control model allows designated HSM administrators to have complete control over their HSM pool that even the management group, subscription, or resource group administrators can't override.
+  - The data plane uses a managed HSM-level RBAC (Managed HSM local RBAC), an authorization system that's implemented and enforced at the managed HSM level. The Managed HSM local RBAC control model allows designated HSM administrators to have complete control over their HSM pool that even the management group, subscription, or resource group administrators can't override.
   - **Encryption in transit**: All traffic to and from the Managed HSM is always encrypted with TLS (Transport Layer Security versions 1.3 and 1.2 are supported) to protect against data tampering and eavesdropping where the TLS termination happens inside the SGX enclave and not in the untrusted host
   - **Firewalls**: Managed HSM can be configured to restrict who can reach the service in the first place, which further shrinks the attack surface. We allow you to configure Managed HSM to deny access from the public internet and only allow traffic from trusted Azure services (such as Azure Storage)
   - **Private endpoints**: By enabling a private endpoint, you're bringing the Managed HSM service into your virtual network allowing you to isolate that service only to trusted endpoints like your virtual network and Azure services. All traffic to and from your managed HSM will travel along the secure Microsoft backbone network without having to traverse the public internet.
