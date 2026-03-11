@@ -71,10 +71,7 @@ The HSM device has redundant and replaceable power supplies and fan units. Howev
 
 #### Power supply events
 
-The dual-PSU design means your device continues operating normally if one PSU experiences a brief outage. Transient single-PSU messages in your logs during datacenter power maintenance are expected and don't require action.
-
-> [!IMPORTANT]
-> Don't report single-PSU events to Microsoft Support. Microsoft monitors PSU health and will proactively contact you if replacement is needed. Requesting physical investigation based on transient PSU log messages can introduce unnecessary risk.
+The HSM uses dual-PSU redundancy. Transient single-PSU log messages during datacenter maintenance are expected and don't require action or support tickets. For details, see [Power supply redundancy](monitoring.md#power-supply-redundancy).
 
 Any more serious failure of the device will result in that device being replaced by a new device from the free pool. The customer simply includes the new device in the existing HA pair for it to synchronize and return to full operational state. The failed device will have its data bearing devices removed and shredded on site at the data center. 
 
