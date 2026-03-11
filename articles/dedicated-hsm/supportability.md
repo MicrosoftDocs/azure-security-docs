@@ -11,7 +11,7 @@ ms.author: mbaldwin
 
 # Azure Dedicated HSM supportability
 
-The Azure Dedicated HSM service provides a physical device for sole customer use with complete administrative control and management responsibility. The device is a [Thales Luna 7 HSM model A790](https://cpl.thalesgroup.com/en/encryption/hardware-security-modules/network-hsms). Microsoft has no administrative access once you provision the device, beyond physical serial port attachment as a monitoring role. Without access, Microsoft has no ongoing software-level maintenance or system administration responsibilities. As a result, customers are responsible for typical operational activities.
+The Azure Dedicated HSM service provides a physical device for sole customer use with complete administrative control and management responsibility. The device is a [Thales Luna 7 HSM model A790](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms). Microsoft has no administrative access once you provision the device, beyond physical serial port attachment as a monitoring role. Without access, Microsoft has no ongoing software-level maintenance or system administration responsibilities. As a result, customers are responsible for typical operational activities.
 Customers are fully responsible for applications that use the HSMs and should work with Thales for support or consulting-based assistance. Due to the extent of customer ownership of operational hygiene, Microsoft can't offer any kind of high availability guarantee for this service. It's the customer’s responsibility to ensure their applications are correctly configured to achieve high availability. Microsoft monitors and maintains device health and network connectivity.
 
 ## Getting support
