@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 06/19/2025
+ms.date: 03/10/2026
 
 ms.author: nkondamudi
 ms.custom: references_regions
@@ -107,6 +107,17 @@ az keyvault region add --hsm-name "ContosoMHSM" --region "australiaeast"
 
 > [!NOTE]
 > "ContosoMHSM" in this example is the primary HSM pool name; "australiaeast" is the extended region into which you are extending it.
+
+> [!IMPORTANT]
+> After initiating the extension to a new region, do not perform any operations on the primary HSM until the extension region pool is fully provisioned. This is especially critical for networking changes such as configuring private endpoints or updating firewall rules. Performing these operations before the extension pool is ready can result in configuration inconsistencies between regions.
+>
+> To verify that the extension region pool is fully provisioned, run:
+>
+> ```azurecli-interactive
+> az keyvault region list --hsm-name ContosoMHSM
+> ```
+>
+> Confirm that the extended region appears in the output and that its provisioning state shows as **Succeeded** before proceeding with any other HSM operations.
 
 ### Remove an extended region from the primary HSM
 
