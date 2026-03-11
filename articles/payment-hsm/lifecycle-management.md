@@ -42,6 +42,23 @@ Microsoft allocates Payment HSMs with a base image by default that includes appr
 Microsoft monitors HSM physical health and network connectivity, which includes individual HSM’s power, temperature/Fan, OOB Connectivity, tamper, HOST1/HOST2/MGMT link status, upstream networking, and equipment.
   
 Customers are responsible for monitoring their allocated HSM’s operational health, which includes HSM error logs and audit logs. Customers can utilize all payShield monitoring solutions.
+### Power supply redundancy
+
+The payShield 10K uses a dual power supply unit (PSU) design for redundancy. Each PSU connects to an independent power feed, allowing the device to operate normally if one PSU experiences a brief outage.
+
+During scheduled datacenter power maintenance, power feeds are serviced one at a time while the other feed remains active, ensuring continuous operation through redundant power. You may see transient single-PSU messages in your HSM logs such as:
+
+```text
+Power supply 1 AC outage
+Power supply 1 AC restored
+```
+
+These messages are expected behavior and don't indicate a hardware fault—the device continues operating normally on the redundant PSU.
+
+> [!IMPORTANT]
+> Don't open support tickets or request physical hardware investigation based on single-PSU log messages. Microsoft monitors PSU health and proactively addresses any actual hardware failures. Unnecessary physical intervention can introduce risk to your device's operation.
+
+If our monitoring detects a genuine PSU or fan issue, Microsoft replaces the component without requiring customer action or notification.
 
 ## Managing unresponsive HSM devices  
 
