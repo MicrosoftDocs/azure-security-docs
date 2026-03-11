@@ -45,7 +45,7 @@ In this example, you're developing an application that uses an RSA 2,048-bit key
 
 Identify the roles that manage, deploy, and audit your application:
 
-- **Security team**: IT staff from the office of the CSO (Chief Security Officer) or similar contributors. The security team is responsible for the proper safekeeping of keys. The keys include RSA or EC keys for signing, and RSA or AES keys for data encryption.
+- **Security team**: IT staff from the office of the CSO (Chief Security Officer) or similar contributors. The security team is responsible for the proper safekeeping of keys. The keys include RSA or EC keys for signing, and RSA or oct keys for data encryption.
 - **Developers and operators**: The staff who develop the application and deploy it in Azure. The members of this team aren't part of the security staff. They shouldn't have access to sensitive data like RSA keys. Only the application that they deploy should have access to this sensitive data.
 - **Auditors**: Contributors who aren't members of the development or general IT staff. They review the use and maintenance of certificates, keys, and secrets to ensure compliance with security standards.
 

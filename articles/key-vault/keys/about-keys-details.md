@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: article
-ms.date: 01/30/2026
+ms.date: 03/06/2026
 ms.author: mbaldwin
 ---
 
@@ -21,7 +21,7 @@ The following table shows a summary of key types and supported algorithms.
 | --- | --- | --- |
 |EC-P256, EC-P256K, EC-P384, EC-P521|NA|ES256<br>ES256K<br>ES384<br>ES512|
 |RSA 2K, 3K, 4K| RSA-OAEP-256<br>[Not recommended] RSA1_5<br>[Not recommended] RSA-OAEP|PS256<br>PS384<br>PS512<br>RS256<br>RS384<br>RS512<br>RSNULL| 
-|AES 128-bit, 256-bit <br/>(Managed HSM only)| AES-KW<br>AES-GCM<br>AES-CBC| NA| 
+|oct 128-bit, 256-bit <br/>(Managed HSM only)| AES-KW<br>AES-GCM<br>AES-CBC| HS256<br>HS384<br>HS512| 
 |||
 
 ##  EC algorithms
@@ -77,6 +77,11 @@ The following algorithm identifiers are supported with oct-HSM keys.
 - **AES-CBC** - AES encryption in Cipher Block Chaining Mode ([NIST SP 800-38a](https://csrc.nist.gov/publications/sp800)).
 
 When you use these algorithms with 256-bit keys, they're quantum-resistant according to the [The Commercial National Security Algorithm Suite 2.0 and Quantum Computing FAQ](https://media.defense.gov/2022/Sep/07/2003071836/-1/-1/0/CSI_CNSA_2.0_FAQ_.PDF).
+
+### SIGN/VERIFY
+- **HS256** - HMAC using SHA-256 hash function, as described in [RFC7518](https://tools.ietf.org/html/rfc7518).
+- **HS384** - HMAC using SHA-384 hash function, as described in [RFC7518](https://tools.ietf.org/html/rfc7518).
+- **HS512** - HMAC using SHA-512 hash function, as described in [RFC7518](https://tools.ietf.org/html/rfc7518).
 
 > [!NOTE] 
 > The sign and verify operations algorithms must match the key type and size. Otherwise, the service returns a key size is incorrect error.
