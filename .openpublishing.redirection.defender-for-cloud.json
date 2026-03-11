@@ -462,7 +462,7 @@
     },
     {
       "source_path_from_root": "/articles/defender-for-cloud/identify-sql-servers-protected-by-mma.md",
-      "redirect_url": "/azure/defender-for-cloud/defender-for-sql-servers-introduction",
+      "redirect_url": "/azure/defender-for-cloud/identify-sql-servers-protected-by-monitor-agent",
       "redirect_document_id": false
     },
     {
