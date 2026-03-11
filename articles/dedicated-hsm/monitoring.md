@@ -34,7 +34,7 @@ During scheduled datacenter power maintenance, you may see transient single-PSU 
 > [!IMPORTANT]
 > Don't open support tickets or request physical hardware investigation based on single-PSU log messages. Microsoft monitors PSU health and proactively addresses any actual hardware failures. Unnecessary physical intervention can introduce risk to your device's operation.
 
-If our monitoring detects a genuine PSU issue, Microsoft will contact you and coordinate replacement. PSU hot-swap is performed without causing a tamper event.
+If our monitoring detects a genuine PSU issue, Microsoft replaces it without requiring customer action or notification. PSU hot-swap is performed without causing a tamper event.
 
 ## Customer monitoring
 
