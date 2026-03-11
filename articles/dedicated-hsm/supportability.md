@@ -67,7 +67,15 @@ After a customer has an approved registration for the Dedicated HSM service, the
 
 ### Hardware issues
 
-The HSM device has redundant and replaceable power supplies and fan units.  However, fan unit removal will still cause a tamper event. When a component failure occurs, Microsoft will use the most appropriate process to address the component level issue in a way that causes minimal interruption and lowest risk to our customers service availability.
+The HSM device has redundant and replaceable power supplies and fan units. However, fan unit removal will still cause a tamper event. When a component failure occurs, Microsoft uses the most appropriate process to address the component level issue in a way that causes minimal interruption and lowest risk to your service availability.
+
+#### Power supply events
+
+The dual-PSU design means your device continues operating normally if one PSU experiences a brief outage. Transient single-PSU messages in your logs during datacenter power maintenance are expected and don't require action.
+
+> [!IMPORTANT]
+> Don't report single-PSU events to Microsoft Support. Microsoft monitors PSU health and will proactively contact you if replacement is needed. Requesting physical investigation based on transient PSU log messages can introduce unnecessary risk.
+
 Any more serious failure of the device will result in that device being replaced by a new device from the free pool. The customer simply includes the new device in the existing HA pair for it to synchronize and return to full operational state. The failed device will have its data bearing devices removed and shredded on site at the data center. 
 
 ### Networking issues
