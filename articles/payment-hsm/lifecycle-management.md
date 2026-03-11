@@ -51,7 +51,8 @@ During scheduled datacenter power maintenance, you may see transient single-PSU 
 > [!IMPORTANT]
 > Don't open support tickets or request physical hardware investigation based on single-PSU log messages. Microsoft monitors PSU health and proactively addresses any actual hardware failures. Unnecessary physical intervention can introduce risk to your device's operation.
 
-If our monitoring detects a genuine PSU issue, Microsoft replaces it without requiring customer action or notification. PSU replacement is a hot-swap procedure that doesn't trigger a tamper event.
+If our monitoring detects a genuine PSU issue, Microsoft replaces it without requiring customer action or notification. PSU replacement is a hot-swap procedure that doesn't trigger a tamper event. The same applies to fan replacement.
+
 ## Managing unresponsive HSM devices  
 
 If a situation arises where a customer allocated HSM is unresponsive, open a support ticket; see [Azure Payment HSM service support guide](support-guide.md#microsoft-support). A representative will work with you and the Engineering group to resolve the issue. This may require either a reboot, or a deallocation/reallocation to resolve.
