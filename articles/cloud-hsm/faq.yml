@@ -19,7 +19,7 @@ sections:
           
           Azure Cloud HSM supports various applications, including PKCS#11, offloading of Secure Sockets Layer (SSL) or Transport Layer Security (TLS) processing, certificate authority (CA) private key protection, and transparent data encryption (TDE). It also supports document and code signing.
           
-          Azure Cloud HSM provides high availability and redundancy by grouping multiple HSMs into a cluster and automatically synchronizing across three HSM instances. The HSM cluster supports load balancing of cryptographic operations. Periodic HSM backups help ensure secure and simple data recovery. For more information, see [What is Azure Cloud HSM?](overview.md).
+          Azure Cloud HSM provides high availability and redundancy by grouping multiple HSMs into a cluster and automatically synchronizing across three HSM nodes. The HSM cluster supports load balancing of cryptographic operations. Periodic HSM backups help ensure secure and simple data recovery. For more information, see [What is Azure Cloud HSM?](overview.md).
       - question: |-  
           What is an HSM?  
         answer: |-  

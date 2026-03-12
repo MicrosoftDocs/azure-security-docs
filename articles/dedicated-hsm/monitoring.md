@@ -25,6 +25,24 @@ The monitor function itself is set up to poll the device every 10 minutes to get
 
 Depending on the nature of the issue, the appropriate course of action would be taken to reduce impact and ensure low risk remediation. For example, a power supply failure is a hot-swap procedure with no resultant tamper event so can be performed with low impact and minimal risk to operation. Other procedures may require a device to be zeroized and deprovisioned to minimize any security risk to the customer. In this situation a customer would provision an alternate device, rejoin a high availability pairing thus triggering device synchronization. Normal operation would resume in minimal time, with minimal disruption and lowest security risk.  
 
+### Power supply redundancy
+
+The Thales Luna 7 HSM device uses a dual power supply unit (PSU) design for redundancy. Each PSU connects to an independent power feed, allowing the device to operate normally if one PSU experiences a brief outage.
+
+During scheduled datacenter power maintenance, power feeds are serviced one at a time while the other feed remains active, ensuring continuous operation through redundant power. You may see transient single-PSU messages in your HSM logs such as:
+
+```text
+Power supply 1 AC outage
+Power supply 1 AC restored
+```
+
+These messages are expected behavior and don't indicate a hardware fault—the device continues operating normally on the redundant PSU.
+
+> [!IMPORTANT]
+> Don't open support tickets or request physical hardware investigation based on single-PSU log messages. Microsoft monitors PSU health and proactively addresses any actual hardware failures. Unnecessary physical intervention can introduce risk to your device's operation.
+
+If our monitoring detects a genuine PSU or fan issue, Microsoft replaces the component without requiring customer action or notification.
+
 ## Customer monitoring
 
 A value proposition of the Dedicated HSM service is the control the customer gets of the device, especially considering it is a cloud delivered device. A consequence of this control is the responsibility to monitor and manage the health of the device. 
