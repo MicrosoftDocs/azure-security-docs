@@ -46,9 +46,9 @@ The RSA key pairs that protect your security domain are the root of trust for yo
 
 1. **Generate keys in an on-premises, air-gapped HSM.** This provides the strongest protection, as the private keys never exist on a general-purpose computer or network-connected device. This approach aligns with the [BYOK (bring your own key) methodology](hsm-protected-keys-byok.md), which recommends using an "offline computer that is connected to an on-premises HSM."
 
-2. **Generate keys on an air-gapped computer.** A dedicated workstation that has never been connected to a network reduces exposure to malware and remote attacks. This follows the same principle used for [generating secure boot keys](/windows-hardware/manufacture/desktop/windows-secure-boot-key-creation-and-management-guidance#2-key-management-solutions).
+2. **Generate keys on an air-gapped computer.** A dedicated workstation that has never been connected to a network reduces exposure to malware and remote attacks.
 
-3. **Generate keys on a secure, trusted workstation.** If air-gapped systems aren't available, use a [privileged access workstation](/security/privileged-access-workstations/privileged-access-devices) with full-disk encryption, up-to-date security patches, and minimal installed software.
+3. **Generate keys on a secure, trusted workstation.** If air-gapped systems aren't available, use a [privileged access workstation](how-to-secure-access.md#configure-privileged-identity-management-for-just-in-time-access) with full-disk encryption, up-to-date security patches, and minimal installed software.
 
 Use a cryptographically secure key generation tool such as `openssl`, a hardware security module's key generation utilities, or your organization's approved cryptographic library.
 
