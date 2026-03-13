@@ -1,3 +1,13 @@
+---
+author: msmbaldwin
+ms.author: mbaldwin
+ms.service: azure-key-vault
+ms.subservice: managed-hsm
+ms.topic: include
+ms.date: 03/13/2026
+# Include: DefaultAzureCredential explanation table
+---
+
 `DefaultAzureCredential` automatically selects the appropriate credential based on your environment:
 
 | Environment | Credential used |

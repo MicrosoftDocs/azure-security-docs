@@ -1,3 +1,13 @@
+---
+author: msmbaldwin
+ms.author: mbaldwin
+ms.service: azure-key-vault
+ms.subservice: managed-hsm
+ms.topic: include
+ms.date: 03/13/2026
+# Include: Managed HSM SDK prerequisites
+---
+
 - An Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
 - A provisioned and activated Managed HSM. See [Quickstart: Provision and activate a managed HSM using Azure CLI](../../managed-hsm/quick-create-cli.md).
 - A key created in your Managed HSM. See [Manage keys in a Managed HSM](../../managed-hsm/key-management.md).

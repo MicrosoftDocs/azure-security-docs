@@ -1,3 +1,13 @@
+---
+author: msmbaldwin
+ms.author: mbaldwin
+ms.service: azure-key-vault
+ms.subservice: managed-hsm
+ms.topic: include
+ms.date: 03/13/2026
+# Include: Managed HSM role assignment CLI example
+---
+
 ## Assign Managed HSM roles
 
 For your application to access keys, assign the appropriate Managed HSM local RBAC role to your managed identity:

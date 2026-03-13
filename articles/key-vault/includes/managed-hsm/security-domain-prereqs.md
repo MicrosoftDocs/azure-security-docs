@@ -1,3 +1,13 @@
+---
+author: msmbaldwin
+ms.author: mbaldwin
+ms.service: azure-key-vault
+ms.subservice: managed-hsm
+ms.topic: include
+ms.date: 03/13/2026
+# Include: Managed HSM security domain prerequisites
+---
+
 To activate your HSM, you need:
 - To provide a minimum of three RSA key-pairs (up to a maximum of 10)
 - To specify the minimum number of keys required to decrypt the security domain (called a *quorum*)
