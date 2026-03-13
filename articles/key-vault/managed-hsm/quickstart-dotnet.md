@@ -127,7 +127,7 @@ Done!
 
 ### Authentication with DefaultAzureCredential
 
-[!INCLUDE [DefaultAzureCredential explanation](../includes/managed-hsm/sdk-defaultcredential.md)]
+[!INCLUDE [DefaultAzureCredential explanation](../includes/managed-hsm/sdk-default-credential.md)]
 
 ### Key operations
 
