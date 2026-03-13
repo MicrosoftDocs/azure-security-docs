@@ -38,6 +38,23 @@ The security domain is generated in both the managed HSM hardware and the servic
 
 The managed HSM initializes the security domain and encrypts it with the public keys that you provide by using Shamir's Secret Sharing Algorithm. After the security domain is downloaded, the managed HSM moves into an activated state and is ready for consumption.
 
+### Generating the RSA key pairs securely
+
+The RSA key pairs that protect your security domain are the root of trust for your Managed HSM. These keys must be generated and handled with the highest level of security appropriate for your organization.
+
+**For production environments**, consider the following approaches in order of decreasing security:
+
+1. **Generate keys in an on-premises, air-gapped HSM.** This provides the strongest protection, as the private keys never exist on a general-purpose computer or network-connected device.
+
+2. **Generate keys on an air-gapped computer.** A dedicated workstation that has never been connected to a network reduces exposure to malware and remote attacks.
+
+3. **Generate keys on a secure, trusted workstation.** If air-gapped systems aren't available, use a hardened workstation with full-disk encryption, up-to-date security patches, and minimal installed software.
+
+Use a cryptographically secure key generation tool such as `openssl`, a hardware security module's key generation utilities, or your organization's approved cryptographic library.
+
+> [!IMPORTANT]
+> The security of your entire Managed HSM ultimately depends on how well these RSA private keys are protected. An attacker with access to enough quorum keys and a security domain backup can reconstruct your HSM and access all keys.
+
 ### Storing the security domain keys
 
 The keys to a security domain must be held in offline storage (such as on an encrypted USB drive), with each split of the quorum on a separate storage device. The storage devices must be held at separate geographical locations, and in a physical safe or lock box. For ultrasensitive and high-assurance use cases, you might even choose to store your security domain private keys in your on-premises, offline HSM.

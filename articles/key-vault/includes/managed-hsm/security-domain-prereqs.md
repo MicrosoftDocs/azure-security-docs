@@ -26,4 +26,4 @@ openssl req -newkey rsa:2048 -nodes -keyout cert_2.key -x509 -days 365 -out cert
 The certificate expiration date doesn't affect security domain operations—even an "expired" certificate can still be used to restore the security domain.
 
 > [!IMPORTANT]
-> Create and store the RSA key pairs and the security domain file securely.
+> These RSA private keys are the root of trust for your Managed HSM. For production environments, generate these keys using an air-gapped system or on-premises HSM, and store them securely. See [Security domain best practices](security-domain.md#generating-the-rsa-key-pairs-securely) for detailed guidance.
