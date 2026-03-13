@@ -199,7 +199,7 @@ Configure alerts for PIM role activations to maintain visibility:
    - Roles being assigned outside of PIM
    - Eligible assignments being created
 
-For comprehensive security monitoring, integrate these alerts with [Microsoft Sentinel](/azure/key-vault/managed-hsm/sentinel) alongside your Managed HSM audit logs.
+For comprehensive security monitoring, integrate these alerts with [Microsoft Sentinel](sentinel.md) alongside your Managed HSM audit logs.
 
 ## Considerations for production environments
 
