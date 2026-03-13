@@ -24,7 +24,7 @@ In this quickstart, you create an Azure resource group and a confidential ledger
 > * Retrieve the current Azure client configuration.
 > * Generate a random string for the Azure confidential ledger name.
 > * Create an Azure confidential ledger with the generated name and assign it to the resource group.
-> * Assign an Microsoft Entra ID based service principal to the confidential ledger.
+> * Assign a Microsoft Entra ID based service principal to the confidential ledger.
 > * Tag the confidential ledger as an example.
 > * Output the resource group name, confidential ledger name, confidential ledger type, and confidential ledger role name.
 > * Specify the required version of Terraform and the required providers.
