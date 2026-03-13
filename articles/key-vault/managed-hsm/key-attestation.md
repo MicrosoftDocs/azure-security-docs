@@ -70,7 +70,7 @@ Examples:
 - For a key named `contosokey` in HSM named `contoso`:
 
     ```sh
-    az keyvault key get-attestation --hsm-name contoso --name contosokey --file attestation.json
+    az keyvault key get-attestation --hsm-name ContosoMHSM --name contosokey --file attestation.json
     ```
     or
 
@@ -81,7 +81,7 @@ Examples:
 - For a key named `contosokey` in HSM named `contoso`, with a specific key version `48293232e672449b9008602b80618`:
 
     ```sh
-    az keyvault key get-attestation --hsm-name contoso --name contosokey --version 48293232e672449b9008602b80618 --file attestation.json
+    az keyvault key get-attestation --hsm-name ContosoMHSM --name contosokey --version 48293232e672449b9008602b80618 --file attestation.json
     ```
     or
 

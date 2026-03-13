@@ -36,10 +36,10 @@ az login
 
 ## Create a resource group
 
-A resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *norwayeast* location.
+A resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *ContosoResourceGroup* in the *eastus* location.
 
 ```azurecli-interactive
-az group create --name "myResourceGroup" --location norwayeast
+az group create --name "ContosoResourceGroup" --location eastus
 ```
 
 ## Create a Managed HSM
@@ -57,11 +57,11 @@ You need to provide following inputs to create a Managed HSM resource:
 - Azure location.
 - A list of initial administrators.
 
-The following example creates an HSM named **ContosoMHSM**, in the resource group  **myResourceGroup**, residing in the **Norway East** location, with **the current signed in user** as the only administrator, with **7 days retention period** for soft-delete. The Managed HSM continues to be billed until it is purged in a **soft-delete period**. For more information, see [Managed HSM soft-delete and purge protection](recovery.md#what-are-soft-delete-and-purge-protection) and read more about [Managed HSM soft-delete](soft-delete-overview.md).
+The following example creates an HSM named **ContosoMHSM**, in the resource group  **ContosoResourceGroup**, residing in the **East US** location, with **the current signed in user** as the only administrator, with **7 days retention period** for soft-delete. The Managed HSM continues to be billed until it is purged in a **soft-delete period**. For more information, see [Managed HSM soft-delete and purge protection](recovery.md#what-are-soft-delete-and-purge-protection) and read more about [Managed HSM soft-delete](soft-delete-overview.md).
 
 ```azurecli-interactive
 oid=$(az ad signed-in-user show --query id -o tsv)
-az keyvault create --hsm-name "ContosoMHSM" --resource-group "myResourceGroup" --location "norwayeast" --administrators $oid --retention-days 7
+az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGroup" --location "eastus" --administrators $oid --retention-days 7
 ```
 
 > [!NOTE]
@@ -102,7 +102,7 @@ Other quickstarts and tutorials in this collection build upon this quickstart. I
 When no longer needed, you can use the [az group delete](/cli/azure/group) command to remove the resource group, and all related resources. You can delete the resources as follows:
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name ContosoResourceGroup
 ```
 [!INCLUDE [Managed HSM cleanup warning](../includes/managed-hsm/cleanup-warning.md)]
 

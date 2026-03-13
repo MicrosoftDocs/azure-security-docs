@@ -22,10 +22,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create a resource group
 
-A resource group is a logical container into which Azure resources are deployed and managed. Use the Azure PowerShell [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet to create a resource group named *myResourceGroup* in the *norwayeast* location. 
+A resource group is a logical container into which Azure resources are deployed and managed. Use the Azure PowerShell [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet to create a resource group named *ContosoResourceGroup* in the *eastus* location. 
 
 ```azurepowershell-interactive
-New-AzResourceGroup -Name "myResourceGroup" -Location "norwayeast"
+New-AzResourceGroup -Name "ContosoResourceGroup" -Location "eastus"
 ```
 
 ## Get your principal ID
@@ -53,12 +53,12 @@ Use the Azure PowerShell [New-AzKeyVaultManagedHsm](/powershell/module/az.keyvau
   > [!Important]
   > Each Managed HSM must have a unique name. Replace \<your-unique-managed-hsm-name\> with the name of your Managed HSM in the following examples.
 
-- Resource group name: **myResourceGroup**.
-- The location: **Norway East**.
+- Resource group name: **ContosoResourceGroup**.
+- The location: **East US**.
 - Your principal ID: Pass the Microsoft Entra principal ID that you obtained in the last section to the "Administrator" parameter. 
 
 ```azurepowershell-interactive
-New-AzKeyVaultManagedHsm -Name "your-unique-managed-hsm-name" -ResourceGroupName "myResourceGroup" -Location "norwayeast" -Administrator "your-principal-ID" -SoftDeleteRetentionInDays "# of days to retain the managed hsm after softdelete"
+New-AzKeyVaultManagedHsm -Name "your-unique-managed-hsm-name" -ResourceGroupName "ContosoResourceGroup" -Location "eastus" -Administrator "your-principal-ID" -SoftDeleteRetentionInDays "# of days to retain the managed hsm after softdelete"
 ```
 > [!NOTE]
 > The create command can take a few minutes. Once it returns successfully you are ready to activate your HSM.

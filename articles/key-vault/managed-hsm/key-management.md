@@ -99,7 +99,7 @@ az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myaesk
 Use `az keyvault key show` command to view attributes, versions, and tags for a key.
 
 ```azurecli-interactive
-az keyvault key show --hsm-name ContosoHSM --name myrsakey
+az keyvault key show --hsm-name ContosoMHSM --name myrsakey
 
 ## OR
 # Note the key name (myaeskey) in the URI
@@ -113,7 +113,7 @@ az keyvault key show --id https://ContosoMHSM.managedhsm.azure.net/keys/myrsakey
 Use `az keyvault key list` command to list all keys inside a managed HSM.
 
 ```azurecli-interactive
-az keyvault key list --hsm-name ContosoHSM
+az keyvault key list --hsm-name ContosoMHSM
 
 ## OR
 # use full URI
@@ -127,7 +127,7 @@ az keyvault key list --id https://ContosoMHSM.managedhsm.azure.net/
 Use `az keyvault key delete` command to delete a key from a managed HSM. Soft-delete is always on. Therefore a deleted key remains in deleted state and can be recovered until the number of retention days have passed, at which point the key is purged (permanently deleted) with no recovery possible.
 
 ```azurecli-interactive
-az keyvault key delete --hsm-name ContosoHSM --name myrsakey
+az keyvault key delete --hsm-name ContosoMHSM --name myrsakey
 
 ## OR
 # Note the key name (myaeskey) in the URI
@@ -140,7 +140,7 @@ az keyvault key delete --id https://ContosoMHSM.managedhsm.azure.net/keys/myrsak
 Use `az keyvault key list-deleted` command to list all the keys in deleted state in your managed HSM.
 
 ```azurecli-interactive
-az keyvault key list-deleted --hsm-name ContosoHSM
+az keyvault key list-deleted --hsm-name ContosoMHSM
 
 ## OR
 # use full URI
@@ -153,7 +153,7 @@ az keyvault key list-deleted --id https://ContosoMHSM.managedhsm.azure.net/
 Use `az keyvault key list-deleted` command to list all the keys in deleted state in your managed HSM. If you need to recover (undelete) a key using the `--id` parameter while recovering a deleted key, you must note the `recoveryId` value of the deleted key obtained from the `az keyvault key list-deleted` command.
 
 ```azurecli-interactive
-az keyvault key recover --hsm-name ContosoHSM --name myrsakey
+az keyvault key recover --hsm-name ContosoMHSM --name myrsakey
 
 ## OR
 # Note the key name (myaeskey) in the URI
@@ -169,7 +169,7 @@ Use `az keyvault key purge` command to purge (permanently delete) a key.
 > If the managed HSM has purge protection enabled, purge operation is not permitted. The key is automatically purged when the retention period has passed.
 
 ```azurecli-interactive
-az keyvault key purge --hsm-name ContosoHSM --name myrsakey
+az keyvault key purge --hsm-name ContosoMHSM --name myrsakey
 
 ## OR
 # Note the key name (myaeskey) in the URI
@@ -183,7 +183,7 @@ az keyvault key purge --id https://ContosoMHSM.managedhsm.azure.net/deletedKeys/
 Use `az keyvault key backup` to create a key backup. The backup file is an encrypted blob cryptographically tied to the Security Domain of the source HSM. It can only be restored in HSMs that share the same security domain. Read more about [Security Domain](security-domain.md).
 
 ```azurecli-interactive
-az keyvault key backup --hsm-name ContosoHSM --name myrsakey --file myrsakey.backup
+az keyvault key backup --hsm-name ContosoMHSM --name myrsakey --file myrsakey.backup
 
 ## OR
 # Note the key name (myaeskey) in the URI
@@ -200,7 +200,7 @@ Use `az keyvault key restore` to restore a single key. The source HSM where the 
 > The restore will not succeed if a key with same name exists in active or deleted state.
 
 ```azurecli-interactive
-az keyvault key restore --hsm-name ContosoHSM --name myrsakey --file myrsakey.backup
+az keyvault key restore --hsm-name ContosoMHSM --name myrsakey --file myrsakey.backup
 
 ## OR
 # Note the key name (myaeskey) in the URI
@@ -214,7 +214,7 @@ az keyvault key restore --id https://ContosoMHSM.managedhsm.azure.net/deletedKey
 Use `az keyvault key import` command to import a key (only RSA and EC) from a file. The certificate file must have private key and must use PEM encoding (as defined in RFCs [1421](https://tools.ietf.org/html/rfc1421), [1422](https://tools.ietf.org/html/rfc1422), [1423](https://tools.ietf.org/html/rfc1423), [1424](https://tools.ietf.org/html/rfc1424)).
 
 ```azurecli-interactive
-az keyvault key import --hsm-name ContosoHSM --name myrsakey --pem-file mycert.key --pem-password 'mypassword'
+az keyvault key import --hsm-name ContosoMHSM --name myrsakey --pem-file mycert.key --pem-password 'mypassword'
 
 ## OR
 # Note the key name (myaeskey) in the URI
