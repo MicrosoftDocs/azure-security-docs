@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: quickstart
-ms.date: 05/30/2025
+ms.date: 03/13/2026
 ms.author: mbaldwin
 ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
@@ -15,7 +15,7 @@ ms.devlang: azurecli
 
 # Quickstart: Provision and activate a Managed HSM using Azure CLI
 
-In this quickstart, you create and activate an Azure Key Vault Managed HSM (Hardware Security Module) with Azure CLI. Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using **FIPS 140-3 Level 3** validated HSMs. For more information on Managed HSM, you may review the [Overview](overview.md).
+In this quickstart, you create and activate an Azure Key Vault Managed HSM (Hardware Security Module) with Azure CLI. [!INCLUDE [Managed HSM description](../includes/managed-hsm/intro.md)]
 
 ## Prerequisites
 
@@ -70,8 +70,7 @@ az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGro
 > [!NOTE]
 > The create command can take a few minutes. Once it returns successfully, you are ready to activate your HSM.
 
-> [!WARNING]
-> Managed HSM instances are considered always-in-use. If you choose to enable purge protection using the `--enable-purge-protection` flag, you are billed for the entirety of the retention period.
+[!INCLUDE [Managed HSM billing warning](../includes/managed-hsm/billing-warning.md)]
 
 The output of this command shows properties of the Managed HSM that you created. The two most important properties are:
 
@@ -84,25 +83,7 @@ Your Azure account is now authorized to perform any operations on this Managed H
 
 All data plane commands are disabled until the HSM is activated. For example, you are not able to create keys or assign roles. Only the designated administrators that were assigned during the create command can activate the HSM. To activate the HSM, you must download the [Security Domain](security-domain.md).
 
-To activate your HSM, you need:
-- To provide a minimum of three RSA key-pairs (up to a maximum of 10)
-- To specify the minimum number of keys required to decrypt the security domain (called a *quorum*)
-
-To activate the HSM, you send at least three (maximum 10) RSA public keys to the HSM. The HSM encrypts the security domain with these keys and sends it back. Once this security domain download is successfully completed, your HSM is ready to use. You also need to specify quorum, which is the minimum number of private keys required to decrypt the security domain.
-
-The following example shows how to use  `openssl` to generate three self-signed certificates.
-
-```azurecli-interactive
-openssl req -newkey rsa:2048 -nodes -keyout cert_0.key -x509 -days 365 -out cert_0.cer
-openssl req -newkey rsa:2048 -nodes -keyout cert_1.key -x509 -days 365 -out cert_1.cer
-openssl req -newkey rsa:2048 -nodes -keyout cert_2.key -x509 -days 365 -out cert_2.cer
-```
-
-> [!NOTE]
-> Even if the certificate has "expired," it can still be used to restore the security domain.
-
-> [!IMPORTANT]
-> Create and store the RSA key pairs and security domain file generated in this step securely.
+[!INCLUDE [Security domain prerequisites](../includes/managed-hsm/security-domain-prereqs.md)]
 
 Use the `az keyvault security-domain download` command to download the security domain and activate your Managed HSM. The following example uses three RSA key pairs (only public keys are needed for this command) and sets the quorum to two.
 
@@ -123,8 +104,7 @@ When no longer needed, you can use the [az group delete](/cli/azure/group) comma
 ```azurecli-interactive
 az group delete --name ContosoResourceGroup
 ```
-> [!WARNING]
-> Deleting the resource group puts the Managed HSM into a soft-deleted state. The Managed HSM continues to be billed until it is purged. See [Managed HSM soft-delete and purge protection](recovery.md)
+[!INCLUDE [Managed HSM cleanup warning](../includes/managed-hsm/cleanup-warning.md)]
 
 ## Next steps
 

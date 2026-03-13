@@ -7,7 +7,7 @@ ms.custom: devx-track-azurecli
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: how-to
-ms.date: 01/30/2026
+ms.date: 03/13/2026
 ms.author: mbaldwin
 # Customer intent: As a managed HSM administrator, I want to set access control and configure the Managed HSM, so that I can ensure it's secure and auditors can properly monitor all activities for this Managed HSM.
 ---
@@ -144,6 +144,63 @@ storage_account_principal=$(az storage account show --id $storageresource --quer
 az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Service Encryption User" --assignee $storage_account_principal
 ```
 
+## Configure Privileged Identity Management for just-in-time access
+
+For highly sensitive environments, use [Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure) to enforce just-in-time access for the Managed HSM Administrator role. PIM reduces the attack surface by eliminating standing administrative privileges.
+
+### Prerequisites for PIM integration
+
+- Microsoft Entra ID P2 or Microsoft Entra ID Governance license
+- Privileged Role Administrator or Global Administrator role in Microsoft Entra ID
+
+### Enable PIM for Managed HSM Administrator role
+
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com).
+
+1. Navigate to **Identity governance** > **Privileged Identity Management** > **Microsoft Entra roles**.
+
+1. Select **Roles** and search for roles that include "Managed HSM". While the data plane roles (Managed HSM Administrator, Crypto User, etc.) are managed through Managed HSM local RBAC, you can use PIM for the control plane **Managed HSM Contributor** role.
+
+1. Select the role and configure:
+   - **Activation maximum duration**: Set to a limited time window (for example, 4-8 hours)
+   - **Require justification**: Enable to require users to provide a reason for activation
+   - **Require approval**: Enable and specify approvers from your security team
+   - **Require MFA**: Enable for an additional security layer
+
+### Use Microsoft Entra security groups with PIM
+
+For data plane roles managed through Managed HSM local RBAC, combine PIM with Microsoft Entra security groups:
+
+1. Create a Microsoft Entra security group for HSM administrators (for example, "Contoso HSM Admins").
+
+1. Assign the Managed HSM Administrator role to this security group:
+
+   ```azurecli-interactive
+   az keyvault role assignment create --hsm-name ContosoMHSM \
+     --assignee $(az ad group show -g 'Contoso HSM Admins' --query 'id' -o tsv) \
+     --scope / --role "Managed HSM Administrator"
+   ```
+
+1. Configure the security group as PIM-eligible in Microsoft Entra admin center:
+   - Navigate to **Identity governance** > **Privileged Identity Management** > **Groups**
+   - Select **Discover groups** and add "Contoso HSM Admins"
+   - Configure activation settings (duration, approval, MFA)
+
+1. When administrators need access, they activate their group membership through PIM, which temporarily grants them the Managed HSM Administrator role.
+
+### Monitor PIM activations
+
+Configure alerts for PIM role activations to maintain visibility:
+
+1. In Microsoft Entra admin center, navigate to **Privileged Identity Management** > **Microsoft Entra roles** > **Alerts**.
+
+1. Configure alerts for:
+   - Roles being activated too frequently
+   - Roles being assigned outside of PIM
+   - Eligible assignments being created
+
+For comprehensive security monitoring, integrate these alerts with [Microsoft Sentinel](/azure/key-vault/managed-hsm/sentinel) alongside your Managed HSM audit logs.
+
 ## Considerations for production environments
 
 This tutorial demonstrates a simplified scenario to illustrate access control implementation.
@@ -156,6 +213,8 @@ Adjust permissions for your managed HSM based on your specific requirements. In 
 - For a getting-started tutorial for an administrator, see [What is Managed HSM?](overview.md)
 - For more information about usage logging for Managed HSM logging, see [Managed HSM logging](logging.md).
 - To learn about managing roles in Managed HSM, see [Managed HSM local RBAC](role-management.md).
+- Learn about [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-configure).
+- Review [Secure your Azure Managed HSM deployment](secure-managed-hsm.md).
 - See [Azure RBAC documentation](/azure/role-based-access-control/overview).
 - See [Azure RBAC: Built-in roles](/azure/role-based-access-control/built-in-roles).
 - See [Manage Azure RBAC with Azure CLI](/azure/role-based-access-control/role-assignments-cli).

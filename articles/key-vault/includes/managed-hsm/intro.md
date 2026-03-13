@@ -1,0 +1,1 @@
+Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using **FIPS 140-3 Level 3** validated HSMs. For more information on Managed HSM, review the [Overview](../../managed-hsm/overview.md).

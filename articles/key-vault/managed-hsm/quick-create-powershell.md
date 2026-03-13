@@ -3,7 +3,7 @@ title: Create and retrieve attributes of a managed key in Azure Key Vault – Az
 description: Quickstart showing how to set and retrieve a managed key from Azure Key Vault using Azure PowerShell
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 01/30/2026
+ms.date: 03/13/2026
 ms.topic: quickstart
 ms.service: azure-key-vault
 ms.subservice: keys
@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell, mode-api
 ---
 # Quickstart: Provision and activate a Managed HSM using PowerShell
 
-In this quickstart, you create and activate an Azure Key Vault Managed HSM (Hardware Security Module) with PowerShell. Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using **FIPS 140-3 Level 3** validated HSMs. For more information on Managed HSM, you may review the [Overview](overview.md).
+In this quickstart, you create and activate an Azure Key Vault Managed HSM (Hardware Security Module) with PowerShell. [!INCLUDE [Managed HSM description](../includes/managed-hsm/intro.md)]
 
 ## Prerequisites
 
@@ -74,26 +74,7 @@ At this point, your Azure account is the only one authorized to perform any oper
 
 All data plane commands are disabled until the HSM is activated. You will not be able to create keys or assign roles. Only the designated administrators that were assigned during the create command can activate the HSM. To activate the HSM, you must download the [Security Domain](security-domain.md).
 
-To activate your HSM, you will need:
-- To provide a minimum of three RSA key-pairs (up to a maximum of 10)
-- To specify the minimum number of keys required to decrypt the security domain (called a *quorum*)
-
-
-To activate the HSM, you send at least three (maximum 10) RSA public keys to the HSM. The HSM encrypts the security domain with these keys and sends it back. Once this security domain download is successfully completed, your HSM is ready to use. You also need to specify quorum, which is the minimum number of private keys required to decrypt the security domain.
-
-The following example shows how to use `openssl` (available for Windows from [the OpenSSL website](https://slproweb.com/products/Win32OpenSSL.html)) to generate three self-signed certificates.
-
-```console
-openssl req -newkey rsa:2048 -nodes -keyout cert_0.key -x509 -days 365 -out cert_0.cer
-openssl req -newkey rsa:2048 -nodes -keyout cert_1.key -x509 -days 365 -out cert_1.cer
-openssl req -newkey rsa:2048 -nodes -keyout cert_2.key -x509 -days 365 -out cert_2.cer
-```
-
-> [!NOTE]
-> Even if the certificate has "expired," it can still be used to restore the security domain.
-
-> [!IMPORTANT]
-> Create and store the RSA key pairs and security domain file generated in this step securely.
+[!INCLUDE [Security domain prerequisites](../includes/managed-hsm/security-domain-prereqs.md)]
 
 Use the Azure PowerShell [Export-AzKeyVaultSecurityDomain](/powershell/module/az.keyvault/export-azkeyvaultsecuritydomain) cmdlet to download the security domain and activate your Managed HSM. The following example uses three RSA key pairs (only public keys are needed for this command) and sets the quorum to two.
 
@@ -109,12 +90,11 @@ After successfully downloading the security domain, your HSM will be in an activ
 
 [!INCLUDE [Create a key vault](~/reusable-content/ce-skilling/azure/includes/delete-resource-group-powershell.md)]
 
-> [!WARNING]
-> Deleting the resource group puts the Managed HSM into a soft-deleted state. The Managed HSM will continue to be billed until it is purged. See [Managed HSM soft-delete and purge protection](recovery.md)
+[!INCLUDE [Managed HSM cleanup warning](../includes/managed-hsm/cleanup-warning.md)]
 ## Next steps
 
 In this quickstart, you created and activated a Managed HSM. To learn more about Managed HSM and how to integrate it with your applications, continue on to these articles:
 
-- Read an [Overview of Azure Key Vault](../general/overview.md)
+- Review [Secure your Azure Managed HSM deployment](secure-managed-hsm.md)
+- Read an [Overview of Azure Managed HSM](overview.md)
 - See the reference for the [Azure PowerShell Key Vault cmdlets](/powershell/module/az.keyvault/)
-- Review the [Key Vault security overview](../general/secure-key-vault.md)

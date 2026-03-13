@@ -8,7 +8,7 @@ ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 01/30/2026
+ms.date: 03/13/2026
 
 ms.author: mbaldwin
 ---
@@ -228,5 +228,6 @@ To import a key from your on-premises HSM to managed HSM, see [Import HSM-protec
 
 - For complete Azure CLI reference for key vault commands, see [Key Vault CLI reference](/cli/azure/keyvault).
 - For programming references, see [the Azure Key Vault developer's guide](../general/developers-guide.md)
+- Access keys using Azure SDKs: [.NET](quickstart-dotnet.md) | [Python](quickstart-python.md) | [JavaScript](quickstart-javascript.md)
 - Learn more about [Managed HSM role management](role-management.md)
 - Learn more about [Secure your Azure Managed HSM deployment](secure-managed-hsm.md)

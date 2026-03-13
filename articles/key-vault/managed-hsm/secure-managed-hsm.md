@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 02/10/2026
+ms.date: 03/13/2026
 ms.custom: horz-security
 ai-usage: ai-assisted
 
@@ -21,17 +21,29 @@ Azure Managed HSM is a fully managed, highly available, single-tenant Hardware S
 
 This article provides security recommendations to help protect your Azure Managed HSM deployment.
 
-## Network security
+## Service-specific security
 
-Network security protects your Managed HSM through secure connectivity and network access controls. These network security features are listed from most restricted to least restricted capabilities. Pick the configuration that best suits your organization's use case. For detailed information about all network security configurations, see [Network security for Azure Key Vault Managed HSM](network-security.md).
+Service-specific security addresses unique characteristics of Managed HSM including hardware-level protection, FIPS compliance, and specialized cryptographic operations that distinguish it from other Azure services.
 
-- **Disable public network access and use Private Endpoints only**: Deploy Azure Private Link to establish private, secured connectivity to your Managed HSM instance by creating a private endpoint in your virtual network. Disabling public network access prevents access from public IP addresses by configuring your Managed HSM to deny public network access. This prevents exposure to the public internet and routes all traffic over the Microsoft backbone network. See [Integrate Managed HSM with Azure Private Link](private-link.md).
+- **Implement bring-your-own-key (BYOK) for regulatory compliance**: Use BYOK to import HSM-protected keys from on-premises HSMs when regulatory requirements mandate specific key generation procedures. BYOK ensures keys never exist outside HSM boundaries in plaintext form during the transfer process. See [Import HSM-protected keys to Managed HSM (BYOK)](/azure/key-vault/managed-hsm/hsm-protected-keys-byok).
 
-- **Configure Managed HSM firewall with trusted services**: Configure Managed HSM firewall rules to deny public internet access while allowing specific trusted Azure services through the `--bypass AzureServices` setting when required by your scenario. This restricts the attack surface while maintaining necessary service integrations. For full details, see [Network security: Managed HSM Firewall Enabled (Trusted Services)](network-security.md#managed-hsm-firewall-enabled-trusted-services).
+- **Implement proper key attestation procedures**: Use key attestation capabilities to prove that keys were generated and processed within FIPS 140-3 Level 3 hardware boundaries. Key attestation provides cryptographic proof of key provenance for high-assurance scenarios. See [Key attestation](/azure/key-vault/managed-hsm/key-attestation).
 
-- **Enable IP Network Firewall**: Limit access to public static IP addresses when network scenarios require controlled public access. For full details, see [Network security: Managed HSM Firewall Enabled (IP Network Firewall)](network-security.md#managed-hsm-firewall-enabled-ip-network-firewall).
+- **Configure cross-region replication for business continuity**: Enable multi-region replication to extend your Managed HSM from a primary region to an extended region, providing active-active deployment with automated replication. Both regions can serve requests, and the Traffic Manager routes requests to the closest available region, increasing SLA to 99.99% combined. See [Multi-region replication](/azure/key-vault/managed-hsm/multi-region-replication).
 
-For step-by-step configuration instructions, see [How to configure Azure Managed HSM networking settings](configure-network-security.md).
+## Data protection
+
+Data protection safeguards cryptographic keys and sensitive data stored in Managed HSM through encryption, key management policies, and secure storage practices. Proper data protection ensures key material remains confidential and tamper-resistant.
+
+- **Implement multi-person control for security domain**: Configure a security domain quorum with multiple RSA key pairs (minimum 3 recommended) to prevent single-person control over HSM recovery. Specify a quorum threshold that requires multiple key holders to collaborate for security domain decryption, ensuring no single individual can compromise the HSM. See [Security domain overview](/azure/key-vault/managed-hsm/security-domain).
+
+- **Store security domain keys offline in secure locations**: Keep security domain private keys on encrypted, offline storage devices such as encrypted USB drives stored in separate geographical locations within physical safes or lock boxes. Never store security domain keys on internet-connected computers to reduce exposure to cyber threats and ensure air-gapped security. See [Security domain overview](/azure/key-vault/managed-hsm/security-domain).
+
+- **Establish security domain key management procedures**: Implement policies for periodic review of security domain key custody when personnel changes occur or when keys may be compromised. Document security domain holder responsibilities, maintain accurate records of key locations and custody, and ensure the quorum can be assembled for disaster recovery scenarios. See [Security domain overview](/azure/key-vault/managed-hsm/security-domain).
+
+- **Enable purge protection for HSM and keys**: Configure purge protection to prevent permanent deletion of the HSM or individual keys before the retention period expires. This control protects against accidental or malicious deletion and provides a recovery window for critical operations. See [Soft-delete overview](/azure/key-vault/managed-hsm/soft-delete-overview).
+
+- **Configure appropriate soft-delete retention periods**: Set soft-delete retention periods between 7 to 90 days based on your recovery requirements and compliance needs. Longer retention periods provide more recovery time but may conflict with data residency requirements. See [Soft-delete overview](/azure/key-vault/managed-hsm/soft-delete-overview).
 
 ## Identity and access management
 
@@ -49,19 +61,17 @@ Identity and access management secures authentication and authorization to your 
 
 - **Separate control plane and data plane access**: Understand that control plane access (Azure RBAC) for managing HSM resources does not grant data plane access to keys. Explicitly assign data plane roles through Managed HSM local RBAC to users who need to perform key operations. See [Access control for Managed HSM](/azure/key-vault/managed-hsm/access-control).
 
-## Data protection
+## Network security
 
-Data protection safeguards cryptographic keys and sensitive data stored in Managed HSM through encryption, key management policies, and secure storage practices. Proper data protection ensures key material remains confidential and tamper-resistant.
+Network security protects your Managed HSM through secure connectivity and network access controls. These network security features are listed from most restricted to least restricted capabilities. Pick the configuration that best suits your organization's use case. For detailed information about all network security configurations, see [Network security for Azure Key Vault Managed HSM](network-security.md).
 
-- **Implement multi-person control for security domain**: Configure a security domain quorum with multiple RSA key pairs (minimum 3 recommended) to prevent single-person control over HSM recovery. Specify a quorum threshold that requires multiple key holders to collaborate for security domain decryption, ensuring no single individual can compromise the HSM. See [Security domain overview](/azure/key-vault/managed-hsm/security-domain).
+- **Disable public network access and use Private Endpoints only**: Deploy Azure Private Link to establish private, secured connectivity to your Managed HSM instance by creating a private endpoint in your virtual network. Disabling public network access prevents access from public IP addresses by configuring your Managed HSM to deny public network access. This prevents exposure to the public internet and routes all traffic over the Microsoft backbone network. See [Integrate Managed HSM with Azure Private Link](private-link.md).
 
-- **Store security domain keys offline in secure locations**: Keep security domain private keys on encrypted, offline storage devices such as encrypted USB drives stored in separate geographical locations within physical safes or lock boxes. Never store security domain keys on internet-connected computers to reduce exposure to cyber threats and ensure air-gapped security. See [Security domain overview](/azure/key-vault/managed-hsm/security-domain).
+- **Configure Managed HSM firewall with trusted services**: Configure Managed HSM firewall rules to deny public internet access while allowing specific trusted Azure services through the `--bypass AzureServices` setting when required by your scenario. This restricts the attack surface while maintaining necessary service integrations. For full details, see [Network security: Managed HSM Firewall Enabled (Trusted Services)](network-security.md#managed-hsm-firewall-enabled-trusted-services).
 
-- **Establish security domain key management procedures**: Implement policies for periodic review of security domain key custody when personnel changes occur or when keys may be compromised. Document security domain holder responsibilities, maintain accurate records of key locations and custody, and ensure the quorum can be assembled for disaster recovery scenarios. See [Security domain overview](/azure/key-vault/managed-hsm/security-domain).
+- **Enable IP Network Firewall**: Limit access to public static IP addresses when network scenarios require controlled public access. For full details, see [Network security: Managed HSM Firewall Enabled (IP Network Firewall)](network-security.md#managed-hsm-firewall-enabled-ip-network-firewall).
 
-- **Enable purge protection for HSM and keys**: Configure purge protection to prevent permanent deletion of the HSM or individual keys before the retention period expires. This control protects against accidental or malicious deletion and provides a recovery window for critical operations. See [Soft-delete overview](/azure/key-vault/managed-hsm/soft-delete-overview).
-
-- **Configure appropriate soft-delete retention periods**: Set soft-delete retention periods between 7 to 90 days based on your recovery requirements and compliance needs. Longer retention periods provide more recovery time but may conflict with data residency requirements. See [Soft-delete overview](/azure/key-vault/managed-hsm/soft-delete-overview).
+For step-by-step configuration instructions, see [How to configure Azure Managed HSM networking settings](configure-network-security.md).
 
 ## Logging and monitoring
 
@@ -101,27 +111,15 @@ Backup and recovery protects against data loss and enables business continuity t
 
 - **Secure backup storage with proper access controls**: Store HSM backups in Azure Storage accounts configured with appropriate RBAC permissions, private endpoints, and customer-managed encryption keys. Configure the user-assigned managed identity with Storage Blob Data Contributor role and implement backup retention policies that balance recovery requirements with storage costs. See [Full backup and restore](/azure/key-vault/managed-hsm/backup-restore).
 
-## Service-specific security
-
-Service-specific security addresses unique characteristics of Managed HSM including hardware-level protection, FIPS compliance, and specialized cryptographic operations that distinguish it from other Azure services.
-
-- **Leverage FIPS 140-3 Level 3 hardware validation**: Take advantage of Managed HSM's FIPS 140-3 Level 3 validated hardware security modules that provide tamper-resistant, high-entropy cryptographic processing with hardware-based key isolation. This provides the highest level of key protection available in Azure. See [What is Azure Managed HSM?](/azure/key-vault/managed-hsm/overview).
-
-- **Implement bring-your-own-key (BYOK) for regulatory compliance**: Use BYOK to import HSM-protected keys from on-premises HSMs when regulatory requirements mandate specific key generation procedures. BYOK ensures keys never exist outside HSM boundaries in plaintext form during the transfer process. See [What is Azure Managed HSM?](/azure/key-vault/managed-hsm/overview).
-
-- **Utilize single-tenant isolation for sensitive workloads**: Leverage Managed HSM's single-tenant architecture where each HSM instance is dedicated to a single customer and cryptographically isolated through customer-specific security domains. This provides stronger isolation than multitenant key vault solutions. See [What is Azure Managed HSM?](/azure/key-vault/managed-hsm/overview).
-
-- **Implement proper key attestation procedures**: Use key attestation capabilities to prove that keys were generated and processed within FIPS 140-3 Level 3 hardware boundaries. Key attestation provides cryptographic proof of key provenance for high-assurance scenarios. See [Key attestation](/azure/key-vault/managed-hsm/key-attestation).
-
-- **Configure cross-region replication for business continuity**: Enable multi-region replication to extend your Managed HSM from a primary region to an extended region, providing active-active deployment with automated replication. Both regions can serve requests, and the Traffic Manager routes requests to the closest available region, increasing SLA to 99.99% combined. See [Multi-region replication](/azure/key-vault/managed-hsm/multi-region-replication).
-
 ## Next steps
 
-- [Network security for Azure Key Vault Managed HSM](network-security.md)
-- [How to configure Azure Managed HSM networking settings](configure-network-security.md)
-- [Integrate with Azure Private Link](private-link.md)
+- [What is Azure Managed HSM?](overview.md)
+- [Security domain overview](security-domain.md)
 - [Access control](access-control.md)
 - [Managed HSM local RBAC built-in roles](built-in-roles.md)
+- [Network security for Azure Key Vault Managed HSM](network-security.md)
+- [Integrate with Azure Private Link](private-link.md)
+- [Managed HSM logging](logging.md)
 - [Integrate with Azure Policy](azure-policy.md)
-- [Security domain overview](security-domain.md)
-- [Azure Security fundamentals](/azure/security/fundamentals)
+- [Full backup and restore](backup-restore.md)
+- [Disaster recovery guide](disaster-recovery-guide.md)

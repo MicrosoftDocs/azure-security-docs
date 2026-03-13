@@ -1,0 +1,5 @@
+- An Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
+- A provisioned and activated Managed HSM. See [Quickstart: Provision and activate a managed HSM using Azure CLI](../../managed-hsm/quick-create-cli.md).
+- A key created in your Managed HSM. See [Manage keys in a Managed HSM](../../managed-hsm/key-management.md).
+- An Azure resource with a managed identity (such as a VM, App Service, or Azure Function) or Azure CLI for local development.
+- The managed identity must have the appropriate Managed HSM local RBAC role assigned. See [Secure access to your managed HSMs](../../managed-hsm/how-to-secure-access.md).
