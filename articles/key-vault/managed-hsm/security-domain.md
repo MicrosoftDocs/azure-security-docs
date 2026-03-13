@@ -44,7 +44,7 @@ The RSA key pairs that protect your security domain are the root of trust for yo
 
 **For production environments**, consider the following approaches in order of decreasing security:
 
-1. **Generate keys in an on-premises, air-gapped HSM.** This provides the strongest protection, as the private keys never exist on a general-purpose computer or network-connected device. This approach aligns with the [BYOK (bring your own key) methodology](hsm-protected-keys-byok.md), which recommends using an "offline computer that is connected to an on-premises HSM."
+1. **Generate keys in an on-premises, air-gapped HSM.** This provides the strongest protection, as the private keys never exist on a general-purpose computer or network-connected device.
 
 2. **Generate keys on an air-gapped computer.** A dedicated workstation that has never been connected to a network reduces exposure to malware and remote attacks.
 
