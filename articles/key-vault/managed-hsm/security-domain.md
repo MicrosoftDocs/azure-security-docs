@@ -38,23 +38,6 @@ The security domain is generated in both the managed HSM hardware and the servic
 
 The managed HSM initializes the security domain and encrypts it with the public keys that you provide by using Shamir's Secret Sharing Algorithm. After the security domain is downloaded, the managed HSM moves into an activated state and is ready for consumption.
 
-### Generate RSA key pairs for the security domain
-
-To activate your HSM, you must generate at least three RSA key pairs (maximum 10). You send the public keys to the service during security domain download, and you need the private keys to decrypt the security domain during recovery operations.
-
-Use `openssl` to generate self-signed certificates containing RSA key pairs:
-
-```console
-openssl req -newkey rsa:2048 -nodes -keyout cert_0.key -x509 -days 365 -out cert_0.cer
-openssl req -newkey rsa:2048 -nodes -keyout cert_1.key -x509 -days 365 -out cert_1.cer
-openssl req -newkey rsa:2048 -nodes -keyout cert_2.key -x509 -days 365 -out cert_2.cer
-```
-
-The certificate expiration date doesn't affect security domain operations—even an "expired" certificate can still be used to restore the security domain.
-
-> [!IMPORTANT]
-> Create and store the RSA key pairs and the downloaded security domain file securely. See [Storing the security domain keys](#storing-the-security-domain-keys) for best practices.
-
 ### Storing the security domain keys
 
 The keys to a security domain must be held in offline storage (such as on an encrypted USB drive), with each split of the quorum on a separate storage device. The storage devices must be held at separate geographical locations, and in a physical safe or lock box. For ultrasensitive and high-assurance use cases, you might even choose to store your security domain private keys in your on-premises, offline HSM.
