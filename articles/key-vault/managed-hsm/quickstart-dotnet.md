@@ -148,7 +148,7 @@ The `CryptographyClient` class provides cryptographic operations:
 When no longer needed, delete the resource group and all related resources:
 
 ```azurecli
-az group delete --name ContosoResourceGroup
+az group delete --name myResourceGroup
 ```
 
 [!INCLUDE [Managed HSM cleanup warning](../includes/managed-hsm/cleanup-warning.md)]

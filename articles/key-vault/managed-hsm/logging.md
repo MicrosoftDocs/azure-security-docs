@@ -76,7 +76,7 @@ You can also use the Azure CLI [az storage account show](/cli/azure/storage/acco
 ```azurecli-interactive
 hsmresource=$(az keyvault show --hsm-name ContosoMHSM --query id -o tsv)
 storageresource=$(az storage account show --name ContosoMHSMLogs --query id -o tsv)
-loganalyticsresource=$(az monitor log-analytics workspace show --resource-group ContosoResourceGroup --workspace-name ContosoLogs --query id -o tsv)
+loganalyticsresource=$(az monitor log-analytics workspace show --resource-group myResourceGroup --workspace-name ContosoLogs --query id -o tsv)
 ```
 
 # [Azure PowerShell](#tab/azurepowershell)
@@ -86,9 +86,9 @@ Use the Azure PowerShell `Get-AzKeyVault` cmdlet to find the Managed HSM that yo
 You can also use the Azure PowerShell `Get-AzStorageAccount` cmdlet to find the storage account that you want to use for logging, and/or the Azure PowerShell `Get-AzOperationalInsightsWorkspace` cmdlet to find the log analytics workspace that you want to use for logging.
 
 ```powershell
-$hsmresource = (Get-AzKeyVaultManagedHSM -ResourceGroupName "ContosoResourceGroup" -Name "ContosoMHSM").ResourceId
-$storageresource = (Get-AzStorageAccount -ResourceGroupName "ContosoResourceGroup" -Name "ContosoMHSMLogs").Id
-$loganalyticsresource = (Get-AzOperationalInsightsWorkspace -ResourceGroupName "ContosoResourceGroup" -Name "ContosoLogs").ResourceId
+$hsmresource = (Get-AzKeyVaultManagedHSM -ResourceGroupName "myResourceGroup" -Name "ContosoMHSM").ResourceId
+$storageresource = (Get-AzStorageAccount -ResourceGroupName "myResourceGroup" -Name "ContosoMHSMLogs").Id
+$loganalyticsresource = (Get-AzOperationalInsightsWorkspace -ResourceGroupName "myResourceGroup" -Name "ContosoLogs").ResourceId
 ```
 
 # [Portal](#tab/azure-portal)
@@ -180,7 +180,7 @@ Individual blobs are stored as text, formatted as a JSON. Let's look at an examp
   {
     "TenantId": "{tenant-id}",
     "time": "2020-08-31T19:52:39.763Z",
-    "resourceId": "/SUBSCRIPTIONS/{subscription-id}/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/MANAGEDHSMS/CONTOSOMHSM",
+    "resourceId": "/SUBSCRIPTIONS/{subscription-id}/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/MANAGEDHSMS/CONTOSOMHSM",
     "operationName": "BackupCreate",
     "operationVersion": "7.0",
     "category": "AuditEvent",
@@ -199,7 +199,7 @@ Individual blobs are stored as text, formatted as a JSON. Let's look at an examp
     "httpStatusCode": 202,
     "PoolName": "mhsmdemo",
     "requestUri": "https://ContosoMHSM.managedhsm.azure.net/backup",
-    "resourceGroup": "ContosoResourceGroup",
+    "resourceGroup": "myResourceGroup",
     "resourceProvider": "MICROSOFT.KEYVAULT",
     "resource": "ContosoMHSM",
     "resourceType": "managedHSMs"
