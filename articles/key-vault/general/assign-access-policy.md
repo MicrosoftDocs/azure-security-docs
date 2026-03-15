@@ -113,7 +113,7 @@ For more information on creating groups in Microsoft Entra ID using Azure PowerS
 
 1. Local PowerShell only:
 
-    1. Install the [Azure Active Directory PowerShell module](https://www.powershellgallery.com/packages/AzureAD).
+    1. Install the [Microsoft Entra ID PowerShell module](https://www.powershellgallery.com/packages/AzureAD).
 
     1. Sign in to Azure:
 
