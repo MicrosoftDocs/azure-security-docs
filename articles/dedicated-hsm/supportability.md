@@ -9,23 +9,23 @@ ms.date: 02/20/2024
 ms.author: mbaldwin
 ---
 
-# Azure Dedicated HSM Supportability
+# Azure Dedicated HSM supportability
 
-The Azure Dedicated HSM Service provides a physical device for sole customer use with complete administrative control and management responsibility. The device made available is a [Thales Luna 7 HSM model A790](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms). Microsoft will have no administrative access once provisioned by a customer, beyond physical serial port attachment as a monitoring role.  Without access, Microsoft can have no ongoing software level maintenance or system administration responsibilities. As a result, customers are responsible for typical operational activities.
-Customers are fully responsible for applications that use the HSMs and should work with Thales for support or consulting-based assistance. Due to the extent of customer ownership of operational hygiene, it is not possible for Microsoft to offer any kind of high availability guarantee for this service. It is the customer’s responsibility to ensure their applications are correctly configured to achieve high-availability. Microsoft will monitor and maintain device health and network connectivity.
+The Azure Dedicated HSM service provides a physical device for sole customer use with complete administrative control and management responsibility. The device is a [Thales Luna 7 HSM model A790](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms). Microsoft has no administrative access once you provision the device, beyond physical serial port attachment as a monitoring role. Without access, Microsoft has no ongoing software-level maintenance or system administration responsibilities. As a result, customers are responsible for typical operational activities.
+Customers are fully responsible for applications that use the HSMs and should work with Thales for support or consulting-based assistance. Due to the extent of customer ownership of operational hygiene, Microsoft can't offer any kind of high availability guarantee for this service. It's the customer’s responsibility to ensure their applications are correctly configured to achieve high availability. Microsoft monitors and maintains device health and network connectivity.
 
 ## Getting support
 
-Customer support for Dedicated HSM is a joint effort between Microsoft and Thales. Any hardware issues or network path issues will be addressed by Microsoft, and anything to do with the actual HSM, such as configuration, software, firmware and application development, will be addressed by Thales. This support model ensures the quickest route to the most effective support. If in doubt with a particular issue, raise a support request with Microsoft and we will ensure you are directed appropriately. Microsoft will stay engaged in all support scenarios and strive for the best support experience for our customers.
+Customer support for Dedicated HSM is a joint effort between Microsoft and Thales. Microsoft addresses any hardware issues or network path issues. Thales addresses anything to do with the actual HSM, such as configuration, software, firmware, and application development. This support model ensures the quickest route to the most effective support. If you're in doubt about a particular issue, raise a support request with Microsoft and we direct you appropriately. Microsoft stays engaged in all support scenarios and strives for the best support experience for you.
 
 ## Thales support
 
-Customers using the Dedicated HSM service qualify for support from Thales as per their Plus Support Plan. This just requires a registration process using the Thales support portal. A Customer ID and instructions will be provided for this as part of the initial engagement with Microsoft to gain access to the Dedicated HSM service. The mechanism to get support from Thales is via their [customer support portal](https://supportportal.thalesgroup.com/csm).
-A key point of note is that Thales will provide all software and documentation required to use the HSM (for example, client access software and SDKs) via download on the customer support portal.
+Customers using the Dedicated HSM service qualify for support from Thales as per their Plus Support Plan. This support plan just requires a registration process by using the Thales support portal. A customer ID and instructions are provided for this as part of the initial engagement with Microsoft to gain access to the Dedicated HSM service. You get support from Thales through their [customer support portal](https://supportportal.thalesgroup.com/csm).
+A key point of note is that Thales provides all software and documentation required to use the HSM (for example, client access software and SDKs) via download on the customer support portal.
 
 ### Software components
 
-Various software components are used in the configuration of HSM devices:
+You use various software components in the configuration of HSM devices:
 
 * Client software
 * SDK
@@ -33,55 +33,60 @@ Various software components are used in the configuration of HSM devices:
 
 ### Guidance
 
-Thales makes available administration and configuration guidance via the [Thales customer support portal](https://supportportal.thalesgroup.com/csm). Once signed in using a valid customer ID, these documents are available for download. Thales also provides a series of integration guides to help customers with different scenarios and software integrations. For more information, see the [Thales partner site for Microsoft](https://cpl.thalesgroup.com/partners/overview).
+Thales makes administration and configuration guidance available via the [Thales customer support portal](https://supportportal.thalesgroup.com/csm). Once signed in by using a valid customer ID, you can download these documents. Thales also provides a series of integration guides to help customers with different scenarios and software integrations. For more information, see the [Thales partner site for Microsoft](https://cpl.thalesgroup.com/partners/overview).
 
 ### Support
 
-Any software level issue or question in relation to using the HSMs as part of the Dedicated HSM service, should be addressed to Thales support directly. All software components listed above, and any custom HSM configuration that is post-provisioning, will be addressed by Thales. For more information, see the [Thales customer support portal](https://supportportal.thalesgroup.com/csm).
+Address any software-level issue or question in relation to using the HSMs as part of the Dedicated HSM service to Thales support directly. Thales addresses all software components listed earlier, and any custom HSM configuration that is post-provisioning. For more information, see the [Thales customer support portal](https://supportportal.thalesgroup.com/csm).
 
 ### Consulting services
 
-For any assistance in the design, development and deployment of custom applications that use the HSM, contact your Thales account representative.
+For assistance with the design, development, and deployment of custom applications that use the HSM, contact your Thales account representative.
 
 ## Microsoft support
 
-Microsoft will ensure physical HSM devices are network accessible and in an operational state for the exclusive use of a single customer. Customers are responsible for configuration, administration, and management of the device. 
+Microsoft ensures physical HSM devices are network accessible and in an operational state for the exclusive use of a single customer. Customers are responsible for the configuration, administration, and management of the device. 
 Microsoft responsibilities include:
 
 * Making sure that the device has power and cooling
 * Maintaining an operational state of the HSM (for example, break/fix scenarios)
-* The device is accessible over the network.
+* Ensuring the device is accessible over the network.
 
-Issues such as the following should be reported to Microsoft:
+Report the following issues to Microsoft:
 
 * Component failures
 * Full device failure
-* Network access issues
+* Network access problems
 * Problems provisioning and deprovisioning.
 
-Microsoft has physical serial port access to the device via a monitoring role (that is a non-administrative role) that enables basic health telemetry.  This will allow Microsoft to provide proactive notification of issues to the customer unless the customer chooses to restrict this permission. 
+Microsoft has physical serial port access to the device through a monitoring role (that is a non-administrative role) that enables basic health telemetry.  This access allows Microsoft to provide proactive notification of issues to the customer unless the customer chooses to restrict this permission. 
 
 ### Provisioning and decommissioning
 
-After a customer has an approved registration for the Dedicated HSM service, they will be able to create HSM resources (currently via PowerShell or command-line interface and not the Azure portal). The resource goes through an allocation process that maps a physical device in a specified region, to a customer’s pre-defined virtual network (VNet). Once visible on a VNet, the customer can access the device and configure it further as per requirements. Customers access their dedicated HSMs using Thales client software and tools. The resource creation process is supported by Microsoft. Custom configuration process and beyond are supported by Thales. (see Thales support above). When a customer has finished using an HSM, it must be reset (or zeroized) to ensure no persistence of data. The process of resetting the device removes all custom configuration and data. Microsoft deallocates the device and returns it to the pool in a pristine state. This means that when the device is returned to the pool there is no evidence of previous customer activity. 
+After you register and are approved for the Dedicated HSM service, you can create HSM resources (currently via PowerShell or command-line interface and not the Azure portal). The resource goes through an allocation process that maps a physical device in a specified region to a customer’s pre-defined virtual network (VNet). Once visible on a VNet, you can access the device and configure it further as per requirements. You access your dedicated HSMs by using Thales client software and tools. Microsoft supports the resource creation process. Thales supports the custom configuration process and beyond (see Thales support above). When you finish using an HSM, you must reset (or zeroize) the HSM to ensure no persistence of data. The process of resetting the device removes all custom configuration and data. Microsoft deallocates the device and returns it to the pool in a pristine state. This process ensures that when the device is returned to the pool, there's no evidence of previous customer activity. 
 
-### Hardware issues
+### Hardware problems
 
-The HSM device has redundant and replaceable power supplies and fan units.  However, fan unit removal will still cause a tamper event. When a component failure occurs, Microsoft will use the most appropriate process to address the component level issue in a way that causes minimal interruption and lowest risk to our customers service availability.
-Any more serious failure of the device will result in that device being replaced by a new device from the free pool. The customer simply includes the new device in the existing HA pair for it to synchronize and return to full operational state. The failed device will have its data bearing devices removed and shredded on site at the data center. 
+The HSM device has redundant and replaceable power supplies and fan units. However, fan unit removal still causes a tamper event. When a component failure occurs, Microsoft uses the most appropriate process to address the component-level problem in a way that causes minimal interruption and lowest risk to your service availability.
 
-### Networking issues
+#### Power supply events
 
-If customers experience networking access problems to the HSM device, they should contact Microsoft support. A simple test for networking access is to use SSH to connect to the HSM device. If this fails, contact Microsoft support.
+The HSM uses dual-PSU redundancy. Transient single-PSU log messages during datacenter maintenance are expected and don't require action or support tickets. For details, see [Power supply redundancy](monitoring.md#power-supply-redundancy).
+
+Any more serious failure of the device results in replacing that device with a new device from the free pool. To synchronize and return to full operational state, include the new device in the existing HA pair. The failed device has its data-bearing devices removed and shredded on site at the datacenter. 
+
+### Networking problems
+
+If you experience networking access problems to the HSM device, contact Microsoft support. A simple test for networking access is to use SSH to connect to the HSM device. If this test fails, contact Microsoft support.
 
 ## Service level expectations for support
 
-For Microsoft support service levels, refer to the [Azure support plan](https://azure.microsoft.com/support/plans/).
-For Thales support service levels, refer to the [Thales Support Essentials](https://azure.microsoft.com/support/plans/).
+For Microsoft support service levels, see the [Azure support plan](https://azure.microsoft.com/support/plans/).
+For Thales support service levels, see the [Thales Support Essentials](https://azure.microsoft.com/support/plans/).
 
 ## Next steps
 
-It is recommended that key concepts such as high availability and security are well understood before device provisioning and application design or deployment.
+Before device provisioning and application design or deployment, make sure you understand key concepts such as high availability and security.
 
 * [Deployment Architecture](deployment-architecture.md)
 * [High Availability](high-availability.md)
