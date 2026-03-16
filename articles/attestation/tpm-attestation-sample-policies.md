@@ -71,7 +71,7 @@ c:[type=="srtmDrtmEventPcr", issuer=="AttestationPolicy"] => add(type="Bitlocker
 [type=="BitlockerStatus", issuer=="AttestationPolicy"] => issue(type="BitlockerStatus", value=true);
 ![type=="BitlockerStatus", issuer=="AttestationPolicy"] => issue(type="BitlockerStatus", value=false);
 
-// Elam Driver (windows defender) Loaded
+// Elam Driver (Microsoft Defender) Loaded
 c:[type=="boolProperties", issuer=="AttestationPolicy"] => add(type="elamDriverLoaded", value=JsonToClaimValue(JmesPath(c.value, "[*].EVENT_LOADEDMODULE_AGGREGATION[] | [? EVENT_IMAGEVALIDATED == `true` && (equals_ignore_case(EVENT_FILEPATH, '\\windows\\system32\\drivers\\wdboot.sys') || equals_ignore_case(EVENT_FILEPATH, '\\windows\\system32\\drivers\\wd\\wdboot.sys'))] | @ != `null`")));
 [type=="elamDriverLoaded", issuer=="AttestationPolicy"] => issue(type="ELAMDriverLoaded", value=true);
 ![type=="elamDriverLoaded", issuer=="AttestationPolicy"] => issue(type="ELAMDriverLoaded", value=false);
