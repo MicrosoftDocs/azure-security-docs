@@ -14,14 +14,14 @@ ms.author: mbaldwin
 
 # Secure access to your managed HSMs
 
-This tutorial provides a practical implementation example of access control for Azure Key Vault Managed HSM. You'll learn how to implement separation of duties using Azure RBAC and Managed HSM local RBAC through a realistic scenario.
+This tutorial provides a practical implementation example of access control for Azure Key Vault Managed HSM. You learn how to implement separation of duties by using Azure RBAC and Managed HSM local RBAC through a realistic scenario.
 
 > [!IMPORTANT]
 > Before proceeding with this tutorial, ensure you understand the Managed HSM access control model, including the differences between control plane and data plane access. For this conceptual foundation, see [Managed HSM access control](access-control.md).
 
 ## Prerequisites
 
-* A subscription to Microsoft Azure. If you don't have one, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
+* An Azure subscription. If you don't have one, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
 * The Azure CLI version 2.25.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 * A managed HSM in your subscription. See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to provision and activate a managed HSM.
 
@@ -29,35 +29,35 @@ This tutorial provides a practical implementation example of access control for 
 
 ## Sign in to Azure
 
-To sign in to Azure using the CLI you can type:
+To sign in to Azure by using the CLI, enter:
 
 ```azurecli
 az login
 ```
 
-For more information on login options via the CLI, see [sign in with Azure CLI](/cli/azure/authenticate-azure-cli)
+For more information about authentication options through the CLI, see [sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
 ## Understand the example scenario
 
-In this example, we're developing an application that uses an RSA 2,048-bit key for sign operations. Our application runs in an Azure virtual machine (VM) with a [managed identity](/entra/identity/managed-identities-azure-resources/overview). The RSA key used for signing is stored in our managed HSM.
+In this example, you're developing an application that uses an RSA 2,048-bit key for sign operations. Your application runs in an Azure virtual machine (VM) with a [managed identity](/entra/identity/managed-identities-azure-resources/overview). The RSA key used for signing is stored in your managed HSM.
 
 ### Define roles and responsibilities
 
-We have identified following roles who manage, deploy, and audit our application:
+Identify the roles that manage, deploy, and audit your application:
 
-- **Security team**: IT staff from the office of the CSO (Chief Security Officer) or similar contributors. The security team is responsible for the proper safekeeping of keys. The keys include RSA or EC keys for signing, and RSA or AES keys for data encryption.
+- **Security team**: IT staff from the office of the CSO (Chief Security Officer) or similar contributors. The security team is responsible for the proper safekeeping of keys. The keys include RSA or EC keys for signing, and RSA or oct keys for data encryption.
 - **Developers and operators**: The staff who develop the application and deploy it in Azure. The members of this team aren't part of the security staff. They shouldn't have access to sensitive data like RSA keys. Only the application that they deploy should have access to this sensitive data.
-- **Auditors**: This role is for contributors who aren't members of the development or general IT staff. They review the use and maintenance of certificates, keys, and secrets to ensure compliance with security standards.
+- **Auditors**: Contributors who aren't members of the development or general IT staff. They review the use and maintenance of certificates, keys, and secrets to ensure compliance with security standards.
 
-There's another role that's outside the scope of our application: the subscription (or resource group) administrator. The subscription admin sets up initial access permissions for the security team. They grant access to the security team by using a resource group that has the resources required by the application.
+There's another role that's outside the scope of your application: the subscription (or resource group) administrator. The subscription admin sets up initial access permissions for the security team. They grant access to the security team by using a resource group that has the resources required by the application.
 
 ### Define required operations per role
 
-We need to authorize the following operations for our roles:
+Authorize the following operations for each role:
 
 **Security team**
 - Create the managed HSM
-- Download the managed HSM security domain (for disaster recovery)
+- Download the managed HSM security domain for disaster recovery
 - Turn on logging
 - Generate or import keys
 - Create the managed HSM backups for disaster recovery
@@ -70,7 +70,7 @@ We need to authorize the following operations for our roles:
 
 **Auditors**
 - Review keys expiry dates to ensure keys are up-to-date
-- Monitor role assignments to ensure keys can only be accessed by authorized users/applications
+- Monitor role assignments to ensure only authorized users and applications can access keys
 - Review the managed HSM logs to confirm proper use of keys in compliance with data security standards
 
 ## Assign appropriate roles
@@ -89,22 +89,22 @@ The three team roles need access to other resources along with managed HSM permi
 
 ## Implement with Azure CLI
 
-To assign control plane roles (Azure RBAC) you can use Azure portal or any of the other management interfaces such as Azure CLI or Azure PowerShell. To assign managed HSM data plane roles you must use Azure CLI or Azure REST API. 
+To assign control plane roles (Azure RBAC), use Azure portal or any of the other management interfaces such as Azure CLI or Azure PowerShell. To assign managed HSM data plane roles, use Azure CLI or Azure REST API. 
 
 For more information on control plane roles, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles). For more information on Managed HSM data plane roles, see [Managed HSM local RBAC built-in roles for Managed HSM](built-in-roles.md).
 
-The Azure CLI snippets below demonstrate how to implement the role assignments described above:
+The following Azure CLI snippets demonstrate how to implement the role assignments described earlier:
 
 ### Assumptions
 
-- The Microsoft Entra administrator has created security groups to represent the three roles: Contoso Security Team, Contoso App DevOps, and Contoso App Auditors. The admin has added users to their respective groups.
+- The Microsoft Entra administrator created security groups to represent the three roles: Contoso Security Team, Contoso App DevOps, and Contoso App Auditors. The admin added users to their respective groups.
 - All resources are located in the **ContosoAppRG** resource group.
 - The managed HSM logs are stored in the **contosologstorage** storage account.
 - The **ContosoMHSM** managed HSM and the **contosologstorage** storage account are in the same Azure location.
 
 ### Assign control plane roles
 
-The subscription admin assigns the `Managed HSM Contributor` role to the security team. This role allows the security team to manage existing managed HSMs and create new ones.
+The subscription admin assigns the `Managed HSM Contributor` role to the security team. This role grants the security team permission to manage existing managed HSMs and create new ones.
 
 ```azurecli-interactive
 # This role assignment allows Contoso Security Team to create new Managed HSMs
@@ -113,7 +113,7 @@ az role assignment create --assignee-object-id $(az ad group show -g 'Contoso Se
 
 ### Assign data plane roles
 
-For existing managed HSMs, the security team needs to be assigned the "Managed HSM Administrator" role to manage them:
+For existing managed HSMs, assign the `Managed HSM Administrator` role to the security team so they can manage the HSMs:
 
 ```azurecli-interactive
 # This role assignment allows Contoso Security Team to become administrator of existing managed HSM
@@ -148,14 +148,14 @@ az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Cr
 
 This tutorial demonstrates a simplified scenario to illustrate access control implementation.
 
-Adjust permissions to your managed HSM based on your specific requirements. In this example, we assumed the security team provides key and secret references (URIs and thumbprints) to the DevOps staff for use in their applications. Developers and operators don't require direct data plane access. While this tutorial focuses on securing your managed HSM, apply similar security measures to other Azure resources, such as [virtual machines](https://azure.microsoft.com/services/virtual-machines/security/), [storage accounts](/azure/storage/blobs/security-recommendations), and others.
+Adjust permissions for your managed HSM based on your specific requirements. In this example, the security team provides key and secret references (URIs and thumbprints) to the DevOps staff for use in their applications. Developers and operators don't require direct data plane access. While this tutorial focuses on securing your managed HSM, apply similar security measures to other Azure resources, such as [virtual machines](https://azure.microsoft.com/services/virtual-machines/security/), [storage accounts](/azure/storage/blobs/security-recommendations), and others.
 
 ## Next steps
 
-- For a conceptual understanding of the Managed HSM access control model, see [Managed HSM access control](access-control.md)
+- For a conceptual understanding of the Managed HSM access control model, see [Managed HSM access control](access-control.md).
 - For a getting-started tutorial for an administrator, see [What is Managed HSM?](overview.md)
-- For more information about usage logging for Managed HSM logging, see [Managed HSM logging](logging.md)
-- To learn about managing roles in Managed HSM, see [Managed HSM local RBAC](role-management.md)
-- [Azure RBAC documentation](/azure/role-based-access-control/overview)
-- [Azure RBAC: Built-in roles](/azure/role-based-access-control/built-in-roles)
-- [Manage Azure RBAC with Azure CLI](/azure/role-based-access-control/role-assignments-cli)
+- For more information about usage logging for Managed HSM logging, see [Managed HSM logging](logging.md).
+- To learn about managing roles in Managed HSM, see [Managed HSM local RBAC](role-management.md).
+- See [Azure RBAC documentation](/azure/role-based-access-control/overview).
+- See [Azure RBAC: Built-in roles](/azure/role-based-access-control/built-in-roles).
+- See [Manage Azure RBAC with Azure CLI](/azure/role-based-access-control/role-assignments-cli).
