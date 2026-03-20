@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: reference
-ms.date: 01/30/2026
+ms.date: 03/20/2026
 ms.author: mbaldwin
 
 #Customer intent: As an Azure Key Vault administrator, I want to react to soft-delete being turned on for all key vaults.
@@ -16,6 +16,45 @@ ms.author: mbaldwin
 # What's new for Azure Key Vault
 
 Here's what's new with Azure Key Vault. New features and improvements are also announced on the [Azure updates Key Vault channel](https://azure.microsoft.com/updates/?category=security&query=Key%20vault).
+
+## March 2026
+
+### New control plane API versions
+
+New Azure Key Vault control plane API versions (2026-02-01 and 2026-03-01-preview) are now available across public Azure regions, with availability extended to Mooncake and Fairfax clouds.
+
+### Azure RBAC is the default access control model for new vaults
+
+Azure Key Vault API version 2026-02-01 introduces Azure RBAC as the default access control model for newly created key vaults when using this API version. Existing vaults continue using their current access model unless explicitly updated. Both Azure RBAC and access policies remain fully supported.
+
+For more information, see [Prepare for Key Vault API version 2026-02-01 and later](access-control-default.md).
+
+### Private endpoint limit enforcement
+
+Azure Key Vault is enforcing limits on the number of private endpoints per vault. Customers exceeding these limits may need to reduce usage or request an exception through Azure support.
+
+For more information on private endpoint limits, see [Azure Key Vault service limits](service-limits.md).
+
+### SDK generation and ownership changes
+
+Azure Key Vault now manages SDK generation and release for supported languages. Availability of SDK updates may trail REST API availability.
+
+## November 2025
+
+### Security best practices articles
+
+New security best practices documentation is available for Azure Key Vault workloads:
+
+- [Secure your Azure Key Vault](secure-key-vault.md): Comprehensive security guidance for vault architecture, network security, identity and access management, and monitoring.
+- [Secure your Azure Key Vault keys](../keys/secure-keys.md): Key-specific security recommendations for key types, protection levels, rotation, and operations.
+- [Secure your Azure Key Vault secrets](../secrets/secure-secrets.md): Secrets-specific best practices for storage, rotation, and access patterns.
+- [Secure your Azure Key Vault certificates](../certificates/secure-certificates.md): Certificate-specific guidance for lifecycle management, CA integration, and renewal.
+
+### Apps, API keys, and Key Vault secrets guidance
+
+New guidance is available for configuring applications to securely interact with API keys stored in Azure Key Vault, including best practices for access control, monitoring, and network restrictions.
+
+For more information, see [Apps, API keys, and Azure Key Vault secrets](apps-api-keys-secrets.md).
 
 ## July 2023
 
