@@ -88,7 +88,6 @@ Data is automatically replicated to Azure regional pairs for disaster recovery. 
 |--|--|
 | Number of ledgers per subscription | 2 standard SKU ledgers |
 | Number of collection IDs per ledger | 50,000 |
-| Storage limit per ledger | 1 TB |
 | Create entry | 1900 requests per second, 1900 transactions per second |
 | Get current entry | 3600 requests per second |
 | Get entry | 3200 requests per second |
