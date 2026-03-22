@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 06/19/2025
+ms.date: 03/10/2026
 
 ms.author: nkondamudi
 ms.custom: references_regions
@@ -24,6 +24,9 @@ When multi-region replication is enabled on a managed HSM, a second managed HSM 
 ## Replication latency
 
 Any write operation to the Managed HSM, such as creating or updating a key, creating or updating a role definition, or creating or updating a role assignment, may take up to 6 minutes before both regions are fully replicated. Within this window, it isn't guaranteed that the written material has replicated between the regions. Therefore, it's best to wait six minutes between creating or updating the key and using the key to ensure that the key material has fully replicated between regions. The same applies for role assignments and role definitions.
+
+> [!NOTE]
+> When initially extending a Managed HSM to another region, the region extension command itself may take up to 30 minutes to complete before the extension region is live.
 
 ## Failover behavior
 
@@ -51,7 +54,7 @@ If a region reports an unhealthy status to the Traffic Manager, future requests 
 All Azure Managed HSM regions are supported as primary regions (regions where you can replicate a Managed HSM pool from).
 
 > [!NOTE]
-> US East, West Europe, Canada East, Qatar Central, Poland Central, and West India cannot be extended regions at this time. Other regions may be unavailable for extension due to capacity limitations in the region.
+> US East, Canada East, West Europe, Qatar Central, Poland Central, and West India cannot be extended regions at this time. Other regions may be unavailable for extension due to capacity limitations in the region.
 
 ## Billing
 
@@ -104,6 +107,17 @@ az keyvault region add --hsm-name "ContosoMHSM" --region "australiaeast"
 
 > [!NOTE]
 > "ContosoMHSM" in this example is the primary HSM pool name; "australiaeast" is the extended region into which you are extending it.
+
+> [!IMPORTANT]
+> After initiating the extension to a new region, do not perform any operations on the primary HSM until the extension region pool is fully provisioned. This is especially critical for networking changes such as configuring private endpoints or updating firewall rules. Performing these operations before the extension pool is ready can result in configuration inconsistencies between regions.
+>
+> To verify that the extension region pool is fully provisioned, run:
+>
+> ```azurecli-interactive
+> az keyvault region list --hsm-name ContosoMHSM
+> ```
+>
+> Confirm that the extended region appears in the output and that its provisioning state shows as **Succeeded** before proceeding with any other HSM operations.
 
 ### Remove an extended region from the primary HSM
 
