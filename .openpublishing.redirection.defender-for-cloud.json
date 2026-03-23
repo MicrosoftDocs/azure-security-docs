@@ -574,6 +574,11 @@
       "source_path_from_root": "/articles/defender-for-cloud/monitor-connected-aws-resources.md",
       "redirect_url": "/azure/defender-for-cloud/quickstart-onboard-aws#validate-connector-health",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/deploy-vulnerability-assessment-vm.md",
+      "redirect_url": "/azure/defender-for-cloud/deploy-vulnerability-assessment-defender-vulnerability-management",
+      "redirect_document_id": false
     }
   ]
 }
