@@ -24,4 +24,4 @@ az keyvault role assignment create \
     --scope /keys
 ```
 
-For more information on roles and permissions, see [Managed HSM local RBAC built-in roles](../../managed-hsm/built-in-roles.md).
+For more information on roles and permissions, see [Managed HSM local RBAC built-in roles](/azure/key-vault/managed-hsm/built-in-roles).
