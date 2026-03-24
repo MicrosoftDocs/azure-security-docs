@@ -3,7 +3,7 @@ title: Integrate Key Vault with Azure Private Link
 description: Learn how to integrate Azure Key Vault with Azure Private Link Service
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 01/30/2026
+ms.date: 03/24/2026
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
@@ -17,6 +17,9 @@ Azure Private Link Service enables you to access Azure Services (for example, Az
 An Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can connect to an instance of an Azure resource, giving you the highest level of granularity in access control.
 
 For more information, see [What is Azure Private Link?](/azure/private-link/private-link-overview)
+
+> [!IMPORTANT]
+> Azure Key Vault enforces limits on the number of private endpoints per vault. For information on these limits, see [Azure Key Vault service limits](service-limits.md).
 
 ## Prerequisites
 
