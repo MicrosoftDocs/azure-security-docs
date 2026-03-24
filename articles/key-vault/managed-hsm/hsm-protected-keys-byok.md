@@ -38,9 +38,10 @@ Here's an overview of the process. Specific steps to complete are described late
 
 ## Prerequisites
 
-To use the Azure CLI commands in this article, you must have the following items:
-
 [!INCLUDE [Azure subscription prerequisite](../includes/managed-hsm/azure-subscription-prerequisite.md)]
+
+You also need:
+
 * The Azure CLI version 2.12.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 * A managed HSM the [supported HSMs list](#supported-hsms) in your subscription. See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to provision and activate a managed HSM.
 
