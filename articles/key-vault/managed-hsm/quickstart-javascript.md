@@ -159,7 +159,4 @@ az group delete --name ContosoResourceGroup
 
 ## Next steps
 
-- Learn about [Secure access to your managed HSMs](how-to-secure-access.md)
-- Configure [automated key rotation](key-rotation.md)
-- Review [Managed HSM best practices](secure-managed-hsm.md)
-- Learn about [Managed HSM local RBAC built-in roles](built-in-roles.md)
+[!INCLUDE [SDK next steps](../includes/managed-hsm/sdk-next-steps.md)]

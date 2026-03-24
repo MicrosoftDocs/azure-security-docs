@@ -21,7 +21,7 @@ This tutorial provides a practical implementation example of access control for 
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have one, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
+* An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * The Azure CLI version 2.25.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 * A managed HSM in your subscription. See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to provision and activate a managed HSM.
 
