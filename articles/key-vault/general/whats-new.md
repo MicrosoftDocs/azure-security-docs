@@ -39,8 +39,6 @@ All five Azure Key Vault control plane management SDKs are now released:
 | Python | [azure-mgmt-keyvault](https://pypi.org/project/azure-mgmt-keyvault/) | Latest |
 | Java | [azure-resourcemanager-keyvault](https://central.sonatype.com/artifact/com.azure.resourcemanager/azure-resourcemanager-keyvault) | Latest |
 
-The Azure Key Vault team now manages SDK generation and release for control plane SDKs.
-
 ### Azure RBAC is the default access control model for new vaults
 
 Azure Key Vault API version 2026-02-01 introduces Azure RBAC as the default access control model for newly created key vaults when using this API version. Existing vaults continue using their current access model unless explicitly updated. Both Azure RBAC and access policies remain fully supported.
