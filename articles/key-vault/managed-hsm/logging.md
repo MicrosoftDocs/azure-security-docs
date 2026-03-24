@@ -26,7 +26,7 @@ Use this tutorial to help you get started with Managed HSM logging. You should h
 
 To complete the steps in this article, you must have the following items:
 
-* An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
+[!INCLUDE [Azure subscription prerequisite](../includes/managed-hsm/azure-subscription-prereq.md)]
 * The Azure CLI version 2.25.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 * A managed HSM in your subscription. See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to provision and activate a managed HSM.
 * An Azure storage account and/or a Log Analytics workspace. If you do not have one or both, you can create them using the Azure portal:

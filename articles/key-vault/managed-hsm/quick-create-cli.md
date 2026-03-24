@@ -21,7 +21,7 @@ In this quickstart, you create and activate an Azure Key Vault Managed HSM (Hard
 
 To complete the steps in this article, you must have:
 
-* An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
+[!INCLUDE [Azure subscription prerequisite](../includes/managed-hsm/azure-subscription-prereq.md)]
 * The Azure CLI version 2.25.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]

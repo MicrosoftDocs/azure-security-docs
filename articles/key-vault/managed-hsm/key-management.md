@@ -24,7 +24,7 @@ For an overview of Managed HSM, see [What is Managed HSM?](overview.md)
 
 To complete the steps in this article, you must have the following items:
 
-* An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
+[!INCLUDE [Azure subscription prerequisite](../includes/managed-hsm/azure-subscription-prereq.md)]
 * The Azure CLI version 2.25.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 * A managed HSM in your subscription. See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to provision and activate a managed HSM.
 * To access keys using Azure SDKs, see [.NET](quickstart-dotnet.md) | [Python](quickstart-python.md) | [JavaScript](quickstart-javascript.md)
