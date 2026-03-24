@@ -76,7 +76,7 @@ At this point, your Azure account is the only one authorized to perform any oper
 
 All data plane commands are disabled until the HSM is activated. You will not be able to create keys or assign roles. Only the designated administrators that were assigned during the create command can activate the HSM. To activate the HSM, you must download the [Security Domain](security-domain.md).
 
-[!INCLUDE [Security domain prerequisites](../includes/managed-hsm/security-domain-prereqs.md)]
+[!INCLUDE [Security domain prerequisites](../includes/managed-hsm/security-domain-prerequisites.md)]
 
 > [!TIP]
 > OpenSSL for Windows is available from [the OpenSSL website](https://slproweb.com/products/Win32OpenSSL.html).

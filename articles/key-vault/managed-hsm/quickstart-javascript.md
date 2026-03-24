@@ -24,7 +24,7 @@ Managed HSM client library resources:
 
 ## Prerequisites
 
-[!INCLUDE [Managed HSM SDK prerequisites](../includes/managed-hsm/sdk-prereqs.md)]
+[!INCLUDE [Managed HSM SDK prerequisites](../includes/managed-hsm/sdk-prerequisites.md)]
 - [Node.js 18 LTS or later](https://nodejs.org/)
 
 ## Set up your local environment

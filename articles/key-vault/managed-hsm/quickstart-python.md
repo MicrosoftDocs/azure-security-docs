@@ -24,7 +24,7 @@ Managed HSM client library resources:
 
 ## Prerequisites
 
-[!INCLUDE [Managed HSM SDK prerequisites](../includes/managed-hsm/sdk-prereqs.md)]
+[!INCLUDE [Managed HSM SDK prerequisites](../includes/managed-hsm/sdk-prerequisites.md)]
 - [Python 3.8+](https://www.python.org/downloads/)
 
 ## Set up your local environment

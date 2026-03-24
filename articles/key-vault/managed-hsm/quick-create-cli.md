@@ -21,7 +21,7 @@ In this quickstart, you create and activate an Azure Key Vault Managed HSM (Hard
 
 To complete the steps in this article, you must have:
 
-[!INCLUDE [Azure subscription prerequisite](../includes/managed-hsm/azure-subscription-prereq.md)]
+[!INCLUDE [Azure subscription prerequisite](../includes/managed-hsm/azure-subscription-prerequisite.md)]
 * The Azure CLI version 2.25.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
@@ -83,7 +83,7 @@ Your Azure account is now authorized to perform any operations on this Managed H
 
 All data plane commands are disabled until the HSM is activated. For example, you are not able to create keys or assign roles. Only the designated administrators that were assigned during the create command can activate the HSM. To activate the HSM, you must download the [Security Domain](security-domain.md).
 
-[!INCLUDE [Security domain prerequisites](../includes/managed-hsm/security-domain-prereqs.md)]
+[!INCLUDE [Security domain prerequisites](../includes/managed-hsm/security-domain-prerequisites.md)]
 
 Use the `az keyvault security-domain download` command to download the security domain and activate your Managed HSM. The following example uses three RSA key pairs (only public keys are needed for this command) and sets the quorum to two.
 
