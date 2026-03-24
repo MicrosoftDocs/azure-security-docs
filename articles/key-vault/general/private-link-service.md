@@ -18,9 +18,6 @@ An Azure Private Endpoint is a network interface that connects you privately and
 
 For more information, see [What is Azure Private Link?](/azure/private-link/private-link-overview)
 
-> [!IMPORTANT]
-> Azure Key Vault enforces limits on the number of private endpoints per vault. For information on these limits, see [Azure Key Vault service limits](service-limits.md).
-
 ## Prerequisites
 
 To integrate a key vault with Azure Private Link, you'll need:
@@ -33,6 +30,8 @@ To integrate a key vault with Azure Private Link, you'll need:
 Your private endpoint and virtual network must be in the same region. When you select a region for the private endpoint using the portal, it will automatically filter only virtual networks that are in that region. Your key vault can be in a different region.
 
 Your private endpoint uses a private IP address in your virtual network.
+
+Azure Key Vault enforces limits on the number of private endpoints per vault. For information on these limits, see [Azure Key Vault service limits](service-limits.md).
 
 # [Azure portal](#tab/portal)
 

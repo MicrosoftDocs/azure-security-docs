@@ -16,10 +16,7 @@ ms.author: mbaldwin
 > [!NOTE]
 > Key Vault resource provider supports two resource types: **vaults** and **managed HSMs**. Access control described in this article only applies to **vaults**. To learn more about access control for managed HSM, see [Managed HSM access control](../managed-hsm/access-control.md).
 
-> [!IMPORTANT]
-> Starting with API version 2026-02-01, Azure RBAC is the default access control model for newly created key vaults. For details on this change and how to prepare, see [Prepare for Key Vault API version 2026-02-01 and later](access-control-default.md).
-
-Azure role-based access control (Azure RBAC) is an authorization system built on [Azure Resource Manager](/azure/azure-resource-manager/management/overview) that provides centralized access management of Azure resources.
+Azure role-based access control (Azure RBAC) is an authorization system built on [Azure Resource Manager](/azure/azure-resource-manager/management/overview) that provides centralized access management of Azure resources. Starting with API version 2026-02-01, Azure RBAC is the default access control model for newly created key vaults. For details on this change and how to prepare, see [Prepare for Key Vault API version 2026-02-01 and later](access-control-default.md).
 
 Azure RBAC allows users to manage keys, secrets, and certificates permissions, and provides one place to manage all permissions across all key vaults.
 
