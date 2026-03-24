@@ -21,7 +21,7 @@ This tutorial provides a practical implementation example of access control for 
 
 ## Prerequisites
 
-[!INCLUDE [Azure subscription prerequisite](../includes/managed-hsm/azure-subscription-prerequisite.md)]
+[!INCLUDE [Azure subscription prerequisite](../includes/azure-subscription-prerequisite.md)]
 
 You also need:
 

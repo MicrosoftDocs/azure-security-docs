@@ -24,7 +24,7 @@ Use this tutorial to help you get started with Managed HSM logging. You should h
 
 ## Prerequisites
 
-[!INCLUDE [Azure subscription prerequisite](../includes/managed-hsm/azure-subscription-prerequisite.md)]
+[!INCLUDE [Azure subscription prerequisite](../includes/azure-subscription-prerequisite.md)]
 
 You also need:
 

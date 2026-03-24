@@ -38,7 +38,7 @@ Here's an overview of the process. Specific steps to complete are described late
 
 ## Prerequisites
 
-[!INCLUDE [Azure subscription prerequisite](../includes/managed-hsm/azure-subscription-prerequisite.md)]
+[!INCLUDE [Azure subscription prerequisite](../includes/azure-subscription-prerequisite.md)]
 
 You also need:
 

@@ -19,7 +19,7 @@ In this quickstart, you create and activate an Azure Key Vault Managed HSM (Hard
 
 ## Prerequisites
 
-[!INCLUDE [Azure subscription prerequisite](../includes/managed-hsm/azure-subscription-prerequisite.md)]
+[!INCLUDE [Azure subscription prerequisite](../includes/azure-subscription-prerequisite.md)]
 
 You also need:
 

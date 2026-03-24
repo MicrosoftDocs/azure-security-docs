@@ -25,7 +25,7 @@ For a list of all Managed HSM built-in roles and the operations they permit, see
 
 ## Prerequisites
 
-[!INCLUDE [Azure subscription prerequisite](../includes/managed-hsm/azure-subscription-prerequisite.md)]
+[!INCLUDE [Azure subscription prerequisite](../includes/azure-subscription-prerequisite.md)]
 
 You also need:
 
