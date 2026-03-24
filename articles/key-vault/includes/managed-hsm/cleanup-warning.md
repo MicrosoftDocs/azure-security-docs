@@ -9,4 +9,4 @@ ms.date: 03/13/2026
 ---
 
 > [!WARNING]
-> Deleting the resource group puts the Managed HSM into a soft-deleted state. The Managed HSM continues to be billed until it is purged. See [Managed HSM soft-delete and purge protection](../../managed-hsm/recovery.md)
+> Deleting the resource group puts the Managed HSM into a soft-deleted state. The Managed HSM continues to be billed until it's purged. See [Managed HSM soft-delete and purge protection](../../managed-hsm/recovery.md)
