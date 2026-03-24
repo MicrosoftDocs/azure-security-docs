@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: reference
-ms.date: 03/20/2026
+ms.date: 03/24/2026
 ms.author: mbaldwin
 
 #Customer intent: As an Azure Key Vault administrator, I want to react to soft-delete being turned on for all key vaults.
@@ -23,6 +23,24 @@ Here's what's new with Azure Key Vault. New features and improvements are also a
 
 New Azure Key Vault control plane API versions (2026-02-01 and 2026-03-01-preview) are now available across public Azure regions, with availability extended to Mooncake and Fairfax clouds.
 
+### Preview API version deprecation
+
+Azure Key Vault is deprecating older preview control plane API versions in accordance with Azure guidelines. All preview API versions except 2026-04-01-preview will be deprecated with a 90-day notice period. Customers using preview API versions should plan to migrate to the latest stable API version (2026-02-01) or the upcoming 2026-04-01-preview version.
+
+### Control plane SDK releases
+
+All five Azure Key Vault control plane management SDKs are now released:
+
+| Language | Package | Version |
+|----------|---------|---------|
+| .NET | [Azure.ResourceManager.KeyVault](https://www.nuget.org/packages/Azure.ResourceManager.KeyVault) | 1.4.0 |
+| JavaScript | [@azure/arm-keyvault](https://www.npmjs.com/package/@azure/arm-keyvault) | Latest |
+| Go | [armkeyvault](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/keyvault/armkeyvault/v2) | v2 |
+| Python | [azure-mgmt-keyvault](https://pypi.org/project/azure-mgmt-keyvault/) | Latest |
+| Java | [azure-resourcemanager-keyvault](https://central.sonatype.com/artifact/com.azure.resourcemanager/azure-resourcemanager-keyvault) | Latest |
+
+The Azure Key Vault team now manages SDK generation and release for control plane SDKs.
+
 ### Azure RBAC is the default access control model for new vaults
 
 Azure Key Vault API version 2026-02-01 introduces Azure RBAC as the default access control model for newly created key vaults when using this API version. Existing vaults continue using their current access model unless explicitly updated. Both Azure RBAC and access policies remain fully supported.
@@ -34,10 +52,6 @@ For more information, see [Prepare for Key Vault API version 2026-02-01 and late
 Azure Key Vault is enforcing limits on the number of private endpoints per vault. Customers exceeding these limits may need to reduce usage or request an exception through Azure support.
 
 For more information on private endpoint limits, see [Azure Key Vault service limits](service-limits.md).
-
-### SDK generation and ownership changes
-
-Azure Key Vault now manages SDK generation and release for supported languages. Availability of SDK updates may trail REST API availability.
 
 ## November 2025
 
