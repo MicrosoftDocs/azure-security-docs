@@ -86,8 +86,7 @@ You should see the name of your newly created managed HSM.
 
 [!INCLUDE [Delete resource group](../../../includes/cli-rg-delete.md)]
 
-> [!WARNING]
-> Deleting the resource group puts the Managed HSM into a soft-deleted state. The Managed HSM will continue to be billed until it's purged. See [Managed HSM soft-delete and purge protection](recovery.md)
+[!INCLUDE [Managed HSM cleanup warning](../includes/managed-hsm/cleanup-warning.md)]
 
 ## Next steps
 

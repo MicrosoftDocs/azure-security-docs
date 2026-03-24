@@ -63,6 +63,8 @@ New-AzKeyVaultManagedHsm -Name "your-unique-managed-hsm-name" -ResourceGroupName
 > [!NOTE]
 > The create command can take a few minutes. Once it returns successfully you are ready to activate your HSM.
 
+[!INCLUDE [Managed HSM billing warning](../includes/managed-hsm/billing-warning.md)]
+
 The output of this cmdlet shows properties of the newly created Managed HSM. Take note of these two properties:
 
 - **Name**: The name you provided for the Managed HSM.
