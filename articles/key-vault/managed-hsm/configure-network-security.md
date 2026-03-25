@@ -67,7 +67,7 @@ Here's how to configure Managed HSM firewalls by using PowerShell:
 
    Include `-ReplaceAllRules` to overwrite IP Lists. Otherwise, the command merges the newly included rules.
 
-1. If this managed HSM should be accessible by any trusted services, use the [Update-AzKeyVaultManagedHsmNetworkRuleSet](/powershell/module/az.keyvault/update-azkeyvaultmanagedhsmnetworkruleset) cmdlet to set bypass to AzureServices.
+1. If any trusted services need access to this managed HSM, use the [Update-AzKeyVaultManagedHsmNetworkRuleSet](/powershell/module/az.keyvault/update-azkeyvaultmanagedhsmnetworkruleset) cmdlet to set bypass to AzureServices.
 
    ```powershell
    Update-AzKeyVaultManagedHsmNetworkRuleSet -Name "ContosoMHSM" -Bypass AzureServices
