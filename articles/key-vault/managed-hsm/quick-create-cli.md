@@ -37,7 +37,7 @@ az login
 
 ## Create a resource group
 
-A resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *ContosoResourceGroup* in the *eastus* location.
+A resource group is a logical container into which you deploy and manage Azure resources. The following example creates a resource group named *ContosoResourceGroup* in the *eastus* location.
 
 ```azurecli-interactive
 az group create --name "ContosoResourceGroup" --location eastus
