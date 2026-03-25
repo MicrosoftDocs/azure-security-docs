@@ -43,7 +43,7 @@ Here's an overview of the process. Specific steps to complete are described late
 You also need:
 
 * The Azure CLI version 2.12.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
-* A managed HSM the [supported HSMs list](#supported-hsms) in your subscription. See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to provision and activate a managed HSM.
+* A managed HSM in the [supported HSMs list](#supported-hsms) in your subscription. To provision and activate a managed HSM, see [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md).
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
