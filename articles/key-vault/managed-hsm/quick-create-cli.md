@@ -53,7 +53,7 @@ Creating a Managed HSM is a two-step process:
 
 Use the `az keyvault create` command to create a Managed HSM. This script has three mandatory parameters: a resource group name, an HSM name, and the geographic location.
 
-You need to provide following inputs to create a Managed HSM resource:
+To create a Managed HSM resource, provide the following inputs:
 - A resource group where it is placed in your subscription.
 - An Azure location.
 - A list of initial administrators.
