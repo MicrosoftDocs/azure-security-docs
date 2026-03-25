@@ -15,7 +15,7 @@ ms.devlang: azurecli
 
 # Quickstart: Provision and activate a Managed HSM using Azure CLI
 
-In this quickstart, you create and activate an Azure Key Vault Managed HSM (Hardware Security Module) with Azure CLI. [!INCLUDE [Managed HSM description](../includes/managed-hsm/intro.md)]
+In this quickstart, you create and activate an Azure Key Vault Managed HSM (Hardware Security Module) by using Azure CLI. [!INCLUDE [Managed HSM description](../includes/managed-hsm/intro.md)]
 
 ## Prerequisites
 
