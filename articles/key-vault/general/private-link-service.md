@@ -3,7 +3,7 @@ title: Integrate Key Vault with Azure Private Link
 description: Learn how to integrate Azure Key Vault with Azure Private Link Service
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 01/30/2026
+ms.date: 03/24/2026
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
@@ -30,6 +30,8 @@ To integrate a key vault with Azure Private Link, you'll need:
 Your private endpoint and virtual network must be in the same region. When you select a region for the private endpoint using the portal, it will automatically filter only virtual networks that are in that region. Your key vault can be in a different region.
 
 Your private endpoint uses a private IP address in your virtual network.
+
+Azure Key Vault enforces limits on the number of private endpoints per vault. For information on these limits, see [Azure Key Vault service limits](service-limits.md).
 
 # [Azure portal](#tab/portal)
 

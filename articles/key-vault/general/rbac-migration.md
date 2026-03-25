@@ -6,13 +6,15 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 01/30/2026
+ms.date: 03/24/2026
 ms.author: mbaldwin
 ms.custom: sfi-image-nochange
 ---
 # Migrate to Azure RBAC from access policies
 
-Azure Key Vault offers two access control models: Azure role-based access control (Azure RBAC), and an access policy model. Azure RBAC is the default and recommended access control model for Azure Key Vault. For a comparison of the two methods of authorization, see [Azure role-based access control (Azure RBAC) vs. access policies](rbac-access-policy.md).
+Azure Key Vault offers two access control models: Azure role-based access control (Azure RBAC), and an access policy model. Azure RBAC is the default and recommended access control model for Azure Key Vault. Starting with API version 2026-02-01, Azure RBAC is the default access control model for new vaults. For a comparison of the two methods of authorization, see [Azure role-based access control (Azure RBAC) vs. access policies](rbac-access-policy.md).
+
+For information on preparing your existing deployments for this change, see [Prepare for Key Vault API version 2026-02-01 and later](access-control-default.md).
 
 This article provides the information necessary to migrate a key vault from an access policy model to an Azure RBAC model.
 
