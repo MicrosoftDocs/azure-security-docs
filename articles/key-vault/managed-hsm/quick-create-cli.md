@@ -69,7 +69,7 @@ az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGro
 > If you are using Managed Identities as the initial admins of your Managed HSM, you should input the OID/PrincipalID of the Managed Identities after '--administrators' and not the ClientID.
 
 > [!NOTE]
-> The create command can take a few minutes. Once it returns successfully, you are ready to activate your HSM.
+> The create command can take a few minutes. When it returns successfully, you're ready to activate your HSM.
 
 [!INCLUDE [Managed HSM billing warning](../includes/managed-hsm/billing-warning.md)]
 
