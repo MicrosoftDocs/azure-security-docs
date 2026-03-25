@@ -48,7 +48,7 @@ Here's how to configure Managed HSM firewalls by using the Azure CLI:
    az keyvault network-rule add --resource-group "ContosoResourceGroup" --hsm-name "ContosoMHSM" --ip-address "191.10.18.0/24"
    ```
 
-1. If this key vault should be accessible by any trusted services, use the [az keyvault update](/cli/azure/keyvault#az-keyvault-update) command to set bypass to AzureServices.
+1. If any trusted services need access to this key vault, use the [az keyvault update](/cli/azure/keyvault#az-keyvault-update) command to set bypass to AzureServices.
 
    ```azurecli
    az keyvault update --resource-group "ContosoResourceGroup" --hsm-name "ContosoMHSM" --bypass AzureServices
