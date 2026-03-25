@@ -55,7 +55,7 @@ Use the `az keyvault create` command to create a Managed HSM. This script has th
 
 You need to provide following inputs to create a Managed HSM resource:
 - A resource group where it is placed in your subscription.
-- Azure location.
+- An Azure location.
 - A list of initial administrators.
 
 The following example creates an HSM named **ContosoMHSM** in the resource group **ContosoResourceGroup**, residing in the **East US** location, with **the current signed in user** as the only administrator, and a **7-day retention period** for soft-delete. You continue to pay for the Managed HSM until it's purged in a **soft-delete period**. For more information, see [Managed HSM soft-delete and purge protection](recovery.md#what-are-soft-delete-and-purge-protection) and read more about [Managed HSM soft-delete](soft-delete-overview.md).
