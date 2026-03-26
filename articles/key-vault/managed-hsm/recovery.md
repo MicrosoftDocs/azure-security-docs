@@ -138,7 +138,7 @@ For more information, see [Managed HSM soft-delete overview](soft-delete-overvie
 * To delete an HSM:
 
     ```powershell
-    Remove-AzKeyVaultManagedHsm -Name '<hsm-name>'
+    Remove-AzKeyVaultManagedHsm -Name "<hsm-name>"
     ```
   This action is recoverable because soft-delete is on by default.
 
@@ -147,25 +147,25 @@ For more information, see [Managed HSM soft-delete overview](soft-delete-overvie
 * To delete a key:
 
   ```powershell
-  Remove-AzKeyVaultKey -HsmName <hsm-name> -Name '<key-name>'
+  Remove-AzKeyVaultKey -HsmName "<hsm-name>" -Name "<key-name>"
   ```
 
 * To list all deleted keys: 
 
   ```powershell
-  Get-AzKeyVaultKey -HsmName <hsm-name> -InRemovedState
+  Get-AzKeyVaultKey -HsmName "<hsm-name>" -InRemovedState
   ```
 
 * To recover a soft-deleted key:
 
     ```powershell
-    Undo-AzKeyVaultKeyRemoval -HsmName <hsm-name> -Name <key-name>
+    Undo-AzKeyVaultKeyRemoval -HsmName "<hsm-name>" -Name "<key-name>"
     ```
 
 * To purge a soft-deleted key:
 
     ```powershell
-    Remove-AzKeyVaultKey -HsmName <hsm-name> -Name <key-name> -InRemovedState
+    Remove-AzKeyVaultKey -HsmName "<hsm-name>" -Name "<key-name>" -InRemovedState
     ```
     > [!WARNING] 
     > This operation will permanently delete your key.
