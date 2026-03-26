@@ -121,7 +121,7 @@ You can use Azure PowerShell to create and manage Azure resources by using comma
    - **Location**: Your preferred location
 
     ```azurepowershell-interactive
-    New-AzKeyVault -Name '<vault-name>' -ResourceGroupName '<resource-group>' -Location '<location>' -EnableRbacAuthorization $true
+    New-AzKeyVault -Name "<vault-name>" -ResourceGroupName "<resource-group>" -Location "<location>" -EnableRbacAuthorization $true
    ```
 
 3. Define variables for the following values from your DigiCert CertCentral account:
