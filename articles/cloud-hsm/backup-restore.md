@@ -3,7 +3,7 @@ title: Back Up and Restore Azure Cloud HSM Resources
 description: Learn how to back up and restore your Azure Cloud HSM resources, including prerequisites, configuration steps, and validation procedures.
 author: msmbaldwin
 ms.service: azure-cloud-hsm
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 03/20/2025
 ms.author: mbaldwin
 
