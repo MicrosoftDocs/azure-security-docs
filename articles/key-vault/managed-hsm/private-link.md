@@ -160,7 +160,7 @@ Aliases:  ContosoMHSM.managed.azure.net
           ContosoMHSM.privatelink.managedhsm.azure.net
 ```
 
-## Troubleshooting Guide
+## Troubleshooting guide
 
 * Check to make sure the private endpoint is in the approved state.
     1. Use `az keyvault private-endpoint-connections show` subcommand to see the status of a private endpoint connection.
