@@ -90,7 +90,7 @@ The certificate request has now been successfully merged.
 1. Merge the signed request in Key Vault. After the certificate request has been signed, you can merge it with the initial private/public key pair created in Azure Key Vault.
 
     ```azure-powershell-interactive
-    Import-AzKeyVaultCertificate -VaultName <vault-name> -Name <certificate-name> -FilePath C:\test\OutputCertificateFile.cer
+    Import-AzKeyVaultCertificate -VaultName "<vault-name>" -Name "<certificate-name>" -FilePath C:\test\OutputCertificateFile.cer
     ```
 
 The certificate request has now been successfully merged.

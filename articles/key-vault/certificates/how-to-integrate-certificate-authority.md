@@ -111,7 +111,7 @@ You can use Azure PowerShell to create and manage Azure resources by using comma
 1.  Create an Azure resource group by using [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. 
 
     ```azurepowershell-interactive
-    New-AzResourceGroup -Name <resource-group> -Location <location>
+    New-AzResourceGroup -Name "<resource-group>" -Location "<location>"
     ```
 
 2. Create a key vault that has a unique name.
