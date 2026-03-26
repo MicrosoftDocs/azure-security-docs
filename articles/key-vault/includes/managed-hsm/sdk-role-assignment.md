@@ -14,11 +14,11 @@ For your application to access keys, assign the appropriate Managed HSM local RB
 
 ```azurecli
 # Get the principal ID of your managed identity
-principalId=$(az vm identity show --name myVM --resource-group myRG --query principalId -o tsv)
+principalId=$(az vm identity show --name <vm-name> --resource-group <resource-group> --query principalId -o tsv)
 
 # Assign the Crypto User role for key operations
 az keyvault role assignment create \
-    --hsm-name ContosoMHSM \
+    --hsm-name <hsm-name> \
     --role "Managed HSM Crypto User" \
     --assignee $principalId \
     --scope /keys

@@ -57,36 +57,36 @@ Get attestation data for a specific key from the HSM using the Azure CLI [az key
 Usage:
 
 ```sh
-az keyvault key get-attestation --hsm-name <poolname> --name <keyname> --version <keyversion> --file <filename>.json
+az keyvault key get-attestation --hsm-name <hsm-name> --name <key-name> --version <key-version> --file <output-file>.json
 ```
 or
 
 ```sh
-az keyvault key get-attestation --id https://<poolname>.managedhsm.azure.net/keys/<keyname>/<keyversion> --file <filename>.json
+az keyvault key get-attestation --id https://<hsm-name>.managedhsm.azure.net/keys/<key-name>/<key-version> --file <output-file>.json
 ```
 
 Examples:
 
-- For a key named `contosokey` in HSM named `contoso`:
+- For a key named `<key-name>` in HSM named `<hsm-name>`:
 
     ```sh
-    az keyvault key get-attestation --hsm-name ContosoMHSM --name contosokey --file attestation.json
+    az keyvault key get-attestation --hsm-name <hsm-name> --name <key-name> --file attestation.json
     ```
     or
 
   ```sh
-    az keyvault key get-attestation --id https://contoso.managedhsm.azure.net/keys/contosokey --file attestation.json
+    az keyvault key get-attestation --id https://<hsm-name>.managedhsm.azure.net/keys/<key-name> --file attestation.json
     ```
 
-- For a key named `contosokey` in HSM named `contoso`, with a specific key version `48293232e672449b9008602b80618`:
+- For a key named `<key-name>` in HSM named `<hsm-name>`, with a specific key version `<key-version>`:
 
     ```sh
-    az keyvault key get-attestation --hsm-name ContosoMHSM --name contosokey --version 48293232e672449b9008602b80618 --file attestation.json
+    az keyvault key get-attestation --hsm-name <hsm-name> --name <key-name> --version <key-version> --file attestation.json
     ```
     or
 
    ```sh
-    az keyvault key get-attestation --id https://contoso.managedhsm.azure.net/keys/contosokey/48293232e672449b9008602b80618 --file attestation.json
+    az keyvault key get-attestation --id https://<hsm-name>.managedhsm.azure.net/keys/<key-name>/<key-version> --file attestation.json
     ```
 
 ## Validate the attestation data
