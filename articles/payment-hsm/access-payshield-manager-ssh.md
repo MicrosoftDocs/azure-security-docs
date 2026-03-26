@@ -1,11 +1,11 @@
 ---
-title: Access the payShield manager for your Azure Payment HSM
-description: Access the payShield manager for your Azure Payment HSM
+title: Use SSH to access the payShield manager for your payment HSM
+description: Learn how to use SSH to access the payShield manager for your Azure Payment HSM.
 services: payment-hsm
 ms.service: azure-payment-hsm
 author: msmbaldwin
 ms.author: mbaldwin
-ms.topic: quickstart
+ms.topic: tutorial
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, sfi-image-nochange
 ms.date: 04/10/2025
@@ -13,17 +13,17 @@ ms.date: 04/10/2025
 
 # Tutorial: Use SSH to access the payShield manager for your payment HSM
 
-After you [Create an Azure Payment HSM](create-payment-hsm.md), you can create a virtual machine on the same virtual network and use it to access the Thales payShield manager.
+After you [create an Azure Payment HSM](create-payment-hsm.md), you can create a virtual machine on the same virtual network and use it to access the Thales payShield manager.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a subnet for your virtual machine
 > * Create a virtual machine
-> * Test Connectivity to your VM, and from the VM to your payment HSM
-> * Log into the VM to access the payShield manager
+> * Test connectivity to your VM, and from the VM to your payment HSM
+> * Log in to the VM to access the payShield manager
 
-To complete this tutorial you need:
+To complete this tutorial, you need:
 
 - The name of your payment HSM's virtual network.
 - The address space of your virtual network (for example, "10.0.0.0/16").
@@ -32,7 +32,7 @@ To complete this tutorial you need:
 
 # [Azure CLI](#tab/azure-cli)
 
-Create a subnet for your virtual machine, on the same virtual network as your payment HSM, using the Azure CLI [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) command. You must provide a value to the--address-prefixes argument that falls within the VNet's address space, but differs from the payment HSM subnet addresses.
+Create a subnet for your virtual machine, on the same virtual network as your payment HSM, using the Azure CLI [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) command. You must provide a value to the `--address-prefixes` argument that falls within the VNet's address space, but differs from the payment HSM subnet addresses.
 
 ```azurecli-interactive
 az network vnet subnet create -g "<resource-group>" --vnet-name "<vnet-name>" -n "<vm-subnet-name>" --address-prefixes "10.0.1.0/24"
@@ -52,7 +52,7 @@ First, save the details of your VNet to a variable using the Azure PowerShell [G
 $vnet = Get-AzVirtualNetwork -Name "<vnet-name>" -ResourceGroupName "<resource-group>"
 ```
 
-Next, configure a subnet for your virtual machine, on the same virtual network as your payment HSM, using the Azure PowerShell [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) command. You must provide a value to the `--address-prefixes` argument that falls within the VNet's address space, but differs from the payment HSM subnet addresses.
+Next, configure a subnet for your virtual machine, on the same virtual network as your payment HSM, using the Azure PowerShell [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) command. You must provide a value to the `-AddressPrefix` argument that falls within the VNet's address space, but differs from the payment HSM subnet addresses.
 
 ```azurepowershell-interactive
 $vmSubnet = New-AzVirtualNetworkSubnetConfig -Name "<vm-subnet-name>" -AddressPrefix "10.0.1.0/24"  
@@ -82,7 +82,7 @@ Create your VM subnet using either Azure CLI or Azure PowerShell. You can use th
 
 # [Azure CLI](#tab/azure-cli)
 
-Create a VM on your new subnet, using the Azure CLI [az vm create](/cli/azure/vm#az-vm-create) command. (In this example we create a Linux VM, but you could also create a Windows VM by augmenting the instructions found at [Create a Windows virtual machine with the Azure CLI](/azure/virtual-machines/windows/quick-create-cli).)  
+Create a VM on your new subnet, using the Azure CLI [az vm create](/cli/azure/vm#az-vm-create) command. This example creates a Linux VM, but you can also create a Windows VM by augmenting the instructions found at [Create a Windows virtual machine with the Azure CLI](/azure/virtual-machines/windows/quick-create-cli).  
 
 ```azurecli-interactive
 az vm create \
@@ -95,17 +95,17 @@ az vm create \
   --generate-ssh-keys
 ```
 
-Make a note of where the public SSH key is saved, and the value for "publicIpAddress".
+Note where the public SSH key is saved, and the value for "publicIpAddress".
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-To create a VM on your new subnet, first set your credentials with the [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) cmdlet. Provide a username of "azureuser" and a password of your choice, saving the object as $cred.
+To create a VM on your new subnet, first set your credentials with the [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) cmdlet. Provide a username of "azureuser" and a password of your choice, and save the object as $cred.
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Now create your VM using the Azure PowerShell [New-AzVm](/powershell/module/az.compute/new-azvm) command. (In this example we create a Linux VM, but you could also create a Windows VM by augmenting the instructions found at [Create a Windows virtual machine with the Azure PowerShell](/azure/virtual-machines/windows/quick-create-powershell).)  
+Next, create your VM using the Azure PowerShell [New-AzVm](/powershell/module/az.compute/new-azvm) command. This example creates a Linux VM, but you can also create a Windows VM by augmenting the instructions found at [Create a Windows virtual machine with the Azure PowerShell](/azure/virtual-machines/windows/quick-create-powershell).  
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -122,7 +122,7 @@ New-AzVm `
     -SshKeyName "myVM_key"
 ```
 
-Make a note of where the private SSH key is saved, and the value for "FullyQualifiedDomainName".
+Note where the private SSH key is saved, and the value for "FullyQualifiedDomainName".
 
 # [Portal](#tab/azure-portal)
 
@@ -142,16 +142,16 @@ To create a VM on your new subnet:
 
 ## Test connectivity
 
-To access connectivity to your virtual machine, and from your VM to the management NIC IP (10.0.0.4) and host NIC IP, SSH into your VM.  Connect to either the public IP address (for example, azureuser@20.127.60.92) or the fully qualified domain name (for example, azureuser@myvm-b82fbe.eastus.cloudapp.azure.com)
+To test connectivity to your virtual machine, and from your VM to the management NIC IP (10.0.0.4) and host NIC IP, SSH into your VM. Connect to either the public IP address (for example, azureuser@20.127.60.92) or the fully qualified domain name (for example, azureuser@myvm-b82fbe.eastus.cloudapp.azure.com)
 
 > [!NOTE]
-> If created your VM using Azure PowerShell, the Azure portal, or if you did not ask Azure CLI to autogenerate ssh keys when you created the VM, you must supply the private key to the ssh command using the `-i` flag (for example, `ssh -i "path/to/sshkey" azureuser@<publicIpAddress-or-FullyQualifiedDomainName>`). The private key **must** be protected ("chmod 400 myVM_key.pem").
+> If you created your VM using Azure PowerShell, the Azure portal, or if you didn't ask Azure CLI to autogenerate SSH keys when you created the VM, you must supply the private key to the SSH command using the `-i` flag (for example, `ssh -i "path/to/sshkey" azureuser@<publicIpAddress-or-FullyQualifiedDomainName>`). The private key **must** be protected ("chmod 400 myVM_key.pem").
 
 ```bash
 ssh azureuser@<publicIpAddress-or-FullyQualifiedDomainName>
 ```
 
-If ssh hangs or refuses the connection, review your NSG rules to ensure that you are able to connect to your VM.
+If SSH hangs or refuses the connection, review your NSG rules to ensure that you can connect to your VM.
 
 If the connection is successful, you should be able to ping both the management NIC IP (10.0.0.4) and the host NIC IP (10.0.0.5) from your VM:
 
@@ -191,15 +191,15 @@ For example, if you used "10.0.0.0" as the address prefix for your Payment HSM s
 ssh -L 44300:10.0.0.5:443 azureuser@<publicIpAddress-or-FullyQualifiedDomainName>
 ```
 
-Now go to a browser on your local machine and open `https://localhost:44300` to access the payShield manager.
+Open a browser on your local machine and go to `https://localhost:44300` to access the payShield manager.
 
 :::image type="content" source="./media/payshield-manager.png" alt-text="Screenshot of the payShield manager for Azure Payment HSM.":::
 
-Here you can commission the device, install or generate LMKs, test the API, and so on. Follow payShield documentation, and contact Thales support if any issues related to payShield commission, setup, and API testing.
+From the payShield manager, you can commission the device, install or generate LMKs, and test the API. Follow payShield documentation, and contact Thales support for any issues related to payShield commission, setup, and API testing.
 
 ## Next steps
 
-Advance to the next article to learn how to remove a commissioned payment HSM through the payShield manager.
+Learn how to remove a commissioned payment HSM through the payShield manager.
 > [!div class="nextstepaction"]
 > [Remove a commissioned payment HSM](remove-payment-hsm.md)
 
