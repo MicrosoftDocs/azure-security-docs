@@ -7,7 +7,7 @@ ms.author: mbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 12/03/2025
+ms.date: 03/26/2026
 #Customer intent: As a Managed HSM administrator, I want to enable logging for my Managed HSM so I can monitor how and when my HSMs are accessed, and by who.
 ---
 
@@ -179,9 +179,9 @@ Individual blobs are stored as text, formatted as JSON. Here's an example log en
 ```json
 [
   {
-    "TenantId": "{tenant-id}",
+    "TenantId": "<tenant-id>",
     "time": "2020-08-31T19:52:39.763Z",
-    "resourceId": "/SUBSCRIPTIONS/<subscription-id>/RESOURCEGROUPS/<RESOURCE-GROUP>/PROVIDERS/MICROSOFT.KEYVAULT/MANAGEDHSMS/<HSM-NAME>",
+    "resourceId": "/SUBSCRIPTIONS/<subscription-id>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.KEYVAULT/MANAGEDHSMS/<hsm-name>",
     "operationName": "BackupCreate",
     "operationVersion": "7.0",
     "category": "AuditEvent",
@@ -193,7 +193,7 @@ Individual blobs are stored as text, formatted as JSON. Here's an example log en
     },
     "durationMs": 488,
     "callerIpAddress": "X.X.X.X",
-    "identity": "{\"claim\":{\"appid\":\"{application-id}\",\"http_schemas_microsoft_com_identity\":{\"claims\":{\"objectidentifier\":\"{object-id}\"}},\"http_schemas_xmlsoap_org_ws_2005_05_identity\":{\"claims\":{\"upn\":\"<user-email>\"}}}}",
+    "identity": "{\"claim\":{\"appid\":\"<application-id>\",\"http_schemas_microsoft_com_identity\":{\"claims\":{\"objectidentifier\":\"<object-id>\"}},\"http_schemas_xmlsoap_org_ws_2005_05_identity\":{\"claims\":{\"upn\":\"<user-email>\"}}}}",
     "clientInfo": "azsdk-python-core/1.7.0 Python/3.8.2 (Linux-4.19.84-microsoft-standard-x86_64-with-glibc2.29) azsdk-python-azure-keyvault/7.2",
     "correlationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
     "subnetId": "(unknown)",
