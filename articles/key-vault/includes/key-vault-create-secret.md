@@ -19,6 +19,6 @@ az keyvault secret set --vault-name "<vault-name>" --name "mySecret" --value "Su
 
 ```azurepowershell
 $secret = ConvertTo-SecureString -String 'Success!' -AsPlainText
-Set-AzKeyVaultSecret -VaultName <vault-name> -Name mySecret -SecretValue $secret
+Set-AzKeyVaultSecret -VaultName "<vault-name>" -Name "mySecret" -SecretValue $secret
 ```
 ---
