@@ -22,10 +22,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create a resource group
 
-A resource group is a logical container into which you deploy and manage Azure resources. Use the Azure PowerShell [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet to create a resource group named *ContosoResourceGroup* in the *eastus* location. 
+A resource group is a logical container into which you deploy and manage Azure resources. Use the Azure PowerShell [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet to create a resource group named `<resource-group>` in the `<location>` location. 
 
 ```azurepowershell-interactive
-New-AzResourceGroup -Name "ContosoResourceGroup" -Location "eastus"
+New-AzResourceGroup -Name "<resource-group>" -Location "<location>"
 ```
 
 ## Get your principal ID
@@ -51,14 +51,14 @@ Use the Azure PowerShell [New-AzKeyVaultManagedHsm](/powershell/module/az.keyvau
 - Managed HSM name: A string of 3 to 24 characters that can contain only numbers (0-9), letters (a-z, A-Z), and hyphens (-).
 
   > [!Important]
-  > Each Managed HSM must have a unique name. Replace *ContosoMHSM* with your own unique Managed HSM name in the following examples.
+  > Each Managed HSM must have a unique name. Replace `<hsm-name>` with your own unique Managed HSM name in the following examples.
 
-- Resource group name: **ContosoResourceGroup**.
-- Location: **East US**.
+- Resource group name: `<resource-group>`.
+- Location: Your selected location.
 - Your principal ID: Pass the Microsoft Entra principal ID that you obtained in the last section to the "Administrator" parameter. 
 
 ```azurepowershell-interactive
-New-AzKeyVaultManagedHsm -Name "your-unique-managed-hsm-name" -ResourceGroupName "ContosoResourceGroup" -Location "eastus" -Administrator "your-principal-ID" -SoftDeleteRetentionInDays "# of days to retain the managed hsm after softdelete"
+New-AzKeyVaultManagedHsm -Name "<hsm-name>" -ResourceGroupName "<resource-group>" -Location "<location>" -Administrator "<principal-id>" -SoftDeleteRetentionInDays "<retention-days>"
 ```
 > [!NOTE]
 > The create command can take a few minutes. When it returns successfully, you're ready to activate your HSM.
@@ -68,7 +68,7 @@ New-AzKeyVaultManagedHsm -Name "your-unique-managed-hsm-name" -ResourceGroupName
 The output of this cmdlet shows properties of the newly created Managed HSM. Take note of these two properties:
 
 - **Name**: The name you provided for the Managed HSM.
-- **HsmUri**: In the example, the HsmUri is `https://ContosoMHSM.managedhsm.azure.net/`. Applications that use your vault through its REST API must use this URI.
+- **HsmUri**: The URI for your HSM (for example, `https://<hsm-name>.managedhsm.azure.net/`). Applications that use your vault through its REST API must use this URI.
 
 At this point, your Azure account is the only one authorized to perform any operations on this new HSM.
 
@@ -84,7 +84,7 @@ All data plane commands are disabled until you activate the HSM. You can't creat
 Use the Azure PowerShell [Export-AzKeyVaultSecurityDomain](/powershell/module/az.keyvault/export-azkeyvaultsecuritydomain) cmdlet to download the security domain and activate your Managed HSM. The following example uses three RSA key pairs (only public keys are needed for this command) and sets the quorum to two.
 
 ```azurepowershell-interactive
-Export-AzKeyVaultSecurityDomain -Name "ContosoMHSM" -Certificates "cert_0.cer", "cert_1.cer", "cert_2.cer" -OutputPath "MHSMsd.ps.json" -Quorum 2
+Export-AzKeyVaultSecurityDomain -Name "<hsm-name>" -Certificates "cert_0.cer", "cert_1.cer", "cert_2.cer" -OutputPath "<hsm-name>-SD.json" -Quorum 2
 ```
 
 Store the security domain file and the RSA key pairs securely. You need them for disaster recovery or for creating another Managed HSM that shares the same security domain so the two can share keys.

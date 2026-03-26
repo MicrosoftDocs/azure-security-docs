@@ -19,7 +19,7 @@ This article provides practical instructions for managing roles and role assignm
 
 For an overview of Managed HSM, see [What is Managed HSM?](overview.md) If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
-To allow a security principal (such as a user, a service principal, group, or a managed identity) to perform managed HSM data plane operations, assign them a role that permits those operations. For example, if you want to allow an application to perform a sign operation by using a key, assign it a role that contains the `Microsoft.KeyVault/managedHSM/keys/sign/action` as one of the data actions. Assign a role at a specific scope. Managed HSM local RBAC supports two scopes, HSM-wide (`/` or `/keys`) and per key (`/keys/<keyname>`).
+To allow a security principal (such as a user, a service principal, group, or a managed identity) to perform managed HSM data plane operations, assign them a role that permits those operations. For example, if you want to allow an application to perform a sign operation by using a key, assign it a role that contains the `Microsoft.KeyVault/managedHSM/keys/sign/action` as one of the data actions. Assign a role at a specific scope. Managed HSM local RBAC supports two scopes, HSM-wide (`/` or `/keys`) and per key (`/keys/<key-name>`).
 
 For a list of all Managed HSM built-in roles and the operations they permit, see [Managed HSM built-in roles](built-in-roles.md).
 
@@ -48,18 +48,18 @@ For more information on sign in options via the CLI, see [sign in with Azure CLI
 
 ### Assign roles for all keys
 
-Use `az keyvault role assignment create` command to assign a **Managed HSM Crypto User** role to user identified by user principal name **user2\@contoso.com** for all  **keys** (scope `/keys`) in the ContosoHSM.
+Use `az keyvault role assignment create` command to assign a **Managed HSM Crypto User** role to user identified by user principal name `<user-principal-name>` for all  **keys** (scope `/keys`) in the `<hsm-name>`.
 
 ```azurecli-interactive
-az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto User" --assignee user2@contoso.com  --scope /keys
+az keyvault role assignment create --hsm-name <hsm-name> --role "Managed HSM Crypto User" --assignee <user-principal-name>  --scope /keys
 ```
 
 ### Assign role for a specific key
 
-Use `az keyvault role assignment create` command to assign a **Managed HSM Crypto User** role to user identified by user principal name **user2\@contoso.com** for a specific key named **myrsakey**.
+Use `az keyvault role assignment create` command to assign a **Managed HSM Crypto User** role to user identified by user principal name `<user-principal-name>` for a specific key named `<key-name>`.
 
 ```azurecli-interactive
-az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto User" --assignee user2@contoso.com  --scope /keys/myrsakey
+az keyvault role assignment create --hsm-name <hsm-name> --role "Managed HSM Crypto User" --assignee <user-principal-name>  --scope /keys/<key-name>
 ```
 
 ## List existing role assignments
@@ -69,37 +69,37 @@ Use `az keyvault role assignment list` to list role assignments.
 All role assignments at scope / (default when no --scope is specified) for all users (default when no --assignee is specified)
 
 ```azurecli-interactive
-az keyvault role assignment list --hsm-name ContosoMHSM
+az keyvault role assignment list --hsm-name <hsm-name>
 ```
 
-All the role assignments at the HSM level for a specific user **user1@contoso.com**.
+All the role assignments at the HSM level for a specific user `<user-principal-name>`.
 
 ```azurecli-interactive
-az keyvault role assignment list --hsm-name ContosoMHSM --assignee user@contoso.com
+az keyvault role assignment list --hsm-name <hsm-name> --assignee <user-principal-name>
 ```
 
 > [!NOTE]
 > When scope is / (or /keys) the list command only lists all the role assignments at the top level and does not show role assignments at individual key level.
 
-All role assignments for a specific user **user2@contoso.com** for a specific key **myrsakey**.
+All role assignments for a specific user `<user-principal-name>` for a specific key `<key-name>`.
 
 ```azurecli-interactive
-az keyvault role assignment list --hsm-name ContosoMHSM --assignee user2@contoso.com --scope /keys/myrsakey
+az keyvault role assignment list --hsm-name <hsm-name> --assignee <user-principal-name> --scope /keys/<key-name>
 ```
 
-A specific role assignment for role **Managed HSM Crypto Officer** for a specific user **user2@contoso.com** for a specific key **myrsakey**
+A specific role assignment for role **Managed HSM Crypto Officer** for a specific user `<user-principal-name>` for a specific key `<key-name>`
 
 
 ```azurecli-interactive
-az keyvault role assignment list --hsm-name ContosoMHSM --assignee user2@contoso.com --scope /keys/myrsakey --role "Managed HSM Crypto Officer"
+az keyvault role assignment list --hsm-name <hsm-name> --assignee <user-principal-name> --scope /keys/<key-name> --role "Managed HSM Crypto Officer"
 ```
 
 ## Delete a role assignment
 
-Use `az keyvault role assignment delete` command to delete a **Managed HSM Crypto Officer** role assigned to user **user2\@contoso.com** for key **myrsakey2**.
+Use `az keyvault role assignment delete` command to delete a **Managed HSM Crypto Officer** role assigned to user `<user-principal-name>` for key `<key-name>`.
 
 ```azurecli-interactive
-az keyvault role assignment delete --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys/myrsakey2
+az keyvault role assignment delete --hsm-name <hsm-name> --role "Managed HSM Crypto Officer" --assignee <user-principal-name>  --scope /keys/<key-name>
 ```
 
 ## List all available role definitions
@@ -107,7 +107,7 @@ az keyvault role assignment delete --hsm-name ContosoMHSM --role "Managed HSM Cr
 Use `az keyvault role definition list` command to list all the role definitions.
 
 ```azurecli-interactive
-az keyvault role definition list --hsm-name ContosoMHSM
+az keyvault role definition list --hsm-name <hsm-name>
 ```
 
 ## Create a new role definition
@@ -116,7 +116,7 @@ Managed HSM has several built-in (pre-defined) roles that are useful for most co
 
 Use `az keyvault role definition create` command to a role named **My Custom Role** using a JSON string.
 ```azurecli-interactive
-az keyvault role definition create --hsm-name ContosoMHSM --role-definition '{
+az keyvault role definition create --hsm-name <hsm-name> --role-definition '{
     "roleName": "My Custom Role",
     "description": "The description of the custom rule.",
     "actions": [],
@@ -130,7 +130,7 @@ az keyvault role definition create --hsm-name ContosoMHSM --role-definition '{
 
 Use `az keyvault role definition create` command to a role from a file named **my-custom-role-definition.json** containing the JSON string for a role definition. See example above.
 ```azurecli-interactive
-az keyvault role definition create --hsm-name ContosoMHSM --role-definition @my-custom-role-definition.json
+az keyvault role definition create --hsm-name <hsm-name> --role-definition @my-custom-role-definition.json
 ```
 
 ## Show details of a role definition
@@ -138,14 +138,14 @@ az keyvault role definition create --hsm-name ContosoMHSM --role-definition @my-
 Use `az keyvault role definition show` command to see details of a specific role definition using name (a GUID).
 
 ```azurecli-interactive
-az keyvault role definition show --hsm-name ContosoMHSM --name xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+az keyvault role definition show --hsm-name <hsm-name> --name xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 ## Update a custom role definition
 
 Use `az keyvault role definition update` command to update a role named **My Custom Role** using a JSON string.
 ```azurecli-interactive
-az keyvault role definition create --hsm-name ContosoMHSM --role-definition '{
+az keyvault role definition create --hsm-name <hsm-name> --role-definition '{
             "roleName": "My Custom Role",
             "name": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
             "id": "Microsoft.KeyVault/providers/Microsoft.Authorization/roleDefinitions/xxxxxxxx-
@@ -168,7 +168,7 @@ az keyvault role definition create --hsm-name ContosoMHSM --role-definition '{
 Use the Azure CLI [az keyvault role definition delete](/cli/azure/keyvault/role/definition#az-keyvault-role-definition-delete) command to delete a custom role definition using name (a GUID).
 
 ```azurecli-interactive
-az keyvault role definition delete --hsm-name ContosoMHSM --name xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+az keyvault role definition delete --hsm-name <hsm-name> --name xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 > [!NOTE]
