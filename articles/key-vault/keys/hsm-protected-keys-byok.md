@@ -118,13 +118,13 @@ az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import 
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Add-AzKeyVaultKey -VaultName '<vault-name>' -Name 'KEKforBYOK' -Destination 'HSM' -Size 4096 -KeyOps 'import'
+Add-AzKeyVaultKey -VaultName "<vault-name>" -Name "KEKforBYOK" -Destination "HSM" -Size 4096 -KeyOps "import"
 ```
 
 For Managed HSM:
 
 ```azurepowershell
-Add-AzKeyVaultKey -HsmName '<hsm-name>' -Name 'KEKforBYOK' -Destination 'HSM' -Size 4096 -KeyOps 'import'
+Add-AzKeyVaultKey -HsmName "<hsm-name>" -Name "KEKforBYOK" -Destination "HSM" -Size 4096 -KeyOps "import"
 ```
 
 ---
@@ -148,13 +148,13 @@ az keyvault key download --name KEKforBYOK --hsm-name <hsm-name> --file KEKforBY
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Get-AzKeyVaultKey -VaultName '<vault-name>' -KeyName 'KEKforBYOK' -OutFile 'KEKforBYOK.publickey.pem'
+Get-AzKeyVaultKey -VaultName "<vault-name>" -KeyName "KEKforBYOK" -OutFile "KEKforBYOK.publickey.pem"
 ```
 
 For Managed HSM:
 
 ```azurepowershell
-Get-AzKeyVaultKey -HsmName '<hsm-name>' -KeyName 'KEKforBYOK' -OutFile 'KEKforBYOK.publickey.pem'
+Get-AzKeyVaultKey -HsmName "<hsm-name>" -KeyName "KEKforBYOK" -OutFile "KEKforBYOK.publickey.pem"
 ```
 
 ---
@@ -195,12 +195,12 @@ az keyvault key import --hsm-name <hsm-name> --name <key-name> --byok-file KeyTr
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Add-AzKeyVaultKey -VaultName '<vault-name>' -KeyName '<key-name>' -KeyFilePath 'KeyTransferPackage-<key-name>.byok'
+Add-AzKeyVaultKey -VaultName "<vault-name>" -KeyName "<key-name>" -KeyFilePath "KeyTransferPackage-<key-name>.byok"
 ```
 For Managed HSM:
 
 ```azurepowershell
-Add-AzKeyVaultKey -HsmName '<hsm-name>' -KeyName '<key-name>' -KeyFilePath 'KeyTransferPackage-<key-name>.byok'
+Add-AzKeyVaultKey -HsmName "<hsm-name>" -KeyName "<key-name>" -KeyFilePath "KeyTransferPackage-<key-name>.byok"
 ```
 
 ---
@@ -222,13 +222,13 @@ az keyvault key import --hsm-name <hsm-name> --name <key-name> --kty EC-HSM --cu
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Add-AzKeyVaultKey -VaultName '<vault-name>' -KeyName '<key-name>' -KeyType EC -CurveName P-256  -KeyFilePath 'KeyTransferPackage-<key-name>.byok'
+Add-AzKeyVaultKey -VaultName "<vault-name>" -KeyName "<key-name>" -KeyType EC -CurveName P-256  -KeyFilePath "KeyTransferPackage-<key-name>.byok"
 ```
 
 For Managed HSM:
 
 ```azurepowershell
-Add-AzKeyVaultKey -HsmName '<hsm-name>' -KeyName '<key-name>' -KeyType EC -CurveName P-256  -KeyFilePath 'KeyTransferPackage-<key-name>.byok'
+Add-AzKeyVaultKey -HsmName "<hsm-name>" -KeyName "<key-name>" -KeyType EC -CurveName P-256  -KeyFilePath "KeyTransferPackage-<key-name>.byok"
 ```
 
 ---
