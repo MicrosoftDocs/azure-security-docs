@@ -47,11 +47,11 @@ To execute a full backup, provide the following information:
 1. Provide **Storage Blob Data Contributor** role access to the user-assigned managed identity created in step 2, by going to the **Access Control** tab on the portal and selecting **Add Role Assignment**. Then select **managed identity** and select the managed identity created in step 2 -> **Review + Assign**
 1. Create the Managed HSM and associate the managed identity:
    ```azurecli-interactive
-   az keyvault create --hsm-name ContosoMHSM -l mhsmlocation --retention-days 7 --administrators "initialadmin" --mi-user-assigned "/subscriptions/subid/resourcegroups/mhsmrgname/providers/Microsoft.ManagedIdentity/userAssignedIdentities/userassignedidentitynamefromstep2" 
+   az keyvault create --hsm-name <hsm-name> -l <location> --retention-days 7 --administrators "<initial-admin>" --mi-user-assigned "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<managed-identity-name>" 
    ```
  If you have an existing Managed HSM, associate the managed identity by updating the MHSM with the following command. 
   ```azurecli-interactive
-   az keyvault update-hsm --hsm-name ContosoMHSM --mi-user-assigned "/subscriptions/subid/resourcegroups/mhsmrgname/providers/Microsoft.ManagedIdentity/userAssignedIdentities/userassignedidentitynamefromstep2" 
+   az keyvault update-hsm --hsm-name <hsm-name> --mi-user-assigned "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<managed-identity-name>" 
    ```
 
 ## Full backup
@@ -65,7 +65,7 @@ While the backup is in progress, the HSM might not operate at full throughput as
 
 ### Backup HSM by using user assigned managed identity
 ```azurecli-interactive
-az keyvault backup start --use-managed-identity true --hsm-name ContosoMHSM --storage-account-name contosostorage --blob-container-name contosostoragecontainer
+az keyvault backup start --use-managed-identity true --hsm-name <hsm-name> --storage-account-name <storage-account-name> --blob-container-name <container-name>
   ```
 ### Backup HSM by using SAS token
 
@@ -76,19 +76,19 @@ end=$(date -u -d "500 minutes" '+%Y-%m-%dT%H:%MZ')
 
 # Get storage account key
 
-skey=$(az storage account keys list --query '[0].value' -o tsv --account-name contosostorage --subscription {subscription-id})
+skey=$(az storage account keys list --query '[0].value' -o tsv --account-name <storage-account-name> --subscription <subscription-id>)
 
 # Create a container
 
-az storage container create --account-name contosostorage --name contosostoragecontainer --account-key $skey
+az storage container create --account-name <storage-account-name> --name <container-name> --account-key $skey
 
 # Generate a container sas token
 
-sas=$(az storage container generate-sas -n contosostoragecontainer --account-name contosostorage --permissions crdw --expiry $end --account-key $skey -o tsv --subscription {subscription-id})
+sas=$(az storage container generate-sas -n <container-name> --account-name <storage-account-name> --permissions crdw --expiry $end --account-key $skey -o tsv --subscription <subscription-id>)
 
 # Backup HSM
 
-az keyvault backup start --hsm-name ContosoMHSM --storage-account-name contosostorage --blob-container-name contosostoragecontainer --storage-container-SAS-token $sas --subscription {subscription-id}
+az keyvault backup start --hsm-name <hsm-name> --storage-account-name <storage-account-name> --blob-container-name <container-name> --storage-container-SAS-token $sas --subscription <subscription-id>
 
 ```
 
@@ -112,7 +112,7 @@ Restore is a long running operation but it immediately returns a Job ID. You can
 
 ### Restore HSM by using user assigned managed identity
 ```azurecli-interactive
-az keyvault restore start --hsm-name ContosoMHSM --storage-account-name contosostorage --blob-container-name contosostoragecontainer --backup-folder mhsm-backup-foldername --use-managed-identity true
+az keyvault restore start --hsm-name <hsm-name> --storage-account-name <storage-account-name> --blob-container-name <container-name> --backup-folder <backup-folder> --use-managed-identity true
   ```
 ### Restore HSM by using SAS token
 
@@ -123,15 +123,15 @@ end=$(date -u -d "500 minutes" '+%Y-%m-%dT%H:%MZ')
 
 # Get storage account key
 
-skey=$(az storage account keys list --query '[0].value' -o tsv --account-name contosostorage --subscription {subscription-id})
+skey=$(az storage account keys list --query '[0].value' -o tsv --account-name <storage-account-name> --subscription <subscription-id>)
 
 # Generate a container sas token
 
-sas=$(az storage container generate-sas -n contosostoragecontainer --account-name contosostorage --permissions rl --expiry $end --account-key $skey -o tsv --subscription {subscription-id})
+sas=$(az storage container generate-sas -n <container-name> --account-name <storage-account-name> --permissions rl --expiry $end --account-key $skey -o tsv --subscription <subscription-id>)
 
 # Restore HSM
 
-az keyvault restore start --hsm-name ContosoMHSM --storage-account-name contosostorage --blob-container-name contosostoragecontainer --storage-container-SAS-token $sas --backup-folder mhsm-ContosoMHSM-2020083120161860
+az keyvault restore start --hsm-name <hsm-name> --storage-account-name <storage-account-name> --blob-container-name <container-name> --storage-container-SAS-token $sas --backup-folder <backup-folder>
 ```
 
 ## Selective key restore
@@ -140,12 +140,12 @@ Selective key restore restores one key with all its key versions from a previous
 
 ### Selective key restore by using user assigned managed identity
 ```
-az keyvault restore start --hsm-name ContosoMHSM --storage-account-name contosostorage --blob-container-name contosostoragecontainer --backup-folder mhsm-backup-foldername --use-managed-identity true --key-name rsa-key2
+az keyvault restore start --hsm-name <hsm-name> --storage-account-name <storage-account-name> --blob-container-name <container-name> --backup-folder <backup-folder> --use-managed-identity true --key-name <key-name>
   ```
 
 ### Selective key restore by using SAS token
 ```
-az keyvault restore start --hsm-name ContosoMHSM --storage-account-name contosostorage --blob-container-name contosostoragecontainer --storage-container-SAS-token $sas --backup-folder mhsm-ContosoMHSM-2020083120161860 --key-name rsa-key2
+az keyvault restore start --hsm-name <hsm-name> --storage-account-name <storage-account-name> --blob-container-name <container-name> --storage-container-SAS-token $sas --backup-folder <backup-folder> --key-name <key-name>
 ```
 
 ## Next steps

@@ -60,12 +60,12 @@ This example shows how to create a 3072-bit **RSA** key that is only used for **
 
 
 ```azurecli-interactive
-az keyvault key create --hsm-name ContosoMHSM --name myrsakey --ops wrapKey unwrapKey --kty RSA-HSM --size 3072
+az keyvault key create --hsm-name <hsm-name> --name myrsakey --ops wrapKey unwrapKey --kty RSA-HSM --size 3072
 
 ## OR
 # Note the key name (myrsakey) in the URI
 
-az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myrsakey --ops wrapKey unwrapKey --kty RSA-HSM --size 3072
+az keyvault key create --id https://<hsm-name>.managedhsm.azure.net/keys/myrsakey --ops wrapKey unwrapKey --kty RSA-HSM --size 3072
 ```
 
 The `get` operation only returns the public key and key attributes. It doesn't return the private key (if an asymmetric key) or the key material (if a symmetric key).
@@ -75,12 +75,12 @@ The `get` operation only returns the public key and key attributes. It doesn't r
 The following example shows how to create an **EC** key with the P-256 curve. The key is only for **sign and verify** operations (--ops) and has two tags, **usage** and **appname**. Use tags to add extra metadata to the key for tracking and managing.
 
 ```azurecli-interactive
-az keyvault key create --hsm-name ContosoMHSM --name myec256key --ops sign verify  --tags 'usage=signing' 'appname=myapp' --kty EC-HSM --curve P-256
+az keyvault key create --hsm-name <hsm-name> --name myec256key --ops sign verify  --tags 'usage=signing' 'appname=myapp' --kty EC-HSM --curve P-256
 
 ## OR
 # Note the key name (myec256key) in the URI
 
-az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myec256key --ops sign verify  --tags 'usage=signing' 'appname=myapp' --kty EC-HSM --curve P-256
+az keyvault key create --id https://<hsm-name>.managedhsm.azure.net/keys/myec256key --ops sign verify  --tags 'usage=signing' 'appname=myapp' --kty EC-HSM --curve P-256
 ```
 
 ### Create a 256-bit symmetric key
@@ -88,12 +88,12 @@ az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myec25
 This example shows how to create a 256-bit **symmetric** key that's only for **encrypt and decrypt** operations (--ops).
 
 ```azurecli-interactive
-az keyvault key create --hsm-name ContosoMHSM --name myaeskey --ops encrypt decrypt  --tags 'usage=encryption' 'appname=myapp' --kty oct-HSM --size 256
+az keyvault key create --hsm-name <hsm-name> --name myaeskey --ops encrypt decrypt  --tags 'usage=encryption' 'appname=myapp' --kty oct-HSM --size 256
 
 ## OR
 # Note the key name (myaeskey) in the URI
 
-az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myaeskey --ops encrypt decrypt  --tags 'usage=encryption' 'appname=myapp' --kty oct-HSM --size 256
+az keyvault key create --id https://<hsm-name>.managedhsm.azure.net/keys/myaeskey --ops encrypt decrypt  --tags 'usage=encryption' 'appname=myapp' --kty oct-HSM --size 256
 ```
 
 ## View key attributes and tags
@@ -101,12 +101,12 @@ az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myaesk
 Use the `az keyvault key show` command to view attributes, versions, and tags for a key.
 
 ```azurecli-interactive
-az keyvault key show --hsm-name ContosoMHSM --name myrsakey
+az keyvault key show --hsm-name <hsm-name> --name myrsakey
 
 ## OR
 # Note the key name (myaeskey) in the URI
 
-az keyvault key show --id https://ContosoMHSM.managedhsm.azure.net/keys/myrsakey
+az keyvault key show --id https://<hsm-name>.managedhsm.azure.net/keys/myrsakey
 
 ```
 
@@ -115,12 +115,12 @@ az keyvault key show --id https://ContosoMHSM.managedhsm.azure.net/keys/myrsakey
 Use the `az keyvault key list` command to list all keys inside a managed HSM.
 
 ```azurecli-interactive
-az keyvault key list --hsm-name ContosoMHSM
+az keyvault key list --hsm-name <hsm-name>
 
 ## OR
 # use full URI
 
-az keyvault key list --id https://ContosoMHSM.managedhsm.azure.net/
+az keyvault key list --id https://<hsm-name>.managedhsm.azure.net/
 
 ```
 
@@ -129,12 +129,12 @@ az keyvault key list --id https://ContosoMHSM.managedhsm.azure.net/
 Use the `az keyvault key delete` command to delete a key from a managed HSM. Soft-delete is always on. Therefore, a deleted key stays in the deleted state and you can recover it until the number of retention days pass. After that, the key is purged (permanently deleted) with no recovery possible.
 
 ```azurecli-interactive
-az keyvault key delete --hsm-name ContosoMHSM --name myrsakey
+az keyvault key delete --hsm-name <hsm-name> --name myrsakey
 
 ## OR
 # Note the key name (myaeskey) in the URI
 
-az keyvault key delete --id https://ContosoMHSM.managedhsm.azure.net/keys/myrsakey
+az keyvault key delete --id https://<hsm-name>.managedhsm.azure.net/keys/myrsakey
 ```
 
 ## List deleted keys
@@ -142,12 +142,12 @@ az keyvault key delete --id https://ContosoMHSM.managedhsm.azure.net/keys/myrsak
 Use the `az keyvault key list-deleted` command to list all the keys in the deleted state in your managed HSM.
 
 ```azurecli-interactive
-az keyvault key list-deleted --hsm-name ContosoMHSM
+az keyvault key list-deleted --hsm-name <hsm-name>
 
 ## OR
 # use full URI
 
-az keyvault key list-deleted --id https://ContosoMHSM.managedhsm.azure.net/
+az keyvault key list-deleted --id https://<hsm-name>.managedhsm.azure.net/
 ```
 
 ## Recover (undelete) a deleted key
@@ -155,12 +155,12 @@ az keyvault key list-deleted --id https://ContosoMHSM.managedhsm.azure.net/
 Use the `az keyvault key list-deleted` command to list all the keys in deleted state in your managed HSM. To recover (undelete) a key, use the `--id` parameter. You must note the `recoveryId` value of the deleted key obtained from the `az keyvault key list-deleted` command.
 
 ```azurecli-interactive
-az keyvault key recover --hsm-name ContosoMHSM --name myrsakey
+az keyvault key recover --hsm-name <hsm-name> --name myrsakey
 
 ## OR
 # Note the key name (myaeskey) in the URI
 
-az keyvault key recover --id https://ContosoMHSM.managedhsm.azure.net/deletedKeys/myrsakey
+az keyvault key recover --id https://<hsm-name>.managedhsm.azure.net/deletedKeys/myrsakey
 ```
 
 ## Purge (permanently delete) a key
@@ -171,12 +171,12 @@ Use the `az keyvault key purge` command to purge (permanently delete) a key.
 > If the managed HSM has purge protection enabled, the purge operation isn't permitted. The key is automatically purged when the retention period passes.
 
 ```azurecli-interactive
-az keyvault key purge --hsm-name ContosoMHSM --name myrsakey
+az keyvault key purge --hsm-name <hsm-name> --name myrsakey
 
 ## OR
 # Note the key name (myaeskey) in the URI
 
-az keyvault key purge --id https://ContosoMHSM.managedhsm.azure.net/deletedKeys/myrsakey
+az keyvault key purge --id https://<hsm-name>.managedhsm.azure.net/deletedKeys/myrsakey
 
 ```
 
@@ -185,12 +185,12 @@ az keyvault key purge --id https://ContosoMHSM.managedhsm.azure.net/deletedKeys/
 Use `az keyvault key backup` to create a key backup. The backup file is an encrypted blob cryptographically tied to the Security Domain of the source HSM. You can only restore it in HSMs that share the same security domain. Read more about [Security Domain](security-domain.md).
 
 ```azurecli-interactive
-az keyvault key backup --hsm-name ContosoMHSM --name myrsakey --file myrsakey.backup
+az keyvault key backup --hsm-name <hsm-name> --name myrsakey --file myrsakey.backup
 
 ## OR
 # Note the key name (myaeskey) in the URI
 
-az keyvault key backup --id https://ContosoMHSM.managedhsm.azure.net/deletedKeys/myrsakey  --file myrsakey.backup
+az keyvault key backup --id https://<hsm-name>.managedhsm.azure.net/deletedKeys/myrsakey  --file myrsakey.backup
 
 ```
 
@@ -202,12 +202,12 @@ Use `az keyvault key restore` to restore a single key. The source HSM where you 
 > The restore operation fails if a key with the same name exists in active or deleted state.
 
 ```azurecli-interactive
-az keyvault key restore --hsm-name ContosoMHSM --name myrsakey --file myrsakey.backup
+az keyvault key restore --hsm-name <hsm-name> --name myrsakey --file myrsakey.backup
 
 ## OR
 # Note the key name (myaeskey) in the URI
 
-az keyvault key restore --id https://ContosoMHSM.managedhsm.azure.net/deletedKeys/myrsakey --file myrsakey.backup
+az keyvault key restore --id https://<hsm-name>.managedhsm.azure.net/deletedKeys/myrsakey --file myrsakey.backup
 
 ```
 
@@ -216,12 +216,12 @@ az keyvault key restore --id https://ContosoMHSM.managedhsm.azure.net/deletedKey
 Use the `az keyvault key import` command to import a key (only RSA and EC) from a file. The certificate file must have a private key and must use PEM encoding (as defined in RFCs [1421](https://tools.ietf.org/html/rfc1421), [1422](https://tools.ietf.org/html/rfc1422), [1423](https://tools.ietf.org/html/rfc1423), [1424](https://tools.ietf.org/html/rfc1424)).
 
 ```azurecli-interactive
-az keyvault key import --hsm-name ContosoMHSM --name myrsakey --pem-file mycert.key --pem-password 'mypassword'
+az keyvault key import --hsm-name <hsm-name> --name myrsakey --pem-file mycert.key --pem-password 'mypassword'
 
 ## OR
-# Note the key name (myaeskey) in the URI
+# Note the key name (<key-name>) in the URI
 
-az keyvault key recover --id https://ContosoMHSM.managedhsm.azure.net/deletedKeys/myrsakey --pem-file mycert.key --password 'mypassword'
+az keyvault key recover --id https://<hsm-name>.managedhsm.azure.net/deletedKeys/<key-name> --pem-file mycert.key --password 'mypassword'
 ```
 
 To import a key from your on-premises HSM to managed HSM, see [Import HSM-protected keys to Managed HSM (BYOK)](hsm-protected-keys-byok.md).

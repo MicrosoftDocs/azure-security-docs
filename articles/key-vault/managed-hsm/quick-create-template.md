@@ -44,7 +44,7 @@ The template defines the following Azure resource:
 The template requires the object ID associated with your account. To find it, use the Azure CLI [az ad user show](/cli/azure/ad/user#az-ad-user-show) command, passing your email address to the `--id` parameter. You can limit the output to the object ID only by using the `--query` parameter.
 
 ```azurecli-interactive
-az ad user show --id admin@contoso.com --query "id"
+az ad user show --id <user-email> --query "id"
 ```
 
 You might also need your tenant ID. To find it, use the Azure CLI [az ad user show](/cli/azure/account#az-account-show) command. You can limit the output to the tenant ID only by using the `--query` parameter.
@@ -62,7 +62,7 @@ Now you can deploy the ARM template:
 1. Select or enter the following values.  Unless specified, use the default value to create the Managed HSM.
 
     - **Subscription**: Select an Azure subscription.
-    - **Resource group**: Select **Create new**, enter "ContosoResourceGroup" as the name, and then select **OK**.
+    - **Resource group**: Select **Create new**, enter a name for your resource group, and then select **OK**.
     - **Location**: Select a location. For example, **East US**.
     - **managedHSMName**: Enter a name for your Managed HSM.
     - **Tenant ID**: The template function automatically retrieves your tenant ID; don't change the default value.  If there's no value, enter the Tenant ID that you retrieved earlier.

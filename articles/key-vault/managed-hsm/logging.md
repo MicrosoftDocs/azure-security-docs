@@ -75,9 +75,9 @@ Use the Azure CLI [az keyvault show](/cli/azure/keyvault#az-keyvault-show) comma
 You can also use the Azure CLI [az storage account show](/cli/azure/storage/account#az-storage-account-show) command to find the storage account that you want to use for logging. To find the log analytics workspace that you want to use for logging, use the Azure CLI [az monitor log-analytics workspace show](/cli/azure/monitor/log-analytics/workspace#az-monitor-log-analytics-workspace-show) command.
 
 ```azurecli-interactive
-hsmresource=$(az keyvault show --hsm-name ContosoMHSM --query id -o tsv)
-storageresource=$(az storage account show --name ContosoMHSMLogs --query id -o tsv)
-loganalyticsresource=$(az monitor log-analytics workspace show --resource-group ContosoResourceGroup --workspace-name ContosoLogs --query id -o tsv)
+hsmresource=$(az keyvault show --hsm-name <hsm-name> --query id -o tsv)
+storageresource=$(az storage account show --name <storage-account-name> --query id -o tsv)
+loganalyticsresource=$(az monitor log-analytics workspace show --resource-group <resource-group> --workspace-name <workspace-name> --query id -o tsv)
 ```
 
 # [Azure PowerShell](#tab/azurepowershell)
@@ -87,9 +87,9 @@ Use the Azure PowerShell `Get-AzKeyVault` cmdlet to find the Managed HSM that yo
 You can also use the Azure PowerShell `Get-AzStorageAccount` cmdlet to find the storage account that you want to use for logging. To find the log analytics workspace that you want to use for logging, use the Azure PowerShell `Get-AzOperationalInsightsWorkspace` cmdlet.
 
 ```powershell
-$hsmresource = (Get-AzKeyVaultManagedHSM -ResourceGroupName "ContosoResourceGroup" -Name "ContosoMHSM").ResourceId
-$storageresource = (Get-AzStorageAccount -ResourceGroupName "ContosoResourceGroup" -Name "ContosoMHSMLogs").Id
-$loganalyticsresource = (Get-AzOperationalInsightsWorkspace -ResourceGroupName "ContosoResourceGroup" -Name "ContosoLogs").ResourceId
+$hsmresource = (Get-AzKeyVaultManagedHSM -ResourceGroupName "<resource-group>" -Name "<hsm-name>").ResourceId
+$storageresource = (Get-AzStorageAccount -ResourceGroupName "<resource-group>" -Name "<storage-account-name>").Id
+$loganalyticsresource = (Get-AzOperationalInsightsWorkspace -ResourceGroupName "<resource-group>" -Name "<workspace-name>").ResourceId
 ```
 
 # [Portal](#tab/azure-portal)
@@ -107,13 +107,13 @@ To enable logging for Managed HSM, use the Azure CLI [az monitor diagnostic-sett
 To send the logs to a storage account:
 
 ```azurecli-interactive
-az monitor diagnostic-settings create --name ContosoMHSM-Diagnostics --resource $hsmresource --logs '[{"category": "AuditEvent","enabled": true}]' --storage-account $storageresource
+az monitor diagnostic-settings create --name <hsm-name>-Diagnostics --resource $hsmresource --logs '[{"category": "AuditEvent","enabled": true}]' --storage-account $storageresource
 ```
 
 To send the logs to a Log Analytics workspace:
 
 ```azurecli-interactive
-az monitor diagnostic-settings create --name "ContosoMHSM-Diagnostics" --resource $hsmresource --logs '[{"category": "AuditEvent","enabled": true}]' --workspace $loganalyticsresource
+az monitor diagnostic-settings create --name "<hsm-name>-Diagnostics" --resource $hsmresource --logs '[{"category": "AuditEvent","enabled": true}]' --workspace $loganalyticsresource
 ```
 
 # [Azure PowerShell](#tab/azurepowershell)
@@ -123,13 +123,13 @@ To enable logging for Managed HSM, use the Azure PowerShell [Set-AzDiagnosticSet
 To send the logs to a storage account:
 
 ```powershell
-Set-AzDiagnosticSetting -Name "ContosoMHSM-Diagnostics" -ResourceId $hsmresource -Category "AuditEvent" -Enabled $true -StorageAccountId $storageresource
+Set-AzDiagnosticSetting -Name "<hsm-name>-Diagnostics" -ResourceId $hsmresource -Category "AuditEvent" -Enabled $true -StorageAccountId $storageresource
 ```
 
 To send the logs to a Log Analytics workspace:
 
 ```powershell
-Set-AzDiagnosticSetting -Name "ContosoMHSM-Diagnostics" -ResourceId $hsmresource -Category "AuditEvent" -Enabled $true -WorkspaceId $loganalyticsresource
+Set-AzDiagnosticSetting -Name "<hsm-name>-Diagnostics" -ResourceId $hsmresource -Category "AuditEvent" -Enabled $true -WorkspaceId $loganalyticsresource
 ```
 
 # [Portal](#tab/azure-portal)
@@ -181,7 +181,7 @@ Individual blobs are stored as text, formatted as JSON. Here's an example log en
   {
     "TenantId": "{tenant-id}",
     "time": "2020-08-31T19:52:39.763Z",
-    "resourceId": "/SUBSCRIPTIONS/{subscription-id}/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/MANAGEDHSMS/CONTOSOMHSM",
+    "resourceId": "/SUBSCRIPTIONS/<subscription-id>/RESOURCEGROUPS/<RESOURCE-GROUP>/PROVIDERS/MICROSOFT.KEYVAULT/MANAGEDHSMS/<HSM-NAME>",
     "operationName": "BackupCreate",
     "operationVersion": "7.0",
     "category": "AuditEvent",
@@ -193,16 +193,16 @@ Individual blobs are stored as text, formatted as JSON. Here's an example log en
     },
     "durationMs": 488,
     "callerIpAddress": "X.X.X.X",
-    "identity": "{\"claim\":{\"appid\":\"{application-id}\",\"http_schemas_microsoft_com_identity\":{\"claims\":{\"objectidentifier\":\"{object-id}\"}},\"http_schemas_xmlsoap_org_ws_2005_05_identity\":{\"claims\":{\"upn\":\"admin@contoso.com\"}}}}",
+    "identity": "{\"claim\":{\"appid\":\"{application-id}\",\"http_schemas_microsoft_com_identity\":{\"claims\":{\"objectidentifier\":\"{object-id}\"}},\"http_schemas_xmlsoap_org_ws_2005_05_identity\":{\"claims\":{\"upn\":\"<user-email>\"}}}}",
     "clientInfo": "azsdk-python-core/1.7.0 Python/3.8.2 (Linux-4.19.84-microsoft-standard-x86_64-with-glibc2.29) azsdk-python-azure-keyvault/7.2",
     "correlationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
     "subnetId": "(unknown)",
     "httpStatusCode": 202,
     "PoolName": "mhsmdemo",
-    "requestUri": "https://ContosoMHSM.managedhsm.azure.net/backup",
-    "resourceGroup": "ContosoResourceGroup",
+    "requestUri": "https://<hsm-name>.managedhsm.azure.net/backup",
+    "resourceGroup": "<resource-group>",
     "resourceProvider": "MICROSOFT.KEYVAULT",
-    "resource": "ContosoMHSM",
+    "resource": "<hsm-name>",
     "resourceType": "managedHSMs"
   }
 ]
