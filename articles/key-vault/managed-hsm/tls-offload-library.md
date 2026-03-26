@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.custom: devx-track-azurecli
-ms.topic: conceptual
+ms.topic: get-started
 ms.date: 01/30/2026
 
 ms.author: mbaldwin

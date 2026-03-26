@@ -4,7 +4,7 @@ description: Learn about user defined functions (UDFs) in Azure confidential led
 author: andpiccione
 ms.author: apiccione
 ms.service: azure-confidential-ledger
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.date: 04/10/2025
 
 ---
