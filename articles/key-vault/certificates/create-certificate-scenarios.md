@@ -96,7 +96,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 {
   "id": “https://mykeyvault.vault.azure.net/certificates/mycert1/pending",
   "issuer": {
-    "name": "<issuer-name>"
+    "name": "mydigicert"
   },
   "csr": "MIICq......DD5Lp5cqXg==",
   "cancellation_requested": false,
@@ -128,7 +128,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 {
   "id": “https://mykeyvault.vault.azure.net/certificates/mycert1/pending",
   "issuer": {
-    "name": "<issuer-name>"
+    "name": "mydigicert"
   },
   "csr": "MIICq......DD5Lp5cqXg==",
   "cancellation_requested": false,
@@ -160,7 +160,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 {
   "id": “https://mykeyvault.vault.azure.net/certificates/mycert1/pending",
   "issuer": {
-    "name": "<issuer-name>"
+    "name": "mydigicert"
   },
   "csr": "MIICq......DD5Lp5cqXg==",
   "cancellation_requested": false,
@@ -168,8 +168,8 @@ StatusCode: 200, ReasonPhrase: 'OK'
   "status_details": "",
   "request_id": "a76827a18b63421c917da80f28e9913d",
   "error": {
-    "code": "<errorcode>",
-    "message": "<message>"
+    "code": "Certificate issuer error",
+    "message": "The issuer encountered an error processing the certificate request."
   }
 }
 
@@ -310,7 +310,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 {
   "id": “https://mykeyvault.vault.azure.net/certificates/mycert1/pending",
   "issuer": {
-    "name": "<issuer-name>"
+    "name": "mydigicert"
   },
   "csr": "MIICq......DD5Lp5cqXg==",
   "cancellation_requested": true,
@@ -343,7 +343,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 {
   "id": “https://mykeyvault.vault.azure.net/certificates/mycert1/pending",
   "issuer": {
-    "name": "<issuer-name>"
+    "name": "mydigicert"
   },
   "csr": "MIICq......DD5Lp5cqXg==",
   "cancellation_requested": false,
