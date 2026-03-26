@@ -16,6 +16,12 @@ items:
   - name: ARM template
     displayName: Resource Manager
     href: quick-create-template.md
+  - name: .NET SDK
+    href: quickstart-dotnet.md
+  - name: Python SDK
+    href: quickstart-python.md
+  - name: JavaScript SDK
+    href: quickstart-javascript.md
 
 - name: Tutorials 
   items:
