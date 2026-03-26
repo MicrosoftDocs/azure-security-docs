@@ -10,7 +10,7 @@ ms.subservice: keys
 ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
-# Quickstart: Provision and activate a Managed HSM using PowerShell
+# Quickstart: Provision and activate a Managed HSM by using PowerShell
 
 In this quickstart, you create and activate an Azure Key Vault Managed HSM (Hardware Security Module) by using PowerShell. [!INCLUDE [Managed HSM description](../includes/managed-hsm/intro.md)]
 
