@@ -211,7 +211,7 @@ az group delete --resource-group <resource-group>
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Remove-AzResourceGroup -Name <resource-group>
+Remove-AzResourceGroup -Name "<resource-group>"
 ```
 
 ---

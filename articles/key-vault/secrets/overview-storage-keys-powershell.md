@@ -237,7 +237,7 @@ For more information about account SAS, see:
 Use the Azure PowerShell [Set-AzKeyVaultManagedStorageSasDefinition](/powershell/module/az.keyvault/set-azkeyvaultmanagedstoragesasdefinition) cmdlet to create a shared access signature definition.  You can provide the name of your choice to the `-Name` parameter.
 
 ```azurepowershell-interactive
-Set-AzKeyVaultManagedStorageSasDefinition -AccountName $storageAccountName -VaultName $keyVaultName -Name <sas-definition-name> -TemplateUri $sasTemplate -SasType 'account' -ValidityPeriod ([System.Timespan]::FromDays(1))
+Set-AzKeyVaultManagedStorageSasDefinition -AccountName $storageAccountName -VaultName $keyVaultName -Name "<sas-definition-name>" -TemplateUri $sasTemplate -SasType 'account' -ValidityPeriod ([System.Timespan]::FromDays(1))
 ```
 
 ### Verify the shared access signature definition
@@ -247,7 +247,7 @@ You can verify that the shared access signature definition has been stored in yo
 First, find the shared access signature definition in your key vault.
 
 ```azurepowershell-interactive
-Get-AzKeyVaultSecret -VaultName <vault-name>
+Get-AzKeyVaultSecret -VaultName "<vault-name>"
 ```
 
 The secret corresponding to your SAS definition will have these properties:
@@ -263,7 +263,7 @@ Tags         :
 You can now use the [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret) cmdlet with the `VaultName` and `Name` parameters to view the contents of that secret.
 
 ```azurepowershell-interactive
-$secretValueText = Get-AzKeyVaultSecret -VaultName <vault-name> -Name <secret-name> -AsPlainText
+$secretValueText = Get-AzKeyVaultSecret -VaultName "<vault-name>" -Name "<secret-name>" -AsPlainText
 Write-Output $secretValueText
 ```
 

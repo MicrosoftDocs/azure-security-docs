@@ -72,7 +72,7 @@ Now, you have created a Key Vault, stored a secret, and retrieved it.
 When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, Key Vault, and all related resources.
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name <resource-group>
+Remove-AzResourceGroup -Name "<resource-group>"
 ```
 
 ## Next steps
