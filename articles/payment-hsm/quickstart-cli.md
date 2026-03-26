@@ -59,19 +59,19 @@ This quickstart describes how to create, update, and delete an Azure Payment HSM
 Before creating a payment HSM, you must first create a virtual network and a subnet. To do so, use the Azure CLI [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) command:
 
 ```azurecli-interactive
-az network vnet create -g "myResourceGroup" -n "myVNet" --address-prefixes "10.0.0.0/16" --tags "fastpathenabled=True" --subnet-name "myPHSMSubnet" --subnet-prefix "10.0.0.0/24"
+az network vnet create -g "<resource-group>" -n "<vnet-name>" --address-prefixes "10.0.0.0/16" --tags "fastpathenabled=True" --subnet-name "<subnet-name>" --subnet-prefix "10.0.0.0/24"
 ```
 
 Afterward, use the Azure CLI [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) command to update the subnet and give it a delegation of "Microsoft.HardwareSecurityModules/dedicatedHSMs":
 
 ```azurecli-interactive
-az network vnet subnet update -g "myResourceGroup" --vnet-name "myVNet" -n "myPHSMSubnet" --delegations "Microsoft.HardwareSecurityModules/dedicatedHSMs"
+az network vnet subnet update -g "<resource-group>" --vnet-name "<vnet-name>" -n "<subnet-name>" --delegations "Microsoft.HardwareSecurityModules/dedicatedHSMs"
 ```
 
 To verify that the virtual network and subnet were created correctly, use the Azure CLI [az network vnet show](/cli/azure/network/vnet) command:
 
 ```azurecli-interactive
-az network vnet show -n "myVNet" -g "myResourceGroup"
+az network vnet show -n "<vnet-name>" -g "<resource-group>"
 ```
 
 Make note of the value returned as `id`, as it is used in the next step.  The `id` is in the format:
@@ -82,12 +82,12 @@ Make note of the value returned as `id`, as it is used in the next step.  The `i
 
 ## Create a payment HSM
 
-To create a payment HSM, use the [az dedicated-hsm create](/cli/azure/dedicated-hsm#az-dedicated-hsm-create) command. The following example creates a payment HSM named `myPaymentHSM` in the `eastus` region, `myResourceGroup` resource group, and specified subscription, virtual network, and subnet:
+To create a payment HSM, use the [az dedicated-hsm create](/cli/azure/dedicated-hsm#az-dedicated-hsm-create) command. The following example creates a payment HSM named `<payment-hsm-name>` in the `eastus` region, `<resource-group>` resource group, and specified subscription, virtual network, and subnet:
 
 ```azurecli-interactive
 az dedicated-hsm create \
-   --resource-group "myResourceGroup" \
-   --name "myPaymentHSM" \
+   --resource-group "<resource-group>" \
+   --name "<payment-hsm-name>" \
    --location "EastUS" \
    --subnet id="<subnet-id>" \
    --stamp-id "stamp1" \
@@ -99,21 +99,21 @@ az dedicated-hsm create \
 To see your payment HSM and its properties, use the Azure CLI [az dedicated-hsm show](/cli/azure/dedicated-hsm#az-dedicated-hsm-show) command.
 
 ```azurecli-interactive
-az dedicated-hsm show --resource-group "myResourceGroup" --name "myPaymentHSM"
+az dedicated-hsm show --resource-group "<resource-group>" --name "<payment-hsm-name>"
 ```
 
 To list all of your payment HSMs, use the [az dedicated-hsm list](/cli/azure/dedicated-hsm#az-dedicated-hsm-list) command. (The output of this command is more readable if you display it in table-format.)
 
 ```azurecli-interactive
-az dedicated-hsm list --resource-group "myResourceGroup" -o table
+az dedicated-hsm list --resource-group "<resource-group>" -o table
 ```
 
 ## Remove a payment HSM
 
-To remove your payment HSM, use the [az dedicated-hsm delete](/cli/azure/dedicated-hsm#az-dedicated-hsm-delete) command. The following example deletes the `myPaymentHSM` payment HSM from the `myResourceGroup` resource group:
+To remove your payment HSM, use the [az dedicated-hsm delete](/cli/azure/dedicated-hsm#az-dedicated-hsm-delete) command. The following example deletes the `<payment-hsm-name>` payment HSM from the `<resource-group>` resource group:
 
 ```azurecli-interactive
-az dedicated-hsm delete --name "myPaymentHSM" -g "myResourceGroup"
+az dedicated-hsm delete --name "<payment-hsm-name>" -g "<resource-group>"
 ```
 
 ## Delete the resource group

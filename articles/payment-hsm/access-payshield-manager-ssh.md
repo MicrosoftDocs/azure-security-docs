@@ -25,8 +25,8 @@ In this tutorial, you learn how to:
 
 To complete this tutorial you need:
 
-- The name of your payment HSM's virtual network. This tutorial assumes the name used in the previous tutorial: "myVNet".
-- The address space of your virtual network. This tutorial assumes the address space used in the previous tutorial: "10.0.0.0/16".
+- The name of your payment HSM's virtual network.
+- The address space of your virtual network (for example, "10.0.0.0/16").
 
 ## Create a VM subnet
 
@@ -35,13 +35,13 @@ To complete this tutorial you need:
 Create a subnet for your virtual machine, on the same virtual network as your payment HSM, using the Azure CLI [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) command. You must provide a value to the--address-prefixes argument that falls within the VNet's address space, but differs from the payment HSM subnet addresses.
 
 ```azurecli-interactive
-az network vnet subnet create -g "myResourceGroup" --vnet-name "myVNet" -n "myVMSubnet" --address-prefixes "10.0.1.0/24"
+az network vnet subnet create -g "<resource-group>" --vnet-name "<vnet-name>" -n "<vm-subnet-name>" --address-prefixes "10.0.1.0/24"
 ```
 
-The Azure CLI [az network vnet show](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) command lists two subnets associated with your VNet: the subnet with your payment HSM ("mySubnet"), and the newly created "myVMSubnet" subnet.
+The Azure CLI [az network vnet show](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) command lists two subnets associated with your VNet: the subnet with your payment HSM, and the newly created VM subnet.
 
 ```azurecli-interactive
-az network vnet show -n "myVNet" -g "myResourceGroup"
+az network vnet show -n "<vnet-name>" -g "<resource-group>"
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -49,13 +49,13 @@ az network vnet show -n "myVNet" -g "myResourceGroup"
 First, save the details of your VNet to a variable using the Azure PowerShell [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) cmdlet:
 
 ```azurepowershell-interactive
-$vnet = Get-AzVirtualNetwork -Name "myVNet" -ResourceGroupName "myResourceGroup"
+$vnet = Get-AzVirtualNetwork -Name "<vnet-name>" -ResourceGroupName "<resource-group>"
 ```
 
 Next, configure a subnet for your virtual machine, on the same virtual network as your payment HSM, using the Azure PowerShell [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) command. You must provide a value to the `--address-prefixes` argument that falls within the VNet's address space, but differs from the payment HSM subnet addresses.
 
 ```azurepowershell-interactive
-$vmSubnet = New-AzVirtualNetworkSubnetConfig -Name "myVMSubnet" -AddressPrefix "10.0.1.0/24"  
+$vmSubnet = New-AzVirtualNetworkSubnetConfig -Name "<vm-subnet-name>" -AddressPrefix "10.0.1.0/24"  
 ```
 
 Lastly, add the subnet configuration to your VNet variable, and then pass the variable to the Azure PowerShell [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) cmdlet:
@@ -66,10 +66,10 @@ $vnet.Subnets.Add($vmSubnet)
 Set-AzVirtualNetwork -VirtualNetwork $vnet
 ```
 
-The Azure PowerShell [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) cmdlet lists two subnets associated with your VNet: the subnet with your payment HSM ("mySubnet"), and the newly created "myVMSubnet" subnet.
+The Azure PowerShell [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) cmdlet lists two subnets associated with your VNet: the subnet with your payment HSM, and the newly created VM subnet.
 
 ```azurepowershell-interactive
-Get-AzVirtualNetwork -Name "myVNet" -ResourceGroupName "myResourceGroup"
+Get-AzVirtualNetwork -Name "<vnet-name>" -ResourceGroupName "<resource-group>"
 ```
 
 # [Portal](#tab/azure-portal)
@@ -86,11 +86,11 @@ Create a VM on your new subnet, using the Azure CLI [az vm create](/cli/azure/vm
 
 ```azurecli-interactive
 az vm create \
-  --resource-group "myResourceGroup" \
-  --name "myVM" \
+  --resource-group "<resource-group>" \
+  --name "<vm-name>" \
   --image "UbuntuLTS" \
-  --vnet-name "myVNet" \
-  --subnet "myVMSubnet" \
+  --vnet-name "<vnet-name>" \
+  --subnet "<vm-subnet-name>" \
   --admin-username "azureuser" \
   --generate-ssh-keys
 ```
@@ -109,13 +109,13 @@ Now create your VM using the Azure PowerShell [New-AzVm](/powershell/module/az.c
 
 ```azurepowershell-interactive
 New-AzVm `
-    -ResourceGroupName "myResourceGroup" `
-    -Name "myVM" `
+    -ResourceGroupName "<resource-group>" `
+    -Name "<vm-name>" `
     -Location "eastus" `
     -Image "UbuntuLTS" `
-    -PublicIpAddressName "myPubIP" `
-    -VirtualNetworkName "myVNet" `
-    -SubnetName "myVMSubnet" `
+    -PublicIpAddressName "<public-ip-name>" `
+    -VirtualNetworkName "<vnet-name>" `
+    -SubnetName "<vm-subnet-name>" `
     -OpenPorts 22 `
     -Credential $cred `
     -GenerateSshKey `
