@@ -24,7 +24,7 @@ The `fastpathenabled` tag must be enabled on any virtual networks that the Payme
 First, find the resource ID on the virtual network you wish to tag with the Azure CLI [az network vnet show](/cli/azure/network/vnet#az-network-vnet-show) command:
 
 ```azurecli-interactive
-az network vnet show -g "myResourceGroup" -n "myVNet"
+az network vnet show -g "<resource-group>" -n "<vnet-name>"
 ```
 
 The resource ID is in the format "/subscriptions/`<subscription-id>`/resourceGroups/`<resource-group-name>`/providers/Microsoft.Network/virtualNetworks/`<vnet-name>`".
@@ -48,7 +48,7 @@ Afterward, if you run [az network vnet show](/cli/azure/network/vnet#az-network-
 First, find the resource ID on the virtual network you wish to tag with the Azure PowerShell [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) cmdlet:
 
 ```azurepowershell-interactive
-Get-AzVirtualNetwork -ResourceGroupName "myResourceGroup" -Name "myVNet" 
+Get-AzVirtualNetwork -ResourceGroupName "<resource-group>" -Name "<vnet-name>" 
 ```
 
 The resource ID is in the format "/subscriptions/`<subscription-id>`/resourceGroups/`<resource-group-name>`/providers/Microsoft.Network/virtualNetworks/`<vnet-name>`".
@@ -78,10 +78,10 @@ To peer the payment HSM virtual network with the VM virtual network, use the Azu
 
 ```azurecli-interactive
 # Peer payment HSM VNet to VM VNet
-az network vnet peering create -g "myResourceGroup" -n "VNet2VMVNetPeering" --vnet-name "myVNet" --remote-vnet "myVMVNet" --allow-vnet-access
+az network vnet peering create -g "<resource-group>" -n "VNet2VMVNetPeering" --vnet-name "<vnet-name>" --remote-vnet "<vm-vnet-name>" --allow-vnet-access
 
 # Peer VM VNet to payment HSM VNet
-az network vnet peering create -g "myResourceGroup" -n "VMVNet2VNetPeering" --vnet-name "myVMVNet" --remote-vnet "myVNet" --allow-vnet-access
+az network vnet peering create -g "<resource-group>" -n "VMVNet2VNetPeering" --vnet-name "<vm-vnet-name>" --remote-vnet "<vnet-name>" --allow-vnet-access
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -89,18 +89,18 @@ az network vnet peering create -g "myResourceGroup" -n "VMVNet2VNetPeering" --vn
 To peer the payment HSM virtual network with the VM virtual network, first use the Azure PowerShell [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) cmdlet to save the details of the virtual networks into variables
 
 ```azurepowershell-interactive
-$myvnet = Get-AzVirtualNetwork -ResourceGroupName "myResourceGroup" -Name "myVNet"
-$myvmvnet = Get-AzVirtualNetwork -ResourceGroupName "myResourceGroup" -Name "myVMVNet" 
+$vnet = Get-AzVirtualNetwork -ResourceGroupName "<resource-group>" -Name "<vnet-name>"
+$vmvnet = Get-AzVirtualNetwork -ResourceGroupName "<resource-group>" -Name "<vm-vnet-name>" 
 ```
 
 Then use the Azure PowerShell [Add-AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering) cmdlet to peer the payment HSM virtual network to the VM virtual network and vice versa:
 
 ```azurecli-powershell
 # Peer payment HSM VNet to VM VNet
-Add-AzVirtualNetworkPeering -Name "VNet2VMVNetPeering" -VirtualNetwork $myvnet -RemoteVirtualNetworkId $myvmvnet.Id
+Add-AzVirtualNetworkPeering -Name "VNet2VMVNetPeering" -VirtualNetwork $vnet -RemoteVirtualNetworkId $vmvnet.Id
 
 # Peer VM VNet to payment HSM VNet
-Add-AzVirtualNetworkPeering -Name 'VMVNet2VNetPeering' -VirtualNetwork $myvmvnet -RemoteVirtualNetworkId $myvnet.Id
+Add-AzVirtualNetworkPeering -Name 'VMVNet2VNetPeering' -VirtualNetwork $vmvnet -RemoteVirtualNetworkId $vnet.Id
 ```
 
 ---

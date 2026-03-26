@@ -21,13 +21,13 @@ After you [create one or more Azure Payment HSMs](create-payment-hsm.md), you ca
 To list all of your payment HSMs, use the [az dedicated-hsm list](/cli/azure/dedicated-hsm#az-dedicated-hsm-list) command. (The output of this command is more readable when displayed in table-format.)
 
 ```azurecli-interactive
-az dedicated-hsm list --resource-group "myResourceGroup" -o table
+az dedicated-hsm list --resource-group "<resource-group>" -o table
 ```
 
 To see a specific payment HSM and its properties, use the Azure CLI [az dedicated-hsm show](/cli/azure/dedicated-hsm#az-dedicated-hsm-show) command.
 
 ```azurecli-interactive
-az dedicated-hsm show --resource-group "myResourceGroup" --name "myPaymentHSM"
+az dedicated-hsm show --resource-group "<resource-group>" --name "<payment-hsm-name>"
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -37,13 +37,13 @@ To list all of your payment HSMs, use the [Get-AzDedicatedHsm](/powershell/modul
 To get more information on your payment HSMs, you can use the [Get-AzResource](/powershell/module/az.dedicatedhsm/get-azdedicatedhsm) cmdlet, specifying the resource group, and "Microsoft.HardwareSecurityModules/dedicatedHSMs" as the resource type:
 
 ```azurepowershell-interactive
-Get-AzResource -ResourceGroupName "myResourceGroup" -ResourceType "Microsoft.HardwareSecurityModules/dedicatedHSMs"
+Get-AzResource -ResourceGroupName "<resource-group>" -ResourceType "Microsoft.HardwareSecurityModules/dedicatedHSMs"
 ```
 
 To view a specific payment HSM and its properties, use the Azure PowerShell [Get-AzDedicatedHsm](/powershell/module/az.dedicatedhsm/get-azdedicatedhsm) cmdlet.
 
 ```azurepowershell-interactive
-Get-AzDedicatedHsm -Name "myPaymentHSM" -ResourceGroup "myResourceGroup"
+Get-AzDedicatedHsm -Name "<payment-hsm-name>" -ResourceGroup "<resource-group>"
 ```
 
 # [Azure portal](#tab/azure-portal)

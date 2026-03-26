@@ -92,15 +92,15 @@ Next, use the [DefaultAzureCredential Class](/python/api/azure-identity/azure.id
 credential = DefaultAzureCredential()
 ```
 
-Finish setup by setting some variables for use in your application: the resource group (myResourceGroup), the name of ledger you want to create, and two urls to be used by the data plane client library.
+Finish setup by setting some variables for use in your application: the resource group, the name of ledger you want to create, and two urls to be used by the data plane client library.
 
   > [!Important]
-  > Each ledger must have a globally unique name. Replace \<your-unique-ledger-name\> with the name of your ledger in the following example.
+  > Each ledger must have a globally unique name. Replace `<ledger-name>` with the name of your ledger in the following example.
 
 ```python
-resource_group = "<azure-resource-group>"
-ledger_name = "<your-unique-ledger-name>"
-subscription_id = "<azure-subscription-id>"
+resource_group = "<resource-group>"
+ledger_name = "<ledger-name>"
+subscription_id = "<subscription-id>"
 
 identity_url = "https://identity.confidential-ledger.core.azure.com"
 ledger_url = "https://" + ledger_name + ".confidential-ledger.azure.com"
@@ -223,9 +223,9 @@ from azure.confidentialledger.certificate import ConfidentialLedgerCertificateCl
 
 # Set variables
 
-resource_group = "<azure-resource-group>"
-ledger_name = "<your-unique-ledger-name>"
-subscription_id = "<azure-subscription-id>"
+resource_group = "<resource-group>"
+ledger_name = "<ledger-name>"
+subscription_id = "<subscription-id>"
 
 identity_url = "https://identity.confidential-ledger.core.azure.com"
 ledger_url = "https://" + ledger_name + ".confidential-ledger.azure.com"
@@ -329,7 +329,7 @@ Other Azure confidential ledger articles can build upon this quickstart. If you 
 Otherwise, when you're finished with the resources created in this article, use the Azure CLI [az group delete](/cli/azure/group?#az-group-delete) command to delete the resource group and all its contained resources:
 
 ```azurecli
-az group delete --resource-group myResourceGroup
+az group delete --resource-group <resource-group>
 ```
 
 ## Next steps
