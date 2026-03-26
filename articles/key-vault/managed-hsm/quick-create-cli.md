@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: quickstart
-ms.date: 05/30/2025
+ms.date: 03/13/2026
 ms.author: mbaldwin
 ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
@@ -15,20 +15,21 @@ ms.devlang: azurecli
 
 # Quickstart: Provision and activate a Managed HSM using Azure CLI
 
-In this quickstart, you create and activate an Azure Key Vault Managed HSM (Hardware Security Module) with Azure CLI. Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using **FIPS 140-3 Level 3** validated HSMs. For more information on Managed HSM, you may review the [Overview](overview.md).
+In this quickstart, you create and activate an Azure Key Vault Managed HSM (Hardware Security Module) by using Azure CLI. [!INCLUDE [Managed HSM description](../includes/managed-hsm/intro.md)]
 
 ## Prerequisites
 
-To complete the steps in this article, you must have:
+[!INCLUDE [Azure subscription prerequisite](../includes/azure-subscription-prerequisite.md)]
 
-* A subscription to Microsoft Azure. If you do not have one, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
-* The Azure CLI version 2.25.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
+You also need:
+
+* Azure CLI version 2.25.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## Sign in to Azure
 
-To sign in to Azure using the CLI, you can type:
+To sign in to Azure by using the CLI, type:
 
 ```azurecli
 az login
@@ -36,42 +37,41 @@ az login
 
 ## Create a resource group
 
-A resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *ContosoResourceGroup* in the *norwayeast* location.
+A resource group is a logical container into which you deploy and manage Azure resources. The following example creates a resource group named *ContosoResourceGroup* in the *eastus* location.
 
 ```azurecli-interactive
-az group create --name "ContosoResourceGroup" --location norwayeast
+az group create --name "ContosoResourceGroup" --location eastus
 ```
 
 ## Create a Managed HSM
 
 Creating a Managed HSM is a two-step process:
 1. Provision a Managed HSM resource.
-2. Activate your Managed HSM by downloading an artifact called the *security domain*.
+1. Activate your Managed HSM by downloading an artifact called the *security domain*.
 
 ### Provision a Managed HSM
 
 Use the `az keyvault create` command to create a Managed HSM. This script has three mandatory parameters: a resource group name, an HSM name, and the geographic location.
 
-You need to provide following inputs to create a Managed HSM resource:
-- A resource group where it is placed in your subscription.
-- Azure location.
+To create a Managed HSM resource, provide the following inputs:
+- A resource group where you place the Managed HSM in your subscription.
+- An Azure location.
 - A list of initial administrators.
 
-The following example creates an HSM named **ContosoMHSM**, in the resource group  **ContosoResourceGroup**, residing in the **Norway East** location, with **the current signed in user** as the only administrator, with **7 days retention period** for soft-delete. The Managed HSM continues to be billed until it is purged in a **soft-delete period**. For more information, see [Managed HSM soft-delete and purge protection](recovery.md#what-are-soft-delete-and-purge-protection) and read more about [Managed HSM soft-delete](soft-delete-overview.md).
+The following example creates an HSM named **ContosoMHSM** in the resource group **ContosoResourceGroup**, residing in the **East US** location, with **the current signed in user** as the only administrator, and a **7-day retention period** for soft-delete. You continue to pay for the Managed HSM until it's purged in a **soft-delete period**. For more information, see [Managed HSM soft-delete and purge protection](recovery.md#what-are-soft-delete-and-purge-protection) and read more about [Managed HSM soft-delete](soft-delete-overview.md).
 
 ```azurecli-interactive
 oid=$(az ad signed-in-user show --query id -o tsv)
-az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGroup" --location "norwayeast" --administrators $oid --retention-days 7
+az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGroup" --location "eastus" --administrators $oid --retention-days 7
 ```
 
 > [!NOTE]
-> If you are using Managed Identities as the initial admins of your Managed HSM, you should input the OID/PrincipalID of the Managed Identities after '--administrators' and not the ClientID.
+> If you use Managed Identities as the initial admins of your Managed HSM, enter the OID/PrincipalID of the Managed Identities after `--administrators` and not the ClientID.
 
 > [!NOTE]
-> The create command can take a few minutes. Once it returns successfully, you are ready to activate your HSM.
+> The create command can take a few minutes. When it returns successfully, you're ready to activate your HSM.
 
-> [!WARNING]
-> Managed HSM instances are considered always-in-use. If you choose to enable purge protection using the `--enable-purge-protection` flag, you are billed for the entirety of the retention period.
+[!INCLUDE [Managed HSM billing warning](../includes/managed-hsm/billing-warning.md)]
 
 The output of this command shows properties of the Managed HSM that you created. The two most important properties are:
 
@@ -82,9 +82,9 @@ Your Azure account is now authorized to perform any operations on this Managed H
 
 ### Activate your Managed HSM
 
-All data plane commands are disabled until the HSM is activated. For example, you are not able to create keys or assign roles. Only the designated administrators that were assigned during the create command can activate the HSM. To activate the HSM, you must download the [Security Domain](security-domain.md).
+All data plane commands are disabled until you activate the HSM. For example, you can't create keys or assign roles. Only the designated administrators that you assign during the create command can activate the HSM. To activate the HSM, you must download the [Security Domain](security-domain.md).
 
-[!INCLUDE [Security domain prerequisites](../includes/managed-hsm/security-domain-prereqs.md)]
+[!INCLUDE [Security domain prerequisites](../includes/managed-hsm/security-domain-prerequisites.md)]
 
 Use the `az keyvault security-domain download` command to download the security domain and activate your Managed HSM. The following example uses three RSA key pairs (only public keys are needed for this command) and sets the quorum to two.
 
@@ -105,8 +105,7 @@ When no longer needed, you can use the [az group delete](/cli/azure/group) comma
 ```azurecli-interactive
 az group delete --name ContosoResourceGroup
 ```
-> [!WARNING]
-> Deleting the resource group puts the Managed HSM into a soft-deleted state. The Managed HSM continues to be billed until it is purged. See [Managed HSM soft-delete and purge protection](recovery.md)
+[!INCLUDE [Managed HSM cleanup warning](../includes/managed-hsm/cleanup-warning.md)]
 
 ## Next steps
 

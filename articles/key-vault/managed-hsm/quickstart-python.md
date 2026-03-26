@@ -24,7 +24,7 @@ Managed HSM client library resources:
 
 ## Prerequisites
 
-[!INCLUDE [Managed HSM SDK prerequisites](../includes/managed-hsm/sdk-prereqs.md)]
+[!INCLUDE [Managed HSM SDK prerequisites](../includes/managed-hsm/sdk-prerequisites.md)]
 - [Python 3.8+](https://www.python.org/downloads/)
 
 ## Set up your local environment
@@ -64,7 +64,7 @@ pip install azure-identity azure-keyvault-keys
 
 ### Create the sample code
 
-Create a file named `mhsm_keys.py` with the following code. Replace `<your-managed-hsm-name>` with your Managed HSM name, and `<your-key-name>` with an existing key name.
+Create a file named `mhsm_keys.py` with the following code. Replace *ContosoMHSM* with your Managed HSM name, and *ContosoKey* with an existing key name.
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -75,11 +75,11 @@ from azure.keyvault.keys.crypto import CryptographyClient, EncryptionAlgorithm
 credential = DefaultAzureCredential()
 
 # Connect to Managed HSM - replace with your HSM URI
-hsm_uri = "https://<your-managed-hsm-name>.managedhsm.azure.net"
+hsm_uri = "https://ContosoMHSM.managedhsm.azure.net"
 key_client = KeyClient(vault_url=hsm_uri, credential=credential)
 
 # Get a key reference
-key_name = "<your-key-name>"
+key_name = "ContosoKey"
 print(f"Retrieving key '{key_name}' from Managed HSM...")
 key = key_client.get_key(key_name)
 print(f"Key retrieved. Key type: {key.key_type}")
@@ -154,7 +154,4 @@ az group delete --name ContosoResourceGroup
 
 ## Next steps
 
-- Learn about [Secure access to your managed HSMs](how-to-secure-access.md)
-- Configure [automated key rotation](key-rotation.md)
-- Review [Managed HSM best practices](secure-managed-hsm.md)
-- Learn about [Managed HSM local RBAC built-in roles](built-in-roles.md)
+[!INCLUDE [SDK next steps](../includes/managed-hsm/sdk-next-steps.md)]

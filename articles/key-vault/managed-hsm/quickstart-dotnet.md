@@ -24,7 +24,7 @@ Managed HSM client library resources:
 
 ## Prerequisites
 
-[!INCLUDE [Managed HSM SDK prerequisites](../includes/managed-hsm/sdk-prereqs.md)]
+[!INCLUDE [Managed HSM SDK prerequisites](../includes/managed-hsm/sdk-prerequisites.md)]
 - [.NET 6 SDK or later](https://dotnet.microsoft.com/download)
 
 ## Set up your local environment
@@ -64,7 +64,7 @@ dotnet add package Azure.Security.KeyVault.Keys
 
 ### Create the sample code
 
-Replace the contents of `Program.cs` with the following code. Replace `<your-managed-hsm-name>` with your Managed HSM name, and `<your-key-name>` with an existing key name.
+Replace the contents of `Program.cs` with the following code. Replace *ContosoMHSM* with your Managed HSM name, and *ContosoKey* with an existing key name.
 
 ```csharp
 using Azure.Identity;
@@ -76,11 +76,11 @@ using Azure.Security.KeyVault.Keys.Cryptography;
 var credential = new DefaultAzureCredential();
 
 // Connect to Managed HSM - replace with your HSM URI
-var hsmUri = new Uri("https://<your-managed-hsm-name>.managedhsm.azure.net");
+var hsmUri = new Uri("https://ContosoMHSM.managedhsm.azure.net");
 var keyClient = new KeyClient(hsmUri, credential);
 
 // Get a key reference
-string keyName = "<your-key-name>";
+string keyName = "ContosoKey";
 Console.WriteLine($"Retrieving key '{keyName}' from Managed HSM...");
 KeyVaultKey key = await keyClient.GetKeyAsync(keyName);
 Console.WriteLine($"Key retrieved. Key type: {key.KeyType}");
@@ -155,7 +155,4 @@ az group delete --name ContosoResourceGroup
 
 ## Next steps
 
-- Learn about [Secure access to your managed HSMs](how-to-secure-access.md)
-- Configure [automated key rotation](key-rotation.md)
-- Review [Managed HSM best practices](secure-managed-hsm.md)
-- Learn about [Managed HSM local RBAC built-in roles](built-in-roles.md)
+[!INCLUDE [SDK next steps](../includes/managed-hsm/sdk-next-steps.md)]
