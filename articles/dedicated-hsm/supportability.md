@@ -3,7 +3,7 @@ title: Supportability - Azure Dedicated HSM | Microsoft Docs
 description: Support options and areas of responsibility for Azure Dedicated HSM in different scenarios
 services: dedicated-hsm
 author: johndaw
-ms.topic: article
+ms.topic: concept-article
 ms.service: azure-dedicated-hsm
 ms.date: 02/20/2024
 ms.author: mbaldwin
