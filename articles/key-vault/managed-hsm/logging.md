@@ -13,23 +13,24 @@ ms.date: 12/03/2025
 
 # Managed HSM logging
 
-After you create one or more Managed HSMs, you'll likely want to monitor how and when your HSMs are accessed, and by who. You can do this by enabling logging, which saves information in an Azure storage account that you provide. A new container named **insights-logs-auditevent** is automatically created for your specified storage account. You can use this same storage account for collecting logs for multiple Managed HSMs. You can also choose to send your logs to a log analytics workspace, which can then be used to enable Microsoft Sentinel to detect suspicious activity automatically.
+After you create one or more Managed HSMs, you likely want to monitor how and when your HSMs are accessed, and by whom. You can monitor this access by enabling logging, which saves information in an Azure storage account that you provide. A new container named **insights-logs-auditevent** is automatically created for your specified storage account. You can use this same storage account for collecting logs for multiple Managed HSMs. You can also choose to send your logs to a Log Analytics workspace, which you can use to enable Microsoft Sentinel to detect suspicious activity automatically.
 
-You can access your logging information 10 minutes (at most) after the Managed HSM operation. In most cases, it is sooner. It's up to you to manage your logs in your storage account:
+You can access your logging information 10 minutes (at most) after the Managed HSM operation. In most cases, it's sooner. You manage your logs in your storage account:
 
 - Use standard Azure access control methods to secure your logs by restricting who can access them.
 - Delete logs that you no longer want to keep in your storage account.
 
-Use this tutorial to help you get started with Managed HSM logging. You should have a storage account or log analytics workspace already created before you enable logging and interpret the collected log information.
+Use this tutorial to help you get started with Managed HSM logging. You should already have a storage account or Log Analytics workspace before you enable logging and interpret the collected log information.
 
 ## Prerequisites
 
-To complete the steps in this article, you must have the following items:
+[!INCLUDE [Azure subscription prerequisite](../includes/azure-subscription-prerequisite.md)]
 
-* A subscription to Microsoft Azure. If you don't have one, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
+You also need:
+
 * The Azure CLI version 2.25.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
-* A managed HSM in your subscription. See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to provision and activate a managed HSM.
-* An Azure storage account and/or a Log Analytics workspace. If you do not have one or both, you can create them using the Azure portal:
+* A Managed HSM in your subscription. See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to provision and activate a Managed HSM.
+* An Azure storage account and/or a Log Analytics workspace. If you don't have one or both, you can create them by using the Azure portal:
   - [Create a storage account](/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
   - [Create Log Analytics workspaces](/azure/azure-monitor/logs/quick-create-workspace?tabs=azure-portal).
   
@@ -45,7 +46,7 @@ Sign in to your Azure subscription by using the Azure CLI [az login](/cli/azure/
 az login
 ```
 
-For more information on login options via the CLI, take a look at [sign in with Azure CLI](/cli/azure/authenticate-azure-cli)
+For more information about authentication options through the CLI, see [sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
 # [Azure PowerShell](#tab/azurepowershell)
 
@@ -55,7 +56,7 @@ Sign in to your Azure subscription by using the [Connect-AzAccount](/powershell/
 Connect-AzAccount
 ```
 
-For more information on login options via PowerShell, see [sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
+For more information about authentication options through PowerShell, see [sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 # [Portal](#tab/azure-portal)
 
@@ -71,7 +72,7 @@ The first step in setting up key logging is to find the Managed HSM that you wan
 
 Use the Azure CLI [az keyvault show](/cli/azure/keyvault#az-keyvault-show) command to find the Managed HSM that you want to log.
 
-You can also use the Azure CLI [az storage account show](/cli/azure/storage/account#az-storage-account-show) command to find the storage account that you want to use for logging, and/or the Azure CLI [az monitor log-analytics workspace show](/cli/azure/monitor/log-analytics/workspace#az-monitor-log-analytics-workspace-show) command to find the log analytics workspace that you want to use for logging.
+You can also use the Azure CLI [az storage account show](/cli/azure/storage/account#az-storage-account-show) command to find the storage account that you want to use for logging. To find the log analytics workspace that you want to use for logging, use the Azure CLI [az monitor log-analytics workspace show](/cli/azure/monitor/log-analytics/workspace#az-monitor-log-analytics-workspace-show) command.
 
 ```azurecli-interactive
 hsmresource=$(az keyvault show --hsm-name ContosoMHSM --query id -o tsv)
@@ -83,7 +84,7 @@ loganalyticsresource=$(az monitor log-analytics workspace show --resource-group 
 
 Use the Azure PowerShell `Get-AzKeyVault` cmdlet to find the Managed HSM that you want to log.
 
-You can also use the Azure PowerShell `Get-AzStorageAccount` cmdlet to find the storage account that you want to use for logging, and/or the Azure PowerShell `Get-AzOperationalInsightsWorkspace` cmdlet to find the log analytics workspace that you want to use for logging.
+You can also use the Azure PowerShell `Get-AzStorageAccount` cmdlet to find the storage account that you want to use for logging. To find the log analytics workspace that you want to use for logging, use the Azure PowerShell `Get-AzOperationalInsightsWorkspace` cmdlet.
 
 ```powershell
 $hsmresource = (Get-AzKeyVaultManagedHSM -ResourceGroupName "ContosoResourceGroup" -Name "ContosoMHSM").ResourceId
@@ -93,7 +94,7 @@ $loganalyticsresource = (Get-AzOperationalInsightsWorkspace -ResourceGroupName "
 
 # [Portal](#tab/azure-portal)
 
-Find your Managed HSM from the Azure portal landing page by clicking "See all" under "Resources" and selecting your Managed HSM by name. You can find your storage account and log analytics workspace in the same way.
+Find your Managed HSM from the Azure portal landing page by clicking **See all** under **Resources** and selecting your Managed HSM by name. You can find your storage account and log analytics workspace in the same way.
 
 ---
 
@@ -101,7 +102,7 @@ Find your Managed HSM from the Azure portal landing page by clicking "See all" u
 
 # [Azure CLI](#tab/azure-cli)
 
-To enable logging for Managed HSM, use the Azure CLI [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command, together with the variables from the previous commands. We will also set the `-Enabled` flag to "true" and set the `category` to "AuditEvent" (the only category for Managed HSM logging).
+To enable logging for Managed HSM, use the Azure CLI [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command, together with the variables from the previous commands. Set the `-Enabled` flag to `true` and set the `category` to `AuditEvent` (the only category for Managed HSM logging).
 
 To send the logs to a storage account:
 
@@ -117,7 +118,7 @@ az monitor diagnostic-settings create --name "ContosoMHSM-Diagnostics" --resourc
 
 # [Azure PowerShell](#tab/azurepowershell)
 
-To enable logging for Managed HSM, use the Azure PowerShell [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet, together with the variables from the previous commands. We will also set the `-Enabled` flag to `$true` and set the `category` to "AuditEvent" (the only category for Managed HSM logging).
+To enable logging for Managed HSM, use the Azure PowerShell [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet, together with the variables from the previous commands. Set the `-Enabled` flag to `$true` and set the `category` to `AuditEvent` (the only category for Managed HSM logging).
 
 To send the logs to a storage account:
 
@@ -133,19 +134,19 @@ Set-AzDiagnosticSetting -Name "ContosoMHSM-Diagnostics" -ResourceId $hsmresource
 
 # [Portal](#tab/azure-portal)
 
-1. Select your HSM resource in the Azure portal, and then select Diagnostic settings under Monitoring.
+1. Select your HSM resource in the Azure portal, and then select **Diagnostic settings** under **Monitoring**.
 
   :::image type="content" source="./media/logging-1.png" alt-text="A screenshot of the Azure portal showing the selection of Diagnostic settings under Monitoring for an HSM resource." lightbox="./media/logging-1.png":::
 
-1. Select Add diagnostic setting.
+1. Select **Add diagnostic setting**.
 
   :::image type="content" source="./media/logging-2.png" alt-text="A screenshot of the Azure portal showing the Add diagnostic setting option." lightbox="./media/logging-2.png":::
 
-1. Enter a Name for the diagnostic setting.
+1. Enter a name for the diagnostic setting.
 
   :::image type="content" source="./media/logging-3.png" alt-text="A screenshot of the Azure portal showing the field to enter a name for the diagnostic setting." lightbox="./media/logging-3.png":::
 
-1. Select the category group of logs and/or metrics you want to send and the Destination details of the logs. In this example, we will select audit and allLogs as well as AllMetrics and send to a Log Analytics workspace. Enter the details for the destination, and select Save.
+1. Select the category group of logs and metrics you want to send and the destination details of the logs. In this example, select `audit` and `allLogs` as well as `AllMetrics` and send to a Log Analytics workspace. Enter the details for the destination, and select **Save**.
 
   :::image type="content" source="./media/logging-4.png" alt-text="A screenshot of the Azure portal showing the selection of log categories and destination details for the diagnostic setting." lightbox="./media/logging-4.png":::
 
@@ -153,27 +154,27 @@ Set-AzDiagnosticSetting -Name "ContosoMHSM-Diagnostics" -ResourceId $hsmresource
 
 ## What's logged
 
-The following types of operations and events are logged for Managed HSM:
+Managed HSM logs the following types of operations and events:
 
-* All authenticated REST API requests, including failed requests as a result of access permissions, system errors, firewall blocks, or bad requests.
+* All authenticated REST API requests, including failed requests due to access permissions, system errors, firewall blocks, or bad requests.
 * Managed plane operations on the Managed HSM resource itself, including creation, deletion, and updating attributes such as tags.
-* Security Domain related operations such as initialize & download, initialize recovery, upload
-* Full HSM backup, restore, and selective restore operations
-* Role management operations such as create/view/delete role assignments and create/view/delete custom role definitions
+* Security Domain related operations such as initialize and download, initialize recovery, and upload.
+* Full HSM backup, restore, and selective restore operations.
+* Role management operations such as create, view, and delete role assignments, and create, view, and delete custom role definitions.
 * Operations on keys, including:
-  * Creating, modifying, or deleting the keys.
-  * Signing, verifying, encrypting, decrypting, wrapping and unwrapping keys, listing keys.
-  * Key backup, restore, purge
-  * Key release
+  * Creating, modifying, or deleting keys.
+  * Signing, verifying, encrypting, decrypting, wrapping, and unwrapping keys, and listing keys.
+  * Key backup, restore, and purge.
+  * Key release.
 * Invalid paths that result in a 404 response. 
 
 ## Access your logs
 
 ### Storage account
 
-Managed HSM logs are stored in the **insights-logs-auditevent** container in the storage account that you provided. To view the logs, you have to download blobs. For information on Azure Storage, see [Create, download, and list blobs with Azure CLI](/azure/storage/blobs/storage-quickstart-blobs-cli).
+The **insights-logs-auditevent** container in the storage account that you provide stores Managed HSM logs. To view the logs, you need to download blobs. For information on Azure Storage, see [Create, download, and list blobs with Azure CLI](/azure/storage/blobs/storage-quickstart-blobs-cli).
 
-Individual blobs are stored as text, formatted as a JSON. Let's look at an example log entry. This example shows the log entry when a request to create a full backup is sent to the managed HSM.
+Individual blobs are stored as text, formatted as JSON. Here's an example log entry. This example shows the log entry when a request to create a full backup is sent to the managed HSM.
 
 ```json
 [
@@ -209,17 +210,17 @@ Individual blobs are stored as text, formatted as a JSON. Let's look at an examp
 
 ### Log Analytics workspace
 
-Managed HSM logs are stored in the Log Analytics workspace that you provided. You can use the Azure portal to query the logs. For more information, see [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
+The Log Analytics workspace that you provide stores Managed HSM logs. You can use the Azure portal to query the logs. For more information, see [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
 
 ## Use Azure Monitor logs
 
-You can use the Key Vault solution in Azure Monitor logs to review Managed HSM AuditEvent logs. In Azure Monitor logs, you use log queries to analyze data and get the information you need. For more information, including how to set it up, see [Monitor Azure Managed HSM](logging-azure-monitor.md).
+Use the Key Vault solution in Azure Monitor logs to review Managed HSM AuditEvent logs. In Azure Monitor logs, use log queries to analyze data and get the information you need. For more information, including how to set it up, see [Monitor Azure Managed HSM](logging-azure-monitor.md).
 
-For learn how to analyze logs, see [Sample Kusto log queries](../general/monitor-key-vault.md#analyzing-logs).
+To learn how to analyze logs, see [Sample Kusto log queries](../general/monitor-key-vault.md#analyzing-logs).
 
-If you are sending your logs to a log analytics workspace, you can use Microsoft Sentinel to automatically detect suspicious activity. See [Microsoft Sentinel for Azure Managed HSM](sentinel.md).
+If you send your logs to a Log Analytics workspace, you can use Microsoft Sentinel to automatically detect suspicious activity. See [Microsoft Sentinel for Azure Managed HSM](sentinel.md).
 
 ## Next steps
 
-- Learn about [Secure your Azure Managed HSM deployment](secure-managed-hsm.md) to provision and use a managed HSM
-- Learn about How to [Backup and Restore](backup-restore.md) a Managed HSM
+- Learn about [Secure your Azure Managed HSM deployment](secure-managed-hsm.md) to provision and use a managed HSM.
+- Learn about how to [Backup and Restore](backup-restore.md) a Managed HSM.

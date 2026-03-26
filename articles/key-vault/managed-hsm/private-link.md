@@ -134,38 +134,38 @@ In the "Networking" tab:
 Open the command line and run the following command:
 
 ```console
-nslookup <your-HSM-name>.managedhsm.azure.net
+nslookup ContosoMHSM.managedhsm.azure.net
 ```
 
-If you run the ns lookup command to resolve the IP address of a managed HSM over a public endpoint, you see a result that looks like this:
+If you run the `nslookup` command to resolve the IP address of a managed HSM over a public endpoint, you see a result that looks like this:
 
 ```console
-c:\ >nslookup <your-hsm-name>.managedhsm.azure.net
+c:\ >nslookup ContosoMHSM.managedhsm.azure.net
 
 Non-authoritative answer:
 Name:    
 Address:  (public IP address)
-Aliases:  <your-hsm-name>.managedhsm.azure.net
+Aliases:  ContosoMHSM.managedhsm.azure.net
 ```
 
-If you run the ns lookup command to resolve the IP address of a managed HSM over a private endpoint, you see a result that looks like this:
+If you run the `nslookup` command to resolve the IP address of a managed HSM over a private endpoint, you see a result that looks like this:
 
 ```console
-c:\ >nslookup your_hsm_name.managedhsm.azure.net
+c:\ >nslookup ContosoMHSM.managedhsm.azure.net
 
 Non-authoritative answer:
 Name:    
 Address:  10.1.0.5 (private IP address)
-Aliases:  <your-hsm-name>.managed.azure.net
-          <your-hsm-name>.privatelink.managedhsm.azure.net
+Aliases:  ContosoMHSM.managed.azure.net
+          ContosoMHSM.privatelink.managedhsm.azure.net
 ```
 
-## Troubleshooting Guide
+## Troubleshooting guide
 
-* Check to make sure the private endpoint is in the approved state.
-    1. Use `az keyvault private-endpoint-connections show` subcommand to see the status of a private endpoint connection.
-    2. Make sure connection state is Approved and provisioning state is Succeeded.
-    3. Make sure the virtual network matches the one you are using.
+* Check that the private endpoint is in the approved state.
+    1. Use the `az keyvault private-endpoint-connections show` subcommand to see the status of a private endpoint connection.
+    1. Make sure the connection state is **Approved** and the provisioning state is **Succeeded**.
+    1. Make sure the virtual network matches the one you're using.
 
 * Check to make sure you have a Private DNS Zone resource.
     1. You must have a Private DNS Zone resource with the exact name: privatelink.managedhsm.azure.net.

@@ -5,7 +5,7 @@ services: confidential-ledger
 author: tachou
 
 ms.service: azure-confidential-ledger
-ms.topic: conceptual
+ms.topic: reliability-article
 ms.date: 10/21/2025
 ms.author: tachou
 ---

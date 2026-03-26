@@ -6,7 +6,7 @@ author: msmbaldwin
 
 ms.service: azure-key-vault
 ms.subservice: keys
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.date: 01/30/2026
 ms.author: mbaldwin 
 ms.custom: devx-track-azurecli

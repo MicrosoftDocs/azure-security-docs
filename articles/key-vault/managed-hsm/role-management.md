@@ -13,23 +13,24 @@ ms.author: mbaldwin
 # Managed HSM role management
 
 > [!NOTE]
-> Key Vault supports two types of resource: vaults and managed HSMs. This article is about **Managed HSM**. If you want to learn how to manage a vault, see [Quickstart: Create a key vault using the Azure CLI](../general/quick-create-cli.md).
+> Key Vault supports two types of resources: vaults and managed HSMs. This article is about **Managed HSM**. To learn how to manage a vault, see [Quickstart: Create a key vault using the Azure CLI](../general/quick-create-cli.md).
 
-This article provides practical instructions for managing roles and role assignments for a Managed HSM using the Azure CLI. It implements the role-based access control model described in [Access control for Managed HSM](access-control.md) using the built-in roles documented in [Local RBAC built-in roles for Managed HSM](built-in-roles.md).
+This article provides practical instructions for managing roles and role assignments for a Managed HSM by using the Azure CLI. It implements the role-based access control model described in [Access control for Managed HSM](access-control.md) by using the built-in roles documented in [Local RBAC built-in roles for Managed HSM](built-in-roles.md).
 
-For an overview of Managed HSM, see [What is Managed HSM?](overview.md). If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
+For an overview of Managed HSM, see [What is Managed HSM?](overview.md) If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
-To allow a security principal (such as a user, a service principal, group or a managed identity) to perform managed HSM data plane operations, they must be assigned a role that permits performing those operations. For example, if you want to allow an application to perform a sign operation using a key, it must be assigned a role that contains the "Microsoft.KeyVault/managedHSM/keys/sign/action" as one of the data actions. A role can be assigned at a specific scope. Managed HSM local RBAC supports two scopes, HSM-wide (`/` or `/keys`) and per key (`/keys/<keyname>`).
+To allow a security principal (such as a user, a service principal, group, or a managed identity) to perform managed HSM data plane operations, assign them a role that permits those operations. For example, if you want to allow an application to perform a sign operation by using a key, assign it a role that contains the `Microsoft.KeyVault/managedHSM/keys/sign/action` as one of the data actions. Assign a role at a specific scope. Managed HSM local RBAC supports two scopes, HSM-wide (`/` or `/keys`) and per key (`/keys/<keyname>`).
 
 For a list of all Managed HSM built-in roles and the operations they permit, see [Managed HSM built-in roles](built-in-roles.md).
 
 ## Prerequisites
 
-To use the Azure CLI commands in this article, you must have the following items:
+[!INCLUDE [Azure subscription prerequisite](../includes/azure-subscription-prerequisite.md)]
 
-* A subscription to Microsoft Azure. If you don't have one, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
-* The Azure CLI version 2.25.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
-* A managed HSM in your subscription. See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to provision and activate a managed HSM.
+You also need:
+
+* Azure CLI version 2.25.0 or later. Run `az --version` to find the version. To install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
+* A managed HSM in your subscription. To provision and activate a managed HSM, see [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md).
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
