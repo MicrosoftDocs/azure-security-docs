@@ -111,17 +111,17 @@ You can use Azure PowerShell to create and manage Azure resources by using comma
 1.  Create an Azure resource group by using [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. 
 
     ```azurepowershell-interactive
-    New-AzResourceGroup -Name ContosoResourceGroup -Location EastUS
+    New-AzResourceGroup -Name <resource-group> -Location <location>
     ```
 
-2. Create a key vault that has a unique name. Here, `Contoso-Vaultname` is the name for the key vault.
+2. Create a key vault that has a unique name.
 
-   - **Vault name**: `Contoso-Vaultname`
-   - **Resource group name**: `ContosoResourceGroup`
-   - **Location**: `EastUS`
+   - **Vault name**: A unique name for your vault
+   - **Resource group name**: The resource group from step 1
+   - **Location**: Your preferred location
 
     ```azurepowershell-interactive
-    New-AzKeyVault -Name 'Contoso-Vaultname' -ResourceGroupName 'ContosoResourceGroup' -Location 'EastUS' -EnableRbacAuthorization $true
+    New-AzKeyVault -Name '<vault-name>' -ResourceGroupName '<resource-group>' -Location '<location>' -EnableRbacAuthorization $true
    ```
 
 3. Define variables for the following values from your DigiCert CertCentral account:
@@ -138,14 +138,14 @@ You can use Azure PowerShell to create and manage Azure resources by using comma
 
 4. Set the issuer. Doing so will add Digicert as a certificate authority in the key vault. [Learn more about the parameters.](/powershell/module/az.keyvault/Set-AzKeyVaultCertificateIssuer)
    ```azurepowershell-interactive
-   Set-AzKeyVaultCertificateIssuer -VaultName "Contoso-Vaultname" -Name "TestIssuer01" -IssuerProvider DigiCert -AccountId $accountId -ApiKey $secureApiKey -OrganizationDetails $org -PassThru
+   Set-AzKeyVaultCertificateIssuer -VaultName "<vault-name>" -Name "TestIssuer01" -IssuerProvider DigiCert -AccountId $accountId -ApiKey $secureApiKey -OrganizationDetails $org -PassThru
    ```
 
 5. Set the policy for the certificate and issuing certificate from DigiCert directly in Key Vault:
 
    ```azurepowershell-interactive
-   $Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=contoso.com" -IssuerName "TestIssuer01" -ValidityInMonths 12 -RenewAtNumberOfDaysBeforeExpiry 60
-   Add-AzKeyVaultCertificate -VaultName "Contoso-Vaultname" -Name "ExampleCertificate" -CertificatePolicy $Policy
+   $Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=<domain-name>" -IssuerName "TestIssuer01" -ValidityInMonths 12 -RenewAtNumberOfDaysBeforeExpiry 60
+   Add-AzKeyVaultCertificate -VaultName "<vault-name>" -Name "ExampleCertificate" -CertificatePolicy $Policy
    ```
 
 The certificate is now issued by DigiCert certificate authority in the specified key vault.

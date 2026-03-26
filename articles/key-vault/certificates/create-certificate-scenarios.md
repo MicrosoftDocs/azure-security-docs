@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: how-to
-ms.date: 01/30/2026
+ms.date: 03/26/2026
 
 ms.author: mbaldwin
 
@@ -96,7 +96,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 {
   "id": “https://mykeyvault.vault.azure.net/certificates/mycert1/pending",
   "issuer": {
-    "name": "{issuer-name}"
+    "name": "<issuer-name>"
   },
   "csr": "MIICq......DD5Lp5cqXg==",
   "cancellation_requested": false,
@@ -128,7 +128,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 {
   "id": “https://mykeyvault.vault.azure.net/certificates/mycert1/pending",
   "issuer": {
-    "name": "{issuer-name}"
+    "name": "<issuer-name>"
   },
   "csr": "MIICq......DD5Lp5cqXg==",
   "cancellation_requested": false,
@@ -160,7 +160,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 {
   "id": “https://mykeyvault.vault.azure.net/certificates/mycert1/pending",
   "issuer": {
-    "name": "{issuer-name}"
+    "name": "<issuer-name>"
   },
   "csr": "MIICq......DD5Lp5cqXg==",
   "cancellation_requested": false,
@@ -310,7 +310,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 {
   "id": “https://mykeyvault.vault.azure.net/certificates/mycert1/pending",
   "issuer": {
-    "name": "{issuer-name}"
+    "name": "<issuer-name>"
   },
   "csr": "MIICq......DD5Lp5cqXg==",
   "cancellation_requested": true,
@@ -343,7 +343,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 {
   "id": “https://mykeyvault.vault.azure.net/certificates/mycert1/pending",
   "issuer": {
-    "name": "{issuer-name}"
+    "name": "<issuer-name>"
   },
   "csr": "MIICq......DD5Lp5cqXg==",
   "cancellation_requested": false,
@@ -410,7 +410,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 |Element name|Required|Type|Version|Description|
 |------------------|--------------|----------|-------------|-----------------|
-|x5c|Yes|array|\<introducing version>|X509 certificate chain as base 64 string array.|
+|x5c|Yes|array|\<introducing-version>|X509 certificate chain as base 64 string array.|
 
 ### Response
 

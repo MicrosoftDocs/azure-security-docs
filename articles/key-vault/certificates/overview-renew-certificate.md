@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: overview
-ms.date: 04/14/2025
+ms.date: 03/26/2026
 
 ms.author: mbaldwin
 ---
@@ -61,7 +61,7 @@ To renew a nonintegrated CA certificate:
 1. On the certificate pane, select **New Version**.
 3. On the **Create a certificate** page, make sure the **Generate** option is selected under **Method of Certificate Creation**.
 4. Verify the **Subject** and other details about the certificate and then select **Create**.
-5. You should now see the message **The creation of certificate << certificate name >> is currently pending. Click here to go its Certificate Operation to monitor the progress**
+5. You should now see the message **The creation of certificate `<certificate-name>` is currently pending. Click here to go its Certificate Operation to monitor the progress**
 1. Select on the message and a new pane should be shown. The pane should show the status as "In Progress". At this point, Key Vault has generated a CSR that you can download using the **Download CSR** option.
 1. Select **Download CSR** to download a CSR file to your local drive.
 1. Send the CSR to your choice of CA to sign the request.
@@ -73,13 +73,13 @@ To renew a nonintegrated CA certificate:
 Use the Azure CLI [az keyvault certificate create](/cli/azure/keyvault/certificate#az-keyvault-certificate-create) command, providing the name of the certificate you wish to renew:
 
 ```azurecli-interactive
-az keyvault certificate create --vault-name "<your-unique-keyvault-name>" -n "<name-of-certificate-to-renew>" -p "$(az keyvault certificate get-default-policy)"
+az keyvault certificate create --vault-name "<vault-name>" -n "<name-of-certificate-to-renew>" -p "$(az keyvault certificate get-default-policy)"
 ```
 
 After renewing the certificate, you can view all the versions of the certificate using the Azure CLI [az keyvault certificate list-versions](/cli/azure/keyvault/certificate#az-keyvault-certificate-list) command:
 
 ```azurecli-interactive
-az keyvault certificate list-versions --vault-name "<your-unique-keyvault-name>" -n "<name-of-renewed-certificate>"
+az keyvault certificate list-versions --vault-name "<vault-name>" -n "<name-of-renewed-certificate>"
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -87,15 +87,15 @@ az keyvault certificate list-versions --vault-name "<your-unique-keyvault-name>"
 Use the Azure PowerShell [New-AzKeyVaultCertificatePolicy](/powershell/module/az.keyvault/new-azkeyvaultcertificatepolicy) cmdlet, providing the name of the certificate you wish to renew:
 
 ```azurepowershell-interactive
-$Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=contoso.com" -IssuerName "Self" -ValidityInMonths 6 -ReuseKeyOnRenewal
+$Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=<domain-name>" -IssuerName "Self" -ValidityInMonths 6 -ReuseKeyOnRenewal
 
-Add-AzKeyVaultCertificate -VaultName "<your-unique-keyvault-name>" -Name "<name-of-certificate-to-renew>" -CertificatePolicy $Policy
+Add-AzKeyVaultCertificate -VaultName "<vault-name>" -Name "<name-of-certificate-to-renew>" -CertificatePolicy $Policy
 ```
 
 After renewing the certificate, you can view all the versions of the certificate using the Azure PowerShell [Get-AzKeyVaultCertificate](/cli/azure/keyvault/certificate#az-keyvault-certificate-list) cmdlet:
 
 ```azurepowershell-interactive
-Get-AzKeyVaultCertificate "<your-unique-keyvault-name>" -Name "<name-of-renewed-certificate>" -IncludeVersions
+Get-AzKeyVaultCertificate "<vault-name>" -Name "<name-of-renewed-certificate>" -IncludeVersions
 ```
 
 ---
