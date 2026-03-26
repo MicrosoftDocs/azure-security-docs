@@ -134,30 +134,30 @@ In the "Networking" tab:
 Open the command line and run the following command:
 
 ```console
-nslookup <your-HSM-name>.managedhsm.azure.net
+nslookup ContosoMHSM.managedhsm.azure.net
 ```
 
 If you run the ns lookup command to resolve the IP address of a managed HSM over a public endpoint, you see a result that looks like this:
 
 ```console
-c:\ >nslookup <your-hsm-name>.managedhsm.azure.net
+c:\ >nslookup ContosoMHSM.managedhsm.azure.net
 
 Non-authoritative answer:
 Name:    
 Address:  (public IP address)
-Aliases:  <your-hsm-name>.managedhsm.azure.net
+Aliases:  ContosoMHSM.managedhsm.azure.net
 ```
 
 If you run the ns lookup command to resolve the IP address of a managed HSM over a private endpoint, you see a result that looks like this:
 
 ```console
-c:\ >nslookup your_hsm_name.managedhsm.azure.net
+c:\ >nslookup ContosoMHSM.managedhsm.azure.net
 
 Non-authoritative answer:
 Name:    
 Address:  10.1.0.5 (private IP address)
-Aliases:  <your-hsm-name>.managed.azure.net
-          <your-hsm-name>.privatelink.managedhsm.azure.net
+Aliases:  ContosoMHSM.managed.azure.net
+          ContosoMHSM.privatelink.managedhsm.azure.net
 ```
 
 ## Troubleshooting Guide

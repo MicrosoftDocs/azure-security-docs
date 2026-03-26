@@ -64,7 +64,7 @@ pip install azure-identity azure-keyvault-keys
 
 ### Create the sample code
 
-Create a file named `mhsm_keys.py` with the following code. Replace `<your-managed-hsm-name>` with your Managed HSM name, and `<your-key-name>` with an existing key name.
+Create a file named `mhsm_keys.py` with the following code. Replace *ContosoMHSM* with your Managed HSM name, and *ContosoKey* with an existing key name.
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -75,11 +75,11 @@ from azure.keyvault.keys.crypto import CryptographyClient, EncryptionAlgorithm
 credential = DefaultAzureCredential()
 
 # Connect to Managed HSM - replace with your HSM URI
-hsm_uri = "https://<your-managed-hsm-name>.managedhsm.azure.net"
+hsm_uri = "https://ContosoMHSM.managedhsm.azure.net"
 key_client = KeyClient(vault_url=hsm_uri, credential=credential)
 
 # Get a key reference
-key_name = "<your-key-name>"
+key_name = "ContosoKey"
 print(f"Retrieving key '{key_name}' from Managed HSM...")
 key = key_client.get_key(key_name)
 print(f"Key retrieved. Key type: {key.key_type}")

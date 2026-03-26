@@ -63,7 +63,7 @@ npm install @azure/identity @azure/keyvault-keys
 
 ### Create the sample code
 
-Create a file named `index.js` with the following code. Replace `<your-managed-hsm-name>` with your Managed HSM name, and `<your-key-name>` with an existing key name.
+Create a file named `index.js` with the following code. Replace *ContosoMHSM* with your Managed HSM name, and *ContosoKey* with an existing key name.
 
 ```javascript
 const { DefaultAzureCredential } = require("@azure/identity");
@@ -74,11 +74,11 @@ async function main() {
     const credential = new DefaultAzureCredential();
 
     // Connect to Managed HSM - replace with your HSM URI
-    const hsmUri = "https://<your-managed-hsm-name>.managedhsm.azure.net";
+    const hsmUri = "https://ContosoMHSM.managedhsm.azure.net";
     const keyClient = new KeyClient(hsmUri, credential);
 
     // Get a key reference
-    const keyName = "<your-key-name>";
+    const keyName = "ContosoKey";
     console.log(`Retrieving key '${keyName}' from Managed HSM...`);
     const key = await keyClient.getKey(keyName);
     console.log(`Key retrieved. Key type: ${key.keyType}`);

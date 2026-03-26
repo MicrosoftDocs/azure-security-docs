@@ -29,7 +29,7 @@ You also need:
 
 ## Sign in to Azure
 
-To sign in to Azure using the CLI, you can type:
+To sign in to Azure by using the CLI, type:
 
 ```azurecli
 az login
@@ -47,7 +47,7 @@ az group create --name "ContosoResourceGroup" --location eastus
 
 Creating a Managed HSM is a two-step process:
 1. Provision a Managed HSM resource.
-2. Activate your Managed HSM by downloading an artifact called the *security domain*.
+1. Activate your Managed HSM by downloading an artifact called the *security domain*.
 
 ### Provision a Managed HSM
 

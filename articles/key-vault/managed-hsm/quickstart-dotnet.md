@@ -64,7 +64,7 @@ dotnet add package Azure.Security.KeyVault.Keys
 
 ### Create the sample code
 
-Replace the contents of `Program.cs` with the following code. Replace `<your-managed-hsm-name>` with your Managed HSM name, and `<your-key-name>` with an existing key name.
+Replace the contents of `Program.cs` with the following code. Replace *ContosoMHSM* with your Managed HSM name, and *ContosoKey* with an existing key name.
 
 ```csharp
 using Azure.Identity;
@@ -76,11 +76,11 @@ using Azure.Security.KeyVault.Keys.Cryptography;
 var credential = new DefaultAzureCredential();
 
 // Connect to Managed HSM - replace with your HSM URI
-var hsmUri = new Uri("https://<your-managed-hsm-name>.managedhsm.azure.net");
+var hsmUri = new Uri("https://ContosoMHSM.managedhsm.azure.net");
 var keyClient = new KeyClient(hsmUri, credential);
 
 // Get a key reference
-string keyName = "<your-key-name>";
+string keyName = "ContosoKey";
 Console.WriteLine($"Retrieving key '{keyName}' from Managed HSM...");
 KeyVaultKey key = await keyClient.GetKeyAsync(keyName);
 Console.WriteLine($"Key retrieved. Key type: {key.KeyType}");
