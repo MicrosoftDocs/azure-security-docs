@@ -135,9 +135,9 @@ New-AzScheduledQueryRule -ResourceGroupName "<resource-group>" `
     -Action `
         (New-AzScheduledQueryRuleAction -Severity 3 -Trigger `
             (New-AzScheduledQueryRuleTriggerCondition -ThresholdOperator GreaterThan -Threshold 0 -MetricTrigger `
-                (New-AzScheduledQueryRuleMetricTrigger -MetricName "UnauthorizedAccess" -MetricResourceId <log-analytics-workspace-resource-id> -TimeAggregation "Count" -Operator "GreaterThan" -Threshold 0))) `
+                (New-AzScheduledQueryRuleMetricTrigger -MetricName "UnauthorizedAccess" -MetricResourceId "<log-analytics-workspace-resource-id>" -TimeAggregation "Count" -Operator "GreaterThan" -Threshold 0))) `
     -Source `
-        (New-AzScheduledQueryRuleSource -Query "AzureDiagnostics | where ResourceType == 'VAULTS' | where OperationName == 'SecretGet' | where ResultSignature == 'Unauthorized'" -DataSourceId <log-analytics-workspace-resource-id>) `
+        (New-AzScheduledQueryRuleSource -Query "AzureDiagnostics | where ResourceType == 'VAULTS' | where OperationName == 'SecretGet' | where ResultSignature == 'Unauthorized'" -DataSourceId "<log-analytics-workspace-resource-id>") `
     -Schedule `
         (New-AzScheduledQueryRuleSchedule -FrequencyInMinutes 5 -TimeWindowInMinutes 5) `
     -Description "Alert for unauthorized access attempts to Key Vault secrets"

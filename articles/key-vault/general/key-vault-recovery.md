@@ -277,7 +277,7 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 * Delete key vault
 
     ```azurepowershell
-    Remove-AzKeyVault -VaultName '<vault-name>'
+    Remove-AzKeyVault -VaultName "<vault-name>"
     ```
 
 * List all soft-deleted key vaults
@@ -289,19 +289,19 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 * Recover soft-deleted key-vault
 
     ```azurepowershell
-    Undo-AzKeyVaultRemoval -VaultName <vault-name> -ResourceGroupName <resource-group> -Location <location>
+    Undo-AzKeyVaultRemoval -VaultName "<vault-name>" -ResourceGroupName "<resource-group>" -Location "<location>"
     ```
 
 * Purge soft-deleted key-vault **(WARNING! THIS OPERATION WILL PERMANENTLY DELETE YOUR KEY VAULT)**
 
     ```azurepowershell
-    Remove-AzKeyVault -VaultName <vault-name> -InRemovedState -Location <location>
+    Remove-AzKeyVault -VaultName "<vault-name>" -InRemovedState -Location "<location>"
     ```
 
 * Enable purge-protection on key-vault
 
     ```azurepowershell
-    Update-AzKeyVault -VaultName <vault-name> -ResourceGroupName <resource-group> -EnablePurgeProtection
+    Update-AzKeyVault -VaultName "<vault-name>" -ResourceGroupName "<resource-group>" -EnablePurgeProtection
     ```
 
 ## Certificates (PowerShell)
@@ -315,25 +315,25 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 * Delete a Certificate
 
   ```azurepowershell
-  Remove-AzKeyVaultCertificate -VaultName <vault-name> -Name '<certificate-name>'
+  Remove-AzKeyVaultCertificate -VaultName "<vault-name>" -Name "<certificate-name>"
   ```
 
 * List all deleted certificates in a key vault
 
   ```azurepowershell
-  Get-AzKeyVaultCertificate -VaultName <vault-name> -InRemovedState
+  Get-AzKeyVaultCertificate -VaultName "<vault-name>" -InRemovedState
   ```
 
 * Recover a certificate in the deleted state
 
   ```azurepowershell
-  Undo-AzKeyVaultCertificateRemoval -VaultName <vault-name> -Name '<certificate-name>'
+  Undo-AzKeyVaultCertificateRemoval -VaultName "<vault-name>" -Name "<certificate-name>"
   ```
 
 * Purge a soft-deleted certificate **(WARNING! THIS OPERATION WILL PERMANENTLY DELETE YOUR CERTIFICATE)**
 
   ```azurepowershell
-  Remove-AzKeyVaultcertificate -VaultName <vault-name> -Name '<certificate-name>' -InRemovedState
+  Remove-AzKeyVaultcertificate -VaultName "<vault-name>" -Name "<certificate-name>" -InRemovedState
   ```
 
 ## Keys (PowerShell)
@@ -347,25 +347,25 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 * Delete a key
 
   ```azurepowershell
-  Remove-AzKeyVaultKey -VaultName <vault-name> -Name '<key-name>'
+  Remove-AzKeyVaultKey -VaultName "<vault-name>" -Name "<key-name>"
   ```
 
 * List all deleted keys in a key vault
 
   ```azurepowershell
-  Get-AzKeyVaultKey -VaultName <vault-name> -InRemovedState
+  Get-AzKeyVaultKey -VaultName "<vault-name>" -InRemovedState
   ```
 
 * To recover a soft-deleted key
 
     ```azurepowershell
-    Undo-AzKeyVaultKeyRemoval -VaultName <vault-name> -Name <key-name>
+    Undo-AzKeyVaultKeyRemoval -VaultName "<vault-name>" -Name "<key-name>"
     ```
 
 * Purge a soft-deleted key **(WARNING! THIS OPERATION WILL PERMANENTLY DELETE YOUR KEY)**
 
     ```azurepowershell
-    Remove-AzKeyVaultKey -VaultName <vault-name> -Name <key-name> -InRemovedState
+    Remove-AzKeyVaultKey -VaultName "<vault-name>" -Name "<key-name>" -InRemovedState
     ```
 
 ## Secrets (PowerShell)
@@ -379,25 +379,25 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 * Delete a secret named SQLPassword
 
   ```azurepowershell
-  Remove-AzKeyVaultSecret -VaultName <vault-name> -Name <secret-name>
+  Remove-AzKeyVaultSecret -VaultName "<vault-name>" -Name "<secret-name>"
   ```
 
 * List all deleted secrets in a key vault
 
   ```azurepowershell
-  Get-AzKeyVaultSecret -VaultName <vault-name> -InRemovedState
+  Get-AzKeyVaultSecret -VaultName "<vault-name>" -InRemovedState
   ```
 
 * Recover a secret in the deleted state
 
   ```azurepowershell
-  Undo-AzKeyVaultSecretRemoval -VaultName <vault-name> -Name <secret-name>
+  Undo-AzKeyVaultSecretRemoval -VaultName "<vault-name>" -Name "<secret-name>"
   ```
 
 * Purge a secret in deleted state **(WARNING! THIS OPERATION WILL PERMANENTLY DELETE YOUR KEY)**
 
   ```azurepowershell
-  Remove-AzKeyVaultSecret -VaultName <vault-name> -Name <secret-name> -InRemovedState 
+  Remove-AzKeyVaultSecret -VaultName "<vault-name>" -Name "<secret-name>" -InRemovedState 
   ```
 ---
 

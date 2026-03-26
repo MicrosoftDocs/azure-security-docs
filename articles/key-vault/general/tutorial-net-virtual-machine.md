@@ -96,8 +96,8 @@ Note the system-assigned identity that's displayed in the following code. The ou
 # [Azure PowerShell](#tab/azurepowershell)
 
 ```azurepowershell
-$vm = Get-AzVM -Name <vm-name>
-Update-AzVM -ResourceGroupName <resource-group> -VM $vm -IdentityType SystemAssigned
+$vm = Get-AzVM -Name "<vm-name>"
+Update-AzVM -ResourceGroupName "<resource-group>" -VM $vm -IdentityType SystemAssigned
 ```
 
 Note the PrincipalId that's displayed in the following code. The output of the preceding command would be: 

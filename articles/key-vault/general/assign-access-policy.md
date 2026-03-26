@@ -128,13 +128,13 @@ Determine the object ID of the application, group, or user to which you want to 
 - Applications and other service principals: use the [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) cmdlet with the `-SearchString` parameter to filter results to the name of the desired service principal:
 
     ```azurepowershell-interactive
-    Get-AzADServicePrincipal -SearchString <search-string>
+    Get-AzADServicePrincipal -SearchString "<search-string>"
     ```
 
 - Groups: use the [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup) cmdlet with the `-SearchString` parameter to filter results to the name of the desired group:
 
     ```azurepowershell-interactive
-    Get-AzADGroup -SearchString <search-string>
+    Get-AzADGroup -SearchString "<search-string>"
     ```
     
     In the output, the object ID is listed as `Id`.
@@ -152,7 +152,7 @@ Determine the object ID of the application, group, or user to which you want to 
 Use the [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet to assign the access policy:
 
 ```azurepowershell-interactive
-Set-AzKeyVaultAccessPolicy -VaultName <vault-name> -ObjectId <object-id> -PermissionsToSecrets <secrets-permissions> -PermissionsToKeys <keys-permissions> -PermissionsToCertificates <certificate-permissions    
+Set-AzKeyVaultAccessPolicy -VaultName "<vault-name>" -ObjectId "<object-id>" -PermissionsToSecrets <secrets-permissions> -PermissionsToKeys <keys-permissions> -PermissionsToCertificates <certificate-permissions>    
 ```
 
 You need only include `-PermissionsToSecrets`, `-PermissionsToKeys`, and `-PermissionsToCertificates` when assigning permissions to those particular types. The allowable values for `<secret-permissions>`, `<key-permissions>`, and `<certificate-permissions>` are given in the [Set-AzKeyVaultAccessPolicy - Parameters](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy#parameters) documentation.
