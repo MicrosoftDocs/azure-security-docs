@@ -73,13 +73,13 @@ To renew a nonintegrated CA certificate:
 Use the Azure CLI [az keyvault certificate create](/cli/azure/keyvault/certificate#az-keyvault-certificate-create) command, providing the name of the certificate you wish to renew:
 
 ```azurecli-interactive
-az keyvault certificate create --vault-name "<vault-name>" -n "<name-of-certificate-to-renew>" -p "$(az keyvault certificate get-default-policy)"
+az keyvault certificate create --vault-name "<vault-name>" -n "<certificate-name>" -p "$(az keyvault certificate get-default-policy)"
 ```
 
 After renewing the certificate, you can view all the versions of the certificate using the Azure CLI [az keyvault certificate list-versions](/cli/azure/keyvault/certificate#az-keyvault-certificate-list) command:
 
 ```azurecli-interactive
-az keyvault certificate list-versions --vault-name "<vault-name>" -n "<name-of-renewed-certificate>"
+az keyvault certificate list-versions --vault-name "<vault-name>" -n "<certificate-name>"
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -89,13 +89,13 @@ Use the Azure PowerShell [New-AzKeyVaultCertificatePolicy](/powershell/module/az
 ```azurepowershell-interactive
 $Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=<domain-name>" -IssuerName "Self" -ValidityInMonths 6 -ReuseKeyOnRenewal
 
-Add-AzKeyVaultCertificate -VaultName "<vault-name>" -Name "<name-of-certificate-to-renew>" -CertificatePolicy $Policy
+Add-AzKeyVaultCertificate -VaultName "<vault-name>" -Name "<certificate-name>" -CertificatePolicy $Policy
 ```
 
 After renewing the certificate, you can view all the versions of the certificate using the Azure PowerShell [Get-AzKeyVaultCertificate](/cli/azure/keyvault/certificate#az-keyvault-certificate-list) cmdlet:
 
 ```azurepowershell-interactive
-Get-AzKeyVaultCertificate "<vault-name>" -Name "<name-of-renewed-certificate>" -IncludeVersions
+Get-AzKeyVaultCertificate "<vault-name>" -Name "<certificate-name>" -IncludeVersions
 ```
 
 ---
