@@ -7,7 +7,7 @@ ms.author: mbaldwin
 ms.date: 01/30/2026
 ms.service: azure-key-vault
 ms.subservice: general
-ms.topic: conceptual
+ms.topic: feature-guide
 ---
 
 # Virtual network service endpoints for Azure Key Vault

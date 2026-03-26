@@ -4,7 +4,7 @@ description: Learn how to enhance the security of your Azure Managed HSM deploym
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: security
-ms.topic: conceptual
+ms.topic: best-practice
 ms.date: 03/13/2026
 ms.custom: horz-security
 ai-usage: ai-assisted
