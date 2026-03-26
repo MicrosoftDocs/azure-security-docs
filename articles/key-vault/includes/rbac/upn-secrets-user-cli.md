@@ -13,7 +13,7 @@ ms.author: msmbaldwin
 To gain permissions to your key vault through [Role-Based Access Control (RBAC)](/azure/key-vault/general/rbac-guide.md), assign a role to your "User Principal Name" (UPN) using the Azure CLI command [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create).
 
 ```azurecli
-az role assignment create --role "Key Vault Secrets User" --assignee "<upn>" --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<your-unique-keyvault-name>"
+az role assignment create --role "Key Vault Secrets User" --assignee "<upn>" --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>"
 ```
 
-Replace \<upn\>, \<subscription-id\>, \<resource-group-name\> and \<your-unique-keyvault-name\> with your actual values. Your UPN will typically be in the format of an email address (e.g., username@domain.com).
+Replace `<upn>`, `<subscription-id>`, `<resource-group>`, and `<vault-name>` with your actual values. Your UPN is typically in the format of an email address (for example, username@domain.com).
