@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 01/08/2026
+ms.date: 03/24/2026
 ms.author: mbaldwin
 
 
@@ -20,7 +20,7 @@ The Azure Key Vault client libraries provide programmatic access to Key Vault fu
 
 ## Client libraries per language and object
 
-Each SDK has separate client libraries for secrets, keys, certificates, and management (control plane).
+Each SDK has separate client libraries for secrets, keys, certificates, and management (control plane). For the latest control plane SDK release information supporting API version 2026-02-01, see [What's new for Azure Key Vault](whats-new.md#control-plane-sdk-releases).
 
 | Language | Secrets | Keys | Certificates | Key Vault (Control plane) |
 |--|--|--|--|--|
@@ -29,6 +29,7 @@ Each SDK has separate client libraries for secrets, keys, certificates, and mana
 | **Java** | - [API Reference](/java/api/overview/azure/security-keyvault-secrets-readme)<br>- [Source](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault/azure-security-keyvault-secrets)<br>- [Quickstart](../secrets/quick-create-java.md) | - [API Reference](/java/api/overview/azure/security-keyvault-keys-readme)<br>- [Source](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault/azure-security-keyvault-keys)<br>- [Quickstart](../keys/quick-create-java.md) | - [API Reference](/java/api/overview/azure/security-keyvault-certificates-readme)<br>- [Source](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault/azure-security-keyvault-certificates)<br>- [Quickstart](../certificates/quick-create-java.md) | - [API Reference](/java/api/overview/azure/resourcemanager-keyvault-readme)<br>- [Source](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault/azure-resourcemanager-keyvault) |
 | **Spring** | - [Reference](/azure/developer/java/spring-framework/spring-cloud-azure?tabs=maven#secret-management)<br>- [Source](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring)<br>- [Quickstart](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault) | | - [Reference](/azure/developer/java/spring-framework/spring-cloud-azure-appendix#azure-key-vault-certificates-properties)<br>- [Source](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/spring)<br>- [Quickstart](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates) | |
 | **Node.js** | - [API Reference](/javascript/api/@azure/keyvault-secrets/)<br>- [npm](https://www.npmjs.com/package/@azure/keyvault-secrets)<br>- [Source](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/keyvault-secrets)<br>- [Quickstart](../secrets/quick-create-node.md) | - [API Reference](/javascript/api/@azure/keyvault-keys/)<br>- [npm](https://www.npmjs.com/package/@azure/keyvault-keys)<br>- [Source](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/keyvault-keys)<br>- [Quickstart](../keys/quick-create-node.md) | - [API Reference](/javascript/api/@azure/keyvault-certificates/)<br>- [npm](https://www.npmjs.com/package/@azure/keyvault-certificates)<br>- [Source](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/keyvault-certificates)<br>- [Quickstart](../certificates/quick-create-node.md) | - [API Reference](/javascript/api/@azure/arm-keyvault/)<br>- [npm](https://www.npmjs.com/package/@azure/arm-keyvault)<br>- [Source](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/arm-keyvault) |
+| **Go** | - [API Reference](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/azsecrets)<br>- [Source](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/security/keyvault/azsecrets) | - [API Reference](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/azkeys)<br>- [Source](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/security/keyvault/azkeys) | - [API Reference](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/azcertificates)<br>- [Source](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/security/keyvault/azcertificates) | - [API Reference](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/keyvault/armkeyvault)<br>- [Source](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/keyvault/armkeyvault) |
 
 ## Next steps
 - See the [Azure Key Vault developer's guide](developers-guide.md).

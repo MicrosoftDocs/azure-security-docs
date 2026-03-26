@@ -689,6 +689,11 @@
       "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-arc-remove.md",
       "redirect_url": "/azure/defender-for-cloud/defender-for-containers-remove?tabs=arc",
       "redirect_document_id": false
+    },
+    {  
+      "source_path_from_root": "/articles/defender-for-cloud/deploy-vulnerability-assessment-vm.md",
+      "redirect_url": "/azure/defender-for-cloud/deploy-vulnerability-assessment-defender-vulnerability-management",
+      "redirect_document_id": false
     }
   ]
 }
