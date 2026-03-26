@@ -7,7 +7,7 @@ tags: 'rotation'
 ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: tutorial
-ms.date: 01/30/2026
+ms.date: 03/26/2026
 
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, sfi-image-nochange, copilot-scenario-highlight
@@ -118,12 +118,12 @@ You can find deployment templates and code for the rotation function in [Azure S
 First, set your access policy to grant **manage secrets** permissions to your user principal:
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
-az role assignment create --role "Key Vault Secrets Officer" --assignee <email-address-of-user> --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.KeyVault/vaults/vaultrotation-kv
+az role assignment create --role "Key Vault Secrets Officer" --assignee <email-address-of-user> --scope /subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/vaultrotation-kv
 ```
 # [Azure PowerShell](#tab/azurepowershell)
 
 ```azurepowershell
-New-AzRoleAssignment -SignInName <email-address-of-user> -RoleDefinitionName "Key Vault Secrets Officer" -Scope "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.KeyVault/vaults/vaultrotation-kv"
+New-AzRoleAssignment -SignInName <email-address-of-user> -RoleDefinitionName "Key Vault Secrets Officer" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/vaultrotation-kv"
 ```
 ---
 
@@ -159,16 +159,16 @@ Add secret to key vault with validity period for 60 days, storage account resour
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
 tomorrowDate=$(date -u -d "+1 day" +"%Y-%m-%dT%H:%M:%SZ")
-az keyvault secret set --name storageKey --vault-name vaultrotation-kv --value <key1Value> --tags "CredentialId=key1" "ProviderAddress=<storageAccountResourceId>" "ValidityPeriodDays=60" --expires $tomorrowDate
+az keyvault secret set --name storageKey --vault-name vaultrotation-kv --value <key1-value> --tags "CredentialId=key1" "ProviderAddress=<storage-account-resource-id>" "ValidityPeriodDays=60" --expires $tomorrowDate
 ```
 # [Azure PowerShell](#tab/azurepowershell)
 
 ```azurepowershell
 $tomorrowDate = (Get-Date).AddDays(+1).ToString('yyyy-MM-ddTHH:mm:ssZ')
-$secretValue = ConvertTo-SecureString -String '<key1Value>' -AsPlainText -Force
+$secretValue = ConvertTo-SecureString -String '<key1-value>' -AsPlainText -Force
 $tags = @{
     CredentialId='key1'
-    ProviderAddress='<storageAccountResourceId>'
+    ProviderAddress='<storage-account-resource-id>'
     ValidityPeriodDays='60'
 }
 Set-AzKeyVaultSecret -Name storageKey -VaultName vaultrotation-kv -SecretValue $secretValue -Tag $tags -Expires $tomorrowDate
@@ -266,16 +266,16 @@ Add secret to key vault with validity period for 60 days, storage account resour
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
 tomorrowDate=$(date -u -d "+1 day" +"%Y-%m-%dT%H:%M:%SZ")
-az keyvault secret set --name storageKey2 --vault-name vaultrotation-kv --value <key2Value> --tags "CredentialId=key2" "ProviderAddress=<storageAccountResourceId>" "ValidityPeriodDays=60" --expires $tomorrowDate
+az keyvault secret set --name storageKey2 --vault-name vaultrotation-kv --value <key2-value> --tags "CredentialId=key2" "ProviderAddress=<storage-account-resource-id>" "ValidityPeriodDays=60" --expires $tomorrowDate
 ```
 # [Azure PowerShell](#tab/azurepowershell)
 
 ```azurepowershell
 $tomorrowDate = (get-date).AddDays(+1).ToString("yyyy-MM-ddTHH:mm:ssZ")
-$secretValue = ConvertTo-SecureString -String '<key1Value>' -AsPlainText -Force
+$secretValue = ConvertTo-SecureString -String '<key1-value>' -AsPlainText -Force
 $tags = @{
     CredentialId='key2';
-    ProviderAddress='<storageAccountResourceId>';
+    ProviderAddress='<storage-account-resource-id>';
     ValidityPeriodDays='60'
 }
 Set-AzKeyVaultSecret -Name storageKey2 -VaultName vaultrotation-kv -SecretValue $secretValue -Tag $tags -Expires $tomorrowDate

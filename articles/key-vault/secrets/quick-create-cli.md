@@ -6,7 +6,7 @@ ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli, mode-api
-ms.date: 01/30/2026
+ms.date: 03/26/2026
 
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
@@ -40,17 +40,17 @@ To add a secret to the vault, you just need to take a couple of additional steps
 Use the Azure CLI [az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set) command below to create a secret in Key Vault called **ExamplePassword** that will store the value **hVFkk965BuUv** :
 
 ```azurecli
-az keyvault secret set --vault-name "<your-unique-keyvault-name>" --name "ExamplePassword" --value "hVFkk965BuUv"
+az keyvault secret set --vault-name "<vault-name>" --name "ExamplePassword" --value "hVFkk965BuUv"
 ```
 
 ## Retrieve a secret from Key Vault
 
-You can now reference this password that you added to Azure Key Vault by using its URI. Use **`https://<your-unique-keyvault-name>.vault.azure.net/secrets/ExamplePassword`** to get the current version.
+You can now reference this password that you added to Azure Key Vault by using its URI. Use **`https://<vault-name>.vault.azure.net/secrets/ExamplePassword`** to get the current version.
 
 To view the value contained in the secret as plain text, use the Azure CLI [az keyvault secret show](/cli/azure/keyvault/secret#az-keyvault-secret-show) command:
 
 ```azurecli
-az keyvault secret show --name "ExamplePassword" --vault-name "<your-unique-keyvault-name>" --query "value"
+az keyvault secret show --name "ExamplePassword" --vault-name "<vault-name>" --query "value"
 ```
 
 Now, you have created a Key Vault, stored a secret, and retrieved it.
