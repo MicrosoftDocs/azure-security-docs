@@ -191,9 +191,9 @@ $privateEndpoint = New-AzPrivateEndpoint -Name "myPrivateEndpoint" `
 You can create firewall rules on the Azure Key Vault instance using the Azure PowerShell [Add-AzKeyVaultNetworkRule](/powershell/module/az.keyvault/add-azkeyvaultnetworkrule) cmdlet, substituting the appropriate key vault names, resource groups, subnet, and subnet mask information:
 
 ```powershell
-Add-AzKeyVaultNetworkRule -VaultName <vault-name> `
-    -ResourceGroupName <resource-group> `
-    -IPAddress <trusted-ip-address>/32
+Add-AzKeyVaultNetworkRule -VaultName "<vault-name>" `
+    -ResourceGroupName "<resource-group>" `
+    -IPAddress "<trusted-ip-address>/32"
 ```
 
 ---
