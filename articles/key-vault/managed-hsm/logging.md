@@ -46,7 +46,7 @@ Sign in to your Azure subscription by using the Azure CLI [az login](/cli/azure/
 az login
 ```
 
-For more information on authentication options through the CLI, see [sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
+For more information about authentication options through the CLI, see [sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
 # [Azure PowerShell](#tab/azurepowershell)
 
@@ -56,7 +56,7 @@ Sign in to your Azure subscription by using the [Connect-AzAccount](/powershell/
 Connect-AzAccount
 ```
 
-For more information on authentication options through PowerShell, see [sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
+For more information about authentication options through PowerShell, see [sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 # [Portal](#tab/azure-portal)
 

@@ -162,8 +162,8 @@ Aliases:  ContosoMHSM.managed.azure.net
 
 ## Troubleshooting guide
 
-* Check to make sure the private endpoint is in the approved state.
-    1. Use `az keyvault private-endpoint-connections show` subcommand to see the status of a private endpoint connection.
+* Check that the private endpoint is in the approved state.
+    1. Use the `az keyvault private-endpoint-connections show` subcommand to see the status of a private endpoint connection.
     2. Make sure connection state is Approved and provisioning state is Succeeded.
     3. Make sure the virtual network matches the one you are using.
 
