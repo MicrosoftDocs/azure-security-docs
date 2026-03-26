@@ -81,7 +81,7 @@ The certificate request has now been successfully merged.
 1. Create the CSR.
 
    ```azure-powershell
-   $csr = Add-AzKeyVaultCertificate -VaultName <vault-name> -Name <certificate-name> -CertificatePolicy $policy
+   $csr = Add-AzKeyVaultCertificate -VaultName "<vault-name>" -Name "<certificate-name>" -CertificatePolicy $policy
    $csr.CertificateSigningRequest
    ```
 
