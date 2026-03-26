@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 01/30/2026
+ms.date: 03/26/2026
 ms.author: mbaldwin
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp, devx-track-azurepowershell, devx-track-azurecli, devx-track-dotnet
@@ -81,7 +81,7 @@ Create a system-assigned identity for the virtual machine with the following exa
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
-az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
+az vm identity assign --name <vm-name> --resource-group <resource-group>
 ```
 
 Note the system-assigned identity that's displayed in the following code. The output of the preceding command would be:
@@ -96,8 +96,8 @@ Note the system-assigned identity that's displayed in the following code. The ou
 # [Azure PowerShell](#tab/azurepowershell)
 
 ```azurepowershell
-$vm = Get-AzVM -Name <NameOfYourVirtualMachine>
-Update-AzVM -ResourceGroupName <YourResourceGroupName> -VM $vm -IdentityType SystemAssigned
+$vm = Get-AzVM -Name <vm-name>
+Update-AzVM -ResourceGroupName <resource-group> -VM $vm -IdentityType SystemAssigned
 ```
 
 Note the PrincipalId that's displayed in the following code. The output of the preceding command would be: 
@@ -171,8 +171,8 @@ Add these lines, updating the URI to reflect the `vaultUri` of your key vault. B
         static void Main(string[] args)
         {
             string secretName = "mySecret";
-            string keyVaultName = "<your-key-vault-name>";
-            var kvUri = "https://<your-key-vault-name>.vault.azure.net";
+            string keyVaultName = "<vault-name>";
+            var kvUri = "https://<vault-name>.vault.azure.net";
             SecretClientOptions options = new SecretClientOptions()
             {
                 Retry =
