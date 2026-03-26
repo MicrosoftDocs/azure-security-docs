@@ -3,7 +3,7 @@ title: Integrate Key Vault with Azure Private Link
 description: Learn how to integrate Azure Key Vault with Azure Private Link Service
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 03/24/2026
+ms.date: 03/26/2026
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
@@ -197,18 +197,18 @@ In the "Networking" tab:
 Open the command line and run the following command:
 
 ```console
-nslookup <your-key-vault-name>.vault.azure.net
+nslookup <vault-name>.vault.azure.net
 ```
 
 If you run the ns lookup command to resolve the IP address of a key vault over a public endpoint, you'll see a result that looks like this:
 
 ```console
-c:\ >nslookup <your-key-vault-name>.vault.azure.net
+c:\ >nslookup <vault-name>.vault.azure.net
 
 Non-authoritative answer:
 Name:    
 Address:  (public IP address)
-Aliases:  <your-key-vault-name>.vault.azure.net
+Aliases:  <vault-name>.vault.azure.net
 ```
 
 If you run the ns lookup command to resolve the IP address of a key vault over a private endpoint, you'll see a result that looks like this:
@@ -219,8 +219,8 @@ c:\ >nslookup your_vault_name.vault.azure.net
 Non-authoritative answer:
 Name:    
 Address:  10.1.0.5 (private IP address)
-Aliases:  <your-key-vault-name>.vault.azure.net
-          <your-key-vault-name>.privatelink.vaultcore.azure.net
+Aliases:  <vault-name>.vault.azure.net
+          <vault-name>.privatelink.vaultcore.azure.net
 ```
 
 ## Troubleshooting Guide
