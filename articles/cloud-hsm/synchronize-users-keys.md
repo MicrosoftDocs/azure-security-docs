@@ -5,7 +5,7 @@ author: keithp
 manager: davinune
 ms.service: azure-cloud-hsm
 ms.topic: how-to
-ms.date: 03/20/2025
+ms.date: 03/26/2026
 ms.author: keithp
 ---
 
@@ -54,7 +54,7 @@ All users in Azure Cloud HSM are fully managed by the customer. The service does
 1. Sign in as a cryptography officer (CO):
 
    ```bash
-   loginHSM CO admin <adminPassword>
+   loginHSM CO admin <admin-password>
    ```
 
    Verify that you successfully signed in to all three nodes:
@@ -74,11 +74,11 @@ All users in Azure Cloud HSM are fully managed by the customer. The service does
    server 0
    ```
 
-1. Run the `syncUser` command for each server where the user is missing. Replace `<UserID>` with the actual User ID:
+1. Run the `syncUser` command for each server where the user is missing. Replace `<user-id>` with the actual User ID:
 
    ```bash
-   syncUser <UserID> 1
-   syncUser <UserID> 2
+   syncUser <user-id> 1
+   syncUser <user-id> 2
    ```
 
    > [!NOTE]
@@ -116,7 +116,7 @@ When you create keys, it's your responsibility to ensure keys are present on all
 1. Sign in as a cryptography officer (CO):
 
    ```bash
-   loginHSM CO admin <adminPassword>
+   loginHSM CO admin <admin-password>
    ```
 
    Verify that you successfully signed in to all three nodes:
@@ -143,11 +143,11 @@ When you create keys, it's your responsibility to ensure keys are present on all
    server 0
    ```
 
-1. Run the `syncKey` command for each server where the key is missing. Replace `<KeyHandle>` with the actual key handle ID:
+1. Run the `syncKey` command for each server where the key is missing. Replace `<key-handle>` with the actual key handle ID:
 
    ```bash
-   syncKey <KeyHandle> 1
-   syncKey <KeyHandle> 2
+   syncKey <key-handle> 1
+   syncKey <key-handle> 2
    ```
 
    For example, to synchronize key handle 262150 to servers 1 and 2:

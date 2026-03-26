@@ -5,7 +5,7 @@ author: keithp
 manager: keithp
 ms.service: azure-cloud-hsm
 ms.topic: tutorial
-ms.date: 03/20/2025
+ms.date: 03/26/2026
 ms.author: keithp
 ms.custom: pkcs11, certificate-management, x509-certificates, azure-cloud-hsm
 
@@ -118,7 +118,7 @@ The following attributes are applicable to X.509 public key certificates.
 
 ### C_DestroyObject
 
-The C_DestroyObject API takes a session handle, and the object handle associated with the certificate you want to delete. Invoking this function removes the specified certificate from the Azure Blob Storage Account by deleting the corresponding JWS blob named pkcs11_certificate_<cert_handle>.
+The C_DestroyObject API takes a session handle, and the object handle associated with the certificate you want to delete. Invoking this function removes the specified certificate from the Azure Blob Storage Account by deleting the corresponding JWS blob named `pkcs11_certificate_<cert-handle>`.
 
 Below is a code snippet demonstrating how to call C_DestroyObject for certificates (the same approach applies to keys).
 
@@ -349,7 +349,7 @@ Azure Cloud HSM includes sample application code to help validate certificate st
 
 ### Verify certificates in storage
 
-After a successful call to the C_CreateObject() API, the newly created certificate object will appear in your Azure Blob Storage account, as specified in the azcloudhsm_application.cfg file. The blob will be named using the format pkcs11_certificate_\<ObjectHandle\>, as shown below. Certificate objects are assigned object handles ranging from 0xFFF00000 to 0xFFFFFFFF (decimal range: 4,293,918,720 to 4,294,967,295), allowing support for up to 1,048,575 certificates.
+After a successful call to the C_CreateObject() API, the newly created certificate object will appear in your Azure Blob Storage account, as specified in the azcloudhsm_application.cfg file. The blob will be named using the format `pkcs11_certificate_<object-handle>`, as shown below. Certificate objects are assigned object handles ranging from 0xFFF00000 to 0xFFFFFFFF (decimal range: 4,293,918,720 to 4,294,967,295), allowing support for up to 1,048,575 certificates.
 
 From both Azure portal as well as from your Azure VM you can see the certificates stored.
 

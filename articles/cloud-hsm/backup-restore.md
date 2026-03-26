@@ -4,7 +4,7 @@ description: Learn how to back up and restore your Azure Cloud HSM resources, in
 author: msmbaldwin
 ms.service: azure-cloud-hsm
 ms.topic: tutorial
-ms.date: 03/20/2025
+ms.date: 03/26/2026
 ms.author: mbaldwin
 
 # Customer intent: As a security administrator, I need to back up and restore Azure Cloud HSM resources to ensure business continuity and facilitate disaster recovery.
@@ -49,10 +49,10 @@ Create a new user-assigned managed identity in your existing Azure Cloud HSM res
 ```azurepowershell-interactive
 # Define parameters for the new managed identity
 $identity = @{
-    Location          = "<RegionName>"                                         
-    ResourceName      = "<ManagedIdentityName>"                                         
-    ResourceGroupName = "<ResourceGroupName>"
-    SubscriptionID    = "<SubscriptionID>"     
+    Location          = "<location>"                                         
+    ResourceName      = "<managed-identity-name>"                                         
+    ResourceGroupName = "<resource-group>"
+    SubscriptionID    = "<subscription-id>"     
 }
 
 # Create a new user-assigned managed identity in the specified resource group and location
@@ -71,21 +71,21 @@ Each Cloud HSM cluster can have only one managed identity. You can use the same 
 ```azurepowershell-interactive
 # Define the parameters for the source Cloud HSM resource
 $sourceCloudHSM = @{
-    Location          = "<RegionName>"                              
+    Location          = "<location>"                              
     Sku               = @{ "family" = "B"; "Name" = "Standard_B1" } 
-    ResourceName      = "<SourceCloudHSMName>"                
+    ResourceName      = "<source-hsm-name>"                
     ResourceType      = "microsoft.hardwaresecuritymodules/cloudHsmClusters" 
-    ResourceGroupName = "<SourceResourceGroupName>"             
+    ResourceGroupName = "<source-resource-group>"             
     Force             = $true                                    
 }
 
 # Define the parameters for the destination Cloud HSM resource
 $destinationCloudHSM = @{
-    Location          = "<RegionName>"                              
+    Location          = "<location>"                              
     Sku               = @{ "family" = "B"; "Name" = "Standard_B1" } 
-    ResourceName      = "<DestinationCloudHSMName>"            
+    ResourceName      = "<destination-hsm-name>"            
     ResourceType      = "microsoft.hardwaresecuritymodules/cloudHsmClusters" 
-    ResourceGroupName = "<DestinationResourceGroupName>"             
+    ResourceGroupName = "<destination-resource-group>"             
     Force             = $true                                    
 }
 
@@ -95,11 +95,11 @@ $chsmMSIPatch = '{
         "Family": "B",
         "Name": "Standard_B1"
     },
-    "Location": "<RegionName>",    
+    "Location": "<location>",    
     "Identity": {
         "type": "UserAssigned",
         "userAssignedIdentities": {
-            "/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<ManagedIdentityName>": {}
+            "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<managed-identity-name>": {}
         }
     }
 }'
@@ -138,37 +138,37 @@ Read/write access is granted for both the source and the destination.
 
 ```azurepowershell-interactive
 # Define the subscription ID
-$subscriptionId = "<SubscriptionID>"
+$subscriptionId = "<subscription-id>"
 
 # Define storage account parameters
 $storageAccount = @{
-    Location          = "<RegionName>"                    
-    ResourceGroupName = "<BackupResourceGroupName>" 
-    AccountName       = "<ResourceName>"      # Name of the storage account
-    SkuName           = "<StorageAccountSKU>"     # Storage account tier (example: Standard_LRS)
-    Kind              = "<StorageAccountType>"       #Type of storage account (example: StorageV2)
+    Location          = "<location>"                    
+    ResourceGroupName = "<backup-resource-group>" 
+    AccountName       = "<storage-account-name>"      # Name of the storage account
+    SkuName           = "<storage-sku>"     # Storage account tier (example: Standard_LRS)
+    Kind              = "<storage-type>"       #Type of storage account (example: StorageV2)
 }
 
 # Define the blob container parameters
 $container = @{
     ResourceGroupName  = $storageAccount.ResourceGroupName # Resource group name where the storage account is located
     StorageAccountName = $storageAccount.AccountName      # Name of the storage account
-    ContainerName      = "<StorageContainerName>"              # Name of the blob container
+    ContainerName      = "<container-name>"              # Name of the blob container
 }
 
 # Define the private endpoint parameters
 # Storage accounts are publicly accessible, so put it behind a private virtual network
 $privateEndpoint = @{
-    Name              = "<PrivateEndpointName>"
-    VnetName          = "<ExistingVNetName>"  # Name of the existing virtual network
-    SubnetName        = "<ExistingSubnetName>"  # Name of the existing subnet within the virtual network
-    ResourceGroupName = "<ResourceGroupName>" # Resource group for private virtual network and subnet (example: CHSM-CLIENT-RG)
+    Name              = "<private-endpoint-name>"
+    VnetName          = "<vnet-name>"  # Name of the existing virtual network
+    SubnetName        = "<subnet-name>"  # Name of the existing subnet within the virtual network
+    ResourceGroupName = "<resource-group>" # Resource group for private virtual network and subnet (example: CHSM-CLIENT-RG)
 }
 
 # Define the role assignment parameters
 $roleAssignment = @{
     RoleDefinitionName = "Storage Blob Data Contributor"  # Minimum RBAC role required
-    PrincipalId        = "<PrincipalId>"  # The ID of the managed identity or user to assign the role to
+    PrincipalId        = "<principal-id>"  # The ID of the managed identity or user to assign the role to
     Scope              = "/subscriptions/$($subscriptionId)/resourceGroups/$($storageAccount.ResourceGroupName)/providers/Microsoft.Storage/storageAccounts/$($storageAccount.AccountName)"
 }
 
