@@ -31,7 +31,7 @@ This article summarizes what's new in Microsoft Defender for Cloud. It includes 
 
 | Date | Category | Update |
 | -------- | -------- | -------- |
-| March 31, 2026| Update | [Additional Azure regions support for Defender for APIs and API security posture management with Defender CSPM](#additional-azure-regions-support-for-defender-for-apis-and-api-security-posture-management-with-defender-cspm) |
+| March 31, 2026| Update | [Support for additional Azure regions for Defender for APIs and API security posture management with Defender CSPM](#support-for-additional-azure-regions-for-defender-for-apis-and-api-security-posture-management-with-defender-cspm) |
 | March 22, 2026| Update | [File Integrity Monitoring requires MDE agent version 10.8799+ for legacy Windows machines](#file-integrity-monitoring-requires-mde-agent-version-108799-for-legacy-windows-machines) |
 | March 12, 2026 | GA | [Kubernetes gated deployment support for AKS Automatic (GA)](#kubernetes-gated-deployment-support-for-aks-automatic-ga) |
 | March 11, 2026 | GA| [Severity‑based risk assignment for "Not evaluated" recommendations](#severitybased-risk-assignment-for-not-evaluated-recommendations) |
@@ -40,7 +40,7 @@ This article summarizes what's new in Microsoft Defender for Cloud. It includes 
 | March 04, 2026 | Deprecation | [Deprecation of preview of container and container images vulnerability recommendations](#deprecation-of-preview-of-container-and-container-images-vulnerability-recommendations) |
 | March 04, 2026 | Preview |[New individual recommendations format in Azure portal (Preview)](#new-individual-recommendations-format-in-azure-portal-preview)|
 
-### Additional Azure regions support for Defender for APIs and API security posture management with Defender CSPM
+### Support for additional Azure regions for Defender for APIs and API security posture management with Defender CSPM
 
 March 31, 2026
 
