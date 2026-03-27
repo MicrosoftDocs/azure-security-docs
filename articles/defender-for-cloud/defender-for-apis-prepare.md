@@ -5,7 +5,7 @@ author: dlanger
 ms.author: dlanger
 ms.service: defender-for-cloud
 ms.topic: checklist
-ms.date: 03/31/2025
+ms.date: 03/31/2026
 ms.custom: references_regions
 ---
 # Support and prerequisites for Defender for APIs deployment
