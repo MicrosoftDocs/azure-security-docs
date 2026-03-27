@@ -14,7 +14,7 @@ ms.author: msmbaldwin
 1. Use the `az group create` command to create a resource group:
 
     ```azurecli
-    az group create --name myResourceGroup --location eastus
+    az group create --name <resource-group> --location eastus
     ```
 
     You can change "eastus" to a location nearer to you, if you prefer.
@@ -22,17 +22,17 @@ ms.author: msmbaldwin
 1. Use `az keyvault create` to create the key vault:
 
     ```azurecli
-    az keyvault create --name <your-unique-keyvault-name> --resource-group myResourceGroup --enable-rbac-authorization true --enable-purge-protection true
+    az keyvault create --name <vault-name> --resource-group <resource-group> --enable-rbac-authorization true --enable-purge-protection true
     ```
 
-    Replace `<your-unique-keyvault-name>` with a name that's unique across all of Azure. You typically use your personal or company name along with other numbers and identifiers.
+    Replace `<vault-name>` with a name that's unique across all of Azure. You typically use your personal or company name along with other numbers and identifiers.
 
 # [Azure PowerShell](#tab/azure-powershell)
 
 1. Use the `New-AzResourceGroup` command to create a resource group:
 
     ```azurepowershell
-    New-AzResourceGroup -Name myResourceGroup -Location eastus
+    New-AzResourceGroup -Name "<resource-group>" -Location "eastus"
     ```
 
     You can change "eastus" to a location nearer to you, if you prefer.
@@ -40,9 +40,9 @@ ms.author: msmbaldwin
 1. Use `New-AzKeyVault` to create the key vault:
 
     ```azurepowershell
-    New-AzKeyVault -Name <your-unique-keyvault-name> -ResourceGroupName myResourceGroup -Location eastus -EnableRbacAuthorization $true -EnablePurgeProtection
+    New-AzKeyVault -Name "<vault-name>" -ResourceGroupName "<resource-group>" -Location "eastus" -EnableRbacAuthorization $true -EnablePurgeProtection
     ```
 
-    Replace `<your-unique-keyvault-name>` with a name that's unique across all of Azure. You typically use your personal or company name along with other numbers and identifiers.
+    Replace `<vault-name>` with a name that's unique across all of Azure. You typically use your personal or company name along with other numbers and identifiers.
 
 ---

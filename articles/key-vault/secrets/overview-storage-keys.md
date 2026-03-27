@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: secrets
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 01/30/2026
+ms.date: 03/26/2026
 
 ms.custom: devx-track-azurecli
 # Customer intent: As a developer, I want to use Azure Key Vault and Azure CLI for secure management of my storage credentials and shared access signature tokens.
@@ -75,10 +75,10 @@ Use the Azure CLI [az role assignment create](/cli/azure/role/assignment) comman
 
 - `--role`: Pass the "Storage Account Key Operator Service Role" Azure role. This role limits the access scope to your storage account. For a classic storage account, pass "Classic Storage Account Key Operator Service Role" instead.
 - `--assignee`: Pass the value "https://vault.azure.net", which is the url for Key Vault in the Azure public cloud. (For Azure Government cloud use '--assignee-object-id' instead, see [Service principal application ID](#service-principal-application-id).)
-- `--scope`: Pass your storage account resource ID, which is in the form `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`. Find your subscription ID, by using the Azure CLI [az account list](/cli/azure/account?#az-account-list) command. Find your storage account name and storage account resource group, by using the Azure CLI [az storage account list](/cli/azure/storage/account?#az-storage-account-list) command.
+- `--scope`: Pass your storage account resource ID, which is in the form `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>`. Find your subscription ID, by using the Azure CLI [az account list](/cli/azure/account?#az-account-list) command. Find your storage account name and storage account resource group, by using the Azure CLI [az storage account list](/cli/azure/storage/account?#az-storage-account-list) command.
 
 ```azurecli-interactive
-az role assignment create --role "Storage Account Key Operator Service Role" --assignee "https://vault.azure.net" --scope "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
+az role assignment create --role "Storage Account Key Operator Service Role" --assignee "https://vault.azure.net" --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"
  ```
 ### Give your user account permission to managed storage accounts
 
@@ -87,7 +87,7 @@ Use the Azure CLI [az role assignment create](/cli/azure/role/assignment#az-role
 ```azurecli-interactive
 # Give your user principal access to all storage account permissions, on your Key Vault instance
 
-az role assignment create --role "Key Vault Secrets Officer" --assignee user@domain.com --scope /subscriptions/{subscriptionID}/resourceGroups/{resource-group}/providers/Microsoft.KeyVault/vaults/<YourKeyVaultName>
+az role assignment create --role "Key Vault Secrets Officer" --assignee user@domain.com --scope /subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>
 ```
 
 Permissions for storage accounts aren't available on the storage account "Access policies" page in the Azure portal.
@@ -98,10 +98,10 @@ Create a Key Vault managed storage account using the Azure CLI [az keyvault stor
 
 - `--vault-name`: Pass the name of your key vault. To find the name of your key vault, use the Azure CLI [az keyvault list](/cli/azure/keyvault?#az-keyvault-list) command.
 - `-n`: Pass the name of your storage account. To find the name of your storage account, use the Azure CLI [az storage account list](/cli/azure/storage/account?#az-storage-account-list) command.
-- `--resource-id`: Pass your storage account resource ID, which is in the form `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`. Find your subscription ID, by using the Azure CLI [az account list](/cli/azure/account?#az-account-list) command. Find your storage account name and storage account resource group, by using the Azure CLI [az storage account list](/cli/azure/storage/account?#az-storage-account-list) command.
+- `--resource-id`: Pass your storage account resource ID, which is in the form `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>`. Find your subscription ID, by using the Azure CLI [az account list](/cli/azure/account?#az-account-list) command. Find your storage account name and storage account resource group, by using the Azure CLI [az storage account list](/cli/azure/storage/account?#az-storage-account-list) command.
    
 ```azurecli-interactive
-az keyvault storage add --vault-name <YourKeyVaultName> -n <YourStorageAccountName> --active-key-name key1 --auto-regenerate-key --regeneration-period P30D --resource-id "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
+az keyvault storage add --vault-name <vault-name> -n <storage-account-name> --active-key-name key1 --auto-regenerate-key --regeneration-period P30D --resource-id "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"
 ```
 
 ## Shared access signature tokens
@@ -110,7 +110,7 @@ You can also ask Key Vault to generate shared access signature tokens. A shared 
 
 The commands in this section complete the following actions:
 
-- Set an account shared access signature definition `<YourSASDefinitionName>`. The definition is set on a Key Vault managed storage account `<YourStorageAccountName>` in your key vault `<YourKeyVaultName>`.
+- Set an account shared access signature definition `<sas-definition-name>`. The definition is set on a Key Vault managed storage account `<storage-account-name>` in your key vault `<vault-name>`.
 - Set a Key Vault managed storage shared access signature definition in the vault. The definition has the template URI of the shared access signature token that was created. The definition has the shared access signature type `account` and is valid for N days.
 - Verify that the shared access signature was saved in your key vault as a secret.
 
@@ -146,7 +146,7 @@ For more information about account SAS, see:
 Use the Azure CLI [az keyvault storage sas-definition create](/powershell/module/az.keyvault/set-azkeyvaultmanagedstoragesasdefinition) command, passing the SAS definition template from the previous step to the `--template-uri` parameter, to create a shared access signature definition.  You can provide the name of your choice to the `-n` parameter.
 
 ```azurecli-interactive
-az keyvault storage sas-definition create --vault-name <YourKeyVaultName> --account-name <YourStorageAccountName> -n <YourSASDefinitionName> --validity-period P2D --sas-type account --template-uri <sasDefinitionTemplate>
+az keyvault storage sas-definition create --vault-name <vault-name> --account-name <storage-account-name> -n <sas-definition-name> --validity-period P2D --sas-type account --template-uri <sas-definition-template>
 ```
 
 ### Verify the shared access signature definition
@@ -156,7 +156,7 @@ You can verify that the shared access signature definition has been stored in yo
 You can now use the [az keyvault storage sas-definition show](/azure/key-vault/secrets/overview-storage-keys) command and the `id` property to view the content of that secret.
 
 ```azurecli-interactive
-az keyvault storage sas-definition show --id https://<YourKeyVaultName>.vault.azure.net/storage/<YourStorageAccountName>/sas/<YourSASDefinitionName>
+az keyvault storage sas-definition show --id https://<vault-name>.vault.azure.net/storage/<storage-account-name>/sas/<sas-definition-name>
 ```
 
 ## Next steps

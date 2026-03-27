@@ -3,7 +3,7 @@ title: Create and retrieve attributes of a managed key in Azure Key Vault – Az
 description: Quickstart showing how to set and retrieve a managed key from Azure Key Vault using Azure PowerShell
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 03/13/2026
+ms.date: 03/26/2026
 ms.topic: quickstart
 ms.service: azure-key-vault
 ms.subservice: keys
@@ -33,7 +33,7 @@ New-AzResourceGroup -Name "<resource-group>" -Location "<location>"
 To create a Managed HSM, you need your Microsoft Entra principal ID.  To get your ID, use the Azure PowerShell [Get-AzADUser](/powershell/module/az.resources/get-azaduser) cmdlet, and pass your email address to the `UserPrincipalName` parameter:
 
 ```azurepowershell-interactive
-Get-AzADUser -UserPrincipalName "<your@email.address>"
+Get-AzADUser -UserPrincipalName "<user-principal-name>"
 ```
 
 Your principal ID is returned in the format, "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx".

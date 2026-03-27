@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.custom: devx-track-azurecli
 ms.topic: get-started
-ms.date: 01/30/2026
+ms.date: 03/26/2026
 
 ms.author: mbaldwin
 ---
@@ -116,7 +116,7 @@ For Managed Identities,specify command arguments as follows:
 ```azurecli
 az keyvault role assignment create --hsm-name <hsm-name> \
       --role "Managed HSM Crypto User"  \
-       --assignee-object-id <object_id>  \
+       --assignee-object-id <object-id>  \
        --assignee-principal-type MSI \
        --scope /keys
 ```

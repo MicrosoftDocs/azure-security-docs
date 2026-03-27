@@ -43,32 +43,32 @@ After you release the payment HSM, delete it by using Azure CLI or Azure PowerSh
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the [az dedicated-hsm delete](/cli/azure/dedicated-hsm#az-dedicated-hsm-delete) command to remove your payment HSM. The following example deletes the `myPaymentHSM` payment HSM from the `myResourceGroup` resource group:
+Use the [az dedicated-hsm delete](/cli/azure/dedicated-hsm#az-dedicated-hsm-delete) command to remove your payment HSM. The following example deletes the `<payment-hsm-name>` payment HSM from the `<resource-group>` resource group:
 
 ```azurecli-interactive
-az dedicated-hsm delete --name "myPaymentHSM" -g "myResourceGroup"
+az dedicated-hsm delete --name "<payment-hsm-name>" -g "<resource-group>"
 ```
 
 You can verify that the payment HSM was deleted by using the Azure CLI [az dedicated-hsm show](/cli/azure/dedicated-hsm#az-dedicated-hsm-show) command.
 
 ```azurecli-interactive
-az dedicated-hsm show --resource-group "myResourceGroup" --name "myPaymentHSM"
+az dedicated-hsm show --resource-group "<resource-group>" --name "<payment-hsm-name>"
 ```
 
 This command returns a "resource not found" error.
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-Use the Azure PowerShell [Remove-AzDedicatedHsm](/powershell/module/az.dedicatedhsm/remove-azdedicatedhsm) cmdlet to remove your payment HSM. The following example deletes the `myPaymentHSM` payment HSM from the `myResourceGroup` resource group:
+Use the Azure PowerShell [Remove-AzDedicatedHsm](/powershell/module/az.dedicatedhsm/remove-azdedicatedhsm) cmdlet to remove your payment HSM. The following example deletes the `<payment-hsm-name>` payment HSM from the `<resource-group>` resource group:
 
 ```azurepowershell-interactive
-Remove-AzDedicatedHsm -Name "myPaymentHSM" -ResourceGroupName "myResourceGroup"
+Remove-AzDedicatedHsm -Name "<payment-hsm-name>" -ResourceGroupName "<resource-group>"
 ```
 
 You can verify that the payment HSM was deleted by using the Azure PowerShell [Get-AzDedicatedHsm](/powershell/module/az.dedicatedhsm/get-azdedicatedhsm) cmdlet.
 
 ```azurepowershell-interactive
-Get-AzDedicatedHsm -Name "myPaymentHSM" -ResourceGroup "myResourceGroup"
+Get-AzDedicatedHsm -Name "<payment-hsm-name>" -ResourceGroup "<resource-group>"
 ```
 
 This command returns a "resource not found" error.
