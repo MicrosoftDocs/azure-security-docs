@@ -4,7 +4,7 @@ description: Learn how to enable API security posture management in Microsoft De
 ms.author: elkrieger
 author: Elazark
 ms.topic: how-to
-ms.date: 01/04/2026
+ms.date: 03/31/2026
 ms.custom: sfi-image-nochange, references_regions
 #customer intent: As a cloud administrator, I want to learn how to enable API security posture management to protect my APIs in Azure API Management, Function Apps, and Logic Apps.
 ---
