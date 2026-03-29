@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurepowershell, mode-api
-ms.date: 01/30/2026
+ms.date: 03/26/2026
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
@@ -40,17 +40,17 @@ You can now add a certificate to the vault. This certificate could be used by an
 Use these commands to create a self-signed certificate with policy called **ExampleCertificate** :
 
 ```azurepowershell-interactive
-$Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=contoso.com" -IssuerName "Self" -ValidityInMonths 6 -ReuseKeyOnRenewal
+$Policy = New-AzKeyVaultCertificatePolicy -SecretContentType \"application/x-pkcs12\" -SubjectName \"CN=<domain-name>\" -IssuerName \"Self\" -ValidityInMonths 6 -ReuseKeyOnRenewal
 
-Add-AzKeyVaultCertificate -VaultName "<your-unique-keyvault-name>" -Name "ExampleCertificate" -CertificatePolicy $Policy
+Add-AzKeyVaultCertificate -VaultName "<vault-name>" -Name "ExampleCertificate" -CertificatePolicy $Policy
 ```
 
-You can now reference this certificate that you added to Azure Key Vault by using its URI. Use **`https://<your-unique-keyvault-name>.vault.azure.net/certificates/ExampleCertificate`** to get the current version. 
+You can now reference this certificate that you added to Azure Key Vault by using its URI. Use **`https://<vault-name>.vault.azure.net/certificates/ExampleCertificate`** to get the current version. 
 
 To view previously stored certificate:
 
 ```azurepowershell-interactive
-Get-AzKeyVaultCertificate -VaultName "<your-unique-keyvault-name>" -Name "ExampleCertificate"
+Get-AzKeyVaultCertificate -VaultName "<vault-name>" -Name "ExampleCertificate"
 ```
 
 **Troubleshooting**:
@@ -62,7 +62,7 @@ If you receive this error, the account accessing the Azure Key Vault does not ha
 Run the following Azure PowerShell command to assign the proper RBAC role:
 
 ```azurepowershell-interactive
-New-AzRoleAssignment -SignInName <your-email-address> -RoleDefinitionName "Key Vault Certificates Officer" -Scope "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.KeyVault/vaults/<KeyVaultName>"
+New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName "Key Vault Certificates Officer" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>"
 ```
 
 ## Clean up resources

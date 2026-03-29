@@ -5,7 +5,7 @@ author: keithp
 manager: davinune
 ms.service: azure-cloud-hsm
 ms.topic: troubleshooting-general
-ms.date: 03/20/2025
+ms.date: 03/26/2026
 ms.author: keithp
 ---
 
@@ -184,7 +184,7 @@ cd C:\Program Files\Microsoft Azure Cloud HSM Client SDK
 
 The PKCS#11 library knows how to find the client configuration because you must have a copy of your partition owner certificate (`PO.crt`) on the application server that's running your application and using the PKCS#11 library. In addition to the partition owner certificate:
 
-- You have to update `/azcloudhsm_client/azcloudhsm_client.cfg` on the application server that has the SDK installed to point to your Azure Cloud HSM deployment (that is, `hsm1.chsm-<resourcename>-<uniquestring>.privatelink.cloudhsm.azure.net`).
+- You have to update `/azcloudhsm_client/azcloudhsm_client.cfg` on the application server that has the SDK installed to point to your Azure Cloud HSM deployment (that is, `hsm1.chsm-<resource-name>-<unique-string>.privatelink.cloudhsm.azure.net`).
 - The `azcloudhsm_client` tool must be running on the application server that connects to your Azure Cloud HSM deployment.
 - You must specify a PIN within your PKCS#11 application by using the syntax `<username>:<password>`. This PIN is used for calling `C_Login` to your Azure Cloud HSM deployment.
 - You must include `pkcs11_headers/include/cryptoki.h` and `pkcs11_headers/include/pkcs11t.h` in your PKCS#11 application to use the PKCS#11 library for Azure Cloud HSM.
@@ -193,7 +193,7 @@ The PKCS#11 library knows how to find the client configuration because you must 
 
 The `azcloudhsm_pkcs11.dll` file in the Azure Cloud HSM Windows SDK knows how to find the client configuration because you must have a copy of your partition owner certificate (`PO.crt`) on the application server that's running your application and using the PKCS#11 library. In addition to the partition owner certificate:
 
-- You have to update `/azcloudhsm_client/azcloudhsm_client.cfg` on the application server that has the SDK installed to point to your Azure Cloud HSM deployment (that is, `hsm1.chsm-<resourcename>-<uniquestring>.privatelink.cloudhsm.azure.net`).
+- You have to update `/azcloudhsm_client/azcloudhsm_client.cfg` on the application server that has the SDK installed to point to your Azure Cloud HSM deployment (that is, `hsm1.chsm-<resource-name>-<unique-string>.privatelink.cloudhsm.azure.net`).
 - The `azcloudhsm_client` tool must run on the application server that connects to your Azure Cloud HSM deployment.
 - You must specify a PIN within your PKCS#11 application by using the syntax `<username>:<password>`. This PIN is used for calling `C_Login` to your Azure Cloud HSM deployment.
 - You must include `pkcs11_headers\include\cryptoki.h` and `pkcs11_headers\include\pkcs11t.h` in your PKCS#11 application to use the PKCS#11 library for Azure Cloud HSM.

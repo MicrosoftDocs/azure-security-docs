@@ -4,7 +4,7 @@ description: Learn how to secure Azure Payment HSM, with best practices for netw
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: azure-payment-hsm
-ms.topic: conceptual
+ms.topic: best-practice
 ms.date: 09/26/2025
 ms.custom: horz-security
 ---

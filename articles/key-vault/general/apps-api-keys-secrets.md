@@ -6,7 +6,7 @@ author: orin-thomas
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: overview
-ms.date: 11/19/2025
+ms.date: 03/26/2026
 ms.author: orthomas
 ---
 
@@ -36,9 +36,9 @@ The following uses the Azure CLI [az keyvault secret set](/cli/azure/keyvault/se
 
 ```azurecli
 az keyvault secret set \
-    --vault-name "<YourKeyVaultName>" \
+    --vault-name "<vault-name>" \
     --name "MyApiKey" \
-    --value "<YourSecretValue>"
+    --value "<secret-value>"
     --expires "$(date -u -d '+180 days' +'%Y-%m-%dT%H:%M:%SZ')"
 ```
 
@@ -47,8 +47,8 @@ az keyvault secret set \
 The following uses the Azure PowerShell [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet to add a secret named MyApiKey to the keyvault and sets the secret to expire after 180 days:
 
 ```powershell
-$secret = ConvertTo-SecureString -String "<YourSecretValue>" -AsPlainText -Force
-Set-AzKeyVaultSecret -VaultName "<YourKeyVaultName>" -Name "MyApiKey" -SecretValue $secret -Expires (Get-Date).AddDays(180)
+$secret = ConvertTo-SecureString -String "<secret-value>" -AsPlainText -Force
+Set-AzKeyVaultSecret -VaultName "<vault-name>" -Name "MyApiKey" -SecretValue $secret -Expires (Get-Date).AddDays(180)
 ```
 
 ---
@@ -66,7 +66,7 @@ To do this configure an Azure role-based access control (Azure RBAC) role using 
 ```azurecli
 az role assignment create --role "Key Vault Secrets User" \
   --assignee <object-id-of-app-or-user> \
-  --scope /subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<key-vault-name>
+  --scope /subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -76,7 +76,7 @@ To do this configure an Azure role-based access control (Azure RBAC) role using 
 ```powershell
 New-AzRoleAssignment -RoleDefinitionName "Key Vault Secrets User" `
     -ObjectId <object-id-of-app-or-user> `
-    -Scope "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<key-vault-name>"
+    -Scope "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>"
 ```
 
 ---
@@ -92,9 +92,9 @@ To enable Azure Key Vault Logging and Alerts, use the Azure CLI [az monitor diag
 ```azurecli
 az monitor diagnostic-settings create \
     --name myDiagnosticSettings \
-    --resource {key-vault-resource-id} \
+    --resource <key-vault-resource-id> \
     --logs '[{"category": "AuditEvent","enabled": true}]' \
-    --workspace {log-analytics-workspace-id}
+    --workspace <log-analytics-workspace-id>
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -103,8 +103,8 @@ To enable Azure Key Vault Logging and Alerts, use the Azure PowerShell [Set-AzDi
 
 ```powershell
 Set-AzDiagnosticSetting -Name "myDiagnosticSettings" `
-    -ResourceId {key-vault-resource-id} `
-    -WorkspaceId {log-analytics-workspace-id} `
+    -ResourceId <key-vault-resource-id> `
+    -WorkspaceId <log-analytics-workspace-id> `
     -Category "AuditEvent" `
     -Enabled $true
 ```
@@ -120,8 +120,8 @@ You can run the Azure CLI [az monitor scheduled-query create](/cli/azure/monitor
 ```azurecli
 az monitor scheduled-query create \
     --name "Suspicious Access Alert" \
-    --resource-group myResourceGroup \
-    --scopes {log-analytics-workspace-resource-id} \
+    --resource-group <resource-group> \
+    --scopes <log-analytics-workspace-resource-id> \
     --condition "AzureDiagnostics | where ResourceType == 'VAULTS' | where OperationName == 'SecretGet' | where ResultSignature == 'Unauthorized'"
 ```
 
@@ -130,14 +130,14 @@ az monitor scheduled-query create \
 You can run the Azure PowerShell [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule) cmdlet to monitor logs in the specified Log Analytics workspace for unauthorized access attempts to Azure Key Vault secrets and trigger an alert if any matching unauthorized access attempt is detected:
 
 ```powershell
-New-AzScheduledQueryRule -ResourceGroupName "myResourceGroup" `
+New-AzScheduledQueryRule -ResourceGroupName "<resource-group>" `
     -Location "eastus" `
     -Action `
         (New-AzScheduledQueryRuleAction -Severity 3 -Trigger `
             (New-AzScheduledQueryRuleTriggerCondition -ThresholdOperator GreaterThan -Threshold 0 -MetricTrigger `
-                (New-AzScheduledQueryRuleMetricTrigger -MetricName "UnauthorizedAccess" -MetricResourceId {log-analytics-workspace-resource-id} -TimeAggregation "Count" -Operator "GreaterThan" -Threshold 0))) `
+                (New-AzScheduledQueryRuleMetricTrigger -MetricName "UnauthorizedAccess" -MetricResourceId "<log-analytics-workspace-resource-id>" -TimeAggregation "Count" -Operator "GreaterThan" -Threshold 0))) `
     -Source `
-        (New-AzScheduledQueryRuleSource -Query "AzureDiagnostics | where ResourceType == 'VAULTS' | where OperationName == 'SecretGet' | where ResultSignature == 'Unauthorized'" -DataSourceId {log-analytics-workspace-resource-id}) `
+        (New-AzScheduledQueryRuleSource -Query "AzureDiagnostics | where ResourceType == 'VAULTS' | where OperationName == 'SecretGet' | where ResultSignature == 'Unauthorized'" -DataSourceId "<log-analytics-workspace-resource-id>") `
     -Schedule `
         (New-AzScheduledQueryRuleSchedule -FrequencyInMinutes 5 -TimeWindowInMinutes 5) `
     -Description "Alert for unauthorized access attempts to Key Vault secrets"
@@ -159,10 +159,10 @@ You can create a private endpoint using the Azure CLI [az network private-endpoi
 ```azurecli
 az network private-endpoint create \
     --name myPrivateEndpoint \
-    --resource-group myResourceGroup \
+    --resource-group <resource-group> \
     --vnet-name myVNet \
     --subnet mySubnet \
-    --private-connection-resource-id /subscriptions/{subscription}/resourceGroups/{rg}/providers/Microsoft.KeyVault/vaults/{key-vault-name} \
+    --private-connection-resource-id /subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name> \
     --group-id vault \
     --connection-name myConnection
 
@@ -170,9 +170,9 @@ You can create firewall rules on the Azure Key Vault instance using the Azure CL
 
 ```azurecli
 az keyvault network-rule add \
-    --name {key-vault-name} \
-    --resource-group myResourceGroup \
-    --ip-address {trusted-ip-address}/32
+    --name <vault-name> \
+    --resource-group <resource-group> \
+    --ip-address <trusted-ip-address>/32
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -180,20 +180,20 @@ You can create a private endpoint using the Azure PowerShell [New-AzPrivateEndpo
 
 ```powershell
 $privateEndpoint = New-AzPrivateEndpoint -Name "myPrivateEndpoint" `
-    -ResourceGroupName "myResourceGroup" `
+    -ResourceGroupName "<resource-group>" `
     -Location "eastus" `
-    -SubnetId "/subscriptions/{subscription}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet-name}/subnets/{subnet-name}" `
+    -SubnetId "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Network/virtualNetworks/<vnet-name>/subnets/<subnet-name>" `
     -PrivateLinkServiceConnection `
         (New-AzPrivateLinkServiceConnection -Name "myConnection" `
-            -PrivateLinkServiceId "/subscriptions/{subscription}/resourceGroups/{rg}/providers/Microsoft.KeyVault/vaults/{key-vault-name}" `
+            -PrivateLinkServiceId "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>" `
             -GroupId "vault")
 ```
 You can create firewall rules on the Azure Key Vault instance using the Azure PowerShell [Add-AzKeyVaultNetworkRule](/powershell/module/az.keyvault/add-azkeyvaultnetworkrule) cmdlet, substituting the appropriate key vault names, resource groups, subnet, and subnet mask information:
 
 ```powershell
-Add-AzKeyVaultNetworkRule -VaultName {key-vault-name} `
-    -ResourceGroupName myResourceGroup `
-    -IPAddress {trusted-ip-address}/32
+Add-AzKeyVaultNetworkRule -VaultName "<vault-name>" `
+    -ResourceGroupName "<resource-group>" `
+    -IPAddress "<trusted-ip-address>/32"
 ```
 
 ---
@@ -215,9 +215,9 @@ You can use the Azure Identity and Azure Key Vault Secrets client library to man
 from azure.keyvault.secrets import SecretClient
 from azure.identity import DefaultAzureCredential
 
-key_vault_name = "<your-key-vault-name>"
+key_vault_name = "<vault-name>"
 KVUri = f"https://{key_vault_name}.vault.azure.net"
-secret_name = "<your-secret-name>"
+secret_name = "<secret-name>"
 
 credential = DefaultAzureCredential()
 client = SecretClient(vault_url=KVUri, credential=credential)

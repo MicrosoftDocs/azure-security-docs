@@ -6,7 +6,7 @@ ms.author: mbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 03/24/2026
+ms.date: 03/26/2026
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, sfi-image-nochange
 
 #customer intent: As an Azure Key Vault administrator, I want to migrate from access policies to Azure RBAC so that I can improve security and simplify access management.
@@ -53,7 +53,7 @@ After checking your configuration:
 1. Use the [az keyvault show](/cli/azure/keyvault#az-keyvault-show) command to retrieve vault details:
 
    ```azurecli
-   az keyvault show --name <KeyVaultName> --resource-group <ResourceGroupName>
+   az keyvault show --name <vault-name> --resource-group <resource-group>
    ```
 
 1. Check the **Enabled for RBAC Authorization** property (`enableRbacAuthorization`) for the key vault.
@@ -78,7 +78,7 @@ Use the [az keyvault list](/cli/azure/keyvault#az-keyvault-list) command to list
 
 ```azurecli
 # List all key vaults in the resource group and check Azure RBAC status
-az keyvault list --resource-group <ResourceGroupName> --query "[].{name:name, rbacEnabled:properties.enableRbacAuthorization}" --output table
+az keyvault list --resource-group <resource-group> --query "[].{name:name, rbacEnabled:properties.enableRbacAuthorization}" --output table
 ```
 
 # [PowerShell](#tab/azure-powershell)
@@ -113,7 +113,7 @@ az keyvault list --resource-group <ResourceGroupName> --query "[].{name:name, rb
 1. Name the resource group you want to run your function for:
 
    ```azurepowershell
-   $resourceGroupName = "<ResourceGroupName>"
+   $resourceGroupName = "<resource-group>"
    ```
 
 1. Call function `Get-KeyVaultsFromResourceGroup` to see which vaults in the resource group from step 2 have access policies vs Azure RBAC enabled.

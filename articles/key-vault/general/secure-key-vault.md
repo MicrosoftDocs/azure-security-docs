@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.custom: horz-security
-ms.topic: article
+ms.topic: best-practice
 ms.date: 01/30/2026
 ms.author: mbaldwin
 ai-usage: ai-assisted

@@ -82,7 +82,7 @@ using Azure.Security.ConfidentialLedger.Certificate;
 
 ### Authenticate and create a client
 
-In this quickstart, logged in user is used to authenticate to Azure confidential ledger, which is preferred method for local development. The name of your confidential ledger is expanded to the key vault URI, in the format "https://\<your-confidential-ledger-name\>.confidential-ledger.azure.com". This example is using ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential) class from [Azure Identity Library](/dotnet/api/overview/azure/identity-readme), which allows to use the same code across different environments with different options to provide identity. 
+In this quickstart, logged in user is used to authenticate to Azure confidential ledger, which is preferred method for local development. The name of your confidential ledger is expanded to the key vault URI, in the format `https://<ledger-name>.confidential-ledger.azure.com`. This example is using ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential) class from [Azure Identity Library](/dotnet/api/overview/azure/identity-readme), which allows to use the same code across different environments with different options to provide identity. 
 
 ```csharp
 credential = DefaultAzureCredential()
@@ -151,7 +151,7 @@ namespace acl_app
 
             // Replace with the name of your confidential ledger
 
-            const string ledgerName = "myLedger";
+            const string ledgerName = "<ledger-name>";
             var ledgerUri = $"https://{ledgerName}.confidential-ledger.azure.com";
 
             // Create a confidential ledger client using the ledger URI and DefaultAzureCredential

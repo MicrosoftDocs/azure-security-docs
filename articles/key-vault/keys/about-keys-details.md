@@ -6,7 +6,7 @@ author: msmbaldwin
 
 ms.service: azure-key-vault
 ms.subservice: keys
-ms.topic: article
+ms.topic: concept-article
 ms.date: 03/06/2026
 ms.author: mbaldwin
 ---

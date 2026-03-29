@@ -42,8 +42,7 @@ Your result is listed under "Id", in the format `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxx
 Use the Azure PowerShell [New-AzConfidentialLedger](/powershell/module/az.confidentialledger/new-azconfidentialledger) command to create a confidential ledger in your new resource group.
 
 ```azurepowershell
-New-AzConfidentialLedger -Name "myLedger" -ResourceGroupName "myResourceGroup" -Location "EastUS" -LedgerType "Public" -AadBasedSecurityPrincipal @{ LedgerRoleName="Administrator"; PrincipalId="aaaaaaaa-bbbb-cccc-1111-222222222222"; }
-
+New-AzConfidentialLedger -Name "<ledger-name>" -ResourceGroupName "<resource-group>" -Location "EastUS" -LedgerType "Public" -AadBasedSecurityPrincipal @{ LedgerRoleName="Administrator"; PrincipalId="<principal-id>"; }
 ```
 
 A successful operation returns the properties of the newly created ledger. Take note of the **ledgerUri**. In the example above, this URI is "https://myledger.confidential-ledger.azure.com".
@@ -55,13 +54,13 @@ You need this URI to transact with the confidential ledger from the data plane.
 You can view the properties associated with your newly created confidential ledger using the Azure PowerShell [Get-AzConfidentialLedger](/powershell/module/az.confidentialledger/get-azconfidentialledger) cmdlet.
 
 ```azurepowershell
-Get-AzConfidentialLedger -Name "myLedger" -ResourceGroupName "myResourceGroup"
+Get-AzConfidentialLedger -Name "<ledger-name>" -ResourceGroupName "<resource-group>"
 ```
 
 To update the properties of a confidential ledger, use do so, use the Azure PowerShell [Update-AzConfidentialLedger](/powershell/module/az.confidentialledger/update-azconfidentialledger) cmdlet. For instance, to update your ledger to change your role to "Reader", run:
 
 ```azurepowershell
-Update-AzConfidentialLedger -Name "myLedger" -ResourceGroupName "myResourceGroup" -Location "EastUS" -LedgerType "Public" -AadBasedSecurityPrincipal @{ LedgerRoleName="Reader"; PrincipalId="aaaaaaaa-bbbb-cccc-1111-222222222222"; }
+Update-AzConfidentialLedger -Name "<ledger-name>" -ResourceGroupName "<resource-group>" -Location "EastUS" -LedgerType "Public" -AadBasedSecurityPrincipal @{ LedgerRoleName="Reader"; PrincipalId="<principal-id>"; }
 ```
 
 If you again run [Get-AzConfidentialLedger](/powershell/module/az.confidentialledger/get-azconfidentialledger), you see that the role is updated.

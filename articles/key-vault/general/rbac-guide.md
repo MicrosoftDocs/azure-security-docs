@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: general
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, sfi-image-nochange, copilot-scenario-highlight
 ms.topic: how-to
-ms.date: 03/24/2026
+ms.date: 03/26/2026
 ms.author: mbaldwin
 ---
 
@@ -136,7 +136,7 @@ To manage role assignments, you must have `Microsoft.Authorization/roleAssignmen
 To create a role assignment using the Azure CLI, use the [az role assignment](/cli/azure/role/assignment) command:
 
 ```azurecli
-az role assignment create --role {role-name-or-id} --assignee {assignee-upn}> --scope {scope}
+az role assignment create --role <role-name> --assignee <user-principal-name>> --scope <scope>
 ```
 
 For full details, see [Assign Azure roles using Azure CLI](/azure/role-based-access-control/role-assignments-cli).
@@ -147,10 +147,10 @@ To create a role assignment using Azure PowerShell, use the [New-AzRoleAssignmen
 
 ```azurepowershell
 #Assign by User Principal Name
-New-AzRoleAssignment -RoleDefinitionName {role-name} -SignInName {assignee-upn} -Scope {scope}
+New-AzRoleAssignment -RoleDefinitionName "<role-name>" -SignInName <user-principal-name> -Scope "<scope>"
 
 #Assign by Service Principal ApplicationId
-New-AzRoleAssignment -RoleDefinitionName Reader -ApplicationId {application-id} -Scope {scope}
+New-AzRoleAssignment -RoleDefinitionName "Reader" -ApplicationId <application-id> -Scope "<scope>"
 ```
 
 For full details, see [Assign Azure roles using Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
@@ -185,7 +185,7 @@ To assign roles using the Azure portal, see [Assign Azure roles using the Azure 
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
-az role assignment create --role "Key Vault Reader" --assignee {i.e user@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}
+az role assignment create --role "Key Vault Reader" --assignee <user-principal-name> --scope /subscriptions/<subscription-id>/resourcegroups/<resource-group>
 ```
 
 For full details, see [Assign Azure roles using Azure CLI](/azure/role-based-access-control/role-assignments-cli).
@@ -194,10 +194,10 @@ For full details, see [Assign Azure roles using Azure CLI](/azure/role-based-acc
 
 ```azurepowershell
 #Assign by User Principal Name
-New-AzRoleAssignment -RoleDefinitionName 'Key Vault Reader' -SignInName {assignee-upn} -Scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}
+New-AzRoleAssignment -RoleDefinitionName "Key Vault Reader" -SignInName <user-principal-name> -Scope "/subscriptions/<subscription-id>/resourcegroups/<resource-group>"
 
 #Assign by Service Principal ApplicationId
-New-AzRoleAssignment -RoleDefinitionName 'Key Vault Reader' -ApplicationId {application-id} -Scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}
+New-AzRoleAssignment -RoleDefinitionName "Key Vault Reader" -ApplicationId <application-id> -Scope "/subscriptions/<subscription-id>/resourcegroups/<resource-group>"
 ```
 For full details, see [Assign Azure roles using Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
 
@@ -224,7 +224,7 @@ Above role assignment provides ability to list key vault objects in key vault.
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
-az role assignment create --role "Key Vault Secrets Officer" --assignee {assignee-upn} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
+az role assignment create --role "Key Vault Secrets Officer" --assignee <user-principal-name> --scope /subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>
 ```
 
 For full details, see [Assign Azure roles using Azure CLI](/azure/role-based-access-control/role-assignments-cli).
@@ -233,10 +233,10 @@ For full details, see [Assign Azure roles using Azure CLI](/azure/role-based-acc
 
 ```azurepowershell
 #Assign by User Principal Name
-New-AzRoleAssignment -RoleDefinitionName 'Key Vault Secrets Officer' -SignInName {assignee-upn} -Scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
+New-AzRoleAssignment -RoleDefinitionName "Key Vault Secrets Officer" -SignInName <user-principal-name> -Scope "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>"
 
 #Assign by Service Principal ApplicationId
-New-AzRoleAssignment -RoleDefinitionName 'Key Vault Secrets Officer' -ApplicationId {application-id} -Scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}
+New-AzRoleAssignment -RoleDefinitionName "Key Vault Secrets Officer" -ApplicationId <application-id> -Scope "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>"
 ```
 
 For full details, see [Assign Azure roles using Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
@@ -271,7 +271,7 @@ For full details, see [Assign Azure roles using Azure PowerShell](/azure/role-ba
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az role assignment create --role "Key Vault Secrets Officer" --assignee {i.e user@microsoft.com} --scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}/secrets/RBACSecret
+az role assignment create --role "Key Vault Secrets Officer" --assignee <user-principal-name> --scope /subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>/secrets/RBACSecret
 ```
 
 For full details, see [Assign Azure roles using Azure CLI](/azure/role-based-access-control/role-assignments-cli).
@@ -280,10 +280,10 @@ For full details, see [Assign Azure roles using Azure CLI](/azure/role-based-acc
 
 ```azurepowershell
 #Assign by User Principal Name
-New-AzRoleAssignment -RoleDefinitionName 'Key Vault Secrets Officer' -SignInName {i.e user@microsoft.com} -Scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}/secrets/RBACSecret
+New-AzRoleAssignment -RoleDefinitionName "Key Vault Secrets Officer" -SignInName <user-principal-name> -Scope "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>/secrets/RBACSecret"
 
 #Assign by Service Principal ApplicationId
-New-AzRoleAssignment -RoleDefinitionName 'Key Vault Secrets Officer' -ApplicationId {i.e 00001111-aaaa-2222-bbbb-3333cccc4444} -Scope /subscriptions/{subscriptionid}/resourcegroups/{resource-group-name}/providers/Microsoft.KeyVault/vaults/{key-vault-name}/secrets/RBACSecret
+New-AzRoleAssignment -RoleDefinitionName "Key Vault Secrets Officer" -ApplicationId <application-id> -Scope "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>/secrets/RBACSecret"
 ```
 
 For full details, see [Assign Azure roles using Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
@@ -390,7 +390,7 @@ GitHub Copilot can help you construct the correct Azure CLI or PowerShell comman
 I need to set up Azure RBAC for my Key Vault. Help me create the role assignment commands for the following scenario:
 - Key vault name: my-app-keyvault
 - Resource group: my-app-rg
-- Subscription ID: <my-subscription-id>
+- Subscription ID: <subscription-id>
 - I need to grant a managed identity (client ID: <managed-identity-client-id>) the ability to read and write secrets, but not manage keys or certificates.
 Provide both Azure CLI and PowerShell commands, and explain which built-in role is most appropriate for this least-privilege scenario.
 ```

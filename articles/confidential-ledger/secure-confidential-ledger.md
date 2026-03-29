@@ -4,7 +4,7 @@ description: Learn how to secure Azure confidential ledger, with best practices 
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: security
-ms.topic: conceptual
+ms.topic: best-practice
 ms.custom: horz-security
 ms.date: 09/26/2025
 ---

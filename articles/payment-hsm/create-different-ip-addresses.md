@@ -360,15 +360,15 @@ Next, create an Azure resource group.
 Finally, use the Azure CLI [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) command to deploy your ARM template.
 
 ```azurecli-interactive
-az deployment group create --resource-group "MyResourceGroup" --name myPHSMDeployment --template-file "azuredeploy.json"
+az deployment group create --resource-group "<resource-group>" --name <deployment-name> --template-file "azuredeploy.json"
 ```
 
 When prompted, supply the following values for the parameters:
 
-- **resourceName**: myPaymentHSM
-- **vnetName**: myVNet
+- **resourceName**: The name of your payment HSM
+- **vnetName**: The name of your virtual network
 - **vnetAddressPrefix**: 10.0.0.0/16
-- **hsmSubnetName**: mySubnet
+- **hsmSubnetName**: The name of your HSM subnet
 - **hsmSubnetPrefix**: 10.0.0.0/24
 - **hostPrivateIpAddress**: 10.0.0.5
 - **managementVnetName**: MGMTVNet
@@ -393,16 +393,16 @@ Next, create an Azure resource group.
 Now, set the following variables for use in the deploy step:
 
 ```powershell-interactive
-$deploymentName = "myPHSMDeployment"
-$resourceGroupName = "myResourceGroup"
+$deploymentName = "<deployment-name>"
+$resourceGroupName = "<resource-group>"
 $templateFilePath = "azuredeploy.json" 
 $templateParametersPath = "azuredeploy.parameters.json" 
-$resourceName = "myPaymentHSM" 
+$resourceName = "<payment-hsm-name>" 
 $skuName = "payShield10K_LMK1_CPS250" 
 $stampId = "stamp1" 
-$hostVnetName = "myVNet" 
+$hostVnetName = "<vnet-name>" 
 $hostVnetAddressPrefix = "10.0.0.0/16" 
-$hostSubnetName = "mySubnet" 
+$hostSubnetName = "<subnet-name>" 
 $hostSubnetPrefix = "10.0.0.0/24"
 $hostPrivateIpAddress = "10.0.0.5" 
 $mgmtVnetName = "MGMTVNet" 

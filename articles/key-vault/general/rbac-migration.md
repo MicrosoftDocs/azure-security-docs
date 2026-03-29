@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 03/24/2026
+ms.date: 03/26/2026
 ms.author: mbaldwin
 ms.custom: sfi-image-nochange
 ---
@@ -117,7 +117,7 @@ Use the Azure CLI [az keyvault show](/cli/azure/keyvault#az-keyvault-show) comma
 
 ```azurecli
 # List all current access policies
-az keyvault show --name <vault-name> --resource-group <resource-group-name> --query properties.accessPolicies
+az keyvault show --name <vault-name> --resource-group <resource-group> --query properties.accessPolicies
 ```
 
 # [Azure PowerShell](#tab/powershell)
@@ -125,7 +125,7 @@ Use the [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault) cmdlet t
 
 ```powershell
 # List all current access policies
-$vault = Get-AzKeyVault -VaultName "<vault-name>" -ResourceGroupName "<resource-group-name>"
+$vault = Get-AzKeyVault -VaultName "<vault-name>" -ResourceGroupName "<resource-group>"
 $vault.AccessPolicies
 ```
 
@@ -149,16 +149,16 @@ Use the [az role assignment create](/cli/azure/role/assignment#az-role-assignmen
 
 ```azurecli
 # Example for Key Vault Administrator role:
-az role assignment create --role "Key Vault Administrator" --assignee "<object-id-or-email>" --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<vault-name>"
+az role assignment create --role "Key Vault Administrator" --assignee "<object-id-or-email>" --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>"
 
 # Example for Key Vault Secrets Officer:
-az role assignment create --role "Key Vault Secrets Officer" --assignee "<object-id-or-email>" --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<vault-name>"
+az role assignment create --role "Key Vault Secrets Officer" --assignee "<object-id-or-email>" --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>"
 
 # Example for Key Vault Crypto Officer:
-az role assignment create --role "Key Vault Crypto Officer" --assignee "<object-id-or-email>" --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<vault-name>"
+az role assignment create --role "Key Vault Crypto Officer" --assignee "<object-id-or-email>" --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>"
 
 # Example for Key Vault Certificates Officer:
-az role assignment create --role "Key Vault Certificates Officer" --assignee "<object-id-or-email>" --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<vault-name>"
+az role assignment create --role "Key Vault Certificates Officer" --assignee "<object-id-or-email>" --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>"
 ```
 
 # [Azure PowerShell](#tab/powershell)
@@ -166,16 +166,16 @@ Use the [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignm
 
 ```powershell
 # Example for Key Vault Administrator role:
-New-AzRoleAssignment -RoleDefinitionName "Key Vault Administrator" -ObjectId "<object-id>" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<vault-name>"
+New-AzRoleAssignment -RoleDefinitionName "Key Vault Administrator" -ObjectId "<object-id>" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>"
 
 # Example for Key Vault Secrets Officer:
-New-AzRoleAssignment -RoleDefinitionName "Key Vault Secrets Officer" -ObjectId "<object-id>" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<vault-name>"
+New-AzRoleAssignment -RoleDefinitionName "Key Vault Secrets Officer" -ObjectId "<object-id>" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>"
 
 # Example for Key Vault Crypto Officer:
-New-AzRoleAssignment -RoleDefinitionName "Key Vault Crypto Officer" -ObjectId "<object-id>" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<vault-name>"
+New-AzRoleAssignment -RoleDefinitionName "Key Vault Crypto Officer" -ObjectId "<object-id>" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>"
 
 # Example for Key Vault Certificates Officer:
-New-AzRoleAssignment -RoleDefinitionName "Key Vault Certificates Officer" -ObjectId "<object-id>" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<vault-name>"
+New-AzRoleAssignment -RoleDefinitionName "Key Vault Certificates Officer" -ObjectId "<object-id>" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>"
 ```
 
 # [Azure portal](#tab/portal)
@@ -200,7 +200,7 @@ Use the [az keyvault update](/cli/azure/keyvault#az-keyvault-update) command to 
 
 ```azurecli
 # Switch the vault to Azure RBAC
-az keyvault update --name <vault-name> --resource-group <resource-group-name> --enable-rbac-authorization true
+az keyvault update --name <vault-name> --resource-group <resource-group> --enable-rbac-authorization true
 ```
 
 # [Azure PowerShell](#tab/powershell)
@@ -208,7 +208,7 @@ Use the [Update-AzKeyVault](/powershell/module/az.keyvault/update-azkeyvault) cm
 
 ```powershell
 # Switch the vault to Azure RBAC permission model
-$vault = Get-AzKeyVault -VaultName "<vault-name>" -ResourceGroupName "<resource-group-name>"
+$vault = Get-AzKeyVault -VaultName "<vault-name>" -ResourceGroupName "<resource-group>"
 Update-AzKeyVault -VaultName $vault.VaultName -ResourceGroupName $vault.ResourceGroupName -EnableRbacAuthorization $true
 ```
 
@@ -272,7 +272,7 @@ Use the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnostic
 
 ```powershell
 # Get the vault resource ID
-$vaultResourceId = (Get-AzKeyVault -VaultName "<vault-name>" -ResourceGroupName "<resource-group-name>").ResourceId
+$vaultResourceId = (Get-AzKeyVault -VaultName "<vault-name>" -ResourceGroupName "<resource-group>").ResourceId
 
 # Enable diagnostics logging for Key Vault
 $logs = @()

@@ -8,7 +8,7 @@ ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: tutorial
 ms.custom: mvc, sfi-image-nochange
-ms.date: 01/30/2026
+ms.date: 03/26/2026
 
 ms.author: sebansal
 ms.devlang: azurecli
@@ -88,13 +88,13 @@ Once you receive the message that the certificate has been successfully imported
 Import a certificate into your key vault using the Azure CLI [az keyvault certificate import](/cli/azure/keyvault/certificate#az-keyvault-certificate-import) command:
 
 ```azurecli
-az keyvault certificate import --vault-name "<your-key-vault-name>" -n "ExampleCertificate" -f "/path/to/ExampleCertificate.pem"
+az keyvault certificate import --vault-name "<vault-name>" -n "ExampleCertificate" -f "/path/to/ExampleCertificate.pem"
 ```
 
 After importing the certificate, you can view the certificate using the Azure CLI [az keyvault certificate show](/cli/azure/keyvault/certificate#az-keyvault-certificate-show) command.
 
 ```azurecli
-az keyvault certificate show --vault-name "<your-key-vault-name>" --name "ExampleCertificate"
+az keyvault certificate show --vault-name "<vault-name>" --name "ExampleCertificate"
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
@@ -103,13 +103,13 @@ You can import a certificate into Key Vault using the Azure PowerShell [Import-A
 
 ```azurepowershell
 $Password = ConvertTo-SecureString -String "123" -AsPlainText -Force
-Import-AzKeyVaultCertificate -VaultName "<your-key-vault-name>" -Name "ExampleCertificate" -FilePath "C:\path\to\ExampleCertificate.pem" -Password $Password
+Import-AzKeyVaultCertificate -VaultName "<vault-name>" -Name "ExampleCertificate" -FilePath "C:\path\to\ExampleCertificate.pem" -Password $Password
 ```
 
 After importing the certificate, you can view the certificate using the Azure PowerShell [Get-AzKeyVaultCertificate](/powershell/module/az.keyvault/get-azkeyvaultcertificate) cmdlet
 
 ```azurepowershell
-Get-AzKeyVaultCertificate -VaultName "<your-key-vault-name>" -Name "ExampleCertificate"
+Get-AzKeyVaultCertificate -VaultName "<vault-name>" -Name "ExampleCertificate"
 ```
 
 ---

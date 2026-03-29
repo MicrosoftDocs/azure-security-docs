@@ -79,7 +79,7 @@ Two Azure resources are defined in the Bicep file:
     ---
 
     > [!NOTE]
-    > Replace **\<vault-name\>** with the name of the key vault. Replace **\<object-id\>** with the object ID of a user, service principal, or security group in the Microsoft Entra tenant for the vault. The object ID must be unique for the list of access policies. Get it by using Get-AzADUser or Get-AzADServicePrincipal cmdlets.
+    > Replace **`<vault-name>`** with the name of the key vault. Replace **`<object-id>`** with the object ID of a user, service principal, or security group in the Microsoft Entra tenant for the vault. The object ID must be unique for the list of access policies. Get it by using Get-AzADUser or Get-AzADServicePrincipal cmdlets.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 

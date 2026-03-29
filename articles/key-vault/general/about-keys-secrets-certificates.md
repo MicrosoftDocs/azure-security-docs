@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: overview
-ms.date: 01/08/2026
+ms.date: 03/26/2026
 ms.author: mbaldwin
 ---
 
@@ -23,10 +23,10 @@ For more information, see [Authentication, requests, and responses](authenticati
 An object identifier has the following general format (depending on container type):  
 
 - **For Vaults**:
-`https://{vault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
+`https://<vault-name>.vault.azure.net/<object-type>/<object-name>/<object-version>`  
 
 - **For Managed HSM pools**:
-`https://{hsm-name}.managedhsm.azure.net/{object-type}/{object-name}/{object-version}`  
+`https://<hsm-name>.managedhsm.azure.net/<object-type>/<object-name>/<object-version>`  
 
 > [!NOTE]
 > See [Object type support](#object-types) for types of objects supported by each container type.
