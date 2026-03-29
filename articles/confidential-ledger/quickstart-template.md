@@ -1,6 +1,6 @@
 ---
-title: Create an Microsoft Azure confidential ledger by using Azure Resource Manager template
-description: Learn how to create an Microsoft Azure confidential ledger by using Azure Resource Manager template.
+title: Create a Microsoft Azure confidential ledger by using Azure Resource Manager template
+description: Learn how to create a Microsoft Azure confidential ledger by using Azure Resource Manager template.
 services: azure-resource-manager
 author: msmbaldwin
 ms.service: azure-confidential-ledger
@@ -10,7 +10,7 @@ ms.author: mbaldwin
 ms.date: 04/14/2025
 ---
 
-# Quickstart: Create an Microsoft Azure confidential ledger with an ARM template
+# Quickstart: Create a Microsoft Azure confidential ledger with an ARM template
 
 [Microsoft Azure confidential ledger](overview.md) is a new and highly secure service for managing sensitive data records. This quickstart describes how to use an Azure Resource Manager template (ARM template) to create a new ledger.
 

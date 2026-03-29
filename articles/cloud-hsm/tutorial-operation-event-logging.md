@@ -5,7 +5,7 @@ author: keithp
 manager: keithp
 ms.service: azure-cloud-hsm
 ms.topic: tutorial
-ms.date: 03/20/2025
+ms.date: 03/26/2026
 ms.author: keithp
 
 #Customer Intent: As an IT pro, I want to set up and use operation event logging for Azure Cloud HSM to help ensure security and compliance.
@@ -47,8 +47,8 @@ Use the commands in the following sections to set up the resources that you want
 To create a storage account for storing HSM logs, you first need to create a resource group. You also need to create the storage account within that resource group. Use the following commands to create all these items:
 
 ```bash
-az group create --name <ResourceGroupName> --location <RegionName>
-az storage account create --name <StorageAccountName> --resource-group <ResourceGroupName> --location <RegionName> --sku Standard_LRS --kind StorageV2
+az group create --name <resource-group> --location <location>
+az storage account create --name <storage-account-name> --resource-group <resource-group> --location <location> --sku Standard_LRS --kind StorageV2
 ```
 
 ### Create a Log Analytics workspace
@@ -56,7 +56,7 @@ az storage account create --name <StorageAccountName> --resource-group <Resource
 To create a Log Analytics workspace for storing and analyzing HSM logs, use the following command:
 
 ```bash
-az monitor log-analytics workspace create --resource-group <ResourceGroupName> --workspace-name <WorkspaceName>
+az monitor log-analytics workspace create --resource-group <resource-group> --workspace-name <workspace-name>
 ```
 
 For more information about creating a Log Analytics workspace for Azure Monitor, see [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace?tabs=azure-cli).
@@ -68,11 +68,11 @@ To set variables and run the command to enable diagnostic settings for Azure Clo
 #### Azure CLI
 
 ```azurecli
-$resourceId = "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.HardwareSecurityModules/cloudHsmClusters/<HSMName>"
+$resourceId = "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.HardwareSecurityModules/cloudHsmClusters/<hsm-name>"
  
-$storageAccountId = "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<StorageAccountName>"
+$storageAccountId = "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"
  
-$workspaceId = "/subscriptions/<SubscriptionId>/resourcegroups/<ResourceGroupName>/providers/microsoft.operationalinsights/workspaces/<WorkspaceName>"
+$workspaceId = "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/microsoft.operationalinsights/workspaces/<workspace-name>"
 
 az monitor diagnostic-settings create --resource $resourceId -n "my-chsmAuditLogs" --storage-account $storageAccountId --logs "[{category:HsmServiceOperations,enabled:true}]"  --workspace $workspaceId
 ```
@@ -80,11 +80,11 @@ az monitor diagnostic-settings create --resource $resourceId -n "my-chsmAuditLog
 #### Azure PowerShell
 
 ```azurepowershell
-$resourceId = "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.HardwareSecurityModules/cloudHsmClusters/<HSMName>"
+$resourceId = "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.HardwareSecurityModules/cloudHsmClusters/<hsm-name>"
  
-$storageAccountId = "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<StorageAccountName>"
+$storageAccountId = "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"
  
-$workspaceId = "/subscriptions/<SubscriptionId>/resourcegroups/<ResourceGroupName>/providers/microsoft.operationalinsights/workspaces/<WorkspaceName>"
+$workspaceId = "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/microsoft.operationalinsights/workspaces/<workspace-name>"
 
 New-AzDiagnosticSetting -ResourceId $resourceId -Name "my-chsmAuditLogs" -StorageAccountId $storageAccountId -WorkspaceId $workspaceId -Enabled $true -Category "HsmServiceOperations"
 ```
@@ -100,7 +100,7 @@ You can query Cloud HSM operation event logs from the Azure portal via the Log A
 You can also query Cloud HSM operation event logs by using the Azure CLI and Azure PowerShell. In this example, you update `ResourceGroupName` and `WorkspaceName`:
 
 ```bash
-$workspaceId = az monitor log-analytics workspace show --resource-group <ResourceGroupName> --workspace-name <WorkspaceName> --query customerId -o tsv
+$workspaceId = az monitor log-analytics workspace show --resource-group <resource-group> --workspace-name <workspace-name> --query customerId -o tsv
 az monitor log-analytics query -w $workspaceId --analytics-query "CloudHsmServiceOperationAuditLogs | take 10"
 ```
 
@@ -108,7 +108,7 @@ az monitor log-analytics query -w $workspaceId --analytics-query "CloudHsmServic
 
 #### Registration error
 
-If you get the error message "\<Subscription\> is not registered to use microsoft.insights," your Azure subscription is not registered to use the `Microsoft.Insights` resource provider. To resolve this problem, you need to register with the `Microsoft.Insights` provider in your subscription.
+If you get the error message "`<subscription>` is not registered to use microsoft.insights," your Azure subscription is not registered to use the `Microsoft.Insights` resource provider. To resolve this problem, you need to register with the `Microsoft.Insights` provider in your subscription.
 
 To register `Microsoft.Insights` by using the Azure CLI, run the following command:
 

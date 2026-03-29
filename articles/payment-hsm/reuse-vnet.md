@@ -28,13 +28,13 @@ The value returned in the "Prefixes" column, before the backslash, is the addres
 Now use the Azure CLI [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) command to create a new subnet with a delegation of "Microsoft.HardwareSecurityModules/dedicatedHSMs". The address prefixes must fall within the VNet's address space:
 
 ```azurecli-interactive
-az network vnet subnet create -g "myResourceGroup" --vnet-name "myVNet" -n "myPHSMSubnet" --delegations "Microsoft.HardwareSecurityModules/dedicatedHSMs" --address-prefixes "10.0.0.0/24"
+az network vnet subnet create -g "<resource-group>" --vnet-name "<vnet-name>" -n "<subnet-name>" --delegations "Microsoft.HardwareSecurityModules/dedicatedHSMs" --address-prefixes "10.0.0.0/24"
 ```
 
-To verify that the VNet and subnet were created correctly, use the Azure CLI [az network vnet subnet show](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-show) command:
+To verify that the subnet was created correctly, use the Azure CLI [az network vnet subnet show](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-show) command:
 
 ```azurecli-interactive
-az network vnet subnet show -g "myResourceGroup" --vnet-name "myVNet" -n myPHSMSubnet
+az network vnet subnet show -g "<resource-group>" --vnet-name "<vnet-name>" -n <subnet-name>
 ```
 
 Make note of the subnet's ID, as it is needed for the next step. The ID of the subnet ends with the name of the subnet:
@@ -54,19 +54,19 @@ Get-AzVirtualNetwork
 Run [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) again, this time providing the names of the resource group and the virtual network, and save the output to the `$vnet` variable:
 
 ```azurepowershell-interactive
-$vnet = Get-AzVirtualNetwork -Name "myVNet" -ResourceGroupName "myResourceGroup" 
+$vnet = Get-AzVirtualNetwork -Name "<vnet-name>" -ResourceGroupName "<resource-group>" 
 ```
 
-Use the Azure PowerShell [New-AzDelegation](/powershell/module/az.network/new-azdelegation) cmdlet to create a service delegation to be added to your new subnet, and save the output to the `$myDelegation` variable:
+Use the Azure PowerShell [New-AzDelegation](/powershell/module/az.network/new-azdelegation) cmdlet to create a service delegation to be added to your new subnet, and save the output to a variable:
 
 ```azurepowershell-interactive
-$myDelegation = New-AzDelegation -Name "myHSMDelegation" -ServiceName "Microsoft.HardwareSecurityModules/dedicatedHSMs"
+$delegation = New-AzDelegation -Name "HSMDelegation" -ServiceName "Microsoft.HardwareSecurityModules/dedicatedHSMs"
 ```
 
-Use the Azure PowerShell [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) cmdlet to create a virtual network subnet configuration, and save the output to the `$myPHSMSubnet` variable. The address prefixes must fall within the VNet's address space:
+Use the Azure PowerShell [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) cmdlet to create a virtual network subnet configuration, and save the output to a variable. The address prefixes must fall within the VNet's address space:
 
 ```azurepowershell-interactive
-$myPHSMSubnetConfig = New-AzVirtualNetworkSubnetConfig -Name "myPHSMSubnet" -AddressPrefix "10.0.0.0/24" -Delegation $myDelegation
+$subnetConfig = New-AzVirtualNetworkSubnetConfig -Name "<subnet-name>" -AddressPrefix "10.0.0.0/24" -Delegation $delegation
 ```
 
 > [!NOTE]
@@ -75,7 +75,7 @@ $myPHSMSubnetConfig = New-AzVirtualNetworkSubnetConfig -Name "myPHSMSubnet" -Add
 Add the new subnet, along with the 'fastpathenabled="True"' tag, to the $vnet variable:
 
 ```azurepowershell-interactive
-$vnet.Subnets.Add($myPHSMSubnetConfig)
+$vnet.Subnets.Add($subnetConfig)
 $vnet.Tag = @{fastpathenabled="True"}                      
 ```
 
@@ -88,7 +88,7 @@ Set-AzVirtualNetwork -VirtualNetwork $vnet
 To verify that the subnet was added correctly, use the Azure PowerShell [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) cmdlet:
 
 ```azurepowershell-interactive
-Get-AzVirtualNetwork -Name "myVNet" -ResourceGroupName "myResourceGroup"
+Get-AzVirtualNetwork -Name "<vnet-name>" -ResourceGroupName "<resource-group>"
 ```
 
 Make note of the subnet's ID, as it is needed for the next step. The ID of the subnet ends with the name of the subnet:

@@ -59,13 +59,13 @@ For more information, see [Managed HSM soft-delete overview](soft-delete-overvie
 * To check the status of soft-delete and purge protection for a managed HSM:
 
     ```azurecli
-    az keyvault show --subscription {SUBSCRIPTION ID} -g {RESOURCE GROUP} --hsm-name {HSM NAME}
+    az keyvault show --subscription <subscription-id> -g <resource-group> --hsm-name <hsm-name>
     ```
 
 * To delete an HSM:
 
     ```azurecli
-    az keyvault delete --subscription {SUBSCRIPTION ID} -g {RESOURCE GROUP} --hsm-name {HSM NAME}
+    az keyvault delete --subscription <subscription-id> -g <resource-group> --hsm-name <hsm-name>
     ```
     
   This action is recoverable because soft-delete is on by default.
@@ -73,20 +73,20 @@ For more information, see [Managed HSM soft-delete overview](soft-delete-overvie
 * To list all soft-deleted HSMs:
 
     ```azurecli
-    az keyvault list-deleted --subscription {SUBSCRIPTION ID} --resource-type hsm
+    az keyvault list-deleted --subscription <subscription-id> --resource-type hsm
     ```
 
 * To recover a soft-deleted HSM:
 
     ```azurecli
-    az keyvault recover --subscription {SUBSCRIPTION ID} --hsm-name {HSM NAME} --location {LOCATION}
+    az keyvault recover --subscription <subscription-id> --hsm-name <hsm-name> --location <location>
     ```
 
 
 * To purge a soft-deleted HSM:
 
     ```azurecli
-    az keyvault purge --subscription {SUBSCRIPTION ID} --hsm-name {HSM NAME} --location {LOCATION}
+    az keyvault purge --subscription <subscription-id> --hsm-name <hsm-name> --location <location>
     ```
     > [!WARNING] 
     > This operation will permanently delete your HSM.
@@ -94,7 +94,7 @@ For more information, see [Managed HSM soft-delete overview](soft-delete-overvie
 * To enable purge protection on an HSM:
 
     ```azurecli
-    az keyvault update-hsm --subscription {SUBSCRIPTION ID} -g {RESOURCE GROUP} --hsm-name {HSM NAME} --enable-purge-protection true
+    az keyvault update-hsm --subscription <subscription-id> -g <resource-group> --hsm-name <hsm-name> --enable-purge-protection true
     ```
 
 ### Keys (CLI)
@@ -102,25 +102,25 @@ For more information, see [Managed HSM soft-delete overview](soft-delete-overvie
 * To delete a key:
 
     ```azurecli
-    az keyvault key delete --subscription {SUBSCRIPTION ID} --hsm-name {HSM NAME} --name {KEY NAME}
+    az keyvault key delete --subscription <subscription-id> --hsm-name <hsm-name> --name <key-name>
     ```
 
 * To list deleted keys:
 
     ```azurecli
-    az keyvault key list-deleted --subscription {SUBSCRIPTION ID} --hsm-name {HSM NAME}
+    az keyvault key list-deleted --subscription <subscription-id> --hsm-name <hsm-name>
     ```
 
 * To recover a deleted key:
 
     ```azurecli
-    az keyvault key recover --subscription {SUBSCRIPTION ID} --hsm-name {HSM NAME} --name {KEY NAME}
+    az keyvault key recover --subscription <subscription-id> --hsm-name <hsm-name> --name <key-name>
     ```
 
 * To purge a soft-deleted key: 
 
     ```azurecli
-    az keyvault key purge --subscription {SUBSCRIPTION ID} --hsm-name {HSM NAME} --name {KEY NAME}
+    az keyvault key purge --subscription <subscription-id> --hsm-name <hsm-name> --name <key-name>
     ```
     > [!WARNING] 
     > This operation will permanently delete your key.
@@ -132,13 +132,13 @@ For more information, see [Managed HSM soft-delete overview](soft-delete-overvie
 * To check the status of soft-delete and purge protection for a managed HSM:
 
     ```powershell
-    Get-AzKeyVaultManagedHsm -Name "ContosoHSM"
+    Get-AzKeyVaultManagedHsm -Name "<hsm-name>"
     ```
 
 * To delete an HSM:
 
     ```powershell
-    Remove-AzKeyVaultManagedHsm -Name 'ContosoHSM'
+    Remove-AzKeyVaultManagedHsm -Name "<hsm-name>"
     ```
   This action is recoverable because soft-delete is on by default.
 
@@ -147,25 +147,25 @@ For more information, see [Managed HSM soft-delete overview](soft-delete-overvie
 * To delete a key:
 
   ```powershell
-  Remove-AzKeyVaultKey -HsmName ContosoHSM -Name 'MyKey'
+  Remove-AzKeyVaultKey -HsmName "<hsm-name>" -Name "<key-name>"
   ```
 
 * To list all deleted keys: 
 
   ```powershell
-  Get-AzKeyVaultKey -HsmName ContosoHSM -InRemovedState
+  Get-AzKeyVaultKey -HsmName "<hsm-name>" -InRemovedState
   ```
 
 * To recover a soft-deleted key:
 
     ```powershell
-    Undo-AzKeyVaultKeyRemoval -HsmName ContosoHSM -Name ContosoFirstKey
+    Undo-AzKeyVaultKeyRemoval -HsmName "<hsm-name>" -Name "<key-name>"
     ```
 
 * To purge a soft-deleted key:
 
     ```powershell
-    Remove-AzKeyVaultKey -HsmName ContosoHSM -Name ContosoFirstKey -InRemovedState
+    Remove-AzKeyVaultKey -HsmName "<hsm-name>" -Name "<key-name>" -InRemovedState
     ```
     > [!WARNING] 
     > This operation will permanently delete your key.

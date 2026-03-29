@@ -167,7 +167,7 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 * Grant access to purge and recover certificates
 
     ```azurecli
-    az role assignment create --role "Key Vault Certificates Officer" --assignee user@contoso.com --scope /subscriptions/{SUBSCRIPTION ID}/resourceGroups/{RESOURCE GROUP}/providers/Microsoft.KeyVault/vaults/{VAULT NAME}
+    az role assignment create --role "Key Vault Certificates Officer" --assignee <user-principal-name> --scope /subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>
     ```
 
 * Delete certificate (move to soft-deleted state)
@@ -202,7 +202,7 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 * Grant access to purge and recover keys
 
     ```azurecli
-    az role assignment create --role "Key Vault Crypto Officer" --assignee user@contoso.com --scope /subscriptions/{SUBSCRIPTION ID}/resourceGroups/{RESOURCE GROUP}/providers/Microsoft.KeyVault/vaults/{VAULT NAME}
+    az role assignment create --role "Key Vault Crypto Officer" --assignee <user-principal-name> --scope /subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>
     ```
 
 * Delete key
@@ -234,7 +234,7 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 * Grant access to purge and recover secrets
 
     ```azurecli
-    az role assignment create --role "Key Vault Secrets Officer" --assignee user@contoso.com --scope /subscriptions/{SUBSCRIPTION ID}/resourceGroups/{RESOURCE GROUP}/providers/Microsoft.KeyVault/vaults/{VAULT NAME}
+    az role assignment create --role "Key Vault Secrets Officer" --assignee <user-principal-name> --scope /subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>
     ```
 
 * Delete secret (move to soft-deleted state)
@@ -271,13 +271,13 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 * Verify if a key-vault has soft-delete enabled
 
     ```azurepowershell
-    Get-AzKeyVault -VaultName "ContosoVault"
+    Get-AzKeyVault -VaultName "<vault-name>"
     ```
 
 * Delete key vault
 
     ```azurepowershell
-    Remove-AzKeyVault -VaultName 'ContosoVault'
+    Remove-AzKeyVault -VaultName "<vault-name>"
     ```
 
 * List all soft-deleted key vaults
@@ -289,19 +289,19 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 * Recover soft-deleted key-vault
 
     ```azurepowershell
-    Undo-AzKeyVaultRemoval -VaultName ContosoVault -ResourceGroupName ContosoRG -Location westus
+    Undo-AzKeyVaultRemoval -VaultName "<vault-name>" -ResourceGroupName "<resource-group>" -Location "<location>"
     ```
 
 * Purge soft-deleted key-vault **(WARNING! THIS OPERATION WILL PERMANENTLY DELETE YOUR KEY VAULT)**
 
     ```azurepowershell
-    Remove-AzKeyVault -VaultName ContosoVault -InRemovedState -Location westus
+    Remove-AzKeyVault -VaultName "<vault-name>" -InRemovedState -Location "<location>"
     ```
 
 * Enable purge-protection on key-vault
 
     ```azurepowershell
-    Update-AzKeyVault -VaultName ContosoVault -ResourceGroupName ContosoRG -EnablePurgeProtection
+    Update-AzKeyVault -VaultName "<vault-name>" -ResourceGroupName "<resource-group>" -EnablePurgeProtection
     ```
 
 ## Certificates (PowerShell)
@@ -309,31 +309,31 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 * Grant permissions to recover and purge certificates
 
     ```azurepowershell
-    New-AzRoleAssignment -SignInName user@contoso.com -RoleDefinitionName "Key Vault Certificates Officer" -Scope "/subscriptions/{SUBSCRIPTION ID}/resourceGroups/ContosoRG/providers/Microsoft.KeyVault/vaults/ContosoVault"
+    New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName "Key Vault Certificates Officer" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>"
     ```
 
 * Delete a Certificate
 
   ```azurepowershell
-  Remove-AzKeyVaultCertificate -VaultName ContosoVault -Name 'MyCert'
+  Remove-AzKeyVaultCertificate -VaultName "<vault-name>" -Name "<certificate-name>"
   ```
 
 * List all deleted certificates in a key vault
 
   ```azurepowershell
-  Get-AzKeyVaultCertificate -VaultName ContosoVault -InRemovedState
+  Get-AzKeyVaultCertificate -VaultName "<vault-name>" -InRemovedState
   ```
 
 * Recover a certificate in the deleted state
 
   ```azurepowershell
-  Undo-AzKeyVaultCertificateRemoval -VaultName ContosoVault -Name 'MyCert'
+  Undo-AzKeyVaultCertificateRemoval -VaultName "<vault-name>" -Name "<certificate-name>"
   ```
 
 * Purge a soft-deleted certificate **(WARNING! THIS OPERATION WILL PERMANENTLY DELETE YOUR CERTIFICATE)**
 
   ```azurepowershell
-  Remove-AzKeyVaultcertificate -VaultName ContosoVault -Name 'MyCert' -InRemovedState
+  Remove-AzKeyVaultcertificate -VaultName "<vault-name>" -Name "<certificate-name>" -InRemovedState
   ```
 
 ## Keys (PowerShell)
@@ -341,31 +341,31 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 * Grant permissions to recover and purge keys
 
     ```azurepowershell
-    New-AzRoleAssignment -SignInName user@contoso.com -RoleDefinitionName "Key Vault Crypto Officer" -Scope "/subscriptions/{SUBSCRIPTION ID}/resourceGroups/ContosoRG/providers/Microsoft.KeyVault/vaults/ContosoVault"
+    New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName "Key Vault Crypto Officer" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>"
     ```
 
 * Delete a key
 
   ```azurepowershell
-  Remove-AzKeyVaultKey -VaultName ContosoVault -Name 'MyKey'
+  Remove-AzKeyVaultKey -VaultName "<vault-name>" -Name "<key-name>"
   ```
 
 * List all deleted keys in a key vault
 
   ```azurepowershell
-  Get-AzKeyVaultKey -VaultName ContosoVault -InRemovedState
+  Get-AzKeyVaultKey -VaultName "<vault-name>" -InRemovedState
   ```
 
 * To recover a soft-deleted key
 
     ```azurepowershell
-    Undo-AzKeyVaultKeyRemoval -VaultName ContosoVault -Name ContosoFirstKey
+    Undo-AzKeyVaultKeyRemoval -VaultName "<vault-name>" -Name "<key-name>"
     ```
 
 * Purge a soft-deleted key **(WARNING! THIS OPERATION WILL PERMANENTLY DELETE YOUR KEY)**
 
     ```azurepowershell
-    Remove-AzKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey -InRemovedState
+    Remove-AzKeyVaultKey -VaultName "<vault-name>" -Name "<key-name>" -InRemovedState
     ```
 
 ## Secrets (PowerShell)
@@ -373,31 +373,31 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 * Grant permissions to recover and purge secrets
 
     ```azurepowershell
-    New-AzRoleAssignment -SignInName user@contoso.com -RoleDefinitionName "Key Vault Secrets Officer" -Scope "/subscriptions/{SUBSCRIPTION ID}/resourceGroups/ContosoRG/providers/Microsoft.KeyVault/vaults/ContosoVault"
+    New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName "Key Vault Secrets Officer" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>"
     ```
 
 * Delete a secret named SQLPassword
 
   ```azurepowershell
-  Remove-AzKeyVaultSecret -VaultName ContosoVault -Name SQLPassword
+  Remove-AzKeyVaultSecret -VaultName "<vault-name>" -Name "<secret-name>"
   ```
 
 * List all deleted secrets in a key vault
 
   ```azurepowershell
-  Get-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState
+  Get-AzKeyVaultSecret -VaultName "<vault-name>" -InRemovedState
   ```
 
 * Recover a secret in the deleted state
 
   ```azurepowershell
-  Undo-AzKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPassword
+  Undo-AzKeyVaultSecretRemoval -VaultName "<vault-name>" -Name "<secret-name>"
   ```
 
 * Purge a secret in deleted state **(WARNING! THIS OPERATION WILL PERMANENTLY DELETE YOUR KEY)**
 
   ```azurepowershell
-  Remove-AzKeyVaultSecret -VaultName ContosoVault -Name SQLPassword -InRemovedState 
+  Remove-AzKeyVaultSecret -VaultName "<vault-name>" -Name "<secret-name>" -InRemovedState 
   ```
 ---
 

@@ -5,7 +5,7 @@ services: payment-hsm
 author: msmbaldwin
 
 ms.service: azure-payment-hsm
-ms.topic: article
+ms.topic: checklist
 ms.date: 04/10/2025
 ms.author: mbaldwin
 ms.custom: references_regions metadata

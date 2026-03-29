@@ -55,7 +55,7 @@ ledger_client = ConfidentialLedgerClient(
 
 # Add a user with the contributor role
 # Other supported roles are Contributor and Administrator
-user_id = "Azure AD object id of the user"
+user_id = "Microsoft Entra ID object id of the user"
 user = ledger_client.create_or_update_user(
     user_id, {"assignedRole": "Contributor"}
 )
@@ -98,7 +98,7 @@ internal class ACLUserManagement
       // The DefaultAzureCredential will use the current Azure context to authenticate to Azure
       var ledgerClient = new ConfidentialLedgerClient(new Uri("https://contoso.confidential-ledger.azure.com"), new DefaultAzureCredential());
 
-      string userId = "Azure AD object id of the user";
+      string userId = "Microsoft Entra ID object id of the user";
 
       // Add the user with the Reader role
       // Other supported roles are Contributor and Administrator
@@ -206,7 +206,7 @@ public class CreateOrUpdateUserSample {
 			// Other supported roles are Contributor and Administrator
 			BinaryData userDetails = BinaryData.fromString("{\"assignedRole\":\"Reader\"}");
 			RequestOptions requestOptions = new RequestOptions();
-			String userId = "Azure AD object id of the user";
+			String userId = "Microsoft Entra ID object id of the user";
 			Response<BinaryData> response = confidentialLedgerClient.createOrUpdateUserWithResponse(userId,
 					userDetails, requestOptions);
 
@@ -277,8 +277,8 @@ export async function main() {
     new DefaultAzureCredential()
   );
 
-  // Azure AD object id of the user
-  const userId = "Azure AD Object id"
+  // Microsoft Entra ID object id of the user
+  const userId = "Microsoft Entra ID Object id"
 
   // Other supported roles are Reader and Contributor
   const createUserParams: CreateOrUpdateUserParameters = {

@@ -5,13 +5,13 @@ author: keithp
 manager: davinune
 ms.service: azure-cloud-hsm
 ms.topic: troubleshooting-general
-ms.date: 03/20/2025
+ms.date: 03/26/2026
 ms.author: keithp
 ---
 
 # Troubleshoot Azure Cloud HSM
 
-This article helps you troubleshoot common problems and errors that you might encounter when using the Azure Cloud HSM service.
+This article helps you troubleshoot common problems and errors that you might encounter when using the Azure Cloud HSM service. For guidance on fixing users or keys that are missing from specific cluster nodes, see [Synchronize users and keys across Azure Cloud HSM nodes](synchronize-users-keys.md).
 
 ## Common error messages
 
@@ -48,7 +48,7 @@ To ensure the successful execution of your application, you must meet these two 
 
 ### Does the OpenSSL engine for Azure Cloud HSM support Windows?
 
-No. The OpenSSL engine for Azure Cloud HSM supports Linux (Ubuntu 20.04, Ubuntu 22.04, RHEL 7, RHEL 8, and CBL Mariner 2) only.
+No. The OpenSSL engine for Azure Cloud HSM supports Linux (Ubuntu 20.04, Ubuntu 22.04, Ubuntu 24.04, RHEL 7, RHEL 8, RHEL 9, and CBL Mariner 2) only.
 
 ### Why am I getting the error message "invalid engine 'azcloudhsm_openssl' could not load the shared library"?
 
@@ -184,7 +184,7 @@ cd C:\Program Files\Microsoft Azure Cloud HSM Client SDK
 
 The PKCS#11 library knows how to find the client configuration because you must have a copy of your partition owner certificate (`PO.crt`) on the application server that's running your application and using the PKCS#11 library. In addition to the partition owner certificate:
 
-- You have to update `/azcloudhsm_client/azcloudhsm_client.cfg` on the application server that has the SDK installed to point to your Azure Cloud HSM deployment (that is, `hsm1.chsm-<resourcename>-<uniquestring>.privatelink.cloudhsm.azure.net`).
+- You have to update `/azcloudhsm_client/azcloudhsm_client.cfg` on the application server that has the SDK installed to point to your Azure Cloud HSM deployment (that is, `hsm1.chsm-<resource-name>-<unique-string>.privatelink.cloudhsm.azure.net`).
 - The `azcloudhsm_client` tool must be running on the application server that connects to your Azure Cloud HSM deployment.
 - You must specify a PIN within your PKCS#11 application by using the syntax `<username>:<password>`. This PIN is used for calling `C_Login` to your Azure Cloud HSM deployment.
 - You must include `pkcs11_headers/include/cryptoki.h` and `pkcs11_headers/include/pkcs11t.h` in your PKCS#11 application to use the PKCS#11 library for Azure Cloud HSM.
@@ -193,7 +193,7 @@ The PKCS#11 library knows how to find the client configuration because you must 
 
 The `azcloudhsm_pkcs11.dll` file in the Azure Cloud HSM Windows SDK knows how to find the client configuration because you must have a copy of your partition owner certificate (`PO.crt`) on the application server that's running your application and using the PKCS#11 library. In addition to the partition owner certificate:
 
-- You have to update `/azcloudhsm_client/azcloudhsm_client.cfg` on the application server that has the SDK installed to point to your Azure Cloud HSM deployment (that is, `hsm1.chsm-<resourcename>-<uniquestring>.privatelink.cloudhsm.azure.net`).
+- You have to update `/azcloudhsm_client/azcloudhsm_client.cfg` on the application server that has the SDK installed to point to your Azure Cloud HSM deployment (that is, `hsm1.chsm-<resource-name>-<unique-string>.privatelink.cloudhsm.azure.net`).
 - The `azcloudhsm_client` tool must run on the application server that connects to your Azure Cloud HSM deployment.
 - You must specify a PIN within your PKCS#11 application by using the syntax `<username>:<password>`. This PIN is used for calling `C_Login` to your Azure Cloud HSM deployment.
 - You must include `pkcs11_headers\include\cryptoki.h` and `pkcs11_headers\include\pkcs11t.h` in your PKCS#11 application to use the PKCS#11 library for Azure Cloud HSM.
@@ -351,11 +351,13 @@ To mitigate this error, you need to create a cryptography user (CU) that's repli
 
 ```bash
 sudo ./azcloudhsm_mgmt_util ./azcloudhsm_mgmt_util.cfg
-loginHSM CO admin adminpassword 
+loginHSM CO admin adminpassword 
 createUser CU cu1 user1234
 logoutHSM
 loginHSM CU cu1 user1234
 ```
+
+If you have an existing user that's missing from one or more nodes, see [Synchronize users and keys across Azure Cloud HSM nodes](synchronize-users-keys.md) for detailed steps to identify and fix missing users.
 
 ### How do I display the contents of the CRT, CSR, or key file that I created?
 

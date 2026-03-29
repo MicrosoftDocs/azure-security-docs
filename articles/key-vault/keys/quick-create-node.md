@@ -3,7 +3,7 @@ title: Quickstart -  Azure Key Vault key client library for JavaScript (version 
 description: Learn how to create, retrieve, and delete keys from an Azure key vault using the JavaScript client library with either JavaScript or TypeScript.
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 01/30/2026
+ms.date: 03/26/2026
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: quickstart
@@ -108,20 +108,20 @@ This application is using key vault endpoint as an environment variable called `
 ### [Windows](#tab/windows)
 
 ```cmd
-set KEY_VAULT_URL=<your-key-vault-endpoint>
+set KEY_VAULT_URL=<key-vault-endpoint>
 ````
 
 ### [PowerShell](#tab/powershell)
 
 Windows PowerShell
 ```powershell
-$Env:KEY_VAULT_URL="<your-key-vault-endpoint>"
+$Env:KEY_VAULT_URL="<key-vault-endpoint>"
 ```
 
 ### [macOS or Linux](#tab/linux)
 
 ```cmd
-export KEY_VAULT_URL=<your-key-vault-endpoint>
+export KEY_VAULT_URL=<key-vault-endpoint>
 ```
 ---
 
@@ -131,7 +131,7 @@ Application requests to most Azure services must be authorized. Using the [Defau
 
 In this quickstart, `DefaultAzureCredential` authenticates to key vault using the credentials of the local development user logged into the Azure CLI. When the application is deployed to Azure, the same `DefaultAzureCredential` code can automatically discover and use a managed identity that is assigned to an App Service, Virtual Machine, or other services. For more information, see [Managed Identity Overview](/entra/identity/managed-identities-azure-resources/overview).
 
-In this code, the endpoint of your key vault is used to create the key vault client. The endpoint format looks like `https://<your-key-vault-name>.vault.azure.net` but may change for sovereign clouds. For more information about authenticating to key vault, see [Developer's Guide](/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
+In this code, the endpoint of your key vault is used to create the key vault client. The endpoint format looks like `https://<vault-name>.vault.azure.net` but may change for sovereign clouds. For more information about authenticating to key vault, see [Developer's Guide](/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
 
 ## Code example
 
