@@ -9,7 +9,7 @@ ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: how-to
 ms.custom: mvc, sfi-image-nochange
-ms.date: 01/30/2026
+ms.date: 03/26/2026
 
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure.
@@ -77,12 +77,12 @@ For more information, see [parameter definitions](/cli/azure/keyvault/secret#az-
 
 # [PowerShell](#tab/azure-powershell)
 
-Use this command in Azure PowerShell to get the certificate named **TestCert01** from the key vault named **ContosoKV01**. To download the certificate as a PFX file, run following command. These commands access **SecretId**, and then save the content as a PFX file.
+Use this command in Azure PowerShell to get a certificate from your key vault. To download the certificate as a PFX file, run the following command. These commands access **SecretId**, and then save the content as a PFX file.
 
 ```azurepowershell
-$vaultName = '<YourVault>'
-$certificateName = '<YourCert>'
-$password = '<YourPwd>'
+$vaultName = '<vault-name>'
+$certificateName = '<certificate-name>'
+$password = '<password>'
 
 $pfxSecret = Get-AzKeyVaultSecret -VaultName $vaultName -Name $certificateName -AsPlainText
 $certBytes = [Convert]::FromBase64String($pfxSecret)

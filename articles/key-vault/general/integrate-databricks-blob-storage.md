@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: general
 ms.custom: devx-track-azurecli, sfi-image-nochange
 ms.topic: tutorial
-ms.date: 01/30/2026
+ms.date: 03/26/2026
 ---
 
 # Tutorial: Access Azure Blob Storage using Azure Databricks and Azure Key Vault
@@ -33,7 +33,7 @@ Before you start this tutorial, install the [Azure CLI](/cli/azure/install-azure
 You'll need to create a general-purpose storage account first to use blobs. If you don't have a [resource group](/cli/azure/group#az-group-create), create one before running the command. The following command creates and display the metadata of the storage container. Copy down the **ID**.
 
 ```azurecli
-az storage account create --name contosoblobstorage5 --resource-group contosoResourceGroup --location eastus --sku Standard_ZRS --encryption-services blob
+az storage account create --name <storage-account-name> --resource-group <resource-group> --location <location> --sku Standard_ZRS --encryption-services blob
 ```
 
 ![Console output of the above command. ID is highlighted in green for end-user to see.](../media/databricks-command-output-1.png)
@@ -41,25 +41,25 @@ az storage account create --name contosoblobstorage5 --resource-group contosoRes
 Before you can create a container to upload the blob to, you'll need to assign the [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) role to yourself. For this example, the role will be assigned to the storage account you've made earlier.
 
 ```azurecli
-az role assignment create --role "Storage Blob Data Contributor" --assignee t-trtr@microsoft.com --scope "/subscriptions/{subscription-id}/resourceGroups/contosoResourceGroup5/providers/Microsoft.Storage/storageAccounts/contosoblobstorage5
+az role assignment create --role "Storage Blob Data Contributor" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>
 ```
 
 Now that you've assigned the role to storage account, you can create a container for your blob.
 
 ```azurecli
-az storage container create --account-name contosoblobstorage5 --name contosocontainer5 --auth-mode login
+az storage container create --account-name <storage-account-name> --name <container-name> --auth-mode login
 ```
 
 Once the container is created, you can upload a blob (file of your choice) to that container. In this example, a .txt file with helloworld is uploaded.
 
 ```azurecli
-az storage blob upload --account-name contosoblobstorage5 --container-name contosocontainer5 --name helloworld --file helloworld.txt --auth-mode login
+az storage blob upload --account-name <storage-account-name> --container-name <container-name> --name helloworld --file helloworld.txt --auth-mode login
 ```
 
 List the blobs in the container to verify that the container has it.
 
 ```azurecli
-az storage blob list --account-name contosoblobstorage5 --container-name contosocontainer5 --output table --auth-mode login
+az storage blob list --account-name <storage-account-name> --container-name <container-name> --output table --auth-mode login
 ```
 
 ![Console output of the above command. It displays the file that was just stored in the container.](../media/databricks-command-output-2.png)
@@ -67,7 +67,7 @@ az storage blob list --account-name contosoblobstorage5 --container-name contoso
 Get the **key1** value of your storage container using the following command. Copy the value down.
 
 ```azurecli
-az storage account keys list -g contosoResourceGroup5 -n contosoblobstorage5
+az storage account keys list -g <resource-group> -n <storage-account-name>
 ```
 
 ![Console output of the above command. The value of key1 is highlighted in a green box.](../media/databricks-command-output-3.png)
@@ -77,7 +77,7 @@ az storage account keys list -g contosoResourceGroup5 -n contosoblobstorage5
 You'll create a Key Vault using the following command. This command will display the metadata of the Key Vault as well. Copy down the **ID** and **vaultUri**.
 
 ```azurecli
-az keyvault create --name contosoKeyVault10 --resource-group contosoResourceGroup5 --location eastus --enable-rbac-authorization true --enable-purge-protection true
+az keyvault create --name <vault-name> --resource-group <resource-group> --location <location> --enable-rbac-authorization true --enable-purge-protection true
 ```
 
 ![Image](../media/databricks-command-output-4.png)
@@ -86,7 +86,7 @@ az keyvault create --name contosoKeyVault10 --resource-group contosoResourceGrou
 To create the secret, use the following command. Set the value of the secret to the **key1** value from your storage account.
 
 ```azurecli
-az keyvault secret set --vault-name contosoKeyVault10 --name storageKey --value "value of your key1"
+az keyvault secret set --vault-name <vault-name> --name storageKey --value "value of your key1"
 ```
 
 ## Create an Azure Databricks workspace and add Key Vault secret scope
@@ -108,7 +108,7 @@ This section can't be completed through the command line. You'll need to use the
 
 ```python
 dbutils.fs.mount(
-source = "wasbs://<your-container-name>@<your-storage-account-name>.blob.core.windows.net",
+source = "wasbs://<container-name>@<storage-account-name>.blob.core.windows.net",
 mount_point = "/mnt/<mount-name>",
 extra_configs = {"<conf-key>":dbutils.secrets.get(scope = "<scope-name>", key = "<key-name>")})
 

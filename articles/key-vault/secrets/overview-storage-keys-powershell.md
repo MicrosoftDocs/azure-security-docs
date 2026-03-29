@@ -6,7 +6,7 @@ ms.service: azure-key-vault
 ms.subservice: secrets
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 01/30/2026
+ms.date: 03/26/2026
 
 ms.custom: devx-track-azurepowershell
 
@@ -71,7 +71,7 @@ Connect-AzAccount
 If you have multiple Azure subscriptions, you can list them using the [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) cmdlet, and specify the subscription you wish to use with the [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
 
 ```azurepowershell-interactive
-Set-AzContext -SubscriptionId <subscriptionId>
+Set-AzContext -SubscriptionId <subscription-id>
 ```
 
 ### Set variables
@@ -81,9 +81,9 @@ First, set the variables to be used by the PowerShell cmdlets in the following s
 We'll also use the Azure PowerShell [Get-AzContext](/powershell/module/az.accounts/get-azcontext) and [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) cmdlets to get your user ID and the context of your Azure storage account.
 
 ```azurepowershell-interactive
-$resourceGroupName = <YourResourceGroupName>
-$storageAccountName = <YourStorageAccountName>
-$keyVaultName = <YourKeyVaultName>
+$resourceGroupName = <resource-group>
+$storageAccountName = <storage-account-name>
+$keyVaultName = <vault-name>
 $keyVaultSpAppId = "cfa8b339-82a2-471a-a3c9-0fc0be7a4093"
 $storageAccountKey = "key1" #(key1 or key2 are allowed)
 
@@ -132,7 +132,7 @@ Use the Azure PowerShell [New-AzRoleAssignment](/powershell/module/az.resources/
 ```azurepowershell-interactive
 # Give your user principal access to all storage account permissions, on your Key Vault instance
 
-New-AzRoleAssignment -SignInName $userId -RoleDefinitionName "Key Vault Secrets Officer" -Scope "/subscriptions/{subscriptionID}/resourceGroups/{resource-group}/providers/Microsoft.KeyVault/vaults/$keyVaultName"
+New-AzRoleAssignment -SignInName $userId -RoleDefinitionName "Key Vault Secrets Officer" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/$keyVaultName"
 ```
 
 The permissions for storage accounts aren't available on the storage account "Access policies" page in the Azure portal.
@@ -201,11 +201,11 @@ The commands in this section complete the following actions:
 
 ### Set variables
 
-First, set the variables to be used by the PowerShell cmdlets in the following steps. Be sure to update the \<YourStorageAccountName\> and \<YourKeyVaultName\> placeholders.
+First, set the variables to be used by the PowerShell cmdlets in the following steps. Be sure to update the `<storage-account-name>` and `<vault-name>` placeholders.
 
 ```azurepowershell-interactive
-$storageAccountName = <YourStorageAccountName>
-$keyVaultName = <YourKeyVaultName>
+$storageAccountName = <storage-account-name>
+$keyVaultName = <vault-name>
 ```
 
 ### Define a shared access signature definition template
@@ -237,7 +237,7 @@ For more information about account SAS, see:
 Use the Azure PowerShell [Set-AzKeyVaultManagedStorageSasDefinition](/powershell/module/az.keyvault/set-azkeyvaultmanagedstoragesasdefinition) cmdlet to create a shared access signature definition.  You can provide the name of your choice to the `-Name` parameter.
 
 ```azurepowershell-interactive
-Set-AzKeyVaultManagedStorageSasDefinition -AccountName $storageAccountName -VaultName $keyVaultName -Name <YourSASDefinitionName> -TemplateUri $sasTemplate -SasType 'account' -ValidityPeriod ([System.Timespan]::FromDays(1))
+Set-AzKeyVaultManagedStorageSasDefinition -AccountName $storageAccountName -VaultName $keyVaultName -Name "<sas-definition-name>" -TemplateUri $sasTemplate -SasType 'account' -ValidityPeriod ([System.Timespan]::FromDays(1))
 ```
 
 ### Verify the shared access signature definition
@@ -247,14 +247,14 @@ You can verify that the shared access signature definition has been stored in yo
 First, find the shared access signature definition in your key vault.
 
 ```azurepowershell-interactive
-Get-AzKeyVaultSecret -VaultName <YourKeyVaultName>
+Get-AzKeyVaultSecret -VaultName "<vault-name>"
 ```
 
 The secret corresponding to your SAS definition will have these properties:
 
 ```console
-Vault Name   : <YourKeyVaultName>
-Name         : <SecretName>
+Vault Name   : <vault-name>
+Name         : <secret-name>
 ...
 Content Type : application/vnd.ms-sastoken-storage
 Tags         :
@@ -263,7 +263,7 @@ Tags         :
 You can now use the [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret) cmdlet with the `VaultName` and `Name` parameters to view the contents of that secret.
 
 ```azurepowershell-interactive
-$secretValueText = Get-AzKeyVaultSecret -VaultName <YourKeyVaultName> -Name <SecretName> -AsPlainText
+$secretValueText = Get-AzKeyVaultSecret -VaultName "<vault-name>" -Name "<secret-name>" -AsPlainText
 Write-Output $secretValueText
 ```
 

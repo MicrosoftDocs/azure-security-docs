@@ -4,7 +4,7 @@ description: Provides a quickstart for the Azure Key Vault Keys client library f
 author: msmbaldwin
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell, mode-api, passwordless-java, devx-track-extended-java
 ms.author: mbaldwin
-ms.date: 01/30/2026
+ms.date: 03/26/2026
 
 ms.service: azure-key-vault
 ms.subservice: keys
@@ -125,19 +125,19 @@ This application is using your key vault name as an environment variable called 
 Windows
 
 ```cmd
-set KEY_VAULT_NAME=<your-key-vault-name>
+set KEY_VAULT_NAME=<vault-name>
 ````
 
 Windows PowerShell
 
 ```powershell
-$Env:KEY_VAULT_NAME="<your-key-vault-name>"
+$Env:KEY_VAULT_NAME="<vault-name>"
 ```
 
 macOS or Linux
 
 ```cmd
-export KEY_VAULT_NAME=<your-key-vault-name>
+export KEY_VAULT_NAME=<vault-name>
 ```
 
 ## Object model
@@ -169,7 +169,7 @@ Application requests to most Azure services must be authorized. Using the [Defau
 
 In this quickstart, `DefaultAzureCredential` authenticates to key vault using the credentials of the local development user logged into the Azure CLI. When the application is deployed to Azure, the same `DefaultAzureCredential` code can automatically discover and use a managed identity that is assigned to an App Service, Virtual Machine, or other services. For more information, see [Managed Identity Overview](/entra/identity/managed-identities-azure-resources/overview).
 
-In this example, the name of your key vault is expanded to the key vault URI, in the format `https://<your-key-vault-name>.vault.azure.net`. For more information about authenticating to key vault, see [Developer's Guide](/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
+In this example, the name of your key vault is expanded to the key vault URI, in the format `https://<vault-name>.vault.azure.net`. For more information about authenticating to key vault, see [Developer's Guide](/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
 
 ```java
 String keyVaultName = System.getenv("KEY_VAULT_NAME");
@@ -192,7 +192,7 @@ keyClient.createKey(keyName, KeyType.RSA);
 You can verify that the key has been set with the [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show) command:
 
 ```azurecli
-az keyvault key show --vault-name <your-unique-key-vault-name> --name myKey
+az keyvault key show --vault-name <vault-name> --name myKey
 ```
 
 ### Retrieve a key
@@ -219,7 +219,7 @@ deletionPoller.waitForCompletion();
 You can verify that the key has been deleted with the [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show) command:
 
 ```azurecli
-az keyvault key show --vault-name <your-unique-key-vault-name> --name myKey
+az keyvault key show --vault-name <vault-name> --name myKey
 ```
 
 ## Clean up resources
@@ -227,11 +227,11 @@ az keyvault key show --vault-name <your-unique-key-vault-name> --name myKey
 When no longer needed, you can use the Azure CLI or Azure PowerShell to remove your key vault and the corresponding resource group.
 
 ```azurecli
-az group delete -g "myResourceGroup"
+az group delete -g "<resource-group>"
 ```
 
 ```azurepowershell
-Remove-AzResourceGroup -Name "myResourceGroup"
+Remove-AzResourceGroup -Name "<resource-group>"
 ```
 
 ## Sample code

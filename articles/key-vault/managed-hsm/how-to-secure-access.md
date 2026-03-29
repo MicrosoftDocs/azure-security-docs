@@ -21,7 +21,10 @@ This tutorial provides a practical implementation example of access control for 
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have one, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial).
+[!INCLUDE [Azure subscription prerequisite](../includes/azure-subscription-prerequisite.md)]
+
+You also need:
+
 * The Azure CLI version 2.25.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 * A managed HSM in your subscription. See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to provision and activate a managed HSM.
 
@@ -97,18 +100,18 @@ The following Azure CLI snippets demonstrate how to implement the role assignmen
 
 ### Assumptions
 
-- The Microsoft Entra administrator created security groups to represent the three roles: Contoso Security Team, Contoso App DevOps, and Contoso App Auditors. The admin added users to their respective groups.
-- All resources are located in the **ContosoAppRG** resource group.
-- The managed HSM logs are stored in the **contosologstorage** storage account.
-- The **ContosoMHSM** managed HSM and the **contosologstorage** storage account are in the same Azure location.
+- The Microsoft Entra administrator created security groups to represent the three roles: Security Team, App DevOps, and App Auditors. The admin added users to their respective groups.
+- All resources are located in the `<resource-group>` resource group.
+- The managed HSM logs are stored in the `<storage-account-name>` storage account.
+- The `<hsm-name>` managed HSM and the `<storage-account-name>` storage account are in the same Azure location.
 
 ### Assign control plane roles
 
 The subscription admin assigns the `Managed HSM Contributor` role to the security team. This role grants the security team permission to manage existing managed HSMs and create new ones.
 
 ```azurecli-interactive
-# This role assignment allows Contoso Security Team to create new Managed HSMs
-az role assignment create --assignee-object-id $(az ad group show -g 'Contoso Security Team' --query 'id' -o tsv) --assignee-principal-type Group --role "Managed HSM Contributor"
+# This role assignment allows Security Team to create new Managed HSMs
+az role assignment create --assignee-object-id $(az ad group show -g '<security-team-group>' --query 'id' -o tsv) --assignee-principal-type Group --role "Managed HSM Contributor"
 ```
 
 ### Assign data plane roles
@@ -116,8 +119,8 @@ az role assignment create --assignee-object-id $(az ad group show -g 'Contoso Se
 For existing managed HSMs, assign the `Managed HSM Administrator` role to the security team so they can manage the HSMs:
 
 ```azurecli-interactive
-# This role assignment allows Contoso Security Team to become administrator of existing managed HSM
-az keyvault role assignment create --hsm-name ContosoMHSM --assignee $(az ad group show -g 'Contoso Security Team' --query 'id' -o tsv) --scope / --role "Managed HSM Administrator"
+# This role assignment allows Security Team to become administrator of existing managed HSM
+az keyvault role assignment create --hsm-name <hsm-name> --assignee $(az ad group show -g '<security-team-group>' --query 'id' -o tsv) --scope / --role "Managed HSM Administrator"
 ```
 
 ### Configure logging and assign additional roles
@@ -126,22 +129,22 @@ The security team sets up logging and assigns roles to auditors and the VM appli
 
 ```azurecli-interactive
 # Enable logging
-hsmresource=$(az keyvault show --hsm-name ContosoMHSM --query id -o tsv)
-storageresource=$(az storage account show --name contosologstorage --query id -o tsv)
+hsmresource=$(az keyvault show --hsm-name <hsm-name> --query id -o tsv)
+storageresource=$(az storage account show --name <storage-account-name> --query id -o tsv)
 az monitor diagnostic-settings create --name MHSM-Diagnostics --resource $hsmresource --logs '[{"category": "AuditEvent","enabled": true}]' --storage-account $storageresource
 
-# Assign the "Crypto Auditor" role to Contoso App Auditors group. It only allows them to read.
-az keyvault role assignment create --hsm-name ContosoMHSM --assignee $(az ad group show -g 'Contoso App Auditors' --query 'id' -o tsv) --scope / --role "Managed HSM Crypto Auditor"
+# Assign the "Crypto Auditor" role to App Auditors group. It only allows them to read.
+az keyvault role assignment create --hsm-name <hsm-name> --assignee $(az ad group show -g '<auditor-group>' --query 'id' -o tsv) --scope / --role "Managed HSM Crypto Auditor"
 
 # Grant the "Crypto User" role to the VM's managed identity. It allows to use keys.
-az keyvault role assignment create --hsm-name ContosoMHSM --assignee $(az vm identity show --name "vmname" --resource-group "ContosoAppRG" --query principalId -o tsv) --scope / --role "Managed HSM Crypto User"
+az keyvault role assignment create --hsm-name <hsm-name> --assignee $(az vm identity show --name "<vm-name>" --resource-group "<resource-group>" --query principalId -o tsv) --scope / --role "Managed HSM Crypto User"
 
 # Assign "Managed HSM Crypto Service Encryption User" role to the Storage account identity
 storage_account_principal=$(az storage account show --id $storageresource --query identity.principalId -o tsv)
 # (if no identity exists), then assign a new one
 [ "$storage_account_principal" ] || storage_account_principal=$(az storage account update --assign-identity --id $storageresource --query identity.principalId -o tsv)
 
-az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Service Encryption User" --assignee $storage_account_principal
+az keyvault role assignment create --hsm-name <hsm-name> --role "Managed HSM Crypto Service Encryption User" --assignee $storage_account_principal
 ```
 
 ## Configure Privileged Identity Management for just-in-time access
@@ -171,19 +174,19 @@ For highly sensitive environments, use [Microsoft Entra Privileged Identity Mana
 
 For data plane roles managed through Managed HSM local RBAC, combine PIM with Microsoft Entra security groups:
 
-1. Create a Microsoft Entra security group for HSM administrators (for example, "Contoso HSM Admins").
+1. Create a Microsoft Entra security group for HSM administrators (for example, "HSM Admins").
 
 1. Assign the Managed HSM Administrator role to this security group:
 
    ```azurecli-interactive
-   az keyvault role assignment create --hsm-name ContosoMHSM \
-     --assignee $(az ad group show -g 'Contoso HSM Admins' --query 'id' -o tsv) \
+   az keyvault role assignment create --hsm-name <hsm-name> \
+     --assignee $(az ad group show -g '<hsm-admins-group>' --query 'id' -o tsv) \
      --scope / --role "Managed HSM Administrator"
    ```
 
 1. Configure the security group as PIM-eligible in Microsoft Entra admin center:
    - Navigate to **Identity governance** > **Privileged Identity Management** > **Groups**
-   - Select **Discover groups** and add "Contoso HSM Admins"
+   - Select **Discover groups** and add "HSM Admins"
    - Configure activation settings (duration, approval, MFA)
 
 1. When administrators need access, they activate their group membership through PIM, which temporarily grants them the Managed HSM Administrator role.

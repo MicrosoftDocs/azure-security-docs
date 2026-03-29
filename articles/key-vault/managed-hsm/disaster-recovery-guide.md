@@ -46,11 +46,11 @@ You must provide the following inputs to create a Managed HSM resource:
 - The Azure location.
 - A list of initial administrators.
 
-The following example creates an HSM named **ContosoMHSM2**, in the resource group **ContosoResourceGroup**, residing in the **West US 3** location, with **the current signed in user** as the only administrator.
+The following example creates an HSM named `<destination-hsm-name>`, in the resource group `<resource-group>`, residing in the specified location, with **the current signed in user** as the only administrator.
 
 ```azurecli-interactive
 oid=$(az ad signed-in-user show --query id -o tsv)
-az keyvault create --hsm-name "ContosoMHSM2" --resource-group "ContosoResourceGroup" --location "westus3" --administrators $oid
+az keyvault create --hsm-name "<destination-hsm-name>" --resource-group "<resource-group>" --location "<location>" --administrators $oid
 ```
 
 > [!NOTE]
@@ -62,8 +62,8 @@ az keyvault create --hsm-name "ContosoMHSM2" --resource-group "ContosoResourceGr
 
 The output of this command shows properties of the Managed HSM that you've created. The two most important properties are:
 
-* **name**: In the example, the name is ContosoMHSM. You'll use this name for other Key Vault commands.
-* **hsmUri**: In the example, the URI is 'https://contosomhsm2.managedhsm.azure.net.' Applications that use your HSM through its REST API must use this URI.
+* **name**: The HSM name you specified. You'll use this name for other Key Vault commands.
+* **hsmUri**: The URI for your HSM (for example, `https://<hsm-name>.managedhsm.azure.net`). Applications that use your HSM through its REST API must use this URI.
 
 Your Azure account is now authorized to perform any operations on this Managed HSM. As of yet, nobody else is authorized.
 
@@ -72,7 +72,7 @@ Your Azure account is now authorized to perform any operations on this Managed H
 At this point in the normal creation process, we initialize and download the new HSM's Security Domain. However, since we're executing a disaster recovery procedure, we request the HSM to enter Security Domain Recovery Mode and download a Security Domain Exchange Key instead. The Security Domain Exchange Key is an RSA public key that will be used to encrypt the security domain before uploading it to the HSM. The corresponding private key is protected inside the HSM, to keep your Security Domain contents safe during the transfer.
 
 ```azurecli-interactive
-az keyvault security-domain init-recovery --hsm-name ContosoMHSM2 --sd-exchange-key ContosoMHSM2-SDE.cer
+az keyvault security-domain init-recovery --hsm-name <destination-hsm-name> --sd-exchange-key <destination-hsm-name>-SDE.cer
 ```
 
 ## Create a Security Domain Upload blob of the source HSM
@@ -88,10 +88,10 @@ The `az keyvault security-domain restore-blob` command performs following operat
 
 This step can be performed offline.
 
-In the following example, we use the Security Domain from the **ContosoMHSM**, the 3 of the corresponding private keys, and the Security Domain Exchange Key to create and download an encrypted blob which we will use to upload to **ContosoMHSM2**, which is waiting to receive a Security Domain. 
+In the following example, we use the Security Domain from the source HSM, the 3 of the corresponding private keys, and the Security Domain Exchange Key to create and download an encrypted blob which we will use to upload to the destination HSM, which is waiting to receive a Security Domain. 
 
 ```azurecli-interactive 
-az keyvault security-domain restore-blob --sd-exchange-key ContosoMHSM2-SDE.cer --sd-file ContosoMHSM-SD.json --sd-wrapping-keys cert_0.key cert_1.key cert_2.key --sd-file-restore-blob restore_blob.json 
+az keyvault security-domain restore-blob --sd-exchange-key <destination-hsm-name>-SDE.cer --sd-file <source-hsm-name>-SD.json --sd-wrapping-keys cert_0.key cert_1.key cert_2.key --sd-file-restore-blob restore_blob.json 
 ``` 
 
 ## Upload Security Domain Upload blob to destination HSM
@@ -99,10 +99,10 @@ az keyvault security-domain restore-blob --sd-exchange-key ContosoMHSM2-SDE.cer 
 We now use the Security Domain Upload blob created in the previous step and upload it to the destination HSM to complete the security domain recovery. The `--restore-blob` flag is used to prevent exposing keys in an online environment.
 
 ```azurecli-interactive
-az keyvault security-domain upload --hsm-name ContosoMHSM2 --sd-file restore_blob.json --restore-blob
+az keyvault security-domain upload --hsm-name <destination-hsm-name> --sd-file restore_blob.json --restore-blob
 ```
 
-Now both the source HSM (ContosoMHSM) and the destination HSM (ContosoMHSM2) have the same security domain. We can now restore a full backup from the source HSM into the destination HSM.
+Now both the source HSM and the destination HSM have the same security domain. We can now restore a full backup from the source HSM into the destination HSM.
 
 ## Backup and restore
 
@@ -115,15 +115,15 @@ To create an HSM backup, you'll need:
 - A blob storage container in this storage account where the backup process will create a new folder to store encrypted backup
 - A user assigned managed identity that has the Storage Blob Data Contributor role on the storage account OR storage container SAS token with permissions 'crdw'
 
-We use az keyvault backup command to the HSM backup in the storage container **mhsmbackupcontainer**, which is in the storage account **mhsmdemobackup** in the following examples.
+We use az keyvault backup command for the HSM backup in the storage container `<container-name>`, which is in the storage account `<storage-account-name>` in the following examples.
 
 ### [User assigned managed identity](#tab/uami)
 
 If using the user assigned managed identity method, we specify the user assigned managed identity with the `--mi-user-assigned` parameter and associate that to the Managed HSM before writing the backup in the below example.
 
 ```azurecli-interactive
-az keyvault update-hsm --hsm-name ContosoMHSM2 --mi-user-assigned "/subscriptions/subid/resourcegroups/mhsmrgname/providers/Microsoft.ManagedIdentity/userAssignedIdentities/userassignedidentityname"
-az keyvault backup start --use-managed-identity true --hsm-name ContosoMHSM2 --storage-account-name mhsmdemobackup --blob-container-name mhsmbackupcontainer
+az keyvault update-hsm --hsm-name <destination-hsm-name> --mi-user-assigned "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<managed-identity-name>"
+az keyvault backup start --use-managed-identity true --hsm-name <destination-hsm-name> --storage-account-name <storage-account-name> --blob-container-name <container-name>
 ```
 
 ### [SAS token](#tab/sas)
@@ -132,10 +132,10 @@ If using the SAS token method, we create a SAS token that expires in 30 minutes 
 
 ```azurecli-interactive
 end=$(date -u -d "500 minutes" '+%Y-%m-%dT%H:%MZ')
-skey=$(az storage account keys list --query '[0].value' -o tsv --account-name mhsmdemobackup)
-az storage container create --account-name mhsmdemobackup --name mhsmbackupcontainer --account-key $skey
-sas=$(az storage container generate-sas -n mhsmbackupcontainer --account-name mhsmdemobackup --permissions crdw --expiry $end --account-key $skey -o tsv)
-az keyvault backup start --hsm-name ContosoMHSM2 --storage-account-name mhsmdemobackup --blob-container-name mhsmbackupcontainer --storage-container-SAS-token $sas
+skey=$(az storage account keys list --query '[0].value' -o tsv --account-name <storage-account-name>)
+az storage container create --account-name <storage-account-name> --name <container-name> --account-key $skey
+sas=$(az storage container generate-sas -n <container-name> --account-name <storage-account-name> --permissions crdw --expiry $end --account-key $skey -o tsv)
+az keyvault backup start --hsm-name <destination-hsm-name> --storage-account-name <storage-account-name> --blob-container-name <container-name> --storage-container-SAS-token $sas
 ```
 
 ---
@@ -146,14 +146,14 @@ For this step you need:
 - The storage account and the blob container in which the source HSM's backups are stored.
 - The folder name from where you want to restore the backup. If you create regular backups, there will be many folders inside this container.
 
-We use az keyvault restore command to the new HSM ContosoMHSM2, using the backup of the source MHSM we are trying to restore, which is in the folder name **mhsm-ContosoMHSM-2020083120161860** found in the storage container **mhsmdemobackupcontainer** of the storage account **ContosoBackup** in the following example.
+We use az keyvault restore command to the destination HSM, using the backup of the source MHSM we are trying to restore, which is in the folder name `<backup-folder>` found in the storage container `<container-name>` of the storage account `<storage-account-name>` in the following example.
 
 ### [User assigned managed identity](#tab/uami)
 
 If using the user assigned managed identity method, we set the `--use-managed-identity` parameter to "true".
 
 ```azurecli-interactive
-az keyvault restore start --hsm-name ContosoMHSM2 --storage-account-name ContosoBackup --blob-container-name mhsmdemobackupcontainer --backup-folder mhsm-ContosoMHSM-2020083120161860 --use-managed-identity true
+az keyvault restore start --hsm-name <destination-hsm-name> --storage-account-name <storage-account-name> --blob-container-name <container-name> --backup-folder <backup-folder> --use-managed-identity true
 ```
 
 ### [SAS token](#tab/sas)
@@ -162,9 +162,9 @@ If using the SAS token method, we create a SAS token that expires in 30 minutes 
 
 ```azurecli-interactive
 end=$(date -u -d "500 minutes" '+%Y-%m-%dT%H:%MZ')
-skey=$(az storage account keys list --query '[0].value' -o tsv --account-name ContosoBackup)
-sas=$(az storage container generate-sas -n mhsmdemobackupcontainer --account-name ContosoBackup --permissions rl --expiry $end --account-key $skey -o tsv)
-az keyvault restore start --hsm-name ContosoMHSM2 --storage-account-name ContosoBackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas --backup-folder mhsm-ContosoMHSM-2020083120161860
+skey=$(az storage account keys list --query '[0].value' -o tsv --account-name <storage-account-name>)
+sas=$(az storage container generate-sas -n <container-name> --account-name <storage-account-name> --permissions rl --expiry $end --account-key $skey -o tsv)
+az keyvault restore start --hsm-name <destination-hsm-name> --storage-account-name <storage-account-name> --blob-container-name <container-name> --storage-container-SAS-token $sas --backup-folder <backup-folder>
 ```
 
 ---
