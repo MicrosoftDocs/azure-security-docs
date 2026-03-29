@@ -40,7 +40,7 @@ Your result is in the format `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 Use the Azure CLI [az confidentialledger create](/cli/azure/confidentialledger#az-confidentialledger-create) command to create a confidential ledger in your new resource group.
 
 ```azurecli
-az confidentialledger create --name "myLedger" --resource-group "myResourceGroup" --location "EastUS" --ledger-type "Public" --aad-based-security-principals ledger-role-name="Administrator" principal-id="<your-principal-id>"
+az confidentialledger create --name "<ledger-name>" --resource-group "<resource-group>" --location "EastUS" --ledger-type "Public" --aad-based-security-principals ledger-role-name="Administrator" principal-id="<principal-id>"
 ```
 
 A successful operation returns the properties of the newly created ledger. Take note of the **ledgerUri**. In our example, this URI is "https://myledger.confidential-ledger.azure.com".
@@ -52,7 +52,7 @@ You need this URI to transact with the confidential ledger from the data plane.
 You can view the properties associated with your newly created confidential ledger using the Azure CLI [az confidentialledger show](/cli/azure/confidentialledger#az-confidentialledger-show) command.
 
 ```azurecli
-az confidentialledger show --name "myLedger" --resource-group "myResourceGroup"
+az confidentialledger show --name "<ledger-name>" --resource-group "<resource-group>"
 ```
 
 The returned JSON object displays the ledger's properties, including your role:
@@ -64,7 +64,7 @@ The returned JSON object displays the ledger's properties, including your role:
 To update the properties of a confidential ledger, use do so, use the Azure CLI [az confidentialledger update](/cli/azure/confidentialledger#az-confidentialledger-update) command. For instance, to update your ledger to change your role to "Reader", run:
 
 ```azurecli
-az confidentialledger update --name "myLedger" --resource-group "myResourceGroup" --ledger-type "Public" --aad-based-security-principals ledger-role-name="Reader" principal-id="<your-principal-id>" 
+az confidentialledger update --name "<ledger-name>" --resource-group "<resource-group>" --ledger-type "Public" --aad-based-security-principals ledger-role-name="Reader" principal-id="<principal-id>" 
 ```
 
 If you again run [az confidentialledger show](/cli/azure/confidentialledger#az-confidentialledger-show), you see that the role is updated.

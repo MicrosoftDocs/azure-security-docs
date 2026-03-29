@@ -8,7 +8,7 @@ ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.author: mbaldwin
-ms.date: 11/19/2025
+ms.date: 03/26/2026
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
 ---
 
@@ -140,13 +140,13 @@ More Azure Key Vault template samples can be found in [Azure Quickstart Template
 
     ```azurepowershell
     New-AzResourceGroup -Name exampleRG -Location eastus
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -vaultName "<key-vault-name>" -keyName "<key-name>"
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -vaultName "<vault-name>" -keyName "<key-name>"
     ```
 
     ---
 
     > [!NOTE]
-    > Replace **\<vault-name\>** with the name of the key vault. Replace **\<vault-name\>** with the name of the key vault, and replace **\<key-name\>** with the name of the key.
+    > Replace **`<vault-name>`** with the name of the key vault. Replace **`<vault-name>`** with the name of the key vault, and replace **`<key-name>`** with the name of the key.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 

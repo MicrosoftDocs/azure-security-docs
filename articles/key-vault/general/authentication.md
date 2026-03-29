@@ -6,7 +6,7 @@ ms.author: mbaldwin
 ms.date: 01/30/2026
 ms.service: azure-key-vault
 ms.subservice: general
-ms.topic: conceptual
+ms.topic: concept-article
 
 ---
 # Authentication in Azure Key Vault

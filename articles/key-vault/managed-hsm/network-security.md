@@ -5,7 +5,7 @@ services: key-vault
 author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.date: 02/10/2026
 ms.author: mbaldwin 
 ---

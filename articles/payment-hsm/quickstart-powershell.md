@@ -68,16 +68,16 @@ $SubnetAddressPrefix = "10.0.0.0/24"
 $tags = @{fastpathenabled="true"}
 ```
 
-Use the Azure PowerShell [New-AzDelegation](/powershell/module/az.network/new-azdelegation) cmdlet to create a service delegation to be added to your subnet, and save the output to the `$myDelegation` variable:
+Use the Azure PowerShell [New-AzDelegation](/powershell/module/az.network/new-azdelegation) cmdlet to create a service delegation to be added to your subnet, and save the output to a variable:
 
 ```azurepowershell-interactive
-$myDelegation = New-AzDelegation -Name "myHSMDelegation" -ServiceName "Microsoft.HardwareSecurityModules/dedicatedHSMs"
+$delegation = New-AzDelegation -Name "HSMDelegation" -ServiceName "Microsoft.HardwareSecurityModules/dedicatedHSMs"
 ```
 
-Use the Azure PowerShell [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) cmdlet to create a virtual network subnet configuration, and save the output to the `$myPHSMSubnet` variable:
+Use the Azure PowerShell [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) cmdlet to create a virtual network subnet configuration, and save the output to a variable:
 
 ```azurepowershell-interactive
-$myPHSMSubnetConfig = New-AzVirtualNetworkSubnetConfig -Name "myPHSMSubnet" -AddressPrefix $SubnetAddressPrefix -Delegation $myDelegation
+$subnetConfig = New-AzVirtualNetworkSubnetConfig -Name "<subnet-name>" -AddressPrefix $SubnetAddressPrefix -Delegation $delegation
 ```
 
 > [!NOTE]
@@ -86,13 +86,13 @@ $myPHSMSubnetConfig = New-AzVirtualNetworkSubnetConfig -Name "myPHSMSubnet" -Add
 To create an Azure Virtual Network, use the Azure PowerShell [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) cmdlet:
 
 ```azurepowershell-interactive
-New-AzVirtualNetwork -Name "myVNet" -ResourceGroupName "myResourceGroup" -Location "EastUS" -Tag $tags -AddressPrefix $VNetAddressPrefix -Subnet $myPHSMSubnetConfig
+New-AzVirtualNetwork -Name "<vnet-name>" -ResourceGroupName "<resource-group>" -Location "EastUS" -Tag $tags -AddressPrefix $VNetAddressPrefix -Subnet $subnetConfig
 ```
 
 To verify that the virtual network was created correctly, use the Azure PowerShell [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) cmdlet:
 
 ```azurepowershell-interactive
-Get-AzVirtualNetwork -Name "myVNet" -ResourceGroupName "myResourceGroup"
+Get-AzVirtualNetwork -Name "<vnet-name>" -ResourceGroupName "<resource-group>"
 ```
 
 Make note of the value returned as `Id`, as it is used in the next step.  The `Id` is in the format:
@@ -106,7 +106,7 @@ Make note of the value returned as `Id`, as it is used in the next step.  The `I
 To create a payment HSM, use the [New-AzDedicatedHsm](/powershell/module/az.dedicatedhsm/new-azdedicatedhsm) cmdlet and the VNet ID from the previous step:
 
 ```azurepowershell-interactive
-New-AzDedicatedHsm -Name "myPaymentHSM" -ResourceGroupName "myResourceGroup" -Location "East US" -Sku "payShield10K_LMK1_CPS60" -StampId "stamp1" -SubnetId "<subnet-id>"
+New-AzDedicatedHsm -Name "<payment-hsm-name>" -ResourceGroupName "<resource-group>" -Location "East US" -Sku "payShield10K_LMK1_CPS60" -StampId "stamp1" -SubnetId "<subnet-id>"
 ```
 
 The output of payment HSM creation looks like this:
@@ -122,7 +122,7 @@ myHSM Succeeded          payShield10K_LMK1_CPS60 East US
 To see your payment HSM and its properties, use the Azure PowerShell [Get-AzDedicatedHsm](/powershell/module/az.dedicatedhsm/get-azdedicatedhsm) cmdlet.
 
 ```azurepowershell-interactive
-Get-AzDedicatedHsm -Name "myPaymentHSM" -ResourceGroup "myResourceGroup"
+Get-AzDedicatedHsm -Name "<payment-hsm-name>" -ResourceGroup "<resource-group>"
 ```
 
 To list all of your payment HSMs, use the [Get-AzDedicatedHsm](/powershell/module/az.dedicatedhsm/get-azdedicatedhsm) cmdlet with no parameters.
@@ -130,15 +130,15 @@ To list all of your payment HSMs, use the [Get-AzDedicatedHsm](/powershell/modul
 To get more information on your payment HSM, you can use the [Get-AzResource](/powershell/module/az.dedicatedhsm/get-azdedicatedhsm) cmdlet, specifying the resource group, and "Microsoft.HardwareSecurityModules/dedicatedHSMs" as the resource type:
 
 ```azurepowershell-interactive
-Get-AzResource -ResourceGroupName "myResourceGroup" -ResourceType "Microsoft.HardwareSecurityModules/dedicatedHSMs"
+Get-AzResource -ResourceGroupName "<resource-group>" -ResourceType "Microsoft.HardwareSecurityModules/dedicatedHSMs"
 ```
 
 ## Remove a payment HSM
 
-To remove your payment HSM, use the Azure PowerShell [Remove-AzDedicatedHsm](/powershell/module/az.dedicatedhsm/remove-azdedicatedhsm) cmdlet. The following example deletes the `myPaymentHSM` payment HSM from the `myResourceGroup` resource group:
+To remove your payment HSM, use the Azure PowerShell [Remove-AzDedicatedHsm](/powershell/module/az.dedicatedhsm/remove-azdedicatedhsm) cmdlet. The following example deletes the `<payment-hsm-name>` payment HSM from the `<resource-group>` resource group:
 
 ```azurepowershell-interactive
-Remove-AzDedicatedHsm -Name "myPaymentHSM" -ResourceGroupName "myResourceGroup"
+Remove-AzDedicatedHsm -Name "<payment-hsm-name>" -ResourceGroupName "<resource-group>"
 ```
 
 ## Delete the resource group

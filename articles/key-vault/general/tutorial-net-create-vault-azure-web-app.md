@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 01/30/2026
+ms.date: 03/26/2026
 ms.author: mbaldwin
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-dotnet
@@ -99,7 +99,7 @@ Record your user name and password so you can use it to deploy your web apps.
 A resource group is a logical container into which you deploy Azure resources and manage them. Create a resource group to contain both your key vault and your web app by using the [az group create](/cli/azure/group?#az-group-create) command:
 
 ```azurecli-interactive
-az group create --name "myResourceGroup" -l "EastUS"
+az group create --name "<resource-group>" -l "EastUS"
 ```
 
 ### Create an App Service plan
@@ -107,7 +107,7 @@ az group create --name "myResourceGroup" -l "EastUS"
 Create an [App Service plan](/azure/app-service/overview-hosting-plans) by using the Azure CLI [az appservice plan create](/cli/azure/appservice/plan) command. This following example creates an App Service plan named `myAppServicePlan` in the `FREE` pricing tier:
 
 ```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
+az appservice plan create --name myAppServicePlan --resource-group <resource-group> --sku FREE
 ```
 
 When the App Service plan is created, the Azure CLI displays information similar to what you see here:
@@ -118,7 +118,7 @@ When the App Service plan is created, the Azure CLI displays information similar
   "appServicePlanName": "myAppServicePlan",
   "geoRegion": "West Europe",
   "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/0000-0000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan",
+  "id": "/subscriptions/0000-0000/resourceGroups/&lt;resource-group&gt;/providers/Microsoft.Web/serverfarms/myAppServicePlan",
   "kind": "app",
   "location": "West Europe",
   "maximumNumberOfWorkers": 1,
@@ -137,11 +137,11 @@ For more information, see [Manage an App Service plan in Azure](/azure/app-servi
 Create an [Azure web app](/azure/app-service/overview) in the `myAppServicePlan` App Service plan. 
 
 > [!Important]
-> Like a key vault, an Azure web app must have a unique name. Replace `<your-webapp-name>` with the name of your web app in the following examples.
+> Like a key vault, an Azure web app must have a unique name. Replace `<webapp-name>` with the name of your web app in the following examples.
 
 
 ```azurecli-interactive
-az webapp create --resource-group "myResourceGroup" --plan "myAppServicePlan" --name "<your-webapp-name>" --deployment-local-git
+az webapp create --resource-group "<resource-group>" --plan "myAppServicePlan" --name "<webapp-name>" --deployment-local-git
 ```
 
 When the web app is created, the Azure CLI shows output similar to what you see here:
@@ -163,28 +163,28 @@ Local git is configured with url of 'https://&lt;username&gt;@&lt;your-webapp-na
 }
 </pre>
 
-The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, in the format `https://<username>@<your-webapp-name>.scm.azurewebsites.net/<your-webapp-name>.git`. Save this URL. You'll need it later.
+The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, in the format `https://<username>@<webapp-name>.scm.azurewebsites.net/<webapp-name>.git`. Save this URL. You'll need it later.
 
 Now configure your web app to deploy from the `main` branch:
 
 ```azurecli-interactive
- az webapp config appsettings set -g MyResourceGroup --name "<your-webapp-name>" --settings deployment_branch=main
+ az webapp config appsettings set -g MyResourceGroup --name "<webapp-name>" --settings deployment_branch=main
 ```
 
-Go to your new app by using the following command. Replace `<your-webapp-name>` with your app name.
+Go to your new app by using the following command. Replace `<webapp-name>` with your app name.
 
 ```bash
-https://<your-webapp-name>.azurewebsites.net
+https://<webapp-name>.azurewebsites.net
 ```
 
 You'll see the default webpage for a new Azure web app.
 
 ### Deploy your local app
 
-Back in the local terminal window, add an Azure remote to your local Git repository. In the following command, replace `<deploymentLocalGitUrl-from-create-step>` with the URL of the Git remote that you saved in the [Create a web app](#create-a-web-app) section.
+Back in the local terminal window, add an Azure remote to your local Git repository. In the following command, replace `<deployment-url>` with the URL of the Git remote that you saved in the [Create a web app](#create-a-web-app) section.
 
 ```bash
-git remote add azure <deploymentLocalGitUrl-from-create-step>
+git remote add azure <deployment-url>
 ```
 
 Use the following command to push to the Azure remote to deploy your app. When Git Credential Manager prompts you for credentials, use the credentials you created in the [Configure the local Git deployment](#configure-the-local-git-deployment) section.
@@ -224,7 +224,7 @@ To https://&lt;your-webapp-name&gt;.scm.azurewebsites.net:443/&lt;your-webapp-na
 Go to (or refresh) the deployed application by using your web browser:
 
 ```bash
-http://<your-webapp-name>.azurewebsites.net
+http://<webapp-name>.azurewebsites.net
 ```
 
 You'll see the "Hello World!" message you saw earlier when you visited `http://localhost:5000`.
@@ -242,7 +242,7 @@ In this tutorial, we'll use [managed identity](/entra/identity/managed-identitie
 In the Azure CLI, to create the identity for the application, run the [az webapp-identity assign](/cli/azure/webapp/identity?#az-webapp-identity-assign) command:
 
 ```azurecli-interactive
-az webapp identity assign --name "<your-webapp-name>" --resource-group "myResourceGroup"
+az webapp identity assign --name "<webapp-name>" --resource-group "<resource-group>"
 ```
 
 The command will return this JSON snippet:
@@ -295,9 +295,9 @@ SecretClientOptions options = new SecretClientOptions()
             Mode = RetryMode.Exponential
          }
     };
-var client = new SecretClient(new Uri("https://<your-unique-key-vault-name>.vault.azure.net/"), new DefaultAzureCredential(),options);
+var client = new SecretClient(new Uri("https://<vault-name>.vault.azure.net/"), new DefaultAzureCredential(),options);
 
-KeyVaultSecret secret = client.GetSecret("<mySecret>");
+KeyVaultSecret secret = client.GetSecret("<secret-name>");
 
 string secretValue = secret.Value;
 ```
@@ -334,7 +334,7 @@ git push azure main
 ## Go to your completed web app
 
 ```bash
-http://<your-webapp-name>.azurewebsites.net
+http://<webapp-name>.azurewebsites.net
 ```
 
 Where before you saw "Hello World!", you should now see the value of your secret displayed.

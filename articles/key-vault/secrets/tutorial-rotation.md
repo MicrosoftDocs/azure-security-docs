@@ -8,7 +8,7 @@ tags: 'rotation'
 ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: tutorial
-ms.date: 01/30/2026
+ms.date: 03/26/2026
 
 ms.author: mbaldwin
 ms.devlang: csharp
@@ -197,7 +197,7 @@ You can find the complete code on [GitHub](https://github.com/Azure-Samples/KeyV
 Set your access policy to grant *manage secrets* permissions to users:
 
 ```azurecli
-az role assignment create --role "Key Vault Secrets Officer" --assignee <email-address-of-user> --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.KeyVault/vaults/akvrotation-kv
+az role assignment create --role "Key Vault Secrets Officer" --assignee <email-address-of-user> --scope /subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/akvrotation-kv
 ```
 
 Create a new secret with tags that contain the SQL Server resource ID, the SQL Server login name, and validity period for the secret in days. Provide name of the secret, initial password from SQL database (in our example "Simple123") and include an expiration date that's set for tomorrow.
