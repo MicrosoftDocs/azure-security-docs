@@ -7,7 +7,7 @@ ms.author: mbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 03/26/2026
+ms.date: 03/30/2026
 #Customer intent: As a Managed HSM administrator, I want to enable logging for my Managed HSM so I can monitor how and when my HSMs are accessed, and by who.
 ---
 
@@ -24,7 +24,7 @@ Use this tutorial to help you get started with Managed HSM logging. You should a
 
 ## Prerequisites
 
-[!INCLUDE [Azure subscription prerequisite](../includes/azure-subscription-prerequisite.md)]
+[!INCLUDE [Azure subscription prerequisite](~/reusable-content/ce-skilling/azure/includes/azure-subscription-prerequisite.md)]
 
 You also need:
 

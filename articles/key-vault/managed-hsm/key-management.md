@@ -8,7 +8,7 @@ ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 03/13/2026
+ms.date: 03/30/2026
 
 ms.author: mbaldwin
 ---
@@ -22,7 +22,7 @@ For an overview of Managed HSM, see [What is Managed HSM?](overview.md)
 
 ## Prerequisites
 
-[!INCLUDE [Azure subscription prerequisite](../includes/azure-subscription-prerequisite.md)]
+[!INCLUDE [Azure subscription prerequisite](~/reusable-content/ce-skilling/azure/includes/azure-subscription-prerequisite.md)]
 
 You also need:
 

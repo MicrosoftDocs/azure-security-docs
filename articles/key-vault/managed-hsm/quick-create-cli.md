@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: quickstart
-ms.date: 03/13/2026
+ms.date: 03/30/2026
 ms.author: mbaldwin
 ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
@@ -15,11 +15,11 @@ ms.devlang: azurecli
 
 # Quickstart: Provision and activate a Managed HSM using Azure CLI
 
-In this quickstart, you create and activate an Azure Key Vault Managed HSM (Hardware Security Module) by using Azure CLI. [!INCLUDE [Managed HSM description](../includes/managed-hsm/intro.md)]
+In this quickstart, you create and activate an Azure Key Vault Managed HSM (Hardware Security Module) by using Azure CLI. [!INCLUDE [Managed HSM description](~/reusable-content/ce-skilling/azure/includes/key-vault/managed-hsm/intro.md)]
 
 ## Prerequisites
 
-[!INCLUDE [Azure subscription prerequisite](../includes/azure-subscription-prerequisite.md)]
+[!INCLUDE [Azure subscription prerequisite](~/reusable-content/ce-skilling/azure/includes/azure-subscription-prerequisite.md)]
 
 You also need:
 
@@ -71,7 +71,7 @@ az keyvault create --hsm-name "<hsm-name>" --resource-group "<resource-group>" -
 > [!NOTE]
 > The create command can take a few minutes. When it returns successfully, you're ready to activate your HSM.
 
-[!INCLUDE [Managed HSM billing warning](../includes/managed-hsm/billing-warning.md)]
+[!INCLUDE [Managed HSM billing warning](~/reusable-content/ce-skilling/azure/includes/key-vault/managed-hsm/billing-warning.md)]
 
 The output of this command shows properties of the Managed HSM that you created. The two most important properties are:
 
@@ -84,7 +84,7 @@ Your Azure account is now authorized to perform any operations on this Managed H
 
 All data plane commands are disabled until you activate the HSM. For example, you can't create keys or assign roles. Only the designated administrators that you assign during the create command can activate the HSM. To activate the HSM, you must download the [Security Domain](security-domain.md).
 
-[!INCLUDE [Security domain prerequisites](../includes/managed-hsm/security-domain-prerequisites.md)]
+[!INCLUDE [Security domain prerequisites](~/reusable-content/ce-skilling/azure/includes/key-vault/managed-hsm/security-domain-prerequisites.md)]
 
 Use the `az keyvault security-domain download` command to download the security domain and activate your Managed HSM. The following example uses three RSA key pairs (only public keys are needed for this command) and sets the quorum to two.
 
@@ -105,7 +105,7 @@ When no longer needed, you can use the [az group delete](/cli/azure/group) comma
 ```azurecli-interactive
 az group delete --name <resource-group>
 ```
-[!INCLUDE [Managed HSM cleanup warning](../includes/managed-hsm/cleanup-warning.md)]
+[!INCLUDE [Managed HSM cleanup warning](~/reusable-content/ce-skilling/azure/includes/key-vault/managed-hsm/cleanup-warning.md)]
 
 ## Next steps
 

@@ -7,7 +7,7 @@ ms.custom: devx-track-azurecli
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: how-to
-ms.date: 03/13/2026
+ms.date: 03/30/2026
 ms.author: mbaldwin
 # Customer intent: As a managed HSM administrator, I want to set access control and configure the Managed HSM, so that I can ensure it's secure and auditors can properly monitor all activities for this Managed HSM.
 ---
@@ -21,7 +21,7 @@ This tutorial provides a practical implementation example of access control for 
 
 ## Prerequisites
 
-[!INCLUDE [Azure subscription prerequisite](../includes/azure-subscription-prerequisite.md)]
+[!INCLUDE [Azure subscription prerequisite](~/reusable-content/ce-skilling/azure/includes/azure-subscription-prerequisite.md)]
 
 You also need:
 
