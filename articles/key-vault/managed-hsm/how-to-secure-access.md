@@ -30,15 +30,7 @@ You also need:
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
-## Sign in to Azure
-
-To sign in to Azure by using the CLI, enter:
-
-```azurecli
-az login
-```
-
-For more information about authentication options through the CLI, see [sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
+[!INCLUDE [Sign in to Azure](~/reusable-content/ce-skilling/azure/includes/managed-hsm/cli-sign-in.md)]
 
 ## Understand the example scenario
 
