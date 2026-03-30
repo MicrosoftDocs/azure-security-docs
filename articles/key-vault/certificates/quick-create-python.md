@@ -3,7 +3,7 @@ title: Quickstart – Azure Key Vault Python client library – manage certifica
 description: Learn how to create, retrieve, and delete certificates from an Azure key vault using the Python client library
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 03/26/2026
+ms.date: 03/30/2026
 
 ms.service: azure-key-vault
 ms.subservice: certificates
@@ -87,7 +87,7 @@ This quickstart uses the Azure Identity library with Azure CLI or Azure PowerShe
 
 ### Set the KEY_VAULT_NAME environmental variable
 
-[!INCLUDE [Set the KEY_VAULT_NAME environmental variable](../includes/key-vault-set-environmental-variables.md)]
+[!INCLUDE [Set the KEY_VAULT_NAME environmental variable](~/reusable-content/ce-skilling/azure/includes/key-vault/set-environmental-variables.md)]
 
 ### Grant access to your key vault
 
