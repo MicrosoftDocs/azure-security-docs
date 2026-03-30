@@ -76,7 +76,7 @@ Your Azure account is now authorized to perform any operations on this Managed H
 
 ### Activate your Managed HSM
 
-All data plane commands are disabled until you activate the HSM. For example, you can't create keys or assign roles. Only the designated administrators that you assign during the create command can activate the HSM. To activate the HSM, you must download the [Security Domain](security-domain.md).
+[!INCLUDE [Activate HSM intro](~/reusable-content/ce-skilling/azure/includes/managed-hsm/activate-hsm-intro.md)]
 
 [!INCLUDE [Security domain prerequisites](~/reusable-content/ce-skilling/azure/includes/managed-hsm/security-domain-prerequisites.md)]
 
@@ -86,9 +86,7 @@ Use the `az keyvault security-domain download` command to download the security 
 az keyvault security-domain download --hsm-name <hsm-name> --sd-wrapping-keys ./certs/cert_0.cer ./certs/cert_1.cer ./certs/cert_2.cer --sd-quorum 2 --security-domain-file <hsm-name>-SD.json
 ```
 
-Store the security domain file and the RSA key pairs securely. You need them for disaster recovery or for creating another Managed HSM that shares same security domain so the two can share keys.
-
-After successfully downloading the security domain, your HSM will be in active state and ready for you to use.
+[!INCLUDE [Security domain storage](~/reusable-content/ce-skilling/azure/includes/managed-hsm/security-domain-storage.md)]
 
 ## Clean up resources
 
