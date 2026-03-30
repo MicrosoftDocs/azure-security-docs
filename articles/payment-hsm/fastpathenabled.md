@@ -4,7 +4,7 @@ description: The "fastpathenabled" feature flag and tag, as it relates to Azure 
 services: payment-hsm
 author: cynthiatreger
 ms.service: azure-payment-hsm
-ms.topic: article
+ms.topic: feature-guide
 ms.date: 03/25/2023
 ms.author: ctreger
 ---

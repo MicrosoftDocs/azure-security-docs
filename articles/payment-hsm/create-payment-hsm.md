@@ -99,19 +99,19 @@ Get-AzProviderFeature -FeatureName "FastPathEnabled" -ProviderNamespace Microsof
 Before creating a payment HSM, you must first create a virtual network and a subnet. To do so, use the Azure CLI [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) command:
 
 ```azurecli-interactive
-az network vnet create -g "myResourceGroup" -n "myVNet" --address-prefixes "10.0.0.0/16" --tags "fastpathenabled=True" --subnet-name "myPHSMSubnet" --subnet-prefix "10.0.0.0/24"
+az network vnet create -g "<resource-group>" -n "<vnet-name>" --address-prefixes "10.0.0.0/16" --tags "fastpathenabled=True" --subnet-name "<subnet-name>" --subnet-prefix "10.0.0.0/24"
 ```
 
 Afterward, use the Azure CLI [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) command to update the subnet and give it a delegation of "Microsoft.HardwareSecurityModules/dedicatedHSMs":
 
 ```azurecli-interactive
-az network vnet subnet update -g "myResourceGroup" --vnet-name "myVNet" -n "myPHSMSubnet" --delegations "Microsoft.HardwareSecurityModules/dedicatedHSMs"
+az network vnet subnet update -g "<resource-group>" --vnet-name "<vnet-name>" -n "<subnet-name>" --delegations "Microsoft.HardwareSecurityModules/dedicatedHSMs"
 ```
 
 To verify that the VNet and subnet were created correctly, use the Azure CLI [az network vnet subnet show](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-show) command:
 
 ```azurecli-interactive
-az network vnet subnet show -g "myResourceGroup" --vnet-name "myVNet" -n myPHSMSubnet
+az network vnet subnet show -g "<resource-group>" --vnet-name "<vnet-name>" -n <subnet-name>
 ```
 
 Make note of the subnet's ID, as you need it for the next step.  The ID of the subnet ends with the name of the subnet:
@@ -132,16 +132,16 @@ $SubnetAddressPrefix = "10.0.0.0/24"
 $tags = @{fastpathenabled="true"}
 ```
 
-Use the Azure PowerShell [New-AzDelegation](/powershell/module/az.network/new-azdelegation) cmdlet to create a service delegation to be added to your subnet, and save the output to the `$myDelegation` variable:
+Use the Azure PowerShell [New-AzDelegation](/powershell/module/az.network/new-azdelegation) cmdlet to create a service delegation to be added to your subnet, and save the output to a variable:
 
 ```azurepowershell-interactive
-$myDelegation = New-AzDelegation -Name "myHSMDelegation" -ServiceName "Microsoft.HardwareSecurityModules/dedicatedHSMs"
+$delegation = New-AzDelegation -Name "HSMDelegation" -ServiceName "Microsoft.HardwareSecurityModules/dedicatedHSMs"
 ```
 
-Use the Azure PowerShell [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) cmdlet to create a virtual network subnet configuration, and save the output to the `$myPHSMSubnet` variable:
+Use the Azure PowerShell [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) cmdlet to create a virtual network subnet configuration, and save the output to a variable:
 
 ```azurepowershell-interactive
-$myPHSMSubnetConfig = New-AzVirtualNetworkSubnetConfig -Name "myPHSMSubnet" -AddressPrefix $SubnetAddressPrefix -Delegation $myDelegation
+$subnetConfig = New-AzVirtualNetworkSubnetConfig -Name "<subnet-name>" -AddressPrefix $SubnetAddressPrefix -Delegation $delegation
 ```
 
 > [!NOTE]
@@ -150,13 +150,13 @@ $myPHSMSubnetConfig = New-AzVirtualNetworkSubnetConfig -Name "myPHSMSubnet" -Add
 To create an Azure Virtual Network, use the Azure PowerShell [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) cmdlet:
 
 ```azurepowershell-interactive
-New-AzVirtualNetwork -Name "myVNet" -ResourceGroupName "myResourceGroup" -Location "EastUS" -Tag $tags -AddressPrefix $VNetAddressPrefix -Subnet $myPHSMSubnetConfig
+New-AzVirtualNetwork -Name "<vnet-name>" -ResourceGroupName "<resource-group>" -Location "EastUS" -Tag $tags -AddressPrefix $VNetAddressPrefix -Subnet $subnetConfig
 ```
 
 To verify that the VNet was created correctly, use the Azure PowerShell [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) cmdlet:
 
 ```azurepowershell-interactive
-Get-AzVirtualNetwork -Name "myVNet" -ResourceGroupName "myResourceGroup"
+Get-AzVirtualNetwork -Name "<vnet-name>" -ResourceGroupName "<resource-group>"
 ```
 
 Make note of the subnet's ID, which is used in the next step.  The ID of the subnet ends with the name of the subnet:
@@ -175,12 +175,12 @@ Make note of the subnet's ID, which is used in the next step.  The ID of the sub
 
 # [Azure CLI](#tab/azure-cli)
 
-To create a payment HSM with dynamic hosts, use the [az dedicated-hsm create](/cli/azure/dedicated-hsm#az-dedicated-hsm-create) command. The following example creates a payment HSM named `myPaymentHSM` in the `eastus` region, `myResourceGroup` resource group, and specified subscription, virtual network, and subnet:
+To create a payment HSM with dynamic hosts, use the [az dedicated-hsm create](/cli/azure/dedicated-hsm#az-dedicated-hsm-create) command. The following example creates a payment HSM named `<payment-hsm-name>` in the `eastus` region, `<resource-group>` resource group, and specified subscription, virtual network, and subnet:
 
 ```azurecli-interactive
 az dedicated-hsm create \
-   --resource-group "myResourceGroup" \
-   --name "myPaymentHSM" \
+   --resource-group "<resource-group>" \
+   --name "<payment-hsm-name>" \
    --location "EastUS" \
    --subnet id="<subnet-id>" \
    --stamp-id "stamp1" \
@@ -190,7 +190,7 @@ az dedicated-hsm create \
 To see the newly created network interfaces, use the [az network nic list](/cli/azure/network/nic#az-network-nic-list) command, providing the resource group:
 
 ```azurecli-interactive
-az network nic list -g myResourceGroup -o table
+az network nic list -g <resource-group> -o table
 ```
 
 In the output, host 1 and host 2 are listed, as well as a management interface:
@@ -206,7 +206,7 @@ In the output, host 1 and host 2 are listed, as well as a management interface:
 To see the details of a newly created network interface, use the [az network nic show](/cli/azure/network/nic#az-network-nic-show) command, providing the resource group and name of the network interface:
 
 ```azurecli-interactive
-az network nic show -g myresourcegroup -n myPaymentHSM_HSMHost1Nic
+az network nic show -g <resource-group> -n <payment-hsm-name>_HSMHost1Nic
 ```
 
 The output contains this line:
@@ -220,7 +220,7 @@ The output contains this line:
 To create a payment HSM with dynamic hosts, use the [New-AzDedicatedHsm](/powershell/module/az.dedicatedhsm/new-azdedicatedhsm) cmdlet and the VNet ID from the previous step:
 
 ```azurepowershell-interactive
-New-AzDedicatedHsm -Name "myPaymentHSM" -ResourceGroupName "myResourceGroup" -Location "East US" -Sku "payShield10K_LMK1_CPS60" -StampId "stamp1" -SubnetId "<subnet-id>"
+New-AzDedicatedHsm -Name "<payment-hsm-name>" -ResourceGroupName "<resource-group>" -Location "East US" -Sku "payShield10K_LMK1_CPS60" -StampId "stamp1" -SubnetId "<subnet-id>"
 ```
 
 The output of the payment HSM creation looks like this:
@@ -234,7 +234,7 @@ myHSM Succeeded          payShield10K_LMK1_CPS60 East US
 To see the newly created network interfaces, use the [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) cmdlet, providing the resource group:
 
 ```azurecli-interactive
-Get-AzNetworkInterface -ResourceGroupName myResourceGroup | Format-Table
+Get-AzNetworkInterface -ResourceGroupName <resource-group> | Format-Table
 ```
 
 In the output, host 1 and host 2 are listed, as well as the management interface:
@@ -257,12 +257,12 @@ In the Azure portal, the "Private IP allocation method" is "Dynamic":
 
 # [Azure CLI](#tab/azure-cli)
 
-To create a payment HSM with static hosts, use the [az dedicated-hsm create](/cli/azure/dedicated-hsm#az-dedicated-hsm-create) command. The following example creates a payment HSM named `myPaymentHSM` in the `eastus` region, `myResourceGroup` resource group, and specified subscription, virtual network, and subnet:
+To create a payment HSM with static hosts, use the [az dedicated-hsm create](/cli/azure/dedicated-hsm#az-dedicated-hsm-create) command. The following example creates a payment HSM named `<payment-hsm-name>` in the `eastus` region, `<resource-group>` resource group, and specified subscription, virtual network, and subnet:
 
 ```azurecli-interactive
 az dedicated-hsm create \
-  --resource-group "myResourceGroup" \
-  --name "myPaymentHSM" \
+  --resource-group "<resource-group>" \
+  --name "<payment-hsm-name>" \
   --location "EastUS" \
   --subnet id="<subnet-id>" \
   --stamp-id "stamp1" \
@@ -280,7 +280,7 @@ If you wish to also specify a static IP for the management host, you can add:
 To see the newly created network interfaces, use the [az network nic list](/cli/azure/network/nic#az-network-nic-list) command, providing the resource group:
 
 ```azurecli-interactive
-az network nic list -g myResourceGroup -o table
+az network nic list -g <resource-group> -o table
 ```
 
 In the output, host 1 and host 2 are listed, as well as the management interface:
@@ -296,7 +296,7 @@ In the output, host 1 and host 2 are listed, as well as the management interface
 To view the properties of a network interface, use the [az network nic show](/cli/azure/network/nic#az-network-nic-show) command, providing the resource group and name of the network interface:
 
 ```azurecli-interactive
- az network nic show -g myresourcegroup -n myPaymentHSM_HSMHost1Nic
+ az network nic show -g <resource-group> -n <payment-hsm-name>_HSMHost1Nic
 ```
 
 The output contains this line:
@@ -310,7 +310,7 @@ The output contains this line:
 To create a payment HSM with static hosts, use the [New-AzDedicatedHsm](/powershell/module/az.dedicatedhsm/new-azdedicatedhsm) cmdlet and the VNet ID from the previous step:
 
 ```azurepowershell-interactive
-New-AzDedicatedHsm -Name "myPaymentHSM" -ResourceGroupName "myResourceGroup" -Location "East US" -Sku "payShield10K_LMK1_CPS60" -StampId "stamp1" -SubnetId "<subnet-id>" -NetworkInterface (@{PrivateIPAddress = '10.0.0.5'}, @{PrivateIPAddress = '10.0.0.6'})
+New-AzDedicatedHsm -Name "<payment-hsm-name>" -ResourceGroupName "<resource-group>" -Location "East US" -Sku "payShield10K_LMK1_CPS60" -StampId "stamp1" -SubnetId "<subnet-id>" -NetworkInterface (@{PrivateIPAddress = '10.0.0.5'}, @{PrivateIPAddress = '10.0.0.6'})
 ```
 
 If you wish to also specify a static IP for the management host, you can add:
@@ -330,7 +330,7 @@ myHSM Succeeded          payShield10K_LMK1_CPS60 East US
 To see the newly created network interfaces, use the [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) cmdlet, providing the resource group:
 
 ```azurecli-interactive
-Get-AzNetworkInterface -ResourceGroupName myResourceGroup | Format-Table
+Get-AzNetworkInterface -ResourceGroupName <resource-group> | Format-Table
 ```
 
 In the output, host 1 and host 2 are listed, as well as the management interface:

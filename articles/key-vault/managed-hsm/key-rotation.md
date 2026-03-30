@@ -64,7 +64,7 @@ Key rotation policy settings:
 Write a key rotation policy and save it to a file. Use ISO8601 Duration formats to specify time intervals. Some example policies are provided in the next section. Use the following command to apply the policy to a key. 
 
 ```azurecli
-az keyvault key rotation-policy update --hsm-name <hsm-name> --name <key-name> --value </path/to/policy.json>
+az keyvault key rotation-policy update --hsm-name <hsm-name> --name <key-name> --value /path/to/policy.json
 ```
 #### Example policies
 

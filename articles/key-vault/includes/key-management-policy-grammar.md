@@ -2,7 +2,7 @@
 author: msmbaldwin
 ms.service: azure-key-vault
 ms.topic: include
-ms.date: 04/14/2025
+ms.date: 03/26/2026
 
 ms.author: mbaldwin
 ---
@@ -72,8 +72,8 @@ A Claim Condition is a JSON object that identifies a claim name, a condition for
 
 ```json
 { 
-  "claim": "<claim name>", 
-  "equals": <value to match>
+  "claim": "<claim-name>", 
+  "equals": <value-to-match>
 } 
 ```
 
@@ -84,7 +84,7 @@ Claim names allow "dot notation" to enable JSON object navigation, for example:
 ```json
 { 
   "claim": "object.object.claim", 
-  "equals": <value to match>
+  "equals": <value-to-match>
 }
 ```
 
@@ -101,12 +101,12 @@ Examples are shown below. In the first, allOf requires all conditions to be met:
   "allOf":
   [
     { 
-      "claim": "<claim_1>", 
-      "equals": <value_1>
+      "claim": "<claim-1>", 
+      "equals": <value-1>
     },
     { 
-      "claim": "<claim_2>", 
-      "equals": <value_2>
+      "claim": "<claim-2>", 
+      "equals": <value-2>
     }
   ]
 }
@@ -121,12 +121,12 @@ In this example, anyOf requires that any condition match:
   "anyOf":
   [
     { 
-      "claim": "<claim_1>", 
-      "equals": <value_1>
+      "claim": "<claim-1>", 
+      "equals": <value-1>
     },
     { 
-      "claim": "<claim_2>", 
-      "equals": <value_2>
+      "claim": "<claim-2>", 
+      "equals": <value-2>
     }
   ]
 }
@@ -140,19 +140,19 @@ The anyOf and allOf condition objects may be nested:
   "allOf":
   [
     { 
-      "claim": "<claim_1>", 
-      "equals": <value_1>
+      "claim": "<claim-1>", 
+      "equals": <value-1>
     },
     {
       "anyOf":
       [
         { 
-          "claim": "<claim_2>", 
-          "equals": <value_2>
+          "claim": "<claim-2>", 
+          "equals": <value-2>
         },
         { 
-          "claim": "<claim_3>", 
-          "equals": <value_3>
+          "claim": "<claim-3>", 
+          "equals": <value-3>
         }
       ]
     }
@@ -166,26 +166,26 @@ Or:
   "allOf":
   [
     { 
-      "claim": "<claim_1>", 
-      "equals": <value_1>
+      "claim": "<claim-1>", 
+      "equals": <value-1>
     },
     {
       "anyOf":
       [
         { 
-          "claim": "<claim_2>", 
-          "equals": <value_2>
+          "claim": "<claim-2>", 
+          "equals": <value-2>
         },
         {
           "allOf":
           [
             { 
-              "claim": "<claim_3>", 
-              "equals": <value_3>
+              "claim": "<claim-3>", 
+              "equals": <value-3>
             },
             { 
-              "claim": "<claim_4>", 
-              "equals": <value_4>
+              "claim": "<claim-4>", 
+              "equals": <value-4>
             }
           ]
         }
@@ -205,8 +205,8 @@ Conditions are collected into Authority statements and combined:
   "allOf":
   [
     { 
-      "claim": "<claim_1>", 
-      "equals": <value_1>
+      "claim": "<claim-1>", 
+      "equals": <value-1>
     }
   ]
 }
@@ -248,7 +248,7 @@ The encoding is as follows:
 ```json
 {
   "contentType": "application/json; charset=utf-8",
-  "data": "<BASE64URL(JSON serialization of policy)>"
+  "data": "<base64url-encoded-policy>"
 }
 ```
 

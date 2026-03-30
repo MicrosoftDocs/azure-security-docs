@@ -6,8 +6,8 @@ author: msmbaldwin
 
 ms.service: azure-key-vault
 ms.subservice: keys
-ms.topic: conceptual
-ms.date: 01/30/2026
+ms.topic: feature-guide
+ms.date: 03/26/2026
 ms.author: mbaldwin 
 ms.custom: devx-track-azurecli
 ---
@@ -66,7 +66,7 @@ The configuration of the source HSM is generally outside the scope of this speci
 Use the **az keyvault key create** command to create a KEK with key operations set to import. Note the key identifier `kid` returned from this command.
 
 ```azurecli
-az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import --vault-name ContosoKeyVaultHSM
+az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import --vault-name <vault-name>
 ```
 
 > [!NOTE]
@@ -77,7 +77,7 @@ az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import 
 Download the public key portion of the KEK and store it in a PEM file.
 
 ```azurecli
-az keyvault key download --name KEKforBYOK --vault-name ContosoKeyVaultHSM --file KEKforBYOK.publickey.pem
+az keyvault key download --name KEKforBYOK --vault-name <vault-name> --file KEKforBYOK.publickey.pem
 ```
 
 ### Generate key transfer blob by using HSM vendor provided BYOK tool
@@ -106,17 +106,17 @@ If you use CKM_RSA_AES_KEY_WRAP_PAD, the JSON serialization of the transfer blob
   "schema_version": "1.0.0",
   "header":
   {
-    "kid": "<key identifier of the KEK>",
+    "kid": "<kek-key-id>",
     "alg": "dir",
     "enc": "CKM_RSA_AES_KEY_WRAP"
   },
-  "ciphertext":"BASE64URL(<ciphertext contents>)",
+  "ciphertext":"BASE64URL(<ciphertext>)",
   "generator": "BYOK tool name and version; source HSM name and firmware version"
 }
 
 ```
 
-* `kid` = key identifier of KEK. For Key Vault keys, it looks like this: `https://ContosoKeyVaultHSM.vault.azure.net/keys/mykek/eba63d27e4e34e028839b53fac905621`
+* `kid` = key identifier of KEK. For Key Vault keys, it looks like this: `https://<vault-name>.vault.azure.net/keys/mykek/<key-version>`
 * `alg` = algorithm. 
 * `dir` = Direct mode. The referenced `kid` directly protects the ciphertext, which is an accurate representation of CKM_RSA_AES_KEY_WRAP.
 * `generator` = an informational field that denotes the name and version of BYOK tool and the source HSM manufacturer and model. Use this information for troubleshooting and support.
@@ -129,18 +129,18 @@ To import a key, transfer the Key Transfer Blob (".byok" file) to an online work
 
 To import an RSA key, use the following command:
 ```azurecli
-az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok --ops encrypt decrypt
+az keyvault key import --vault-name <vault-name> --name <key-name> --byok-file KeyTransferPackage-<key-name>.byok --ops encrypt decrypt
 ```
 To import an EC key, specify the key type and the curve name.
 
 ```azurecli
-az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --kty EC-HSM --curve-name "P-256" --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok --ops sign verify
+az keyvault key import --vault-name <vault-name> --name <key-name> --kty EC-HSM --curve-name "P-256" --byok-file KeyTransferPackage-<key-name>.byok --ops sign verify
 ```
 
 When you run this command, it sends a REST API request as follows:
 
 ```
-PUT https://contosokeyvaulthsm.vault.azure.net/keys/ContosoFirstHSMKey?api-version=7.0
+PUT https://<vault-name>.vault.azure.net/keys/<key-name>?api-version=7.0
 ```
 
 Request body when importing an RSA key:
@@ -152,7 +152,7 @@ Request body when importing an RSA key:
       "decrypt",
       "encrypt"
     ],
-    "key_hsm": "<Base64 encoded BYOK_BLOB>"
+    "key_hsm": "<base64-encoded-byok-blob>"
   },
   "attributes": {
     "enabled": true
@@ -170,7 +170,7 @@ Request body when importing an EC key:
       "sign",
       "verify"
     ],
-    "key_hsm": "<Base64 encoded BYOK_BLOB>"
+    "key_hsm": "<base64-encoded-byok-blob>"
   },
   "attributes": {
     "enabled": true
@@ -178,7 +178,7 @@ Request body when importing an EC key:
 }
 ```
 
-The `key_hsm` value is the entire contents of the KeyTransferPackage-ContosoFirstHSMkey.byok file, encoded in Base64 format.
+The `key_hsm` value is the entire contents of the KeyTransferPackage-`<key-name>`.byok file, encoded in Base64 format.
 
 ## References
 - [Key Vault Developer's Guide](../general/developers-guide.md)

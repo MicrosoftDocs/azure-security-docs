@@ -5,7 +5,7 @@ author: msmbaldwin
 tags: azure-key-vault
 ms.service: azure-key-vault
 ms.subservice: certificates
-ms.topic: conceptual
+ms.topic: best-practice
 ms.custom: horz-security
 ms.date: 11/10/2025
 ms.author: mbaldwin

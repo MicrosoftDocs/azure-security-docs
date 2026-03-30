@@ -3,7 +3,7 @@ title: Integrate Key Vault with Azure Private Link
 description: Learn how to integrate Azure Key Vault with Azure Private Link Service
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 01/30/2026
+ms.date: 03/26/2026
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
@@ -30,6 +30,8 @@ To integrate a key vault with Azure Private Link, you'll need:
 Your private endpoint and virtual network must be in the same region. When you select a region for the private endpoint using the portal, it will automatically filter only virtual networks that are in that region. Your key vault can be in a different region.
 
 Your private endpoint uses a private IP address in your virtual network.
+
+Azure Key Vault enforces limits on the number of private endpoints per vault. For information on these limits, see [Azure Key Vault service limits](service-limits.md).
 
 # [Azure portal](#tab/portal)
 
@@ -195,18 +197,18 @@ In the "Networking" tab:
 Open the command line and run the following command:
 
 ```console
-nslookup <your-key-vault-name>.vault.azure.net
+nslookup <vault-name>.vault.azure.net
 ```
 
 If you run the ns lookup command to resolve the IP address of a key vault over a public endpoint, you'll see a result that looks like this:
 
 ```console
-c:\ >nslookup <your-key-vault-name>.vault.azure.net
+c:\ >nslookup <vault-name>.vault.azure.net
 
 Non-authoritative answer:
 Name:    
 Address:  (public IP address)
-Aliases:  <your-key-vault-name>.vault.azure.net
+Aliases:  <vault-name>.vault.azure.net
 ```
 
 If you run the ns lookup command to resolve the IP address of a key vault over a private endpoint, you'll see a result that looks like this:
@@ -217,8 +219,8 @@ c:\ >nslookup your_vault_name.vault.azure.net
 Non-authoritative answer:
 Name:    
 Address:  10.1.0.5 (private IP address)
-Aliases:  <your-key-vault-name>.vault.azure.net
-          <your-key-vault-name>.privatelink.vaultcore.azure.net
+Aliases:  <vault-name>.vault.azure.net
+          <vault-name>.privatelink.vaultcore.azure.net
 ```
 
 ## Troubleshooting Guide

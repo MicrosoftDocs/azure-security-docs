@@ -42,7 +42,7 @@ The following are the constant values used to set up the Azure Confidential Ledg
 
 ```python
 # Constants for our program 
-ledger_name = "<your-unique-ledger-name>" 
+ledger_name = "<ledger-name>" 
 identity_url = "https://identity.confidential-ledger.core.azure.com" 
 ledger_url = "https://" + ledger_name + ".confidential-ledger.azure.com" 
 ```
@@ -123,7 +123,7 @@ from azure.confidentialledger.certificate import ConfidentialLedgerCertificateCl
 from receipt_verification import verify_receipt 
 
 # Constants 
-ledger_name = "<your-unique-ledger-name>" 
+ledger_name = "<ledger-name>" 
 identity_url = "https://identity.confidential-ledger.core.azure.com" 
 ledger_url = "https://" + ledger_name + ".confidential-ledger.azure.com" 
 

@@ -102,11 +102,11 @@ If creating a new Managed HSM pool and then extending to an extended region, ref
 To extend a managed HSM pool to another region, run the following command that will automatically create a new HSM in an extended region.
 
 ```azurecli-interactive
-az keyvault region add --hsm-name "ContosoMHSM" --region "australiaeast"
+az keyvault region add --hsm-name "<hsm-name>" --region "<region>"
 ```
 
 > [!NOTE]
-> "ContosoMHSM" in this example is the primary HSM pool name; "australiaeast" is the extended region into which you are extending it.
+> `<hsm-name>` is your primary HSM pool name; `<region>` is the extended region into which you are extending it.
 
 > [!IMPORTANT]
 > After initiating the extension to a new region, do not perform any operations on the primary HSM until the extension region pool is fully provisioned. This is especially critical for networking changes such as configuring private endpoints or updating firewall rules. Performing these operations before the extension pool is ready can result in configuration inconsistencies between regions.
@@ -114,7 +114,7 @@ az keyvault region add --hsm-name "ContosoMHSM" --region "australiaeast"
 > To verify that the extension region pool is fully provisioned, run:
 >
 > ```azurecli-interactive
-> az keyvault region list --hsm-name ContosoMHSM
+> az keyvault region list --hsm-name <hsm-name>
 > ```
 >
 > Confirm that the extended region appears in the output and that its provisioning state shows as **Succeeded** before proceeding with any other HSM operations.
@@ -124,13 +124,13 @@ az keyvault region add --hsm-name "ContosoMHSM" --region "australiaeast"
 Once you remove an extended HSM, the HSM partitions in the other region will be purged. All secondaries must be deleted before a primary managed HSM can be soft-deleted or purged. Only secondaries can be deleted using this command. The primary can only be deleted using the [soft-delete](soft-delete-overview.md#soft-delete-behavior) and [purge](soft-delete-overview.md#purge-protection) commands
 
 ```azurecli-interactive
-az keyvault region remove --hsm-name ContosoMHSM --region australiaeast
+az keyvault region remove --hsm-name <hsm-name> --region <region>
 ```
 
 ### List all regions
 
 ```azurecli-interactive
-az keyvault region list --hsm-name ContosoMHSM
+az keyvault region list --hsm-name <hsm-name>
 ```
 
 ## Next steps

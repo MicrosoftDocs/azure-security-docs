@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 01/30/2026
+ms.date: 03/26/2026
 ms.author: mbaldwin
 ms.devlang: python
 ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell
@@ -66,7 +66,7 @@ To create a Linux VM using the Azure CLI, use the [az vm create](/cli/azure/vm) 
 
 ```azurecli-interactive
 az vm create \
-  --resource-group myResourceGroup \
+  --resource-group <resource-group> \
   --name myVM \
   --image Ubuntu2204 \
   --admin-username azureuser \
@@ -80,7 +80,7 @@ Note the value of `publicIpAddress` in the output.
 Create a system-assigned identity for the virtual machine by using the Azure CLI [az vm identity assign](/cli/azure/vm/identity#az-vm-identity-assign) command:
 
 ```azurecli
-az vm identity assign --name "myVM" --resource-group "myResourceGroup"
+az vm identity assign --name "myVM" --resource-group "<resource-group>"
 ```
 
 Note the system-assigned identity that's displayed in the following code. The output of the preceding command would be: 
@@ -101,10 +101,10 @@ Note the system-assigned identity that's displayed in the following code. The ou
 To sign in to the virtual machine, follow the instructions in [Connect and sign in to an Azure virtual machine running Linux](/azure/virtual-machines/linux-vm-connect) or [Connect and sign in to an Azure virtual machine running Windows](/azure/virtual-machines/windows/connect-logon).
 
 
-To log into a Linux VM, you can use the ssh command with the \<publicIpAddress\> given in the [Create a virtual machine](#create-a-virtual-machine) step:
+To log into a Linux VM, you can use the ssh command with the `<public-ip-address>` given in the [Create a virtual machine](#create-a-virtual-machine) step:
 
 ```terminal
-ssh azureuser@<PublicIpAddress>
+ssh azureuser@<public-ip-address>
 ```
 
 ## Install Python libraries on the VM
@@ -121,13 +121,13 @@ pip3 install azure-identity
 
 ## Create and edit the sample Python script
 
-On the virtual machine, create a Python file called **sample.py**. Edit the file to contain the following code, replacing \<your-unique-keyvault-name\> with the name of your key vault:
+On the virtual machine, create a Python file called **sample.py**. Edit the file to contain the following code, replacing `<vault-name>` with the name of your key vault:
 
 ```python
 from azure.keyvault.secrets import SecretClient
 from azure.identity import DefaultAzureCredential
 
-key_vault_name = "<your-unique-keyvault-name>"
+key_vault_name = "<vault-name>"
 key_vault_uri = f"https://{key_vault_name}.vault.azure.net"
 secret_name = "mySecret"
 
@@ -145,7 +145,7 @@ Lastly, run **sample.py**. If all has gone well, it should return the value of y
 ```bash
 python3 sample.py
 
-The value of secret 'mySecret' in '<your-unique-keyvault-name>' is: 'Success!'
+The value of secret 'mySecret' in '<vault-name>' is: 'Success!'
 ```
 
 ## Clean up resources
@@ -153,7 +153,7 @@ The value of secret 'mySecret' in '<your-unique-keyvault-name>' is: 'Success!'
 When they're no longer needed, delete the virtual machine and your key vault. You can be done quickly by deleting the resource group to which they belong:
 
 ```azurecli
-az group delete -g myResourceGroup
+az group delete -g <resource-group>
 ```
 
 ## Next steps

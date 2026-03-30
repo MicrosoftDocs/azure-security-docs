@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.author: mbaldwin
 services: key-vault
 ms.subservice: general
-ms.topic: conceptual
+ms.topic: upgrade-and-migration-article
 ms.service: azure-key-vault
 ms.date: 11/19/2025
 ---

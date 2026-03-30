@@ -7,7 +7,7 @@ ms.author: mbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: reference
-ms.date: 04/16/2025
+ms.date: 03/26/2026
 ---
  
 # Azure Key Vault REST API Error Codes
@@ -97,13 +97,13 @@ It is important that all of the values be properly identified in the token in or
 
 ```
 
-POST https://login.microsoftonline.com/<key vault tenant ID>/oauth2/token HTTP/1.1
+POST https://login.microsoftonline.com/<tenant-id>/oauth2/token HTTP/1.1
 Accept: application/json
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 Host: login.microsoftonline.com
 Content-Length: 192
 
-resource=https%3A%2F%2Fvault.azure.net&client_id=<registered-app-ID>&client_secret=<registered-app-secret>&client_info=1&grant_type=client_credentials
+resource=https%3A%2F%2Fvault.azure.net&client_id=<client-id>&client_secret=<client-secret>&client_info=1&grant_type=client_credentials
 ```
 
 The following user-supplied information must be correct:

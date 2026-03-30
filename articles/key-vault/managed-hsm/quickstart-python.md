@@ -24,7 +24,7 @@ Managed HSM client library resources:
 
 ## Prerequisites
 
-[!INCLUDE [Managed HSM SDK prerequisites](../includes/managed-hsm/sdk-prereqs.md)]
+[!INCLUDE [Managed HSM SDK prerequisites](../includes/managed-hsm/sdk-prerequisites.md)]
 - [Python 3.8+](https://www.python.org/downloads/)
 
 ## Set up your local environment
@@ -64,7 +64,7 @@ pip install azure-identity azure-keyvault-keys
 
 ### Create the sample code
 
-Create a file named `mhsm_keys.py` with the following code. Replace `<your-managed-hsm-name>` with your Managed HSM name, and `<your-key-name>` with an existing key name.
+Create a file named `mhsm_keys.py` with the following code. Replace `<hsm-name>` with your Managed HSM name, and `<key-name>` with an existing key name.
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -75,11 +75,11 @@ from azure.keyvault.keys.crypto import CryptographyClient, EncryptionAlgorithm
 credential = DefaultAzureCredential()
 
 # Connect to Managed HSM - replace with your HSM URI
-hsm_uri = "https://<your-managed-hsm-name>.managedhsm.azure.net"
+hsm_uri = "https://<hsm-name>.managedhsm.azure.net"
 key_client = KeyClient(vault_url=hsm_uri, credential=credential)
 
 # Get a key reference
-key_name = "<your-key-name>"
+key_name = "<key-name>"
 print(f"Retrieving key '{key_name}' from Managed HSM...")
 key = key_client.get_key(key_name)
 print(f"Key retrieved. Key type: {key.key_type}")
@@ -147,14 +147,11 @@ The `CryptographyClient` class provides cryptographic operations:
 When no longer needed, delete the resource group and all related resources:
 
 ```azurecli
-az group delete --name ContosoResourceGroup
+az group delete --name <resource-group>
 ```
 
 [!INCLUDE [Managed HSM cleanup warning](../includes/managed-hsm/cleanup-warning.md)]
 
 ## Next steps
 
-- Learn about [Secure access to your managed HSMs](how-to-secure-access.md)
-- Configure [automated key rotation](key-rotation.md)
-- Review [Managed HSM best practices](secure-managed-hsm.md)
-- Learn about [Managed HSM local RBAC built-in roles](built-in-roles.md)
+[!INCLUDE [SDK next steps](../includes/managed-hsm/sdk-next-steps.md)]

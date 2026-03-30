@@ -5,7 +5,7 @@ author: keithp
 manager: keithp
 ms.service: azure-cloud-hsm
 ms.topic: tutorial
-ms.date: 03/20/2025
+ms.date: 03/26/2026
 ms.author: keithp
 ms.custom: certificate-storage, pkcs11, azure-blob-storage, managed-identity
 
@@ -26,7 +26,7 @@ The following prerequisites are required to support certificate storage with Azu
 - Azure Cloud HSM resource is deployed, initialized, and configured.
 - Azure Cloud HSM Client SDK
 - Copy of partition owner certificate "PO.crt" on application server.
-- Known address of your HSM "hsm1.chsm-\<resourcename\>-\<uniquestring\>.privatelink.cloudhsm.azure.net".
+- Known address of your HSM `hsm1.chsm-<resource-name>-<unique-string>.privatelink.cloudhsm.azure.net`.
 - Knowledge of Crypto User credentials
 
 ### Certificate storage prerequisites

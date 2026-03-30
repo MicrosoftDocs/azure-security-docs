@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 01/30/2026
+ms.date: 03/26/2026
 ms.author: mbaldwin 
 ms.custom: devx-track-azurepowershell
 # Customer intent: As a key vault administrator, I want to move my vault to another subscription.
@@ -74,7 +74,7 @@ If you moved your subscription containing the key vault to a new tenant, you nee
 ### Update tenant ID in a key vault
 
 ```azurepowershell
-Select-AzSubscription -SubscriptionId <your-subscriptionId>                # Select your Azure Subscription
+Select-AzSubscription -SubscriptionId <subscription-id>                # Select your Azure Subscription
 $vaultResourceId = (Get-AzKeyVault -VaultName myvault).ResourceId          # Get your key vault's Resource ID 
 $vault = Get-AzResource -ResourceId $vaultResourceId -ExpandProperties     # Get the properties for your key vault
 $vault.Properties.TenantId = (Get-AzContext).Tenant.TenantId               # Change the Tenant that your key vault resides in
@@ -88,7 +88,7 @@ Connect-AzAccount                                                          #Log 
 ````
 
 ```azurecli
-az account set -s <your-subscriptionId>                                    # Select your Azure Subscription
+az account set -s <subscription-id>                                    # Select your Azure Subscription
 tenantId=$(az account show --query tenantId)                               # Get your tenantId
 az keyvault update -n myvault --remove Properties.accessPolicies           # Remove the access policies
 az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Update the key vault tenantId

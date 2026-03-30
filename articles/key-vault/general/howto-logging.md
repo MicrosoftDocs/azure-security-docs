@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 04/17/2025
+ms.date: 03/26/2026
 ms.author: mbaldwin 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -55,7 +55,7 @@ With the Azure CLI, you can view all your subscriptions by using the [az account
 ```azurecli-interactive
 az account list
 
-az account set --subscription "<subscriptionID>"
+az account set --subscription "<subscription-id>"
 ```
 
 With Azure PowerShell, you can first list your subscriptions by using the [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) cmdlet. Then you connect to one by using the [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet: 
@@ -63,7 +63,7 @@ With Azure PowerShell, you can first list your subscriptions by using the [Get-A
 ```powershell-interactive
 Get-AzSubscription
 
-Set-AzContext -SubscriptionId "<subscriptionID>"
+Set-AzContext -SubscriptionId "<subscription-id>"
 ```
 
 ## Obtain resource IDs
@@ -75,16 +75,16 @@ If you can't remember the name of your key vault, you can use the Azure CLI [az 
 Use the name of your key vault to find its resource ID. With the Azure CLI, use the [az keyvault show](/cli/azure/keyvault#az-keyvault-show) command.
 
 ```azurecli-interactive
-az keyvault show --name "<your-unique-keyvault-name>"
+az keyvault show --name "<vault-name>"
 ```
 
 With Azure PowerShell, use the [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault) cmdlet.
 
 ```powershell-interactive
-Get-AzKeyVault -VaultName "<your-unique-keyvault-name>"
+Get-AzKeyVault -VaultName "<vault-name>"
 ```
 
-The resource ID for your key vault is in the following format: "/subscriptions/*your-subscription-ID*/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/*your-unique-keyvault-name*. Note it for the next step.
+The resource ID for your key vault is in the following format: "/subscriptions/*your-subscription-ID*/resourceGroups/`<resource-group>`/providers/Microsoft.KeyVault/vaults/*your-unique-keyvault-name*. Note it for the next step.
 
 ## Enable logging
 
@@ -151,7 +151,7 @@ Your Key Vault logs are in the *insights-logs-auditevent* container in the stora
 First, list all the blobs in the container.  With the Azure CLI, use the [az storage blob list](/cli/azure/storage/blob#az-storage-blob-list) command.
 
 ```azurecli-interactive
-az storage blob list --account-name "<your-unique-storage-account-name>" --container-name "insights-logs-auditevent"
+az storage blob list --account-name "<storage-account-name>" --container-name "insights-logs-auditevent"
 ```
 
 With Azure PowerShell, use [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob). To list all the blobs in this container, enter:
@@ -160,14 +160,14 @@ With Azure PowerShell, use [Get-AzStorageBlob](/powershell/module/az.storage/get
 Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context
 ```
 
-From the output of either the Azure CLI command or the Azure PowerShell cmdlet, you can see that the names of the blobs are in the following format: `resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`. The date and time values use Coordinated Universal Time.
+From the output of either the Azure CLI command or the Azure PowerShell cmdlet, you can see that the names of the blobs are in the following format: `resourceId=<arm-resource-id>/y=<year>/m=<month>/d=<day-of-month>/h=<hour>/m=<minute>/filename.json`. The date and time values use Coordinated Universal Time.
 
 Because you can use the same storage account to collect logs for multiple resources, the full resource ID in the blob name is useful to access or download just the blobs that you need.
 
 But first, download all the blobs. With the Azure CLI, use the [az storage blob download](/cli/azure/storage/blob#az-storage-blob-download) command, pass it the names of the blobs, and the path to the file where you want to save the results.
 
 ```azurecli-interactive
-az storage blob download --container-name "insights-logs-auditevent" --file <path-to-file> --name "<blob-name>" --account-name "<your-unique-storage-account-name>"
+az storage blob download --container-name "insights-logs-auditevent" --file <path-to-file> --name "<blob-name>" --account-name "<storage-account-name>"
 ```
 
 With Azure PowerShell, use the [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob) cmdlet to get a list of the blobs. Then pipe that list to the [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent) cmdlet to download the logs to your chosen path.
@@ -186,7 +186,7 @@ To selectively download blobs, use wildcards. For example:
   Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
   ```
 
-* If you have multiple resource groups and want to download logs for just one resource group, use `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
+* If you have multiple resource groups and want to download logs for just one resource group, use `-Blob '*/RESOURCEGROUPS/<resource-group>/*'`:
 
   ```powershell
   Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
