@@ -205,13 +205,13 @@ Otherwise, when you're finished with the resources created in this article, use 
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group delete --resource-group <resource-group>
+az group delete --resource-group "myResourceGroup"
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Remove-AzResourceGroup -Name "<resource-group>"
+Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
 ---

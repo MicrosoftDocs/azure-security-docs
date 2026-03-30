@@ -217,7 +217,7 @@ For more examples, see the [module documentation](https://aka.ms/azsdk/go/keyvau
 Run the following command to delete the resource group and all its remaining resources:
 
 ```azurecli
-az group delete --resource-group <resource-group>
+az group delete --resource-group "myResourceGroup"
 ```
 
 ## Next steps

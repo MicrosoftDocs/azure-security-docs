@@ -227,11 +227,11 @@ az keyvault key show --vault-name <vault-name> --name myKey
 When no longer needed, you can use the Azure CLI or Azure PowerShell to remove your key vault and the corresponding resource group.
 
 ```azurecli
-az group delete -g "<resource-group>"
+az group delete -g "myResourceGroup"
 ```
 
 ```azurepowershell
-Remove-AzResourceGroup -Name "<resource-group>"
+Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
 ## Sample code

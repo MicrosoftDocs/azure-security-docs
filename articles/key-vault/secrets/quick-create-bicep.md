@@ -65,15 +65,15 @@ Two Azure resources are defined in the Bicep file:
     # [CLI](#tab/CLI)
 
     ```azurecli
-    az group create --name exampleRG --location eastus
-    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters keyVaultName=<vault-name> objectId=<object-id>
+    az group create --name myResourceGroup --location eastus
+    az deployment group create --resource-group myResourceGroup --template-file main.bicep --parameters keyVaultName=<vault-name> objectId=<object-id>
     ```
 
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
-    New-AzResourceGroup -Name exampleRG -Location eastus
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -keyVaultName "<vault-name>" -objectId "<object-id>"
+    New-AzResourceGroup -Name myResourceGroup -Location eastus
+    New-AzResourceGroupDeployment -ResourceGroupName myResourceGroup -TemplateFile ./main.bicep -keyVaultName "<vault-name>" -objectId "<object-id>"
     ```
 
     ---
@@ -113,13 +113,13 @@ When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to d
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-az group delete --name exampleRG
+az group delete --name myResourceGroup
 ```
 
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name exampleRG
+Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 ---

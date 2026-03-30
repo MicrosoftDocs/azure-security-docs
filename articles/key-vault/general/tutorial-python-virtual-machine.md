@@ -153,7 +153,7 @@ The value of secret 'mySecret' in '<vault-name>' is: 'Success!'
 When they're no longer needed, delete the virtual machine and your key vault. You can be done quickly by deleting the resource group to which they belong:
 
 ```azurecli
-az group delete -g <resource-group>
+az group delete -g "myResourceGroup"
 ```
 
 ## Next steps

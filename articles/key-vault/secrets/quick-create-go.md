@@ -161,7 +161,7 @@ See the [module documentation](https://aka.ms/azsdk/go/keyvault-secrets/docs) fo
 Delete the resource group and all its remaining resources by running the following command:
 
 ```azurecli
-az group delete --resource-group quickstart-rg
+az group delete --resource-group "myResourceGroup"
 ```
 
 ## Next steps
