@@ -3,7 +3,7 @@ title: Quickstart – Azure Key Vault Python client library – manage keys
 description: Learn how to create, retrieve, and delete keys from an Azure key vault using the Python client library
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 03/26/2026
+ms.date: 03/30/2026
 
 ms.service: azure-key-vault
 ms.subservice: keys
@@ -87,7 +87,7 @@ This quickstart is using the Azure Identity library with Azure CLI or Azure Powe
 
 ### Set the KEY_VAULT_NAME environmental variable
 
-[!INCLUDE [Set the KEY_VAULT_NAME environmental variable](../includes/key-vault-set-environmental-variables.md)]
+[!INCLUDE [Set the KEY_VAULT_NAME environmental variable](~/reusable-content/ce-skilling/azure/includes/key-vault/set-environmental-variables.md)]
 
 ### Grant access to your key vault
 
@@ -204,13 +204,13 @@ Otherwise, when you're finished with the resources created in this article, use 
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group delete --resource-group <resource-group>
+az group delete --resource-group "myResourceGroup"
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Remove-AzResourceGroup -Name "<resource-group>"
+Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
 ---
