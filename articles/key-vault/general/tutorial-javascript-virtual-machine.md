@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 03/26/2026
+ms.date: 03/30/2026
 ms.author: mbaldwin
 ms.devlang: javascript
 ms.custom: mvc, devx-track-js, devx-track-azurecli, devx-track-azurepowershell
@@ -197,7 +197,7 @@ The value of secret 'mySecret' in '<vault-name>' is: 'Success!'
 When they are no longer needed, delete the virtual machine and your key vault.  You can do this quickly by simply deleting the resource group to which they belong:
 
 ```azurecli
-az group delete -g <resource-group>
+az group delete -g "myResourceGroup"
 ```
 
 ## Next steps

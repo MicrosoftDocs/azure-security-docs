@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 03/26/2026
+ms.date: 03/30/2026
 ms.author: mbaldwin
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp, devx-track-azurepowershell, devx-track-azurecli, devx-track-dotnet
@@ -65,7 +65,7 @@ Connect-AzAccount
 
 ## Populate your key vault with a secret
 
-[!INCLUDE [Create a secret](../includes/key-vault-create-secret.md)]
+[!INCLUDE [Create a secret](~/reusable-content/ce-skilling/azure/includes/key-vault/create-secret.md)]
 
 ## Create a virtual machine
 Create a Windows or Linux virtual machine using one of the following methods:
