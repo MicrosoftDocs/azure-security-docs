@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 03/26/2026
+ms.date: 03/30/2026
 ms.author: mbaldwin
 ms.devlang: python
 ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell
@@ -50,7 +50,7 @@ az login
 
 ## Populate your key vault with a secret
 
-[!INCLUDE [Create a secret](../includes/key-vault-create-secret.md)]
+[!INCLUDE [Create a secret](~/reusable-content/ce-skilling/azure/includes/key-vault/create-secret.md)]
 
 ## Create a virtual machine
 
@@ -153,7 +153,7 @@ The value of secret 'mySecret' in '<vault-name>' is: 'Success!'
 When they're no longer needed, delete the virtual machine and your key vault. You can be done quickly by deleting the resource group to which they belong:
 
 ```azurecli
-az group delete -g <resource-group>
+az group delete -g "myResourceGroup"
 ```
 
 ## Next steps
