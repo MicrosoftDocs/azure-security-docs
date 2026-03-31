@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.service: security
 ms.topic: best-practice
-ms.date: 03/13/2026
+ms.date: 03/31/2026
 ms.custom: horz-security
 ai-usage: ai-assisted
 
@@ -17,9 +17,9 @@ ai-usage: ai-assisted
 
 Azure Managed HSM is a fully managed, highly available, single-tenant Hardware Security Module (HSM) service that provides FIPS 140-3 Level 3 validated cryptographic key protection for your cloud applications. Because Managed HSM safeguards your most sensitive cryptographic keys and secrets, implementing comprehensive security controls is essential to protect against threats and maintain business continuity.
 
-[!INCLUDE [Security horizontal Zero Trust statement](~/reusable-content/ce-skilling/azure/includes/security/zero-trust-security-horizontal.md)]
-
 This article provides security recommendations to help protect your Azure Managed HSM deployment.
+
+[!INCLUDE [Security horizontal Zero Trust statement](~/reusable-content/ce-skilling/azure/includes/security/zero-trust-security-horizontal.md)]
 
 ## Service-specific security
 
@@ -31,19 +31,19 @@ Service-specific security addresses unique characteristics of Managed HSM, inclu
 
 - **Configure cross-region replication for business continuity**: Enable multiregion replication to extend your Managed HSM from a primary region to an extended region, providing active-active deployment with automated replication. Both regions can serve requests, and the Traffic Manager routes requests to the closest available region, increasing SLA to 99.99% combined. See [Multi-region replication](multi-region-replication.md).
 
-## Data protection
+- **Control Azure Resource Manager key management access**: Managed HSM doesn't trust Azure Resource Manager by default, unlike standard Key Vault. If your environment requires portal-based or ARM template key management, explicitly enable the `AllowKeyManagementOperationsThroughARM` setting. Keep this setting disabled for higher-assurance environments where ARM trust is considered a risk. See [Allow key management operations through Azure Resource Manager](authorize-azure-resource-manager.md).
 
-Data protection safeguards cryptographic keys and sensitive data stored in Managed HSM through encryption, key management policies, and secure storage practices. Proper data protection ensures key material remains confidential and tamper-resistant.
+## Network security
 
-- **Implement multiperson control for security domain**: Configure a security domain quorum with multiple RSA key pairs (minimum three recommended) to prevent single-person control over HSM recovery. Specify a quorum threshold that requires multiple key holders to collaborate for security domain decryption, ensuring no single individual can compromise the HSM. See [Security domain overview](security-domain.md).
+Network security protects your Managed HSM through secure connectivity and network access controls. These network security features are listed from most restricted to least restricted capabilities. Pick the configuration that best suits your organization's use case. For detailed information about all network security configurations, see [Network security for Azure Key Vault Managed HSM](network-security.md).
 
-- **Store security domain keys offline in secure locations**: Keep security domain private keys on encrypted, offline storage devices such as encrypted USB drives stored in separate geographical locations within physical safes or lock boxes. Never store security domain keys on internet-connected computers to reduce exposure to cyber threats and ensure air-gapped security. See [Security domain overview](security-domain.md).
+- **Disable public network access and use Private Endpoints only**: Deploy Azure Private Link to establish private, secured connectivity to your Managed HSM instance by creating a private endpoint in your virtual network. Disabling public network access prevents access from public IP addresses by configuring your Managed HSM to deny public network access. This configuration prevents exposure to the public internet and routes all traffic over the Microsoft backbone network. See [Integrate Managed HSM with Azure Private Link](private-link.md).
 
-- **Establish security domain key management procedures**: Implement policies for periodic review of security domain key custody when personnel changes occur or when keys might be compromised. Document security domain holder responsibilities, maintain accurate records of key locations and custody, and ensure the quorum can be assembled for disaster recovery scenarios. See [Security domain overview](security-domain.md).
+- **Configure Managed HSM firewall with trusted services**: Configure Managed HSM firewall rules to deny public internet access while allowing specific trusted Azure services through the `--bypass AzureServices` setting when required by your scenario. This configuration restricts the attack surface while maintaining necessary service integrations. For full details, see [Network security: Managed HSM Firewall Enabled (Trusted Services)](network-security.md#managed-hsm-firewall-enabled-trusted-services).
 
-- **Enable purge protection for HSM and keys**: Configure purge protection to prevent permanent deletion of the HSM or individual keys before the retention period expires. This control protects against accidental or malicious deletion and provides a recovery window for critical operations. See [Soft-delete overview](soft-delete-overview.md).
+- **Enable IP Network Firewall**: Limit access to public static IP addresses when network scenarios require controlled public access. For full details, see [Network security: Managed HSM Firewall Enabled (IP Network Firewall)](network-security.md#managed-hsm-firewall-enabled-ip-network-firewall).
 
-- **Configure appropriate soft-delete retention periods**: Set soft-delete retention periods between 7 to 90 days based on your recovery requirements and compliance needs. Longer retention periods provide more recovery time but might conflict with data residency requirements. See [Soft-delete overview](soft-delete-overview.md).
+For step-by-step configuration instructions, see [How to configure Azure Managed HSM networking settings](configure-network-security.md).
 
 ## Identity and access management
 
@@ -61,17 +61,21 @@ Identity and access management secures authentication and authorization to your 
 
 - **Separate control plane and data plane access**: Understand that control plane access (Azure RBAC) for managing HSM resources doesn't grant data plane access to keys. Explicitly assign data plane roles through Managed HSM local RBAC to users who need to perform key operations. See [Access control for Managed HSM](access-control.md).
 
-## Network security
+## Data protection
 
-Network security protects your Managed HSM through secure connectivity and network access controls. These network security features are listed from most restricted to least restricted capabilities. Pick the configuration that best suits your organization's use case. For detailed information about all network security configurations, see [Network security for Azure Key Vault Managed HSM](network-security.md).
+Data protection safeguards cryptographic keys and sensitive data stored in Managed HSM through encryption, key management policies, and secure storage practices. Proper data protection ensures key material remains confidential and tamper-resistant.
 
-- **Disable public network access and use Private Endpoints only**: Deploy Azure Private Link to establish private, secured connectivity to your Managed HSM instance by creating a private endpoint in your virtual network. Disabling public network access prevents access from public IP addresses by configuring your Managed HSM to deny public network access. This configuration prevents exposure to the public internet and routes all traffic over the Microsoft backbone network. See [Integrate Managed HSM with Azure Private Link](private-link.md).
+- **Implement multiperson control for security domain**: Configure a security domain quorum with multiple RSA key pairs (minimum three recommended) to prevent single-person control over HSM recovery. Specify a quorum threshold that requires multiple key holders to collaborate for security domain decryption, ensuring no single individual can compromise the HSM. See [Security domain overview](security-domain.md).
 
-- **Configure Managed HSM firewall with trusted services**: Configure Managed HSM firewall rules to deny public internet access while allowing specific trusted Azure services through the `--bypass AzureServices` setting when required by your scenario. This configuration restricts the attack surface while maintaining necessary service integrations. For full details, see [Network security: Managed HSM Firewall Enabled (Trusted Services)](network-security.md#managed-hsm-firewall-enabled-trusted-services).
+- **Store security domain keys offline in secure locations**: Keep security domain private keys on encrypted, offline storage devices such as encrypted USB drives stored in separate geographical locations within physical safes or lock boxes. Never store security domain keys on internet-connected computers to reduce exposure to cyber threats and ensure air-gapped security. See [Security domain overview](security-domain.md).
 
-- **Enable IP Network Firewall**: Limit access to public static IP addresses when network scenarios require controlled public access. For full details, see [Network security: Managed HSM Firewall Enabled (IP Network Firewall)](network-security.md#managed-hsm-firewall-enabled-ip-network-firewall).
+- **Establish security domain key management procedures**: Implement policies for periodic review of security domain key custody when personnel changes occur or when keys might be compromised. Document security domain holder responsibilities, maintain accurate records of key locations and custody, and ensure the quorum can be assembled for disaster recovery scenarios. See [Security domain overview](security-domain.md).
 
-For step-by-step configuration instructions, see [How to configure Azure Managed HSM networking settings](configure-network-security.md).
+- **Enable purge protection for HSM and keys**: Configure purge protection to prevent permanent deletion of the HSM or individual keys before the retention period expires. This control protects against accidental or malicious deletion and provides a recovery window for critical operations. See [Soft-delete overview](soft-delete-overview.md).
+
+- **Configure appropriate soft-delete retention periods**: Set soft-delete retention periods between 7 to 90 days based on your recovery requirements and compliance needs. Longer retention periods provide more recovery time but might conflict with data residency requirements. See [Soft-delete overview](soft-delete-overview.md).
+
+- **Configure automated key rotation**: Set up automated key rotation policies to regularly generate new key versions without manual intervention. Managed HSM supports both creation-based and expiration-based rotation triggers with a minimum rotation interval of 28 days. Automated key rotation helps meet cryptographic best practices that recommend rotating encryption keys at least every two years. See [Configure key autorotation in Azure Managed HSM](key-rotation.md).
 
 ## Logging and monitoring
 
@@ -121,5 +125,6 @@ Backup and recovery protects against data loss and enables business continuity t
 - [Integrate with Azure Private Link](private-link.md)
 - [Managed HSM logging](logging.md)
 - [Integrate with Azure Policy](azure-policy.md)
+- [Configure key autorotation](key-rotation.md)
 - [Full backup and restore](backup-restore.md)
 - [Disaster recovery guide](disaster-recovery-guide.md)
