@@ -26,6 +26,10 @@ Azure Cloud HSM is a single-tenant, FIPS 140-3 Level 3 validated service that gr
 
 - **Restrict access to the Partition Owner private key**: Limit access to the Partition Owner of the Application Partition (POTA) private key (`PO.key`). The Admin of the Application Partition (AOTA) and POTA private keys are equivalent to root access and can reset passwords for cryptography officer (CO) users in a partition (AOTA for partition 0, POTA for user partitions). `PO.key` is unnecessary for HSM access during runtime. It's required only for the initial signing of Partition Owner Authentication Certificate (POAC) and CO password resets. Store `PO.key` offline and perform the initial POAC signing on an offline machine, if possible. Customers are accountable for safeguarding their POTA private key — losing it results in the inability to recover CO passwords. Securely store the POTA private key and maintain suitable backups. See [User management in Azure Cloud HSM](user-management.md).
 
+## Compliance and certification
+
+Azure Cloud HSM meets multiple industry compliance standards and certifications, including FIPS 140-3 Level 3, eIDAS, and PCI/PCI 3DS. For details, see [Compliance and certification](overview.md#compliance-and-certification).
+
 ## Network security
 
 Properly configuring your network can help prevent unauthorized access and reduce exposure to external threats.
@@ -98,3 +102,11 @@ Azure Cloud HSM provides high availability through clustered HSMs that synchroni
 - [Enable just-in-time access to virtual machines](/azure/defender-for-cloud/just-in-time-access-overview)
 - [Adopt a Zero Trust approach](/azure/security/fundamentals/network-best-practices#adopt-a-zero-trust-approach)
 - [Zero Trust guidance center](/security/zero-trust/zero-trust-overview)
+
+## Physical security
+
+Azure Cloud HSM is hosted in secure datacenters with tamper detection mechanisms. For details, see [Physical security](overview.md#physical-security).
+
+## Service operations
+
+Azure Cloud HSM doesn't have scheduled maintenance windows, but Microsoft notifies customers in advance of any anticipated impact. For details, see [Service operations](overview.md#service-operations).

@@ -4,7 +4,7 @@ description: Learn about various authentication methods and best practices for s
 author: msmbaldwin
 ms.service: azure-cloud-hsm
 ms.topic: feature-guide
-ms.date: 03/20/2025
+ms.date: 03/31/2026
 ms.author: mbaldwin
 #customer intent: As a Cloud HSM administrator, I want to learn how to secure and optimize my Cloud HSM deployment so that I can ensure the highest level of security and performance.
 ---
@@ -12,6 +12,10 @@ ms.author: mbaldwin
 # Authentication in Azure Cloud HSM
 
 Authentication is a crucial aspect of securely accessing and operating within Azure Cloud HSM. This article outlines authentication methods, including command-line interface (CLI), PKCS#11, Java Cryptography Extension (JCE), and OpenSSL. This article also provides best practices for multithreading and session handling.
+
+## Supported authentication methods
+
+Azure Cloud HSM supports only password-based authentication. It doesn't support authentication through a PIN entry device (PED).
 
 ## Cloud HSM CLI authentication
 
