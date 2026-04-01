@@ -5,13 +5,17 @@ author: keithp
 manager: davinune
 ms.service: azure-cloud-hsm
 ms.topic: reference
-ms.date: 03/20/2025
+ms.date: 03/31/2026
 ms.author: keithp
 ---
 
 # Azure Cloud HSM service limits
 
 This article describes service limits for the resource type `microsoft.hardwaresecuritymodules/cloudHsmClusters` in Azure Cloud HSM.
+
+## Hardware specifications
+
+Azure Cloud HSM uses Marvell LiquidSecurity hardware security modules. These HSMs are validated to meet FIPS 140-3 Level 3 standards. For more information about compliance certifications, see [Compliance and certification](overview.md#compliance-and-certification).
 
 ## Object limits
 
