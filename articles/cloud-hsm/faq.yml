@@ -137,7 +137,7 @@ sections:
       - question: |-  
           Can I update the partition owner certificate after I upload it?  
         answer: |-  
-          No. For details about partition owner certificate management, see [User management in Azure Cloud HSM](user-management.md#protect-your-partition-owner-certificate). 
+          No, you can't change the partition owner certificate after you upload it. If you upload an incorrect certificate, you must delete the Azure Cloud HSM resource and deploy again. For details, see [User management in Azure Cloud HSM](user-management.md#protect-your-partition-owner-certificate). 
   
   - name: Business continuity
     questions:
@@ -185,19 +185,19 @@ sections:
       - question: |-  
           Does Azure Cloud HSM support FIPS 140-3 Level 3?  
         answer: |-  
-          Yes. For details, see [Compliance and certification](overview.md#compliance-and-certification).
+          Yes, Azure Cloud HSM offers HSMs that are validated to meet FIPS 140-3 Level 3 standards. For details, see [Compliance and certification](overview.md#compliance-and-certification).
       - question: |-  
           Does Azure Cloud HSM support eIDAS? 
         answer: |-  
-          Yes. For details, see [Compliance and certification](overview.md#compliance-and-certification).
+          Yes, Azure Cloud HSM supports eIDAS compliance under the Austrian scheme. For details, see [Compliance and certification](overview.md#compliance-and-certification).
       - question: |-  
           Does Azure Cloud HSM support PCI? 
         answer: |-  
-          Yes. For details, see [Compliance and certification](overview.md#compliance-and-certification).
+          Yes, Azure Cloud HSM provides HSMs that are validated to meet PCI and PCI 3DS standards. For details, see [Compliance and certification](overview.md#compliance-and-certification).
       - question: |-  
           What happens if someone tampers with the HSM hardware?  
         answer: |-  
-          Azure Cloud HSM incorporates tamper detection and response mechanisms. For details, see [Physical security](overview.md#physical-security).
+          Azure Cloud HSM incorporates both physical and logical tamper detection and response mechanisms that initiate key deletion (zeroization) of the hardware. For details, see [Physical security](overview.md#physical-security).
   
   - name: Support  
     questions:  
@@ -208,7 +208,7 @@ sections:
       - question: |-  
           How are the HSMs used in Azure Cloud HSM protected?
         answer: |-  
-          Azure datacenters have extensive physical and procedural security controls. For details, see [Physical security](overview.md#physical-security).
+          Azure datacenters have extensive physical and procedural security controls. The HSMs are hosted in a restricted access area of the datacenter with physical access controls and video surveillance. For details, see [Physical security](overview.md#physical-security).
       - question: |-  
           Can Microsoft recover my keys if I lose the credentials to my HSM?
         answer: |-  
@@ -216,7 +216,7 @@ sections:
       - question: |-  
           Does Azure Cloud HSM have scheduled maintenance windows?
         answer: |-  
-          No. For details, see [Service operations](overview.md#service-operations).
+          No, Azure Cloud HSM doesn't have scheduled maintenance windows. Microsoft might perform maintenance for necessary upgrades or faulty hardware replacement and notifies customers in advance of any anticipated impact. For details, see [Service operations](overview.md#service-operations).
       - question: |-  
           What is the SLA for Azure Cloud HSM?  
         answer: |-  
