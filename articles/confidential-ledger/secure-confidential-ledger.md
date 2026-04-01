@@ -28,6 +28,8 @@ Azure confidential ledger runs exclusively on hardware-backed secure enclaves, p
 
 - **Verify node quotes to establish trust**: Use the `verify_quote.sh` script (installed with the CCF Python package) to verify that the nodes your applications connect to are running trusted code within legitimate Intel SGX enclaves. This verification confirms the cryptographic hash of the node's identity public key matches the SGX report data. For more details, see [Establish trust on Azure confidential ledger](verify-node-quotes.md).
 
+- **Retrieve the service identity certificate from the identity service**: Always download the service identity certificate from the dedicated identity service endpoint (`https://identity.confidential-ledger.core.azure.com`), which runs separately from the ledger itself. Don't hardcode or permanently cache this certificate, because it can be rotated during disaster recovery or maintenance events. For retrieval instructions and code examples, see [Authenticating Azure confidential ledger nodes](authenticate-ledger-nodes.md).
+
 ## Identity and access management
 
 Azure confidential ledger supports robust identity and access management options. Unlike other Azure services, ACL user management is localized within the ledger itself, providing an additional layer of security by reducing the Trusted Computing Base and eliminating reliance on external authorization systems.
@@ -37,6 +39,8 @@ Azure confidential ledger supports robust identity and access management options
 - **Register your application properly with Microsoft Entra ID**: To use Microsoft Entra authentication, register your application with the appropriate configuration settings, including redirect URIs and permissions. A properly registered application establishes a trust relationship between your app and the Microsoft identity platform. See [How to register an Azure confidential ledger application with Microsoft Entra ID](register-application.md) for detailed steps.
 
 - **Use certificate-based authentication for additional security**: For high-security scenarios or non-interactive applications, implement certificate-based authentication. This approach uses cryptographic certificates to establish identity rather than username/password combinations, enhancing security. Ensure you create certificates using secure methods with appropriate key lengths and algorithms. See [Creating a client certificate](create-client-certificate.md) for guidance.
+
+- **Secure on-behalf-of authentication flows**: If your application acts as a mediator between users and the confidential ledger (such as a web service accessing ACL on behalf of signed-in users), implement proper on-behalf-of authentication using the OAuth2 token exchange flow. This scenario requires careful configuration with Microsoft Entra ID and might require administrator consent depending on your tenant settings. For more information, see [Azure confidential ledger authentication with Microsoft Entra ID](authentication-azure-ad.md).
 
 - **Apply least privilege principles with role-based controls**: Assign users the minimum necessary permissions by using ACL's built-in roles: Reader (read-only), Contributor (read and write), and Administrator (read, write, and manage users). This approach limits potential damage if account credentials are compromised. For more details, see [Manage Microsoft Entra token-based users](manage-azure-ad-token-based-users.md) or [Manage certificate-based users](manage-certificate-based-users.md).
 
@@ -60,6 +64,8 @@ Azure confidential ledger is designed to provide strong data integrity and confi
 
 - **Consider integrating with other Azure data stores for comprehensive protection**: For relational or blob data requiring end-to-end integrity guarantees, integrate your data stores with Azure Confidential Ledger. Use the Azure SQL database's ledger feature with ACL as a Trusted Digest store, or use the Azure Marketplace application to protect blob storage integrity. See [Microsoft Azure confidential ledger overview](overview.md) for integration scenarios.
 
+- **Use Azure Key Vault for key management**: When integrating Azure confidential ledger with other Azure services, use Azure Key Vault to manage cryptographic keys and secrets used in your application's authentication and data protection workflows. Key Vault provides its own data residency and compliance characteristics. For more information, see [Azure Key Vault overview](/azure/key-vault/general/overview).
+
 ## Logging and monitoring
 
 Comprehensive logging and monitoring enable detection of suspicious activities and support compliance with audit requirements.
@@ -70,6 +76,8 @@ Comprehensive logging and monitoring enable detection of suspicious activities a
 
 - **Monitor instance health**: Azure confidential ledger uses continuous monitoring to observe instance health and automatically initiate recovery processes when the health of the confidential instance falls below a specified threshold. Understand this behavior to complement it with your own monitoring practices.
 
+- **Store security event data in the ledger**: Consider using Azure confidential ledger as a tamper-proof repository for critical security event data, such as Microsoft Defender for Cloud alerts or operational IT security events. The immutable, append-only nature of the ledger ensures that security records can't be modified or deleted by an attacker who gains access to your environment. For more information, see [Azure confidential ledger overview](overview.md).
+
 ## Compliance and governance
 
 Regular review of compliance posture and governance policies ensures your Azure confidential ledger deployment adheres to security standards and organizational requirements.
@@ -79,6 +87,8 @@ Regular review of compliance posture and governance policies ensures your Azure 
 - **Review integrated service compliance**: Azure confidential ledger can integrate with Azure Key Vault for key management, Azure SQL Database for ledger-backed integrity, and Azure Blob Storage for digest protection. Each integrated service has its own compliance posture and data residency characteristics. Review the compliance documentation for each service you use alongside Azure confidential ledger.
 
 - **Understand the immutability guarantee**: Azure confidential ledger provides tamper-evident, append-only storage that's ideal for meeting regulatory requirements around data integrity and audit trails. This property makes the ledger suitable for compliance scenarios where records must be protected from modification or deletion.
+
+- **Plan for service limits**: Each subscription is limited to two standard SKU confidential ledger instances, with additional limits on collection IDs and request rates. Factor these limits into your governance planning and request increases from the Azure Confidential Ledger team if needed. For current limits, see [Azure confidential ledger overview](overview.md).
 
 ## Backup and recovery
 
