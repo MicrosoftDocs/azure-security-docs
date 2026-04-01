@@ -92,7 +92,7 @@ Azure Cloud HSM provides high availability through clustered HSMs that synchroni
 
 - **Verify user and key synchronization across all nodes**: Azure Cloud HSM operates as a cluster of three nodes. During service events such as self-healing or upgrades, users or keys might not be replicated to all nodes. If you experience intermittent authentication or operation failures, verify that all users and keys exist on every node. See [Synchronize users and keys across Azure Cloud HSM nodes](synchronize-users-keys.md).
 
-## Related content
+## Next steps
 
 - [Security best practices for IaaS workloads in Azure](/azure/security/fundamentals/iaas)
 - [Enable just-in-time access to virtual machines](/azure/defender-for-cloud/just-in-time-access-overview)
