@@ -64,6 +64,8 @@ items:
     items:
     - name: Verify write transaction receipts
       href: verify-write-transaction-receipts.md
+    - name: Authenticate ledger nodes
+      href: authenticate-ledger-nodes.md
     - name: Establish trust on Azure confidential ledger
       href: verify-node-quotes.md
     - name: Upload, view and list ledger data with the Azure ledger explorer

@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.date: 01/30/2026
+ms.date: 03/26/2026
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
@@ -40,15 +40,15 @@ To add a key to the vault, you just need to take a couple of additional steps. T
 Type this command to create a key called **ExampleKey** :
 
 ```azurepowershell-interactive
-Add-AzKeyVaultKey -VaultName "<your-unique-keyvault-name>" -Name "ExampleKey" -Destination "Software"
+Add-AzKeyVaultKey -VaultName "<vault-name>" -Name "ExampleKey" -Destination "Software"
 ```
 
-You can now reference this key that you added to Azure Key Vault by using its URI. Use **`https://<your-unique-keyvault-name>.vault.azure.net/keys/ExampleKey`** to get the current version. 
+You can now reference this key that you added to Azure Key Vault by using its URI. Use **`https://<vault-name>.vault.azure.net/keys/ExampleKey`** to get the current version. 
 
 To view previously stored key:
 
 ```azurepowershell-interactive
-Get-AzKeyVaultKey -VaultName "<your-unique-keyvault-name>" -KeyName "ExampleKey"
+Get-AzKeyVaultKey -VaultName "<vault-name>" -KeyName "ExampleKey"
 ```
 
 Now, you've created a Key Vault, stored a key, and retrieved it.

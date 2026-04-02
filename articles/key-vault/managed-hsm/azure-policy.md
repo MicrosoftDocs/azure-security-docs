@@ -3,7 +3,7 @@ title: Integrate Azure Managed HSM with Azure Policy
 description: Learn how to integrate Azure Managed HSM with Azure Policy
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 04/15/2025
+ms.date: 03/26/2026
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.custom: devx-track-azurecli
@@ -72,7 +72,7 @@ az ad sp show --id a1b76039-a76c-499f-a2dd-846b4cc32627 --query id
 Copy the `id` printed and paste it in the following command:
 
 ```azurecli-interactive
-az keyvault role assignment create --scope / --role "Managed HSM Crypto Auditor" --assignee-object-id "the id printed in previous command" --hsm-name <hsm name>
+az keyvault role assignment create --scope / --role "Managed HSM Crypto Auditor" --assignee-object-id "the id printed in previous command" --hsm-name <hsm-name>
 ```
 
 On Linux or Windows Subsystem of Linux:
@@ -80,7 +80,7 @@ On Linux or Windows Subsystem of Linux:
 ```azurecli-interactive
 spId=$(az ad sp show --id a1b76039-a76c-499f-a2dd-846b4cc32627 --query id|cut -d "\"" -f2)
 echo $spId
-az keyvault role assignment create --scope / --role "Managed HSM Crypto Auditor" --assignee-object-id $spId --hsm-name <hsm name>
+az keyvault role assignment create --scope / --role "Managed HSM Crypto Auditor" --assignee-object-id $spId --hsm-name <hsm-name>
 ```
 
 ### Create policy assignments - define rules of audit and/or deny

@@ -102,8 +102,8 @@ It's assumed that both the receipt and the service certificate can be loaded fro
 import json 
 
 # Constants
-service_certificate_file_name = "<your-service-certificate-file>"
-receipt_file_name = "<your-receipt-file>"
+service_certificate_file_name = "<service-certificate-file>"
+receipt_file_name = "<receipt-file>"
 
 # Use the receipt and the service identity to verify the receipt content 
 with open(service_certificate_file_name, "r") as service_certificate_file, open( 

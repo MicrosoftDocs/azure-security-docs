@@ -3,7 +3,7 @@ title: Troubleshoot issues with implementing Azure policy on Key Vault
 description: Troubleshooting issues with implementing Azure policy on Key Vault
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 04/15/2025
+ms.date: 03/26/2026
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
@@ -37,9 +37,9 @@ Let's look at an example log entry for a Key policy: [Keys should have expiratio
   "IsComplianceCheck": false,
   "EvaluationDetails": [
     {
-      "AssignmentId": "<subscription ID>",
+      "AssignmentId": "<subscription-id>",
       "AssignmentDisplayName": "[Preview]: Key Vault keys should have an expiration date",
-      "DefinitionId": "<definition ID>",
+      "DefinitionId": "<definition-id>",
       "DefinitionDisplayName": "[Preview]: Key Vault keys should have an expiration date",
       "Outcome": "NonCompliant",
       "ExpressionEvaluationDetails": [

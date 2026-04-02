@@ -5,7 +5,7 @@ services: payment-hsm
 author: msmbaldwin
 
 ms.service: azure-payment-hsm
-ms.topic: article
+ms.topic: get-started
 ms.date: 04/14/2025
 ms.author: mbaldwin
 ms.custom: references_regions

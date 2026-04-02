@@ -6,8 +6,8 @@ author: msmbaldwin
 
 ms.service: azure-key-vault
 ms.subservice: general
-ms.topic: article
-ms.date: 04/16/2025
+ms.topic: concept-article
+ms.date: 03/26/2026
 ms.author: mbaldwin
 
 ---
@@ -18,8 +18,8 @@ Azure Key Vault provides two types of containers to store and manage secrets for
 
 |Container type|Supported object types|Data-plane endpoint|
 |--|--|--|
-| **Vaults**|<ul><li>Software-protected keys</li><li>HSM-protected keys (with Premium SKU)</li><li>Certificates</li><li>Storage account keys</li></ul> | https://{vault-name}.vault.azure.net
-|**Managed HSM** |<ul><li>HSM-protected keys</li></ul> | https://{hsm-name}.managedhsm.azure.net
+| **Vaults**|<ul><li>Software-protected keys</li><li>HSM-protected keys (with Premium SKU)</li><li>Certificates</li><li>Storage account keys</li></ul> | `https://<vault-name>.vault.azure.net`
+|**Managed HSM** |<ul><li>HSM-protected keys</li></ul> | `https://<hsm-name>.managedhsm.azure.net`
 
 Here are the suffixes of the URLs used to access each type of object
 
@@ -43,16 +43,16 @@ For clients that cannot support specific HTTP verbs, Azure Key Vault allows usin
 
  To work with objects in the Azure Key Vault, the following are example URLs:  
 
-- To CREATE a key called TESTKEY in a Key Vault use - `PUT /keys/TESTKEY?api-version=<api_version> HTTP/1.1`  
+- To CREATE a key called TESTKEY in a Key Vault use - `PUT /keys/TESTKEY?api-version=<api-version> HTTP/1.1`  
 
-- To IMPORT a key called IMPORTEDKEY into a Key Vault use - `POST /keys/IMPORTEDKEY/import?api-version=<api_version> HTTP/1.1`  
+- To IMPORT a key called IMPORTEDKEY into a Key Vault use - `POST /keys/IMPORTEDKEY/import?api-version=<api-version> HTTP/1.1`  
 
-- To GET a secret called MYSECRET in a Key Vault use - `GET /secrets/MYSECRET?api-version=<api_version> HTTP/1.1`  
+- To GET a secret called MYSECRET in a Key Vault use - `GET /secrets/MYSECRET?api-version=<api-version> HTTP/1.1`  
 
-- To SIGN a digest using a key called TESTKEY in a Key Vault use - `POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
+- To SIGN a digest using a key called TESTKEY in a Key Vault use - `POST /keys/TESTKEY/sign?api-version=<api-version> HTTP/1.1`  
 
 - The authority for a request to a Key Vault is always as follows,
-  - For vaults: `https://{keyvault-name}.vault.azure.net/`
+  - For vaults: `https://<vault-name>.vault.azure.net/`
   - For Managed HSMs: `https://{HSM-name}.managedhsm.azure.net/`
   Keys are always stored under the /keys path, while Secrets are always stored under the /secrets path.  
 
@@ -115,8 +115,8 @@ For more information on registering your application and authenticating to use A
 Access tokens must be sent to the service using the HTTP Authorization header:  
 
 ```
-PUT /keys/MYKEY?api-version=<api_version>  HTTP/1.1  
-Authorization: Bearer <access_token>  
+PUT /keys/MYKEY?api-version=<api-version>  HTTP/1.1  
+Authorization: Bearer <access-token>  
 
 ```  
 

@@ -4,7 +4,7 @@ description: Learn how to secure Azure Attestation, with best practices for netw
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: security
-ms.topic: conceptual
+ms.topic: best-practice
 ms.custom: horz-security
 
 ms.date: 03/28/2025
