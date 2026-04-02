@@ -26,7 +26,7 @@ A managed HSM security domain serves the following purposes:
   - The managed HSM instance was soft-deleted by a customer and the resource was purged after the mandatory retention period expired.
   - The customer archived a project by performing a backup that included the managed HSM instance and all data, and then deleted all Azure resources that were associated with the project.
 
-Without the security domain, disaster recovery isn't possible — all keys are permanently and irrecoverably lost. Microsoft has no way to recover the security domain, and Microsoft can't access your keys without the security domain. This is architecturally enforced by the HSM firmware, not merely by policy. Protecting the security domain is therefore of the utmost importance for your business continuity.
+Without the security domain, disaster recovery isn't possible — all keys are permanently and irrecoverably lost. Microsoft has no way to recover the security domain, and Microsoft can't access your keys without the security domain. This is architecturally enforced by the HSM hardware and cryptographic design, not merely by policy. Protecting the security domain is therefore of the utmost importance for your business continuity.
 
 ## Security domain protection best practices
 
