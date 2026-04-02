@@ -21,13 +21,9 @@ Azure Key Vault API version 2026-02-01 and later change the default access contr
 - **Existing key vault behavior**: Existing vaults keep their current access control model unless you explicitly change `enableRbacAuthorization`. Using API version `2026-02-01` or later to update a vault does not automatically change access control. Vaults where `enableRbacAuthorization` is `null` (from older API versions) continue using access policies.
 
 > [!IMPORTANT]
-> All Key Vault Control Plane API versions before 2026-02-01 retire on February 27, 2027. Adopt API version 2026-02-01 or later before this date. Data Plane APIs are not affected.
->
-> Preview API versions (except 2026-04-01-preview) are being deprecated with a 90-day notice period.
-> 
-> Note that Azure Cloud Shell always uses the latest API version. If you have scripts that run in Cloud Shell, ensure they are compatible with API version 2026-02-01 or later.
->
-> **SDK impact**: Control plane management SDKs that use older API versions will stop working after the retirement date. Upgrade to SDK versions that support API version 2026-02-01 or later. For package details, see [What's new for Azure Key Vault](whats-new.md#control-plane-sdk-releases).
+> All Key Vault Control Plane API versions before 2026-02-01 retire on February 27, 2027. Data Plane APIs are not affected.
+
+Preview API versions (except 2026-04-01-preview) are being deprecated with a 90-day notice period. Azure Cloud Shell always uses the latest API version. If you have scripts that run in Cloud Shell, ensure they're compatible with API version 2026-02-01 or later. For SDK package details, see [What's new for Azure Key Vault](whats-new.md#control-plane-sdk-releases).
 
 We encourage you to migrate key vaults that currently use access policies (legacy) to Azure RBAC for improved security. For more information on why Azure RBAC is recommended, see [Azure role-based access control (Azure RBAC) vs. access policies](rbac-access-policy.md).
 
