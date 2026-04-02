@@ -6,14 +6,14 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 03/10/2026
+ms.date: 04/02/2026
 
 ms.author: nkondamudi
 ms.custom: references_regions
 ---
 # Enable multi-region replication on Azure Managed HSM
 
-Multi-region replication allows you to extend a managed HSM pool from one Azure region (called the primary region) to another Azure region (called an extended region). Once configured, both regions are active, able to serve requests and, with automated replication, share the same key material, roles, and permissions. The closest available region to the application receives and fulfills the request, maximizing read throughput and latency. While regional outages are rare, multi-region replication enhances the availability of mission critical cryptographic keys should one region become unavailable. When multi-region replication is enabled, the SLA for the primary and extension pools combined increases to 99.99. For more information on SLA, visit [SLA for Azure Key Vault Managed HSM](https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/).
+Multi-region replication allows you to extend a managed HSM pool from one Azure region (called the primary region) to one additional Azure region (called an extended region). Extension is supported to a single additional region only. Once configured, both regions are active, able to serve requests and, with automated replication, share the same key material, roles, and permissions. The closest available region to the application receives and fulfills the request, maximizing read throughput and latency. While regional outages are rare, multi-region replication enhances the availability of mission critical cryptographic keys should one region become unavailable. When multi-region replication is enabled, the SLA for the primary and extension pools combined increases to 99.99. For more information on SLA, visit [SLA for Azure Key Vault Managed HSM](https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/).
 
 ## Architecture
 
