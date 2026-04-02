@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: reference
-ms.date: 03/24/2026
+ms.date: 04/02/2026
 ms.author: mbaldwin
 
 #Customer intent: As an Azure Key Vault administrator, I want to react to soft-delete being turned on for all key vaults.
@@ -29,7 +29,7 @@ Azure Key Vault is deprecating older preview control plane API versions in accor
 
 ### Control plane SDK releases
 
-All five Azure Key Vault control plane management SDKs are now released:
+All five Azure Key Vault control plane management SDKs supporting API version 2026-02-01 are now released. Control plane management SDKs that use older API versions will stop working when those API versions retire on February 27, 2027. Upgrade to the following SDK versions or later:
 
 | Language | Package | Version |
 |----------|---------|---------|
@@ -38,6 +38,9 @@ All five Azure Key Vault control plane management SDKs are now released:
 | Go | [armkeyvault](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/keyvault/armkeyvault/v2) | v2 |
 | Python | [azure-mgmt-keyvault](https://pypi.org/project/azure-mgmt-keyvault/) | Latest |
 | Java | [azure-resourcemanager-keyvault](https://central.sonatype.com/artifact/com.azure.resourcemanager/azure-resourcemanager-keyvault) | Latest |
+
+> [!NOTE]
+> Data Plane SDKs are not affected by this change. Only control plane management SDKs need to be updated.
 
 ### Azure RBAC is the default access control model for new vaults
 
