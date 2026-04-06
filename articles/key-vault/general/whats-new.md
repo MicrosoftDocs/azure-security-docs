@@ -27,6 +27,36 @@ New Azure Key Vault control plane API versions (2026-02-01 and 2026-03-01-previe
 
 Azure Key Vault is deprecating older preview control plane API versions in accordance with Azure guidelines. All preview API versions except 2026-04-01-preview will be deprecated with a 90-day notice period. Customers using preview API versions should plan to migrate to the latest stable API version (2026-02-01) or the upcoming 2026-04-01-preview version.
 
+### Supported control plane API versions
+
+The following Azure Key Vault control plane API versions are currently supported.
+
+#### Stable
+
+- [2026-02-01](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/stable/2026-02-01) (recommended)
+- [2025-05-01](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/stable/2025-05-01)
+- [2024-11-01](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/stable/2024-11-01)
+- [2023-07-01](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/stable/2023-07-01)
+- [2023-02-01](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/stable/2023-02-01)
+- [2022-11-01](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/stable/2022-11-01)
+- [2022-07-01](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/stable/2022-07-01)
+- [2021-10-01](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/stable/2021-10-01)
+- [2019-09-01](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/stable/2019-09-01)
+- [2018-02-14](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/stable/2018-02-14)
+- [2016-10-01](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/stable/2016-10-01)
+- [2015-06-01](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/stable/2015-06-01)
+
+#### Preview
+
+- [2024-12-01-preview](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/preview/2024-12-01-preview) (recommended)
+- [2024-04-01-preview](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/preview/2024-04-01-preview)
+- [2022-02-01-preview](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/preview/2022-02-01-preview)
+- [2021-11-01-preview](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/preview/2021-11-01-preview)
+- [2021-06-01-preview](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/preview/2021-06-01-preview)
+- [2021-04-01-preview](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/preview/2021-04-01-preview)
+- [2020-04-01-preview](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/preview/2020-04-01-preview)
+- [2018-02-14-preview](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/keyvault/resource-manager/Microsoft.KeyVault/KeyVault/preview/2018-02-14-preview)
+
 ### Control plane SDK releases
 
 All five Azure Key Vault control plane management SDKs supporting API version 2026-02-01 are now released. Control plane management SDKs that use older API versions will stop working when those API versions retire on February 27, 2027. Upgrade to the following SDK versions or later:
