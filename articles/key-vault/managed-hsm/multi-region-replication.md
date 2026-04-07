@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 04/02/2026
+ms.date: 04/07/2026
 
 ms.author: nkondamudi
 ms.custom: references_regions
@@ -66,7 +66,7 @@ The [Managed HSM soft-delete feature](soft-delete-overview.md) allows recovery o
 
 ## Private link behavior with Multi-region replication
 
-The [Azure Private Link feature](private-link.md) allows you to access the Managed HSM service over a private endpoint in your virtual network. You would configure private endpoint on the Managed HSM in the primary region just as you would when not using the multi-region replication feature. For the Managed HSM in an extended region, it is recommended to create another private endpoint and private DNS zone once the Managed HSM in the primary region is replicated to the Managed HSM in an extended region., which redirects client requests to the Managed HSM closest to the client location.
+The [Azure Private Link feature](private-link.md) allows you to access the Managed HSM service over a private endpoint in your virtual network. You would configure private endpoint on the Managed HSM in the primary region just as you would when not using the multi-region replication feature. For the Managed HSM in an extended region, it is recommended to create another private endpoint and private DNS zone once the Managed HSM in the primary region is replicated to the Managed HSM in an extended region, which redirects client requests to the Managed HSM closest to the client location.
 
 Here are some scenarios with examples: Managed HSM in a primary region (UK South) and another Managed HSM in an extended region (US West Central).
 
