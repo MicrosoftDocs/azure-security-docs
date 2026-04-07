@@ -3,7 +3,7 @@ title: Quickstart - Azure Key Vault Managed HSM client library for Python
 description: Learn how to access keys in Azure Managed HSM using the Python client library
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 03/13/2026
+ms.date: 03/30/2026
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: quickstart
@@ -14,7 +14,7 @@ ms.custom: devx-track-python, mode-api
 
 # Quickstart: Azure Key Vault Managed HSM client library for Python
 
-Get started with the Azure Key Vault Managed HSM client library for Python. [!INCLUDE [Managed HSM description](../includes/managed-hsm/intro.md)]
+Get started with the Azure Key Vault Managed HSM client library for Python. [!INCLUDE [Managed HSM description](~/reusable-content/ce-skilling/azure/includes/managed-hsm/intro.md)]
 
 In this quickstart, you learn how to access and perform cryptographic operations on keys in a Managed HSM using the Python client library.
 
@@ -24,7 +24,7 @@ Managed HSM client library resources:
 
 ## Prerequisites
 
-[!INCLUDE [Managed HSM SDK prerequisites](../includes/managed-hsm/sdk-prerequisites.md)]
+[!INCLUDE [Managed HSM SDK prerequisites](~/reusable-content/ce-skilling/azure/includes/managed-hsm/sdk-prerequisites.md)]
 - [Python 3.8+](https://www.python.org/downloads/)
 
 ## Set up your local environment
@@ -126,7 +126,7 @@ Done!
 
 ### Authentication with DefaultAzureCredential
 
-[!INCLUDE [DefaultAzureCredential explanation](../includes/managed-hsm/sdk-default-credential.md)]
+[!INCLUDE [DefaultAzureCredential explanation](~/reusable-content/ce-skilling/azure/includes/managed-hsm/sdk-default-credential.md)]
 
 ### Key operations
 
@@ -140,7 +140,7 @@ The `CryptographyClient` class provides cryptographic operations:
 - Sign and verify signatures
 - Wrap and unwrap keys
 
-[!INCLUDE [Assign Managed HSM roles](../includes/managed-hsm/sdk-role-assignment.md)]
+[!INCLUDE [Assign Managed HSM roles](~/reusable-content/ce-skilling/azure/includes/managed-hsm/sdk-role-assignment.md)]
 
 ## Clean up resources
 
@@ -150,8 +150,8 @@ When no longer needed, delete the resource group and all related resources:
 az group delete --name <resource-group>
 ```
 
-[!INCLUDE [Managed HSM cleanup warning](../includes/managed-hsm/cleanup-warning.md)]
+[!INCLUDE [Managed HSM cleanup warning](~/reusable-content/ce-skilling/azure/includes/managed-hsm/cleanup-warning.md)]
 
 ## Next steps
 
-[!INCLUDE [SDK next steps](../includes/managed-hsm/sdk-next-steps.md)]
+[!INCLUDE [SDK next steps](~/reusable-content/ce-skilling/azure/includes/managed-hsm/sdk-next-steps.md)]
