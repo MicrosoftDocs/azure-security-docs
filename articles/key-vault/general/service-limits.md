@@ -22,4 +22,4 @@ The following limits apply to standard Key Vault operations including transactio
 
 Managed HSM provides dedicated HSM instances with different limits than standard Key Vault vaults. For detailed information about performance characteristics and capacity planning for your Managed HSM workloads, see [Azure Managed HSM scaling guidance](../managed-hsm/scaling-guidance.md).
 
-[!INCLUDE [key-vault-limits](~/reusable-content/ce-skilling/azure/includes/key-vault/managed-hsm-service-limits.md)]
+[!INCLUDE [Managed HSM service limits](~/reusable-content/ce-skilling/azure/includes/managed-hsm/service-limits.md)]

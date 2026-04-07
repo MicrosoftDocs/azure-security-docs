@@ -3,7 +3,7 @@ title: Create and retrieve attributes of a managed key in Azure Key Vault – Az
 description: Quickstart showing how to set and retrieve a managed key from Azure Key Vault using Azure PowerShell
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 03/26/2026
+ms.date: 03/30/2026
 ms.topic: quickstart
 ms.service: azure-key-vault
 ms.subservice: keys
@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell, mode-api
 ---
 # Quickstart: Provision and activate a Managed HSM by using PowerShell
 
-In this quickstart, you create and activate an Azure Key Vault Managed HSM (Hardware Security Module) by using PowerShell. [!INCLUDE [Managed HSM description](../includes/managed-hsm/intro.md)]
+In this quickstart, you create and activate an Azure Key Vault Managed HSM (Hardware Security Module) by using PowerShell. [!INCLUDE [Managed HSM description](~/reusable-content/ce-skilling/azure/includes/managed-hsm/intro.md)]
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ New-AzKeyVaultManagedHsm -Name "<hsm-name>" -ResourceGroupName "<resource-group>
 > [!NOTE]
 > The create command can take a few minutes. When it returns successfully, you're ready to activate your HSM.
 
-[!INCLUDE [Managed HSM billing warning](../includes/managed-hsm/billing-warning.md)]
+[!INCLUDE [Managed HSM billing warning](~/reusable-content/ce-skilling/azure/includes/managed-hsm/billing-warning.md)]
 
 The output of this cmdlet shows properties of the newly created Managed HSM. Take note of these two properties:
 
@@ -74,9 +74,9 @@ At this point, your Azure account is the only one authorized to perform any oper
 
 ### Activate your Managed HSM
 
-All data plane commands are disabled until you activate the HSM. You can't create keys or assign roles. Only the designated administrators that you assign during the create command can activate the HSM. To activate the HSM, you must download the [Security Domain](security-domain.md).
+[!INCLUDE [Activate HSM intro](~/reusable-content/ce-skilling/azure/includes/managed-hsm/activate-hsm-intro.md)]
 
-[!INCLUDE [Security domain prerequisites](../includes/managed-hsm/security-domain-prerequisites.md)]
+[!INCLUDE [Security domain prerequisites](~/reusable-content/ce-skilling/azure/includes/managed-hsm/security-domain-prerequisites.md)]
 
 > [!TIP]
 > OpenSSL for Windows is available from [the OpenSSL website](https://slproweb.com/products/Win32OpenSSL.html).
@@ -87,15 +87,13 @@ Use the Azure PowerShell [Export-AzKeyVaultSecurityDomain](/powershell/module/az
 Export-AzKeyVaultSecurityDomain -Name "<hsm-name>" -Certificates "cert_0.cer", "cert_1.cer", "cert_2.cer" -OutputPath "<hsm-name>-SD.json" -Quorum 2
 ```
 
-Store the security domain file and the RSA key pairs securely. You need them for disaster recovery or for creating another Managed HSM that shares the same security domain so the two can share keys.
-
-After you successfully download the security domain, your HSM is in an active state and ready for you to use.
+[!INCLUDE [Security domain storage](~/reusable-content/ce-skilling/azure/includes/managed-hsm/security-domain-storage.md)]
 
 ## Clean up resources
 
 [!INCLUDE [Create a key vault](~/reusable-content/ce-skilling/azure/includes/delete-resource-group-powershell.md)]
 
-[!INCLUDE [Managed HSM cleanup warning](../includes/managed-hsm/cleanup-warning.md)]
+[!INCLUDE [Managed HSM cleanup warning](~/reusable-content/ce-skilling/azure/includes/managed-hsm/cleanup-warning.md)]
 ## Next steps
 
 In this quickstart, you created and activated a Managed HSM. To learn more about Managed HSM and how to integrate it with your applications, continue on to these articles:
