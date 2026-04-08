@@ -5,7 +5,7 @@ author: keithp
 manager: keithp
 ms.service: azure-cloud-hsm
 ms.topic: tutorial
-ms.date: 03/26/2026
+ms.date: 04/08/2026
 ms.author: keithp
 
 #Customer Intent: As an IT pro, I want to set up and use operation event logging for Azure Cloud HSM to help ensure security and compliance.
@@ -240,4 +240,5 @@ The following names are related to HSM operation events.
 ## Related content
 
 - [Azure Cloud HSM overview](overview.md)
+- [Tutorial: Configure Event Hub for Azure Cloud HSM](tutorial-configure-event-hub.md)
 - [Tutorial: Deploy Azure Cloud HSM](tutorial-deploy-cloud-hsm.md)
