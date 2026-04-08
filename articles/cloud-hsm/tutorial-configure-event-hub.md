@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Configure Event Hub for Azure Cloud HSM
+title: Tutorial - Configure Event Hubs for Azure Cloud HSM
 description: Learn how to configure Azure Event Hubs as a destination for Azure Cloud HSM operation event logs for real-time streaming and downstream processing.
 author: keithp
 manager: keithp
@@ -9,15 +9,15 @@ ms.date: 04/08/2026
 ms.author: keithp
 ai-usage: ai-assisted
 
-#Customer Intent: As an IT pro, I want to stream Azure Cloud HSM operation logs to Event Hub for real-time processing and integration with downstream systems.
+#Customer Intent: As an IT pro, I want to stream Azure Cloud HSM operation logs to Event Hubs for real-time processing and integration with downstream systems.
 
 ---
 
-# Tutorial: Configure Event Hub for Azure Cloud HSM
+# Tutorial: Configure Event Hubs for Azure Cloud HSM
 
-If you configured operation event logging for Azure Cloud HSM, you already have a working diagnostic setting on your Cloud HSM cluster that routes `HsmServiceOperations` logs to Storage and Log Analytics. Adding Event Hub is simply adding a third destination to that same diagnostic setting or creating a new one that targets Event Hub.
+If you configured operation event logging for Azure Cloud HSM, you already have a working diagnostic setting on your Cloud HSM cluster that routes `HsmServiceOperations` logs to Storage and Log Analytics. To add Event Hubs as a destination, add a third destination to that same diagnostic setting or create a new one that targets Event Hubs.
 
-Azure Monitor diagnostic settings support multiple destinations simultaneously. Since your Log Analytics pipeline already proves that log emission from Cloud HSM is working, Event Hub becomes another sink receiving the same `HsmServiceOperations` category.
+Azure Monitor diagnostic settings support multiple destinations simultaneously. Because your Log Analytics pipeline already proves that log emission from Cloud HSM is working, Event Hubs becomes another destination receiving the same `HsmServiceOperations` category.
 
 In this tutorial, you:
 
@@ -25,18 +25,18 @@ In this tutorial, you:
 >
 > - Create an Event Hub namespace and event hub for Cloud HSM logs.
 > - Configure authorization rules with least-privilege permissions.
-> - Update diagnostic settings to stream logs to Event Hub.
-> - Verify that Event Hub receives Cloud HSM operation events.
+> - Update diagnostic settings to stream logs to Event Hubs.
+> - Verify that Event Hubs receives Cloud HSM operation events.
 
 ## Prerequisites
 
-- An Azure Cloud HSM resource that's deployed and activated. For more information, see the [Azure Cloud HSM onboarding guide](onboarding-guide.md).
+- A deployed and activated Azure Cloud HSM resource. For more information, see the [Azure Cloud HSM onboarding guide](onboarding-guide.md).
 - Diagnostic settings emitting operation event logs to Storage and Log Analytics. For more information, see [Configure and query operation event logging for Azure Cloud HSM](tutorial-operation-event-logging.md).
 - `Contributor` or `Monitoring Contributor` role on the Cloud HSM resource group.
 
 ## Verify the logs resource group exists
 
-Event Hub should deploy into the same resource group that contains your storage account and Log Analytics workspace for operational event logging. If you didn't set up operational event logging, first follow the guidance in [Configure and query operation event logging for Azure Cloud HSM](tutorial-operation-event-logging.md).
+Event Hubs should deploy into the same resource group that contains your storage account and Log Analytics workspace for operational event logging. If you didn't set up operational event logging, first follow the guidance in [Configure and query operation event logging for Azure Cloud HSM](tutorial-operation-event-logging.md).
 
 Verify that your targeted resource group exists:
 
@@ -87,12 +87,12 @@ New-AzEventHubNamespace `
 Key options:
 
 - **Standard SKU**: The Basic tier doesn't support diagnostic settings as a destination.
-- **Capacity 1**: One throughput unit (1 MB/s ingress, 2 MB/s egress) is sufficient for HSM audit logs.
-- **Auto-inflate disabled**: HSM log volume is low, so auto-inflate isn't necessary.
+- **Capacity 1**: One throughput unit (1-MB/s ingress, 2-MB/s egress) is sufficient for HSM audit logs.
+- **Autoinflate disabled**: HSM log volume is low, so autoinflate isn't necessary.
 
 ## Create an event hub inside the namespace
 
-Create an event hub (topic) to receive the Cloud HSM logs.
+To receive the Cloud HSM logs, create an event hub inside the namespace.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -123,7 +123,7 @@ New-AzEventHub `
 Key options:
 
 - **Partition count 2**: Two partitions are sufficient for HSM audit log throughput.
-- **Retention time 168 hours**: Keep messages for 7 days (the maximum for Standard tier).
+- **Retention time 168 hours**: Keep messages for seven days (the maximum for Standard tier).
 - **Cleanup policy Delete**: Delete messages after the retention period expires.
 
 ## Create a consumer group
@@ -179,7 +179,7 @@ New-AzEventHubAuthorizationRule `
 ---
 
 > [!NOTE]
-> This rule grants only `Send` permission, not `Listen` or `Manage`. Follow the principle of least privilege. Your downstream consumers (such as Azure Functions or Stream Analytics) should use a separate rule with `Listen` permission.
+> This rule grants only `Send` permission, not `Listen`, or `Manage`. Follow the principle of least privilege. Your downstream consumers (such as Azure Functions or Stream Analytics) should use a separate rule with `Listen` permission.
 
 ## Get the authorization rule resource ID
 
@@ -213,13 +213,13 @@ Write-Host "Auth Rule ID: $authRuleId"
 
 Save this value for use in the next step.
 
-## Update the diagnostic setting to add Event Hub
+## Update the diagnostic setting to add Event Hubs
 
-You have two options for adding Event Hub as a destination:
+You have two options for adding Event Hubs as a destination:
 
 ### Option A: Update the existing diagnostic setting (recommended)
 
-This approach updates your existing diagnostic setting to add Event Hub while keeping Storage and Log Analytics.
+This approach updates your existing diagnostic setting to add Event Hubs while keeping Storage and Log Analytics.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -312,11 +312,11 @@ New-AzDiagnosticSetting `
 ---
 
 > [!IMPORTANT]
-> Both CLI and PowerShell commands perform an upsert operation. If the name matches an existing setting, it replaces the setting entirely. You must include the storage account and workspace again, or those destinations are removed.
+> Both CLI and PowerShell commands replace the entire diagnostic setting if the name matches an existing one. You must include the storage account and workspace again, or those destinations are removed.
 
-### Option B: Create a separate diagnostic setting for Event Hub only
+### Option B: Create a separate diagnostic setting for Event Hubs only
 
-If you prefer to keep your existing setting unchanged and add a second one:
+If you prefer to keep your existing setting unchanged and add a second one,
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -377,17 +377,17 @@ New-AzDiagnosticSetting `
 > [!NOTE]
 > Azure supports up to five diagnostic settings per resource. A second setting is valid and keeps concerns separated.
 
-## Verify Event Hub is receiving messages
+## Verify Event Hubs is receiving messages
 
-After you configure the diagnostic setting, verify that Event Hub is receiving Cloud HSM logs.
+After you configure the diagnostic setting, verify that Event Hubs is receiving Cloud HSM logs.
 
 ### Check the diagnostic setting in the portal
 
 1. In the Azure portal, go to your Cloud HSM cluster.
 1. Under **Monitoring**, select **Diagnostic settings**.
-1. Confirm that Event Hub is listed as a destination.
+1. Confirm that Event Hubs is listed as a destination.
 
-### Check Event Hub metrics
+### Check Event Hubs metrics
 
 Run the following command to check incoming messages over the last hour:
 
@@ -423,7 +423,7 @@ Get-AzMetric `
 
 ---
 
-### Peek at messages (optional)
+### View messages (optional)
 
 If you want to read a few messages to confirm content, create a **Listen** rule:
 
@@ -466,7 +466,7 @@ $keys.PrimaryConnectionString
 
 ---
 
-You can use this connection string with Azure Event Hub Explorer, the VS Code Event Hub extension, or a Python script to peek at messages.
+You can use this connection string with Azure Event Hubs Explorer, the Visual Studio Code Event Hubs extension, or a Python script to view messages.
 
 ## Related content
 
