@@ -39,90 +39,176 @@ Event Hub should deploy into the same resource group that contains your storage 
 
 Verify that your targeted resource group exists:
 
-```azurepowershell
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
 az group show --name "<resource-group>" --query "{name:name, location:location}" --output table
 ```
 
-## Create an Event Hubs namespace
-
-The namespace is the container that holds one or more event hubs. Use the **Standard** tier, which is required for diagnostic settings integration:
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-az eventhubs namespace create `
-  --name "<eventhub-namespace>" `
-  --resource-group "<resource-group>" `
-  --location "<location>" `
-  --sku Standard `
-  --capacity 1 `
+Get-AzResourceGroup -Name "<resource-group>" | Select-Object ResourceGroupName, Location
+```
+
+---
+
+## Create an Event Hubs namespace
+
+The namespace is the container that holds one or more event hubs. Use the **Standard** tier, which is required for diagnostic settings integration.
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az eventhubs namespace create \
+  --name "<eventhub-namespace>" \
+  --resource-group "<resource-group>" \
+  --location "<location>" \
+  --sku Standard \
+  --capacity 1 \
   --enable-auto-inflate false
 ```
 
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzEventHubNamespace `
+  -Name "<eventhub-namespace>" `
+  -ResourceGroupName "<resource-group>" `
+  -Location "<location>" `
+  -SkuName Standard `
+  -SkuCapacity 1 `
+  -EnableAutoInflate:$false
+```
+
+---
+
 Key options:
 
-- `--sku Standard`: The Basic tier doesn't support diagnostic settings as a destination.
-- `--capacity 1`: One throughput unit (1 MB/s ingress, 2 MB/s egress) is sufficient for HSM audit logs.
-- `--enable-auto-inflate false`: HSM log volume is low, so auto-inflate isn't necessary.
+- **Standard SKU**: The Basic tier doesn't support diagnostic settings as a destination.
+- **Capacity 1**: One throughput unit (1 MB/s ingress, 2 MB/s egress) is sufficient for HSM audit logs.
+- **Auto-inflate disabled**: HSM log volume is low, so auto-inflate isn't necessary.
 
 ## Create an event hub inside the namespace
 
-Create an event hub (topic) to receive the Cloud HSM logs:
+Create an event hub (topic) to receive the Cloud HSM logs.
 
-```azurepowershell
-az eventhubs eventhub create `
-  --name "cloudhsm-logs" `
-  --namespace-name "<eventhub-namespace>" `
-  --resource-group "<resource-group>" `
-  --partition-count 2 `
-  --retention-time-in-hours 168 `
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az eventhubs eventhub create \
+  --name "cloudhsm-logs" \
+  --namespace-name "<eventhub-namespace>" \
+  --resource-group "<resource-group>" \
+  --partition-count 2 \
+  --retention-time-in-hours 168 \
   --cleanup-policy Delete
 ```
 
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzEventHub `
+  -Name "cloudhsm-logs" `
+  -NamespaceName "<eventhub-namespace>" `
+  -ResourceGroupName "<resource-group>" `
+  -PartitionCount 2 `
+  -RetentionTimeInHour 168 `
+  -CleanupPolicy Delete
+```
+
+---
+
 Key options:
 
-- `--partition-count 2`: Two partitions are sufficient for HSM audit log throughput.
-- `--retention-time-in-hours 168`: Keep messages for 7 days (168 hours, which is the maximum for Standard tier).
-- `--cleanup-policy Delete`: Delete messages after the retention period expires.
+- **Partition count 2**: Two partitions are sufficient for HSM audit log throughput.
+- **Retention time 168 hours**: Keep messages for 7 days (the maximum for Standard tier).
+- **Cleanup policy Delete**: Delete messages after the retention period expires.
 
 ## Create a consumer group
 
-Create a dedicated consumer group for downstream processing. Reserve the default `$Default` group for other uses:
+Create a dedicated consumer group for downstream processing. Reserve the default `$Default` group for other uses.
 
-```azurepowershell
-az eventhubs eventhub consumer-group create `
-  --name "azure-cloud-hsm" `
-  --namespace-name "<eventhub-namespace>" `
-  --eventhub-name "cloudhsm-logs" `
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az eventhubs eventhub consumer-group create \
+  --name "azure-cloud-hsm" \
+  --namespace-name "<eventhub-namespace>" \
+  --eventhub-name "cloudhsm-logs" \
   --resource-group "<resource-group>"
 ```
 
-## Create an authorization rule
-
-Diagnostic settings need **Send** permission to push logs into the event hub. Create a shared access policy with only the required permission:
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-az eventhubs namespace authorization-rule create `
-  --name "DiagnosticSettingsSendRule" `
-  --namespace-name "<eventhub-namespace>" `
-  --resource-group "<resource-group>" `
+New-AzEventHubConsumerGroup `
+  -Name "azure-cloud-hsm" `
+  -NamespaceName "<eventhub-namespace>" `
+  -EventHubName "cloudhsm-logs" `
+  -ResourceGroupName "<resource-group>"
+```
+
+---
+
+## Create an authorization rule
+
+Diagnostic settings need **Send** permission to push logs into the event hub. Create a shared access policy with only the required permission.
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az eventhubs namespace authorization-rule create \
+  --name "DiagnosticSettingsSendRule" \
+  --namespace-name "<eventhub-namespace>" \
+  --resource-group "<resource-group>" \
   --rights Send
 ```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzEventHubAuthorizationRule `
+  -Name "DiagnosticSettingsSendRule" `
+  -NamespaceName "<eventhub-namespace>" `
+  -ResourceGroupName "<resource-group>" `
+  -Rights @("Send")
+```
+
+---
 
 > [!NOTE]
 > This rule grants only `Send` permission, not `Listen` or `Manage`. Follow the principle of least privilege. Your downstream consumers (such as Azure Functions or Stream Analytics) should use a separate rule with `Listen` permission.
 
 ## Get the authorization rule resource ID
 
-Retrieve the authorization rule resource ID for use in the diagnostic setting:
+Retrieve the authorization rule resource ID for use in the diagnostic setting.
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+authRuleId=$(az eventhubs namespace authorization-rule show \
+  --name "DiagnosticSettingsSendRule" \
+  --namespace-name "<eventhub-namespace>" \
+  --resource-group "<resource-group>" \
+  --query id --output tsv)
+
+echo "Auth Rule ID: $authRuleId"
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$authRuleId = az eventhubs namespace authorization-rule show `
-  --name "DiagnosticSettingsSendRule" `
-  --namespace-name "<eventhub-namespace>" `
-  --resource-group "<resource-group>" `
-  --query id --output tsv
+$authRule = Get-AzEventHubAuthorizationRule `
+  -Name "DiagnosticSettingsSendRule" `
+  -NamespaceName "<eventhub-namespace>" `
+  -ResourceGroupName "<resource-group>"
 
+$authRuleId = $authRule.Id
 Write-Host "Auth Rule ID: $authRuleId"
 ```
+
+---
 
 Save this value for use in the next step.
 
@@ -132,88 +218,160 @@ You have two options for adding Event Hub as a destination:
 
 ### Option A: Update the existing diagnostic setting (recommended)
 
-This approach updates your existing diagnostic setting to add Event Hub while keeping Storage and Log Analytics:
+This approach updates your existing diagnostic setting to add Event Hub while keeping Storage and Log Analytics.
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+# Set your resource group variables
+hsmResourceGroup="<resource-group>"
+logsResourceGroup="<resource-group>"
+
+# Find the HSM cluster name (auto-generated during deployment)
+hsmClusterName=$(az resource list \
+  --resource-group $hsmResourceGroup \
+  --resource-type Microsoft.HardwareSecurityModules/cloudHsmClusters \
+  --query "[0].name" --output tsv)
+echo "HSM Cluster: $hsmClusterName"
+
+# Get the HSM cluster resource ID
+hsmResourceId=$(az resource show \
+  --resource-group $hsmResourceGroup \
+  --resource-type Microsoft.HardwareSecurityModules/cloudHsmClusters \
+  --name $hsmClusterName \
+  --query id --output tsv)
+
+# Get your existing storage account ID
+storageAccountId=$(az storage account list \
+  --resource-group $logsResourceGroup \
+  --query "[0].id" --output tsv)
+
+# Get your existing Log Analytics workspace ID
+workspaceId=$(az monitor log-analytics workspace list \
+  --resource-group $logsResourceGroup \
+  --query "[0].id" --output tsv)
+
+# Get the Event Hub auth rule ID
+authRuleId=$(az eventhubs namespace authorization-rule show \
+  --name "DiagnosticSettingsSendRule" \
+  --namespace-name "<eventhub-namespace>" \
+  --resource-group $logsResourceGroup \
+  --query id --output tsv)
+
+# Update the diagnostic setting with all three destinations
+az monitor diagnostic-settings create \
+  --name "<diagnostic-setting-name>" \
+  --resource $hsmResourceId \
+  --storage-account $storageAccountId \
+  --workspace $workspaceId \
+  --event-hub "cloudhsm-logs" \
+  --event-hub-rule $authRuleId \
+  --logs '[{"category":"HsmServiceOperations","enabled":true}]'
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 # Set your resource group variables
 $hsmResourceGroup = "<resource-group>"
 $logsResourceGroup = "<resource-group>"
 
-# Find the HSM cluster name (auto-generated during deployment)
-$hsmClusterName = az resource list `
-  --resource-group $hsmResourceGroup `
-  --resource-type Microsoft.HardwareSecurityModules/cloudHsmClusters `
-  --query "[0].name" --output tsv
+# Find the HSM cluster
+$hsmCluster = Get-AzResource `
+  -ResourceGroupName $hsmResourceGroup `
+  -ResourceType Microsoft.HardwareSecurityModules/cloudHsmClusters
+$hsmClusterName = $hsmCluster.Name
 Write-Host "HSM Cluster: $hsmClusterName"
 
-# Get the HSM cluster resource ID
-$hsmResourceId = az resource show `
-  --resource-group $hsmResourceGroup `
-  --resource-type Microsoft.HardwareSecurityModules/cloudHsmClusters `
-  --name $hsmClusterName `
-  --query id --output tsv
+# Get your existing storage account
+$storageAccount = Get-AzStorageAccount -ResourceGroupName $logsResourceGroup | Select-Object -First 1
 
-# Get your existing storage account ID
-$storageAccountId = az storage account list `
-  --resource-group $logsResourceGroup `
-  --query "[0].id" --output tsv
-
-# Get your existing Log Analytics workspace ID
-$workspaceId = az monitor log-analytics workspace list `
-  --resource-group $logsResourceGroup `
-  --query "[0].id" --output tsv
+# Get your existing Log Analytics workspace
+$workspace = Get-AzOperationalInsightsWorkspace -ResourceGroupName $logsResourceGroup | Select-Object -First 1
 
 # Get the Event Hub auth rule ID
-$authRuleId = az eventhubs namespace authorization-rule show `
-  --name "DiagnosticSettingsSendRule" `
-  --namespace-name "<eventhub-namespace>" `
-  --resource-group $logsResourceGroup `
-  --query id --output tsv
+$authRule = Get-AzEventHubAuthorizationRule `
+  -Name "DiagnosticSettingsSendRule" `
+  -NamespaceName "<eventhub-namespace>" `
+  -ResourceGroupName $logsResourceGroup
 
-# Update the diagnostic setting with all three destinations
-az monitor diagnostic-settings create `
-  --name "<diagnostic-setting-name>" `
-  --resource $hsmResourceId `
-  --storage-account $storageAccountId `
-  --workspace $workspaceId `
-  --event-hub "cloudhsm-logs" `
-  --event-hub-rule $authRuleId `
-  --logs '[{\"category\":\"HsmServiceOperations\",\"enabled\":true}]'
+# Create the diagnostic setting with all three destinations
+$log = New-AzDiagnosticSettingLogSettingsObject -Category HsmServiceOperations -Enabled $true
+
+New-AzDiagnosticSetting `
+  -Name "<diagnostic-setting-name>" `
+  -ResourceId $hsmCluster.ResourceId `
+  -StorageAccountId $storageAccount.Id `
+  -WorkspaceId $workspace.ResourceId `
+  -EventHubName "cloudhsm-logs" `
+  -EventHubAuthorizationRuleId $authRule.Id `
+  -Log $log
 ```
 
+---
+
 > [!IMPORTANT]
-> The `az monitor diagnostic-settings create` command performs an upsert operation. If the name matches an existing setting, it replaces the setting entirely. You must include `--storage-account` and `--workspace` again, or those destinations are removed.
+> Both CLI and PowerShell commands perform an upsert operation. If the name matches an existing setting, it replaces the setting entirely. You must include the storage account and workspace again, or those destinations are removed.
 
 ### Option B: Create a separate diagnostic setting for Event Hub only
 
 If you prefer to keep your existing setting unchanged and add a second one:
 
-```azurepowershell
-# Find the HSM cluster name (if you don't already have it from Option A)
-$hsmClusterName = az resource list `
-  --resource-group "<resource-group>" `
-  --resource-type Microsoft.HardwareSecurityModules/cloudHsmClusters `
-  --query "[0].name" --output tsv
+# [Azure CLI](#tab/azure-cli)
 
-$hsmResourceId = az resource show `
-  --resource-group "<resource-group>" `
-  --resource-type Microsoft.HardwareSecurityModules/cloudHsmClusters `
-  --name $hsmClusterName `
-  --query id --output tsv
+```azurecli
+# Find the HSM cluster name
+hsmClusterName=$(az resource list \
+  --resource-group "<resource-group>" \
+  --resource-type Microsoft.HardwareSecurityModules/cloudHsmClusters \
+  --query "[0].name" --output tsv)
 
-$authRuleId = az eventhubs namespace authorization-rule show `
-  --name "DiagnosticSettingsSendRule" `
-  --namespace-name "<eventhub-namespace>" `
-  --resource-group "<resource-group>" `
-  --query id --output tsv
+hsmResourceId=$(az resource show \
+  --resource-group "<resource-group>" \
+  --resource-type Microsoft.HardwareSecurityModules/cloudHsmClusters \
+  --name $hsmClusterName \
+  --query id --output tsv)
 
-az monitor diagnostic-settings create `
-  --name "chsm-eventhub-diagnostic-setting" `
-  --resource $hsmResourceId `
-  --event-hub "cloudhsm-logs" `
-  --event-hub-rule $authRuleId `
-  --logs '[{\"category\":\"HsmServiceOperations\",\"enabled\":true}]'
+authRuleId=$(az eventhubs namespace authorization-rule show \
+  --name "DiagnosticSettingsSendRule" \
+  --namespace-name "<eventhub-namespace>" \
+  --resource-group "<resource-group>" \
+  --query id --output tsv)
+
+az monitor diagnostic-settings create \
+  --name "chsm-eventhub-diagnostic-setting" \
+  --resource $hsmResourceId \
+  --event-hub "cloudhsm-logs" \
+  --event-hub-rule $authRuleId \
+  --logs '[{"category":"HsmServiceOperations","enabled":true}]'
 ```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+# Find the HSM cluster
+$hsmCluster = Get-AzResource `
+  -ResourceGroupName "<resource-group>" `
+  -ResourceType Microsoft.HardwareSecurityModules/cloudHsmClusters
+
+# Get the Event Hub auth rule ID
+$authRule = Get-AzEventHubAuthorizationRule `
+  -Name "DiagnosticSettingsSendRule" `
+  -NamespaceName "<eventhub-namespace>" `
+  -ResourceGroupName "<resource-group>"
+
+# Create the diagnostic setting for Event Hub only
+$log = New-AzDiagnosticSettingLogSettingsObject -Category HsmServiceOperations -Enabled $true
+
+New-AzDiagnosticSetting `
+  -Name "chsm-eventhub-diagnostic-setting" `
+  -ResourceId $hsmCluster.ResourceId `
+  -EventHubName "cloudhsm-logs" `
+  -EventHubAuthorizationRuleId $authRule.Id `
+  -Log $log
+```
+
+---
 
 > [!NOTE]
 > Azure supports up to five diagnostic settings per resource. A second setting is valid and keeps concerns separated.
@@ -232,37 +390,80 @@ After you configure the diagnostic setting, verify that Event Hub is receiving C
 
 Run the following command to check incoming messages over the last hour:
 
-```azurepowershell
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
 # Get your subscription ID
-$subId = az account show --query id --output tsv
+subId=$(az account show --query id --output tsv)
 
 # Check incoming messages (last 1 hour)
-az monitor metrics list `
-  --resource "/subscriptions/$subId/resourceGroups/<resource-group>/providers/Microsoft.EventHub/namespaces/<eventhub-namespace>" `
-  --metric "SuccessfulRequests" `
-  --interval PT1H `
+az monitor metrics list \
+  --resource "/subscriptions/$subId/resourceGroups/<resource-group>/providers/Microsoft.EventHub/namespaces/<eventhub-namespace>" \
+  --metric "SuccessfulRequests" \
+  --interval PT1H \
   --output table
 ```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+# Get the Event Hub namespace
+$namespace = Get-AzEventHubNamespace `
+  -ResourceGroupName "<resource-group>" `
+  -NamespaceName "<eventhub-namespace>"
+
+# Check incoming messages (last 1 hour)
+Get-AzMetric `
+  -ResourceId $namespace.Id `
+  -MetricName "SuccessfulRequests" `
+  -TimeGrain 01:00:00 `
+  -StartTime (Get-Date).AddHours(-1)
+```
+
+---
 
 ### Peek at messages (optional)
 
 If you want to read a few messages to confirm content, create a **Listen** rule:
 
-```azurepowershell
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
 # Create a Listen rule for your consumer
-az eventhubs namespace authorization-rule create `
-  --name "ConsumerListenRule" `
-  --namespace-name "<eventhub-namespace>" `
-  --resource-group "<resource-group>" `
+az eventhubs namespace authorization-rule create \
+  --name "ConsumerListenRule" \
+  --namespace-name "<eventhub-namespace>" \
+  --resource-group "<resource-group>" \
   --rights Listen
 
 # Get the connection string
-az eventhubs namespace authorization-rule keys list `
-  --name "ConsumerListenRule" `
-  --namespace-name "<eventhub-namespace>" `
-  --resource-group "<resource-group>" `
+az eventhubs namespace authorization-rule keys list \
+  --name "ConsumerListenRule" \
+  --namespace-name "<eventhub-namespace>" \
+  --resource-group "<resource-group>" \
   --query primaryConnectionString --output tsv
 ```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+# Create a Listen rule for your consumer
+New-AzEventHubAuthorizationRule `
+  -Name "ConsumerListenRule" `
+  -NamespaceName "<eventhub-namespace>" `
+  -ResourceGroupName "<resource-group>" `
+  -Rights @("Listen")
+
+# Get the connection string
+$keys = Get-AzEventHubKey `
+  -Name "ConsumerListenRule" `
+  -NamespaceName "<eventhub-namespace>" `
+  -ResourceGroupName "<resource-group>"
+
+$keys.PrimaryConnectionString
+```
+
+---
 
 You can use this connection string with Azure Event Hub Explorer, the VS Code Event Hub extension, or a Python script to peek at messages.
 
