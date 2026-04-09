@@ -140,6 +140,9 @@ conceptualContent:
         - url: ./secrets/overview-storage-keys-powershell.md
           itemType: overview
           text: Manage storage keys - PowerShell
+        - url: ./secrets/storage-keys-sas-tokens-code.md
+          itemType: overview
+          text: Fetch SAS tokens in code
 
     - title: Key Vault with Virtual Machines
       links:
