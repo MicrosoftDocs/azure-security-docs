@@ -237,31 +237,31 @@ This code uses the following [Key Vault Key classes and methods](/javascript/api
     ```JSON
     "key":  {
       "key": {
-        "kid": "https://YOUR-KEY-VAULT-ENDPOINT/keys/YOUR-KEY-NAME/YOUR-KEY-VERSION",
-        "kty": "YOUR-KEY-TYPE",
-        "keyOps": [ ARRAY-OF-VALID-OPERATIONS ],
+        "kid": "https://<your-key-vault-name>.vault.azure.net/keys/<your-key-name>/<key-version>",
+        "kty": "RSA",
+        "keyOps": [ "encrypt", "decrypt", "sign", "verify", "wrapKey", "unwrapKey" ],
         ... other properties based on key type
       },
-      "id": "https://YOUR-KEY-VAULT-ENDPOINT/keys/YOUR-KEY-NAME/YOUR-KEY-VERSION",
-      "name": "YOUR-KEY-NAME",
-      "keyOperations": [ ARRAY-OF-VALID-OPERATIONS ],
-      "keyType": "YOUR-KEY-TYPE",
+      "id": "https://<your-key-vault-name>.vault.azure.net/keys/<your-key-name>/<key-version>",
+      "name": "<your-key-name>",
+      "keyOperations": [ "encrypt", "decrypt", "sign", "verify", "wrapKey", "unwrapKey" ],
+      "keyType": "RSA",
       "properties": {
         "tags": undefined,
         "enabled": true,
         "notBefore": undefined,
         "expiresOn": undefined,
-        "createdOn": 2021-11-29T18:29:11.000Z,
-        "updatedOn": 2021-11-29T18:29:11.000Z,
+        "createdOn": 2025-11-29T18:29:11.000Z,
+        "updatedOn": 2025-11-29T18:29:11.000Z,
         "recoverableDays": 90,
         "recoveryLevel": "Recoverable+Purgeable",
         "exportable": undefined,
         "releasePolicy": undefined,
-        "vaultUrl": "https://YOUR-KEY-VAULT-ENDPOINT",
-        "version": "YOUR-KEY-VERSION",
-        "name": "YOUR-KEY-VAULT-NAME",
+        "vaultUrl": "https://<your-key-vault-name>.vault.azure.net",
+        "version": "<key-version>",
+        "name": "<your-key-name>",
         "managed": undefined,
-        "id": "https://YOUR-KEY-VAULT-ENDPOINT/keys/YOUR-KEY-NAME/YOUR-KEY-VERSION"
+        "id": "https://<your-key-vault-name>.vault.azure.net/keys/<your-key-name>/<key-version>"
       }
     }
     ```
@@ -291,31 +291,31 @@ This code uses the following [Key Vault Key classes and methods](/javascript/api
     ```JSON
     "key":  {
       "key": {
-        "kid": "https://YOUR-KEY-VAULT-ENDPOINT/keys/YOUR-KEY-NAME/YOUR-KEY-VERSION",
-        "kty": "YOUR-KEY-TYPE",
-        "keyOps": [ ARRAY-OF-VALID-OPERATIONS ],
+        "kid": "https://<your-key-vault-name>.vault.azure.net/keys/<your-key-name>/<key-version>",
+        "kty": "RSA",
+        "keyOps": [ "encrypt", "decrypt", "sign", "verify", "wrapKey", "unwrapKey" ],
         ... other properties based on key type
       },
-      "id": "https://YOUR-KEY-VAULT-ENDPOINT/keys/YOUR-KEY-NAME/YOUR-KEY-VERSION",
-      "name": "YOUR-KEY-NAME",
-      "keyOperations": [ ARRAY-OF-VALID-OPERATIONS ],
-      "keyType": "YOUR-KEY-TYPE",
+      "id": "https://<your-key-vault-name>.vault.azure.net/keys/<your-key-name>/<key-version>",
+      "name": "<your-key-name>",
+      "keyOperations": [ "encrypt", "decrypt", "sign", "verify", "wrapKey", "unwrapKey" ],
+      "keyType": "RSA",
       "properties": {
         "tags": undefined,
         "enabled": true,
         "notBefore": undefined,
         "expiresOn": undefined,
-        "createdOn": 2021-11-29T18:29:11.000Z,
-        "updatedOn": 2021-11-29T18:29:11.000Z,
+        "createdOn": 2025-11-29T18:29:11.000Z,
+        "updatedOn": 2025-11-29T18:29:11.000Z,
         "recoverableDays": 90,
         "recoveryLevel": "Recoverable+Purgeable",
         "exportable": undefined,
         "releasePolicy": undefined,
-        "vaultUrl": "https://YOUR-KEY-VAULT-ENDPOINT",
-        "version": "YOUR-KEY-VERSION",
-        "name": "YOUR-KEY-VAULT-NAME",
+        "vaultUrl": "https://<your-key-vault-name>.vault.azure.net",
+        "version": "<key-version>",
+        "name": "<your-key-name>",
         "managed": undefined,
-        "id": "https://YOUR-KEY-VAULT-ENDPOINT/keys/YOUR-KEY-NAME/YOUR-KEY-VERSION"
+        "id": "https://<your-key-vault-name>.vault.azure.net/keys/<your-key-name>/<key-version>"
       }
     }
     ```
