@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 01/08/2026
+ms.date: 04/09/2026
 ms.author: mbaldwin
 
 ---

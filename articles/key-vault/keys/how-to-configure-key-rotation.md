@@ -8,7 +8,7 @@ ms.custom: devx-track-arm-template, sfi-image-nochange, copilot-scenario-highlig
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: how-to
-ms.date: 04/02/2026
+ms.date: 04/09/2026
 ms.author: mbaldwin
 ---
 

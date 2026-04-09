@@ -8,7 +8,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, copilot-scenario-hig
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 01/30/2026
+ms.date: 04/09/2026
 ms.author: mbaldwin
 ---
 
