@@ -205,7 +205,7 @@ You can configure the key rotation policy by using ARM templates.
     "resources": [
         {
             "type": "Microsoft.KeyVault/vaults/keys",
-            "apiVersion": "2021-06-01-preview",
+            "apiVersion": "2024-11-01",
             "name": "[concat(parameters('vaultName'), '/', parameters('keyName'))]",
             "location": "[resourceGroup().location]",
             "properties": {

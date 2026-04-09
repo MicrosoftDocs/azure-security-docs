@@ -17,7 +17,7 @@ ms.custom: devx-track-azurepowershell
 # Import HSM-protected keys for Key Vault (nCipher)
 
 > [!WARNING]
-> The HSM-key import method described in this document is **deprecated** and will not be supported after June 30, 2021. It only works with nCipher nShield family of HSMs with firmware 12.40.2 or newer. Using [new method to import HSM-keys](hsm-protected-keys-byok.md) is strongly recommended.
+> The HSM-key import method described in this document is **deprecated and no longer supported** (since June 30, 2021). It only works with nCipher nShield family of HSMs with firmware 12.40.2 or newer. Use the [current BYOK method to import HSM-keys](hsm-protected-keys-byok.md) instead.
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 

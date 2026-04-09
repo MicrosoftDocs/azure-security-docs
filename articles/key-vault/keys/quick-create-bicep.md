@@ -69,7 +69,7 @@ param keySize int = 2048
 ])
 param curveName string = ''
 
-resource vault 'Microsoft.KeyVault/vaults@2021-11-01-preview' = {
+resource vault 'Microsoft.KeyVault/vaults@2024-11-01' = {
   name: vaultName
   location: location
   properties: {
@@ -92,7 +92,7 @@ resource vault 'Microsoft.KeyVault/vaults@2021-11-01-preview' = {
   }
 }
 
-resource key 'Microsoft.KeyVault/vaults/keys@2021-11-01-preview' = {
+resource key 'Microsoft.KeyVault/vaults/keys@2024-11-01' = {
   parent: vault
   name: keyName
   properties: {

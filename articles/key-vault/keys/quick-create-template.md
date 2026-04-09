@@ -8,7 +8,7 @@ ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
-ms.date: 11/19/2025
+ms.date: 04/09/2026
 
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
@@ -107,7 +107,7 @@ To complete this article:
   "resources": [
     {
       "type": "Microsoft.KeyVault/vaults",
-      "apiVersion": "2021-11-01-preview",
+      "apiVersion": "2024-11-01",
       "name": "[parameters('vaultName')]",
       "location": "[parameters('location')]",
       "properties": {
@@ -131,7 +131,7 @@ To complete this article:
     },
     {
       "type": "Microsoft.KeyVault/vaults/keys",
-      "apiVersion": "2021-11-01-preview",
+      "apiVersion": "2024-11-01",
       "name": "[format('{0}/{1}', parameters('vaultName'), parameters('keyName'))]",
       "properties": {
         "kty": "[parameters('keyType')]",

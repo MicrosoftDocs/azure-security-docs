@@ -26,10 +26,10 @@ This article shows you how to connect to Azure Key Vault by using the Azure Key 
 
 ## Set up your project
 
-1. Open a command prompt and change into your project folder. Change `YOUR-DIRECTORY` to your folder name:
+1. Open a command prompt and change into your project folder. Change `<your-directory>` to your folder name:
 
     ```bash
-    cd YOUR-DIRECTORY
+    cd <your-directory>
     ```
 
 1. If you don't have a `package.json` file already in your directory, initialize the project to create the file:
