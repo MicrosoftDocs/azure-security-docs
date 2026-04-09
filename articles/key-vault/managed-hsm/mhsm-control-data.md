@@ -6,7 +6,7 @@ ms.subservice: managed-hsm
 ms.topic: concept-article
 author: nkondamudi
 ms.author: nkondamudi
-ms.date: 01/08/2026
+ms.date: 04/07/2026
 ---
 
 # Control your data in the cloud by using Managed HSM
@@ -17,7 +17,7 @@ In this article, we take a deep dive on [Azure Key Vault Managed HSM](./overview
 
 Encryption is one of the key technical measures you can take to get sole control of your data. Azure fortifies your data through state-of-the-art encryption technologies, both for data at rest and for data in transit. Our encryption products erect barriers against unauthorized access to the data, including two or more independent encryption layers to protect against compromises of any single layer. In addition, Azure has clearly defined, well-established responses, policies and processes, strong contractual commitments, and strict physical, operational, and infrastructure security controls to provide our customers the ultimate control of their data in the cloud. The fundamental premise of Azure’s key management strategy is to give our customers more control over their data. We use a [zero trust](https://www.microsoft.com/security/business/zero-trust) posture with advanced enclave technologies, hardware security modules (HSMs), and identity isolation that reduces Microsoft access to customer keys and data.
 
-*Encryption at rest* provides data protection for stored data at rest and as required by an organization's need for data governance and compliance efforts. Microsoft’s compliance portfolio is the broadest in all public clouds worldwide, with industry standards and government regulations such as [HIPAA](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html),  [General Data Protection Regulation](https://gdpr.eu/), and [Federal Information Processing Standards (FIPS) 140-2 and 3](https://csrc.nist.gov/publications/detail/fips/140/2/final). These standards and regulations lay out specific safeguards for data protection and encryption requirements. In most cases, a mandatory measure is required for compliance.
+*Encryption at rest* provides data protection for stored data at rest and as required by an organization's need for data governance and compliance efforts. Microsoft’s compliance portfolio is the broadest in all public clouds worldwide, with industry standards and government regulations such as [HIPAA](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html) and [Federal Information Processing Standards (FIPS) 140-2 and 3](https://csrc.nist.gov/publications/detail/fips/140/2/final). These standards and regulations lay out specific safeguards for data protection and encryption requirements. In most cases, a mandatory measure is required for compliance.
 
 ## How does encryption at rest work?
 
@@ -28,10 +28,10 @@ Azure Key Vault services provide encryption and key management solutions that sa
 Secure key management is essential to protect and control data in the cloud. Azure offers various solutions that you can use to manage and control access to encryption keys so that you have choice and flexibility to meet stringent data protection and compliance needs.
 
 - **Azure platform encryption** is a *platform-managed* encryption solution that encrypts by using host-level encryption. Platform-managed keys are encryption keys that are generated, stored, and managed entirely by Azure.
-- **Customer-managed keys** are keys that are created, read, deleted, updated, and administered entirely by the customer. Customer-managed keys can be stored in a cloud key management service like Azure Key Vault.
+- **Customer-managed keys (CMK)** is a key management control model in which the customer creates, rotates, and manages the key encryption key (KEK) lifecycle. Azure services use these customer-owned keys to wrap and unwrap their data encryption keys. Customer-managed keys can be stored in Azure Key Vault or Azure Managed HSM.
 - **Azure Key Vault Standard** encrypts by using a software key and is FIPS 140-2 Level 1 compliant.
 - **Azure Key Vault Premium** encrypts by using keys protected by [FIPS 140 validated HSMs](/azure/key-vault/keys/about-keys#compliance).
-- **Azure Key Vault Managed HSM** encrypts by using single-tenant FIPS 140-3 Level 3 HSM protected keys and is fully managed by Microsoft.
+- **Azure Key Vault Managed HSM** is a fully managed service that encrypts by using single-tenant, customer-controlled, FIPS 140-3 Level 3 HSM-protected keys.
 
 For added assurance, in Azure Key Vault Premium and Azure Key Vault Managed HSM, you can [bring your own key (BYOK)](../keys/hsm-protected-keys-byok.md) and import HSM-protected keys from an on-premises HSM.
 
@@ -123,7 +123,7 @@ Several layers of technical controls in Managed HSM further protect your key mat
   - **Private endpoints**: By enabling a private endpoint, you're bringing the Managed HSM service into your virtual network allowing you to isolate that service only to trusted endpoints like your virtual network and Azure services. All traffic to and from your managed HSM will travel along the secure Microsoft backbone network without having to traverse the public internet.
   - **Monitoring and logging**: The outermost layer of protection is the monitoring and logging capabilities of Managed HSM. By using the Azure Monitor service, you can check your logs for analytics and alerts to ensure that access patterns conform with your expectations. This allows members of your security team to have visibility into what is happening within the Managed HSM service. If something doesn't look right, you can always roll your keys or revoke permissions.
   - **Bring your own key (BYOK)**: BYOK enables Azure customers to use any supported on-premises HSMs to generate keys, and then import them to the managed HSM. Some customers prefer to use on-premises HSMs to generate keys to meet regulatory and compliance requirements. Then, they use BYOK to securely transfer an HSM-protected key to the managed HSM. The key to be transferred never exists outside of an HSM in plaintext form. During the import process, the key material is protected with a key that's held in the managed HSM.
-  - **External HSM**: Some customers have asked us if they can explore the option of having the HSM outside the Azure cloud to keep the data and keys segregated with an external HSM, either on a third-party cloud or on-premises. Although using a third-party HSM outside of Azure seems to give customers more control over keys, it introduces several concerns, such as latency that causes performance issues, SLA slip that's caused by issues with the third-party HSM, and maintenance and training costs. Also, a third-party HSM can't use key Azure features like soft delete and purge protection. We continue to evaluate this technical option with our customers to help them navigate the complex security and compliance landscape.
+  - **External HSM**: Some customers have asked us if they can explore the option of having the HSM outside the Azure cloud to keep the data and keys segregated with an external HSM, either on a non-Microsoft cloud or on-premises. Although using a non-Microsoft HSM outside of Azure seems to give customers more control over keys, it introduces several concerns, such as latency that causes performance issues, SLA slip that's caused by issues with the non-Microsoft HSM, and maintenance and training costs. Also, a non-Microsoft HSM can't use key Azure features like soft delete and purge protection. We continue to evaluate this technical option with our customers to help them navigate the complex security and compliance landscape.
 
 #### Administrative security controls
 
@@ -140,7 +140,7 @@ These administrative security controls are in place in Azure Key Vault Managed H
 - **[Microsoft Security Response Center](https://www.microsoft.com/msrc) (MSRC)**. Managed HSM service administration is tightly integrated with MSRC.
   - Security monitoring for unexpected administrative operations with full 24/7 security response
 - **[Cloud resilient and secure supply chain](https://azure.microsoft.com/blog/advancing-reliability-through-a-resilient-cloud-supply-chain/)**. Managed HSM advances reliability through a resilient cloud supply chain.
-- **[Regulatory compliance built-in initiative](/azure/governance/policy/samples/built-in-initiatives#regulatory-compliance)**. Compliance in Azure Policy provides built-in initiative definitions to view a list of the controls and compliance domains based on responsibility (Customer, Microsoft, Shared). For Microsoft-responsible controls, we provide additional details of our audit results based on third-party attestation and our implementation details to achieve that compliance.
+- **[Regulatory compliance built-in initiative](/azure/governance/policy/samples/built-in-initiatives#regulatory-compliance)**. Compliance in Azure Policy provides built-in initiative definitions to view a list of the controls and compliance domains based on responsibility (Customer, Microsoft, Shared). For Microsoft-responsible controls, we provide additional details of our audit results based on non-Microsoft attestation and our implementation details to achieve that compliance.
 - **[Audit reports](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3)**. Resources to help information security and compliance professionals understand cloud features, and to verify technical compliance and control requirements
 - **Assume breach philosophy**. We assume that any component could be compromised at any time, and we design and test appropriately. We do regular Red Team/Blue Team exercises ([attack simulation](/compliance/assurance/assurance-monitoring-and-testing)).
 

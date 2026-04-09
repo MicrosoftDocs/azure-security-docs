@@ -8,7 +8,7 @@ ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 03/13/2026
+ms.date: 03/30/2026
 
 ms.author: mbaldwin
 ---
@@ -22,25 +22,16 @@ For an overview of Managed HSM, see [What is Managed HSM?](overview.md)
 
 ## Prerequisites
 
-[!INCLUDE [Azure subscription prerequisite](../includes/azure-subscription-prerequisite.md)]
+[!INCLUDE [Azure subscription prerequisite](~/reusable-content/ce-skilling/azure/includes/azure-subscription-prerequisite.md)]
 
 You also need:
 
-* The Azure CLI version 2.25.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
-* A managed HSM in your subscription. See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to provision and activate a managed HSM.
+[!INCLUDE [CLI prerequisites](~/reusable-content/ce-skilling/azure/includes/managed-hsm/cli-prerequisites.md)]
 * To access keys using Azure SDKs, see [.NET](quickstart-dotnet.md) | [Python](quickstart-python.md) | [JavaScript](quickstart-javascript.md)
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
-## Sign in to Azure
-
-Sign in to Azure by using the CLI and typing the following command:
-
-```azurecli
-az login
-```
-
-For more information about sign-in options through the CLI, see [sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
+[!INCLUDE [Sign in to Azure](~/reusable-content/ce-skilling/azure/includes/managed-hsm/cli-sign-in.md)]
 
 > [!NOTE]
 > All the following commands show two usage methods. One method uses the `--hsm-name` and `--name` (for key name) parameters. The other method uses the `--id` parameter, where you can specify the entire URL including the key name when appropriate. The latter method is useful when the caller (a user or an application) has no read access on the control plane and only restricted access on the data plane.

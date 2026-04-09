@@ -7,7 +7,7 @@ ms.custom: devx-track-azurecli
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: how-to
-ms.date: 03/13/2026
+ms.date: 03/30/2026
 ms.author: mbaldwin
 # Customer intent: As a managed HSM administrator, I want to set access control and configure the Managed HSM, so that I can ensure it's secure and auditors can properly monitor all activities for this Managed HSM.
 ---
@@ -21,24 +21,15 @@ This tutorial provides a practical implementation example of access control for 
 
 ## Prerequisites
 
-[!INCLUDE [Azure subscription prerequisite](../includes/azure-subscription-prerequisite.md)]
+[!INCLUDE [Azure subscription prerequisite](~/reusable-content/ce-skilling/azure/includes/azure-subscription-prerequisite.md)]
 
 You also need:
 
-* The Azure CLI version 2.25.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
-* A managed HSM in your subscription. See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to provision and activate a managed HSM.
+[!INCLUDE [CLI prerequisites](~/reusable-content/ce-skilling/azure/includes/managed-hsm/cli-prerequisites.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
-## Sign in to Azure
-
-To sign in to Azure by using the CLI, enter:
-
-```azurecli
-az login
-```
-
-For more information about authentication options through the CLI, see [sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
+[!INCLUDE [Sign in to Azure](~/reusable-content/ce-skilling/azure/includes/managed-hsm/cli-sign-in.md)]
 
 ## Understand the example scenario
 

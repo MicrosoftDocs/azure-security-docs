@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 04/15/2025
+ms.date: 03/30/2026
 ms.author: mbaldwin
 ---
 # Managed HSM role management
@@ -25,24 +25,15 @@ For a list of all Managed HSM built-in roles and the operations they permit, see
 
 ## Prerequisites
 
-[!INCLUDE [Azure subscription prerequisite](../includes/azure-subscription-prerequisite.md)]
+[!INCLUDE [Azure subscription prerequisite](~/reusable-content/ce-skilling/azure/includes/azure-subscription-prerequisite.md)]
 
 You also need:
 
-* Azure CLI version 2.25.0 or later. Run `az --version` to find the version. To install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
-* A managed HSM in your subscription. To provision and activate a managed HSM, see [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md).
+[!INCLUDE [CLI prerequisites](~/reusable-content/ce-skilling/azure/includes/managed-hsm/cli-prerequisites.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
-## Sign in to Azure
-
-To sign in to Azure using the CLI you can type:
-
-```azurecli
-az login
-```
-
-For more information on sign in options via the CLI, see [sign in with Azure CLI](/cli/azure/authenticate-azure-cli)
+[!INCLUDE [Sign in to Azure](~/reusable-content/ce-skilling/azure/includes/managed-hsm/cli-sign-in.md)]
 
 ## Create a new role assignment
 

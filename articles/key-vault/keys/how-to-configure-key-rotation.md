@@ -8,7 +8,7 @@ ms.custom: devx-track-arm-template, sfi-image-nochange, copilot-scenario-highlig
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: how-to
-ms.date: 01/30/2026
+ms.date: 04/02/2026
 ms.author: mbaldwin
 ---
 
@@ -59,7 +59,9 @@ Key rotation policy settings:
 -   Notification time: key near expiry event interval for Event Grid notification. It requires 'Expiry Time' set on rotation policy and 'Expiration Date' set on the key. 
 
 > [!IMPORTANT]
-> Key rotation generates a new key version of an existing key with new key material. Target services should use versionless key URI to automatically refresh to the latest version of the key. Ensure that your data encryption solution stores versioned key URI with data to point to the same key material for decrypt/unwrap as was used for encrypt/wrap operations to avoid disruption to your services. All Azure services currently follow that pattern for data encryption.
+> Key rotation generates a new key version of an existing key with new key material. Target services should use versionless key URI to automatically refresh to the latest version of the key. Ensure that your data encryption solution stores versioned key URI with data to point to the same key material for decrypt/unwrap operations to avoid disruption to your services. All Azure services currently follow that pattern for data encryption.
+>
+> Key rotation re-wraps data encryption keys (DEKs) with the new key version — it does not re-encrypt the underlying data. Both old and new key versions must remain enabled until re-wrapping is complete, because existing data remains encrypted under DEKs wrapped by the old key version.
 
 :::image type="content" source="../media/keys/key-rotation/key-rotation-1.png" alt-text="Rotation policy configuration":::
 

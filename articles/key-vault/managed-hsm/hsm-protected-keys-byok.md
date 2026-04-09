@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: how-to
-ms.date: 01/30/2026
+ms.date: 03/30/2026
 ms.author: mbaldwin
 ---
 
@@ -38,7 +38,7 @@ Here's an overview of the process. Specific steps to complete are described late
 
 ## Prerequisites
 
-[!INCLUDE [Azure subscription prerequisite](../includes/azure-subscription-prerequisite.md)]
+[!INCLUDE [Azure subscription prerequisite](~/reusable-content/ce-skilling/azure/includes/azure-subscription-prerequisite.md)]
 
 You also need:
 

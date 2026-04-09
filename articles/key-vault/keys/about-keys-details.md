@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: concept-article
-ms.date: 03/06/2026
+ms.date: 04/02/2026
 ms.author: mbaldwin
 ---
 
@@ -139,10 +139,10 @@ The following read-only attributes are included in any response that includes ke
 - *created*: IntDate, optional. The *created* attribute indicates when this version of the key was created. The value is null for keys created before the addition of this attribute. Its value MUST be a number containing an IntDate value.  
 - *updated*: IntDate, optional. The *updated* attribute indicates when this version of the key was updated. The value is null for keys that were last updated before the addition of this attribute. Its value MUST be a number containing an IntDate value.
 - *hsmPlatform*: string, optional. The underlying HSM platform that protects a key.
-    - A `hsmPlatform` value of `2` means the key is protected by the latest FIPS 140 Level 3 validated HSM platform.
-    - A `hsmPlatform` value of `1` means the key is protected by the previous FIPS 140 Level 2 validated HSM platform.
-    - A `hsmPlatform` value of `0` means the key is protected by a FIPS 140 Level 1 software cryptographic module.
-    - If you don't set this value by using a Managed HSM pool, the key is protected by the latest FIPS 140 Level 3 validated HSM platform.
+    - A `hsmPlatform` value of `2` means the key is protected by the latest FIPS 140-3 Level 3 validated HSM platform.
+    - A `hsmPlatform` value of `1` means the key is protected by the previous FIPS 140-2 Level 2 validated HSM platform.
+    - A `hsmPlatform` value of `0` means the key is protected by a FIPS 140-2 Level 1 software cryptographic module.
+    - If you don't set this value by using a Managed HSM pool, the key is protected by the latest FIPS 140-3 Level 3 validated HSM platform.
  
 Keys are bound to the HSM in which you created them. You create and store new keys seamlessly in the new HSMs. While you can't migrate or transfer keys, new key versions are automatically in the new HSMs. For more information about how to migrate to a new key, see [How to migrate key workloads](../general/migrate-key-workloads.md).
 
