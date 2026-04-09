@@ -70,7 +70,7 @@ az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import 
 ```
 
 > [!NOTE]
-> Services support different KEK lengths. Azure SQL, for instance, only supports key lengths of [2048 or 3072 bytes](/azure/azure-sql/database/transparent-data-encryption-byok-overview#requirements-for-configuring-customer-managed-tde). Consult the documentation for your service for specifics.
+> Services support different KEK lengths. Azure SQL, for instance, only supports key lengths of [2048-bit or 3072-bit](/azure/azure-sql/database/transparent-data-encryption-byok-overview#requirements-for-configuring-customer-managed-tde). Consult the documentation for your service for specifics.
 
 ### Retrieve the public key of the KEK
 
@@ -140,7 +140,7 @@ az keyvault key import --vault-name <vault-name> --name <key-name> --kty EC-HSM 
 When you run this command, it sends a REST API request as follows:
 
 ```
-PUT https://<vault-name>.vault.azure.net/keys/<key-name>?api-version=7.0
+PUT https://<vault-name>.vault.azure.net/keys/<key-name>?api-version=7.6
 ```
 
 Request body when importing an RSA key:
