@@ -25,15 +25,52 @@ This article provides samples of .NET code that creates a SAS definition and fet
 
 In the following example, a SAS template is created:
 
-:::code language="csharp" source="~/azure-sdk-for-net/sdk/keyvault/samples/sharelink/Program.cs" range="91-97":::
+```csharp
+private static string BuildSasDefinitionTemplate(bool readOnly) =>
+        new StringBuilder("sv=2018-03-28")  // service version
+            .Append("&spr=https")           // HTTPS only
+            .Append("&ss=bf")               // blobs and files only
+            .Append("&srt=o")               // applies to objects only
+            .Append(readOnly ? "&sp=r" : "&sp=rw")  // read-only or read-write
+            .ToString();
+```
 
 Using this template, you can create a SAS definition by using the following code:
 
-:::code language="csharp" source="~/azure-sdk-for-net/sdk/keyvault/samples/sharelink/Program.cs" range="137-156":::
+```csharp
+string sasDefinitionName = BuildSasDefinitionName(Tag, readOnly, duration);
+        SasDefinitionAttributes sasDefinitionAttributes = new SasDefinitionAttributes
+        {
+            Enabled = true,
+        };
+
+        Dictionary<string, string> tags = new Dictionary<string, string>
+        {
+            [Tag] = "1",
+        };
+
+        SasDefinitionBundle createdSasDefinition = await storageClient.SetSasDefinitionAsync(
+            storageAccountName,
+            sasDefinitionName,
+            sasTemplate,
+            SasTokenType.Account,
+            duration,
+            sasDefinitionAttributes,
+            tags,
+            s_cancellationTokenSource.Token);
+```
 
 Once the SAS definition is created, you can retrieve SAS tokens like secrets using a `SecretClient`. You need to preface the secret name with the storage account name followed by a dash:
 
-:::code language="csharp" source="~/azure-sdk-for-net/sdk/keyvault/samples/sharelink/Program.cs" range="52-58":::
+```csharp
+// Build our SAS template, get an existing SAS definition, or create a new one.
+        string sasTemplate = BuildSasDefinitionTemplate(readOnly);
+        string sasDefinitionName = await GetOrCreateSasDefinitionAsync(storageClient, storageAccountName, sasTemplate, days, readOnly);
+
+        // Now we can create a SecretClient and generate a new SAS token from the storage account and SAS definition names.
+        SecretClient secretClient = new SecretClient(vaultUri, credential, options);
+        KeyVaultSecret sasToken = await secretClient.GetSecretAsync($"{storageAccountName}-{sasDefinitionName}", cancellationToken: s_cancellationTokenSource.Token);
+```
 
 If your shared access signature token is about to expire, you can fetch the same secret again to generate a new one.
 
