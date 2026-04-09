@@ -82,7 +82,7 @@ Next, you'll create a function app with a system-managed identity, in addition t
 The function app rotation function requires the following components and configuration:
 - An Azure App Service plan
 - A storage account to manage function app triggers
-- An access policy to access secrets in Key Vault
+- An Azure RBAC role assignment to access secrets in Key Vault
 - The Storage Account Key Operator Service role assigned to the function app so it can access storage account access keys
 - A key rotation function with an event trigger and an HTTP trigger (on-demand rotation)
 - An Event Grid event subscription for the **SecretNearExpiry** event

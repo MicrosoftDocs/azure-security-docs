@@ -15,7 +15,7 @@ ms.topic: how-to
 
 ### I'm not able to list or get secrets/keys/certificate. I'm seeing a "something went wrong" error
 
-If you're having problem with listing/getting/creating or accessing secret, make sure that you have the appropriate Azure RBAC role assigned. See [Azure RBAC for Key Vault](./rbac-guide.md). If you're using the legacy access policy model, see [Key Vault Access Policies](./assign-access-policy-cli.md).
+If you're having problem with listing/getting/creating or accessing secret, make sure that you have the appropriate Azure RBAC role assigned. See [Azure RBAC for Key Vault](./rbac-guide.md). If you're using the legacy access policy model, see [Assign a Key Vault access policy](./assign-access-policy.md).
 
 ### How can I identify how and when key vaults are accessed?
 
@@ -52,7 +52,7 @@ If you're creating an on-premises application, doing local development, or other
 Give the AD group permissions to your key vault using Azure RBAC with the Azure CLI `az role assignment create` command, or the Azure PowerShell `New-AzRoleAssignment` cmdlet. See [Azure RBAC for Key Vault data plane operations](rbac-guide.md).
 
 > [!NOTE]
-> If you are using legacy access policies, you can use the Azure CLI `az keyvault set-policy` command or the Azure PowerShell `Set-AzKeyVaultAccessPolicy` cmdlet. However, Azure RBAC is the recommended authorization model. See [Assign an access policy - CLI](assign-access-policy-cli.md) and [Assign an access policy - PowerShell](assign-access-policy-powershell.md).
+> If you are using legacy access policies, you can use the Azure CLI `az keyvault set-policy` command or the Azure PowerShell `Set-AzKeyVaultAccessPolicy` cmdlet. However, Azure RBAC is the recommended authorization model. See [Assign a Key Vault access policy](assign-access-policy.md).
 
 The application also needs at least one Identity and Access Management (IAM) role assigned to the key vault. Otherwise it will not be able to log in and will fail with insufficient rights to access the subscription. Microsoft Entra groups with Managed Identities may require many hours to refresh tokens and become effective. See [Limitation of using managed identities for authorization](/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations#limitation-of-using-managed-identities-for-authorization)
 
@@ -67,7 +67,7 @@ Another option that can help for this scenario is using Azure RBAC and roles as 
 * HTTP 401: Unauthenticated Request - [Troubleshooting steps](rest-error-codes.md#http-401-unauthenticated-request)
 * HTTP 403: Insufficient Permissions - [Troubleshooting steps](rest-error-codes.md#http-403-insufficient-permissions)
 * HTTP 429: Too Many Requests - [Troubleshooting steps](rest-error-codes.md#http-429-too-many-requests)
-* Check if you've delete access permission to key vault: See [Azure RBAC for Key Vault](./rbac-guide.md). If using legacy access policies, see [Assign an access policy - CLI](assign-access-policy-cli.md), [Assign an access policy - PowerShell](assign-access-policy-powershell.md), or [Assign an access policy - Portal](assign-access-policy-portal.md).
+* Check if you've delete access permission to key vault: See [Azure RBAC for Key Vault](./rbac-guide.md). If using legacy access policies, see [Assign a Key Vault access policy](assign-access-policy.md).
 * If you have problem with authenticate to key vault in code, use [Authentication SDK](https://azure.github.io/azure-sdk/posts/2020-02-25/defaultazurecredentials.html)
 
 ### What are the best practices I should implement when key vault is getting throttled?
