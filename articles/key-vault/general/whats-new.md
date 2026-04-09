@@ -205,7 +205,7 @@ New features and integrations released this year:
 
 New features released this year:
 
-- Managed storage account keys. Storage Account Keys feature added easier integration with Azure Storage. For more information, see [Managed Storage Account Keys overview](../secrets/overview-storage-keys.md).
+- Managed storage account keys (deprecated). Storage Account Keys feature added easier integration with Azure Storage. This feature is now deprecated; use [Microsoft Entra ID authorization for Azure Storage](/azure/storage/common/authorize-data-access) instead.
 - Soft delete. Soft-delete feature improves data protection of your key vaults and key vault objects. For more information, see [Soft-delete overview](./soft-delete-overview.md).
 
 ## 2015

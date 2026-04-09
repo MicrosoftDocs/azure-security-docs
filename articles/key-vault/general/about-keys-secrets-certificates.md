@@ -65,7 +65,7 @@ The Azure Key Vault resource provider supports two resource types: vaults and ma
 - **Cryptographic keys**: Supports multiple key types and algorithms, and enables the use of software-protected and HSM-protected keys. For more information, see [About keys](../keys/about-keys.md).
 - **Secrets**: Provides secure storage of secrets, such as passwords and database connection strings. For more information, see [About secrets](../secrets/about-secrets.md).
 - **Certificates**: Supports certificates, which are built on top of keys and secrets and add an automated renewal feature. When you create a certificate, the process also creates an addressable key and secret with the same name. For more information, see [About certificates](../certificates/about-certificates.md).
-- **Azure Storage account keys**: Can manage keys of an Azure Storage account for you. Internally, Key Vault can list (sync) keys with an Azure Storage Account, and regenerate (rotate) the keys periodically. For more information, see [Manage storage account keys with Key Vault](../secrets/overview-storage-keys.md).
+- **Azure Storage account keys (legacy, deprecated)**: Key Vault previously could manage keys of an Azure Storage account. This feature is deprecated; use [Microsoft Entra ID authorization for Azure Storage](/azure/storage/common/authorize-data-access) instead.
 
 For more general information about Key Vault, see [About Azure Key Vault](overview.md). For more information about Managed HSM pools, see What is [Azure Key Vault Managed HSM?](../managed-hsm/overview.md)
 
