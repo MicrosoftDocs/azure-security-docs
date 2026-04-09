@@ -21,15 +21,15 @@ This article shows you how to connect to Azure Key Vault by using the Azure Key 
 ## Prerequisites  
   
 - An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- [Azure Key Vault](../general/quick-create-cli.md) instance. Review [the access policies](../general/assign-access-policy.md) on your Key Vault to include the permissions necessary for the specific tasks performed in code.
+- [Azure Key Vault](../general/quick-create-cli.md) instance. Ensure the identity running your code has the appropriate [Azure RBAC role](../general/rbac-guide.md) for the specific tasks performed in code.
 - [Node.js version LTS](https://nodejs.org/)  
 
 ## Set up your project
 
-1. Open a command prompt and change into your project folder. Change `YOUR-DIRECTORY` to your folder name:
+1. Open a command prompt and change into your project folder. Change `<project-directory>` to your folder name:
 
     ```bash
-    cd YOUR-DIRECTORY
+    cd <project-directory>
     ```
 
 1. If you don't have a `package.json` file already in your directory, initialize the project to create the file:
