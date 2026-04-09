@@ -31,7 +31,7 @@ ms.author: mbaldwin
         ```azurecli-interactive
         echo "Enter your email address that is used to sign in to Azure:" &&
         read upn &&
-        az ad user show --id $upn --query "objectId" &&
+        az ad user show --id $upn --query "id" &&
         echo "Press [ENTER] to continue ..."
         ```
 
