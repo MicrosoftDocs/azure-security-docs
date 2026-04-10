@@ -6,7 +6,7 @@ ms.author: mbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 04/02/2026
+ms.date: 04/10/2026
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, sfi-image-nochange
 
 #customer intent: As an Azure Key Vault administrator, I want to migrate from access policies to Azure RBAC so that I can improve security and simplify access management.
@@ -15,13 +15,13 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, sfi-image-nochange
 
 # Prepare for Key Vault API version 2026-02-01 and later: Azure RBAC as default access control
 
-Azure Key Vault API version 2026-02-01 and later change the default access control model for new vaults to Azure RBAC, consistent with the Azure portal experience. Both Azure RBAC and access policies remain fully supported. API version 2026-02-01 is available in public Azure regions, Mooncake, and Fairfax.
+Azure Key Vault API version 2026-02-01 and later change the default access control model for new vaults to Azure RBAC, consistent with the Azure portal experience. Both Azure RBAC and access policies remain fully supported. API version 2026-02-01 is available in public Azure regions, Azure operated by 21Vianet, and Azure Government.
 
 - **New key vault creation behavior**: When you create a new vault with API version `2026-02-01` or later, the default access control model is Azure RBAC (`enableRbacAuthorization = true`). This default applies only to **create** operations. To use access policies for new vaults, set `enableRbacAuthorization` to `false` at creation time.
 - **Existing key vault behavior**: Existing vaults keep their current access control model unless you explicitly change `enableRbacAuthorization`. Using API version `2026-02-01` or later to update a vault does not automatically change access control. Vaults where `enableRbacAuthorization` is `null` (from older API versions) continue using access policies.
 
 > [!IMPORTANT]
-> All Key Vault Control Plane API versions before 2026-02-01 retire on February 27, 2027. Data Plane APIs are not affected.
+> All Key Vault control plane API versions before 2026-02-01 retire on February 27, 2027. Your key vaults will continue to exist and remain manageable with control plane API versions 2026-02-01 or later. Data plane APIs are not affected.
 
 Preview API versions (except 2026-04-01-preview) are being deprecated with a 90-day notice period. Azure Cloud Shell always uses the latest API version. If you have scripts that run in Cloud Shell, ensure they're compatible with API version 2026-02-01 or later. For a list of supported API versions, see [Supported control plane API versions](whats-new.md#supported-control-plane-api-versions). For SDK package details, see [What's new for Azure Key Vault](whats-new.md#control-plane-sdk-releases).
 
@@ -32,7 +32,7 @@ We encourage you to migrate key vaults that currently use access policies (legac
 If you already know your vault's access control model, skip to [Determine your next steps](#determine-your-next-steps). Otherwise, [check your current configuration](#check-your-current-configuration) first.
 
 > [!IMPORTANT]
-> To change the `enableRbacAuthorization` property for a key vault, you must have the `Microsoft.Authorization/roleAssignments/write` permission. This permission is included in roles such as Owner and User Access Administrator. For more information, see [Enable Azure RBAC permissions on Key Vault](rbac-guide.md#enable-azure-rbac-permissions-on-key-vault).
+> To change the `enableRbacAuthorization` property for a key vault, you must have the `Microsoft.KeyVault/vaults/write` permission (included in roles such as Contributor and Owner). The Azure portal additionally requires `Microsoft.Authorization/roleAssignments/write` (included in roles such as Owner and User Access Administrator) to ensure you can assign Key Vault RBAC roles after the change and avoid lockout. For more information, see [Enable Azure RBAC permissions on Key Vault](rbac-guide.md#enable-azure-rbac-permissions-on-key-vault).
 
 ## Check your current configuration
 
@@ -116,7 +116,7 @@ az keyvault list --resource-group <resource-group> --query "[].{name:name, rbacE
 
 ---
 
-### Check multiple vaults by subscription ID
+### Check multiple vaults across your subscription
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -169,7 +169,7 @@ Based on your current access control model, follow the appropriate guidance belo
 
 ### Vaults using Azure RBAC
 
-If your key vaults already use Azure RBAC, no access control changes are needed. However, you must update all Key Vault control plane management SDKs, ARM, BICEP, Terraform templates, and [REST API](/rest/api/keyvault/) calls to use API version 2026-02-01 or later before February 27, 2027, when older control plane API versions retire.
+If your key vaults already use Azure RBAC, no access control changes are needed. However, you must update all Key Vault control plane management SDKs, ARM, Bicep, Terraform templates, and [REST API](/rest/api/keyvault/) calls to use API version 2026-02-01 or later before February 27, 2027, when older control plane API versions retire.
 
 ### Vaults using access policies
 
@@ -186,7 +186,7 @@ Choose your path:
 
 Use this opportunity to increase your security posture by migrating from vault access policies to Azure RBAC. For detailed migration guidance, see [Migrate from vault access policy to an Azure role-based access control permission model](rbac-migration.md).
 
-After migrating, update all Key Vault control plane management SDKs, ARM, BICEP, Terraform templates, and REST API calls to use API version 2026-02-01 or later.
+After migrating, update all Key Vault control plane management SDKs, ARM, Bicep, Terraform templates, and REST API calls to use API version 2026-02-01 or later.
 
 <a name="step-5-continue-using-access-policies"></a>
 
@@ -194,17 +194,17 @@ After migrating, update all Key Vault control plane management SDKs, ARM, BICEP,
 
 Access policies remain a fully supported access control model.
 
-- **Existing vaults**: Vaults already using access policies continue to work without changes. Just ensure your control plane management SDKs, ARM, BICEP, Terraform templates, and REST API calls use API version 2026-02-01 or later before February 27, 2027.
+- **Existing vaults**: Vaults already using access policies continue to work without changes. Just ensure your control plane management SDKs, ARM, Bicep, Terraform templates, and REST API calls use API version 2026-02-01 or later before February 27, 2027.
 - **New vaults**: When creating new vaults with API version 2026-02-01 or later, you must explicitly set `enableRbacAuthorization` to `false` to use access policies, as described below.
 
 Choose one of the following methods based on your scenario:
-- [Using ARM, BICEP, Terraform templates](#using-arm-bicep-terraform-templates)
+- [Using ARM, Bicep, Terraform templates](#using-arm-bicep-terraform-templates)
 - [Using Create Key Vault commands](#using-create-key-vault-commands)
 - [Using Create Resource commands](#using-create-resource-commands)
 
-##### Using ARM, BICEP, Terraform templates
+##### Using ARM, Bicep, Terraform templates
 
-When creating new key vaults by using API version 2026-02-01 or later, set `enableRbacAuthorization` to `false` in all Key Vault ARM, BICEP, Terraform templates, and [REST API](/rest/api/keyvault/) calls to use access policies (legacy).
+When creating new key vaults by using API version 2026-02-01 or later, set `enableRbacAuthorization` to `false` in all Key Vault ARM, Bicep, Terraform templates, and [REST API](/rest/api/keyvault/) calls to use access policies (legacy).
 
 ##### Using Create Key Vault commands
 
