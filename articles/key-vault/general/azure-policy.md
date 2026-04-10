@@ -20,7 +20,7 @@ Example Usage Scenarios:
 - You currently don't have a solution to perform an audit across your organization, or you're conducting manual audits of your environment by asking individual teams within your organization to report their compliance. You're looking for a way to automate this task, perform audits in real time, and guarantee the accuracy of the audit.
 - You want to enforce your company security policies and stop individuals from creating self-signed certificates, but you don't have an automated way to block their creation.
 - You want to relax some requirements for your test teams, but you want to maintain tight controls over your production environment. You need a simple automated way to separate enforcement of your resources.
-- You want to be sure that you can roll back enforcement of new policies in the event that there is a live-site issue. You need a one-click solution to turn off enforcement of the policy.
+- You want to be sure that you can roll back enforcement of new policies in the event that there's a live-site issue. You need a one-click solution to turn off enforcement of the policy.
 - You rely on a third-party solution for auditing your environment and you want to use an internal Microsoft offering.
 
 ## Types of policy effects and guidance
@@ -96,12 +96,12 @@ Drive the enabling of resource logs to recreate activity trails to use for inves
 
 #### Lifecycle of Certificates
 
-Promote the use of short-lived certificates to mitigate undetected attacks, by minimizing the time-frame of ongoing damage and reducing the value of the certificate to attackers. When implementing short-lived certificates it is recommended to regularly monitor their expiration date to avoid outages, so that they can be rotated adequately before expiration. You can also control the lifetime action specified for certificates that are either within a certain number of days of their expiration or have reached a certain percentage of their usable life.
+Promote the use of short-lived certificates to mitigate undetected attacks, by minimizing the time-frame of ongoing damage and reducing the value of the certificate to attackers. When implementing short-lived certificates it's recommended to regularly monitor their expiration date to avoid outages, so that they can be rotated adequately before expiration. You can also control the lifetime action specified for certificates that are either within a certain number of days of their expiration or have reached a certain percentage of their usable life.
 
 | Policy | Effects |
 |--|--|
 | [**[Preview]**: Certificates should have the specified maximum validity period](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0a075868-4c26-42ef-914c-5bc007359560) | Effects: Audit (_Default_), Deny, Disabled
-| [**[Preview]**: Certificates should not expire within the specified number of days](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff772fb64-8e40-40ad-87bc-7706e1949427) | Effects: Audit (_Default_), Deny, Disabled
+| [**[Preview]**: Certificates shouldn't expire within the specified number of days](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff772fb64-8e40-40ad-87bc-7706e1949427) | Effects: Audit (_Default_), Deny, Disabled
 | [Certificates should have the specified lifetime action triggers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12ef42cb-9903-4e39-9c26-422d29570417) | Effects: Audit (_Default_), Deny, Disabled
 
 > [!NOTE]
@@ -148,7 +148,7 @@ With lifecycle management built-ins you can flag or block keys that don't have a
 | [Keys should have more than the specified number of days before expiration](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5ff38825-c5d8-47c5-b70e-069a21955146) | Audit (_Default_), Deny, Disabled
 | [**[Preview]**: Azure Key Vault Managed HSM Keys should have more than the specified number of days before expiration](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fad27588c-0198-4c84-81ef-08efd0274653) | Audit (_Default_), Deny, Disabled
 | [Keys should have the specified maximum validity period](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F49a22571-d204-4c91-a7b6-09b1a586fbc9) | Audit (_Default_), Deny, Disabled
-| [Keys should not be active for longer than the specified number of days](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc26e4b24-cf98-4c67-b48b-5a25c4c69eb9) | Audit (_Default_), Deny, Disabled
+| [Keys shouldn't be active for longer than the specified number of days](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc26e4b24-cf98-4c67-b48b-5a25c4c69eb9) | Audit (_Default_), Deny, Disabled
 
 > [!IMPORTANT]
 > **If your key has an activation date set**, [the policy above](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc26e4b24-cf98-4c67-b48b-5a25c4c69eb9) will calculate the number of days that have elapsed from the **activation date** of the key to the current date. If the number of days exceeds the threshold you set, the key will be marked as non-compliant with the policy. **If your key does not have an activation date set**, the policy will calculate the number of days that have elapsed from the **creation date** of the key to the current date. If the number of days exceeds the threshold you set, the key will be marked as non-compliant with the policy.
@@ -176,7 +176,7 @@ With lifecycle management built-ins you can flag or block secrets that don't hav
 | [Secrets should have an expiration date](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F75262d3e-ba4a-4f43-85f8-9f72c090e5e3) | Audit (_Default_), Deny, Disabled
 | [Secrets should have more than the specified number of days before expiration](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb0eb591a-5e70-4534-a8bf-04b9c489584a) | Audit (_Default_), Deny, Disabled
 | [Secrets should have the specified maximum validity period](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F342e8053-e12e-4c44-be01-c3c2f318400f) | Audit (_Default_), Deny, Disabled
-| [Secrets should not be active for longer than the specified number of days](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8d99835-8a06-45ae-a8e0-87a91941ccfe) | Audit (_Default_), Deny, Disabled
+| [Secrets shouldn't be active for longer than the specified number of days](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8d99835-8a06-45ae-a8e0-87a91941ccfe) | Audit (_Default_), Deny, Disabled
 
 > [!IMPORTANT]
 > **If your secret has an activation date set**, [the policy above](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8d99835-8a06-45ae-a8e0-87a91941ccfe) will calculate the number of days that have elapsed from the **activation date** of the secret to the current date. If the number of days exceeds the threshold you set, the secret will be marked as non-compliant with the policy. **If your secret does not have an activation date set**, this policy will calculate the number of days that have elapsed from the **creation date** of the secret to the current date. If the number of days exceeds the threshold you set, the secret will be marked as non-compliant with the policy.
@@ -196,7 +196,7 @@ You manage a key vault used by multiple teams that contains 100 certificates, an
 1. You assign the **Certificates should have the specified maximum validity period** policy, specify that the maximum validity period of a certificate is 24 months, and set the effect of the policy to "audit". 
 1. You view the [compliance report on the Azure portal](#view-compliance-results), and discover that 20 certificates are non-compliant and valid for > 2 years, and the remaining certificates are compliant. 
 1. You contact the owners of these certificates and communicate the new security requirement that certificates can't be valid for longer than 2 years. Some teams respond and 15 of the certificates were renewed with a maximum validity period of 2 years or less. Other teams don't respond, and you still have 5 non-compliant certificates in your key vault.
-1. You change the effect of the policy you assigned to "deny". The 5 non-compliant certificates aren't revoked, and they continue to function. However, they can't be renewed with a validity period that is greater than 2 years. 
+1. You change the effect of the policy you assigned to "deny". The 5 non-compliant certificates aren't revoked, and they continue to function. However, they can't be renewed with a validity period that's greater than 2 years. 
 
 ## Enabling and managing a key vault policy through the Azure portal
 
@@ -229,7 +229,7 @@ You manage a key vault used by multiple teams that contains 100 certificates, an
 
     ![Screenshot that shows where you can choose to restrict the scope to only a single resource group within a subscription.](../media/policy-img6.png)
 
-1. Select on the parameters tab at the top of the screen to specify the maximum validity period in months that you want. If you need to input the parameters, you can uncheck 'Only show parameters that need input or review' option. Select **audit** or **deny** for the effect of the policy following the guidance in the sections above. Then select the review + create button.
+1. Select the parameters tab at the top of the screen to specify the maximum validity period in months that you want. If you need to input the parameters, you can uncheck 'Only show parameters that need input or review' option. Select **audit** or **deny** for the effect of the policy following the guidance in the sections above. Then select the review + create button.
 
     ![Screenshot that shows the Parameters tab where you can specify the maximum validity period in months that you want.](../media/policy-img7.png)
 
