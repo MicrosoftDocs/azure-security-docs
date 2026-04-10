@@ -3,12 +3,11 @@ title: Create an Azure key vault by using ARM template
 description: This article shows how to create Azure key vaults by using an Azure Resource Manager template.
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
 ms.custom: devx-track-arm-template
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 04/17/2025
+ms.date: 04/10/2026
 ms.author: mbaldwin 
 #Customer intent: As a security admin who's new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
 ---
@@ -59,7 +58,7 @@ The following template shows a basic way to create a key vault. Some values are 
   "resources": [
     {
       "type": "Microsoft.KeyVault/vaults",
-      "apiVersion": "2023-07-01",
+      "apiVersion": "2024-11-01",
       "name": "[parameters('keyVaultName')]",
       "location": "[resourceGroup().location]",
       "properties": {

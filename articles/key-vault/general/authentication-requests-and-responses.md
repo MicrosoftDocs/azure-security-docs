@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: concept-article
-ms.date: 03/26/2026
+ms.date: 04/10/2026
 ms.author: mbaldwin
 
 ---
@@ -18,7 +18,7 @@ Azure Key Vault provides two types of containers to store and manage secrets for
 
 |Container type|Supported object types|Data-plane endpoint|
 |--|--|--|
-| **Vaults**|<ul><li>Software-protected keys</li><li>HSM-protected keys (with Premium SKU)</li><li>Certificates</li><li>Storage account keys</li></ul> | `https://<vault-name>.vault.azure.net`
+| **Vaults**|<ul><li>Software-protected keys</li><li>HSM-protected keys (with Premium SKU)</li><li>Certificates</li></ul> | `https://<vault-name>.vault.azure.net`
 |**Managed HSM** |<ul><li>HSM-protected keys</li></ul> | `https://<hsm-name>.managedhsm.azure.net`
 
 Here are the suffixes of the URLs used to access each type of object
@@ -29,7 +29,6 @@ Here are the suffixes of the URLs used to access each type of object
 |HSM-protected keys| /keys |
 |Secrets|/secrets|
 |Certificates| /certificates|
-|Storage account keys|/storageaccounts
 
 Azure Key Vault supports JSON formatted requests and responses. Requests to the Azure Key Vault are directed to a valid Azure Key Vault URL using HTTPS with some URL parameters and JSON encoded request and response bodies.
 

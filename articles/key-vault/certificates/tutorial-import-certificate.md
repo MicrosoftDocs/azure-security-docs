@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Import a certificate in Key Vault using Azure portal | Microsoft Docs
+title: Tutorial - Import a certificate in Key Vault using Azure portal
 description: Tutorial showing how to import a certificate in Azure Key Vault
 services: key-vault
 author: msmbaldwin
@@ -8,7 +8,7 @@ ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: tutorial
 ms.custom: mvc, sfi-image-nochange
-ms.date: 03/26/2026
+ms.date: 04/10/2026
 
 ms.author: sebansal
 ms.devlang: azurecli
@@ -58,13 +58,13 @@ In this case, we will create a certificate called **ExampleCertificate**, or imp
 # [Azure portal](#tab/azure-portal)
 
 1. On the page for your key vault, select **Certificates**.
-2. Click on **Generate/Import**.
+2. Select **Generate/Import**.
 3. On the **Create a certificate** screen choose the following values:
     - **Method of Certificate Creation**: Import.
     - **Certificate Name**: ExampleCertificate.
     - **Upload Certificate File**: select the certificate file from disk
-    - **Password** : If you are uploading a password protected certificate file, provide that password here. Otherwise, leave it blank. Once the certificate file is successfully imported, key vault will remove that password.
-4. Click **Create**.
+    - **Password** : If you're uploading a password protected certificate file, provide that password here. Otherwise, leave it blank. Once the certificate file is successfully imported, key vault will remove that password.
+4. Select **Create**.
 
 :::image type="content" source="../media/certificates/tutorial-import-cert/cert-import.png" alt-text="Importing a certificate through the Azure portal":::
 
