@@ -130,7 +130,7 @@ Before a certificate issuer can be created in a key vault, an administrator must
 
 1. Create requester credentials for Key Vault to enroll (and renew) TLS/SSL certificates. This step provides the configuration for creating an issuer object of the provider in the key vault.  
 
-For more information on creating issuer objects from the certificate portal, see the [Key Vault Team Blog](/archive/blogs/kv/manage-certificates-via-azure-key-vault).  
+For more information on creating issuer objects from the certificate portal, see [Integrating Key Vault with certificate authorities](./how-to-integrate-certificate-authority.md).  
 
 Key Vault allows for the creation of multiple issuer objects with different issuer provider configurations. After an issuer object is created, its name can be referenced in one or multiple certificate policies. Referencing the issuer object instructs Key Vault to use the configuration as specified in the issuer object when it's requesting the X.509 certificate from the CA provider during certificate creation and renewal.  
 
