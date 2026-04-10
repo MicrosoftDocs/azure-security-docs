@@ -2,7 +2,6 @@
 title: Secure your Azure Key Vault certificates
 description: Learn how to secure Azure Key Vault certificates, with best practices specific to certificate management.
 author: msmbaldwin
-tags: azure-key-vault
 ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: best-practice

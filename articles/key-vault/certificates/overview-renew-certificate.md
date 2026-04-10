@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: overview
-ms.date: 03/26/2026
+ms.date: 04/10/2026
 
 ms.author: mbaldwin
 ---
@@ -76,7 +76,7 @@ Use the Azure CLI [az keyvault certificate create](/cli/azure/keyvault/certifica
 az keyvault certificate create --vault-name "<vault-name>" -n "<certificate-name>" -p "$(az keyvault certificate get-default-policy)"
 ```
 
-After renewing the certificate, you can view all the versions of the certificate using the Azure CLI [az keyvault certificate list-versions](/cli/azure/keyvault/certificate#az-keyvault-certificate-list) command:
+After renewing the certificate, you can view all the versions of the certificate using the Azure CLI [az keyvault certificate list-versions](/cli/azure/keyvault/certificate#az-keyvault-certificate-list-versions) command:
 
 ```azurecli-interactive
 az keyvault certificate list-versions --vault-name "<vault-name>" -n "<certificate-name>"
@@ -92,7 +92,7 @@ $Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs
 Add-AzKeyVaultCertificate -VaultName "<vault-name>" -Name "<certificate-name>" -CertificatePolicy $Policy
 ```
 
-After renewing the certificate, you can view all the versions of the certificate using the Azure PowerShell [Get-AzKeyVaultCertificate](/cli/azure/keyvault/certificate#az-keyvault-certificate-list) cmdlet:
+After renewing the certificate, you can view all the versions of the certificate using the Azure PowerShell [Get-AzKeyVaultCertificate](/powershell/module/az.keyvault/get-azkeyvaultcertificate) cmdlet:
 
 ```azurepowershell-interactive
 Get-AzKeyVaultCertificate "<vault-name>" -Name "<certificate-name>" -IncludeVersions

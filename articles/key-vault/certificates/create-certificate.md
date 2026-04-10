@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: concept-article
-ms.date: 04/14/2025
+ms.date: 04/10/2026
 
 ms.author: mbaldwin
 
@@ -38,9 +38,9 @@ The following descriptions correspond to the green lettered steps in the precedi
 The following descriptions correspond to the green lettered steps in the preceding diagram.
 
 1. In the diagram, your application is creating a certificate, which internally begins by creating a key in your key vault.
-2. Key Vault sends an TLS/SSL Certificate Request to the CA.
+2. Key Vault sends a TLS/SSL Certificate Request to the CA.
 3. Your application polls, in a loop and wait process, for your Key Vault for certificate completion. The certificate creation is complete when Key Vault receives the CA’s response with x509 certificate.
-4. The CA responds to Key Vault's TLS/SSL Certificate Request with an TLS/SSL X.509 certificate.
+4. The CA responds to Key Vault's TLS/SSL Certificate Request with a TLS/SSL X.509 certificate.
 5. Your new certificate creation completes with the merger of the TLS/SSL X.509 certificate for the CA.
 
 ## Asynchronous process
@@ -50,7 +50,7 @@ KV certificate creation is an asynchronous process. This operation will create a
 When a request to create a KV certificate completes, the status of the pending object will change to "completed" from "in progress", and a new version of the KV certificate will be created. This will become the current version.  
 
 ## First creation
- When a KV certificate is created for the first time, an addressable key and secret is also created with the same name as the certificate. If the name is already in use, then the operation will fail with an http status code of 409 (conflict).
+ When a KV certificate is created for the first time, an addressable key and secret are also created with the same name as the certificate. If the name is already in use, then the operation will fail with an http status code of 409 (conflict).
  The addressable key and secret get their attributes from the KV certificate attributes. The addressable key and secret created this way are marked as managed keys and secrets, whose lifetime is managed by Key Vault. Managed keys and secrets are read-only. Note: If a KV certificate expires or is disabled, the corresponding key and secret will become inoperable.  
 
  If this is the first operation to create a KV certificate, a policy is required.  A policy can also be supplied with successive create operations to replace the policy resource. If a policy isn't supplied, then the policy resource on the service is used to create a next version of KV certificate. While a request to create a next version is in progress, the current KV certificate, and corresponding addressable key and secret, remain unchanged.  
@@ -89,7 +89,7 @@ When an order is placed with the issuer provider, it may honor or override the x
 
  Authorization: Requires the certificates/create permission.
 
-## See Also
+## Next steps
 
  - How-to guide to create certificates in Key Vault using [Portal](./quick-create-portal.md), [Azure CLI](./quick-create-cli.md), [Azure PowerShell](./quick-create-powershell.md)
  - [Monitor and manage certificate creation](create-certificate-scenarios.md)

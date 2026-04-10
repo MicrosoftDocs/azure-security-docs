@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: overview
-ms.date: 04/14/2025
+ms.date: 04/10/2026
 
 ms.author: mbaldwin
 ms.custom: sfi-image-nochange
@@ -23,7 +23,7 @@ Azure Key Vault certificate support provides for management of your X.509 certif
 - Allows a certificate owner to provide contact information for notifications about the lifecycle events of expiration and renewal.  
 - Supports automatic renewal with selected issuers: Key Vault partner X.509 certificate providers and CAs.
 
-  > [!Note]
+  > [!NOTE]
   > Non-partnered providers and authorities are also allowed but don't support automatic renewal.
 
 For details on certificate creation, see [Certificate creation methods](create-certificate.md).
@@ -65,14 +65,14 @@ A response includes these additional read-only attributes:
 - `exp`: `IntDate` contains the value of the expiration date of the X.509 certificate.  
 - `nbf`: `IntDate` contains the value of the "not before" date of the X.509 certificate.  
 
-> [!Note] 
+> [!NOTE] 
 > If a Key Vault certificate expires it can still be retrieved, but certificate may become inoperable in scenarios like TLS protection where expiration of certificate is validated.  
 
 ### Tags
 
 Tags for certificates are a client-specified dictionary of key/value pairs, much like tags in keys and secrets.  
 
-> [!Note]
+> [!NOTE]
 > A caller can read tags if they have the *list* or *get* permission to that object type (keys, secrets, or certificates).
 
 ## Certificate policy
@@ -136,7 +136,7 @@ Key Vault allows for the creation of multiple issuer objects with different issu
 
 Issuer objects are created in the vault. They can be used only with Key Vault certificates in the same vault.  
 
->[!Note]
+>[!NOTE]
 >Publicly trusted certificates are sent to CAs and certificate transparency (CT) logs outside the Azure boundary during enrollment. They're covered by the GDPR policies of those entities.
 
 ## Certificate contacts
