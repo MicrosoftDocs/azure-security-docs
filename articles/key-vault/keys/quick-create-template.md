@@ -8,8 +8,7 @@ ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
-ms.date: 04/09/2026
-
+ms.date: 04/10/2026
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
 ---
@@ -17,6 +16,12 @@ ms.author: mbaldwin
 # Quickstart: Create an Azure key vault and a key by using ARM template
 
 [Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for secrets, such as keys, passwords, and certificate. This quickstart focuses on the process of deploying an Azure Resource Manager template (ARM template) to create a key vault and a key.
+
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
+
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.keyvault%2Fkey-vault-key-create%2Fazuredeploy.json":::
 
 ## Prerequisites
 
@@ -27,136 +32,16 @@ To complete this article:
 
 ## Review the template
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "vaultName": {
-      "type": "string",
-      "metadata": {
-        "description": "The name of the key vault to be created."
-      }
-    },
-    "keyName": {
-      "type": "string",
-      "metadata": {
-        "description": "The name of the key to be created."
-      }
-    },
-    "location": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]",
-      "metadata": {
-        "description": "The location of the resources"
-      }
-    },
-    "skuName": {
-      "type": "string",
-      "defaultValue": "standard",
-      "allowedValues": [
-        "standard",
-        "premium"
-      ],
-      "metadata": {
-        "description": "The SKU of the vault to be created."
-      }
-    },
-    "keyType": {
-      "type": "string",
-      "defaultValue": "RSA",
-      "allowedValues": [
-        "EC",
-        "EC-HSM",
-        "RSA",
-        "RSA-HSM"
-      ],
-      "metadata": {
-        "description": "The JsonWebKeyType of the key to be created."
-      }
-    },
-    "keyOps": {
-      "type": "array",
-      "defaultValue": [],
-      "metadata": {
-        "description": "The permitted JSON web key operations of the key to be created."
-      }
-    },
-    "keySize": {
-      "type": "int",
-      "defaultValue": 2048,
-      "metadata": {
-        "description": "The size in bits of the key to be created."
-      }
-    },
-    "curveName": {
-      "type": "string",
-      "defaultValue": "",
-      "allowedValues": [
-        "",
-        "P-256",
-        "P-256K",
-        "P-384",
-        "P-521"
-      ],
-      "metadata": {
-        "description": "The JsonWebKeyCurveName of the key to be created."
-      }
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.KeyVault/vaults",
-      "apiVersion": "2024-11-01",
-      "name": "[parameters('vaultName')]",
-      "location": "[parameters('location')]",
-      "properties": {
-        "accessPolicies": [],
-        "enableRbacAuthorization": true,
-        "enableSoftDelete": true,
-        "softDeleteRetentionInDays": "90",
-        "enabledForDeployment": false,
-        "enabledForDiskEncryption": false,
-        "enabledForTemplateDeployment": false,
-        "tenantId": "[subscription().tenantId]",
-        "sku": {
-          "name": "[parameters('skuName')]",
-          "family": "A"
-        },
-        "networkAcls": {
-          "defaultAction": "Allow",
-          "bypass": "AzureServices"
-        }
-      }
-    },
-    {
-      "type": "Microsoft.KeyVault/vaults/keys",
-      "apiVersion": "2024-11-01",
-      "name": "[format('{0}/{1}', parameters('vaultName'), parameters('keyName'))]",
-      "properties": {
-        "kty": "[parameters('keyType')]",
-        "keyOps": "[parameters('keyOps')]",
-        "keySize": "[parameters('keySize')]",
-        "curveName": "[parameters('curveName')]"
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.KeyVault/vaults', parameters('vaultName'))]"
-      ]
-    }
-  ],
-  "outputs": {
-    "proxyKey": {
-      "type": "object",
-      "value": "[reference(resourceId('Microsoft.KeyVault/vaults/keys', parameters('vaultName'), parameters('keyName')))]"
-    }
-  }
-}
-```
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/key-vault-key-create/).
+
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.keyvault/key-vault-key-create/azuredeploy.json":::
 
 Two resources are defined in the template:
 
-- [Microsoft.KeyVault/vaults](/azure/templates/microsoft.keyvault/vaults?tabs=json)
-- [Microsoft.KeyVault/vaults/keys](/azure/templates/microsoft.keyvault/vaults/keys?tabs=json)
+- [Microsoft.KeyVault/vaults](/azure/templates/microsoft.keyvault/vaults?tabs=json): create an Azure key vault.
+- [Microsoft.KeyVault/vaults/keys](/azure/templates/microsoft.keyvault/vaults/keys?tabs=json): create a key vault key.
+
+The template creates the key vault with Azure RBAC authorization enabled. This means the vault uses Azure role-based access control (Azure RBAC) for data plane authorization, rather than access policies.
 
 More Azure Key Vault template samples can be found in [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault&pageNumber=1&sort=Popular).
 
@@ -173,7 +58,67 @@ More Azure Key Vault template samples can be found in [Azure Quickstart Template
 
 ## Deploy the template
 
-You can use [Azure portal](/azure/azure-resource-manager/templates/deploy-portal), Azure PowerShell, Azure CLI, or REST API. To learn about deployment methods, see [Deploy templates](/azure/azure-resource-manager/templates/deploy-powershell).
+1. Select the following image to sign in to Azure and open a template. The template creates a key vault and a key.
+
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.keyvault%2Fkey-vault-key-create%2Fazuredeploy.json":::
+
+2. Select or enter the following values.
+
+    Unless it's specified, use the default value to create the key vault and a key.
+
+    * **Subscription**: select an Azure subscription.
+    * **Resource group**: select **Create new**, enter a unique name for the resource group, and then click **OK**.
+    * **Location**: select a location. For example, **Central US**.
+    * **Vault Name**: enter a name for the key vault, which must be globally unique within the .vault.azure.net namespace.
+    * **Key Name**: enter a name for the key that you store in the key vault.
+    * **Key Type**: select a key type. The default is **RSA**.
+    * **Key Size**: select a key size. The default is **2048**.
+
+3. Select **Purchase**. After the key vault has been deployed successfully, you get a notification.
+
+You can also use the Azure PowerShell, Azure CLI, or REST API to deploy the template. To learn other deployment methods, see [Deploy templates](/azure/azure-resource-manager/templates/deploy-powershell).
+
+## Assign a Key Vault RBAC role
+
+The key vault created by this template uses Azure RBAC for authorization. To access keys through the data plane (for example, using the Azure CLI or Azure PowerShell), you need to assign yourself an appropriate role.
+
+1. Get your Microsoft Entra user object ID:
+
+    # [CLI](#tab/CLI)
+    ```azurecli-interactive
+    az ad signed-in-user show --query id -o tsv
+    ```
+
+    # [PowerShell](#tab/PowerShell)
+    ```azurepowershell-interactive
+    (Get-AzADUser -SignedIn).Id
+    ```
+
+    ---
+
+2. Assign the **Key Vault Crypto Officer** role to yourself on the key vault:
+
+    # [CLI](#tab/CLI)
+    ```azurecli-interactive
+    echo "Enter your key vault name:" &&
+    read keyVaultName &&
+    az role assignment create --role "Key Vault Crypto Officer" \
+        --assignee-object-id $(az ad signed-in-user show --query id -o tsv) \
+        --scope $(az keyvault show --name $keyVaultName --query id -o tsv)
+    ```
+
+    # [PowerShell](#tab/PowerShell)
+    ```azurepowershell-interactive
+    $keyVaultName = Read-Host -Prompt "Enter your key vault name"
+    $kvId = (Get-AzKeyVault -VaultName $keyVaultName).ResourceId
+    $userId = (Get-AzADUser -SignedIn).Id
+    New-AzRoleAssignment -ObjectId $userId -RoleDefinitionName "Key Vault Crypto Officer" -Scope $kvId
+    ```
+
+    ---
+
+    > [!NOTE]
+    > Role assignments might take a minute or two to propagate.
 
 ## Review deployed resources
 
@@ -211,7 +156,7 @@ Write-Host "Press [ENTER] to continue..."
 ### Existing API (creating key via data plane)
 
 - It's possible to create new keys, update existing keys, and create new versions of existing keys.
-- The caller must be authorized to use this API. If the vault uses access policies, the caller must have "create" key permission; if the vault is enabled for Azure RBAC, the caller must have "Microsoft.KeyVault/vaults/keys/create/action" Azure RBAC DataAction.
+- The caller must be authorized to use this API. If the vault is enabled for Azure RBAC, the caller must have "Microsoft.KeyVault/vaults/keys/create/action" Azure RBAC DataAction.
 
 ## Clean up resources
 
