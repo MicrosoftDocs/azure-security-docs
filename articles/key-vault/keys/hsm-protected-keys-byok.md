@@ -12,9 +12,9 @@ ms.date: 04/09/2026
 ms.author: mbaldwin
 ---
 
-[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
-
 # Import HSM-protected keys to Key Vault (BYOK)
+
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 For added assurance when you use Azure Key Vault, you can import or generate a key in a hardware security module (HSM); the key never leaves the HSM boundary. This scenario is often referred to as *bring your own key (BYOK)*. Key Vault uses [FIPS 140 validated HSMs](/azure/key-vault/keys/about-keys#compliance) to protect your keys.
 
