@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 03/26/2026
+ms.date: 04/10/2026
 ms.author: mbaldwin
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-dotnet
@@ -29,7 +29,7 @@ For more information about Azure App service web applications and deployment pre
 To complete this tutorial, you need:
 
 * An Azure subscription. [Create one for free.](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
-* The [.NET Core 3.1 SDK (or later)](https://dotnet.microsoft.com/download/dotnet-core/3.1).
+* The [.NET 8.0 SDK (or later)](https://dotnet.microsoft.com/download/dotnet/8.0).
 * A [Git](https://www.git-scm.com/downloads) installation of version 2.28.0 or greater.
 * The [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/).
 * [Azure Key Vault.](./overview.md) You can create a key vault by using the [Azure portal](quick-create-portal.md), the [Azure CLI](quick-create-cli.md), or [Azure PowerShell](quick-create-powershell.md).
@@ -136,7 +136,7 @@ For more information, see [Manage an App Service plan in Azure](/azure/app-servi
 
 Create an [Azure web app](/azure/app-service/overview) in the `myAppServicePlan` App Service plan. 
 
-> [!Important]
+> [!IMPORTANT]
 > Like a key vault, an Azure web app must have a unique name. Replace `<webapp-name>` with the name of your web app in the following examples.
 
 

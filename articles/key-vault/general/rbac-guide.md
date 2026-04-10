@@ -1,5 +1,5 @@
 ---
-title: Grant permission to applications to access an Azure key vault using Azure RBAC | Microsoft Docs
+title: Grant permission to applications to access an Azure key vault using Azure RBAC
 description: Learn how to provide access to keys, secrets, and certificates using Azure role-based access control.
 services: key-vault
 author: msmbaldwin
@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: general
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, sfi-image-nochange, copilot-scenario-highlight
 ms.topic: how-to
-ms.date: 03/26/2026
+ms.date: 04/10/2026
 ms.author: mbaldwin
 ---
 
@@ -252,7 +252,7 @@ For full details, see [Assign Azure roles using Azure PowerShell](/azure/role-ba
 
 1. Open a previously created secret.
 
-1. Click the Access control(IAM) tab
+1. Select the **Access control (IAM)** tab
 
     ![Role assignment - secret](../media/rbac/image-8.png)
 

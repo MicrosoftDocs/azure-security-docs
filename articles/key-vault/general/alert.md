@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 04/16/2025
+ms.date: 04/10/2026
 ms.author: mbaldwin
 ms.custom: sfi-image-nochange
 # Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults.
@@ -37,23 +37,23 @@ This article focuses on alerts for Key Vault. For information about Key Vault in
 An action group is a configurable list of notifications and properties. The first step in configuring alerts is to create an action group and choose an alert type:
 
 1. Sign in to the Azure portal.
-2. Search for **Alerts** in the search box.
-3. Select **Manage actions**.
+1. Search for **Alerts** in the search box.
+1. Select **Manage actions**.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot that highlights the Manage Actions button.](../media/alert-6.png)
 
-4. Select **+ Add action group**.
+1. Select **+ Add action group**.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot that highlights the button for adding an action group.](../media/alert-7.png)
 
-5. Choose the **Action Type** value for your action group. In this example, we'll create an email and SMS alert. Select **Email/SMS/Push/Voice**.
+1. Choose the **Action Type** value for your action group. In this example, we'll create an email and SMS alert. Select **Email/SMS/Push/Voice**.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot that highlights the selections for adding an action group.](../media/alert-8.png)
 
-6. In the dialog, enter email and SMS details, and then select **OK**.
+1. In the dialog, enter email and SMS details, and then select **OK**.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot that shows selections for adding an email and S M S message alert.](../media/alert-9.png)
@@ -67,12 +67,12 @@ Next, create a rule and configure the thresholds that will trigger an alert:
    > [!div class="mx-imgBorder"]
    > ![Screenshot that shows the Alerts menu option in the Monitoring section.](../media/alert-10.png)
 
-2. Select **New alert rule**.
+1. Select **New alert rule**.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot that shows the button for adding a new alert rule.](../media/alert-11.png)
 
-3. Select the scope of your alert rule. You can select a single vault or multiple vaults. 
+1. Select the scope of your alert rule. You can select a single vault or multiple vaults. 
 
    > [!IMPORTANT]
    > When you're selecting multiple vaults for the scope of your alerts,  all selected vaults must be in the same region. You have to configure separate alert rules for vaults in different regions. 
@@ -80,7 +80,7 @@ Next, create a rule and configure the thresholds that will trigger an alert:
    > [!div class="mx-imgBorder"]
    > ![Screenshot that shows how you can select a vault.](../media/alert-12.png)
 
-4. Select the thresholds that define the logic for your alerts, and then select **Add**. The Key Vault team recommends configuring the following thresholds for most applications, but you can adjust them based on your application needs: 
+1. Select the thresholds that define the logic for your alerts, and then select **Add**. The Key Vault team recommends configuring the following thresholds for most applications, but you can adjust them based on your application needs: 
 
     + Key Vault availability drops below 100 percent (static threshold)
     > [!IMPORTANT]
