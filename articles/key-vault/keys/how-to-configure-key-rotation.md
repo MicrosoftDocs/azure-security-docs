@@ -8,7 +8,7 @@ ms.custom: devx-track-arm-template, sfi-image-nochange, copilot-scenario-highlig
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: how-to
-ms.date: 04/02/2026
+ms.date: 04/09/2026
 ms.author: mbaldwin
 ---
 
@@ -205,7 +205,7 @@ You can configure the key rotation policy by using ARM templates.
     "resources": [
         {
             "type": "Microsoft.KeyVault/vaults/keys",
-            "apiVersion": "2021-06-01-preview",
+            "apiVersion": "2024-11-01",
             "name": "[concat(parameters('vaultName'), '/', parameters('keyName'))]",
             "location": "[resourceGroup().location]",
             "properties": {

@@ -599,6 +599,11 @@
       "source_path_from_root": "/articles/key-vault/secrets/about-managed-storage-account-keys.md",
       "redirect_url": "/azure/storage/common/authorize-data-access",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/key-vault/keys/hsm-protected-keys-ncipher.md",
+      "redirect_url": "/azure/key-vault/keys/hsm-protected-keys-byok",
+      "redirect_document_id": false
     }
   ]
 }
