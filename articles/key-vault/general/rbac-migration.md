@@ -123,7 +123,7 @@ az keyvault show --name <vault-name> --resource-group <resource-group> --query p
 # [Azure PowerShell](#tab/powershell)
 Use the [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault) cmdlet to retrieve the access policies:
 
-```powershell
+```azurepowershell
 # List all current access policies
 $vault = Get-AzKeyVault -VaultName "<vault-name>" -ResourceGroupName "<resource-group>"
 $vault.AccessPolicies
@@ -133,8 +133,8 @@ $vault.AccessPolicies
 In the Azure portal:
 
 1. Navigate to your key vault
-2. Select **Access policies** under Settings
-3. Document all existing access policies, noting:
+1. Select **Access policies** under Settings
+1. Document all existing access policies, noting:
     - Identity (user, group, or service principal)
     - Key, Secret, and Certificate permissions granted
 
@@ -164,7 +164,7 @@ az role assignment create --role "Key Vault Certificates Officer" --assignee "<o
 # [Azure PowerShell](#tab/powershell)
 Use the [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) cmdlet to grant appropriate roles:
 
-```powershell
+```azurepowershell
 # Example for Key Vault Administrator role:
 New-AzRoleAssignment -RoleDefinitionName "Key Vault Administrator" -ObjectId "<object-id>" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>"
 
@@ -182,12 +182,12 @@ New-AzRoleAssignment -RoleDefinitionName "Key Vault Certificates Officer" -Objec
 In the Azure portal:
 
 1. Navigate to your key vault
-2. Select **Access control (IAM)**
-3. Select **Add** > **Add role assignment**
-4. Select the appropriate role based on the access policy mapping
-5. Search for and select the user, group, or service principal
-6. Select **Review + assign** to create the role assignment
-7. Repeat for each identity that needs access
+1. Select **Access control (IAM)**
+1. Select **Add** > **Add role assignment**
+1. Select the appropriate role based on the access policy mapping
+1. Search for and select the user, group, or service principal
+1. Select **Review + assign** to create the role assignment
+1. Repeat for each identity that needs access
 
 ---
 
@@ -206,7 +206,7 @@ az keyvault update --name <vault-name> --resource-group <resource-group> --enabl
 # [Azure PowerShell](#tab/powershell)
 Use the [Update-AzKeyVault](/powershell/module/az.keyvault/update-azkeyvault) cmdlet to enable Azure RBAC:
 
-```powershell
+```azurepowershell
 # Switch the vault to Azure RBAC permission model
 $vault = Get-AzKeyVault -VaultName "<vault-name>" -ResourceGroupName "<resource-group>"
 Update-AzKeyVault -VaultName $vault.VaultName -ResourceGroupName $vault.ResourceGroupName -EnableRbacAuthorization $true
@@ -216,9 +216,9 @@ Update-AzKeyVault -VaultName $vault.VaultName -ResourceGroupName $vault.Resource
 In the Azure portal:
 
 1. Navigate to your key vault
-2. Select **Properties** under Settings
-3. Change **Permission model** to **Azure role-based access control**
-4. Select **Save**
+1. Select **Properties** under Settings
+1. Change **Permission model** to **Azure role-based access control**
+1. Select **Save**
 ---
 
 ### Validate access
@@ -239,7 +239,7 @@ az keyvault secret show --vault-name <vault-name> --name <secret-name>
 # [Azure PowerShell](#tab/powershell)
 Test your access with these cmdlets:
 
-```powershell
+```azurepowershell
 # Try to list secrets to verify access
 Get-AzKeyVaultSecret -VaultName "<vault-name>"
 
@@ -251,7 +251,7 @@ Get-AzKeyVaultSecret -VaultName "<vault-name>" -Name "<secret-name>"
 In the Azure portal:
 
 1. Try to access secrets, keys, or certificates based on your assigned roles
-2. Verify that applications using the vault still function correctly
+1. Verify that applications using the vault still function correctly
 
 ---
 
@@ -270,7 +270,7 @@ az monitor diagnostic-settings create --resource <vault-id> --name KeyVaultLogs 
 # [Azure PowerShell](#tab/powershell)
 Use the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet:
 
-```powershell
+```azurepowershell
 # Get the vault resource ID
 $vaultResourceId = (Get-AzKeyVault -VaultName "<vault-name>" -ResourceGroupName "<resource-group>").ResourceId
 
@@ -284,13 +284,13 @@ Set-AzDiagnosticSetting -ResourceId $vaultResourceId -Name "KeyVaultLogs" -Works
 In the Azure portal:
 
 1. Navigate to your key vault
-2. Select **Diagnostic settings** under Monitoring
-3. Select **Add diagnostic setting**
-4. Enter a name for the setting (for example, "KeyVaultLogs")
-5. Under "Logs", check the **AuditEvent** category
-6. Select **Send to Log Analytics workspace** as the destination
-7. Choose your Log Analytics workspace
-8. Select **Save**
+1. Select **Diagnostic settings** under Monitoring
+1. Select **Add diagnostic setting**
+1. Enter a name for the setting (for example, "KeyVaultLogs")
+1. Under "Logs", check the **AuditEvent** category
+1. Select **Send to Log Analytics workspace** as the destination
+1. Choose your Log Analytics workspace
+1. Select **Save**
 
 ---
 
@@ -301,13 +301,13 @@ Using the Azure Policy service, you can govern Azure RBAC migration across your 
 ### Create and assign policy definition for Key Vault Azure RBAC
 
 1. Navigate to Policy resource
-2. Select **Assignments** under **Authoring** on the left side of the Azure Policy page
-3. Select **Assign policy** at the top of the page
-4. Enter the following information:
+1. Select **Assignments** under **Authoring** on the left side of the Azure Policy page
+1. Select **Assign policy** at the top of the page
+1. Enter the following information:
     - Define the scope of the policy by choosing the subscription and resource group
     - Select the policy definition: "[[Preview]: Azure Key Vault should use Azure RBAC](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12d4fa5e-1f9f-4c21-97a9-b99b3c6611b5)"
     - Define the desired effect of the policy (Audit, Deny, or Disabled)
-5. Complete the assignment by reviewing and creating it
+1. Complete the assignment by reviewing and creating it
 
 Once the policy is assigned, it can take up to 24 hours to complete the scan. After the scan is completed, you can see compliance results in the Azure Policy dashboard.
 

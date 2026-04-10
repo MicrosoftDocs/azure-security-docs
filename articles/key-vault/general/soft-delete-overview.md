@@ -33,7 +33,7 @@ Azure Key Vaults are tracked resources, managed by Azure Resource Manager. Azure
 
 1. In the typical scenario, a user inadvertently deletes a key vault or a key vault object; if that key vault or key vault object was recoverable for a predetermined period, the user can undo the deletion and recover their data.
 
-2. In a different scenario, a rogue user can attempt to delete a key vault or a key vault object, such as a key inside a vault, to cause a business disruption. Separating the deletion of the key vault or key vault object from the actual deletion of the underlying data can be used as a safety measure by, for instance, restricting permissions on data deletion to a different, trusted role. This approach effectively requires quorum for an operation which might otherwise result in an immediate data loss.
+1. In a different scenario, a rogue user can attempt to delete a key vault or a key vault object, such as a key inside a vault, to cause a business disruption. Separating the deletion of the key vault or key vault object from the actual deletion of the underlying data can be used as a safety measure by, for instance, restricting permissions on data deletion to a different, trusted role. This approach effectively requires quorum for an operation which might otherwise result in an immediate data loss.
 
 ### Soft-delete behavior
 

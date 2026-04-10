@@ -59,13 +59,13 @@ You can check existing roles using the [Azure portal](/azure/role-based-access-c
 ## Moving a key vault to a new subscription
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Navigate to your [key vault](overview.md)
-3. Select on the "Overview" tab
-4. Select the "Move" button
-5. Select "Move to another subscription" from the dropdown options
-6. Select the resource group where you want to move your key vault
-7. Acknowledge the warning regarding moving resources
-8. Select "OK"
+1. Navigate to your [key vault](overview.md)
+1. Select on the "Overview" tab
+1. Select the "Move" button
+1. Select "Move to another subscription" from the dropdown options
+1. Select the resource group where you want to move your key vault
+1. Acknowledge the warning regarding moving resources
+1. Select "OK"
 
 ## Additional steps when subscription is in a new tenant
 

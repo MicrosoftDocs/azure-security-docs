@@ -69,33 +69,33 @@ Follow the steps in this section to back up and restore objects by using the Azu
 ### Back up
 
 1. Go to the Azure portal.
-2. Select your key vault.
-3. Go to the object (secret, key, or certificate) you want to back up.
+1. Select your key vault.
+1. Go to the object (secret, key, or certificate) you want to back up.
 
     ![Screenshot showing where to select the Keys setting and an object in a key vault.](../media/backup-1.png)
 
-4. Select the object.
-5. Select **Download Backup**.
+1. Select the object.
+1. Select **Download Backup**.
 
     ![Screenshot showing where to select the Download Backup button in a key vault.](../media/backup-2.png)
     
-6. Select **Download**.
+1. Select **Download**.
 
     ![Screenshot showing where to select the Download button in a key vault.](../media/backup-3.png)
     
-7. Store the encrypted blob in a secure location.
+1. Store the encrypted blob in a secure location.
 
 ### Restore
 
 1. Go to the Azure portal.
-2. Select your key vault.
-3. Go to the type of object (secret, key, or certificate) you want to restore.
-4. Select **Restore Backup**.
+1. Select your key vault.
+1. Go to the type of object (secret, key, or certificate) you want to restore.
+1. Select **Restore Backup**.
 
     ![Screenshot showing where to select Restore Backup in a key vault.](../media/backup-4.png)
     
-5. Go to the location where you stored the encrypted blob.
-6. Select **OK**.
+1. Go to the location where you stored the encrypted blob.
+1. Select **OK**.
 
 ## Back up and restore from the Azure CLI or Azure PowerShell
 
@@ -105,28 +105,28 @@ Follow the steps in this section to back up and restore objects by using the Azu
 az login
 
 ## Set your subscription
-az account set --subscription {AZURE SUBSCRIPTION ID}
+az account set --subscription <subscription-id>
 
 ## Register Key Vault as a provider
 az provider register -n Microsoft.KeyVault
 
 ## Back up a certificate in Key Vault
-az keyvault certificate backup --file {File Path} --name {Certificate Name} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
+az keyvault certificate backup --file <file-path> --name <certificate-name> --vault-name <vault-name> --subscription <subscription-id>
 
 ## Back up a key in Key Vault
-az keyvault key backup --file {File Path} --name {Key Name} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
+az keyvault key backup --file <file-path> --name <key-name> --vault-name <vault-name> --subscription <subscription-id>
 
 ## Back up a secret in Key Vault
-az keyvault secret backup --file {File Path} --name {Secret Name} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
+az keyvault secret backup --file <file-path> --name <secret-name> --vault-name <vault-name> --subscription <subscription-id>
 
 ## Restore a certificate in Key Vault
-az keyvault certificate restore --file {File Path} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
+az keyvault certificate restore --file <file-path> --vault-name <vault-name> --subscription <subscription-id>
 
 ## Restore a key in Key Vault
-az keyvault key restore --file {File Path} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
+az keyvault key restore --file <file-path> --vault-name <vault-name> --subscription <subscription-id>
 
 ## Restore a secret in Key Vault
-az keyvault secret restore --file {File Path} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
+az keyvault secret restore --file <file-path> --vault-name <vault-name> --subscription <subscription-id>
 ```
 # [Azure PowerShell](#tab/powershell)
 
@@ -135,25 +135,25 @@ az keyvault secret restore --file {File Path} --vault-name {Key Vault Name} --su
 Connect-AzAccount
 
 ## Set your subscription
-Set-AzContext -Subscription '{AZURE SUBSCRIPTION ID}'
+Set-AzContext -Subscription '<subscription-id>'
 
 ## Back up a certificate in Key Vault
-Backup-AzKeyVaultCertificate -VaultName '{Key Vault Name}' -Name '{Certificate Name}'
+Backup-AzKeyVaultCertificate -VaultName '<vault-name>' -Name '<certificate-name>'
 
 ## Back up a key in Key Vault
-Backup-AzKeyVaultKey -VaultName '{Key Vault Name}' -Name '{Key Name}'
+Backup-AzKeyVaultKey -VaultName '<vault-name>' -Name '<key-name>'
 
 ## Back up a secret in Key Vault
-Backup-AzKeyVaultSecret -VaultName '{Key Vault Name}' -Name '{Secret Name}'
+Backup-AzKeyVaultSecret -VaultName '<vault-name>' -Name '<secret-name>'
 
 ## Restore a certificate in Key Vault
-Restore-AzKeyVaultCertificate -VaultName '{Key Vault Name}' -InputFile '{File Path}'
+Restore-AzKeyVaultCertificate -VaultName '<vault-name>' -InputFile '<file-path>'
 
 ## Restore a key in Key Vault
-Restore-AzKeyVaultKey -VaultName '{Key Vault Name}' -InputFile '{File Path}'
+Restore-AzKeyVaultKey -VaultName '<vault-name>' -InputFile '<file-path>'
 
 ## Restore a secret in Key Vault
-Restore-AzKeyVaultSecret -VaultName '{Key Vault Name}' -InputFile '{File Path}'
+Restore-AzKeyVaultSecret -VaultName '<vault-name>' -InputFile '<file-path>'
 ```
 ---
 

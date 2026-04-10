@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 01/30/2026
+ms.date: 04/10/2026
 ms.author: mbaldwin
 ms.custom: sfi-image-nochange, copilot-scenario-highlight
 ---
@@ -193,9 +193,9 @@ GitHub Copilot can help you modify the PowerShell runbook script to implement cu
 ```copilot-prompt
 I'm using the Azure Key Vault Event Grid tutorial with an Automation runbook. Help me modify the PowerShell runbook script to:
 1. Parse the Event Grid webhook payload to extract the secret name and vault name
-2. When a SecretNearExpiry event is received, automatically generate a new secret value
-3. Update the secret in Key Vault with the new value
-4. Send an email notification using an Automation credential for SMTP
+1. When a SecretNearExpiry event is received, automatically generate a new secret value
+1. Update the secret in Key Vault with the new value
+1. Send an email notification using an Automation credential for SMTP
 Show me the complete PowerShell script for the runbook.
 ```
 

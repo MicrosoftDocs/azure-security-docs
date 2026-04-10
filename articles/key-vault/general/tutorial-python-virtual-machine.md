@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 For Windows, Mac, and Linux:
   * [Git](https://git-scm.com/downloads)
-  * This tutorial requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0.4 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+  * This tutorial requires that you run the Azure CLI locally. You must have a recent version of the Azure CLI installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Log in to Azure
 

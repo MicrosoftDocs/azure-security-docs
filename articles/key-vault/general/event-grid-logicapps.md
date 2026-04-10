@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 04/17/2025
+ms.date: 04/10/2026
 ms.author: mbaldwin
 ms.custom: sfi-image-nochange
 ---
@@ -60,8 +60,8 @@ To create an Azure Event Grid subscription, follow these steps:
 
     ![Logic App Designer - email body](../media/eventgrid-logicappdesigner4.png)
 
-8. Select **Save as**.
-9. Enter a **name** for new logic app and select **Create**.
+1. Select **Save as**.
+1. Enter a **name** for new logic app and select **Create**.
     
     ![Logic App Designer - create](../media/eventgrid-logicappdesigner5.png)
 

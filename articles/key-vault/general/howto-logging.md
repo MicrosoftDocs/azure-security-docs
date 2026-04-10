@@ -156,7 +156,7 @@ az storage blob list --account-name "<storage-account-name>" --container-name "i
 
 With Azure PowerShell, use [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob). To list all the blobs in this container, enter:
 
-```powershell
+```azurepowershell
 Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context
 ```
 

@@ -229,7 +229,7 @@ You manage a key vault used by multiple teams that contains 100 certificates, an
 
     ![Screenshot that shows where you can choose to restrict the scope to only a single resource group within a subscription.](../media/policy-img6.png)
 
-2. Select on the parameters tab at the top of the screen to specify the maximum validity period in months that you want. If you need to input the parameters, you can uncheck 'Only show parameters that need input or review' option. Select **audit** or **deny** for the effect of the policy following the guidance in the sections above. Then select the review + create button.
+1. Select on the parameters tab at the top of the screen to specify the maximum validity period in months that you want. If you need to input the parameters, you can uncheck 'Only show parameters that need input or review' option. Select **audit** or **deny** for the effect of the policy following the guidance in the sections above. Then select the review + create button.
 
     ![Screenshot that shows the Parameters tab where you can specify the maximum validity period in months that you want.](../media/policy-img7.png)
 
@@ -241,11 +241,11 @@ You manage a key vault used by multiple teams that contains 100 certificates, an
 
 1. From this page you can filter results by compliant or non-compliant vaults. Here you can see a list of non-compliant key vaults within the scope of the policy assignment. A vault is considered non-compliant if any of the components (certificates) in the vault are non-compliant. You can select an individual vault to view the individual non-compliant components (certificates).
 
-2. View the name of the components within a vault that are non-compliant
+1. View the name of the components within a vault that are non-compliant
 
     ![Screenshot that shows where you can view the name of the components within a vault that are non-compliant.](../media/policy-img10.png)
 
-3. If you need to check whether users are being denied the ability to create resources within the key vault, you can click on the **Component Events (preview)** tab to view a summary of denied certificate operations with the requestor and timestamps of requests.
+1. If you need to check whether users are being denied the ability to create resources within the key vault, you can click on the **Component Events (preview)** tab to view a summary of denied certificate operations with the requestor and timestamps of requests.
 
     ![Overview of how Azure Key Vault works](../media/policy-img11.png)
 
@@ -253,8 +253,8 @@ You manage a key vault used by multiple teams that contains 100 certificates, an
 
 Assigning a policy with a "deny" effect may take up to 30 mins (average case) and 1 hour (worst case) to start denying the creation of non-compliant resources. The delay refers to following scenarios -
 1. A new policy is assigned.
-2. An existing policy assignment is modified.
-3. A new Key Vault (resource) is created in a scope with existing policies.
+1. An existing policy assignment is modified.
+1. A new Key Vault (resource) is created in a scope with existing policies.
 
 The policy evaluation of existing components in a vault may take up to 1 hour (average case) and 2 hours (worst case) before compliance results are viewable in the portal UI.
 
