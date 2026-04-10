@@ -6,7 +6,7 @@ ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: best-practice
 ms.custom: horz-security
-ms.date: 11/10/2025
+ms.date: 04/10/2026
 ms.author: mbaldwin
 ai-usage: ai-assisted
 # Customer intent: As a developer using Key Vault certificates, I want to implement certificate-specific security best practices.

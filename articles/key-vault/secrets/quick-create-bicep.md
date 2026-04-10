@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-bicep
-ms.date: 03/30/2026
+ms.date: 04/10/2026
 
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
@@ -47,6 +47,9 @@ ms.author: mbaldwin
     2. Write down the object ID. You need it in the next section of this quickstart.
 
 ## Review the Bicep file
+
+> [!IMPORTANT]
+> This quickstart uses an external template that creates a vault with legacy access policies. For production deployments, use Azure RBAC authorization instead. See [Create an Azure key vault and a key by using Bicep](../keys/quick-create-bicep.md) for a Bicep template that uses `enableRbacAuthorization: true`, or see [Secure your Azure Key Vault](../general/secure-key-vault.md) for comprehensive security guidance.
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/key-vault-create/).
 
