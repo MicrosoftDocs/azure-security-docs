@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: best-practice
-ms.date: 01/30/2026
+ms.date: 04/10/2026
 ms.author: mbaldwin
 
 ---
@@ -46,7 +46,7 @@ When you implement your app's error handling, use the HTTP error code 429 to det
 
 Here is code that implements exponential backoff: 
 
-```
+```csharp
 SecretClientOptions options = new SecretClientOptions()
     {
         Retry =

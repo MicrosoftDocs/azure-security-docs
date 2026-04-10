@@ -1,12 +1,12 @@
 ---
-title: Migrate to Azure role-based access control | Microsoft Docs
+title: Migrate to Azure role-based access control
 description: Learn how to migrate from vault access policies to Azure roles.
 services: key-vault
 author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 03/26/2026
+ms.date: 04/10/2026
 ms.author: mbaldwin
 ms.custom: sfi-image-nochange
 ---
@@ -183,10 +183,10 @@ In the Azure portal:
 
 1. Navigate to your key vault
 2. Select **Access control (IAM)**
-3. Click **Add** > **Add role assignment**
+3. Select **Add** > **Add role assignment**
 4. Select the appropriate role based on the access policy mapping
 5. Search for and select the user, group, or service principal
-6. Click **Review + assign** to create the role assignment
+6. Select **Review + assign** to create the role assignment
 7. Repeat for each identity that needs access
 
 ---
@@ -218,7 +218,7 @@ In the Azure portal:
 1. Navigate to your key vault
 2. Select **Properties** under Settings
 3. Change **Permission model** to **Azure role-based access control**
-4. Click **Save**
+4. Select **Save**
 ---
 
 ### Validate access
@@ -285,12 +285,12 @@ In the Azure portal:
 
 1. Navigate to your key vault
 2. Select **Diagnostic settings** under Monitoring
-3. Click **Add diagnostic setting**
+3. Select **Add diagnostic setting**
 4. Enter a name for the setting (for example, "KeyVaultLogs")
 5. Under "Logs", check the **AuditEvent** category
 6. Select **Send to Log Analytics workspace** as the destination
 7. Choose your Log Analytics workspace
-8. Click **Save**
+8. Select **Save**
 
 ---
 

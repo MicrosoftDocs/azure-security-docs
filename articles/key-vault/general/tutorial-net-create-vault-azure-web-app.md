@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 03/26/2026
+ms.date: 04/10/2026
 ms.author: mbaldwin
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-dotnet
@@ -136,7 +136,7 @@ For more information, see [Manage an App Service plan in Azure](/azure/app-servi
 
 Create an [Azure web app](/azure/app-service/overview) in the `myAppServicePlan` App Service plan. 
 
-> [!Important]
+> [!IMPORTANT]
 > Like a key vault, an Azure web app must have a unique name. Replace `<webapp-name>` with the name of your web app in the following examples.
 
 

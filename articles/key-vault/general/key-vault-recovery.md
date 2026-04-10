@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault recovery overview | Microsoft Docs
+title: Azure Key Vault recovery overview
 description: Key Vault Recovery features are designed to prevent the accidental or malicious deletion of your key vault and secrets, keys, and certificate stored inside key-vault.
 ms.service: azure-key-vault
 ms.subservice: general
@@ -7,7 +7,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, sfi-image-nochange
 ms.topic: how-to
 ms.author: mbaldwin
 author: msmbaldwin
-ms.date: 01/06/2026
+ms.date: 04/10/2026
 ---
 
 # Azure Key Vault recovery management with soft delete and purge protection
@@ -21,7 +21,7 @@ This article covers two recovery features of Azure Key Vault, soft delete and pu
 
 Azure Key Vault provides multiple options to ensure the availability and recoverability of your vault data:
 
-- **Automatic redundancy and failover**: Key Vault automatically replicates data across regions and handles failover during outages - see [Azure Key Vault availability and redundancy](disaster-recovery-guidance.md)
+- **Automatic redundancy and failover**: Key Vault automatically replicates data across regions and handles failover during outages - see [Azure Key Vault availability and redundancy](/azure/reliability/reliability-key-vault)
 - **Soft delete and purge protection** (covered in this article): Prevents accidental or malicious deletion of your vault or vault objects
 - **Manual backup and restore**: For individual secrets, keys, and certificates - see [Azure Key Vault backup](backup.md)
 
@@ -403,7 +403,7 @@ For more information about soft-delete, see [Azure Key Vault soft-delete overvie
 
 ## Next steps
 
-- [Azure Key Vault availability and redundancy](disaster-recovery-guidance.md)
+- [Azure Key Vault availability and redundancy](/azure/reliability/reliability-key-vault)
 - [Azure Key Vault backup](backup.md)
 - [Azure Key Vault PowerShell cmdlets](/powershell/module/az.keyvault)
 - [Key Vault Azure CLI commands](/cli/azure/keyvault)

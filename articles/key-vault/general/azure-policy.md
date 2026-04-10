@@ -3,7 +3,7 @@ title: Integrate Azure Key Vault with Azure Policy
 description: Learn how to integrate Azure Key Vault with Azure Policy
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 04/17/2025
+ms.date: 04/10/2026
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
@@ -235,7 +235,7 @@ You manage a key vault used by multiple teams that contains 100 certificates, an
 
 ### View Compliance Results
 
-1. Go back to the Policy blade and select the compliance tab. Click on the policy assignment you wish to view compliance results for.
+1. Go back to the Policy blade and select the compliance tab. Select the policy assignment you wish to view compliance results for.
 
     ![Screenshot that shows the Compliance tab where you can select the policy assignment you want to view compliance results for.](../media/policy-img8.png)
 
