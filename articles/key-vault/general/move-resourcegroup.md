@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault moving a vault to a different resource group | Microsoft Docs
+title: Azure Key Vault moving a vault to a different resource group
 description: Guidance on moving a key vault to a different resource group.
 services: key-vault
 author: msmbaldwin
@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 04/16/2025
+ms.date: 04/10/2026
 ms.author: mbaldwin
 # Customer intent: As a key vault administrator, I want to move my vault to another resource group.
 ---
@@ -37,12 +37,12 @@ Make sure that you go to the Azure Policy page on the Azure portal and look at t
 ## Procedure
 
 1. Log in to the Azure portal
-2. Navigate to your key vault
-3. Click on the "Overview" tab
-4. Select the "Move" button
-5. Select "Move to another resource group" from the dropdown options
-6. Select the resource group where you want to move your key vault
-7. Acknowledge the warning regarding moving resources
-8. Select "OK"
+1. Navigate to your key vault
+1. Select the **Overview** tab
+1. Select the "Move" button
+1. Select "Move to another resource group" from the dropdown options
+1. Select the resource group where you want to move your key vault
+1. Acknowledge the warning regarding moving resources
+1. Select "OK"
 
 Key Vault will now evaluate the validity of the resource move, and alert you of any errors. If no errors are found, the resource move will be completed. 

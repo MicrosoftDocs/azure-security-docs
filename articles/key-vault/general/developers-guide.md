@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 01/08/2026
+ms.date: 04/10/2026
 ms.author: mbaldwin
 ---
 # Azure Key Vault developer's guide
@@ -75,7 +75,7 @@ For more information about the Azure Identity client library, see:
 |--|--|--|--|
 |[Azure Identity SDK .NET](/dotnet/api/overview/azure/identity-readme)|[Azure Identity SDK Python](/python/api/overview/azure/identity-readme)|[Azure Identity SDK Java](/java/api/overview/azure/identity-readme)|[Azure Identity SDK JavaScript](/javascript/api/overview/azure/identity-readme)|     
 
-> [!Note]
+> [!NOTE]
 > We recommended [App Authentication library](/dotnet/api/overview/azure/service-to-service-authentication) for Key Vault .NET SDK version 3, but it's now deprecated. To migrate to Key Vault .NET SDK version 4, follow the [AppAuthentication to Azure.Identity migration guidance](/dotnet/api/overview/azure/app-auth-migration).
 
 For tutorials on how to authenticate to Key Vault in applications, see:
@@ -85,7 +85,7 @@ For tutorials on how to authenticate to Key Vault in applications, see:
 
 ## Manage keys, certificates, and secrets
 
-> [!Note]
+> [!NOTE]
 > SDKs for .NET, Python, Java, JavaScript, PowerShell, and the Azure CLI are part of the Key Vault feature release process through public preview and general availability with Key Vault service team support. Other SDK clients for Key Vault are available, but they are built and supported by individual SDK teams over GitHub and released in their teams schedule. For the latest SDK versions and installation packages, see [Client libraries](client-libraries.md).
 
 The data plane controls access to keys, certificates, and secrets. You can use [Azure RBAC with Key Vault](rbac-guide.md) for access control through the data plane.
@@ -103,7 +103,7 @@ The following table lists SDKs and quickstarts for working with keys (data plane
 ##### Cryptography client for Key Vault and Managed HSM
 This module provides a cryptography client for the [Azure Key Vault Keys client module for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/azkeys).
 
-> [!Note]
+> [!NOTE]
 > This project is not supported by the Azure SDK team, but does align with the cryptography clients in other supported languages.
 
 | Language | Reference |
@@ -182,11 +182,11 @@ The following services and scenarios use or integrate with Key Vault:
 - Key Vault integration with [Azure Event Grid](/azure/event-grid/event-schema-key-vault) allows users to be notified when the status of a secret stored in Key Vault has changed. You can distribute new versions of secrets to applications or rotate near-expiration secrets to prevent outages.
 - Protect your [Azure DevOps](/azure/devops/pipelines/release/azure-key-vault) secrets from unwanted access in Key Vault.
 - Use secrets stored in Key Vault to [connect to Azure Storage from Azure Databricks](./integrate-databricks-blob-storage.md).
-- Configure and run the Azure Key Vault provider for the [Secrets Store CSI driver](./key-vault-integrate-kubernetes.md) on Kubernetes. 
+- Configure and run the Azure Key Vault provider for the [Secrets Store CSI driver](/azure/aks/csi-secrets-store-driver) on Kubernetes. 
 
 ## Disaster recovery and business continuity
 
-Key Vault provides built-in disaster recovery with automatic regional replication. For production deployments, enable soft delete and purge protection, and implement regular backups. For more information, see [Azure Key Vault availability and redundancy](disaster-recovery-guidance.md), [Azure Key Vault recovery management](key-vault-recovery.md), and [Azure Key Vault backup](backup.md).
+Key Vault provides built-in disaster recovery with automatic regional replication. For production deployments, enable soft delete and purge protection, and implement regular backups. For more information, see [Azure Key Vault availability and redundancy](/azure/reliability/reliability-key-vault), [Azure Key Vault recovery management](key-vault-recovery.md), and [Azure Key Vault backup](backup.md).
 
 ## Performance and scalability
 

@@ -7,7 +7,7 @@ services: key-vault
 ms.subservice: general
 ms.topic: upgrade-and-migration-article
 ms.service: azure-key-vault
-ms.date: 11/19/2025
+ms.date: 04/10/2026
 ---
 
 # How to migrate key workloads
@@ -31,7 +31,7 @@ Below we discuss several methods for migrating workloads to use a new key, eithe
 For most workloads that use keys in Key Vault, the most effective way to migrate a key into a new location (a new managed HSM or new key vault in a different subscription or region) is to:
 
 1. Create a new key in the new vault or managed HSM.
-2. Grant your workload access to the new key by assigning the workload's managed identity to the appropriate Azure RBAC role in [Azure Key Vault](rbac-guide.md) or the appropriate Managed HSM local RBAC role in [Azure Managed HSM](../managed-hsm/access-control.md).
+1. Grant your workload access to the new key by assigning the workload's managed identity to the appropriate Azure RBAC role in [Azure Key Vault](rbac-guide.md) or the appropriate Managed HSM local RBAC role in [Azure Managed HSM](../managed-hsm/access-control.md).
 1. Update the workload to use the new key as the customer managed encryption key.
 1. Retain the old key until you no longer want the backups of the workload data that they key originally protected.
 
@@ -40,9 +40,9 @@ For most workloads that use keys in Key Vault, the most effective way to migrate
 If you're using customer-managed keys with Azure Storage, you can migrate to a new key by following these steps:
 
 1. Create the new key in your destination key vault or managed HSM.
-2. Follow the instructions in [Configure customer-managed keys for an existing storage account](/azure/storage/common/customer-managed-keys-configure-existing-account) to update your storage account to use the new key.
-3. Keep your previous customer-managed key available until the storage service is fully transitioned to the new key.
-4. After confirming that all operations are working correctly with the new key, you can safely retire the previous key (but do not delete it if you need to access older backups).
+1. Follow the instructions in [Configure customer-managed keys for an existing storage account](/azure/storage/common/customer-managed-keys-configure-existing-account) to update your storage account to use the new key.
+1. Keep your previous customer-managed key available until the storage service is fully transitioned to the new key.
+1. After confirming that all operations are working correctly with the new key, you can safely retire the previous key (but do not delete it if you need to access older backups).
 
 This pattern applies to many Azure services that support customer-managed keys.
 
@@ -51,13 +51,13 @@ This pattern applies to many Azure services that support customer-managed keys.
 For client-side encryption or custom applications that directly encrypt data using the keys in Key Vault, the process is different:
 
 1. Create the new key vault or managed HSM, and create a new key encryption key (KEK).
-2. Re-encrypt any keys or data that encrypted by the old key using the new key. (If data is directly encrypted by the key in key vault, this may take some time, as all data must be read, decrypted, and encrypted with the new key. Use [envelope encryption](/azure/security/fundamentals/encryption-atrest#envelope-encryption-with-a-key-hierarchy) where possible to make such key rotations faster).
+1. Re-encrypt any keys or data that encrypted by the old key using the new key. (If data is directly encrypted by the key in key vault, this may take some time, as all data must be read, decrypted, and encrypted with the new key. Use [envelope encryption](/azure/security/fundamentals/encryption-atrest#envelope-encryption-with-a-key-hierarchy) where possible to make such key rotations faster).
    When re-encrypting the data, we recommend a three-level key hierarchy, which will make KEK rotation easier in the future:
     1. The Key Encryption Key in Azure Key Vault or Managed HSM
-    2. The Primary Key
-    3. Data Encryption Keys derived from the Primary Key
-4. Verify data after migration (and before deletion).
-5. Do not delete old key/key vault until you no longer want the backups of data associated with it.
+    1. The Primary Key
+    1. Data Encryption Keys derived from the Primary Key
+1. Verify data after migration (and before deletion).
+1. Do not delete old key/key vault until you no longer want the backups of data associated with it.
 
 ## Using the same key material across multiple Key Vaults or Managed HSMs in different geographies
 
@@ -71,14 +71,14 @@ To use the same key material across these boundaries:
 
 1. **Create a key in an on-premises HSM or other secure cryptographic module.** Generate the key in a hardware security module (HSM) that you control, ensuring you retain the key material in a secure environment.
 
-2. **Use Bring Your Own Key (BYOK) to import the key into each Key Vault or Managed HSM you need.** Repeat the import process for every vault or managed HSM in each region where your workload requires the key:
+1. **Use Bring Your Own Key (BYOK) to import the key into each Key Vault or Managed HSM you need.** Repeat the import process for every vault or managed HSM in each region where your workload requires the key:
    - For Azure Key Vault, follow the [Azure Key Vault BYOK specification](../keys/byok-specification.md).
    - For Azure Managed HSM, follow the [Import HSM-protected keys to Managed HSM (BYOK)](../managed-hsm/hsm-protected-keys-byok.md) guide.
 
    > [!IMPORTANT]
    > Each vault or managed HSM will have a **different key URI**, even though the underlying key material is the same. You must track which URI corresponds to each resource.
 
-3. **Update your applications and services to use the new key URI in each region.** Configure each regional deployment of your application, such as a custom application, Azure SQL Database, Azure Cosmos DB, or other service, to reference the new key URI from the vault or managed HSM in that region. Because each Key Vault or Managed HSM has its own unique URI, the key URI will be different in each resource even though the key material is identical. Ensure your application configurations reference the correct key URI.
+1. **Update your applications and services to use the new key URI in each region.** Configure each regional deployment of your application, such as a custom application, Azure SQL Database, Azure Cosmos DB, or other service, to reference the new key URI from the vault or managed HSM in that region. Because each Key Vault or Managed HSM has its own unique URI, the key URI will be different in each resource even though the key material is identical. Ensure your application configurations reference the correct key URI.
 
 ## Migrating tenant keys in Azure Information Protection
 
@@ -123,8 +123,8 @@ For organizations transitioning from HSM Platform 1, managing customer keys effe
 As HSM Platform 1 is retired, ensure that you:
 
 1. Roll or rotate your customer-managed root keys as needed to maintain compliance and security.
-2. Update data encryption policies (DEPs) to reference new keys or key versions.
-3. Follow best practices for key management, including minimizing permissions and monitoring key usage.
+1. Update data encryption policies (DEPs) to reference new keys or key versions.
+1. Follow best practices for key management, including minimizing permissions and monitoring key usage.
 
 For more details, refer to the [Microsoft Purview Customer Key documentation](/purview/customer-key-overview).
 

@@ -1,5 +1,5 @@
 ---
-title: What is Azure Key Vault? | Microsoft Docs
+title: What is Azure Key Vault?
 description: Learn how Azure Key Vault safeguards cryptographic keys and secrets that cloud applications and services use.
 services: key-vault
 author: msmbaldwin
@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: concept-article
-ms.date: 04/15/2025
+ms.date: 04/10/2026
 ms.author: mbaldwin
 
 #Customer intent: As someone new to Key Vault, I'm trying to learn basic concepts that can help me understand Key Vault documentation.
@@ -65,7 +65,7 @@ Use the following table to better understand how Key Vault can help to meet the 
 | --- | --- | --- |
 | Developer for an Azure application |"I want to write an application for Azure that uses keys for signing and encryption. But I want these keys to be external from my application so that the solution is suitable for an application that's geographically distributed. <br/><br/>I want these keys and secrets to be protected, without having to write the code myself. I also want these keys and secrets to be easy for me to use from my applications, with optimal performance." |√ Keys are stored in a vault and invoked by URI when needed.<br/><br/> √ Keys are safeguarded by Azure, using industry-standard algorithms, key lengths, and hardware security modules.<br/><br/> √ Keys are processed in HSMs that reside in the same Azure datacenters as the applications. This method provides better reliability and reduced latency than keys that reside in a separate location, such as on-premises. |
 | Developer for software as a service (SaaS) |"I don't want the responsibility or potential liability for my customers' tenant keys and secrets. <br/><br/>I want customers to own and manage their keys so that I can concentrate on doing what I do best, which is providing the core software features." |√ Customers can import their own keys into Azure, and manage them. When a SaaS application needs to perform cryptographic operations by using customers' keys, Key Vault does these operations on behalf of the application. The application does not see the customers' keys. |
-| Chief security officer (CSO) |"I want to know that our applications comply with FIPS 140 Level 3 HSMs for secure key management. <br/><br/>I want to make sure that my organization is in control of the key lifecycle and can monitor key usage. <br/><br/>And although we use multiple Azure services and resources, I want to manage the keys from a single location in Azure." |√ Choose **vaults** or **managed HSMs** for [FIPS 140 validated HSMs](/azure/key-vault/keys/about-keys#compliance).<br/>√ Choose **managed HSM pools** for FIPS 140-2 Level 3 validated HSMs.<br/><br/>√ Key Vault is designed so that Microsoft does not see or extract your keys.<br/>√ Key usage is logged in near real time.<br/><br/>√ The vault provides a single interface, regardless of how many vaults you have in Azure, which regions they support, and which applications use them. |
+| Chief security officer (CSO) |"I want to know that our applications comply with FIPS 140 Level 3 HSMs for secure key management. <br/><br/>I want to make sure that my organization is in control of the key lifecycle and can monitor key usage. <br/><br/>And although we use multiple Azure services and resources, I want to manage the keys from a single location in Azure." |√ Choose **vaults** or **managed HSMs** for [FIPS 140 validated HSMs](/azure/key-vault/keys/about-keys#compliance).<br/>√ Choose **managed HSM pools** for FIPS 140-3 Level 3 validated HSMs.<br/><br/>√ Key Vault is designed so that Microsoft does not see or extract your keys.<br/>√ Key usage is logged in near real time.<br/><br/>√ The vault provides a single interface, regardless of how many vaults you have in Azure, which regions they support, and which applications use them. |
 
 Anybody with an Azure subscription can create and use key vaults. Although Key Vault benefits developers and security administrators, it can be implemented and managed by an organization's administrator who manages other Azure services. For example, this administrator can sign in with an Azure subscription, create a vault for the organization in which to store keys, and then be responsible for operational tasks like these:
 

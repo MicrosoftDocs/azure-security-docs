@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 01/30/2026
+ms.date: 04/10/2026
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -36,9 +36,9 @@ To allow trusted services to bypass the firewall:
 # [Portal](#tab/azure-portal)
 
 1. Browse to your key vault in the Azure portal.
-2. Select **Networking** in the left menu.
-3. On the **Firewalls and virtual networks** tab, under **Exception**, select **Allow trusted Microsoft services to bypass this firewall**.
-4. Select **Save**.
+1. Select **Networking** in the left menu.
+1. On the **Firewalls and virtual networks** tab, under **Exception**, select **Allow trusted Microsoft services to bypass this firewall**.
+1. Select **Save**.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -52,7 +52,7 @@ az keyvault update --resource-group "myresourcegroup" --name "mykeyvault" --bypa
 
 Use the Azure PowerShell [Update-AzKeyVaultNetworkRuleSet](/powershell/module/az.keyvault/update-azkeyvaultnetworkruleset) cmdlet to allow trusted services to bypass the firewall.
 
-```powershell
+```azurepowershell
 Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -Bypass AzureServices
 ```
 
@@ -77,8 +77,8 @@ To add IP address rules:
 # [Portal](#tab/azure-portal)
 
 1. Browse to your key vault and select **Networking**.
-2. On the **Firewalls and virtual networks** tab, under **Firewall**, enter IPv4 addresses or CIDR ranges.
-3. Select **Save**.
+1. On the **Firewalls and virtual networks** tab, under **Firewall**, enter IPv4 addresses or CIDR ranges.
+1. Select **Save**.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -92,7 +92,7 @@ az keyvault network-rule add --resource-group "myresourcegroup" --name "mykeyvau
 
 Use the Azure PowerShell [Add-AzKeyVaultNetworkRule](/powershell/module/az.keyvault/add-azkeyvaultnetworkrule) cmdlet to add an IP address rule.
 
-```powershell
+```azurepowershell
 Add-AzKeyVaultNetworkRule -VaultName "mykeyvault" -IpAddressRange "16.17.18.0/24"
 ```
 
@@ -107,11 +107,11 @@ In this case, you should create the resource within a virtual network, and then 
 # [Portal](#tab/azure-portal)
 
 1. Browse to the key vault you wish to configure.
-2. Select **Networking**, and then select the **Firewalls and virtual networks** tab.
-3. Under **Allow access from**, select **Allow public access from specific virtual networks and IP addresses**.
-4. Select **+ Add a virtual network** > **Add existing virtual networks**.
-5. Select the subscription, virtual networks, and subnets that you want to allow access. If service endpoints aren't enabled, select **Enable** when prompted. It might take up to 15 minutes to take effect.
-6. Select **Add**, then select **Save**.
+1. Select **Networking**, and then select the **Firewalls and virtual networks** tab.
+1. Under **Allow access from**, select **Allow public access from specific virtual networks and IP addresses**.
+1. Select **+ Add a virtual network** > **Add existing virtual networks**.
+1. Select the subscription, virtual networks, and subnets that you want to allow access. If service endpoints aren't enabled, select **Enable** when prompted. It might take up to 15 minutes to take effect.
+1. Select **Add**, then select **Save**.
 
 To add a new virtual network, select **+ Add a virtual network** > **Add new virtual network** and follow the prompts.
 
@@ -125,14 +125,14 @@ Use the Azure CLI [az network vnet subnet update](/cli/azure/network/vnet/subnet
    az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --service-endpoints "Microsoft.KeyVault"
    ```
 
-2. Add a network rule for the virtual network and subnet:
+1. Add a network rule for the virtual network and subnet:
 
    ```azurecli
    subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
    az keyvault network-rule add --resource-group "myresourcegroup" --name "mykeyvault" --subnet $subnetid
    ```
 
-3. Use the [az keyvault update](/cli/azure/keyvault#az-keyvault-update) command to set the default action to deny:
+1. Use the [az keyvault update](/cli/azure/keyvault#az-keyvault-update) command to set the default action to deny:
 
    ```azurecli
    az keyvault update --resource-group "myresourcegroup" --name "mykeyvault" --default-action Deny
@@ -146,20 +146,20 @@ Use the Azure PowerShell [Get-AzVirtualNetwork](/powershell/module/az.network/ge
 
 1. Enable service endpoint for Key Vault on an existing virtual network and subnet:
 
-   ```powershell
+   ```azurepowershell
    Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.1.1.0/24" -ServiceEndpoint "Microsoft.KeyVault" | Set-AzVirtualNetwork
    ```
 
-2. Use [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) to get the subnet, then add a network rule:
+1. Use [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) to get the subnet, then add a network rule:
 
-   ```powershell
+   ```azurepowershell
    $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
    Add-AzKeyVaultNetworkRule -VaultName "mykeyvault" -VirtualNetworkResourceId $subnet.Id
    ```
 
-3. Use the [Update-AzKeyVaultNetworkRuleSet](/powershell/module/az.keyvault/update-azkeyvaultnetworkruleset) cmdlet to set the default action to deny:
+1. Use the [Update-AzKeyVaultNetworkRuleSet](/powershell/module/az.keyvault/update-azkeyvaultnetworkruleset) cmdlet to set the default action to deny:
 
-   ```powershell
+   ```azurepowershell
    Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -DefaultAction Deny
    ```
 
@@ -176,7 +176,7 @@ To view the current network rules configured for your key vault:
 # [Portal](#tab/azure-portal)
 
 1. Browse to your key vault and select **Networking**.
-2. Review the configured virtual networks and IP addresses on the **Firewalls and virtual networks** tab.
+1. Review the configured virtual networks and IP addresses on the **Firewalls and virtual networks** tab.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -190,7 +190,7 @@ az keyvault network-rule list --resource-group "myresourcegroup" --name "mykeyva
 
 Use the Azure PowerShell [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault) cmdlet to retrieve the network ACLs.
 
-```powershell
+```azurepowershell
 (Get-AzKeyVault -VaultName "mykeyvault").NetworkAcls
 ```
 
@@ -201,8 +201,8 @@ Use the Azure PowerShell [Get-AzKeyVault](/powershell/module/az.keyvault/get-azk
 # [Portal](#tab/azure-portal)
 
 1. Browse to your key vault and select **Networking**.
-2. On the **Firewalls and virtual networks** tab, select the delete icon next to the rule you want to remove.
-3. Select **Save**.
+1. On the **Firewalls and virtual networks** tab, select the delete icon next to the rule you want to remove.
+1. Select **Save**.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -227,14 +227,14 @@ Use the Azure PowerShell [Remove-AzKeyVaultNetworkRule](/powershell/module/az.ke
 
 To remove a virtual network rule:
 
-```powershell
+```azurepowershell
 $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
 Remove-AzKeyVaultNetworkRule -VaultName "mykeyvault" -VirtualNetworkResourceId $subnet.Id
 ```
 
 To remove an IP address rule:
 
-```powershell
+```azurepowershell
 Remove-AzKeyVaultNetworkRule -VaultName "mykeyvault" -IpAddressRange "16.17.18.0/24"
 ```
 
@@ -260,10 +260,10 @@ To disable public access after configuring Private Link:
 # [Portal](#tab/azure-portal)
 
 1. Browse to your key vault in the Azure portal.
-2. Select **Networking** in the left menu.
-3. Select the **Firewalls and virtual networks** tab.
-4. Under **Allow access from**, select **Disable public access**.
-5. Select **Save**.
+1. Select **Networking** in the left menu.
+1. Select the **Firewalls and virtual networks** tab.
+1. Under **Allow access from**, select **Disable public access**.
+1. Select **Save**.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -277,7 +277,7 @@ az keyvault update --resource-group "myresourcegroup" --name "mykeyvault" --publ
 
 Use the Azure PowerShell [Update-AzKeyVault](/powershell/module/az.keyvault/update-azkeyvault) cmdlet to disable public network access.
 
-```powershell
+```azurepowershell
 Update-AzKeyVault -ResourceGroupName "myresourcegroup" -VaultName "mykeyvault" -PublicNetworkAccess "Disabled"
 ```
 
@@ -341,13 +341,13 @@ The `publicNetworkAccess` setting determines the key vault's association with a 
 
 1. Navigate to your network security perimeter resource in the portal.
 
-2. Select **Resources** in the left-hand menu.
+1. Select **Resources** in the left-hand menu.
 
-3. Find your key vault in the table.
+1. Find your key vault in the table.
 
-4. Select the three dots in the far right of the search service row. Select **Change access mode** in the popup.
+1. Select the three dots in the far right of the search service row. Select **Change access mode** in the popup.
 
-5. Select the desired access mode and select **Apply**.
+1. Select the desired access mode and select **Apply**.
 
 #### Enable logging network access
 
