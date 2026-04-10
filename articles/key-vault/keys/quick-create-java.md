@@ -4,7 +4,7 @@ description: Provides a quickstart for the Azure Key Vault Keys client library f
 author: msmbaldwin
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell, mode-api, passwordless-java, devx-track-extended-java
 ms.author: mbaldwin
-ms.date: 03/30/2026
+ms.date: 04/09/2026
 
 ms.service: azure-key-vault
 ms.subservice: keys
@@ -100,13 +100,13 @@ Open the *pom.xml* file in your text editor. Add the following dependency elemen
     <dependency>
       <groupId>com.azure</groupId>
       <artifactId>azure-security-keyvault-keys</artifactId>
-      <version>4.2.3</version>
+      <version>4.10.6</version>
     </dependency>
 
     <dependency>
       <groupId>com.azure</groupId>
       <artifactId>azure-identity</artifactId>
-      <version>1.2.0</version>
+      <version>1.18.2</version>
     </dependency>
 ```
 
