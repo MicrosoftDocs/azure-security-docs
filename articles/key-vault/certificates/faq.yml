@@ -64,7 +64,7 @@ sections:
       - question: |
           How can I resolve this error? "The specified PEM X.509 certificate content is in an unexpected format. Check if certificate is in valid PEM format."
         answer: |
-          Verify that the content in the PEM file is uses UNIX-style line separators `(\n)`
+          Verify that the content in the PEM file uses UNIX-style line separators `(\n)`
       - question: |
           Can I import an expired certificate to Azure Key Vault?
         answer: |
@@ -88,7 +88,7 @@ sections:
       - question: |
           How do I combine certificates in a single .PEM or .PFX file to have the whole certificate bundle imported to Key Vault? 
         answer: |
-          Certificate Authorities may provide with the option to either download certificate individually (root, intermediate, leaf) or download all of them in a single file. When you import certificates into Key Vault, Certificate Authorities allows you to import one or an entire whole chain.
+          Certificate authorities may provide the option to either download certificates individually (root, intermediate, leaf) or download all of them in a single file. When you import certificates into Key Vault, certificate authorities allow you to import one or an entire chain.
 
   - name: Renew your Azure Key Vault certificates
     questions:

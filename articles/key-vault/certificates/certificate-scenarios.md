@@ -47,7 +47,7 @@ Before a certificate can be created in Key Vault, the following prerequisite ste
     -   Provider  
     -   Credentials – CA account credentials. Each CA has its own specific data.  
 
-    For more information on creating accounts with CA Providers, see [Integrating Key Vault with certificate authorities](./how-to-integrate-certificate-authority.md).  
+    For more information on creating accounts with CA providers, see [Integrating Key Vault with certificate authorities](./how-to-integrate-certificate-authority.md).  
 
 **Step 3b:** Set up [certificate contacts](/rest/api/keyvault/certificates/set-certificate-contacts/set-certificate-contacts) for notifications. This is the contact for the Key Vault user. Key Vault doesn't enforce this step.  
 
@@ -111,8 +111,8 @@ The following import format is supported for PEM files: a single PEM-encoded cer
 When you import a certificate, ensure that the key is included in the file itself. If you have the private key separately in a different format, you need to combine the key with the certificate. Some certificate authorities provide certificates in different formats, so before importing the certificate, make sure that it's in .pem or .pfx format. 
 
 
->[!NOTE]
->Ensure that no other meta data is present in the certificate file and that the private key not showing as encrypted.
+> [!NOTE]
+> Ensure that no other metadata is present in the certificate file and that the private key isn't showing as encrypted.
 
 ### Formats of merge CSR we support
 
@@ -122,7 +122,7 @@ Azure Key Vault supports PKCS#8 encoded certificates with the following headers:
 
 -----END CERTIFICATE-----
 
->[!NOTE]
+> [!NOTE]
 > P7B (PKCS#7) signed certificate chains, commonly used by certificate authorities (CAs), are supported as long as they're base64-encoded. You can use [certutil -encode](/windows-server/administration/windows-commands/certutil#-encode) to convert to a supported format.
 
 ## Creating a certificate with a CA not partnered with Key Vault  

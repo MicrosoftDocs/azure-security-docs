@@ -189,7 +189,7 @@ CertificateClient certificateClient = new CertificateClientBuilder()
 
 ### Save a certificate
 
-Now that your application is authenticated, you can create a certificate in your key vault using the `certificateClient.beginCreateCertificate` method. This requires a name for the certificate and a certificate policy -- we've assigned the value "myCertificate" to the `certificateName` variable in this sample and use a default policy.
+Now that your application is authenticated, you can create a certificate in your key vault using the `certificateClient.beginCreateCertificate` method. This requires a name for the certificate and a certificate policy -- the value "myCertificate" is assigned to the `certificateName` variable in this sample and a default policy is used.
 
 Certificate creation is a long running operation, for which you can poll its progress or wait for it to complete.
 
