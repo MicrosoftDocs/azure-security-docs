@@ -1,11 +1,11 @@
 ---
-title: Tutorial - Use Azure Key Vault with a virtual machine in JavaScript | Microsoft Docs
+title: Tutorial - Use Azure Key Vault with a virtual machine in JavaScript
 description: In this tutorial, you configure a virtual machine a JavaScript application to read a secret from your key vault.
 author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 03/30/2026
+ms.date: 04/10/2026
 ms.author: mbaldwin
 ms.devlang: javascript
 ms.custom: mvc, devx-track-js, devx-track-azurecli, devx-track-azurepowershell
@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 For Windows, Mac, and Linux:
   * [Git](https://git-scm.com/downloads)
-  * This tutorial requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0.4 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+  * This tutorial requires that you run the Azure CLI locally. You must have a recent version of the Azure CLI installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Log in to Azure
 
@@ -118,7 +118,7 @@ On the virtual machine, install the two npm libraries we'll be using in our Java
 1. In the SSH terminal, install Node.js and npm with the following commands:
 
     ```bash
-    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - && \
+    curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash - && \
         sudo apt-get install -y nodejs
     ```
 

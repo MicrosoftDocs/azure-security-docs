@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: quickstart
 ms.custom: mvc, mode-ui, sfi-image-nochange
-ms.date: 04/15/2025
+ms.date: 04/10/2026
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
@@ -26,16 +26,16 @@ Sign in to the [Azure portal](https://portal.azure.com).
 ## Create a vault
 
 1. From the Azure portal menu, or from the **Home** page, select **Create a resource**.
-2. In the Search box, enter **Key Vault**.
-3. From the results list, choose **Key Vault**.
-4. On the Key Vault section, choose **Create**.
-5. On the **Create key vault** section provide the following information:
+1. In the Search box, enter **Key Vault**.
+1. From the results list, choose **Key Vault**.
+1. On the Key Vault section, choose **Create**.
+1. On the **Create key vault** section provide the following information:
     - **Name**: A unique name is required. For this quickstart, we use **Contoso-vault2**.
     - **Subscription**: Choose a subscription.
     - Under **Resource Group**, choose **Create new** and enter a resource group name.
     - In the **Location** pull-down menu, choose a location.
     - Leave the other options to their defaults.
-6. Select **Create**.
+1. Select **Create**.
 
 Take note of these two properties:
 
@@ -52,8 +52,8 @@ Other Key Vault quickstarts and tutorials build upon this quickstart. If you pla
 When no longer needed, delete the resource group, which deletes the Key Vault and related resources. To delete the resource group through the portal:
 
 1. Enter the name of your resource group in the Search box at the top of the portal. When you see the resource group used in this quickstart in the search results, select it.
-2. Select **Delete resource group**.
-3. In the **TYPE THE RESOURCE GROUP NAME:** box type in the name of the resource group and select **Delete**.
+1. Select **Delete resource group**.
+1. In the **TYPE THE RESOURCE GROUP NAME:** box type in the name of the resource group and select **Delete**.
 
 ## Next steps
 

@@ -67,10 +67,8 @@ Use the following permissions, on a per-principal basis, in the secrets access c
 For more information on working with secrets, see [Secret operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/keyvault/vaults/create-or-update) and [Vaults - Update Access Policy](/rest/api/keyvault/keyvault/vaults/update-access-policy). 
 
 How-to guides to control access in Key Vault:
-- [Assign a Key Vault access policy using CLI](../general/assign-access-policy-cli.md)
-- [Assign a Key Vault access policy using PowerShell](../general/assign-access-policy-powershell.md)
-- [Assign a Key Vault access policy using the Azure portal](../general/assign-access-policy-portal.md)
-- [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../general/rbac-guide.md)
+- [Provide access to Key Vault keys, certificates, and secrets with Azure role-based access control](../general/rbac-guide.md) (recommended)
+- [Assign a Key Vault access policy](../general/assign-access-policy.md) (legacy)
 
 ## Secret tags  
 You can specify more application-specific metadata in the form of tags. Key Vault supports up to 15 tags, each of which can have a 512-character name and a 512-character value.  

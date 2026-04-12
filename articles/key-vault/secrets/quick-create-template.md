@@ -3,12 +3,11 @@ title: Azure Quickstart - Create an Azure key vault and a secret by using Azure 
 description: Quickstart showing how to create Azure key vaults, and add secrets to the vaults by using Azure Resource Manager template.
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
 ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template, sfi-image-nochange
-ms.date: 12/03/2025
+ms.date: 04/10/2026
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
 ---
@@ -53,6 +52,9 @@ To complete this article:
     2. Write down the object ID. You need it in the next section of this quickstart.
 
 ## Review the template
+
+> [!IMPORTANT]
+> This quickstart uses an external template that creates a vault with legacy access policies. For production deployments, use Azure RBAC authorization instead. See [Create a key vault using an ARM template](../general/vault-create-template.md) for a template that uses `enableRbacAuthorization: true`, or see [Secure your Azure Key Vault](../general/secure-key-vault.md) for comprehensive security guidance.
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/key-vault-create/).
 

@@ -3,7 +3,7 @@ title: Diagnose private links configuration issues on Azure Key Vault
 description: Resolve common private links issues with Key Vault and deep dive into the configuration
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 01/30/2026
+ms.date: 04/10/2026
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
@@ -70,9 +70,9 @@ A few Azure products support the concept of *vnet injection*. In simple terms, t
 The following steps validate that the private endpoint connection is approved  and succeeded:
 
 1. Open the Azure portal and open your key vault resource.
-2. In the left menu, select **Networking**.
-3. Select the **Private endpoint connections** tab to see all private endpoint connections and their respective states. If there are no connections, or if the connection for your Virtual Network is missing, you have to create a new Private Endpoint. This will be covered later.
-4. Still in **Private endpoint connections**, find the one you are diagnosing and confirm that "Connection state" is **Approved** and "Provisioning state" is **Succeeded**.
+1. In the left menu, select **Networking**.
+1. Select the **Private endpoint connections** tab to see all private endpoint connections and their respective states. If there are no connections, or if the connection for your Virtual Network is missing, you have to create a new Private Endpoint. This will be covered later.
+1. Still in **Private endpoint connections**, find the one you are diagnosing and confirm that "Connection state" is **Approved** and "Provisioning state" is **Succeeded**.
     - If the connection is in "Pending" state, you might be able to just approve it.
     - If the connection "Rejected", "Failed", "Error", "Disconnected" or other state, then it's not effective at all, you have to create a new Private Endpoint resource.
 
@@ -86,9 +86,9 @@ It's a good idea to delete ineffective connections in order to keep things clean
 An important notion is that the private links feature only *gives* access to your key vault in a Virtual Network that is closed to prevent data exfiltration. It does not *remove* any existing access. In order to effectively block accesses from the public Internet, you must enable the key vault firewall explicitly:
 
 1. Open the Azure portal and open your key vault resource.
-2. In the left menu, select **Networking**.
-3. Make sure the **Firewalls and virtual networks** tab is selected on top.
-4. If you find **Allow public access from all networks** selected, that explains why external clients are still able to access the key vault. If you would like the Key Vault to be accessible only over Private Link, select **Disable Public Access**.
+1. In the left menu, select **Networking**.
+1. Make sure the **Firewalls and virtual networks** tab is selected on top.
+1. If you find **Allow public access from all networks** selected, that explains why external clients are still able to access the key vault. If you would like the Key Vault to be accessible only over Private Link, select **Disable Public Access**.
 
 The following statements also apply to firewall settings:
 
@@ -126,12 +126,12 @@ When you browse the portal or run a command that shows the IP address, make sure
 You will need to diagnose hostname resolution, and for that purpose you must know the exact private IP address of your key vault with private links enabled. In order to find that address, follow these steps:
 
 1. Open the Azure portal and open your key vault resource.
-2. In the left menu, select **Networking**.
-3. Select the **Private endpoint connections** tab. The resulting view shows all private endpoint connections and their respective states.
-4. Find the connection you are diagnosing and confirm that "Connection state" is **Approved** and Provisioning state is **Succeeded**. If the status differs, go back to previous sections of the document.
-5. When you find the appropriate item, click the link in the **Private endpoint** column. The action opens the Private Endpoint resource.
-6. The Overview page may show a section called **Custom DNS settings**. Confirm that there is only one entry that matches the key vault hostname. That entry shows the key vault private IP address.
-7. You may also select the link at **Network interface** and confirm that the private IP address is the same displayed in the previous step. The network interface is a virtual device that represents key vault.
+1. In the left menu, select **Networking**.
+1. Select the **Private endpoint connections** tab. The resulting view shows all private endpoint connections and their respective states.
+1. Find the connection you are diagnosing and confirm that "Connection state" is **Approved** and Provisioning state is **Succeeded**. If the status differs, go back to previous sections of the document.
+1. When you find the appropriate item, select the link in the **Private endpoint** column. The action opens the Private Endpoint resource.
+1. The Overview page may show a section called **Custom DNS settings**. Confirm that there is only one entry that matches the key vault hostname. That entry shows the key vault private IP address.
+1. You may also select the link at **Network interface** and confirm that the private IP address is the same displayed in the previous step. The network interface is a virtual device that represents key vault.
 
 The IP address is the one that VMs and other devices *running in the same Virtual Network* use to connect to the key vault. Make note of the IP address, or keep the browser tab open and don't touch it while you do further investigations.
 

@@ -3,7 +3,7 @@ title: Quickstart -  Azure Key Vault certificate client library for JavaScript (
 description: Learn how to create, retrieve, and delete certificates from an Azure key vault using the JavaScript client library with either JavaScript or TypeScript
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 03/26/2026
+ms.date: 04/10/2026
 ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: quickstart
@@ -239,7 +239,7 @@ This code uses the following [Key Vault Certificate classes and methods](/javasc
     {
       "keyId": undefined,
       "secretId": undefined,
-      "name": "YOUR-CERTIFICATE-NAME",
+      "name": "<certificate-name>",
         "reuseKey": false,
         "keyCurveName": undefined,
         "exportable": true,
@@ -251,13 +251,13 @@ This code uses the following [Key Vault Certificate classes and methods](/javasc
         "createdOn": 2021-11-29T20:17:45.000Z,
         "updatedOn": 2021-11-29T20:17:45.000Z,
         "expiresOn": 2022-11-29T20:17:45.000Z,
-        "id": "https://YOUR-KEY-VAULT-NAME-ENDPOINT/certificates/YOUR-CERTIFICATE-NAME/YOUR-CERTIFICATE-VERSION",
+        "id": "https://<key-vault-name>.vault.azure.net/certificates/<certificate-name>/<certificate-version>",
         "enabled": false,
         "notBefore": 2021-11-29T20:07:45.000Z,
         "recoveryLevel": "Recoverable+Purgeable",
-        "name": "YOUR-CERTIFICATE-NAME",
-        "vaultUrl": "https://YOUR-KEY-VAULT-NAME-ENDPOINT",
-        "version": "YOUR-CERTIFICATE-VERSION",
+        "name": "<certificate-name>",
+        "vaultUrl": "https://<key-vault-name>.vault.azure.net",
+        "version": "<certificate-version>",
         "tags": undefined,
         "x509Thumbprint": undefined,
         "recoverableDays": 90
@@ -292,7 +292,7 @@ This code uses the following [Key Vault Certificate classes and methods](/javasc
     {
       "keyId": undefined,
       "secretId": undefined,
-      "name": "YOUR-CERTIFICATE-NAME",
+      "name": "<certificate-name>",
         "reuseKey": false,
         "keyCurveName": undefined,
         "exportable": true,
@@ -304,13 +304,13 @@ This code uses the following [Key Vault Certificate classes and methods](/javasc
         "createdOn": 2021-11-29T20:17:45.000Z,
         "updatedOn": 2021-11-29T20:17:45.000Z,
         "expiresOn": 2022-11-29T20:17:45.000Z,
-        "id": "https://YOUR-KEY-VAULT-NAME-ENDPOINT/certificates/YOUR-CERTIFICATE-NAME/YOUR-CERTIFICATE-VERSION",
+        "id": "https://<key-vault-name>.vault.azure.net/certificates/<certificate-name>/<certificate-version>",
         "enabled": false,
         "notBefore": 2021-11-29T20:07:45.000Z,
         "recoveryLevel": "Recoverable+Purgeable",
-        "name": "YOUR-CERTIFICATE-NAME",
-        "vaultUrl": "https://YOUR-KEY-VAULT-NAME-ENDPOINT",
-        "version": "YOUR-CERTIFICATE-VERSION",
+        "name": "<certificate-name>",
+        "vaultUrl": "https://<key-vault-name>.vault.azure.net",
+        "version": "<certificate-version>",
         "tags": undefined,
         "x509Thumbprint": undefined,
         "recoverableDays": 90

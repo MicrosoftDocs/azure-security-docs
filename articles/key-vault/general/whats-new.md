@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: reference
-ms.date: 04/02/2026
+ms.date: 04/10/2026
 ms.author: mbaldwin
 
 #Customer intent: As an Azure Key Vault administrator, I want to react to soft-delete being turned on for all key vaults.
@@ -148,7 +148,7 @@ Azure Policy for Key Vault provides a full suite of built-in policies for govern
 
 ## June 2021
 
-Azure Key Vault Managed HSM is generally available. Managed HSM offers a fully managed, highly available, single-tenant cloud service to safeguard cryptographic keys for your cloud applications using FIPS 140-2 Level 3 validated HSMs.
+Azure Key Vault Managed HSM is generally available. Managed HSM offers a fully managed, highly available, single-tenant cloud service to safeguard cryptographic keys for your cloud applications using FIPS 140-3 Level 3 validated HSMs.
 
 For more information, see [Azure Key Vault Managed HSM overview](../managed-hsm/overview.md).
 
@@ -205,7 +205,7 @@ New features and integrations released this year:
 
 New features released this year:
 
-- Managed storage account keys. Storage Account Keys feature added easier integration with Azure Storage. For more information, see [Managed Storage Account Keys overview](../secrets/overview-storage-keys.md).
+- Managed storage account keys (deprecated). Storage Account Keys feature added easier integration with Azure Storage. This feature is now deprecated; use [Microsoft Entra ID authorization for Azure Storage](/azure/storage/common/authorize-data-access) instead.
 - Soft delete. Soft-delete feature improves data protection of your key vaults and key vault objects. For more information, see [Soft-delete overview](./soft-delete-overview.md).
 
 ## 2015
@@ -220,7 +220,7 @@ General Availability (version 2015-06-01) was announced on June 24, 2015. The fo
 - Restore a key - "use" field removed.
 - Changed "RSA_OAEP" to "RSA-OAEP" for RSA Algorithms. See [About keys, secrets, and certificates](about-keys-secrets-certificates.md).
 
-Second preview version (version 2015-02-01-preview) was announced April 20, 2015. For more information, see [REST API Update](/archive/blogs/kv/rest-api-update) blog post. The following tasks were updated:
+Second preview version (version 2015-02-01-preview) was announced April 20, 2015. For more information, see the [REST API reference](/rest/api/keyvault). The following tasks were updated:
 
 - List the keys in a vault - added pagination support to operation.
 - List the versions of a key - added operation to list the versions of a key.

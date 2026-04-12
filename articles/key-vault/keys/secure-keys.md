@@ -2,12 +2,11 @@
 title: Secure your Azure Key Vault keys
 description: Learn how to secure Azure Key Vault keys, with best practices specific to cryptographic key management.
 author: msmbaldwin
-tags: azure-key-vault
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: best-practice
 ms.custom: horz-security
-ms.date: 11/10/2025
+ms.date: 04/10/2026
 ms.author: mbaldwin
 ai-usage: ai-assisted
 # Customer intent: As a developer using Key Vault keys, I want to implement key-specific security best practices.
@@ -25,9 +24,9 @@ Azure Key Vault supports different key types with varying protection levels. Cho
 
 - **Software-protected keys (RSA, EC)**: Keys protected by FIPS 140-2 Level 1 validated software. Suitable for most applications requiring encryption and signing operations.
 
-- **HSM-protected keys (RSA-HSM, EC-HSM)**: Keys protected by FIPS 140-2 Level 2 validated hardware security modules (HSMs). Recommended for high-security scenarios requiring hardware-backed key protection.
+- **HSM-protected keys (RSA-HSM, EC-HSM)**: Keys protected by hardware security modules (HSMs). All new keys and key versions are created on FIPS 140-3 Level 3 validated HSMs (HSM Platform 2). Recommended for high-security scenarios requiring hardware-backed key protection.
 
-- **Managed HSM keys**: Keys in dedicated, single-tenant HSM pools with FIPS 140-2 Level 3 validated hardware. Required for the highest security and compliance requirements.
+- **Managed HSM keys**: Keys in dedicated, single-tenant HSM pools with FIPS 140-3 Level 3 validated hardware. Required for the highest security and compliance requirements.
 
 For more information about key types, see [About Azure Key Vault keys](about-keys.md).
 
@@ -48,7 +47,7 @@ For more information about key operations, see [Key operations in Key Vault](abo
 Implement regular key rotation to limit exposure from compromised keys:
 
 - **Enable automatic key rotation**: Configure automatic rotation policies to rotate keys without application downtime. See [Configure key autorotation](how-to-configure-key-rotation.md)
-- **Set rotation frequency**: Rotate encryption keys at least annually, or more frequently based on compliance requirements
+- **Set rotation frequency**: Rotate encryption keys at least every two years, or more frequently based on compliance requirements
 - **Use key versioning**: Key Vault automatically versions keys, allowing seamless rotation without breaking existing encrypted data
 - **Plan for re-encryption**: For long-term data, implement strategies to re-encrypt data with new key versions
 
@@ -67,7 +66,7 @@ Protect against data loss by implementing proper backup and recovery procedures:
 
 When importing your own keys into Key Vault, follow security best practices:
 
-- **Use secure key generation**: Generate keys in FIPS 140-2 Level 2 or higher HSMs
+- **Use secure key generation**: Generate keys in a [supported on-premises HSM](hsm-protected-keys.md) that meets your compliance requirements
 - **Protect keys during transfer**: Use Key Vault's BYOK process to securely transfer keys. See [Import HSM-protected keys to Key Vault (BYOK)](hsm-protected-keys-byok.md)
 - **Validate key import**: Verify key attributes and permissions after import
 - **Maintain key provenance**: Document the origin and transfer method of imported keys
