@@ -7,7 +7,7 @@ ms.author: mbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: concept-article
-ms.date: 05/08/2025
+ms.date: 04/10/2026
 ---
 
 # Understanding autorotation in Azure Key Vault
@@ -77,12 +77,12 @@ Certificate autorotation supports:
 When implementing autorotation in Azure Key Vault, consider these best practices:
 
 1. **Use versioning**: Ensure systems reference the latest version of a key, certificate, or secret automatically
-2. **Implement proper access controls**: Use Azure RBAC to control who can configure rotation policies
-3. **Monitor rotation events**: Set up notifications and alerts for successful and failed rotations
-4. **Test rotation procedures**: Validate that dependent systems can handle rotated assets correctly
-5. **Configure appropriate rotation frequencies**: Balance security requirements with operational considerations
-6. **Document fallback procedures**: Have manual rotation processes documented for emergency scenarios
-7. **Follow security best practices**: Implement comprehensive security measures as outlined in [Secure your Azure Key Vault](secure-key-vault.md)
+1. **Implement proper access controls**: Use Azure RBAC to control who can configure rotation policies
+1. **Monitor rotation events**: Set up notifications and alerts for successful and failed rotations
+1. **Test rotation procedures**: Validate that dependent systems can handle rotated assets correctly
+1. **Configure appropriate rotation frequencies**: Balance security requirements with operational considerations
+1. **Document fallback procedures**: Have manual rotation processes documented for emergency scenarios
+1. **Follow security best practices**: Implement comprehensive security measures as outlined in [Secure your Azure Key Vault](secure-key-vault.md)
 
 ## Common autorotation scenarios
 

@@ -14,7 +14,6 @@ ms.author: mbaldwin
 ---
 
 # Monitor and manage certificate creation
-Applies To: Azure
 
 The scenarios / operations outlined in this article are:
 

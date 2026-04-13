@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: how-to
 ms.custom: devx-track-js, devx-track-azurecli
-ms.date: 01/30/2026
+ms.date: 04/09/2026
 
 ms.author: mbaldwin
 #Customer intent: As a JavaScript developer who is new to Azure, I want to know the high level steps necessary to use Key Vault keys in JavaScript.
@@ -26,10 +26,10 @@ This article shows you how to connect to Azure Key Vault by using the Azure Key 
 
 ## Set up your project
 
-1. Open a command prompt and change into your project folder. Change `YOUR-DIRECTORY` to your folder name:
+1. Open a command prompt and change into your project folder. Change `<your-directory>` to your folder name:
 
     ```bash
-    cd YOUR-DIRECTORY
+    cd <your-directory>
     ```
 
 1. If you don't have a `package.json` file already in your directory, initialize the project to create the file:

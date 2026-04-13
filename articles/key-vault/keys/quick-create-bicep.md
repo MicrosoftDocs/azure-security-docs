@@ -8,7 +8,7 @@ ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.author: mbaldwin
-ms.date: 03/26/2026
+ms.date: 04/10/2026
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
 ---
 
@@ -69,7 +69,7 @@ param keySize int = 2048
 ])
 param curveName string = ''
 
-resource vault 'Microsoft.KeyVault/vaults@2021-11-01-preview' = {
+resource vault 'Microsoft.KeyVault/vaults@2024-11-01' = {
   name: vaultName
   location: location
   properties: {
@@ -77,6 +77,7 @@ resource vault 'Microsoft.KeyVault/vaults@2021-11-01-preview' = {
     enableRbacAuthorization: true
     enableSoftDelete: true
     softDeleteRetentionInDays: 90
+    enablePurgeProtection: true
     enabledForDeployment: false
     enabledForDiskEncryption: false
     enabledForTemplateDeployment: false
@@ -92,7 +93,7 @@ resource vault 'Microsoft.KeyVault/vaults@2021-11-01-preview' = {
   }
 }
 
-resource key 'Microsoft.KeyVault/vaults/keys@2021-11-01-preview' = {
+resource key 'Microsoft.KeyVault/vaults/keys@2024-11-01' = {
   parent: vault
   name: keyName
   properties: {

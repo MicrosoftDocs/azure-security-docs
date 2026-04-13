@@ -6,13 +6,13 @@ ms.subservice: managed-hsm
 ms.topic: concept-article
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 04/14/2025
+ms.date: 04/02/2026
 
 ---
 
 # Security domain in Managed HSM overview
 
-A managed HSM is a single-tenant, [Federal Information Processing Standards (FIPS) 140-3 validated](https://csrc.nist.gov/publications/detail/fips/140/3/final), highly available, hardware security module (HSM) that has a customer-controlled security domain.  
+A managed HSM is a single-tenant, [Federal Information Processing Standards (FIPS) 140-3 Level 3 validated](https://csrc.nist.gov/publications/detail/fips/140/3/final), highly available, hardware security module (HSM) that has a customer-controlled security domain.  
 
 To operate, a managed HSM must have a security domain. The security domain is an encrypted blob file that contains artifacts like the HSM backup, user credentials, the signing key, and the data encryption key that's unique to the managed HSM.
 
@@ -26,7 +26,7 @@ A managed HSM security domain serves the following purposes:
   - The managed HSM instance was soft-deleted by a customer and the resource was purged after the mandatory retention period expired.
   - The customer archived a project by performing a backup that included the managed HSM instance and all data, and then deleted all Azure resources that were associated with the project.
 
-Without the security domain, disaster recovery isn't possible. Microsoft has no way to recover the security domain, and Microsoft can't access your keys without the security domain. Protecting the security domain is therefore of the utmost importance for your business continuity, and to ensure that you aren't cryptographically locked out.
+Without the security domain, disaster recovery isn't possible — all keys are permanently and irrecoverably lost. Microsoft has no way to recover the security domain, and Microsoft can't access your keys without the security domain. This is architecturally enforced by the HSM hardware and cryptographic design, not merely by policy. Protecting the security domain is therefore of the utmost importance for your business continuity.
 
 ## Security domain protection best practices
 

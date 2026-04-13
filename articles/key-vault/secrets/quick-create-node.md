@@ -214,9 +214,9 @@ This code uses the following [Key Vault Secret classes and methods](/javascript/
             "enabled": true,
             "recoverableDays": 90,
             "recoveryLevel": "Recoverable+Purgeable",
-            "id": "https: //YOUR-KEYVAULT-ENDPOINT.vault.azure.net/secrets/secret1637692472606/YOUR-VERSION",
-            "vaultUrl": "https: //YOUR-KEYVAULT-ENDPOINT.vault.azure.net",
-            "version": "YOUR-VERSION",
+            "id": "https://<vault-name>.vault.azure.net/secrets/secret1637692472606/e13f3558b4ca4363a8e402e11e7b193c",
+            "vaultUrl": "https://<vault-name>.vault.azure.net",
+            "version": "e13f3558b4ca4363a8e402e11e7b193c",
             "name": "secret1637692472606"
         }
     }
@@ -230,9 +230,9 @@ This code uses the following [Key Vault Secret classes and methods](/javascript/
     "enabled": true,
     "recoverableDays": 90,
     "recoveryLevel": "Recoverable+Purgeable",
-    "id": "https: //YOUR-KEYVAULT-ENDPOINT/secrets/secret1637692472606/YOUR-VERSION",
-    "vaultUrl": "https: //YOUR-KEYVAULT-ENDPOINT",
-    "version": "YOUR-VERSION",
+    "id": "https://<vault-name>.vault.azure.net/secrets/secret1637692472606/e13f3558b4ca4363a8e402e11e7b193c",
+    "vaultUrl": "https://<vault-name>.vault.azure.net",
+    "version": "e13f3558b4ca4363a8e402e11e7b193c",
     "name": "secret1637692472606"
     ```
 ::: zone-end
@@ -267,9 +267,9 @@ This code uses the following [Key Vault Secret classes and methods](/javascript/
             "enabled": true,
             "recoverableDays": 90,
             "recoveryLevel": "Recoverable+Purgeable",
-            "id": "https: //YOUR-KEYVAULT-ENDPOINT.vault.azure.net/secrets/secret1637692472606/YOUR-VERSION",
-            "vaultUrl": "https: //YOUR-KEYVAULT-ENDPOINT.vault.azure.net",
-            "version": "YOUR-VERSION",
+            "id": "https://<vault-name>.vault.azure.net/secrets/secret1637692472606/e13f3558b4ca4363a8e402e11e7b193c",
+            "vaultUrl": "https://<vault-name>.vault.azure.net",
+            "version": "e13f3558b4ca4363a8e402e11e7b193c",
             "name": "secret1637692472606"
         }
     }
@@ -283,9 +283,9 @@ This code uses the following [Key Vault Secret classes and methods](/javascript/
     "enabled": true,
     "recoverableDays": 90,
     "recoveryLevel": "Recoverable+Purgeable",
-    "id": "https: //YOUR-KEYVAULT-ENDPOINT/secrets/secret1637692472606/YOUR-VERSION",
-    "vaultUrl": "https: //YOUR-KEYVAULT-ENDPOINT",
-    "version": "YOUR-VERSION",
+    "id": "https://<vault-name>.vault.azure.net/secrets/secret1637692472606/e13f3558b4ca4363a8e402e11e7b193c",
+    "vaultUrl": "https://<vault-name>.vault.azure.net",
+    "version": "e13f3558b4ca4363a8e402e11e7b193c",
     "name": "secret1637692472606"
     ```
 ::: zone-end

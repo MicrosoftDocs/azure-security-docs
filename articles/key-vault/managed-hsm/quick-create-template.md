@@ -4,7 +4,7 @@ description: Quickstart showing how to create Azure an Azure Key Vault Managed H
 services: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 03/13/2026
+ms.date: 03/30/2026
 ms.topic: quickstart
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
@@ -15,7 +15,7 @@ ms.custom: subject-armqs, devx-track-arm-template, devx-track-azurecli
 
 # Quickstart: Create a Managed HSM using an ARM template
 
-This quickstart shows how to use an Azure Resource Manager template (ARM template) to create an Azure Key Vault managed HSM. [!INCLUDE [Managed HSM description](../includes/managed-hsm/intro.md)]  
+This quickstart shows how to use an Azure Resource Manager template (ARM template) to create an Azure Key Vault managed HSM. [!INCLUDE [Managed HSM description](~/reusable-content/ce-skilling/azure/includes/managed-hsm/intro.md)]  
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
@@ -70,7 +70,7 @@ Now you can deploy the ARM template:
 
 1. Select **Purchase**. After the Managed HSM is deployed successfully, you get a notification:
 
-[!INCLUDE [Managed HSM billing warning](../includes/managed-hsm/billing-warning.md)]
+[!INCLUDE [Managed HSM billing warning](~/reusable-content/ce-skilling/azure/includes/managed-hsm/billing-warning.md)]
 
 The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use Azure PowerShell, Azure CLI, and REST API. To learn about other deployment methods, see [Deploy templates](/azure/azure-resource-manager/templates/deploy-powershell).
 
@@ -88,7 +88,7 @@ You see the name of your newly created managed HSM.
 
 [!INCLUDE [Delete resource group](../../../includes/cli-rg-delete.md)]
 
-[!INCLUDE [Managed HSM cleanup warning](../includes/managed-hsm/cleanup-warning.md)]
+[!INCLUDE [Managed HSM cleanup warning](~/reusable-content/ce-skilling/azure/includes/managed-hsm/cleanup-warning.md)]
 
 ## Next steps
 

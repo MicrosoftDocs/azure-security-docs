@@ -3,12 +3,11 @@ title: Rotation tutorial for resources with one set of authentication credential
 description: Use this tutorial to learn how to automate the rotation of a secret for resources that use one set of authentication credentials.
 services: key-vault
 author: msmbaldwin
-tags: 'rotation'
 
 ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: tutorial
-ms.date: 03/26/2026
+ms.date: 04/10/2026
 
 ms.author: mbaldwin
 ms.devlang: csharp
@@ -79,7 +78,7 @@ The function app requires these components:
 - An Azure App Service plan
 - A Function App with SQL password rotation functions with event trigger and http trigger 
 - A storage account required for function app trigger management
-- An access policy for Function App identity to access secrets in Key Vault
+- An Azure RBAC role assignment for the function app identity to access secrets in Key Vault
 - An Event Grid event subscription for **SecretNearExpiry** event
 
 1. Select the Azure template deployment link:
@@ -118,7 +117,7 @@ akvrotation-fnapp        akvrotation       eastus      Microsoft.Web/sites
 akvrotation-fnapp        akvrotation       eastus      Microsoft.insights/components
 ```
 
-For information on how to create a function app and use managed identity to access Key Vault, see [Create a function app from the Azure portal](/azure/azure-functions/functions-create-function-app-portal), [How to use managed identity for App Service and Azure Functions](/azure/app-service/overview-managed-identity), and [Assign a Key Vault access policy using the Azure portal](../general/assign-access-policy-portal.md).
+For information on how to create a function app and use managed identity to access Key Vault, see [Create a function app from the Azure portal](/azure/azure-functions/functions-create-function-app-portal), [How to use managed identity for App Service and Azure Functions](/azure/app-service/overview-managed-identity), and [Provide access to Key Vault with Azure RBAC](../general/rbac-guide.md).
 
 ### Rotation function
 Deployed in previous step function uses an event to trigger the rotation of a secret by updating Key Vault and the SQL database. 
