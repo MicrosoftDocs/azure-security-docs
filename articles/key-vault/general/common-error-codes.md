@@ -1,5 +1,5 @@
 ---
-title: Common error codes for Azure Key Vault | Microsoft Docs
+title: Common error codes for Azure Key Vault
 description: Common error codes for Azure Key Vault
 services: key-vault
 author: msmbaldwin
@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: reference
-ms.date: 01/30/2026
+ms.date: 04/10/2026
 ms.author: mbaldwin
 
 #Customer intent: As an Azure Key Vault administrator, I want to react to soft-delete being turned on for all key vaults.

@@ -5,7 +5,7 @@ author: keithp
 manager: keithp
 ms.service: azure-cloud-hsm
 ms.topic: quickstart
-ms.date: 03/20/2025
+ms.date: 03/26/2026
 ms.author: keithp
 
 #customer intent: As an IT pro decision-maker, I'm looking for key storage capability within the Azure cloud platform that meets FIPS 140-3 Level 3 certification and that gives me exclusive access to a dedicated hardware security module.
@@ -36,11 +36,11 @@ The following example code creates a resource group and a Cloud HSM instance. Yo
 ```azurepowershell-interactive
 # Define variables for your Cloud HSM deployment
 $server = @{
-    Location = "<RegionName>"
+    Location = "<location>"
     Sku = @{"family" = "B"; "Name" = "Standard_B1" }
-    ResourceName = "<HSMName>"
+    ResourceName = "<hsm-name>"
     ResourceType = "microsoft.hardwaresecuritymodules/cloudHsmClusters"
-    ResourceGroupName = "<ResourceGroupName>"
+    ResourceGroupName = "<resource-group>"
     Force = $true
 }
 
@@ -63,9 +63,9 @@ If you plan to use backup and restore functionality, you can create and configur
 ```azurepowershell-interactive
 # Define parameters for the new managed identity
 $identity = @{
-    Location          = "<RegionName>"                                         
-    ResourceName      = "<ManagedIdentityName>"                                         
-    ResourceGroupName = "<ResourceGroupName>"
+    Location          = "<location>"                                         
+    ResourceName      = "<managed-identity-name>"                                         
+    ResourceGroupName = "<resource-group>"
 }
 
 # Create a new user-assigned managed identity
@@ -105,7 +105,7 @@ For production environments, we strongly recommend that you configure a private 
 ```azurepowershell-interactive
 # Define private endpoint parameters
 $privateEndpoint = @{
-    Name = "<PrivateEndpointName>"
+    Name = "<private-endpoint-name>"
     ResourceGroupName = $server.ResourceGroupName
     Location = $server.Location
     Subnet = $subnet # You need to have $subnet defined with your subnet configuration
@@ -128,10 +128,10 @@ New-AzPrivateEndpoint @privateEndpoint
 When you run the `New-AzResource` command with the `-AsJob` parameter, it creates a background job to deploy your Cloud HSM resource. You can check the status of the deployment by running:
 
 ```azurepowershell-interactive
-Get-Job -Id <JobId> | Receive-Job
+Get-Job -Id <job-id> | Receive-Job
 ```
 
-In the preceding command, `<JobId>` is the ID that the system returned when you ran the `New-AzResource` command.
+In the preceding command, `<job-id>` is the ID that the system returned when you ran the `New-AzResource` command.
 
 The deployment is complete when you see a successful result from the job or when you can verify that the resource exists in your Azure subscription.
 

@@ -34,7 +34,7 @@ Create a resource group with [New-AzResourceGroup](/powershell/module/az.resourc
 ```azurepowershell-interactive
 ## Create to your Azure account subscription and create a resource group in a desired location. ##
 Connect-AzAccount
-Set-AzSubscription "mySubscription"
+Set-AzSubscription "<subscription-name>"
 $rg = "CreateAttestationPrivateLinkTutorial-rg"
 $loc= "eastus"
 New-AzResourceGroup -Name $rg -Location $loc
@@ -109,7 +109,7 @@ $attestationProvider = New-AzAttestation -Name $attestationProviderName -Resourc
 $attestationProviderId = $attestationProvider.Id
 ```
 ## Access the attestation provider from local machine ##
-Enter `nslookup <provider-name>.attest.azure.net`. Replace **\<provider-name>** with the name of the attestation provider instance you created in the previous steps. 
+Enter `nslookup <provider-name>.attest.azure.net`. Replace `<provider-name>` with the name of the attestation provider instance you created in the previous steps. 
 ```azurepowershell-interactive
 ## Access the attestation provider from local machine ##
 nslookup myattestationprovider.eus.attest.azure.net
@@ -189,7 +189,7 @@ In this section, you'll use the virtual machine you created in the previous step
 
 8. Open Windows PowerShell on the server after you connect.
 
-9. Enter `nslookup <provider-name>.attest.azure.net`. Replace **\<provider-name>** with the name of the attestation provider instance you created in the previous steps:
+9. Enter `nslookup <provider-name>.attest.azure.net`. Replace `<provider-name>` with the name of the attestation provider instance you created in the previous steps:
 
     ```azurepowershell-interactive
     ## Access the attestation provider from local machine ##

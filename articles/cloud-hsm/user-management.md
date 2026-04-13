@@ -3,8 +3,8 @@ title: User Management Best Practices in Azure Cloud HSM
 description: Learn best practices for managing user identities, securing credentials, implementing redundancy, and restricting user permissions in Azure Cloud HSM.
 author: msmbaldwin
 ms.service: azure-cloud-hsm
-ms.topic: conceptual
-ms.date: 03/20/2025
+ms.topic: best-practice
+ms.date: 03/31/2026
 ms.author: mbaldwin
 
 #customer intent: As a security administrator, I need to manage user identities and permissions in Azure Cloud HSM so that I can ensure security and compliance.
@@ -40,6 +40,12 @@ Incorporate a mix of uppercase and lowercase letters, numbers, and special chara
 Protecting your HSM user credentials is paramount, because these credentials grant access to perform cryptographic and management operations on your HSM.
 
 Azure Cloud HSM does not retain access to your HSM user credentials. If you lose access to your credentials, Microsoft can't help.
+
+## Protect your partition owner certificate
+
+The partition owner certificate (`PO.crt`) is a critical component that you upload during HSM initialization. After you upload the partition owner certificate, you can't change it. If you upload an incorrect certificate, you must delete the Azure Cloud HSM resource and deploy again.
+
+Store the partition owner certificate and its corresponding private key (`PO.key`) securely. Keep the private key offline whenever possible, because it's required only for initial signing and cryptography officer (CO) password resets. For more information about the partition owner private key, see [Secure your Azure Cloud HSM deployment](secure-cloud-hsm.md).
 
 ## Ensure your HSM users are available on all nodes of your cluster
 

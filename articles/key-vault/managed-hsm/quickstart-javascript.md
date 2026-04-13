@@ -3,7 +3,7 @@ title: Quickstart - Azure Key Vault Managed HSM client library for JavaScript
 description: Learn how to access keys in Azure Managed HSM using the JavaScript client library
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 03/13/2026
+ms.date: 03/30/2026
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: quickstart
@@ -14,7 +14,7 @@ ms.custom: devx-track-js, mode-api
 
 # Quickstart: Azure Key Vault Managed HSM client library for JavaScript
 
-Get started with the Azure Key Vault Managed HSM client library for JavaScript. [!INCLUDE [Managed HSM description](../includes/managed-hsm/intro.md)]
+Get started with the Azure Key Vault Managed HSM client library for JavaScript. [!INCLUDE [Managed HSM description](~/reusable-content/ce-skilling/azure/includes/managed-hsm/intro.md)]
 
 In this quickstart, you learn how to access and perform cryptographic operations on keys in a Managed HSM using the JavaScript client library.
 
@@ -24,7 +24,7 @@ Managed HSM client library resources:
 
 ## Prerequisites
 
-[!INCLUDE [Managed HSM SDK prerequisites](../includes/managed-hsm/sdk-prereqs.md)]
+[!INCLUDE [Managed HSM SDK prerequisites](~/reusable-content/ce-skilling/azure/includes/managed-hsm/sdk-prerequisites.md)]
 - [Node.js 18 LTS or later](https://nodejs.org/)
 
 ## Set up your local environment
@@ -63,7 +63,7 @@ npm install @azure/identity @azure/keyvault-keys
 
 ### Create the sample code
 
-Create a file named `index.js` with the following code. Replace `<your-managed-hsm-name>` with your Managed HSM name, and `<your-key-name>` with an existing key name.
+Create a file named `index.js` with the following code. Replace `<hsm-name>` with your Managed HSM name, and `<key-name>` with an existing key name.
 
 ```javascript
 const { DefaultAzureCredential } = require("@azure/identity");
@@ -74,11 +74,11 @@ async function main() {
     const credential = new DefaultAzureCredential();
 
     // Connect to Managed HSM - replace with your HSM URI
-    const hsmUri = "https://<your-managed-hsm-name>.managedhsm.azure.net";
+    const hsmUri = "https://<hsm-name>.managedhsm.azure.net";
     const keyClient = new KeyClient(hsmUri, credential);
 
     // Get a key reference
-    const keyName = "<your-key-name>";
+    const keyName = "<key-name>";
     console.log(`Retrieving key '${keyName}' from Managed HSM...`);
     const key = await keyClient.getKey(keyName);
     console.log(`Key retrieved. Key type: ${key.keyType}`);
@@ -131,7 +131,7 @@ Done!
 
 ### Authentication with DefaultAzureCredential
 
-[!INCLUDE [DefaultAzureCredential explanation](../includes/managed-hsm/sdk-default-credential.md)]
+[!INCLUDE [DefaultAzureCredential explanation](~/reusable-content/ce-skilling/azure/includes/managed-hsm/sdk-default-credential.md)]
 
 ### Key operations
 
@@ -145,21 +145,18 @@ The `CryptographyClient` class provides cryptographic operations:
 - Sign and verify signatures
 - Wrap and unwrap keys
 
-[!INCLUDE [Assign Managed HSM roles](../includes/managed-hsm/sdk-role-assignment.md)]
+[!INCLUDE [Assign Managed HSM roles](~/reusable-content/ce-skilling/azure/includes/managed-hsm/sdk-role-assignment.md)]
 
 ## Clean up resources
 
 When no longer needed, delete the resource group and all related resources:
 
 ```azurecli
-az group delete --name ContosoResourceGroup
+az group delete --name <resource-group>
 ```
 
-[!INCLUDE [Managed HSM cleanup warning](../includes/managed-hsm/cleanup-warning.md)]
+[!INCLUDE [Managed HSM cleanup warning](~/reusable-content/ce-skilling/azure/includes/managed-hsm/cleanup-warning.md)]
 
 ## Next steps
 
-- Learn about [Secure access to your managed HSMs](how-to-secure-access.md)
-- Configure [automated key rotation](key-rotation.md)
-- Review [Managed HSM best practices](secure-managed-hsm.md)
-- Learn about [Managed HSM local RBAC built-in roles](built-in-roles.md)
+[!INCLUDE [SDK next steps](~/reusable-content/ce-skilling/azure/includes/managed-hsm/sdk-next-steps.md)]

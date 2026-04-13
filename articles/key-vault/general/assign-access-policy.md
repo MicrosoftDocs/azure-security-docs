@@ -8,7 +8,7 @@ ms.custom: devx-track-azurecli, has-azure-ad-ps-ref, sfi-image-nochange
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 04/15/2025
+ms.date: 03/26/2026
 ms.author: mbaldwin
 #Customer intent: As someone new to Key Vault, I'm trying to learn basic concepts that can help me understand Key Vault documentation.
 ---
@@ -17,7 +17,7 @@ ms.author: mbaldwin
 
 [!INCLUDE [contributor-role-warning.md](~/reusable-content/ce-skilling/azure/includes/key-vault/key-vault-contributor-role-warning.md)]
 
-A Key Vault access policy determines whether a given security principal, namely a user, application or user group, can perform different operations on Key Vault [secrets](../secrets/index.yml), [keys](../keys/index.yml), and [certificates](../certificates/index.yml). You can assign access policies using the [Azure portal](assign-access-policy-portal.md), the Azure CLI, or [Azure PowerShell](assign-access-policy-powershell.md).
+A Key Vault access policy determines whether a given security principal, namely a user, application or user group, can perform different operations on Key Vault [secrets](../secrets/index.yml), [keys](../keys/index.yml), and [certificates](../certificates/index.yml). You can assign access policies using the Azure portal, the Azure CLI, or Azure PowerShell.
 
 Key vault supports up to 1024 access policy entries, with each entry granting a distinct set of permissions to a particular security principal. Because of this limitation, we recommend assigning access policies to groups of users, where possible, rather than individual users. Using groups makes it much easier to manage permissions for multiple people in your organization. For more information, see [Manage app and resource access using Microsoft Entra groups](/entra/fundamentals/how-to-manage-groups).
 
@@ -128,13 +128,13 @@ Determine the object ID of the application, group, or user to which you want to 
 - Applications and other service principals: use the [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) cmdlet with the `-SearchString` parameter to filter results to the name of the desired service principal:
 
     ```azurepowershell-interactive
-    Get-AzADServicePrincipal -SearchString <search-string>
+    Get-AzADServicePrincipal -SearchString "<search-string>"
     ```
 
 - Groups: use the [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup) cmdlet with the `-SearchString` parameter to filter results to the name of the desired group:
 
     ```azurepowershell-interactive
-    Get-AzADGroup -SearchString <search-string>
+    Get-AzADGroup -SearchString "<search-string>"
     ```
     
     In the output, the object ID is listed as `Id`.
@@ -152,7 +152,7 @@ Determine the object ID of the application, group, or user to which you want to 
 Use the [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet to assign the access policy:
 
 ```azurepowershell-interactive
-Set-AzKeyVaultAccessPolicy -VaultName <key-vault-name> -ObjectId <Id> -PermissionsToSecrets <secrets-permissions> -PermissionsToKeys <keys-permissions> -PermissionsToCertificates <certificate-permissions    
+Set-AzKeyVaultAccessPolicy -VaultName "<vault-name>" -ObjectId "<object-id>" -PermissionsToSecrets <secrets-permissions> -PermissionsToKeys <keys-permissions> -PermissionsToCertificates <certificate-permissions>    
 ```
 
 You need only include `-PermissionsToSecrets`, `-PermissionsToKeys`, and `-PermissionsToCertificates` when assigning permissions to those particular types. The allowable values for `<secret-permissions>`, `<key-permissions>`, and `<certificate-permissions>` are given in the [Set-AzKeyVaultAccessPolicy - Parameters](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy#parameters) documentation.

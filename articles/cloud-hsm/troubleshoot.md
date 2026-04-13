@@ -5,7 +5,7 @@ author: keithp
 manager: davinune
 ms.service: azure-cloud-hsm
 ms.topic: troubleshooting-general
-ms.date: 03/20/2025
+ms.date: 04/08/2026
 ms.author: keithp
 ---
 
@@ -184,7 +184,7 @@ cd C:\Program Files\Microsoft Azure Cloud HSM Client SDK
 
 The PKCS#11 library knows how to find the client configuration because you must have a copy of your partition owner certificate (`PO.crt`) on the application server that's running your application and using the PKCS#11 library. In addition to the partition owner certificate:
 
-- You have to update `/azcloudhsm_client/azcloudhsm_client.cfg` on the application server that has the SDK installed to point to your Azure Cloud HSM deployment (that is, `hsm1.chsm-<resourcename>-<uniquestring>.privatelink.cloudhsm.azure.net`).
+- You have to update `/azcloudhsm_client/azcloudhsm_client.cfg` on the application server that has the SDK installed to point to your Azure Cloud HSM deployment (that is, `hsm1.chsm-<resource-name>-<unique-string>.privatelink.cloudhsm.azure.net`).
 - The `azcloudhsm_client` tool must be running on the application server that connects to your Azure Cloud HSM deployment.
 - You must specify a PIN within your PKCS#11 application by using the syntax `<username>:<password>`. This PIN is used for calling `C_Login` to your Azure Cloud HSM deployment.
 - You must include `pkcs11_headers/include/cryptoki.h` and `pkcs11_headers/include/pkcs11t.h` in your PKCS#11 application to use the PKCS#11 library for Azure Cloud HSM.
@@ -193,7 +193,7 @@ The PKCS#11 library knows how to find the client configuration because you must 
 
 The `azcloudhsm_pkcs11.dll` file in the Azure Cloud HSM Windows SDK knows how to find the client configuration because you must have a copy of your partition owner certificate (`PO.crt`) on the application server that's running your application and using the PKCS#11 library. In addition to the partition owner certificate:
 
-- You have to update `/azcloudhsm_client/azcloudhsm_client.cfg` on the application server that has the SDK installed to point to your Azure Cloud HSM deployment (that is, `hsm1.chsm-<resourcename>-<uniquestring>.privatelink.cloudhsm.azure.net`).
+- You have to update `/azcloudhsm_client/azcloudhsm_client.cfg` on the application server that has the SDK installed to point to your Azure Cloud HSM deployment (that is, `hsm1.chsm-<resource-name>-<unique-string>.privatelink.cloudhsm.azure.net`).
 - The `azcloudhsm_client` tool must run on the application server that connects to your Azure Cloud HSM deployment.
 - You must specify a PIN within your PKCS#11 application by using the syntax `<username>:<password>`. This PIN is used for calling `C_Login` to your Azure Cloud HSM deployment.
 - You must include `pkcs11_headers\include\cryptoki.h` and `pkcs11_headers\include\pkcs11t.h` in your PKCS#11 application to use the PKCS#11 library for Azure Cloud HSM.
@@ -406,7 +406,7 @@ ED25519 keys are typically used for self-signed certificates or in certificate s
 
 ### Can I use azcloudhsm_util to generate RSA and EC keys before using the Azure Cloud HSM OpenSSL engine to generate a CSR?
 
-Yes. You can run the following `azcloudhsm_util` commands to create an RSA or EC key and then extract the private key to a fake PEM format. Replace `{PRIVATE_KEY_HANDLE}` with the private key handle of the RSA or EC key that you created.
+Yes. You can run the following `azcloudhsm_util` commands to create an RSA or EC key and then extract the private key to a fake PEM format. Replace `<private-key-handle>` with the private key handle of the RSA or EC key that you created.
 
 The private key metadata file in PEM format doesn't contain any sensitive private key materials. The metadata identifies the private key, and only the OpenSSL engine for Azure Cloud HSM understands this file.
 
@@ -414,7 +414,7 @@ Use this command to create an RSA key:
 
 ```bash
 ./azcloudhsm_util singlecmd loginHSM -u CU -p user1234 -s cu1 genRSAKeyPair -m 2048 -e 65537 -l labelRSATest 
-./azcloudhsm_util singlecmd loginHSM -u CU -p user1234 -s cu1 getCaviumPrivKey -k {PRIVATE_KEY_HANDLE} -out web_server_fake_PEM.key 
+./azcloudhsm_util singlecmd loginHSM -u CU -p user1234 -s cu1 getCaviumPrivKey -k <private-key-handle> -out web_server_fake_PEM.key 
 openssl req -new -key web_server_fake_PEM.key -out web_server.csr -engine azcloudhsm_openssl 
 openssl x509 -req -days 365 -in web_server.csr -signkey web_server_fake_PEM.key -out web_server.crt -engine azcloudhsm_openssl 
 ```
@@ -423,7 +423,7 @@ Use this command to create an EC key:
 
 ```bash
 ./azcloudhsm_util singlecmd loginHSM -u CU -p user1234 -s cu1 genECCKeyPair -i 2 -l labelECTest 
-./azcloudhsm_util singlecmd loginHSM -u CU -p user1234 -s cu1 getCaviumPrivKey -k {PRIVATE_KEY_HANDLE} -out web_server_fake_PEM.key 
+./azcloudhsm_util singlecmd loginHSM -u CU -p user1234 -s cu1 getCaviumPrivKey -k <private-key-handle> -out web_server_fake_PEM.key 
 openssl req -new -key web_server_fake_PEM.key -out web_server.csr -engine azcloudhsm_openssl 
 openssl x509 -req -days 365 -in web_server.csr -signkey web_server_fake_PEM.key -out web_server.crt -engine azcloudhsm_openssl 
 ```

@@ -6,7 +6,7 @@ ms.author: mbaldwin
 ms.date: 01/30/2026
 ms.service: azure-key-vault
 ms.subservice: general
-ms.topic: conceptual
+ms.topic: concept-article
 
 ---
 # Authentication in Azure Key Vault
@@ -102,7 +102,7 @@ More information about best practices and developer examples, see [Authenticate 
 ## Next Steps
 
 - [Key Vault developer's guide](developers-guide.md)
-- [Assign a Key Vault access policy using the Azure portal](assign-access-policy-portal.md)
+- [Assign a Key Vault access policy](assign-access-policy.md)
 - [Assign Azure RBAC role to Key Vault](rbac-guide.md)
 - [Key Vault access policy troubleshooting](troubleshooting-access-issues.md)
 - [Key Vault REST API error codes](rest-error-codes.md)

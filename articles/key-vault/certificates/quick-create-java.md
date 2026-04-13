@@ -4,7 +4,7 @@ description: Learn about the Azure Key Vault Certificate client library for Java
 author: msmbaldwin
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell, mode-api, passwordless-java, devx-track-extended-java
 ms.author: mbaldwin
-ms.date: 01/30/2026
+ms.date: 04/10/2026
 
 ms.service: azure-key-vault
 ms.subservice: certificates
@@ -104,13 +104,13 @@ Open the *pom.xml* file in your text editor. Add the following dependency elemen
     <dependency>
       <groupId>com.azure</groupId>
       <artifactId>azure-security-keyvault-certificates</artifactId>
-      <version>4.1.3</version>
+      <version>4.8.6</version>
     </dependency>
 
     <dependency>
       <groupId>com.azure</groupId>
       <artifactId>azure-identity</artifactId>
-      <version>1.2.0</version>
+      <version>1.18.2</version>
     </dependency>
 ```
 
@@ -129,19 +129,19 @@ This application is using your key vault name as an environment variable called 
 Windows
 
 ```cmd
-set KEY_VAULT_NAME=<your-key-vault-name>
+set KEY_VAULT_NAME=<vault-name>
 ````
 
 Windows PowerShell
 
 ```powershell
-$Env:KEY_VAULT_NAME="<your-key-vault-name>"
+$Env:KEY_VAULT_NAME="<vault-name>"
 ```
 
 macOS or Linux
 
 ```cmd
-export KEY_VAULT_NAME=<your-key-vault-name>
+export KEY_VAULT_NAME=<vault-name>
 ```
 
 ## Object model
@@ -175,7 +175,7 @@ Application requests to most Azure services must be authorized. Using the [Defau
 
 In this quickstart, `DefaultAzureCredential` authenticates to key vault using the credentials of the local development user logged into the Azure CLI. When the application is deployed to Azure, the same `DefaultAzureCredential` code can automatically discover and use a managed identity that is assigned to an App Service, Virtual Machine, or other services. For more information, see [Managed Identity Overview](/entra/identity/managed-identities-azure-resources/overview).
 
-In this example, the name of your key vault is expanded to the key vault URI, in the format `https://<your-key-vault-name>.vault.azure.net`. For more information about authenticating to key vault, see [Developer's Guide](/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
+In this example, the name of your key vault is expanded to the key vault URI, in the format `https://<vault-name>.vault.azure.net`. For more information about authenticating to key vault, see [Developer's Guide](/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
 
 ```java
 String keyVaultName = System.getenv("KEY_VAULT_NAME");
@@ -187,9 +187,9 @@ CertificateClient certificateClient = new CertificateClientBuilder()
     .buildClient();
 ```
 
-### Save a secret
+### Save a certificate
 
-Now that your application is authenticated, you can create a certificate in your key vault using the `certificateClient.beginCreateCertificate` method. This requires a name for the certificate and a certificate policy -- we've assigned the value "myCertificate" to the `certificateName` variable in this sample and use a default policy.
+Now that your application is authenticated, you can create a certificate in your key vault using the `certificateClient.beginCreateCertificate` method. This requires a name for the certificate and a certificate policy -- the value "myCertificate" is assigned to the `certificateName` variable in this sample and a default policy is used.
 
 Certificate creation is a long running operation, for which you can poll its progress or wait for it to complete.
 
