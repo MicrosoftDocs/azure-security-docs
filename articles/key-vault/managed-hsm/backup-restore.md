@@ -9,8 +9,9 @@ ms.custom: devx-track-azurecli
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 01/30/2026
+ms.date: 04/13/2026
 ms.author: mbaldwin
+ai-usage: ai-assisted
 # Customer intent: As a developer using Key Vault I want to know the best practices so I can implement them.
 ---
 # Full backup and restore and selective key restore
@@ -63,6 +64,20 @@ While the backup is in progress, the HSM might not operate at full throughput as
 > [!NOTE]
 > Backups to storage accounts with an immutability policy applied aren't supported.
 
+# [Azure portal](#tab/azure-portal)
+
+<!-- TODO: Fill in portal steps for backup once portal experience is confirmed with Jack Richins. -->
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
+
+1. In the left menu, select **Backup/Restore**.
+
+1. Select **Start Backup**. Provide the storage account and container details, then initiate the backup.
+
+   [screenshot: Backup blade]
+
+# [Azure CLI](#tab/azure-cli)
+
 ### Backup HSM by using user assigned managed identity
 ```azurecli-interactive
 az keyvault backup start --use-managed-identity true --hsm-name <hsm-name> --storage-account-name <storage-account-name> --blob-container-name <container-name>
@@ -92,6 +107,24 @@ az keyvault backup start --hsm-name <hsm-name> --storage-account-name <storage-a
 
 ```
 
+# [Azure PowerShell](#tab/azure-powershell)
+
+### Backup HSM by using user assigned managed identity
+
+```azurepowershell-interactive
+Backup-AzKeyVault -HsmName <hsm-name> -StorageAccountName <storage-account-name> -StorageContainerName <container-name> -UseUserManagedIdentity
+```
+
+### Backup HSM by using SAS token
+
+```azurepowershell-interactive
+$sasToken = ConvertTo-SecureString -AsPlainText -Force "<your-sas-token>"
+
+Backup-AzKeyVault -HsmName <hsm-name> -StorageAccountName <storage-account-name> -StorageContainerName <container-name> -SasToken $sasToken
+```
+
+---
+
 ## Full restore
 
 Full restore restores the contents of the HSM from a previous backup, including all keys, versions, attributes, tags, and role assignments. The process removes everything currently stored in the HSM and returns it to the same state it was in when the source backup was created.
@@ -109,6 +142,18 @@ You can execute a full restore in two ways. To execute a full restore, provide t
 - Storage container folder name where the source backup is stored
 
 Restore is a long running operation but it immediately returns a Job ID. You can check the status of the restore process by using this Job ID. When the restore process is in progress, the HSM enters a restore mode and all data plane commands (except check restore status) are disabled.
+
+# [Azure portal](#tab/azure-portal)
+
+<!-- TODO: Fill in portal steps for restore once portal experience is confirmed with Jack Richins. -->
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
+
+1. In the left menu, select **Backup/Restore**.
+
+1. Select **Restore**. Provide the storage account, container, and backup folder details, then initiate the restore.
+
+# [Azure CLI](#tab/azure-cli)
 
 ### Restore HSM by using user assigned managed identity
 ```azurecli-interactive
@@ -134,9 +179,39 @@ sas=$(az storage container generate-sas -n <container-name> --account-name <stor
 az keyvault restore start --hsm-name <hsm-name> --storage-account-name <storage-account-name> --blob-container-name <container-name> --storage-container-SAS-token $sas --backup-folder <backup-folder>
 ```
 
+# [Azure PowerShell](#tab/azure-powershell)
+
+### Restore HSM by using user assigned managed identity
+
+```azurepowershell-interactive
+Restore-AzKeyVault -HsmName <hsm-name> -StorageAccountName <storage-account-name> -StorageContainerName <container-name> -BackupFolder <backup-folder> -UseUserManagedIdentity
+```
+
+### Restore HSM by using SAS token
+
+```azurepowershell-interactive
+$sasToken = ConvertTo-SecureString -AsPlainText -Force "<your-sas-token>"
+
+Restore-AzKeyVault -HsmName <hsm-name> -StorageAccountName <storage-account-name> -StorageContainerName <container-name> -SasToken $sasToken -BackupFolder <backup-folder>
+```
+
+---
+
 ## Selective key restore
 
 Selective key restore restores one key with all its key versions from a previous backup to an HSM. The key must be purged for selective key restore to work. If you're attempting to recover a soft-deleted key, use key recover. Learn more about [key recover](key-management.md).
+
+# [Azure portal](#tab/azure-portal)
+
+<!-- TODO: Fill in portal steps for selective key restore once portal experience is confirmed with Jack Richins. -->
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
+
+1. In the left menu, select **Backup/Restore**.
+
+1. Select **Restore**, then choose the option to restore a single key from the backup.
+
+# [Azure CLI](#tab/azure-cli)
 
 ### Selective key restore by using user assigned managed identity
 ```
@@ -147,6 +222,24 @@ az keyvault restore start --hsm-name <hsm-name> --storage-account-name <storage-
 ```
 az keyvault restore start --hsm-name <hsm-name> --storage-account-name <storage-account-name> --blob-container-name <container-name> --storage-container-SAS-token $sas --backup-folder <backup-folder> --key-name <key-name>
 ```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+### Selective key restore by using user assigned managed identity
+
+```azurepowershell-interactive
+Restore-AzKeyVault -HsmName <hsm-name> -StorageAccountName <storage-account-name> -StorageContainerName <container-name> -BackupFolder <backup-folder> -UseUserManagedIdentity -KeyName <key-name>
+```
+
+### Selective key restore by using SAS token
+
+```azurepowershell-interactive
+$sasToken = ConvertTo-SecureString -AsPlainText -Force "<your-sas-token>"
+
+Restore-AzKeyVault -HsmName <hsm-name> -StorageAccountName <storage-account-name> -StorageContainerName <container-name> -SasToken $sasToken -BackupFolder <backup-folder> -KeyName <key-name>
+```
+
+---
 
 ## Next steps
 - See [Manage a Managed HSM using the Azure CLI](key-management.md).

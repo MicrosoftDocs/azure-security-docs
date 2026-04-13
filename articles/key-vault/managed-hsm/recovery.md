@@ -7,7 +7,8 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 ms.author: mbaldwin
 author: msmbaldwin
-ms.date: 01/30/2026
+ms.date: 04/13/2026
+ai-usage: ai-assisted
 
 ---
 
@@ -51,6 +52,31 @@ For more information, see [Managed HSM soft-delete overview](soft-delete-overvie
 > No administrator role or permission can override, disable, or circumvent purge protection. *If purge protection is enabled, it can't be disabled or overridden by anyone, including Microsoft.* So you must recover a deleted HSM or wait for the retention period to end before you can reuse the HSM name.
 
 ## Manage keys and managed HSMs
+
+# [Azure portal](#tab/azure-portal)
+
+<!-- TODO: Fill in portal steps for recovery operations once portal experience is confirmed with Jack Richins. -->
+
+### Managed HSMs (Portal)
+
+* To check the status of soft-delete and purge protection for a managed HSM, navigate to your Managed HSM resource in the Azure portal and view the **Properties** section.
+
+* To delete an HSM, navigate to the Managed HSM resource and select **Delete**. This action is recoverable because soft-delete is on by default.
+
+* To list and recover soft-deleted HSMs, search for **Managed HSM Pools** in the Azure portal and select the **Manage deleted HSMs** option.
+
+### Keys (Portal)
+
+* To delete a key, navigate to your Managed HSM resource, select **Keys**, select the key, and select **Delete**.
+
+* To list deleted keys, navigate to your Managed HSM resource, select **Keys**, and select **Manage deleted keys**.
+
+* To recover a deleted key, select the key from the deleted keys list and select **Recover**.
+
+* To purge a soft-deleted key, select the key from the deleted keys list and select **Purge**.
+
+  > [!WARNING]
+  > This operation permanently deletes your key.
 
 # [Azure CLI](#tab/azure-cli)
 

@@ -7,9 +7,10 @@ tags: 'rotation'
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 11/19/2025
+ms.date: 04/13/2026
 
 ms.author: mbaldwin
+ai-usage: ai-assisted
 ---
 # Configure key autorotation in Azure Managed HSM
 
@@ -59,14 +60,36 @@ Key rotation policy settings:
 
 ## Configure a key rotation policy
 
-### Azure CLI
+# [Azure portal](#tab/azure-portal)
+
+<!-- TODO: Fill in portal steps for key rotation policy once portal experience is confirmed with Jack Richins. -->
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
+
+1. In the left menu, select **Keys**, then select the key you want to configure.
+
+1. Select **Rotation policy**.
+
+1. Configure the rotation interval, expiry time, and rotation trigger, then save.
+
+   [screenshot: Key rotation policy configuration]
+
+# [Azure CLI](#tab/azure-cli)
 
 Write a key rotation policy and save it to a file. Use ISO8601 Duration formats to specify time intervals. Some example policies are provided in the next section. Use the following command to apply the policy to a key. 
 
 ```azurecli
 az keyvault key rotation-policy update --hsm-name <hsm-name> --name <key-name> --value /path/to/policy.json
 ```
-#### Example policies
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+> [!NOTE]
+> The `Set-AzKeyVaultKeyRotationPolicy` cmdlet currently supports Key Vault vaults only. For Managed HSM key rotation policy, use Azure CLI.
+
+---
+
+### Example policies
 
 Rotate the key 18 months after creation and set the new key to expire after two years.
 
@@ -123,10 +146,26 @@ Remove the key rotation policy (done by setting a blank policy)
 
 Once a rotation policy is set for the key, you can also rotate the key on-demand. You must set a key rotation policy first.
 
-### Azure CLI
+# [Azure portal](#tab/azure-portal)
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
+
+1. In the left menu, select **Keys**, then select the key you want to rotate.
+
+1. Select **Rotate now** (or equivalent action) to create a new key version immediately.
+
+# [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 az keyvault key rotate --hsm-name <hsm-name> --name <key-name>
 ```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+> [!NOTE]
+> The `Invoke-AzKeyVaultKeyRotation` cmdlet currently supports Key Vault vaults only. For Managed HSM on-demand key rotation, use Azure CLI.
+
+---
 
 ## Resources
 
