@@ -27,15 +27,13 @@ Only the following built-in roles have permission to perform a full backup:
 - Managed HSM Administrator
 - Managed HSM Backup
 
-You can execute a full backup and restore operation in two ways:
-1. Assign a user-assigned managed identity (UAMI) to the Managed HSM service. You can back up and restore your MHSM by using a user-assigned managed identity regardless of whether your storage account has public network access or private network access enabled. If the storage account is behind a private endpoint, the UAMI method works with trusted service bypass to allow for backup and restore.
-1. Use a storage container SAS token with permissions `crdw`. Backing up and restoring by using a storage container SAS token requires your storage account to have public network access enabled.
+To back up and restore your Managed HSM, assign a user-assigned managed identity (UAMI) to the Managed HSM service. You can use a UAMI regardless of whether your storage account has public network access or private network access enabled. If the storage account is behind a private endpoint, the UAMI method works with trusted service bypass to allow for backup and restore.
 
 To execute a full backup, provide the following information:
 - HSM name or URL
 - Storage account name
 - Storage account blob storage container
-- User-assigned managed identity **OR** storage container SAS token with permissions `crdw`
+- User-assigned managed identity
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
@@ -78,49 +76,17 @@ While the backup is in progress, the HSM might not operate at full throughput as
 
 # [Azure CLI](#tab/azure-cli)
 
-### Backup HSM by using user assigned managed identity
+### Backup HSM
 ```azurecli-interactive
 az keyvault backup start --use-managed-identity true --hsm-name <hsm-name> --storage-account-name <storage-account-name> --blob-container-name <container-name>
   ```
-### Backup HSM by using SAS token
-
-```azurecli-interactive
-# time for 500 minutes later for SAS token expiry
-
-end=$(date -u -d "500 minutes" '+%Y-%m-%dT%H:%MZ')
-
-# Get storage account key
-
-skey=$(az storage account keys list --query '[0].value' -o tsv --account-name <storage-account-name> --subscription <subscription-id>)
-
-# Create a container
-
-az storage container create --account-name <storage-account-name> --name <container-name> --account-key $skey
-
-# Generate a container sas token
-
-sas=$(az storage container generate-sas -n <container-name> --account-name <storage-account-name> --permissions crdw --expiry $end --account-key $skey -o tsv --subscription <subscription-id>)
-
-# Backup HSM
-
-az keyvault backup start --hsm-name <hsm-name> --storage-account-name <storage-account-name> --blob-container-name <container-name> --storage-container-SAS-token $sas --subscription <subscription-id>
-
-```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-### Backup HSM by using user assigned managed identity
+### Backup HSM
 
 ```azurepowershell-interactive
 Backup-AzKeyVault -HsmName <hsm-name> -StorageAccountName <storage-account-name> -StorageContainerName <container-name> -UseUserManagedIdentity
-```
-
-### Backup HSM by using SAS token
-
-```azurepowershell-interactive
-$sasToken = ConvertTo-SecureString -AsPlainText -Force "<your-sas-token>"
-
-Backup-AzKeyVault -HsmName <hsm-name> -StorageAccountName <storage-account-name> -StorageContainerName <container-name> -SasToken $sasToken
 ```
 
 ---
@@ -134,11 +100,11 @@ Full restore restores the contents of the HSM from a previous backup, including 
 
 Restore is a data plane operation. The caller starting the restore operation must have permission to perform dataAction **Microsoft.KeyVault/managedHsm/restore/start/action**. The source HSM where you created the backup and the destination HSM where you perform the restore **must** have the same Security Domain. See more [about Managed HSM Security Domain](security-domain.md).
 
-You can execute a full restore in two ways. To execute a full restore, provide the following information:
+You can execute a full restore by using a user-assigned managed identity. To execute a full restore, provide the following information:
 - HSM name or URL
 - Storage account name
 - Storage account blob container
-- User assigned managed identity OR storage container SAS token with permissions `rl` 
+- User-assigned managed identity
 - Storage container folder name where the source backup is stored
 
 Restore is a long running operation but it immediately returns a Job ID. You can check the status of the restore process by using this Job ID. When the restore process is in progress, the HSM enters a restore mode and all data plane commands (except check restore status) are disabled.
@@ -155,44 +121,17 @@ Restore is a long running operation but it immediately returns a Job ID. You can
 
 # [Azure CLI](#tab/azure-cli)
 
-### Restore HSM by using user assigned managed identity
+### Restore HSM
 ```azurecli-interactive
 az keyvault restore start --hsm-name <hsm-name> --storage-account-name <storage-account-name> --blob-container-name <container-name> --backup-folder <backup-folder> --use-managed-identity true
   ```
-### Restore HSM by using SAS token
-
-```azurecli-interactive
-# time for 500 minutes later for SAS token expiry
-
-end=$(date -u -d "500 minutes" '+%Y-%m-%dT%H:%MZ')
-
-# Get storage account key
-
-skey=$(az storage account keys list --query '[0].value' -o tsv --account-name <storage-account-name> --subscription <subscription-id>)
-
-# Generate a container sas token
-
-sas=$(az storage container generate-sas -n <container-name> --account-name <storage-account-name> --permissions rl --expiry $end --account-key $skey -o tsv --subscription <subscription-id>)
-
-# Restore HSM
-
-az keyvault restore start --hsm-name <hsm-name> --storage-account-name <storage-account-name> --blob-container-name <container-name> --storage-container-SAS-token $sas --backup-folder <backup-folder>
-```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-### Restore HSM by using user assigned managed identity
+### Restore HSM
 
 ```azurepowershell-interactive
 Restore-AzKeyVault -HsmName <hsm-name> -StorageAccountName <storage-account-name> -StorageContainerName <container-name> -BackupFolder <backup-folder> -UseUserManagedIdentity
-```
-
-### Restore HSM by using SAS token
-
-```azurepowershell-interactive
-$sasToken = ConvertTo-SecureString -AsPlainText -Force "<your-sas-token>"
-
-Restore-AzKeyVault -HsmName <hsm-name> -StorageAccountName <storage-account-name> -StorageContainerName <container-name> -SasToken $sasToken -BackupFolder <backup-folder>
 ```
 
 ---
@@ -213,30 +152,17 @@ Selective key restore restores one key with all its key versions from a previous
 
 # [Azure CLI](#tab/azure-cli)
 
-### Selective key restore by using user assigned managed identity
+### Selective key restore
 ```
 az keyvault restore start --hsm-name <hsm-name> --storage-account-name <storage-account-name> --blob-container-name <container-name> --backup-folder <backup-folder> --use-managed-identity true --key-name <key-name>
   ```
 
-### Selective key restore by using SAS token
-```
-az keyvault restore start --hsm-name <hsm-name> --storage-account-name <storage-account-name> --blob-container-name <container-name> --storage-container-SAS-token $sas --backup-folder <backup-folder> --key-name <key-name>
-```
-
 # [Azure PowerShell](#tab/azure-powershell)
 
-### Selective key restore by using user assigned managed identity
+### Selective key restore
 
 ```azurepowershell-interactive
 Restore-AzKeyVault -HsmName <hsm-name> -StorageAccountName <storage-account-name> -StorageContainerName <container-name> -BackupFolder <backup-folder> -UseUserManagedIdentity -KeyName <key-name>
-```
-
-### Selective key restore by using SAS token
-
-```azurepowershell-interactive
-$sasToken = ConvertTo-SecureString -AsPlainText -Force "<your-sas-token>"
-
-Restore-AzKeyVault -HsmName <hsm-name> -StorageAccountName <storage-account-name> -StorageContainerName <container-name> -SasToken $sasToken -BackupFolder <backup-folder> -KeyName <key-name>
 ```
 
 ---
