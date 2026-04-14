@@ -53,9 +53,7 @@ oid=$(az ad signed-in-user show --query id -o tsv)
 az keyvault create --hsm-name "<destination-hsm-name>" --resource-group "<resource-group>" --location "<location>" --administrators $oid
 ```
 
-> [!NOTE]
-> The create command can take a few minutes. Once it returns successfully, you are ready to activate your HSM.
-
+The create command can take a few minutes. Once it returns successfully, you are ready to activate your HSM.
 
 > [!WARNING]
 > Managed HSM instances are considered always-in-use. If you choose to enable purge protection using the `--enable-purge-protection` flag, you are billed for the entirety of the retention period.

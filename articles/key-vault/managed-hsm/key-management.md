@@ -34,8 +34,7 @@ You also need:
 
 > [!NOTE]
 > All the following commands show two usage methods for CLI. One method uses the `--hsm-name` and `--name` (for key name) parameters. The other method uses the `--id` parameter, where you can specify the entire URL including the key name when appropriate. The latter method is useful when the caller (a user or an application) has no read access on the control plane and only restricted access on the data plane.
-
-> [!NOTE]
+>
 > Some interactions with key material require specific Managed HSM local RBAC permissions. For a full list of built-in Managed HSM local RBAC roles and permissions, see [Managed HSM local RBAC built-in roles](./built-in-roles.md). To assign these permissions to a user, see [Secure access to your managed HSMs](./how-to-secure-access.md).
 ## Create an HSM key
 

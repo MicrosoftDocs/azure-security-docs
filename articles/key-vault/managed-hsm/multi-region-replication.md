@@ -137,8 +137,7 @@ To extend a managed HSM pool to another region, run the following command that w
 az keyvault region add --hsm-name "<hsm-name>" --region "<region>"
 ```
 
-> [!NOTE]
-> `<hsm-name>` is your primary HSM pool name; `<region>` is the extended region into which you are extending it.
+In this command, `<hsm-name>` is your primary HSM pool name and `<region>` is the extended region into which you are extending it.
 
 > [!IMPORTANT]
 > After initiating the extension to a new region, do not perform any operations on the primary HSM until the extension region pool is fully provisioned. This is especially critical for networking changes such as configuring private endpoints or updating firewall rules. Performing these operations before the extension pool is ready can result in configuration inconsistencies between regions.
@@ -180,8 +179,7 @@ To extend a managed HSM pool to another region, run the following command:
 Add-AzKeyVaultManagedHsmRegion -HsmName "<hsm-name>" -Region "<region>"
 ```
 
-> [!NOTE]
-> `<hsm-name>` is your primary HSM pool name; `<region>` is the extended region into which you are extending it.
+In this command, `<hsm-name>` is your primary HSM pool name and `<region>` is the extended region into which you are extending it.
 
 > [!IMPORTANT]
 > After initiating the extension to a new region, do not perform any operations on the primary HSM until the extension region pool is fully provisioned. This is especially critical for networking changes such as configuring private endpoints or updating firewall rules.
