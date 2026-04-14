@@ -1,5 +1,5 @@
 ---
-title: Grant permission to applications to access an Azure key vault using Azure RBAC | Microsoft Docs
+title: Grant permission to applications to access an Azure key vault using Azure RBAC
 description: Learn how to provide access to keys, secrets, and certificates using Azure role-based access control.
 services: key-vault
 author: msmbaldwin
@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: general
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, sfi-image-nochange, copilot-scenario-highlight
 ms.topic: how-to
-ms.date: 03/26/2026
+ms.date: 04/10/2026
 ms.author: mbaldwin
 ---
 
@@ -32,7 +32,7 @@ The **control plane** is where you manage Key Vault itself. Operations in this p
 
 The **data plane** is where you work with the data stored in a key vault. You can add, delete, and modify keys, secrets, and certificates.
 
-Both planes use [Microsoft Entra ID](/entra/fundamentals/whatis) for authentication. For authorization, the control plane uses [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) and the data plane uses a [Key Vault access policy](./assign-access-policy-portal.md) (legacy) or [Azure RBAC for Key Vault data plane operations](./rbac-guide.md).
+Both planes use [Microsoft Entra ID](/entra/fundamentals/whatis) for authentication. For authorization, the control plane uses [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) and the data plane uses a [Key Vault access policy](./assign-access-policy.md) (legacy) or [Azure RBAC for Key Vault data plane operations](./rbac-guide.md).
 
 To access a key vault in either plane, all callers (users or applications) must have proper authentication and authorization. Authentication establishes the identity of the caller. Authorization determines which operations the caller can execute.
 
@@ -252,7 +252,7 @@ For full details, see [Assign Azure roles using Azure PowerShell](/azure/role-ba
 
 1. Open a previously created secret.
 
-1. Click the Access control(IAM) tab
+1. Select the **Access control (IAM)** tab
 
     ![Role assignment - secret](../media/rbac/image-8.png)
 

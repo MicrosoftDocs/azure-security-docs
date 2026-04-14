@@ -2,12 +2,11 @@
 title: Secure your Azure Key Vault secrets
 description: Learn how to secure Azure Key Vault secrets, with best practices specific to secrets management.
 author: msmbaldwin
-tags: azure-key-vault
 ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: best-practice
 ms.custom: horz-security
-ms.date: 11/10/2025
+ms.date: 04/10/2026
 ms.author: mbaldwin
 ai-usage: ai-assisted
 # Customer intent: As a developer using Key Vault secrets, I want to implement secrets-specific security best practices.
@@ -50,7 +49,7 @@ When storing secrets in Key Vault, follow these formatting best practices:
 
 Secrets stored in application memory or configuration files persist for the entire application lifecycle, increasing exposure risk. Implement regular secret rotation to minimize compromise risk:
 
-- **Rotate secrets regularly**: Rotate secrets at least every 60 days, or more frequently for high-security scenarios
+- **Rotate secrets regularly**: Rotate secrets frequently based on your organization's security policy and the sensitivity of the credential. Shorter rotation intervals (for example, 60-90 days) reduce exposure risk from compromised secrets.
 - **Automate rotation**: Use Azure Key Vault's rotation capabilities to automate the rotation process
 - **Use dual credentials**: For zero-downtime rotation, implement resources with two sets of authentication credentials
 
@@ -62,11 +61,9 @@ For more information about secrets rotation, see:
 
 Key Vault enforces service limits to prevent abuse. To optimize secrets access while maintaining security:
 
-- **Cache secrets in memory**: Cache secrets in your application for at least 8 hours to reduce Key Vault API calls
+- **Cache secrets in memory**: Cache secrets in your application to reduce Key Vault API calls and avoid throttling. Reuse cached values whenever possible and refresh them when secrets are rotated. For more information, see [Azure Key Vault throttling guidance](../general/overview-throttling.md).
 - **Implement retry logic**: Use exponential back-off retry logic to handle transient failures and throttling
 - **Refresh on rotation**: Update cached values when secrets are rotated to ensure applications use current credentials
-
-For more information about throttling, see [Azure Key Vault throttling guidance](../general/overview-throttling.md).
 
 ## Secrets monitoring
 

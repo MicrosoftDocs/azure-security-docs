@@ -4,7 +4,7 @@ description: Provides a quickstart for the Azure Key Vault Secret client library
 author: msmbaldwin
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell, mode-api, passwordless-java, devx-track-extended-java
 ms.author: mbaldwin
-ms.date: 03/26/2026
+ms.date: 03/30/2026
 
 ms.service: azure-key-vault
 ms.subservice: secrets
@@ -103,13 +103,13 @@ Open the *pom.xml* file in your text editor. Add the following dependency elemen
     <dependency>
       <groupId>com.azure</groupId>
       <artifactId>azure-security-keyvault-secrets</artifactId>
-      <version>4.2.3</version>
+      <version>4.10.6</version>
     </dependency>
 
     <dependency>
       <groupId>com.azure</groupId>
       <artifactId>azure-identity</artifactId>
-      <version>1.2.0</version>
+      <version>1.13.1</version>
     </dependency>
 ```
 
@@ -227,11 +227,11 @@ az keyvault secret show --vault-name <vault-name> --name mySecret
 When no longer needed, you can use the Azure CLI or Azure PowerShell to remove your key vault and the corresponding resource group.
 
 ```azurecli
-az group delete -g "<resource-group>"
+az group delete -g "myResourceGroup"
 ```
 
 ```azurepowershell
-Remove-AzResourceGroup -Name "<resource-group>"
+Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
 ## Sample code

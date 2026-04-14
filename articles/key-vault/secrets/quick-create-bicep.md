@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-bicep
-ms.date: 04/14/2025
+ms.date: 04/10/2026
 
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
@@ -31,7 +31,7 @@ ms.author: mbaldwin
         ```azurecli-interactive
         echo "Enter your email address that is used to sign in to Azure:" &&
         read upn &&
-        az ad user show --id $upn --query "objectId" &&
+        az ad user show --id $upn --query "id" &&
         echo "Press [ENTER] to continue ..."
         ```
 
@@ -47,6 +47,9 @@ ms.author: mbaldwin
     2. Write down the object ID. You need it in the next section of this quickstart.
 
 ## Review the Bicep file
+
+> [!IMPORTANT]
+> This quickstart uses an external template that creates a vault with legacy access policies. For production deployments, use Azure RBAC authorization instead. See [Create an Azure key vault and a key by using Bicep](../keys/quick-create-bicep.md) for a Bicep template that uses `enableRbacAuthorization: true`, or see [Secure your Azure Key Vault](../general/secure-key-vault.md) for comprehensive security guidance.
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/key-vault-create/).
 
@@ -65,15 +68,15 @@ Two Azure resources are defined in the Bicep file:
     # [CLI](#tab/CLI)
 
     ```azurecli
-    az group create --name exampleRG --location eastus
-    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters keyVaultName=<vault-name> objectId=<object-id>
+    az group create --name myResourceGroup --location eastus
+    az deployment group create --resource-group myResourceGroup --template-file main.bicep --parameters keyVaultName=<vault-name> objectId=<object-id>
     ```
 
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
-    New-AzResourceGroup -Name exampleRG -Location eastus
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -keyVaultName "<vault-name>" -objectId "<object-id>"
+    New-AzResourceGroup -Name myResourceGroup -Location eastus
+    New-AzResourceGroupDeployment -ResourceGroupName myResourceGroup -TemplateFile ./main.bicep -keyVaultName "<vault-name>" -objectId "<object-id>"
     ```
 
     ---
@@ -113,13 +116,13 @@ When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to d
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-az group delete --name exampleRG
+az group delete --name myResourceGroup
 ```
 
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name exampleRG
+Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 ---

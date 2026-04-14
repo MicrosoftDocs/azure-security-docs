@@ -1,5 +1,5 @@
 ---
-title: Azure Quickstart - Set and retrieve a certificate from Key Vault using Azure portal | Microsoft Docs
+title: Azure Quickstart - Set and retrieve a certificate from Key Vault using Azure portal
 description: Quickstart showing how to set and retrieve a certificate from Azure Key Vault using the Azure portal
 services: key-vault
 author: msmbaldwin
@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: mvc, mode-ui, sfi-image-nochange
-ms.date: 01/30/2026
+ms.date: 04/10/2026
 
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure
@@ -28,24 +28,24 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Add a certificate to Key Vault
 
-To add a certificate to the vault, you just need to take a couple of additional steps. In this case, we add a self-signed certificate that could be used by an application. The certificate is called **ExampleCertificate**.
+To add a certificate to the vault, you just need to take a couple of additional steps. In this case, you add a self-signed certificate that could be used by an application. The certificate is called **ExampleCertificate**.
 
 1. On the Key Vault properties pages, select **Certificates**.
-2. Click on **Generate/Import**.
+2. Select **Generate/Import**.
 3. On the **Create a certificate** screen choose the following values:
     - **Method of Certificate Creation**: Generate.
     - **Certificate Name**: ExampleCertificate.
     - **Subject**: CN=ExampleDomain
     - Leave the other values to their defaults. (By default, if you don't specify anything special in Advanced policy, it'll be usable as a client auth certificate.)
- 4. Click **Create**.
+ 4. Select **Create**.
 
-Once you receive the message that the certificate has been successfully created, you may click on it on the list. You can then see some of the properties. If you click on the current version, you can see the value you specified in the previous step.
+Once you receive the message that the certificate has been successfully created, you can select it on the list. You can then see some of the properties. If you select the current version, you can see the value you specified in the previous step.
 
 ![Certificate properties](../media/certificates/quick-create-portal/current-version-hidden.png)
 
 ## Export certificate from Key Vault
 
-By clicking "Download in CER format" or "Download in PFX/PEM format" button, you can download the certificate.
+By selecting **Download in CER format** or **Download in PFX/PEM format** button, you can download the certificate.
 
 ![Certificate download](../media/certificates/quick-create-portal/current-version-shown.png)
 

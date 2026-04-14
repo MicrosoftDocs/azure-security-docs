@@ -1,5 +1,5 @@
 ---
-title: Back up a secret, key, or certificate stored in Azure Key Vault | Microsoft Docs
+title: Back up a secret, key, or certificate stored in Azure Key Vault
 description: Use this document to help back up a secret, key, or certificate stored in Azure Key Vault.
 services: key-vault
 author: msmbaldwin
@@ -7,7 +7,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell, sfi-image-nochange
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 04/15/2025
+ms.date: 04/10/2026
 ms.author: mbaldwin
 #Customer intent: As an Azure Key Vault administrator, I want to back up a secret, key, or certificate in my key vault.
 ---
@@ -19,7 +19,7 @@ This document shows you how to back up secrets, keys, and certificates stored in
 
 Azure Key Vault provides multiple options for ensuring the availability and recoverability of your vault data:
 
-- **Automatic redundancy and failover**: Key Vault automatically replicates data across regions and handles failover during outages - see [Azure Key Vault availability and redundancy](disaster-recovery-guidance.md)
+- **Automatic redundancy and failover**: Key Vault automatically replicates data across regions and handles failover during outages - see [Azure Key Vault availability and redundancy](/azure/reliability/reliability-key-vault)
 - **Soft delete and purge protection**: Prevents accidental or malicious deletion of your vault or vault objects - see [Azure Key Vault recovery management with soft delete and purge protection](key-vault-recovery.md)
 - **Manual backup and restore** (covered in this article): For individual secrets, keys, and certificates
 
@@ -35,7 +35,7 @@ Consider using backups in these scenarios:
 - You're using a region that doesn't support automatic cross-region replication (Brazil South, Brazil Southeast, or West US 3)
 - You need protection against accidental deletion of specific objects
 
-For most scenarios, Key Vault's built-in redundancy and soft delete features provide sufficient protection without requiring manual backups. For more information, see [Azure Key Vault availability and redundancy](disaster-recovery-guidance.md).
+For most scenarios, Key Vault's built-in redundancy and soft delete features provide sufficient protection without requiring manual backups. For more information, see [Azure Key Vault availability and redundancy](/azure/reliability/reliability-key-vault).
 
 ## Limitations
 
@@ -69,33 +69,33 @@ Follow the steps in this section to back up and restore objects by using the Azu
 ### Back up
 
 1. Go to the Azure portal.
-2. Select your key vault.
-3. Go to the object (secret, key, or certificate) you want to back up.
+1. Select your key vault.
+1. Go to the object (secret, key, or certificate) you want to back up.
 
     ![Screenshot showing where to select the Keys setting and an object in a key vault.](../media/backup-1.png)
 
-4. Select the object.
-5. Select **Download Backup**.
+1. Select the object.
+1. Select **Download Backup**.
 
     ![Screenshot showing where to select the Download Backup button in a key vault.](../media/backup-2.png)
     
-6. Select **Download**.
+1. Select **Download**.
 
     ![Screenshot showing where to select the Download button in a key vault.](../media/backup-3.png)
     
-7. Store the encrypted blob in a secure location.
+1. Store the encrypted blob in a secure location.
 
 ### Restore
 
 1. Go to the Azure portal.
-2. Select your key vault.
-3. Go to the type of object (secret, key, or certificate) you want to restore.
-4. Select **Restore Backup**.
+1. Select your key vault.
+1. Go to the type of object (secret, key, or certificate) you want to restore.
+1. Select **Restore Backup**.
 
     ![Screenshot showing where to select Restore Backup in a key vault.](../media/backup-4.png)
     
-5. Go to the location where you stored the encrypted blob.
-6. Select **OK**.
+1. Go to the location where you stored the encrypted blob.
+1. Select **OK**.
 
 ## Back up and restore from the Azure CLI or Azure PowerShell
 
@@ -105,28 +105,28 @@ Follow the steps in this section to back up and restore objects by using the Azu
 az login
 
 ## Set your subscription
-az account set --subscription {AZURE SUBSCRIPTION ID}
+az account set --subscription <subscription-id>
 
 ## Register Key Vault as a provider
 az provider register -n Microsoft.KeyVault
 
 ## Back up a certificate in Key Vault
-az keyvault certificate backup --file {File Path} --name {Certificate Name} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
+az keyvault certificate backup --file <file-path> --name <certificate-name> --vault-name <vault-name> --subscription <subscription-id>
 
 ## Back up a key in Key Vault
-az keyvault key backup --file {File Path} --name {Key Name} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
+az keyvault key backup --file <file-path> --name <key-name> --vault-name <vault-name> --subscription <subscription-id>
 
 ## Back up a secret in Key Vault
-az keyvault secret backup --file {File Path} --name {Secret Name} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
+az keyvault secret backup --file <file-path> --name <secret-name> --vault-name <vault-name> --subscription <subscription-id>
 
 ## Restore a certificate in Key Vault
-az keyvault certificate restore --file {File Path} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
+az keyvault certificate restore --file <file-path> --vault-name <vault-name> --subscription <subscription-id>
 
 ## Restore a key in Key Vault
-az keyvault key restore --file {File Path} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
+az keyvault key restore --file <file-path> --vault-name <vault-name> --subscription <subscription-id>
 
 ## Restore a secret in Key Vault
-az keyvault secret restore --file {File Path} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
+az keyvault secret restore --file <file-path> --vault-name <vault-name> --subscription <subscription-id>
 ```
 # [Azure PowerShell](#tab/powershell)
 
@@ -135,31 +135,31 @@ az keyvault secret restore --file {File Path} --vault-name {Key Vault Name} --su
 Connect-AzAccount
 
 ## Set your subscription
-Set-AzContext -Subscription '{AZURE SUBSCRIPTION ID}'
+Set-AzContext -Subscription '<subscription-id>'
 
 ## Back up a certificate in Key Vault
-Backup-AzKeyVaultCertificate -VaultName '{Key Vault Name}' -Name '{Certificate Name}'
+Backup-AzKeyVaultCertificate -VaultName '<vault-name>' -Name '<certificate-name>'
 
 ## Back up a key in Key Vault
-Backup-AzKeyVaultKey -VaultName '{Key Vault Name}' -Name '{Key Name}'
+Backup-AzKeyVaultKey -VaultName '<vault-name>' -Name '<key-name>'
 
 ## Back up a secret in Key Vault
-Backup-AzKeyVaultSecret -VaultName '{Key Vault Name}' -Name '{Secret Name}'
+Backup-AzKeyVaultSecret -VaultName '<vault-name>' -Name '<secret-name>'
 
 ## Restore a certificate in Key Vault
-Restore-AzKeyVaultCertificate -VaultName '{Key Vault Name}' -InputFile '{File Path}'
+Restore-AzKeyVaultCertificate -VaultName '<vault-name>' -InputFile '<file-path>'
 
 ## Restore a key in Key Vault
-Restore-AzKeyVaultKey -VaultName '{Key Vault Name}' -InputFile '{File Path}'
+Restore-AzKeyVaultKey -VaultName '<vault-name>' -InputFile '<file-path>'
 
 ## Restore a secret in Key Vault
-Restore-AzKeyVaultSecret -VaultName '{Key Vault Name}' -InputFile '{File Path}'
+Restore-AzKeyVaultSecret -VaultName '<vault-name>' -InputFile '<file-path>'
 ```
 ---
 
 ## Next steps
 
-- [Azure Key Vault availability and redundancy](disaster-recovery-guidance.md)
+- [Azure Key Vault availability and redundancy](/azure/reliability/reliability-key-vault)
 - [Azure Key Vault recovery management with soft delete and purge protection](key-vault-recovery.md)
-- [Move an Azure key vault across regions](move-region.md)
+- [Move an Azure key vault across regions](/azure/operational-excellence/relocation-key-vault)
 - [Enable Key Vault logging](howto-logging.md) for Key Vault

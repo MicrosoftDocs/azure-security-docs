@@ -6,7 +6,7 @@ author: orin-thomas
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: overview
-ms.date: 03/26/2026
+ms.date: 04/10/2026
 ms.author: orthomas
 ---
 
@@ -46,7 +46,7 @@ az keyvault secret set \
 
 The following uses the Azure PowerShell [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet to add a secret named MyApiKey to the keyvault and sets the secret to expire after 180 days:
 
-```powershell
+```azurepowershell
 $secret = ConvertTo-SecureString -String "<secret-value>" -AsPlainText -Force
 Set-AzKeyVaultSecret -VaultName "<vault-name>" -Name "MyApiKey" -SecretValue $secret -Expires (Get-Date).AddDays(180)
 ```
@@ -73,7 +73,7 @@ az role assignment create --role "Key Vault Secrets User" \
 
 To do this configure an Azure role-based access control (Azure RBAC) role using the Azure PowerShell [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) cmdlet:
 
-```powershell
+```azurepowershell
 New-AzRoleAssignment -RoleDefinitionName "Key Vault Secrets User" `
     -ObjectId <object-id-of-app-or-user> `
     -Scope "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>"
@@ -101,7 +101,7 @@ az monitor diagnostic-settings create \
 
 To enable Azure Key Vault Logging and Alerts, use the Azure PowerShell [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet:
 
-```powershell
+```azurepowershell
 Set-AzDiagnosticSetting -Name "myDiagnosticSettings" `
     -ResourceId <key-vault-resource-id> `
     -WorkspaceId <log-analytics-workspace-id> `
@@ -129,7 +129,7 @@ az monitor scheduled-query create \
 
 You can run the Azure PowerShell [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule) cmdlet to monitor logs in the specified Log Analytics workspace for unauthorized access attempts to Azure Key Vault secrets and trigger an alert if any matching unauthorized access attempt is detected:
 
-```powershell
+```azurepowershell
 New-AzScheduledQueryRule -ResourceGroupName "<resource-group>" `
     -Location "eastus" `
     -Action `
@@ -178,7 +178,7 @@ az keyvault network-rule add \
 # [Azure PowerShell](#tab/azure-powershell)
 You can create a private endpoint using the Azure PowerShell [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) cmdlet:
 
-```powershell
+```azurepowershell
 $privateEndpoint = New-AzPrivateEndpoint -Name "myPrivateEndpoint" `
     -ResourceGroupName "<resource-group>" `
     -Location "eastus" `
@@ -190,7 +190,7 @@ $privateEndpoint = New-AzPrivateEndpoint -Name "myPrivateEndpoint" `
 ```
 You can create firewall rules on the Azure Key Vault instance using the Azure PowerShell [Add-AzKeyVaultNetworkRule](/powershell/module/az.keyvault/add-azkeyvaultnetworkrule) cmdlet, substituting the appropriate key vault names, resource groups, subnet, and subnet mask information:
 
-```powershell
+```azurepowershell
 Add-AzKeyVaultNetworkRule -VaultName "<vault-name>" `
     -ResourceGroupName "<resource-group>" `
     -IPAddress "<trusted-ip-address>/32"

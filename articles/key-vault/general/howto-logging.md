@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 03/26/2026
+ms.date: 04/10/2026
 ms.author: mbaldwin 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -60,7 +60,7 @@ az account set --subscription "<subscription-id>"
 
 With Azure PowerShell, you can first list your subscriptions by using the [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) cmdlet. Then you connect to one by using the [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet: 
 
-```powershell-interactive
+```azurepowershell-interactive
 Get-AzSubscription
 
 Set-AzContext -SubscriptionId "<subscription-id>"
@@ -80,7 +80,7 @@ az keyvault show --name "<vault-name>"
 
 With Azure PowerShell, use the [Get-AzKeyVault](/powershell/module/az.keyvault/get-azkeyvault) cmdlet.
 
-```powershell-interactive
+```azurepowershell-interactive
 Get-AzKeyVault -VaultName "<vault-name>"
 ```
 
@@ -112,7 +112,7 @@ az monitor diagnostic-settings update --name "Key vault retention policy" --reso
 
 Use the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet, with the `-Enabled` flag set to `$true` and the `category` set to `AuditEvent` (the only category for Key Vault logging):
 
-```powershell-interactive
+```azurepowershell-interactive
 Set-AzDiagnosticSetting -ResourceId "<key-vault-resource-id>" -StorageAccountId $sa.id -Enabled $true -Category "AuditEvent"
 ```
 
@@ -120,7 +120,7 @@ Optionally, you can set a retention policy for your logs, so that older logs are
 
 With Azure PowerShell, use the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet.
 
-```powershell-interactive
+```azurepowershell-interactive
 Set-AzDiagnosticSetting "<key-vault-resource-id>" -StorageAccountId $sa.id -Enabled $true -Category AuditEvent -RetentionEnabled $true -RetentionInDays 90
 ```
 
@@ -156,7 +156,7 @@ az storage blob list --account-name "<storage-account-name>" --container-name "i
 
 With Azure PowerShell, use [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob). To list all the blobs in this container, enter:
 
-```powershell
+```azurepowershell
 Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context
 ```
 
@@ -172,7 +172,7 @@ az storage blob download --container-name "insights-logs-auditevent" --file <pat
 
 With Azure PowerShell, use the [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob) cmdlet to get a list of the blobs. Then pipe that list to the [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent) cmdlet to download the logs to your chosen path.
 
-```powershell-interactive
+```azurepowershell-interactive
 $blobs = Get-AzStorageBlob -Container "insights-logs-auditevent" -Context $sa.Context | Get-AzStorageBlobContent -Destination "<path-to-file>"
 ```
 

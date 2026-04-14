@@ -4,7 +4,7 @@ description: Learn how Azure Cloud HSM offers cryptographic key storage within t
 author: keithp
 ms.service: azure-cloud-hsm
 ms.topic: overview
-ms.date: 03/20/2025
+ms.date: 03/31/2026
 ms.author: keithp
 
 #customer intent: As an IT pro decision-maker, I'm looking for key storage capability within the Azure cloud platform that meets FIPS 140-3 Level 3 certification and that gives me exclusive access to a dedicated hardware security module.
@@ -42,9 +42,21 @@ The Azure Cloud HSM cluster supports load balancing of cryptographic operations.
 
 Each Azure Cloud HSM instance is dedicated to a single customer. Each HSM cluster uses a separate customer-specific security domain that cryptographically isolates it.
 
-### FIPS 140-3 Level 3 compliance
+## Compliance and certification
 
-Many organizations have stringent industry regulations that dictate that cryptographic keys must be stored in [FIPS 140-3 Level 3](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4700) validated HSMs. Azure Cloud HSM helps customers from various industry segments (financial services industry, government agencies, and others) meet these FIPS requirements.
+Azure Cloud HSM meets multiple industry compliance standards and certifications to help customers satisfy regulatory requirements.
+
+### FIPS 140-3 Level 3
+
+Many organizations have stringent industry regulations that dictate that cryptographic keys must be stored in FIPS 140-3 Level 3 validated HSMs. Azure Cloud HSM offers HSMs that are validated to meet FIPS 140-3 Level 3 standards. For procedures to verify the authenticity of your HSM, including checking the [FIPS 140-3 Level 3 certification from NIST](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4700), refer to the [onboarding guide](onboarding-guide.md). Azure Cloud HSM helps customers from various industry segments (financial services industry, government agencies, and others) meet these FIPS requirements.
+
+### eIDAS
+
+Azure Cloud HSM supports eIDAS compliance under the Austrian scheme by providing secure key management, cryptographic operations, and FIPS 140-3 Level 3 validated hardware to meet stringent requirements for qualified electronic signatures and seals to help ensure regulatory compliance. Learn more in the [QSCD Certificate](https://www.a-sit.at/wp-content/uploads/2024/10/VIG-19-078-QSCD-Certificate-Final_sig-HL.pdf).
+
+### PCI and PCI 3DS
+
+Azure Cloud HSM provides HSMs that are validated to meet PCI and PCI 3DS standards. For more details on PCI compliance certification for Azure Cloud HSM, refer to the [PCI 3DS Attestation of Compliance (AOC)](https://servicetrust.microsoft.com/DocumentPage/c88a84bd-bb48-4fe0-b93f-b4cfb7c20ba2) in Microsoft Service Trust Center.
 
 ## Azure Cloud HSM suitability
 
@@ -77,6 +89,18 @@ Azure Cloud HSM is most suitable for the following types of scenarios:
 Azure Cloud HSM doesn't integrate with other platform as a service (PaaS) or software as a service (SaaS) Azure services. Azure Cloud HSM is infrastructure as a service (IaaS) only.
 
 Azure Cloud HSM is not a good fit for Microsoft cloud services that require support for encryption with customer-managed keys. These services include Azure Information Protection, Azure Disk Encryption, Azure Data Lake Storage, Azure Storage, and Microsoft Purview Customer Key. For those scenarios, customers should use [Azure Key Vault Managed HSM](../key-vault/managed-hsm/overview.md).
+
+## Physical security
+
+Azure datacenters have extensive physical and procedural security controls. The HSMs in Azure Cloud HSM are hosted in a restricted access area of the datacenter, with physical access controls and video surveillance for added security.
+
+Azure Cloud HSM incorporates both physical and logical tamper detection and response mechanisms that initiate key deletion (zeroization) of the hardware. These measures are designed to detect tampering if the physical barrier is compromised.
+
+HSMs are safeguarded against brute-force sign-in attacks. The system locks out cryptography officers (COs) after a set number of unsuccessful access attempts. Similarly, repeated unsuccessful attempts to access an HSM with cryptography user (CU) credentials result in locking out the user. A CO must then unlock the CU. Unlocking a CO requires the `getChallenge` command, signing the challenge with the partition owner key (`PO.key`) via OpenSSL, followed by the `unlockCO` and `changePswd` commands.
+
+## Service operations
+
+Azure Cloud HSM doesn't have scheduled maintenance windows. However, Microsoft might need to perform maintenance for necessary upgrades or faulty hardware replacement. Customers are notified in advance if any impact is anticipated.
 
 ## Next steps
 
