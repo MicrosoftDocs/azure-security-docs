@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: quickstart
-ms.date: 04/13/2026
+ms.date: 04/14/2026
 ms.author: mbaldwin
 ai-usage: ai-assisted
 #Customer intent: As a security admin who is new to Azure, I want to provision and activate a managed HSM using the portal
@@ -34,7 +34,17 @@ Creating a Managed HSM is a two-step process:
 
 1. Select **Create**.
 
-1. Complete the required fields on the **Basics** tab, including subscription, resource group, HSM name, region, and initial administrators.
+1. On the **Basics** tab, provide the following information:
+
+   - **Subscription**: Select the subscription you want to use.
+   - **Resource group**: Select **Create new** and enter *myResourceGroup*.
+   - **Managed HSM name**: Enter a name for your Managed HSM.
+
+     > [!Important]
+     > Each Managed HSM must have a unique name.
+
+   - **Region**: Select **East US** (or your preferred region).
+   - **Initial administrator(s)**: Search for and select the Microsoft Entra users or groups to designate as initial administrators.
 
    [screenshot: Create Managed HSM - Basics tab]
 
@@ -45,7 +55,7 @@ Creating a Managed HSM is a two-step process:
    The deployment takes a few minutes to complete.
 
 > [!NOTE]
-> The create command can take a few minutes. When it returns successfully, you're ready to activate your HSM.
+> The provisioning process can take a few minutes. When it completes successfully, you're ready to activate your HSM.
 
 [!INCLUDE [Managed HSM billing warning](~/reusable-content/ce-skilling/azure/includes/managed-hsm/billing-warning.md)]
 
@@ -72,12 +82,10 @@ Creating a Managed HSM is a two-step process:
 
 ## Clean up resources
 
-Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
-
 When no longer needed, you can delete the resource group, which deletes the Managed HSM and all related resources:
 
 1. In the Azure portal, search for and select **Resource groups**.
-1. Select the resource group that contains your Managed HSM.
+1. Select the resource group (for example, *myResourceGroup*).
 1. Select **Delete resource group**.
 1. Enter the resource group name and select **Delete**.
 
