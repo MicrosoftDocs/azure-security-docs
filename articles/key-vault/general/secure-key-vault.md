@@ -125,7 +125,7 @@ Regular backups ensure business continuity and protect against data loss from ac
 
 - **Test backup and recovery procedures**: To verify the effectiveness of backup processes, regularly test the restoration of Key Vault secrets, keys, and certificates. See [Azure Key Vault backup](backup.md).
 
-- **Understand backup copy independence**: A key restored from a backup to another vault is fully independent of the original. Disabling, deleting, or purging the original key does not affect any restored copies. If a key is suspected compromised, rotate to a new key and migrate dependent services before disabling the old one. For full details, see [Backup security considerations](backup.md#security-considerations) and [Key compromise response](../keys/secure-keys.md#key-compromise-response).
+- **Understand backup copy independence**: A key restored from a backup to another vault is fully independent of the original. Disabling, deleting, or purging the original key does not affect any restored copies. Disabling or deleting the key also takes all dependent data services offline (for example, SQL TDE databases become inaccessible and Storage accounts with customer-managed keys return errors). If a key is suspected compromised, rotate to a new key and migrate dependent services before disabling the old one. For full details, see [Backup security considerations](backup.md#security-considerations) and [Key compromise response](../keys/secure-keys.md#key-compromise-response).
 
 ## Related security articles
 
