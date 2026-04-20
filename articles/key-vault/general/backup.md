@@ -7,7 +7,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell, sfi-image-nochange
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 04/10/2026
+ms.date: 04/20/2026
 ms.author: mbaldwin
 #Customer intent: As an Azure Key Vault administrator, I want to back up a secret, key, or certificate in my key vault.
 ---
@@ -53,6 +53,24 @@ Also consider the following issues:
 ## Design considerations
 
 When you back up a key vault object, such as a secret, key, or certificate, the backup operation will download the object as an encrypted blob. This blob can't be decrypted outside of Azure. To get usable data from this blob, you must restore the blob into a key vault within the same Azure subscription and [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/).
+
+## Security considerations
+
+When you restore a key to a different vault, the restored copy is fully independent of the original. Disabling, deleting, or purging the original key has no effect on any restored copies. They remain fully functional in their respective vaults. There is no mechanism in Azure Key Vault to revoke or invalidate a previously created backup blob or a key that has already been restored to another vault.
+
+This independence has important implications for incident response. If you suspect a key has been compromised through unauthorized backup and restore, do not immediately disable or delete the key. Doing so takes all dependent services offline (for example, Azure SQL TDE databases become inaccessible, Azure Storage with customer-managed keys returns errors, and Azure Disk Encryption–protected VMs can't start) but does not affect any copies an attacker may have restored to another vault.
+
+Instead, follow this incident response sequence:
+
+1. **Contain the breach**: Immediately review and revoke any principals with backup or restore permissions on the compromised vault. Investigate Key Vault audit logs for unauthorized backup and restore activity to understand the scope of the compromise.
+1. **Create a replacement key** in a separate vault with tightly restricted access. Use a new key (not a new version of the compromised key) to ensure the replacement can't be obtained from existing backup blobs.
+1. **Reconfigure dependent services** to use the replacement key (each service re-wraps its data encryption keys with the new key).
+1. **Verify** that all dependent services are operating normally with the replacement key.
+1. **Disable the compromised key** only after dependent services are fully migrated. If purge protection is enabled on the vault, the key can't be permanently purged until the retention period expires, so leave it disabled until then.
+
+To reduce the risk of unauthorized backup exfiltration, restrict backup and restore permissions to only the identities that genuinely require them. Monitor your Key Vault audit logs for `KeyBackup`, `KeyRestore`, `SecretBackup`, `SecretRestore`, `CertificateBackup`, and `CertificateRestore` operations and alert on unexpected activity. For more information, see [Azure Key Vault logging](logging.md).
+
+For key-specific security best practices and key compromise response procedures, see [Secure your Azure Key Vault keys](../keys/secure-keys.md#key-compromise-response).
 
 ## Prerequisites
 

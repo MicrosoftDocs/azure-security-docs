@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: general
 ms.custom: horz-security
 ms.topic: best-practice
-ms.date: 01/30/2026
+ms.date: 04/20/2026
 ms.author: mbaldwin
 ai-usage: ai-assisted
 #CustomerIntent: As a key vault administrator, I want to learn how to secure my key vaults
@@ -124,6 +124,8 @@ Regular backups ensure business continuity and protect against data loss from ac
 - **Ensure backups for secrets that can't be recreated**: Back up Key Vault objects (like encryption keys) that can't be recreated from other sources. See [Azure Key Vault backup](backup.md).
 
 - **Test backup and recovery procedures**: To verify the effectiveness of backup processes, regularly test the restoration of Key Vault secrets, keys, and certificates. See [Azure Key Vault backup](backup.md).
+
+- **Understand backup copy independence**: A key restored from a backup to another vault is fully independent of the original. Disabling, deleting, or purging the original key does not affect any restored copies. If a key is suspected compromised, rotate to a new key and migrate dependent services before disabling the old one. For full details, see [Backup security considerations](backup.md#security-considerations) and [Key compromise response](../keys/secure-keys.md#key-compromise-response).
 
 ## Related security articles
 
