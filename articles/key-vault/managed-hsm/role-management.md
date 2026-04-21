@@ -211,6 +211,10 @@ Get-AzKeyVaultRoleDefinition -HsmName <hsm-name>
 
 Managed HSM has several built-in (pre-defined) roles that are useful for most common usage scenarios. You can define your own role with a list of specific actions that the role is allowed to perform. Then you can assign this role to principals to grant them the permission to the specified actions. 
 
+# [Azure portal](#tab/azure-portal)
+
+Custom role creation isn't currently available in the Azure portal. Use the Azure CLI or Azure PowerShell.
+
 # [Azure CLI](#tab/azure-cli)
 
 Use `az keyvault role definition create` command to a role named **My Custom Role** using a JSON string.
@@ -244,6 +248,10 @@ New-AzKeyVaultRoleDefinition -HsmName <hsm-name> -InputFile ./my-custom-role-def
 
 ## Show details of a role definition
 
+# [Azure portal](#tab/azure-portal)
+
+Viewing custom role definition details isn't currently available in the Azure portal. Use the Azure CLI or Azure PowerShell.
+
 # [Azure CLI](#tab/azure-cli)
 
 Use `az keyvault role definition show` command to see details of a specific role definition using name (a GUID).
@@ -263,6 +271,10 @@ Get-AzKeyVaultRoleDefinition -HsmName <hsm-name> -RoleDefinitionName "My Custom 
 ---
 
 ## Update a custom role definition
+
+# [Azure portal](#tab/azure-portal)
+
+Updating custom role definitions isn't currently available in the Azure portal. Use the Azure CLI or Azure PowerShell.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -299,6 +311,10 @@ New-AzKeyVaultRoleDefinition -HsmName <hsm-name> -Role $role
 ---
 
 ## Delete custom role definition
+
+# [Azure portal](#tab/azure-portal)
+
+Deleting custom role definitions isn't currently available in the Azure portal. Use the Azure CLI or Azure PowerShell.
 
 # [Azure CLI](#tab/azure-cli)
 

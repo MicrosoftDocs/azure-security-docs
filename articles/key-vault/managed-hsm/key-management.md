@@ -350,6 +350,10 @@ Remove-AzKeyVaultKey -HsmName <hsm-name> -Name myrsakey -InRemovedState
 > [!NOTE]
 > Key backup, restore, and import operations are available only through the Azure CLI and Azure PowerShell.
 
+# [Azure portal](#tab/azure-portal)
+
+Key backup isn't currently available in the Azure portal. Use the Azure CLI or Azure PowerShell.
+
 # [Azure CLI](#tab/azure-cli)
 
 Use `az keyvault key backup` to create a key backup. The backup file is an encrypted blob cryptographically tied to the Security Domain of the source HSM. You can only restore it in HSMs that share the same security domain. Read more about [Security Domain](security-domain.md).
@@ -375,6 +379,10 @@ Backup-AzKeyVaultKey -HsmName <hsm-name> -Name myrsakey -OutputFile myrsakey.bac
 ---
 
 ## Restore a single key from backup
+
+# [Azure portal](#tab/azure-portal)
+
+Key restore isn't currently available in the Azure portal. Use the Azure CLI or Azure PowerShell.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -407,6 +415,10 @@ Restore-AzKeyVaultKey -HsmName <hsm-name> -InputFile myrsakey.backup
 ---
 
 ## Import a key from a file
+
+# [Azure portal](#tab/azure-portal)
+
+Key import isn't currently available in the Azure portal. Use the Azure CLI or Azure PowerShell.
 
 # [Azure CLI](#tab/azure-cli)
 
