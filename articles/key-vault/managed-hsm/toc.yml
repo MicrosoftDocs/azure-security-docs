@@ -74,6 +74,8 @@ items:
     href: mhsm-control-data.md
   - name: Key sovereignty, availability, performance, and scalability
     href: managed-hsm-technical-details.md
+  - name: Reliability in Azure Key Vault Managed HSM
+    href: /azure/reliability/reliability-managed-hsm?toc=/azure/key-vault/managed-hsm/&bc=/azure/key-vault/managed-hsm/breadcrumb/toc.json
 
 - name: Security
   items:
