@@ -75,7 +75,7 @@ items:
   - name: Key sovereignty, availability, performance, and scalability
     href: managed-hsm-technical-details.md
   - name: Reliability in Azure Key Vault Managed HSM
-    href: /azure/reliability/reliability-managed-hsm?toc=/azure/key-vault/managed-hsm/&bc=/azure/key-vault/managed-hsm/breadcrumb/toc.json
+    href: /azure/reliability/reliability-managed-hsm?toc=/azure/key-vault/managed-hsm/toc.json&bc=/azure/key-vault/managed-hsm/breadcrumb/toc.json
 
 - name: Security
   items:
@@ -92,7 +92,7 @@ items:
   - name: Managed HSM soft-delete 
     href: soft-delete-overview.md
   - name: Security baseline
-    href: /security/benchmark/azure/baselines/key-vault-managed-hsm-security-baseline?toc=/azure/key-vault/managed-hsm/&bc=/azure/key-vault/managed-hsm/breadcrumb/toc.json
+    href: /security/benchmark/azure/baselines/key-vault-managed-hsm-security-baseline?toc=/azure/key-vault/managed-hsm/toc.json&bc=/azure/key-vault/managed-hsm/breadcrumb/toc.json
 
 - name: Reference
   items:
