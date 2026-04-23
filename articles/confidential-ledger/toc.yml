@@ -70,6 +70,8 @@ items:
       href: verify-node-quotes.md
     - name: Upload, view and list ledger data with the Azure ledger explorer
       href: quickstart-ledger-explorer.md
+    - name: Inspect ledger data with Ledger Explorer (Offline)
+      href: quickstart-ledger-explorer-offline.md
   - name: Applications using Confidential Ledger 
     items: 
     - name: Store your data securely in SQL Server with Ledger
