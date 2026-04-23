@@ -3,7 +3,7 @@ title: Secure your Azure confidential ledger deployment
 description: Learn how to secure Azure confidential ledger, with best practices for authentication, data integrity, and access controls.
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: security
+ms.service: azure-confidential-ledger
 ms.topic: best-practice
 ms.custom: horz-security
 ms.date: 04/01/2026
@@ -77,6 +77,8 @@ Comprehensive logging and monitoring enable detection of suspicious activities a
 - **Monitor instance health**: Azure confidential ledger uses continuous monitoring to observe instance health and automatically initiate recovery processes when the health of the confidential instance falls below a specified threshold. Understand this behavior to complement it with your own monitoring practices.
 
 - **Store security event data in the ledger**: Consider using Azure confidential ledger as a tamper-proof repository for critical security event data, such as Microsoft Defender for Cloud alerts or operational IT security events. The immutable, append-only nature of the ledger ensures that security records can't be modified or deleted by an attacker who gains access to your environment. For more information, see [Azure confidential ledger overview](overview.md).
+
+- **Use ledger explorer tools for audit and verification**: Azure confidential ledger provides two explorer tools for visual verification of ledger data. The [Azure portal ledger explorer](quickstart-ledger-explorer.md) lets you browse and verify transactions directly from your ledger resource. For forensic analysis of exported data, the [offline Ledger Explorer](quickstart-ledger-explorer-offline.md) lets you inspect transactions, governance history, and cryptographic proofs from exported backup files.
 
 ## Compliance and governance
 

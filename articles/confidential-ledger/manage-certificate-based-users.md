@@ -64,7 +64,7 @@ ledger_client = ConfidentialLedgerClient(
 
 # Add a user with the contributor role
 # Other possible roles are Contributor and Administrator
-user_id = "PEM certficate fingerprint"
+user_id = "PEM certificate fingerprint"
 user = ledger_client.create_or_update_user(
     user_id, {"assignedRole": "Contributor"}
 )

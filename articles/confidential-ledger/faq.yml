@@ -73,7 +73,7 @@ sections:
       - question: |
           I've created a ledger without an administrator. Can I still add users?
         answer: |
-          If you create a ledger without an administrator, the AAD/cert gets admin rights. That identity can be used to manage the ledger.
+          If you create a ledger without an administrator, the Microsoft Entra ID/cert identity gets admin rights. That identity can be used to manage the ledger.
           
 
 

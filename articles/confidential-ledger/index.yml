@@ -97,6 +97,8 @@ landingContent:
             url: verify-write-transaction-receipts.md
           - text: Establish trust on Azure confidential ledger
             url: verify-node-quotes.md
+          - text: Inspect exported ledger data with Ledger Explorer (Offline)
+            url: quickstart-ledger-explorer-offline.md
 
   # Card
   - title: Confidential ledger integrations

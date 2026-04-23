@@ -81,7 +81,7 @@ When this transaction is committed, the primary node signs the Merkle root. To v
 
 Finally, we check that the signing node is endorsed by the ledger. If the transaction is committed and has not been tampered with, Ledger explorer will indicate that the `Globally Committed Status` is `verified`.
 
-![Screenshot of a verfified signature in Ledger explorer.](./media/ledger-explorer-committed-status.png)
+![Screenshot of a verified signature in Ledger explorer.](./media/ledger-explorer-committed-status.png)
 
 This step corresponds to [Verify signature over root node](./verify-write-transaction-receipts.md#verify-signature-over-root-node) and [Verify signing node certificate endorsement](./verify-write-transaction-receipts.md#verify-signing-node-certificate-endorsement) in [Verify Azure Confidential Ledger write transaction receipts](./verify-write-transaction-receipts.md)
 
@@ -89,6 +89,7 @@ This step corresponds to [Verify signature over root node](./verify-write-transa
 
 Learn more about using the SDK to write to and read from the ledger, and verify write transaction receipts:
 
+- [Inspect exported ledger data with Ledger Explorer (Offline)](./quickstart-ledger-explorer-offline.md)
 - [Quickstart: Microsoft Azure confidential ledger client library for Python](./quickstart-python.md)
 - [Verify write transaction receipts - Code Walkthrough](./verify-write-transaction-receipts.md#code-walkthrough)
 

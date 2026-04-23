@@ -505,5 +505,7 @@ def verify_openssl_certificate(
 ## Next steps
 
 * [Azure Confidential Ledger write transaction receipts](write-transaction-receipts.md)
+* [Use the Azure portal ledger explorer to verify transactions](quickstart-ledger-explorer.md)
+* [Inspect exported ledger data with Ledger Explorer (Offline)](quickstart-ledger-explorer-offline.md)
 * [Overview of Microsoft Azure confidential ledger](overview.md)
 * [Azure confidential ledger architecture](architecture.md)
