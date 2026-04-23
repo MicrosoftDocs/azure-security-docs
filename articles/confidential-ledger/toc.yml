@@ -69,9 +69,9 @@ items:
     - name: Establish trust on Azure confidential ledger
       href: verify-node-quotes.md
     - name: Use the Azure portal ledger explorer
-      href: quickstart-ledger-explorer.md
+      href: ledger-explorer.md
     - name: Inspect ledger data with Ledger Explorer (Offline)
-      href: quickstart-ledger-explorer-offline.md
+      href: ledger-explorer-offline.md
   - name: Applications using Confidential Ledger 
     items: 
     - name: Store your data securely in SQL Server with Ledger

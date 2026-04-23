@@ -98,7 +98,7 @@ landingContent:
           - text: Establish trust on Azure confidential ledger
             url: verify-node-quotes.md
           - text: Inspect exported ledger data with Ledger Explorer (Offline)
-            url: quickstart-ledger-explorer-offline.md
+            url: ledger-explorer-offline.md
 
   # Card
   - title: Confidential ledger integrations
@@ -125,8 +125,8 @@ landingContent:
             url: register-ledger-resource-provider.md  
           - text: Register an ACL app with Microsoft Entra ID
             url: register-application.md
-          - text: Upload, view and list ledger data with the Azure ledger explorer
-            url: quickstart-ledger-explorer.md
+          - text: Use the Azure portal ledger explorer
+            url: ledger-explorer.md
           - text: Secure your Azure confidential ledger deployment
             url: secure-confidential-ledger.md
           - text: Data residency for Azure Confidential Ledger

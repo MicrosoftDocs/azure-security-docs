@@ -4,21 +4,19 @@ description: Learn how to load exported Azure Confidential Ledger data into Ledg
 author: shubhras
 ms.author: shubhras
 ms.service: azure-confidential-ledger
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 04/23/2026
 ai-usage: ai-assisted
 ---
 
-# Quickstart: Inspect Azure Confidential Ledger data with Ledger Explorer (Offline)
+# Inspect Azure Confidential Ledger data with Ledger Explorer (Offline)
 
-In this quickstart, you load exported Azure Confidential Ledger data into the offline Ledger Explorer and inspect transactions, governance history, and cryptographic proofs. The offline Ledger Explorer is a web-based forensics tool designed for high-fidelity verification and trust validation, primarily for auditing and compliance purposes.
+This article shows you how to load exported Azure Confidential Ledger data into the offline Ledger Explorer and inspect transactions, governance history, and cryptographic proofs. The offline Ledger Explorer is a web-based forensics tool designed for high-fidelity verification and trust validation, primarily for auditing and compliance purposes.
 
 The offline Ledger Explorer reads ledger data directly from exported backup files and runs entirely in your browser. No data is sent to any external server.
 
 > [!NOTE]
-> This article covers the standalone offline Ledger Explorer for exported data. To verify transactions directly from your Azure portal ledger resource, see [Use the Azure portal ledger explorer to verify transactions](quickstart-ledger-explorer.md).
-
-[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+> This article covers the standalone offline Ledger Explorer for exported data. To verify transactions directly from your Azure portal ledger resource, see [Use the Azure portal ledger explorer to verify transactions](ledger-explorer.md).
 
 ## Prerequisites
 
@@ -70,19 +68,9 @@ For any transaction, you can verify the cryptographic proof chain to confirm tha
 
 This verification confirms that the transaction data hasn't been tampered with since it was committed to the ledger. For more information about how receipt verification works, see [Azure Confidential Ledger write transaction receipts](write-transaction-receipts.md).
 
-## Clean up resources
-
-The offline Ledger Explorer runs entirely in your browser. No server-side resources are created. To clear any locally cached data, go to **Configuration** in the explorer and clear the browser cache.
-
-If you created Azure resources as part of this quickstart and no longer need them, delete the resource group to avoid incurring further charges.
-
 ## Related content
 
-In this quickstart, you loaded exported Azure Confidential Ledger data into the offline Ledger Explorer and inspected transactions, governance history, and cryptographic proofs.
-
-To learn more, see the following resources:
-
-- [Use the Azure portal ledger explorer to verify transactions](quickstart-ledger-explorer.md)
+- [Use the Azure portal ledger explorer to verify transactions](ledger-explorer.md)
 - [Azure Confidential Ledger write transaction receipts](write-transaction-receipts.md)
 - [Verify Azure Confidential Ledger write transaction receipts](verify-write-transaction-receipts.md)
 - [Overview of Microsoft Azure confidential ledger](overview.md)

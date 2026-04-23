@@ -5,18 +5,16 @@ author: taicchoumsft
 ms.author: tachou
 ms.date: 04/23/2026
 ms.service: azure-confidential-ledger
-ms.topic: quickstart
+ms.topic: how-to
 ai-usage: ai-assisted
 ---
 
-# Quickstart: Use the Azure portal ledger explorer to verify transactions
+# Use the Azure portal ledger explorer to verify transactions
 
-In this quickstart, you use the Azure portal ledger explorer to list and view transactions, create new ledger entries, and verify the integrity of your data using cryptographic proofs.
+This article shows you how to use the Azure portal ledger explorer to list and view transactions, create new ledger entries, and verify the integrity of your data using cryptographic proofs.
 
 > [!NOTE]
-> This article covers the Azure portal ledger explorer. To inspect exported ledger data offline for forensic analysis, see [Inspect Azure Confidential Ledger data with Ledger Explorer (Offline)](./quickstart-ledger-explorer-offline.md).
-
-[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+> This article covers the Azure portal ledger explorer. To inspect exported ledger data offline for forensic analysis, see [Inspect Azure Confidential Ledger data with Ledger Explorer (Offline)](./ledger-explorer-offline.md).
 
 ## Prerequisites
 
@@ -95,11 +93,7 @@ This step corresponds to [Verify signature over root node](./verify-write-transa
 
 ## Related content
 
-In this quickstart, you used the Azure portal ledger explorer to browse transactions, create entries, and verify data integrity with cryptographic proofs.
-
-To learn more, see the following resources:
-
-- [Inspect exported ledger data with Ledger Explorer (Offline)](./quickstart-ledger-explorer-offline.md)
+- [Inspect exported ledger data with Ledger Explorer (Offline)](./ledger-explorer-offline.md)
 - [Azure Confidential Ledger write transaction receipts](./write-transaction-receipts.md)
 - [Verify Azure Confidential Ledger write transaction receipts](./verify-write-transaction-receipts.md)
 - [Quickstart: Microsoft Azure confidential ledger client library for Python](./quickstart-python.md)

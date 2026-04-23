@@ -78,7 +78,7 @@ Comprehensive logging and monitoring enable detection of suspicious activities a
 
 - **Store security event data in the ledger**: Consider using Azure confidential ledger as a tamper-proof repository for critical security event data, such as Microsoft Defender for Cloud alerts or operational IT security events. The immutable, append-only nature of the ledger ensures that security records can't be modified or deleted by an attacker who gains access to your environment. For more information, see [Azure confidential ledger overview](overview.md).
 
-- **Use ledger explorer tools for audit and verification**: Azure confidential ledger provides two explorer tools for visual verification of ledger data. The [Azure portal ledger explorer](quickstart-ledger-explorer.md) lets you browse and verify transactions directly from your ledger resource. For forensic analysis of exported data, the [offline Ledger Explorer](quickstart-ledger-explorer-offline.md) lets you inspect transactions, governance history, and cryptographic proofs from exported backup files.
+- **Use ledger explorer tools for audit and verification**: Azure confidential ledger provides two explorer tools for visual verification of ledger data. The [Azure portal ledger explorer](ledger-explorer.md) lets you browse and verify transactions directly from your ledger resource. For forensic analysis of exported data, the [offline Ledger Explorer](ledger-explorer-offline.md) lets you inspect transactions, governance history, and cryptographic proofs from exported backup files.
 
 ## Compliance and governance
 
