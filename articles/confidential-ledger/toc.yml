@@ -68,7 +68,7 @@ items:
       href: authenticate-ledger-nodes.md
     - name: Establish trust on Azure confidential ledger
       href: verify-node-quotes.md
-    - name: Upload, view and list ledger data with the Azure ledger explorer
+    - name: Use the Azure portal ledger explorer
       href: quickstart-ledger-explorer.md
     - name: Inspect ledger data with Ledger Explorer (Offline)
       href: quickstart-ledger-explorer-offline.md
