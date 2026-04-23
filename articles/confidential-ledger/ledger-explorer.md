@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 
 # Use the Azure portal ledger explorer to verify transactions
 
-This article shows you how to use the Azure portal ledger explorer to list and view transactions, create new ledger entries, and verify the integrity of your data using cryptographic proofs.
+This article shows you how to use the Azure portal ledger explorer to list and view transactions, create new ledger entries, and verify the integrity of your data using cryptographic proofs. For background on what the Ledger Explorer tools are, how they differ, and when to use each one, see [Ledger Explorer concepts](./ledger-explorer-concepts.md).
 
 > [!NOTE]
 > This article covers the Azure portal ledger explorer. To inspect exported ledger data offline for forensic analysis, see [Inspect Azure Confidential Ledger data with Ledger Explorer (Offline)](./ledger-explorer-offline.md).
@@ -56,9 +56,7 @@ If you have an Administrator or Contributor role, you can create new ledger entr
 
 ## Verify transaction integrity
 
-One of the key features of Azure Confidential Ledger is that it provides cryptographic evidence that your data hasn't been tampered with, through transaction receipts. A transaction receipt is a JSON document that contains the transaction metadata, cryptographic proofs, and certificate information. You can use a receipt to verify that a transaction exists on your ledger and hasn't been modified. For more information, see [Azure Confidential Ledger write transaction receipts](./write-transaction-receipts.md).
-
-The ledger explorer performs the verification steps listed in [Verify Azure Confidential Ledger write transaction receipts](./verify-write-transaction-receipts.md).
+Azure Confidential Ledger provides cryptographic evidence that your data hasn't been tampered with, through transaction receipts. The ledger explorer performs the verification steps described in [Verify Azure Confidential Ledger write transaction receipts](./verify-write-transaction-receipts.md). For background on how verification works across both explorer tools, see [Ledger Explorer concepts](./ledger-explorer-concepts.md).
 
 To verify a transaction:
 
@@ -93,6 +91,7 @@ This step corresponds to [Verify signature over root node](./verify-write-transa
 
 ## Related content
 
+- [Ledger Explorer concepts](./ledger-explorer-concepts.md)
 - [Inspect exported ledger data with Ledger Explorer (Offline)](./ledger-explorer-offline.md)
 - [Azure Confidential Ledger write transaction receipts](./write-transaction-receipts.md)
 - [Verify Azure Confidential Ledger write transaction receipts](./verify-write-transaction-receipts.md)

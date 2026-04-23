@@ -34,6 +34,8 @@ items:
       href: authentication-azure-ad.md
   - name: Verifying your Ledger Data
     items:
+    - name: Ledger Explorer concepts
+      href: ledger-explorer-concepts.md
     - name: Write transaction receipts
       href: write-transaction-receipts.md
   - name: User defined functions (UDFs)

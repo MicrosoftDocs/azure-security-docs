@@ -11,9 +11,9 @@ ai-usage: ai-assisted
 
 # Inspect Azure Confidential Ledger data with Ledger Explorer (Offline)
 
-This article shows you how to load exported Azure Confidential Ledger data into the offline Ledger Explorer and inspect transactions, governance history, and cryptographic proofs. The offline Ledger Explorer is a web-based forensics tool designed for high-fidelity verification and trust validation, primarily for auditing and compliance purposes.
+This article shows you how to load exported Azure Confidential Ledger data into the offline Ledger Explorer and inspect transactions, governance history, and cryptographic proofs. The offline Ledger Explorer runs entirely in your browser — no data is sent to any external server.
 
-The offline Ledger Explorer reads ledger data directly from exported backup files and runs entirely in your browser. No data is sent to any external server.
+For background on what the Ledger Explorer tools are, how they differ, and when to use each one, see [Ledger Explorer concepts](ledger-explorer-concepts.md).
 
 > [!NOTE]
 > This article covers the standalone offline Ledger Explorer for exported data. To verify transactions directly from your Azure portal ledger resource, see [Use the Azure portal ledger explorer to verify transactions](ledger-explorer.md).
@@ -70,6 +70,7 @@ This verification confirms that the transaction data hasn't been tampered with s
 
 ## Related content
 
+- [Ledger Explorer concepts](ledger-explorer-concepts.md)
 - [Use the Azure portal ledger explorer to verify transactions](ledger-explorer.md)
 - [Azure Confidential Ledger write transaction receipts](write-transaction-receipts.md)
 - [Verify Azure Confidential Ledger write transaction receipts](verify-write-transaction-receipts.md)
