@@ -2,7 +2,7 @@
 title: Inspect Azure Confidential Ledger data with Ledger Explorer (Offline)
 description: Learn how to load exported Azure Confidential Ledger data into Ledger Explorer (Offline) and inspect transactions, governance history, and cryptographic proofs.
 author: shubhras
-ms.author: shubhras
+ms.author: mbaldwin
 ms.service: azure-confidential-ledger
 ms.topic: how-to
 ms.date: 04/23/2026
