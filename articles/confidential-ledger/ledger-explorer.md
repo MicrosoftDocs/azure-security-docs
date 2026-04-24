@@ -14,7 +14,7 @@ ai-usage: ai-assisted
 This article shows you how to use the Azure portal ledger explorer to list and view transactions, create new ledger entries, and verify the integrity of your data using cryptographic proofs. For background on what the Ledger Explorer tools are, how they differ, and when to use each one, see [Ledger Explorer concepts](./ledger-explorer-concepts.md).
 
 > [!NOTE]
-> This article covers the Azure portal ledger explorer. To inspect exported ledger data offline for forensic analysis, see [Inspect Azure Confidential Ledger data with Ledger Explorer (Offline)](./ledger-explorer-offline.md).
+> This article covers the Azure portal ledger explorer. To inspect exported or local ledger data, see [Inspect ledger data with Ledger Explorer (Offline)](./ledger-explorer-offline.md).
 
 ## Prerequisites
 
@@ -92,7 +92,7 @@ This step corresponds to [Verify signature over root node](./verify-write-transa
 ## Related content
 
 - [Ledger Explorer concepts](./ledger-explorer-concepts.md)
-- [Inspect exported ledger data with Ledger Explorer (Offline)](./ledger-explorer-offline.md)
+- [Inspect ledger data with Ledger Explorer (Offline)](./ledger-explorer-offline.md)
 - [Azure Confidential Ledger write transaction receipts](./write-transaction-receipts.md)
 - [Verify Azure Confidential Ledger write transaction receipts](./verify-write-transaction-receipts.md)
 - [Quickstart: Microsoft Azure confidential ledger client library for Python](./quickstart-python.md)
