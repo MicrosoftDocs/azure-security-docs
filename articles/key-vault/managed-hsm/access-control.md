@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: concept-article
-ms.date: 01/30/2026
+ms.date: 04/27/2026
 ms.author: mbaldwin
 ms.custom: sfi-ga-nochange
 # Customer intent: As the admin for managed HSMs, I want to set access policies and configure the Managed HSM, so that I can ensure it's secure and auditors can properly monitor all activities for these managed HSMs.
@@ -46,8 +46,11 @@ The permissions models for both planes use the same syntax, but they're enforced
 
 > [!IMPORTANT]
 > Granting control plane access to a security principal does *not* grant the security principal data plane access. For example, a security principal with control plane access doesn't automatically have access to keys or data plane role assignments. This isolation is by design, to prevent inadvertent expansion of privileges that affect access to keys that are stored in Managed HSM.
+
+> [!NOTE]
+> Assigning roles such as Managed HSM Crypto Officer or Managed HSM Crypto Policy Administrator grants broad permissions to manage role assignments, including self‑assignment of the Managed HSM Administrator role. In addition, users who are members of the Entra Global Administrator role also have the capability to assign the Managed HSM Administrator role, even if they are not explicitly assigned an HSM‑specific role.
 >
-> But there's an exception: Members of the Microsoft Entra Global Administrator role can always add users to the Managed HSM Administrator role for recovery purposes, such as when there are no longer any valid Managed HSM Administrator accounts. For more information, see [Microsoft Entra ID best practices for securing the Global Administrator role](/entra/identity/role-based-access-control/best-practices#5-limit-the-number-of-global-administrators-to-less-than-5).
+> This behavior is by design and supports bootstrapping and recovery scenarios; however, it means these roles should be treated as highly privileged.
 
 For example, a subscription administrator (because they have Contributor permissions to all resources in the subscription) can delete a managed HSM in their subscription. But if they don't have data plane access granted through Managed HSM local RBAC, they can't gain access to keys or manage role assignments in the managed HSM to grant themselves or others access to the data plane.
 
