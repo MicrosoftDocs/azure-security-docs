@@ -60,9 +60,11 @@ oid=$(az ad signed-in-user show --query id -o tsv)
 az keyvault create --hsm-name "<hsm-name>" --resource-group "myResourceGroup" --location "EastUS" --administrators $oid --retention-days 7
 ```
 
-If you use Managed Identities as the initial admins of your Managed HSM, enter the OID/PrincipalID of the Managed Identities after `--administrators` and not the ClientID.
+> [!NOTE]
+> If you use Managed Identities as the initial admins of your Managed HSM, enter the OID/PrincipalID of the Managed Identities after `--administrators` and not the ClientID.
 
-The create command can take a few minutes. When it returns successfully, you're ready to activate your HSM.
+> [!NOTE]
+> The create command can take a few minutes. When it returns successfully, you're ready to activate your HSM.
 
 [!INCLUDE [Managed HSM billing warning](~/reusable-content/ce-skilling/azure/includes/managed-hsm/billing-warning.md)]
 
