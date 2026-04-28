@@ -8,7 +8,7 @@ ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 04/13/2026
+ms.date: 04/28/2026
 
 ms.author: mbaldwin
 ai-usage: ai-assisted
@@ -53,7 +53,7 @@ You also need:
 
 1. Choose the key type (RSA-HSM, EC-HSM, or oct-HSM), set the key size or curve, name, and permitted operations, then select **Create**.
 
-   [screenshot: Create key blade]
+   :::image type="content" source="media/key-management/mhsm-keys-blade.png" alt-text="Screenshot of the Keys blade in the Azure portal for a Managed HSM.":::
 
 # [Azure CLI](#tab/azure-cli)
 

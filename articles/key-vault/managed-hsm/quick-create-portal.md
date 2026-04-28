@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: quickstart
-ms.date: 04/14/2026
+ms.date: 04/28/2026
 ms.author: mbaldwin
 ai-usage: ai-assisted
 #Customer intent: As a security admin who is new to Azure, I want to provision and activate a managed HSM using the portal
@@ -46,7 +46,7 @@ Creating a Managed HSM is a two-step process:
    - **Region**: Select **East US** (or your preferred region).
    - **Initial administrator(s)**: Search for and select the Microsoft Entra users or groups to designate as initial administrators.
 
-   [screenshot: Create Managed HSM - Basics tab]
+   :::image type="content" source="media/quick-create-portal/mhsm-create-basics.png" alt-text="Screenshot of the Create Azure Key Vault Managed HSM Basics tab in the Azure portal.":::
 
 1. Adjust settings on the **Advanced**, **Networking**, and **Tags** tabs as needed.
 
@@ -73,7 +73,7 @@ Creating a Managed HSM is a two-step process:
 
 1. Download the encrypted security domain file.
 
-   [screenshot: Security domain download page]
+   <!-- Security domain download screenshot will be added when an activated HSM is available. -->
 
 > [!IMPORTANT]
 > Store the security domain file and the RSA private keys in a secure, separate location. You need them to recover the Managed HSM in a disaster recovery scenario. Loss of the security domain can result in permanent loss of access.

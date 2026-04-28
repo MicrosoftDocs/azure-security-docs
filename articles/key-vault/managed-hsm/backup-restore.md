@@ -9,7 +9,7 @@ ms.custom: devx-track-azurecli
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 04/13/2026
+ms.date: 04/28/2026
 ms.author: mbaldwin
 ai-usage: ai-assisted
 # Customer intent: As a developer using Key Vault I want to know the best practices so I can implement them.
@@ -72,7 +72,7 @@ While the backup is in progress, the HSM might not operate at full throughput as
 
 1. Select **Start Backup**. Provide the storage account and container details, then initiate the backup.
 
-   [screenshot: Backup blade]
+   :::image type="content" source="media/backup-restore/mhsm-backup-blade.png" alt-text="Screenshot of the Managed HSM Backup blade in the Azure portal.":::
 
 # [Azure CLI](#tab/azure-cli)
 

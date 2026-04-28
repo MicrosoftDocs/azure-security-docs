@@ -7,7 +7,7 @@ tags: 'rotation'
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 04/13/2026
+ms.date: 04/28/2026
 
 ms.author: mbaldwin
 ai-usage: ai-assisted
@@ -72,7 +72,7 @@ Key rotation policy settings:
 
 1. Configure the rotation interval, expiry time, and rotation trigger, then save.
 
-   [screenshot: Key rotation policy configuration]
+   <!-- Key rotation policy configuration screenshot will be added when the HSM is activated and keys are available. -->
 
 # [Azure CLI](#tab/azure-cli)
 
