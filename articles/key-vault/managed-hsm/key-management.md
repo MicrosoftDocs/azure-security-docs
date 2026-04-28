@@ -53,7 +53,7 @@ You also need:
 
 1. Choose the key type (RSA-HSM, EC-HSM, or oct-HSM), set the key size or curve, name, and permitted operations, then select **Create**.
 
-   :::image type="content" source="media/key-management/mhsm-keys-blade.png" alt-text="Screenshot of the Keys blade in the Azure portal for a Managed HSM.":::
+   :::image type="content" source="media/key-management/managed-hsm-keys-blade.png" alt-text="Screenshot of the Keys blade in the Azure portal for a Managed HSM.":::
 
 # [Azure CLI](#tab/azure-cli)
 

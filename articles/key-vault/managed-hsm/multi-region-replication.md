@@ -105,7 +105,7 @@ In this diagram, the private endpoint is created in the UK South region only, th
 
 1. Select **Add Region**, choose the target region, and confirm.
 
-   :::image type="content" source="media/multi-region-replication/mhsm-multi-region-replication.png" alt-text="Screenshot of the Multi-Region Replication blade in the Azure portal showing the region map and Add Region option.":::
+   :::image type="content" source="media/multi-region-replication/managed-hsm-multi-region-replication.png" alt-text="Screenshot of the Multi-Region Replication blade in the Azure portal showing the region map and Add Region option.":::
 
 > [!IMPORTANT]
 > After initiating the extension to a new region, do not perform any operations on the primary HSM until the extension region pool is fully provisioned. Verify that the extended region's **Provisioning State** shows **Succeeded** before proceeding.

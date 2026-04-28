@@ -72,7 +72,7 @@ While the backup is in progress, the HSM might not operate at full throughput as
 
 1. Select **Start Backup**. Provide the storage account and container details, then initiate the backup.
 
-   :::image type="content" source="media/backup-restore/mhsm-backup-blade.png" alt-text="Screenshot of the Managed HSM Backup blade in the Azure portal.":::
+   :::image type="content" source="media/backup-restore/managed-hsm-backup-blade.png" alt-text="Screenshot of the Managed HSM Backup blade in the Azure portal.":::
 
 # [Azure CLI](#tab/azure-cli)
 

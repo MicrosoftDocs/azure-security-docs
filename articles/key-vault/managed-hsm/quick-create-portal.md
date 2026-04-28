@@ -46,7 +46,7 @@ Creating a Managed HSM is a two-step process:
    - **Region**: Select **East US** (or your preferred region).
    - **Initial administrator(s)**: Search for and select the Microsoft Entra users or groups to designate as initial administrators.
 
-   :::image type="content" source="media/quick-create-portal/mhsm-create-basics.png" alt-text="Screenshot of the Create Azure Key Vault Managed HSM Basics tab in the Azure portal.":::
+   :::image type="content" source="media/quick-create-portal/managed-hsm-create-basics.png" alt-text="Screenshot of the Create Azure Key Vault Managed HSM Basics tab in the Azure portal.":::
 
 1. Adjust settings on the **Advanced**, **Networking**, and **Tags** tabs as needed.
 
