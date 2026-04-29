@@ -66,7 +66,7 @@ While the backup is in progress, the HSM might not operate at full throughput as
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
 
-1. In the left menu, select **Backup**.
+1. In the left menu, under **Settings**, select **Backup**.
 
 1. Provide the storage account and container details, then select **Start Backup** to initiate the backup.
 
@@ -111,9 +111,11 @@ Restore is a long running operation but it immediately returns a Job ID. You can
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
 
-1. In the left menu, select **Restore**.
+1. In the left menu, under **Settings**, select **Restore**.
 
 1. Provide the storage account, container, and backup folder details, then initiate the restore.
+
+   :::image type="content" source="media/backup-restore/managed-hsm-restore-blade.png" alt-text="Screenshot of the Managed HSM Restore blade in the Azure portal.":::
 
 # [Azure CLI](#tab/azure-cli)
 

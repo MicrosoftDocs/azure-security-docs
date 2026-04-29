@@ -45,7 +45,7 @@ You also need:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
 
-1. Under **Settings** in the left menu, select **Keys**.
+1. In the left menu, under **Settings**, select **Keys**.
 
 1. Select **Generate/Import** from the **Generate/Import/Restore Backup** dropdown.
 
@@ -135,7 +135,7 @@ Add-AzKeyVaultKey -HsmName <hsm-name> -Name myaeskey -KeyType oct-HSM -Size 256 
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
 
-1. Under **Settings** in the left menu, select **Keys**.
+1. In the left menu, under **Settings**, select **Keys**.
 
 1. Select the key you want to view. The portal displays the key's attributes, versions, and tags.
 
@@ -169,7 +169,7 @@ Get-AzKeyVaultKey -HsmName <hsm-name> -Name myrsakey
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
 
-1. Under **Settings** in the left menu, select **Keys**. The portal lists all keys in the Managed HSM.
+1. In the left menu, under **Settings**, select **Keys**. The portal lists all keys in the Managed HSM.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -201,7 +201,7 @@ Get-AzKeyVaultKey -HsmName <hsm-name>
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
 
-1. Under **Settings** in the left menu, select **Keys**.
+1. In the left menu, under **Settings**, select **Keys**.
 
 1. Select the key you want to delete.
 
@@ -236,7 +236,7 @@ Remove-AzKeyVaultKey -HsmName <hsm-name> -Name myrsakey
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
 
-1. Under **Settings** in the left menu, select **Keys**.
+1. In the left menu, under **Settings**, select **Keys**.
 
 1. Select **Manage deleted keys** to view keys in the soft-deleted state.
 
@@ -269,7 +269,7 @@ Get-AzKeyVaultKey -HsmName <hsm-name> -InRemovedState
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
 
-1. Under **Settings** in the left menu, select **Keys**, then select **Manage deleted keys**.
+1. In the left menu, under **Settings**, select **Keys**, then select **Manage deleted keys**.
 
 1. Select the deleted key you want to recover.
 
@@ -307,7 +307,7 @@ Undo-AzKeyVaultKeyRemoval -HsmName <hsm-name> -Name myrsakey
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
 
-1. Under **Settings** in the left menu, select **Keys**, then select **Manage deleted keys**.
+1. In the left menu, under **Settings**, select **Keys**, then select **Manage deleted keys**.
 
 1. Select the deleted key you want to purge.
 
@@ -359,7 +359,7 @@ az keyvault key backup --hsm-name <hsm-name> --name myrsakey --file myrsakey.bac
 ## OR
 # Note the key name (myaeskey) in the URI
 
-az keyvault key backup --id https://<hsm-name>.managedhsm.azure.net/deletedKeys/myrsakey  --file myrsakey.backup
+az keyvault key backup --id https://<hsm-name>.managedhsm.azure.net/keys/myrsakey  --file myrsakey.backup
 
 ```
 
@@ -379,7 +379,7 @@ Backup-AzKeyVaultKey -HsmName <hsm-name> -Name myrsakey -OutputFile myrsakey.bac
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
 
-1. Under **Settings** in the left menu, select **Keys**.
+1. In the left menu, under **Settings**, select **Keys**.
 
 1. Select **Generate/Import/Restore Backup** and choose **Restore key from backup**.
 
@@ -398,7 +398,7 @@ az keyvault key restore --hsm-name <hsm-name> --name myrsakey --file myrsakey.ba
 ## OR
 # Note the key name (myaeskey) in the URI
 
-az keyvault key restore --id https://<hsm-name>.managedhsm.azure.net/deletedKeys/myrsakey --file myrsakey.backup
+az keyvault key restore --id https://<hsm-name>.managedhsm.azure.net/keys/myrsakey --file myrsakey.backup
 
 ```
 
@@ -431,7 +431,7 @@ az keyvault key import --hsm-name <hsm-name> --name myrsakey --pem-file mycert.k
 ## OR
 # Note the key name (<key-name>) in the URI
 
-az keyvault key recover --id https://<hsm-name>.managedhsm.azure.net/deletedKeys/<key-name> --pem-file mycert.key --password 'mypassword'
+az keyvault key import --id https://<hsm-name>.managedhsm.azure.net/keys/<key-name> --pem-file mycert.key --password 'mypassword'
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)

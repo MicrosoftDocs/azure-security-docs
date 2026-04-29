@@ -99,7 +99,7 @@ In this diagram, the private endpoint is created in the UK South region only, th
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
 
-1. In the left menu, select **Multi-Region Replication**.
+1. In the left menu, under **Settings**, select **Multi-Region Replication**.
 
 1. Select **Add Region**, choose the target region, and confirm.
 
@@ -112,7 +112,7 @@ In this diagram, the private endpoint is created in the UK South region only, th
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
 
-1. In the left menu, select **Multi-Region Replication**.
+1. In the left menu, under **Settings**, select **Multi-Region Replication**.
 
 1. Select the extended region you want to remove and confirm the deletion.
 

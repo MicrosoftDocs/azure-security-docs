@@ -40,7 +40,7 @@ You also need:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
 
-1. In the left menu, select **Local RBAC**.
+1. In the left menu, under **Settings**, select **Local RBAC**.
 
 1. Select **Add role assignment**, choose the role, scope, and principal, then save.
 
@@ -89,6 +89,8 @@ New-AzKeyVaultRoleAssignment -HsmName <hsm-name> -RoleDefinitionName "Managed HS
 1. In the left menu, under **Settings**, select **Local RBAC**.
 
    The portal displays all role assignments for the Managed HSM. You can filter by principal or scope.
+
+   :::image type="content" source="media/role-management/managed-hsm-local-rbac.png" alt-text="Screenshot of the Local RBAC blade in the Azure portal for a Managed HSM.":::
 
 # [Azure CLI](#tab/azure-cli)
 

@@ -57,7 +57,7 @@ For more information, see [Managed HSM soft-delete overview](soft-delete-overvie
 
 ### Managed HSMs (Portal)
 
-* To check the status of soft-delete and purge protection for a managed HSM, navigate to your Managed HSM resource in the Azure portal and view the **Properties** section.
+* To check the status of soft-delete and purge protection for a managed HSM, navigate to your Managed HSM resource in the Azure portal and select **Properties** in the left menu.
 
 * To delete an HSM, navigate to the Managed HSM resource and select **Delete**. This action is recoverable because soft-delete is on by default.
 

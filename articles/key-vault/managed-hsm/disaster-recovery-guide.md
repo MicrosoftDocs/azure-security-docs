@@ -8,8 +8,8 @@ ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 01/30/2026
-
+ms.date: 04/28/2026
+ai-usage: ai-assisted
 ms.author: mbaldwin
 ---
 

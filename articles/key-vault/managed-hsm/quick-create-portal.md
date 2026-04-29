@@ -52,7 +52,9 @@ Creating a Managed HSM is a two-step process:
 
 1. Select **Review + create**, then select **Create**.
 
-   The deployment takes a few minutes to complete.
+   The deployment takes a few minutes to complete. When it's finished, navigate to the resource to see its Overview page.
+
+   :::image type="content" source="media/quick-create-portal/managed-hsm-overview.png" alt-text="Screenshot of the Managed HSM Overview page in the Azure portal.":::
 
 > [!NOTE]
 > The provisioning process can take a few minutes. When it completes successfully, you're ready to activate your HSM.
@@ -67,7 +69,7 @@ Creating a Managed HSM is a two-step process:
 
 1. In the Azure portal, navigate to your Managed HSM resource.
 
-1. In the left menu, select **Security domain**.
+1. In the left menu, under **Settings**, select **Security domain**.
 
 1. Follow the portal prompts to upload your RSA public key certificates (minimum three) and set the quorum value.
 

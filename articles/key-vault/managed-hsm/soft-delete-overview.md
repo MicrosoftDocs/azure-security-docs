@@ -6,7 +6,8 @@ ms.subservice: managed-hsm
 ms.topic: feature-guide
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 01/30/2026
+ms.date: 04/28/2026
+ai-usage: ai-assisted
 ---
 
 # Managed HSM soft-delete overview
