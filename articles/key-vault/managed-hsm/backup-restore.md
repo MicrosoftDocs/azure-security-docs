@@ -64,13 +64,11 @@ While the backup is in progress, the HSM might not operate at full throughput as
 
 # [Azure portal](#tab/azure-portal)
 
-<!-- TODO: Fill in portal steps for backup once portal experience is confirmed with Jack Richins. -->
-
 1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
 
-1. In the left menu, select **Backup/Restore**.
+1. In the left menu, select **Backup**.
 
-1. Select **Start Backup**. Provide the storage account and container details, then initiate the backup.
+1. Provide the storage account and container details, then select **Start Backup** to initiate the backup.
 
    :::image type="content" source="media/backup-restore/managed-hsm-backup-blade.png" alt-text="Screenshot of the Managed HSM Backup blade in the Azure portal.":::
 
@@ -111,13 +109,11 @@ Restore is a long running operation but it immediately returns a Job ID. You can
 
 # [Azure portal](#tab/azure-portal)
 
-<!-- TODO: Fill in portal steps for restore once portal experience is confirmed with Jack Richins. -->
-
 1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
 
-1. In the left menu, select **Backup/Restore**.
+1. In the left menu, select **Restore**.
 
-1. Select **Restore**. Provide the storage account, container, and backup folder details, then initiate the restore.
+1. Provide the storage account, container, and backup folder details, then initiate the restore.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -142,13 +138,9 @@ Selective key restore restores one key with all its key versions from a previous
 
 # [Azure portal](#tab/azure-portal)
 
-<!-- TODO: Fill in portal steps for selective key restore once portal experience is confirmed with Jack Richins. -->
-
 1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
 
-1. In the left menu, select **Backup/Restore**.
-
-1. Select **Restore**, then choose the option to restore a single key from the backup.
+1. In the left menu, select **Restore**, then choose the option to restore a single key from the backup.
 
 # [Azure CLI](#tab/azure-cli)
 

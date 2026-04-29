@@ -43,13 +43,11 @@ You also need:
 
 # [Azure portal](#tab/azure-portal)
 
-<!-- TODO: Fill in portal steps for key creation once portal experience is confirmed with Jack Richins. -->
-
 1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
 
-1. In the left menu, select **Keys**.
+1. Under **Settings** in the left menu, select **Keys**.
 
-1. Select **Generate/Import**.
+1. Select **Generate/Import** from the **Generate/Import/Restore Backup** dropdown.
 
 1. Choose the key type (RSA-HSM, EC-HSM, or oct-HSM), set the key size or curve, name, and permitted operations, then select **Create**.
 
@@ -137,7 +135,7 @@ Add-AzKeyVaultKey -HsmName <hsm-name> -Name myaeskey -KeyType oct-HSM -Size 256 
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
 
-1. In the left menu, select **Keys**.
+1. Under **Settings** in the left menu, select **Keys**.
 
 1. Select the key you want to view. The portal displays the key's attributes, versions, and tags.
 
@@ -171,7 +169,7 @@ Get-AzKeyVaultKey -HsmName <hsm-name> -Name myrsakey
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
 
-1. In the left menu, select **Keys**. The portal lists all keys in the Managed HSM.
+1. Under **Settings** in the left menu, select **Keys**. The portal lists all keys in the Managed HSM.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -203,7 +201,7 @@ Get-AzKeyVaultKey -HsmName <hsm-name>
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
 
-1. In the left menu, select **Keys**.
+1. Under **Settings** in the left menu, select **Keys**.
 
 1. Select the key you want to delete.
 
@@ -238,7 +236,7 @@ Remove-AzKeyVaultKey -HsmName <hsm-name> -Name myrsakey
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
 
-1. In the left menu, select **Keys**.
+1. Under **Settings** in the left menu, select **Keys**.
 
 1. Select **Manage deleted keys** to view keys in the soft-deleted state.
 
@@ -271,7 +269,7 @@ Get-AzKeyVaultKey -HsmName <hsm-name> -InRemovedState
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
 
-1. In the left menu, select **Keys**, then select **Manage deleted keys**.
+1. Under **Settings** in the left menu, select **Keys**, then select **Manage deleted keys**.
 
 1. Select the deleted key you want to recover.
 
@@ -309,7 +307,7 @@ Undo-AzKeyVaultKeyRemoval -HsmName <hsm-name> -Name myrsakey
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
 
-1. In the left menu, select **Keys**, then select **Manage deleted keys**.
+1. Under **Settings** in the left menu, select **Keys**, then select **Manage deleted keys**.
 
 1. Select the deleted key you want to purge.
 
@@ -347,9 +345,6 @@ Remove-AzKeyVaultKey -HsmName <hsm-name> -Name myrsakey -InRemovedState
 
 ## Create a single key backup
 
-> [!NOTE]
-> Key backup, restore, and import operations are available only through the Azure CLI and Azure PowerShell.
-
 # [Azure portal](#tab/azure-portal)
 
 Key backup isn't currently available in the Azure portal. Use the Azure CLI or Azure PowerShell.
@@ -382,7 +377,13 @@ Backup-AzKeyVaultKey -HsmName <hsm-name> -Name myrsakey -OutputFile myrsakey.bac
 
 # [Azure portal](#tab/azure-portal)
 
-Key restore isn't currently available in the Azure portal. Use the Azure CLI or Azure PowerShell.
+1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
+
+1. Under **Settings** in the left menu, select **Keys**.
+
+1. Select **Generate/Import/Restore Backup** and choose **Restore key from backup**.
+
+1. Browse to and select the backup file, then select **Restore**.
 
 # [Azure CLI](#tab/azure-cli)
 

@@ -7,7 +7,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 ms.author: mbaldwin
 author: msmbaldwin
-ms.date: 04/13/2026
+ms.date: 04/28/2026
 ai-usage: ai-assisted
 
 ---
@@ -55,8 +55,6 @@ For more information, see [Managed HSM soft-delete overview](soft-delete-overvie
 
 # [Azure portal](#tab/azure-portal)
 
-<!-- TODO: Fill in portal steps for recovery operations once portal experience is confirmed with Jack Richins. -->
-
 ### Managed HSMs (Portal)
 
 * To check the status of soft-delete and purge protection for a managed HSM, navigate to your Managed HSM resource in the Azure portal and view the **Properties** section.
@@ -67,9 +65,9 @@ For more information, see [Managed HSM soft-delete overview](soft-delete-overvie
 
 ### Keys (Portal)
 
-* To delete a key, navigate to your Managed HSM resource, select **Keys**, select the key, and select **Delete**.
+* To delete a key, navigate to your Managed HSM resource, under **Settings** select **Keys**, select the key, and select **Delete**.
 
-* To list deleted keys, navigate to your Managed HSM resource, select **Keys**, and select **Manage deleted keys**.
+* To list deleted keys, navigate to your Managed HSM resource, under **Settings** select **Keys**, and select **Manage deleted keys**.
 
 * To recover a deleted key, select the key from the deleted keys list and select **Recover**.
 

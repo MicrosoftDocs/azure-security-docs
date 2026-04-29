@@ -95,8 +95,6 @@ In this diagram, the private endpoint is created in the UK South region only, th
 
 # [Azure portal](#tab/azure-portal)
 
-<!-- TODO: Fill in portal steps once geo-replication blade experience is confirmed with Jack Richins. -->
-
 ### Extend a primary HSM into an extended region
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.

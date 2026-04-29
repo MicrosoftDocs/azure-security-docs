@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 04/13/2026
+ms.date: 04/28/2026
 ms.author: mbaldwin
 ai-usage: ai-assisted
 ---
@@ -37,8 +37,6 @@ You also need:
 ## Create a new role assignment
 
 # [Azure portal](#tab/azure-portal)
-
-<!-- TODO: Fill in portal steps for role assignment once portal experience is confirmed with Jack Richins. -->
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
 

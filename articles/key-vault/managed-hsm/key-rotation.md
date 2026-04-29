@@ -62,17 +62,7 @@ Key rotation policy settings:
 
 # [Azure portal](#tab/azure-portal)
 
-<!-- TODO: Fill in portal steps for key rotation policy once portal experience is confirmed with Jack Richins. -->
-
-1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
-
-1. In the left menu, select **Keys**, then select the key you want to configure.
-
-1. Select **Rotation policy**.
-
-1. Configure the rotation interval, expiry time, and rotation trigger, then save.
-
-   <!-- Key rotation policy configuration screenshot will be added when the HSM is activated and keys are available. -->
+Key rotation policy configuration isn't currently available in the Azure portal for Managed HSM. Use the Azure CLI to configure a key rotation policy.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -148,11 +138,7 @@ Once a rotation policy is set for the key, you can also rotate the key on-demand
 
 # [Azure portal](#tab/azure-portal)
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
-
-1. In the left menu, select **Keys**, then select the key you want to rotate.
-
-1. Select **Rotate now** (or equivalent action) to create a new key version immediately.
+On-demand key rotation isn't currently available in the Azure portal for Managed HSM. Use the Azure CLI to rotate a key on demand.
 
 # [Azure CLI](#tab/azure-cli)
 
