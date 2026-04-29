@@ -142,7 +142,7 @@ Selective key restore restores one key with all its key versions from a previous
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
 
-1. In the left menu, select **Restore**, then choose the option to restore a single key from the backup.
+1. In the left menu, under **Settings**, select **Restore**, then choose the option to restore a single key from the backup.
 
 # [Azure CLI](#tab/azure-cli)
 
