@@ -3,7 +3,7 @@ title: Quickstart - Azure Key Vault Go client library - manage keys
 description: Learn how to create, retrieve, and delete keys from an Azure key vault using the Go client library
 author: Duffney
 ms.author: jduffney
-ms.date: 01/08/2026
+ms.date: 03/30/2026
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: quickstart
@@ -195,13 +195,14 @@ For more examples, see the [module documentation](https://aka.ms/azsdk/go/keyvau
 Run the following command to delete the resource group and all its remaining resources:
 
 ```azurecli
-az group delete --resource-group quickstart-rg
+az group delete --resource-group "myResourceGroup"
 ```
 
 ## Next steps
 
 - [Overview of Azure Key Vault](../general/overview.md)
 - [Secure access to a key vault](../general/secure-key-vault.md)
+- [Keys-specific security best practices](secure-keys.md)
 - [Azure Key Vault developer's guide](../general/developers-guide.md)
 - [Key Vault security overview](../general/secure-key-vault.md)
 - [Authenticate with Key Vault](../general/authentication.md)

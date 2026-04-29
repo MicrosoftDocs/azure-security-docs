@@ -6,13 +6,13 @@ ms.subservice: managed-hsm
 ms.topic: concept-article
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 04/14/2025
+ms.date: 04/02/2026
 
 ---
 
 # Security domain in Managed HSM overview
 
-A managed HSM is a single-tenant, [Federal Information Processing Standards (FIPS) 140-3 validated](https://csrc.nist.gov/publications/detail/fips/140/3/final), highly available, hardware security module (HSM) that has a customer-controlled security domain.  
+A managed HSM is a single-tenant, [Federal Information Processing Standards (FIPS) 140-3 Level 3 validated](https://csrc.nist.gov/publications/detail/fips/140/3/final), highly available, hardware security module (HSM) that has a customer-controlled security domain.  
 
 To operate, a managed HSM must have a security domain. The security domain is an encrypted blob file that contains artifacts like the HSM backup, user credentials, the signing key, and the data encryption key that's unique to the managed HSM.
 
@@ -26,7 +26,7 @@ A managed HSM security domain serves the following purposes:
   - The managed HSM instance was soft-deleted by a customer and the resource was purged after the mandatory retention period expired.
   - The customer archived a project by performing a backup that included the managed HSM instance and all data, and then deleted all Azure resources that were associated with the project.
 
-Without the security domain, disaster recovery isn't possible. Microsoft has no way to recover the security domain, and Microsoft can't access your keys without the security domain. Protecting the security domain is therefore of the utmost importance for your business continuity, and to ensure that you aren't cryptographically locked out.
+Without the security domain, disaster recovery isn't possible — all keys are permanently and irrecoverably lost. Microsoft has no way to recover the security domain, and Microsoft can't access your keys without the security domain. This is architecturally enforced by the HSM hardware and cryptographic design, not merely by policy. Protecting the security domain is therefore of the utmost importance for your business continuity.
 
 ## Security domain protection best practices
 
@@ -37,6 +37,23 @@ Implement the following best practices to help ensure the protection of your sec
 The security domain is generated in both the managed HSM hardware and the service software enclaves during initialization. After the managed HSM is provisioned, you must create at least three RSA key pairs and send the public keys to the service when you request the security domain download. You also need to specify the minimum number of keys required (the quorum) to decrypt the security domain in the future.
 
 The managed HSM initializes the security domain and encrypts it with the public keys that you provide by using Shamir's Secret Sharing Algorithm. After the security domain is downloaded, the managed HSM moves into an activated state and is ready for consumption.
+
+### Generating the RSA key pairs securely
+
+The RSA key pairs that protect your security domain are the root of trust for your managed HSM. These keys must be generated and handled with the highest level of security appropriate for your organization.
+
+**For production environments**, consider the following approaches in order of decreasing security:
+
+1. **Generate keys in an on-premises, air-gapped HSM.** This provides the strongest protection, as the private keys never exist on a general-purpose computer or network-connected device.
+
+2. **Generate keys on an air-gapped computer.** A dedicated workstation that has never been connected to a network reduces exposure to malware and remote attacks.
+
+3. **Generate keys on a secure, trusted workstation.** If air-gapped systems aren't available, use a [privileged access workstation](/security/privileged-access-workstations/privileged-access-devices) with full-disk encryption, up-to-date security patches, and minimal installed software.
+
+Use a cryptographically secure key generation tool such as `openssl`, a hardware security module's key generation utilities, or your organization's approved cryptographic library.
+
+> [!IMPORTANT]
+> The security of your entire managed HSM ultimately depends on how well these RSA private keys are protected. An attacker with access to enough quorum keys and a security domain backup can reconstruct your HSM and access all keys.
 
 ### Storing the security domain keys
 
@@ -51,9 +68,9 @@ Here are security domain key-handling prohibitions:
 
 ### Establishing a security domain quorum
 
-The best way to protect a security domain and prevent cryptographic lockout is to implement multi-person control by using the managed HSM concept *quorum*. A quorum is a split-secret threshold to divide the key that encrypts the security domain among multiple persons. A quorum enforces multi-person control. This way, the security domain isn't dependent on a single person, who might leave the organization or have malicious intent.
+The best way to protect a security domain and prevent cryptographic lockout is to implement multi-person control by using the Managed HSM concept *quorum*. A quorum is a split-secret threshold to divide the key that encrypts the security domain among multiple persons. A quorum enforces multi-person control. This way, the security domain isn't dependent on a single person, who might leave the organization or have malicious intent.
 
-We recommend that you implement a quorum of `m` persons, where `m` is greater than or equal to 3. The maximum quorum size of the security domain for a managed HSM is 10.
+We recommend that you implement a quorum of `m` persons, where `m` is greater than or equal to 3. The maximum quorum size of the security domain for a Managed HSM is 10.
 
 Although a higher `m` size provides more security, it imposes further administrative overhead in terms of handling the security domain. It's therefore imperative that the security domain quorum be carefully chosen, with at least `m` >= 3.
 
@@ -77,24 +94,24 @@ Every organization is different and enforces a different security policy based o
 
 ### Security domain compromise or loss
 
-If your security domain is compromised, a malicious actor might use it to create their own managed HSM instance. The malicious actor can use the access to key backups to start decrypting the data that's protected with the keys on the managed HSM.
+If your security domain is compromised, a malicious actor might use it to create their own Managed HSM instance. The malicious actor can use the access to key backups to start decrypting the data that's protected with the keys on the Managed HSM.
 
 A lost security domain is considered compromised.
 
-After a security domain is compromised, all data that's encrypted via the current managed HSM must be decrypted by using current key material. A new instance of Azure Key Vault Managed HSM must be provisioned, and a new security domain that points to the new URL must be implemented.
+After a security domain is compromised, all data that's encrypted via the current Managed HSM must be decrypted by using current key material. A new instance of Azure Key Vault Managed HSM must be provisioned, and a new security domain that points to the new URL must be implemented.
 
-Because there's no way to migrate key material from one instance of Managed HSM to another instance that has a different security domain, implementing the security domain must be well thought-out, and it must be protected through accurate, periodically reviewed recordkeeping.
+Because there's no way to migrate key material from one instance of managed HSM to another instance that has a different security domain, implementing the security domain must be well thought-out, and it must be protected through accurate, periodically reviewed recordkeeping.
 
 ### Security domain keys compromise or loss
 
 If the keys protecting your security domain are compromised or lost, or policies require the periodic rotation of the security domain keys, it is possible to download a new copy of the security domain with a new quorum of the keys protecting it. A user with the Managed HSM Administrator role can execute the security-domain download command again with a new set of security domain wrapping keys. The new keys and security domain should be tested and stored securely before deleting the old keys and previous security domain copy. Re-downloading a security domain with new protecting keys does not impact any existing keys in the HSM. The security domain itself does not change, only the keys protecting it. 
 
 > [!IMPORTANT]
-> The Managed HSM Administrator role is a highly privileged role. Notifications and alerts should be set on “SecurityDomainBackup” and “SecurityDomainBackupStatusGet” operations, and enabling PIM on the Managed HSM Administator role is highly recommended.
+> The Managed HSM Administrator role is a highly privileged role. Notifications and alerts should be set on "SecurityDomainBackup" and "SecurityDomainBackupStatusGet" operations, and enabling PIM on the Managed HSM Administrator role is highly recommended.
 
 ## Summary
 
-The security domain and its corresponding private keys play an important part in managed HSM operations. These artifacts are analogous to the combination of a safe, and poor management might easily compromise strong algorithms and systems. If a safe combination is known to an adversary, the strongest safe provides no security. The proper management of the security domain and its private keys is essential to the effective use of the managed HSM.
+The security domain and its corresponding private keys play an important part in managed HSM operations. These artifacts are analogous to the combination of a safe, and poor management might easily compromise strong algorithms and systems. If a safe combination is known to an adversary, the strongest safe provides no security. The proper management of the security domain and its private keys is essential to the effective use of managed HSM.
 
 We highly recommend that you review [NIST Special Publication 800-57](https://csrc.nist.gov/publications/detail/sp/800-57-part-1/rev-5/final) for key management best practices before you develop and implement the policies, systems, and standards that are necessary to meet and enhance your organization's security goals.
 

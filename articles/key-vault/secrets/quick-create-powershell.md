@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurepowershell, mode-api
-ms.date: 12/03/2025
+ms.date: 03/30/2026
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
@@ -52,7 +52,7 @@ Then, use the Azure PowerShell [Set-AzKeyVaultSecret](/powershell/module/az.keyv
 
 
 ```azurepowershell-interactive
-$secret = Set-AzKeyVaultSecret -VaultName "<your-unique-keyvault-name>" -Name "ExamplePassword" -SecretValue $secretvalue
+$secret = Set-AzKeyVaultSecret -VaultName "<vault-name>" -Name "ExamplePassword" -SecretValue $secretvalue
 ```
 
 ## Retrieve a secret from Key Vault
@@ -60,7 +60,7 @@ $secret = Set-AzKeyVaultSecret -VaultName "<your-unique-keyvault-name>" -Name "E
 To view the value contained in the secret as plain text, use the Azure PowerShell [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret) cmdlet:
 
 ```azurepowershell-interactive
-$secret = Get-AzKeyVaultSecret -VaultName "<your-unique-keyvault-name>" -Name "ExamplePassword" -AsPlainText
+$secret = Get-AzKeyVaultSecret -VaultName "<vault-name>" -Name "ExamplePassword" -AsPlainText
 ```
 
 Now, you have created a Key Vault, stored a secret, and retrieved it.
@@ -72,7 +72,7 @@ Now, you have created a Key Vault, stored a secret, and retrieved it.
 When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, Key Vault, and all related resources.
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name myResourceGroup
+Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
 ## Next steps
@@ -83,3 +83,4 @@ In this quickstart, you created a Key Vault and stored a secret in it. To learn 
 - Learn how to [store multiline secrets in Key Vault](multiline-secrets.md)
 - See the reference for the [Azure PowerShell Key Vault cmdlets](/powershell/module/az.keyvault/#key_vault)
 - Review the [Key Vault security overview](../general/secure-key-vault.md)
+- Review [secrets-specific security best practices](secure-secrets.md)

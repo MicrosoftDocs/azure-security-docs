@@ -3,7 +3,7 @@ title: Supported cryptographic algorithms in Azure Cloud HSM
 description: Review the cryptographic algorithms, modes, and key sizes supported by Azure Cloud HSM hardware security modules.
 author: msmbaldwin
 ms.service: azure-cloud-hsm
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/14/2025
 ms.author: mbaldwin
 #customer intent: As a security architect or developer, I want to know which cryptographic algorithms are supported by Azure Cloud HSM so I can plan my application integration and compliance.

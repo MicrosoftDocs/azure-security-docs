@@ -1,11 +1,11 @@
 ---
-title: Tutorial - Use Azure Key Vault with a virtual machine in Python | Microsoft Docs
+title: Tutorial - Use Azure Key Vault with a virtual machine in Python
 description: In this tutorial, you configure a virtual machine a Python application to read a secret from your key vault.
 author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 04/16/2025
+ms.date: 04/10/2026
 ms.author: mbaldwin
 ms.devlang: python
 ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell
@@ -22,7 +22,7 @@ In this tutorial, you set up a Python application to read information from Azure
 > * Create a key vault
 > * Store a secret in Key Vault
 > * Create an Azure Linux virtual machine
-> * Enable a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) for the virtual machine
+> * Enable a [managed identity](/entra/identity/managed-identities-azure-resources/overview) for the virtual machine
 > * Grant the required permissions for the console application to read data from Key Vault
 > * Retrieve a secret from Key Vault
 
@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 For Windows, Mac, and Linux:
   * [Git](https://git-scm.com/downloads)
-  * This tutorial requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0.4 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+  * This tutorial requires that you run the Azure CLI locally. You must have a recent version of the Azure CLI installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Log in to Azure
 
@@ -50,7 +50,7 @@ az login
 
 ## Populate your key vault with a secret
 
-[!INCLUDE [Create a secret](../includes/key-vault-create-secret.md)]
+[!INCLUDE [Create a secret](~/reusable-content/ce-skilling/azure/includes/key-vault/create-secret.md)]
 
 ## Create a virtual machine
 
@@ -66,7 +66,7 @@ To create a Linux VM using the Azure CLI, use the [az vm create](/cli/azure/vm) 
 
 ```azurecli-interactive
 az vm create \
-  --resource-group myResourceGroup \
+  --resource-group <resource-group> \
   --name myVM \
   --image Ubuntu2204 \
   --admin-username azureuser \
@@ -80,7 +80,7 @@ Note the value of `publicIpAddress` in the output.
 Create a system-assigned identity for the virtual machine by using the Azure CLI [az vm identity assign](/cli/azure/vm/identity#az-vm-identity-assign) command:
 
 ```azurecli
-az vm identity assign --name "myVM" --resource-group "myResourceGroup"
+az vm identity assign --name "myVM" --resource-group "<resource-group>"
 ```
 
 Note the system-assigned identity that's displayed in the following code. The output of the preceding command would be: 
@@ -101,33 +101,33 @@ Note the system-assigned identity that's displayed in the following code. The ou
 To sign in to the virtual machine, follow the instructions in [Connect and sign in to an Azure virtual machine running Linux](/azure/virtual-machines/linux-vm-connect) or [Connect and sign in to an Azure virtual machine running Windows](/azure/virtual-machines/windows/connect-logon).
 
 
-To log into a Linux VM, you can use the ssh command with the \<publicIpAddress\> given in the [Create a virtual machine](#create-a-virtual-machine) step:
+To log into a Linux VM, you can use the ssh command with the `<public-ip-address>` given in the [Create a virtual machine](#create-a-virtual-machine) step:
 
 ```terminal
-ssh azureuser@<PublicIpAddress>
+ssh azureuser@<public-ip-address>
 ```
 
 ## Install Python libraries on the VM
 
-On the virtual machine, install the two Python libraries we'll be using in our Python script: `azure-keyvault-secrets` and `azure.identity`.  
+On the virtual machine, install the two Python libraries we'll be using in our Python script: `azure-keyvault-secrets` and `azure-identity`.  
 
 On a Linux VM, for instance, you can install these using `pip3`:
 
 ```bash
 pip3 install azure-keyvault-secrets
 
-pip3 install azure.identity
+pip3 install azure-identity
 ```
 
 ## Create and edit the sample Python script
 
-On the virtual machine, create a Python file called **sample.py**. Edit the file to contain the following code, replacing \<your-unique-keyvault-name\> with the name of your key vault:
+On the virtual machine, create a Python file called **sample.py**. Edit the file to contain the following code, replacing `<vault-name>` with the name of your key vault:
 
 ```python
 from azure.keyvault.secrets import SecretClient
 from azure.identity import DefaultAzureCredential
 
-key_vault_name = "<your-unique-keyvault-name>"
+key_vault_name = "<vault-name>"
 key_vault_uri = f"https://{key_vault_name}.vault.azure.net"
 secret_name = "mySecret"
 
@@ -145,7 +145,7 @@ Lastly, run **sample.py**. If all has gone well, it should return the value of y
 ```bash
 python3 sample.py
 
-The value of secret 'mySecret' in '<your-unique-keyvault-name>' is: 'Success!'
+The value of secret 'mySecret' in '<vault-name>' is: 'Success!'
 ```
 
 ## Clean up resources
@@ -153,7 +153,7 @@ The value of secret 'mySecret' in '<your-unique-keyvault-name>' is: 'Success!'
 When they're no longer needed, delete the virtual machine and your key vault. You can be done quickly by deleting the resource group to which they belong:
 
 ```azurecli
-az group delete -g myResourceGroup
+az group delete -g "myResourceGroup"
 ```
 
 ## Next steps

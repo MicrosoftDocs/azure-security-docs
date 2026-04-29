@@ -2,7 +2,7 @@
 author: msmbaldwin
 ms.service: azure-key-vault
 ms.topic: include
-ms.date: 04/14/2025
+ms.date: 03/26/2026
 
 ms.author: mbaldwin
 ---
@@ -72,8 +72,8 @@ A Claim Condition is a JSON object that identifies a claim name, a condition for
 
 ```json
 { 
-  "claim": "<claim name>", 
-  "equals": <value to match>
+  "claim": "<claim-name>", 
+  "equals": <value-to-match>
 } 
 ```
 
@@ -84,7 +84,7 @@ Claim names allow "dot notation" to enable JSON object navigation, for example:
 ```json
 { 
   "claim": "object.object.claim", 
-  "equals": <value to match>
+  "equals": <value-to-match>
 }
 ```
 
@@ -101,12 +101,12 @@ Examples are shown below. In the first, allOf requires all conditions to be met:
   "allOf":
   [
     { 
-      "claim": "<claim_1>", 
-      "equals": <value_1>
+      "claim": "<claim-1>", 
+      "equals": <value-1>
     },
     { 
-      "claim": "<claim_2>", 
-      "equals": <value_2>
+      "claim": "<claim-2>", 
+      "equals": <value-2>
     }
   ]
 }
@@ -121,12 +121,12 @@ In this example, anyOf requires that any condition match:
   "anyOf":
   [
     { 
-      "claim": "<claim_1>", 
-      "equals": <value_1>
+      "claim": "<claim-1>", 
+      "equals": <value-1>
     },
     { 
-      "claim": "<claim_2>", 
-      "equals": <value_2>
+      "claim": "<claim-2>", 
+      "equals": <value-2>
     }
   ]
 }
@@ -140,19 +140,19 @@ The anyOf and allOf condition objects may be nested:
   "allOf":
   [
     { 
-      "claim": "<claim_1>", 
-      "equals": <value_1>
+      "claim": "<claim-1>", 
+      "equals": <value-1>
     },
     {
       "anyOf":
       [
         { 
-          "claim": "<claim_2>", 
-          "equals": <value_2>
+          "claim": "<claim-2>", 
+          "equals": <value-2>
         },
         { 
-          "claim": "<claim_3>", 
-          "equals": <value_3>
+          "claim": "<claim-3>", 
+          "equals": <value-3>
         }
       ]
     }
@@ -166,26 +166,26 @@ Or:
   "allOf":
   [
     { 
-      "claim": "<claim_1>", 
-      "equals": <value_1>
+      "claim": "<claim-1>", 
+      "equals": <value-1>
     },
     {
       "anyOf":
       [
         { 
-          "claim": "<claim_2>", 
-          "equals": <value_2>
+          "claim": "<claim-2>", 
+          "equals": <value-2>
         },
         {
           "allOf":
           [
             { 
-              "claim": "<claim_3>", 
-              "equals": <value_3>
+              "claim": "<claim-3>", 
+              "equals": <value-3>
             },
             { 
-              "claim": "<claim_4>", 
-              "equals": <value_4>
+              "claim": "<claim-4>", 
+              "equals": <value-4>
             }
           ]
         }
@@ -205,8 +205,8 @@ Conditions are collected into Authority statements and combined:
   "allOf":
   [
     { 
-      "claim": "<claim_1>", 
-      "equals": <value_1>
+      "claim": "<claim-1>", 
+      "equals": <value-1>
     }
   ]
 }
@@ -248,7 +248,7 @@ The encoding is as follows:
 ```json
 {
   "contentType": "application/json; charset=utf-8",
-  "data": "<BASE64URL(JSON serialization of policy)>"
+  "data": "<base64url-encoded-policy>"
 }
 ```
 
@@ -257,7 +257,7 @@ The encoding is as follows:
 An Environment Assertion is a signed assertion, in JSON Web Token form, from a trusted authority. An Environment Asserting contains at least a key encryption key and one or more claims about the target environment (for example, TEE type, publisher, version) that are matched against the Key Release Policy. The key encryption key is a public RSA key owned and protected by the target execution environment that is used for key export. It must appear in the TEE keys claim (x-ms-runtime/keys). This claim is a JSON object representing a JSON Web Key Set. Within the JWKS, one of the keys must meet the requirements for use as an encryption key (key_use is "enc", or key_ops contains "encrypt"). The first suitable key is chosen.
 
 ## Key Vault and Managed HSM Attestation Token Requirements
-Azure Key Vault Premium and Managed HSM Secure Key Release were designed alongside [Microsoft Azure Attestation Service](../../attestation/overview.md) but may work with any attestation server’s tokens if it conforms to the expected token structure, supports OpenID connect, and has the expected claims. DigiCert is presently the only public CA that Azure Key Vault Premium and Managed HSM trust for attestation token signing certificates. 
+Azure Key Vault Premium and Managed HSM Secure Key Release were designed alongside [Microsoft Azure Attestation Service](/azure/attestation/overview) but may work with any attestation server's tokens if it conforms to the expected token structure, supports OpenID connect, and has the expected claims. DigiCert is presently the only public CA that Azure Key Vault Premium and Managed HSM trust for attestation token signing certificates.
 
  
 
@@ -279,4 +279,4 @@ The full set of requirements are:
 
   - Marked with **key_use** of encryption or a **key_ops** array containing the Encrypt operation. 
 
-For a sample token see [Examples of an Azure Attestation token](../../attestation/attestation-token-examples.md#sample-jwt-generated-for-sev-snp-attestation).
+For a sample token see [Examples of an Azure Attestation token](/azure/attestation/attestation-token-examples#sample-jwt-generated-for-sev-snp-attestation).

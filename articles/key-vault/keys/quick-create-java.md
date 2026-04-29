@@ -4,7 +4,7 @@ description: Provides a quickstart for the Azure Key Vault Keys client library f
 author: msmbaldwin
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell, mode-api, passwordless-java, devx-track-extended-java
 ms.author: mbaldwin
-ms.date: 04/14/2025
+ms.date: 04/09/2026
 
 ms.service: azure-key-vault
 ms.subservice: keys
@@ -100,13 +100,13 @@ Open the *pom.xml* file in your text editor. Add the following dependency elemen
     <dependency>
       <groupId>com.azure</groupId>
       <artifactId>azure-security-keyvault-keys</artifactId>
-      <version>4.2.3</version>
+      <version>4.10.6</version>
     </dependency>
 
     <dependency>
       <groupId>com.azure</groupId>
       <artifactId>azure-identity</artifactId>
-      <version>1.2.0</version>
+      <version>1.18.2</version>
     </dependency>
 ```
 
@@ -125,19 +125,19 @@ This application is using your key vault name as an environment variable called 
 Windows
 
 ```cmd
-set KEY_VAULT_NAME=<your-key-vault-name>
+set KEY_VAULT_NAME=<vault-name>
 ````
 
 Windows PowerShell
 
 ```powershell
-$Env:KEY_VAULT_NAME="<your-key-vault-name>"
+$Env:KEY_VAULT_NAME="<vault-name>"
 ```
 
 macOS or Linux
 
 ```cmd
-export KEY_VAULT_NAME=<your-key-vault-name>
+export KEY_VAULT_NAME=<vault-name>
 ```
 
 ## Object model
@@ -167,9 +167,9 @@ import com.azure.security.keyvault.keys.models.KeyVaultKey;
 
 Application requests to most Azure services must be authorized. Using the [DefaultAzureCredential](/java/api/com.azure.identity.defaultazurecredential) class is the recommended approach for implementing passwordless connections to Azure services in your code. `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code.
 
-In this quickstart, `DefaultAzureCredential` authenticates to key vault using the credentials of the local development user logged into the Azure CLI. When the application is deployed to Azure, the same `DefaultAzureCredential` code can automatically discover and use a managed identity that is assigned to an App Service, Virtual Machine, or other services. For more information, see [Managed Identity Overview](/azure/active-directory/managed-identities-azure-resources/overview).
+In this quickstart, `DefaultAzureCredential` authenticates to key vault using the credentials of the local development user logged into the Azure CLI. When the application is deployed to Azure, the same `DefaultAzureCredential` code can automatically discover and use a managed identity that is assigned to an App Service, Virtual Machine, or other services. For more information, see [Managed Identity Overview](/entra/identity/managed-identities-azure-resources/overview).
 
-In this example, the name of your key vault is expanded to the key vault URI, in the format `https://<your-key-vault-name>.vault.azure.net`. For more information about authenticating to key vault, see [Developer's Guide](/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
+In this example, the name of your key vault is expanded to the key vault URI, in the format `https://<vault-name>.vault.azure.net`. For more information about authenticating to key vault, see [Developer's Guide](/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
 
 ```java
 String keyVaultName = System.getenv("KEY_VAULT_NAME");
@@ -192,7 +192,7 @@ keyClient.createKey(keyName, KeyType.RSA);
 You can verify that the key has been set with the [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show) command:
 
 ```azurecli
-az keyvault key show --vault-name <your-unique-key-vault-name> --name myKey
+az keyvault key show --vault-name <vault-name> --name myKey
 ```
 
 ### Retrieve a key
@@ -219,7 +219,7 @@ deletionPoller.waitForCompletion();
 You can verify that the key has been deleted with the [az keyvault key show](/cli/azure/keyvault/key?#az-keyvault-key-show) command:
 
 ```azurecli
-az keyvault key show --vault-name <your-unique-key-vault-name> --name myKey
+az keyvault key show --vault-name <vault-name> --name myKey
 ```
 
 ## Clean up resources
@@ -288,5 +288,6 @@ In this quickstart, you created a key vault, created a key, retrieved it, and th
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - Read the [Key Vault security overview](../general/secure-key-vault.md)
+- Review [keys-specific security best practices](secure-keys.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
 - How to [Secure access to a key vault](../general/secure-key-vault.md)

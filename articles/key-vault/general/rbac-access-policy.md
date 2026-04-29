@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 11/19/2025
+ms.date: 03/24/2026
 ms.author: mbaldwin
 
 ---
@@ -22,11 +22,13 @@ The access policy model is a legacy authorization system, native to Key Vault, w
 
 ## Data plane access control recommendation
 
-Azure RBAC is the recommended authorization system for the Azure Key Vault data plane. It offers several advantages over Key Vault access policies:
+Azure RBAC is the recommended authorization system for the Azure Key Vault data plane. Starting with API version 2026-02-01, Azure RBAC is also the **default access control model for new key vaults**, consistent with the Azure portal experience. For details on this change and guidance for preparing your deployments, see [Prepare for Key Vault API version 2026-02-01 and later](access-control-default.md).
+
+Azure RBAC offers several advantages over Key Vault access policies:
 - Azure RBAC provides a unified access control model for Azure resources &mdash; the same APIs are used across all Azure services.
 - Access management is centralized, providing administrators with a consistent view of access granted to Azure resources.
 - The right to grant access to keys, secrets, and certificates is better controlled, requiring Owner or User Access Administrator role membership.
-- Azure RBAC is integrated with [Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure), ensuring that privileged access rights are time-limited and expire automatically.
+- Azure RBAC is integrated with [Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-configure), ensuring that privileged access rights are time-limited and expire automatically.
 - Security principals' access can be excluded at given scope(s) through the use of [Deny assignments](/azure/role-based-access-control/deny-assignments).
 
 To transition your Key Vault data plane access control from access policies to Azure RBAC, see [Migrating to Azure RBAC from access policies](rbac-migration.md).

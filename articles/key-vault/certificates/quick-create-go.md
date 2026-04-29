@@ -3,7 +3,7 @@ title: Quickstart – Azure Key Vault Go client library - Manage certificates
 description: Learn how to create, retrieve, and delete certificates from an Azure key vault using the Go client library
 author: Duffney
 ms.author: jduffney
-ms.date: 01/08/2026
+ms.date: 03/30/2026
 ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: quickstart
@@ -69,6 +69,7 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"os"
 	"time"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
@@ -190,13 +191,13 @@ Before you run the code, create an environment variable named `KEY_VAULT_NAME`. 
 # [Bash](#tab/bash)
 
 ```bash
-export KEY_VAULT_NAME=<YourKeyVaultName>
+export KEY_VAULT_NAME=<vault-name>
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$env:KEY_VAULT_NAME=<YourKeyVaultName>
+$env:KEY_VAULT_NAME=<vault-name>
 ```
 
 ---
@@ -216,13 +217,14 @@ For more examples, see the [module documentation](https://aka.ms/azsdk/go/keyvau
 Run the following command to delete the resource group and all its remaining resources:
 
 ```azurecli
-az group delete --resource-group myResourceGroup
+az group delete --resource-group "myResourceGroup"
 ```
 
 ## Next steps
 
 - [Overview of Azure Key Vault](../general/overview.md)
 - [Secure access to a key vault](../general/secure-key-vault.md)
+- [Certificates-specific security best practices](secure-certificates.md)
 - [Azure Key Vault developer's guide](../general/developers-guide.md)
 - [Key Vault security overview](../general/secure-key-vault.md)
 - [Authenticate with Key Vault](../general/authentication.md)

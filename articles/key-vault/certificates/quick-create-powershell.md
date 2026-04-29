@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurepowershell, mode-api
-ms.date: 12/03/2025
+ms.date: 04/10/2026
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
@@ -35,22 +35,22 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Add a certificate to Key Vault
 
-To can now add a certificate to the vault. This certificate could be used by an application.
+You can now add a certificate to the vault. This certificate could be used by an application.
 
 Use these commands to create a self-signed certificate with policy called **ExampleCertificate** :
 
 ```azurepowershell-interactive
-$Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=contoso.com" -IssuerName "Self" -ValidityInMonths 6 -ReuseKeyOnRenewal
+$Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=<domain-name>" -IssuerName "Self" -ValidityInMonths 6 -ReuseKeyOnRenewal
 
-Add-AzKeyVaultCertificate -VaultName "<your-unique-keyvault-name>" -Name "ExampleCertificate" -CertificatePolicy $Policy
+Add-AzKeyVaultCertificate -VaultName "<vault-name>" -Name "ExampleCertificate" -CertificatePolicy $Policy
 ```
 
-You can now reference this certificate that you added to Azure Key Vault by using its URI. Use **`https://<your-unique-keyvault-name>.vault.azure.net/certificates/ExampleCertificate`** to get the current version. 
+You can now reference this certificate that you added to Azure Key Vault by using its URI. Use **`https://<vault-name>.vault.azure.net/certificates/ExampleCertificate`** to get the current version. 
 
 To view previously stored certificate:
 
 ```azurepowershell-interactive
-Get-AzKeyVaultCertificate -VaultName "<your-unique-keyvault-name>" -Name "ExampleCertificate"
+Get-AzKeyVaultCertificate -VaultName "<vault-name>" -Name "ExampleCertificate"
 ```
 
 **Troubleshooting**:
@@ -59,10 +59,10 @@ Operation returned an invalid status code 'Forbidden'
 
 If you receive this error, the account accessing the Azure Key Vault does not have the proper permissions to create certificates.
 
-Run the following Azure PowerShell command to assign the proper permissions:
+Run the following Azure PowerShell command to assign the proper RBAC role:
 
 ```azurepowershell-interactive
-Set-AzKeyVaultAccessPolicy -VaultName <KeyVaultName> -ObjectId <AzureObjectID> -PermissionsToCertificates get,list,update,create
+New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName "Key Vault Certificates Officer" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>"
 ```
 
 ## Clean up resources
@@ -76,3 +76,4 @@ In this quickstart, you created a Key Vault and stored a certificate in it. To l
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - See the reference for the [Azure PowerShell Key Vault cmdlets](/powershell/module/az.keyvault/)
 - Review the [Key Vault security overview](../general/secure-key-vault.md)
+- Review [certificates-specific security best practices](secure-certificates.md)

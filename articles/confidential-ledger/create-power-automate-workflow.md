@@ -174,7 +174,7 @@ Create a workflow that:
 
 1. Create a ledger entry action:
 
-   - **Ledger name**: Use `your-ledger-name` (not the full URL, just the name).
+   - **Ledger name**: Use `<ledger-name>` (not the full URL, just the name).
    - **Collection ID**: Use `audit-logs` (optional: leave empty for default collection).
    - **Entry contents**: Use the following command:
 

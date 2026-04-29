@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: mvc, mode-ui, sfi-image-nochange
-ms.date: 04/14/2025
+ms.date: 01/30/2026
 
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys in Azure
@@ -39,7 +39,7 @@ To add a key to the vault, you just need to take a couple of additional steps. I
 
 ## Retrieve a key from Key Vault
 
-Once that you receive the message that the key has been successfully created, you may click on it on the list. You can then see some of the properties and select **Download public key** to retrieve the key.
+Once you receive the message that the key has been successfully created, you may click on it on the list. You can then see some of the properties and select **Download public key** to retrieve the key.
 
 :::image type="content" source="../media/keys/quick-create-portal/current-version-hidden.png" alt-text="Key properties":::
 
@@ -60,3 +60,4 @@ In this quickstart, you created a Key Vault and stored a key in it. To learn mor
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
 - Review the [Key Vault security overview](../general/secure-key-vault.md)
+- Review [keys-specific security best practices](secure-keys.md)

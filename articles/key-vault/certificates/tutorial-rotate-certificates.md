@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Updating certificate autorotation frequency in Key Vault | Microsoft Docs
+title: Tutorial - Updating certificate autorotation frequency in Key Vault
 description: Tutorial showing how to update a certificate's autorotation frequency in Azure Key Vault using the Azure portal
 services: key-vault
 author: msmbaldwin
@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: tutorial
 ms.custom: mvc, sfi-image-nochange
-ms.date: 05/08/2025
+ms.date: 04/10/2026
 
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure.
@@ -114,11 +114,9 @@ Key Vault autorotates certificates through established partnerships with CAs. Be
 ### Update certificate attributes by using PowerShell
 
 ```azurepowershell
-
-
-Set-AzureKeyVaultCertificatePolicy -VaultName $vaultName 
-                                   -Name $certificateName 
-                                   -RenewAtNumberOfDaysBeforeExpiry [276 or appropriate calculated value]
+Set-AzKeyVaultCertificatePolicy -VaultName $vaultName `
+                                -Name $certificateName `
+                                -RenewAtNumberOfDaysBeforeExpiry [276 or appropriate calculated value]
 ```
 
 > [!TIP]
@@ -132,7 +130,7 @@ Set-AzureKeyVaultCertificatePolicy -VaultName $vaultName
 >  $file = Import-CSV C:\Users\myfolder\ReadCSVUsingPowershell\File.csv ​
 > foreach($line in $file)​
 > {​
-> Set-AzureKeyVaultCertificatePolicy -VaultName $vaultName -Name $certificateName -RenewAtNumberOfDaysBeforeExpiry [276 or appropriate calculated value]
+> Set-AzKeyVaultCertificatePolicy -VaultName $vaultName -Name $certificateName -RenewAtNumberOfDaysBeforeExpiry [276 or appropriate calculated value]
 > }
 >  ```
 To learn more about the parameters, see [az keyvault certificate](/cli/azure/keyvault/certificate#az-keyvault-certificate-set-attributes).

@@ -4,7 +4,7 @@ description: This article describes the Key Vault insights.
 author: msmbaldwin
 ms.author: mbaldwin
 services: azure-monitor
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.service: azure-key-vault
 ms.date: 04/18/2025
 ms.custom: subject-monitoring, sfi-image-nochange
@@ -148,7 +148,7 @@ There's a limit of 200 key vaults that can be selected and viewed. Regardless of
 
 We only show subscriptions that contain key vaults, chosen from the selected subscription filter, which are selected in the "Directory + Subscription" in the Azure portal header.
 
-![Screenshot of subscription filter](./media/key-vaults-insights-overview/Subscriptions.png)
+![Screenshot of subscription filter](./media/key-vaults-insights-overview/subscription-filter.png)
 
 ### I want to make changes or add more visualizations to Key Vault Insights, how do I do so
 
