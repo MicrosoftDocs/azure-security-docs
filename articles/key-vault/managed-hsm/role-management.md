@@ -7,15 +7,16 @@ ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 03/30/2026
+ms.date: 04/28/2026
 ms.author: mbaldwin
+ai-usage: ai-assisted
 ---
 # Managed HSM role management
 
 > [!NOTE]
 > Key Vault supports two types of resources: vaults and managed HSMs. This article is about **Managed HSM**. To learn how to manage a vault, see [Quickstart: Create a key vault using the Azure CLI](../general/quick-create-cli.md).
 
-This article provides practical instructions for managing roles and role assignments for a Managed HSM by using the Azure CLI. It implements the role-based access control model described in [Access control for Managed HSM](access-control.md) by using the built-in roles documented in [Local RBAC built-in roles for Managed HSM](built-in-roles.md).
+This article provides practical instructions for managing roles and role assignments for a Managed HSM. It implements the role-based access control model described in [Access control for Managed HSM](access-control.md) by using the built-in roles documented in [Local RBAC built-in roles for Managed HSM](built-in-roles.md).
 
 For an overview of Managed HSM, see [What is Managed HSM?](overview.md) If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
@@ -29,13 +30,21 @@ For a list of all Managed HSM built-in roles and the operations they permit, see
 
 You also need:
 
-[!INCLUDE [CLI prerequisites](~/reusable-content/ce-skilling/azure/includes/managed-hsm/cli-prerequisites.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [Sign in to Azure](~/reusable-content/ce-skilling/azure/includes/managed-hsm/cli-sign-in.md)]
+* A Managed HSM in your subscription. See [Quickstart: Provision and activate a managed HSM using the Azure portal](quick-create-portal.md) to provision and activate a Managed HSM.
+* To use Azure CLI: Azure CLI version 2.25.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+* To use Azure PowerShell: The [Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 ## Create a new role assignment
+
+# [Azure portal](#tab/azure-portal)
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
+
+1. In the left menu, under **Settings**, select **Local RBAC**.
+
+1. Select **Add role assignment**, choose the role, scope, and principal, then save.
+
+# [Azure CLI](#tab/azure-cli)
 
 ### Assign roles for all keys
 
@@ -53,9 +62,37 @@ Use `az keyvault role assignment create` command to assign a **Managed HSM Crypt
 az keyvault role assignment create --hsm-name <hsm-name> --role "Managed HSM Crypto User" --assignee <user-principal-name>  --scope /keys/<key-name>
 ```
 
+# [Azure PowerShell](#tab/azure-powershell)
+
+### Assign roles for all keys
+
+Use the `New-AzKeyVaultRoleAssignment` cmdlet to assign a **Managed HSM Crypto User** role to a user for all **keys** (scope `/keys`).
+
+```azurepowershell-interactive
+New-AzKeyVaultRoleAssignment -HsmName <hsm-name> -RoleDefinitionName "Managed HSM Crypto User" -SignInName <user-principal-name> -Scope /keys
+```
+
+### Assign role for a specific key
+
+```azurepowershell-interactive
+New-AzKeyVaultRoleAssignment -HsmName <hsm-name> -RoleDefinitionName "Managed HSM Crypto User" -SignInName <user-principal-name> -Scope /keys/<key-name>
+```
+
+---
+
 ## List existing role assignments
 
-Use `az keyvault role assignment list` to list role assignments.
+# [Azure portal](#tab/azure-portal)
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
+
+1. In the left menu, under **Settings**, select **Local RBAC**.
+
+   The portal displays all role assignments for the Managed HSM. You can filter by principal or scope.
+
+   :::image type="content" source="media/role-management/managed-hsm-local-rbac.png" alt-text="Screenshot of the Local RBAC blade in the Azure portal for a Managed HSM.":::
+
+# [Azure CLI](#tab/azure-cli)
 
 All role assignments at scope / (default when no --scope is specified) for all users (default when no --assignee is specified)
 
@@ -85,7 +122,43 @@ A specific role assignment for role **Managed HSM Crypto Officer** for a specifi
 az keyvault role assignment list --hsm-name <hsm-name> --assignee <user-principal-name> --scope /keys/<key-name> --role "Managed HSM Crypto Officer"
 ```
 
+# [Azure PowerShell](#tab/azure-powershell)
+
+List all role assignments for the Managed HSM:
+
+```azurepowershell-interactive
+Get-AzKeyVaultRoleAssignment -HsmName <hsm-name>
+```
+
+List all role assignments for a specific user:
+
+```azurepowershell-interactive
+Get-AzKeyVaultRoleAssignment -HsmName <hsm-name> -SignInName <user-principal-name>
+```
+
+List role assignments for a specific user at a specific key scope:
+
+```azurepowershell-interactive
+Get-AzKeyVaultRoleAssignment -HsmName <hsm-name> -SignInName <user-principal-name> -Scope /keys/<key-name>
+```
+
+---
+
 ## Delete a role assignment
+
+# [Azure portal](#tab/azure-portal)
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
+
+1. In the left menu, under **Settings**, select **Local RBAC**.
+
+1. Locate the role assignment you want to remove.
+
+1. Select the **Delete** (trash can) icon next to the assignment.
+
+1. Confirm the deletion when prompted.
+
+# [Azure CLI](#tab/azure-cli)
 
 Use `az keyvault role assignment delete` command to delete a **Managed HSM Crypto Officer** role assigned to user `<user-principal-name>` for key `<key-name>`.
 
@@ -93,7 +166,27 @@ Use `az keyvault role assignment delete` command to delete a **Managed HSM Crypt
 az keyvault role assignment delete --hsm-name <hsm-name> --role "Managed HSM Crypto Officer" --assignee <user-principal-name>  --scope /keys/<key-name>
 ```
 
+# [Azure PowerShell](#tab/azure-powershell)
+
+Use the `Remove-AzKeyVaultRoleAssignment` cmdlet to delete a role assignment:
+
+```azurepowershell-interactive
+Remove-AzKeyVaultRoleAssignment -HsmName <hsm-name> -RoleDefinitionName "Managed HSM Crypto Officer" -SignInName <user-principal-name> -Scope /keys/<key-name>
+```
+
+---
+
 ## List all available role definitions
+
+# [Azure portal](#tab/azure-portal)
+
+1. In the [Azure portal](https://portal.azure.com), navigate to your Managed HSM resource.
+
+1. In the left menu, under **Settings**, select **Local RBAC**.
+
+1. Select the **Roles** tab to view all available built-in and custom role definitions.
+
+# [Azure CLI](#tab/azure-cli)
 
 Use `az keyvault role definition list` command to list all the role definitions.
 
@@ -101,9 +194,28 @@ Use `az keyvault role definition list` command to list all the role definitions.
 az keyvault role definition list --hsm-name <hsm-name>
 ```
 
+# [Azure PowerShell](#tab/azure-powershell)
+
+Use the `Get-AzKeyVaultRoleDefinition` cmdlet to list all role definitions:
+
+```azurepowershell-interactive
+Get-AzKeyVaultRoleDefinition -HsmName <hsm-name>
+```
+
+---
+
 ## Create a new role definition
 
+> [!NOTE]
+> Custom role definitions can only be managed by using Azure CLI or Azure PowerShell.
+
 Managed HSM has several built-in (pre-defined) roles that are useful for most common usage scenarios. You can define your own role with a list of specific actions that the role is allowed to perform. Then you can assign this role to principals to grant them the permission to the specified actions. 
+
+# [Azure portal](#tab/azure-portal)
+
+Custom role creation isn't currently available in the Azure portal. Use the Azure CLI or Azure PowerShell.
+
+# [Azure CLI](#tab/azure-cli)
 
 Use `az keyvault role definition create` command to a role named **My Custom Role** using a JSON string.
 ```azurecli-interactive
@@ -124,7 +236,23 @@ Use `az keyvault role definition create` command to a role from a file named **m
 az keyvault role definition create --hsm-name <hsm-name> --role-definition @my-custom-role-definition.json
 ```
 
+# [Azure PowerShell](#tab/azure-powershell)
+
+Use the `New-AzKeyVaultRoleDefinition` cmdlet to create a custom role from a JSON file:
+
+```azurepowershell-interactive
+New-AzKeyVaultRoleDefinition -HsmName <hsm-name> -InputFile ./my-custom-role-definition.json
+```
+
+---
+
 ## Show details of a role definition
+
+# [Azure portal](#tab/azure-portal)
+
+Viewing custom role definition details isn't currently available in the Azure portal. Use the Azure CLI or Azure PowerShell.
+
+# [Azure CLI](#tab/azure-cli)
 
 Use `az keyvault role definition show` command to see details of a specific role definition using name (a GUID).
 
@@ -132,7 +260,23 @@ Use `az keyvault role definition show` command to see details of a specific role
 az keyvault role definition show --hsm-name <hsm-name> --name xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
+# [Azure PowerShell](#tab/azure-powershell)
+
+Use the `Get-AzKeyVaultRoleDefinition` cmdlet to view role definitions. To view a specific custom role by name:
+
+```azurepowershell-interactive
+Get-AzKeyVaultRoleDefinition -HsmName <hsm-name> -RoleDefinitionName "My Custom Role"
+```
+
+---
+
 ## Update a custom role definition
+
+# [Azure portal](#tab/azure-portal)
+
+Updating custom role definitions isn't currently available in the Azure portal. Use the Azure CLI or Azure PowerShell.
+
+# [Azure CLI](#tab/azure-cli)
 
 Use `az keyvault role definition update` command to update a role named **My Custom Role** using a JSON string.
 ```azurecli-interactive
@@ -154,13 +298,41 @@ az keyvault role definition create --hsm-name <hsm-name> --role-definition '{
         }'
 ```
 
+# [Azure PowerShell](#tab/azure-powershell)
+
+To update a custom role, modify the role object and re-create it:
+
+```azurepowershell-interactive
+$role = Get-AzKeyVaultRoleDefinition -HsmName <hsm-name> -RoleDefinitionName "My Custom Role"
+$role.Permissions[0].DataActions = @("Microsoft.KeyVault/managedHsm/keys/read/action", "Microsoft.KeyVault/managedHsm/keys/write/action", "Microsoft.KeyVault/managedHsm/keys/backup/action", "Microsoft.KeyVault/managedHsm/keys/create")
+New-AzKeyVaultRoleDefinition -HsmName <hsm-name> -Role $role
+```
+
+---
+
 ## Delete custom role definition
+
+# [Azure portal](#tab/azure-portal)
+
+Deleting custom role definitions isn't currently available in the Azure portal. Use the Azure CLI or Azure PowerShell.
+
+# [Azure CLI](#tab/azure-cli)
 
 Use the Azure CLI [az keyvault role definition delete](/cli/azure/keyvault/role/definition#az-keyvault-role-definition-delete) command to delete a custom role definition using name (a GUID).
 
 ```azurecli-interactive
 az keyvault role definition delete --hsm-name <hsm-name> --name xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+Use the `Remove-AzKeyVaultRoleDefinition` cmdlet to delete a custom role definition:
+
+```azurepowershell-interactive
+Remove-AzKeyVaultRoleDefinition -HsmName <hsm-name> -RoleName "My Custom Role"
+```
+
+---
 
 > [!NOTE]
 > Built-in roles cannot be deleted. When custom roles are deleted, all the role assignments using that custom role become defunct.

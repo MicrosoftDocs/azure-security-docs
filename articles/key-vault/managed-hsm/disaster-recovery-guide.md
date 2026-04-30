@@ -8,8 +8,8 @@ ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 01/30/2026
-
+ms.date: 04/28/2026
+ai-usage: ai-assisted
 ms.author: mbaldwin
 ---
 
@@ -55,7 +55,6 @@ az keyvault create --hsm-name "<destination-hsm-name>" --resource-group "<resour
 
 > [!NOTE]
 > The create command can take a few minutes. Once it returns successfully, you are ready to activate your HSM.
-
 
 > [!WARNING]
 > Managed HSM instances are considered always-in-use. If you choose to enable purge protection using the `--enable-purge-protection` flag, you are billed for the entirety of the retention period.
@@ -106,39 +105,23 @@ Now both the source HSM and the destination HSM have the same security domain. W
 
 ## Backup and restore
 
-It's always a good idea to take a full backup before you execute a full HSM restore, so that you have a restore point in case something goes wrong with the restore. You can do this using one of two methods: user assigned managed identity, or SAS tokens.
+It's always a good idea to take a full backup before you execute a full HSM restore, so that you have a restore point in case something goes wrong with the restore.
 
 ### Create a backup (as a restore point) of your new HSM
 
 To create an HSM backup, you'll need:
 - A storage account where the backup will be stored
 - A blob storage container in this storage account where the backup process will create a new folder to store encrypted backup
-- A user assigned managed identity that has the Storage Blob Data Contributor role on the storage account OR storage container SAS token with permissions 'crdw'
+- A user-assigned managed identity that has the Storage Blob Data Contributor role on the storage account
 
 We use az keyvault backup command for the HSM backup in the storage container `<container-name>`, which is in the storage account `<storage-account-name>` in the following examples.
 
-### [User assigned managed identity](#tab/uami)
-
-If using the user assigned managed identity method, we specify the user assigned managed identity with the `--mi-user-assigned` parameter and associate that to the Managed HSM before writing the backup in the below example.
+Specify the user-assigned managed identity with the `--mi-user-assigned` parameter and associate that to the Managed HSM before writing the backup:
 
 ```azurecli-interactive
 az keyvault update-hsm --hsm-name <destination-hsm-name> --mi-user-assigned "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<managed-identity-name>"
 az keyvault backup start --use-managed-identity true --hsm-name <destination-hsm-name> --storage-account-name <storage-account-name> --blob-container-name <container-name>
 ```
-
-### [SAS token](#tab/sas)
-
-If using the SAS token method, we create a SAS token that expires in 30 minutes and provide that to Managed HSM to write the backup in the below example.
-
-```azurecli-interactive
-end=$(date -u -d "500 minutes" '+%Y-%m-%dT%H:%MZ')
-skey=$(az storage account keys list --query '[0].value' -o tsv --account-name <storage-account-name>)
-az storage container create --account-name <storage-account-name> --name <container-name> --account-key $skey
-sas=$(az storage container generate-sas -n <container-name> --account-name <storage-account-name> --permissions crdw --expiry $end --account-key $skey -o tsv)
-az keyvault backup start --hsm-name <destination-hsm-name> --storage-account-name <storage-account-name> --blob-container-name <container-name> --storage-container-SAS-token $sas
-```
-
----
 
 ### Restore backup from source HSM
 
@@ -148,26 +131,11 @@ For this step you need:
 
 We use az keyvault restore command to the destination HSM, using the backup of the source MHSM we are trying to restore, which is in the folder name `<backup-folder>` found in the storage container `<container-name>` of the storage account `<storage-account-name>` in the following example.
 
-### [User assigned managed identity](#tab/uami)
-
-If using the user assigned managed identity method, we set the `--use-managed-identity` parameter to "true".
+Set the `--use-managed-identity` parameter to "true":
 
 ```azurecli-interactive
 az keyvault restore start --hsm-name <destination-hsm-name> --storage-account-name <storage-account-name> --blob-container-name <container-name> --backup-folder <backup-folder> --use-managed-identity true
 ```
-
-### [SAS token](#tab/sas)
-
-If using the SAS token method, we create a SAS token that expires in 30 minutes and provide that to Managed HSM to write the restore.
-
-```azurecli-interactive
-end=$(date -u -d "500 minutes" '+%Y-%m-%dT%H:%MZ')
-skey=$(az storage account keys list --query '[0].value' -o tsv --account-name <storage-account-name>)
-sas=$(az storage container generate-sas -n <container-name> --account-name <storage-account-name> --permissions rl --expiry $end --account-key $skey -o tsv)
-az keyvault restore start --hsm-name <destination-hsm-name> --storage-account-name <storage-account-name> --blob-container-name <container-name> --storage-container-SAS-token $sas --backup-folder <backup-folder>
-```
-
----
 
 Now you've completed a full disaster recovery process. The contents of the source HSM when the backup was taken are copied to the destination HSM, including all the keys, versions, attributes, tags, and role assignments.
 
