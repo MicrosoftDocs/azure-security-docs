@@ -541,11 +541,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-enable.md",
-      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-deployment-overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/defender-for-cloud/tutorial-enable-container-aws.md",
       "redirect_url": "/azure/defender-for-cloud/defender-for-containers-aws-enable-portal",
       "redirect_document_id": false
