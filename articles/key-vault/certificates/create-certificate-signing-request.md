@@ -41,7 +41,7 @@ Follow these steps to add a certificate from CAs that aren't partnered with Key 
 1. Select the **Generate/Import** tab.
 1. On the **Create a certificate** screen, choose the following values:
     - **Method of Certificate Creation**: Generate.
-    - **Certificate Name**: ContosoManualCSRCertificate.
+    - **Certificate Name**: A unique name for your certificate.
     - **Type of Certificate Authority (CA)**: Certificate issued by a non-integrated CA.
     - **Subject**: `"CN=www.contosoHRApp.com"`.
      > [!NOTE]
@@ -68,7 +68,7 @@ The certificate request has now been successfully merged.
 
 1. Create a certificate policy. Because the CA chosen in this scenario isn't partnered, **IssuerName** is set to **Unknown** and Key Vault doesn't enroll or renew the certificate.
 
-   ```azure-powershell
+   ```azurepowershell
    $policy = New-AzKeyVaultCertificatePolicy -SubjectName "CN=www.contosoHRApp.com" -ValidityInMonths 1  -IssuerName Unknown
    ```
      > [!NOTE]
@@ -80,8 +80,8 @@ The certificate request has now been successfully merged.
 
 1. Create the CSR.
 
-   ```azure-powershell
-   $csr = Add-AzKeyVaultCertificate -VaultName ContosoKV -Name ContosoManualCSRCertificate -CertificatePolicy $policy
+   ```azurepowershell
+   $csr = Add-AzKeyVaultCertificate -VaultName "<vault-name>" -Name "<certificate-name>" -CertificatePolicy $policy
    $csr.CertificateSigningRequest
    ```
 
@@ -89,8 +89,8 @@ The certificate request has now been successfully merged.
 
 1. Merge the signed request in Key Vault. After the certificate request has been signed, you can merge it with the initial private/public key pair created in Azure Key Vault.
 
-    ```azure-powershell-interactive
-    Import-AzKeyVaultCertificate -VaultName ContosoKV -Name ContosoManualCSRCertificate -FilePath C:\test\OutputCertificateFile.cer
+    ```azurepowershell-interactive
+    Import-AzKeyVaultCertificate -VaultName "<vault-name>" -Name "<certificate-name>" -FilePath C:\test\OutputCertificateFile.cer
     ```
 
 The certificate request has now been successfully merged.
@@ -108,7 +108,7 @@ If you want to add more information when creating the CSR, define it in **Subjec
 
 Example
 
-   ```azure-powershell
+   ```azurepowershell
    SubjectName="CN = learn.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
    ```
 

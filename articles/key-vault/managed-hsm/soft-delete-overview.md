@@ -3,19 +3,17 @@ title: Azure Key Vault Managed HSM soft-delete | Microsoft Docs
 description: Soft-delete in Managed HSM allows you to recover deleted HSM instances and keys. This article provides an overview of the feature. 
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
-ms.topic: conceptual
+ms.topic: feature-guide
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 01/30/2026
+ms.date: 04/28/2026
+ai-usage: ai-assisted
 ---
 
 # Managed HSM soft-delete overview
 
 > [!IMPORTANT]
-> Soft-delete can't be turned off for Managed HSM resources.
-
-> [!IMPORTANT]
-> Soft-deleted Managed HSM resources will continue to be billed at their full hourly rate until they're purged.
+> Soft-delete can't be turned off for Managed HSM resources. Soft-deleted Managed HSM resources will continue to be billed at their full hourly rate until they're purged.
 
 The Managed HSM soft-delete feature allows recovery of deleted HSMs and keys. Specifically, this feature provides the following safeguards:
 

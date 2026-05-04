@@ -33,7 +33,7 @@ items:
     - name: Use Azure Key Vault with a virtual machine in Python
       href: tutorial-python-virtual-machine.md
     - name: Use Azure Key Vault with a virtual machine in JavaScript
-      href: tutorial-javascript-virtual-machine.md 
+      href: tutorial-javascript-virtual-machine.md
       displayName: az keyvault create, az keyvault secret set, az vm create, az vm identity assign, az role assignment create
   - name: Azure App Service
     items:
@@ -217,6 +217,6 @@ items:
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=key-vault
   - name: Blog
-    href: /archive/blogs/kv/
+    href: https://techcommunity.microsoft.com/tag/azure-key-vault
   - name: Product Feedback
     href: https://feedback.azure.com/d365community/forum/285c5ae0-f524-ec11-b6e6-000d3a4f0da0

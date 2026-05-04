@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli, devx-track-azurepowershell, mode-other
-ms.date: 04/14/2025
+ms.date: 03/26/2026
 
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
@@ -31,12 +31,12 @@ secret
 You can then pass this file to the Azure CLI [az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set) command using the `--file` parameter.
 
 ```azurecli-interactive
-az keyvault secret set --vault-name "<your-unique-keyvault-name>" --name "MultilineSecret" --file "secretfile.txt"
+az keyvault secret set --vault-name "<vault-name>" --name "MultilineSecret" --file "secretfile.txt"
 ```
 You can then view the stored secret using the Azure CLI [az keyvault secret show](/cli/azure/keyvault/secret#az-keyvault-secret-show) command.
 
 ```azurecli-interactive
-az keyvault secret show --name "MultilineSecret" --vault-name "<your-unique-keyvault-name>" --query "value"
+az keyvault secret show --name "MultilineSecret" --vault-name "<vault-name>" --query "value"
 ```
 
 The secret will be returned with `\n` in place of newline:
@@ -59,13 +59,13 @@ $SecureSecret = ConvertTo-SecureString -String $RawSecret -AsPlainText -Force
 Lastly, you store the secret using the [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet.
 
 ```azurepowershell-interactive
-$secret = Set-AzKeyVaultSecret -VaultName "<your-unique-keyvault-name>" -Name "MultilineSecret" -SecretValue $SecureSecret
+$secret = Set-AzKeyVaultSecret -VaultName "<vault-name>" -Name "MultilineSecret" -SecretValue $SecureSecret
 ```
 
 You can then view the stored secret using the Azure CLI [az keyvault secret show](/cli/azure/keyvault/secret#az-keyvault-secret-show) command or the Azure PowerShell [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret) cmdlet.
 
 ```azurecli-interactive
-az keyvault secret show --name "MultilineSecret" --vault-name "<your-unique-keyvault-name>" --query "value"
+az keyvault secret show --name "MultilineSecret" --vault-name "<vault-name>" --query "value"
 ```
 
 The secret will be returned with `\n` in place of newline:

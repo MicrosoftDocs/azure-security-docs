@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Updating certificate autorotation frequency in Key Vault | Microsoft Docs
+title: Tutorial - Updating certificate autorotation frequency in Key Vault
 description: Tutorial showing how to update a certificate's autorotation frequency in Azure Key Vault using the Azure portal
 services: key-vault
 author: msmbaldwin
@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: tutorial
 ms.custom: mvc, sfi-image-nochange
-ms.date: 01/30/2026
+ms.date: 04/10/2026
 
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure.
