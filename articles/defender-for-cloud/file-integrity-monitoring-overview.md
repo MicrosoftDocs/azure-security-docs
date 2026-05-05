@@ -62,7 +62,7 @@ Defender for Cloud recommends entities to monitor with file integrity monitoring
 - Consider the files that are critical for your system and applications.
 - Monitor files that you don’t expect to change without planning.
 - Select files that applications or the operating system frequently change (such as log files and text files) creates noise and makes it hard to identify an attack.
-- Monitor any file located in a folder `/folder/path/*`.
+- Monitor any file located in a folder `/folder/path/*`. (Custom path monitoring is supported only for machines covered with agentless scanning [Enable agentless machine scanning](enable-agentless-scanning-vms.md))
 
 > [!NOTE]
 > The maximum number of rules that can be applied is 500.
