@@ -637,22 +637,22 @@
     },
     {
       "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-azure-verify.md",
-      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-verify?tabs=aks",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-verify-deployment?tabs=aks",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-aws-verify.md",
-      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-verify?tabs=aws",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-verify-deployment?tabs=aws",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-gcp-verify.md",
-      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-verify?tabs=gcp",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-verify-deployment?tabs=gcp",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-arc-verify.md",
-      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-verify?tabs=arc",
+      "redirect_url": "/azure/defender-for-cloud/defender-for-containers-verify-deployment?tabs=arc",
       "redirect_document_id": false
     },
     {
