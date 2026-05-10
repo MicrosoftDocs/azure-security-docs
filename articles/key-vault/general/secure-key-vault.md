@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: general
 ms.custom: horz-security
 ms.topic: best-practice
-ms.date: 04/20/2026
+ms.date: 05/04/2026
 ms.author: mbaldwin
 ai-usage: ai-assisted
 #CustomerIntent: As a key vault administrator, I want to learn how to secure my key vaults
@@ -47,7 +47,7 @@ Reducing network exposure is critical to protecting Azure Key Vault from unautho
 
 These network security features are listed from most restricted to least restricted capabilities. Pick the configuration that best suits your organization's use case.
 
-- **Disable public network access and use Private Endpoints only**: Deploy Azure Private Link to establish a private access point from a virtual network to Azure Key Vault and prevent exposure to the public internet. For implementation steps, see [Integrate Key Vault with Azure Private Link](private-link-service.md).
+- **Disable public network access and use Private Endpoints only**: Deploy Azure Private Link to establish a private access point from a virtual network to Azure Key Vault and prevent exposure to the public internet. Disabling public access blocks data-plane connections; the vault's public DNS records remain resolvable by design (see [Public DNS visibility of a private key vault](private-link-service.md#public-dns-visibility-of-a-private-key-vault)). For implementation steps, see [Integrate Key Vault with Azure Private Link](private-link-service.md).
 
     - Some customer scenarios require trusted Microsoft services to bypass the firewall, in such cases the vault might need to be configured to allow Trusted Microsoft Services. For full details, see [Configure network security: Key Vault Firewall Enabled (Trusted Services Only)](network-security.md#key-vault-firewall-enabled-trusted-services-only).
 
