@@ -3,7 +3,7 @@ title: Integrate Key Vault with Azure Private Link
 description: Learn how to integrate Azure Key Vault with Azure Private Link Service
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 04/10/2026
+ms.date: 05/04/2026
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
@@ -222,6 +222,20 @@ Address:  10.1.0.5 (private IP address)
 Aliases:  <vault-name>.vault.azure.net
           <vault-name>.privatelink.vaultcore.azure.net
 ```
+
+## Public DNS visibility of a private key vault
+
+A key vault that uses a private endpoint with public access disabled is still resolvable in public DNS. The FQDN `<vault-name>.vault.azure.net` returns a CNAME into `privatelink.vaultcore.azure.net`, which in public DNS points to the regional Key Vault service ingress. This behavior is intentional and is how every Azure PaaS service that supports Private Link is designed: the public CNAME exists so that clients without a private DNS override (for example, on-premises hosts that aren't yet configured for the private zone) can still resolve the name during a phased migration.
+
+Public DNS resolution isn't the same as access:
+
+- A successful lookup confirms only that a vault with that exact name exists in the global Key Vault namespace. It doesn't confirm a private endpoint is attached, expose the private endpoint IP, or expose any vault configuration, network rules, or data.
+- The IPs returned by public DNS belong to the shared multitenant Key Vault frontend, not to your vault. With **Public network access** set to **Disabled** and no firewall allow-list, the service rejects every request at that ingress.
+- The data-plane controls protect the vault: public access disabled, private endpoint, RBAC, soft delete, purge protection, [Microsoft Defender for Key Vault](/azure/defender-for-cloud/defender-for-key-vault-introduction), and diagnostic logging. DNS suppression isn't a control.
+
+If predictable resource names are themselves part of your threat model, choose vault names that don't encode environment, customer, or workload identifiers, so external observers can't guess the FQDN to query.
+
+For the underlying DNS architecture, see [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns).
 
 ## Troubleshooting Guide
 
