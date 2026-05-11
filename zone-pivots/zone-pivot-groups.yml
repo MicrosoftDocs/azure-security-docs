@@ -45,20 +45,3 @@ groups:
     title: Defender portal
   - id: azure-portal
     title: Azure portal
-# Owner: elkrieger
-- id: defender-for-cloud-custom-recommendation-kql-scenarios
-  title: KQL query scenario
-  prompt: Choose a query template
-  pivots:
-  - id: kql-vm-tags
-    title: VMs without required tags
-  - id: kql-storage-https
-    title: Storage accounts without HTTPS-only
-  - id: kql-nsg-any-any
-    title: NSGs with Any/Any inbound rules
-  - id: kql-keyvault-soft-delete
-    title: Key Vaults without soft-delete
-  - id: kql-appservice-https
-    title: App Services without HTTPS redirect
-  - id: kql-database-firewall
-    title: Database servers with public firewall rules
