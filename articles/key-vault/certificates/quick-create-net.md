@@ -145,8 +145,7 @@ var client = new CertificateClient(new Uri(kvUri), new DefaultAzureCredential())
 
 In this example, for simplicity you can use self-signed certificate with default issuance policy. For this task, use the [StartCreateCertificateAsync](/dotnet/api/azure.security.keyvault.certificates.certificateclient.startcreatecertificateasync) method. The method's parameters accepts a certificate name and the [certificate policy](/dotnet/api/azure.security.keyvault.certificates.certificatepolicy).
 
-> [!NOTE]
-> This quickstart creates a self-signed certificate for demonstration purposes. For production workloads, integrate Key Vault with a trusted certificate authority. See [Secure your Azure Key Vault certificates](secure-certificates.md).
+[!INCLUDE [self-signed-certificate-note.md](~/reusable-content/ce-skilling/azure/includes/key-vault/self-signed-certificate-note.md)]
 
 ```csharp
 var operation = await client.StartCreateCertificateAsync("myCertificate", CertificatePolicy.Default);

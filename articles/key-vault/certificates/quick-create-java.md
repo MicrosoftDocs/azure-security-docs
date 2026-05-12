@@ -193,8 +193,7 @@ Now that your application is authenticated, you can create a certificate in your
 
 Certificate creation is a long running operation, for which you can poll its progress or wait for it to complete.
 
-> [!NOTE]
-> This quickstart creates a self-signed certificate for demonstration purposes. For production workloads, integrate Key Vault with a trusted certificate authority. See [Secure your Azure Key Vault certificates](secure-certificates.md).
+[!INCLUDE [self-signed-certificate-note.md](~/reusable-content/ce-skilling/azure/includes/key-vault/self-signed-certificate-note.md)]
 
 ```java
 SyncPoller<CertificateOperation, KeyVaultCertificateWithPolicy> certificatePoller =

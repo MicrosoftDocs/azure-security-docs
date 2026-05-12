@@ -39,8 +39,7 @@ To add a certificate to the vault, you just need to take a couple of additional 
 
 Type the commands below to create a self-signed certificate with default policy called **ExampleCertificate** :
 
-> [!NOTE]
-> This quickstart creates a self-signed certificate for demonstration purposes. For production workloads, integrate Key Vault with a trusted certificate authority. See [Secure your Azure Key Vault certificates](secure-certificates.md).
+[!INCLUDE [self-signed-certificate-note.md](~/reusable-content/ce-skilling/azure/includes/key-vault/self-signed-certificate-note.md)]
 
 ```azurecli
 az keyvault certificate create --vault-name "<vault-name>" -n ExampleCertificate -p "$(az keyvault certificate get-default-policy)"

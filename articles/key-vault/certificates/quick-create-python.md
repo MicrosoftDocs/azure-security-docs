@@ -99,8 +99,7 @@ The Azure Key Vault certificate client library for Python allows you to manage c
 
 Create a file named *kv_certificates.py* that contains this code.
 
-> [!NOTE]
-> This quickstart creates a self-signed certificate for demonstration purposes. For production workloads, integrate Key Vault with a trusted certificate authority. See [Secure your Azure Key Vault certificates](secure-certificates.md).
+[!INCLUDE [self-signed-certificate-note.md](~/reusable-content/ce-skilling/azure/includes/key-vault/self-signed-certificate-note.md)]
 
 ```python
 import os

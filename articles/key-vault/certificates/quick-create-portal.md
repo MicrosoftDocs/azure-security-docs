@@ -30,8 +30,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 To add a certificate to the vault, you just need to take a couple of additional steps. In this case, you add a self-signed certificate that could be used by an application. The certificate is called **ExampleCertificate**.
 
-> [!NOTE]
-> This quickstart creates a self-signed certificate for demonstration purposes. For production workloads, integrate Key Vault with a trusted certificate authority. See [Secure your Azure Key Vault certificates](secure-certificates.md).
+[!INCLUDE [self-signed-certificate-note.md](~/reusable-content/ce-skilling/azure/includes/key-vault/self-signed-certificate-note.md)]
 
 1. On the Key Vault properties pages, select **Certificates**.
 2. Select **Generate/Import**.

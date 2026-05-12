@@ -62,8 +62,7 @@ go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
 
 Create a file named `main.go` and copy the following code into the file:
 
-> [!NOTE]
-> This quickstart creates a self-signed certificate for demonstration purposes. For production workloads, integrate Key Vault with a trusted certificate authority. See [Secure your Azure Key Vault certificates](secure-certificates.md).
+[!INCLUDE [self-signed-certificate-note.md](~/reusable-content/ce-skilling/azure/includes/key-vault/self-signed-certificate-note.md)]
 
 ```go
 package main

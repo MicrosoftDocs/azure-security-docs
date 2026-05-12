@@ -39,8 +39,7 @@ You can now add a certificate to the vault. This certificate could be used by an
 
 Use these commands to create a self-signed certificate with policy called **ExampleCertificate** :
 
-> [!NOTE]
-> This quickstart creates a self-signed certificate for demonstration purposes. For production workloads, integrate Key Vault with a trusted certificate authority. See [Secure your Azure Key Vault certificates](secure-certificates.md).
+[!INCLUDE [self-signed-certificate-note.md](~/reusable-content/ce-skilling/azure/includes/key-vault/self-signed-certificate-note.md)]
 
 ```azurepowershell-interactive
 $Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=<domain-name>" -IssuerName "Self" -ValidityInMonths 6 -ReuseKeyOnRenewal
