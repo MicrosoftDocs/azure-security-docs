@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: how-to
-ms.date: 01/30/2026
+ms.date: 05/12/2026
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell, sfi-image-nochange
 ---
@@ -121,7 +121,7 @@ You can use Azure PowerShell to create and manage Azure resources by using comma
    - **Location**: Your preferred location
 
     ```azurepowershell-interactive
-    New-AzKeyVault -Name "<vault-name>" -ResourceGroupName "<resource-group>" -Location "<location>" -EnableRbacAuthorization $true
+    New-AzKeyVault -Name "<vault-name>" -ResourceGroupName "<resource-group>" -Location "<location>" -EnableRbacAuthorization $true -EnablePurgeProtection
    ```
 
 3. Define variables for the following values from your DigiCert CertCentral account:

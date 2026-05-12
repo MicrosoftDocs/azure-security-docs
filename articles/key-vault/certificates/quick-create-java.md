@@ -4,7 +4,7 @@ description: Learn about the Azure Key Vault Certificate client library for Java
 author: msmbaldwin
 ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell, mode-api, passwordless-java, devx-track-extended-java
 ms.author: mbaldwin
-ms.date: 04/10/2026
+ms.date: 05/12/2026
 
 ms.service: azure-key-vault
 ms.subservice: certificates
@@ -192,6 +192,9 @@ CertificateClient certificateClient = new CertificateClientBuilder()
 Now that your application is authenticated, you can create a certificate in your key vault using the `certificateClient.beginCreateCertificate` method. This requires a name for the certificate and a certificate policy -- the value "myCertificate" is assigned to the `certificateName` variable in this sample and a default policy is used.
 
 Certificate creation is a long running operation, for which you can poll its progress or wait for it to complete.
+
+> [!NOTE]
+> This quickstart creates a self-signed certificate for demonstration purposes. For production workloads, integrate Key Vault with a trusted certificate authority. See [Secure your Azure Key Vault certificates](secure-certificates.md).
 
 ```java
 SyncPoller<CertificateOperation, KeyVaultCertificateWithPolicy> certificatePoller =

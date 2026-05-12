@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurepowershell, mode-api
-ms.date: 04/10/2026
+ms.date: 05/12/2026
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
@@ -38,6 +38,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 You can now add a certificate to the vault. This certificate could be used by an application.
 
 Use these commands to create a self-signed certificate with policy called **ExampleCertificate** :
+
+> [!NOTE]
+> This quickstart creates a self-signed certificate for demonstration purposes. For production workloads, integrate Key Vault with a trusted certificate authority. See [Secure your Azure Key Vault certificates](secure-certificates.md).
 
 ```azurepowershell-interactive
 $Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=<domain-name>" -IssuerName "Self" -ValidityInMonths 6 -ReuseKeyOnRenewal
