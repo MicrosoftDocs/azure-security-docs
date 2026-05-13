@@ -36,6 +36,8 @@ items:
   - name: ARM template
     displayName: Resource Manager
     href: quick-create-template.md
+  - name: Bicep
+    href: quick-create-bicep.md
 - name: Samples
   items:
   - name: Key Vault Code Samples

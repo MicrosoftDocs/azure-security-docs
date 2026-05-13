@@ -57,6 +57,8 @@ landingContent:
             url: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates
           - text: ARM template
             url: quick-create-template.md
+          - text: Bicep
+            url: quick-create-bicep.md
       - linkListType: tutorial
         links:
           - text: Import a certificate in Key Vault 
