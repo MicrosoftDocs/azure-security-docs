@@ -44,16 +44,18 @@ The template creates the key vault with Azure RBAC authorization enabled. This m
 
 More Azure Key Vault template samples can be found in [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault&pageNumber=1&sort=Popular).
 
-## Parameters and definitions
+## Template parameters
 
-|Parameter  |Definition  |
+|Parameter  |Description  |
 |---------|---------|
-|**keyOps**  | Specifies operations that can be performed by using the key. If you don't specify this parameter, all operations can be performed. The acceptable values for this parameter are a comma-separated list of key operations as defined by the [JSON Web Key (JWK) specification](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41): <br> `["sign", "verify", "encrypt", "decrypt", " wrapKey", "unwrapKey"]` |
-|**CurveName**  |  Elliptic curve (EC) name for EC key type. See [JsonWebKeyCurveName](/rest/api/keyvault/keys/create-key/create-key#jsonwebkeycurvename) |
-|**Kty**  |  The type of key to create. For valid values, see [JsonWebKeyType](/rest/api/keyvault/keys/create-key/create-key#jsonwebkeytype) |
-|**Tags** | Application-specific metadata in the form of key-value pairs.  |
-|**nbf**  |  Specifies the time, as a DateTime object, before which the key can't be used. The format would be Unix time stamp (the number of seconds after Unix Epoch on January 1st, 1970 at UTC).  |
-|**exp**  |  Specifies the expiration time, as a DateTime object. The format would be Unix time stamp (the number of seconds after Unix Epoch on January 1st, 1970 at UTC). |
+|**vaultName** | Name of the new key vault. Must be globally unique within the `vault.azure.net` namespace. |
+|**keyName** | Name of the key to create in the vault. |
+|**location** | Azure region for the resources. Defaults to the resource group location. |
+|**skuName** | Vault SKU. `standard` (default) or `premium`. |
+|**keyType** | The type of key to create. One of `RSA`, `RSA-HSM`, `EC`, `EC-HSM`. Default is `RSA`. See [JsonWebKeyType](/rest/api/keyvault/keys/create-key/create-key#jsonwebkeytype). |
+|**keySize** | Size in bits of the key (RSA only). Default is `2048`. |
+|**curveName** | Elliptic-curve name (EC keys only). One of `P-256`, `P-256K`, `P-384`, `P-521`. See [JsonWebKeyCurveName](/rest/api/keyvault/keys/create-key/create-key#jsonwebkeycurvename). |
+|**keyOps** | Permitted [JSON Web Key operations](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41) for the key (for example, `["sign","verify","encrypt","decrypt","wrapKey","unwrapKey"]`). Empty array (default) allows all operations. |
 
 ## Deploy the template
 
@@ -61,21 +63,21 @@ More Azure Key Vault template samples can be found in [Azure Quickstart Template
 
     :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.keyvault%2Fkey-vault-key-create%2Fazuredeploy.json":::
 
-2. Select or enter the following values.
-
-    Unless it's specified, use the default value to create the key vault and a key.
+2. Select or enter the following values. Unless it's specified, use the default value.
 
     * **Subscription**: select an Azure subscription.
-    * **Resource group**: select **Create new**, enter a unique name for the resource group, and then click **OK**.
-    * **Location**: select a location. For example, **Central US**.
-    * **Vault Name**: enter a name for the key vault, which must be globally unique within the .vault.azure.net namespace.
+    * **Resource group**: select **Create new**, enter a unique name for the resource group, and then select **OK**.
+    * **Region**: select a location. For example, **Central US**.
+    * **Vault Name**: enter a name for the key vault, which must be globally unique within the `vault.azure.net` namespace.
     * **Key Name**: enter a name for the key that you store in the key vault.
+    * **Sku Name**: select **standard** or **premium**. The default is **standard**.
     * **Key Type**: select a key type. The default is **RSA**.
-    * **Key Size**: select a key size. The default is **2048**.
+    * **Key Size**: enter a key size (RSA keys). The default is **2048**.
+    * **Curve Name**: for EC keys, select a curve. Leave blank for RSA keys.
 
-3. Select **Purchase**. After the key vault has been deployed successfully, you get a notification.
+3. Select **Review + create**, then select **Create**. After the key vault and key have been deployed successfully, you get a notification.
 
-You can also use the Azure PowerShell, Azure CLI, or REST API to deploy the template. To learn other deployment methods, see [Deploy templates](/azure/azure-resource-manager/templates/deploy-powershell).
+You can also use Azure PowerShell, the Azure CLI, or the REST API to deploy the template. To learn other deployment methods, see [Deploy templates](/azure/azure-resource-manager/templates/deploy-powershell).
 
 ## Assign a Key Vault RBAC role
 

@@ -50,22 +50,20 @@ More Azure Key Vault template samples can be found in [Azure Quickstart Template
 
     :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.keyvault%2Fkey-vault-certificate-create%2Fazuredeploy.json":::
 
-2. Select or enter the following values.
-
-    Unless it's specified, use the default value to create the key vault and a certificate.
+2. Select or enter the following values. Unless it's specified, use the default value.
 
     * **Subscription**: select an Azure subscription.
-    * **Resource group**: select **Create new**, enter a unique name for the resource group, and then click **OK**.
-    * **Location**: select a location. For example, **Central US**.
-    * **Vault Name**: enter a name for the key vault, which must be globally unique within the .vault.azure.net namespace.
+    * **Resource group**: select **Create new**, enter a unique name for the resource group, and then select **OK**.
+    * **Region**: select a location. For example, **Central US**.
+    * **Vault Name**: enter a name for the key vault, which must be globally unique within the `vault.azure.net` namespace.
     * **Certificate Name**: enter a name for the certificate. For example, **myCert**.
-    * **Subject Name**: enter the certificate subject. For example, **CN=contoso.com**.
-    * **Validity In Months**: enter the certificate validity period. The default is **12** months.
-    * **I agree to the terms and conditions state above**: Select.
+    * **Sku Name**: select **standard** or **premium**. The default is **standard**.
+    * **Certificate Common Name**: optional. Subject common name for the certificate (for example, **CN=contoso.com**). Defaults to the certificate name.
+    * **Validity In Months**: certificate validity period in months. The default is **12**.
 
-3. Select **Purchase**. After the key vault has been deployed successfully, you get a notification.
+3. Select **Review + create**, then select **Create**. After the key vault and certificate have been deployed successfully, you get a notification.
 
-The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](/azure/azure-resource-manager/templates/deploy-powershell).
+You can also use Azure PowerShell, the Azure CLI, or the REST API to deploy the template. To learn other deployment methods, see [Deploy templates](/azure/azure-resource-manager/templates/deploy-powershell).
 
 ## Assign a Key Vault RBAC role
 
