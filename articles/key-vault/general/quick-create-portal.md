@@ -38,7 +38,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
     - Leave the other options to their defaults.
 
     > [!NOTE]
-    > The default settings for the **Access configuration** tab enable Azure role-based access control (RBAC), and the default settings for the **Recovery options** tab enable soft-delete (with a 90-day retention period) but *not* purge protection. This quickstart enables purge protection as a security best practice; purge protection prevents the vault and its contents from being permanently deleted until the soft-delete retention period expires, and it can't be disabled after it's enabled. Running production key vaults without purge protection is an anti-pattern. For an explanation of these and other recommended settings, see [Secure your Azure Key Vault](secure-key-vault.md).
+    > The default settings for the **Recovery options** tab don't enable purge protection; this quickstart enables it as a [Key Vault security best practice](secure-key-vault.md). Purge protection can't be disabled after it's enabled.
 
 1. Select **Create**.
 
@@ -59,6 +59,8 @@ When no longer needed, delete the resource group, which deletes the Key Vault an
 1. Enter the name of your resource group in the Search box at the top of the portal. When you see the resource group used in this quickstart in the search results, select it.
 1. Select **Delete resource group**.
 1. In the **TYPE THE RESOURCE GROUP NAME:** box type in the name of the resource group and select **Delete**.
+
+[!INCLUDE [Soft-delete note](~/reusable-content/ce-skilling/azure/includes/key-vault/key-vault-cleanup-soft-delete-note.md)]
 
 ## Next steps
 
