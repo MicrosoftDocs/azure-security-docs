@@ -2,12 +2,11 @@
 title: Secure your Azure Key Vault keys
 description: Learn how to secure Azure Key Vault keys, with best practices specific to cryptographic key management.
 author: msmbaldwin
-tags: azure-key-vault
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: best-practice
 ms.custom: horz-security
-ms.date: 04/09/2026
+ms.date: 04/21/2026
 ms.author: mbaldwin
 ai-usage: ai-assisted
 # Customer intent: As a developer using Key Vault keys, I want to implement key-specific security best practices.
@@ -48,7 +47,7 @@ For more information about key operations, see [Key operations in Key Vault](abo
 Implement regular key rotation to limit exposure from compromised keys:
 
 - **Enable automatic key rotation**: Configure automatic rotation policies to rotate keys without application downtime. See [Configure key autorotation](how-to-configure-key-rotation.md)
-- **Set rotation frequency**: Rotate encryption keys at least annually, or more frequently based on compliance requirements
+- **Set rotation frequency**: Rotate encryption keys at least every two years, or more frequently based on compliance requirements
 - **Use key versioning**: Key Vault automatically versions keys, allowing seamless rotation without breaking existing encrypted data
 - **Plan for re-encryption**: For long-term data, implement strategies to re-encrypt data with new key versions
 
@@ -61,13 +60,22 @@ Protect against data loss by implementing proper backup and recovery procedures:
 - **Enable soft delete**: Soft delete allows recovery of deleted keys within a retention period (7-90 days). See [Azure Key Vault soft-delete overview](../general/soft-delete-overview.md)
 - **Enable purge protection**: Prevent permanent deletion of keys during the retention period. See [Purge protection](../general/soft-delete-overview.md#purge-protection)
 - **Back up critical keys**: Export and securely store backups of keys that protect irreplaceable data. See [Azure Key Vault backup](../general/backup.md)
+- **Restrict backup permissions**: Grant the `backup` key operation only to identities that genuinely need it. A backed-up key that is restored to another vault becomes fully independent of the original. See [Backup security considerations](../general/backup.md#security-considerations) for details.
 - **Document recovery procedures**: Maintain runbooks for key recovery scenarios
+
+## Key compromise response
+
+If you suspect a key has been compromised (for example, through unauthorized backup and restore to another vault), do not immediately disable or delete the key. A restored copy is fully independent of the source vault, so disabling, deleting, or purging the original does not invalidate any restored copies. At the same time, disabling or deleting the key takes all dependent services offline (Azure SQL TDE, Azure Storage SSE, Azure Disk Encryption, and others).
+
+Instead, contain the breach, rotate to a new key in a clean vault, migrate all dependent services, and only then disable the compromised key. For the full step-by-step incident response procedure, see [Backup security considerations](../general/backup.md#security-considerations). For key rotation procedures, see [Configure cryptographic key autorotation in Azure Key Vault](how-to-configure-key-rotation.md).
+
+To detect unauthorized key exfiltration early, monitor Key Vault audit logs for `KeyBackup` and `KeyRestore` operations and alert on unexpected activity. For more information, see [Azure Key Vault logging](../general/logging.md).
 
 ## Bring Your Own Key (BYOK)
 
 When importing your own keys into Key Vault, follow security best practices:
 
-- **Use secure key generation**: Generate keys in FIPS 140-2 Level 2 or higher HSMs
+- **Use secure key generation**: Generate keys in a [supported on-premises HSM](hsm-protected-keys.md) that meets your compliance requirements
 - **Protect keys during transfer**: Use Key Vault's BYOK process to securely transfer keys. See [Import HSM-protected keys to Key Vault (BYOK)](hsm-protected-keys-byok.md)
 - **Validate key import**: Verify key attributes and permissions after import
 - **Maintain key provenance**: Document the origin and transfer method of imported keys

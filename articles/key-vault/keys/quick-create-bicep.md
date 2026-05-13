@@ -8,7 +8,7 @@ ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.author: mbaldwin
-ms.date: 04/09/2026
+ms.date: 04/10/2026
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
 ---
 
@@ -77,6 +77,7 @@ resource vault 'Microsoft.KeyVault/vaults@2024-11-01' = {
     enableRbacAuthorization: true
     enableSoftDelete: true
     softDeleteRetentionInDays: 90
+    enablePurgeProtection: true
     enabledForDeployment: false
     enabledForDiskEncryption: false
     enabledForTemplateDeployment: false

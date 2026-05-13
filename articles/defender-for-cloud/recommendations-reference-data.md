@@ -4,7 +4,7 @@ description: This article lists all Microsoft Defender for Cloud data security r
 author: Elazark
 ms.service: defender-for-cloud
 ms.topic: reference
-ms.date: 03/29/2026
+ms.date: 04/20/2026
 ms.author: elkrieger
 ms.custom: generated
 ai-usage: ai-assisted
@@ -360,15 +360,6 @@ This configuration enforces that SSL is always enabled for accessing your databa
 
 **Severity**: High
 
-### Geo-redundant backup should be enabled for Azure Database for MariaDB
-
-**Description**: Azure Database for MariaDB allows you to choose the redundancy option for your database server.
-It can be set to a geo-redundant backup storage in which the data is not only stored within the region in which your server is hosted, but is also replicated to a paired region to provide recovery options in case of a region failure.
-Configuring geo-redundant storage for backup is only allowed when creating a server.
-(Related policy: [Geo-redundant backup should be enabled for Azure Database for MariaDB](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0ec47710-77ff-4a3d-9181-6aa50af424d0)).
-
-**Severity**: Low
-
 ### Geo-redundant backup should be enabled for Azure Database for MySQL
 
 **Description**: Azure Database for MySQL allows you to choose the redundancy option for your database server.
@@ -503,14 +494,6 @@ Learn more in [Introduction to Microsoft Defender for Storage](defender-for-stor
 
 **Severity**: Medium
 
-### Private endpoint should be enabled for MariaDB servers
-
-**Description**: Private endpoint connections enforce secure communication by enabling private connectivity to Azure Database for MariaDB.
-Configure a private endpoint connection to enable access to traffic coming only from known networks and prevent access from all other IP addresses, including within Azure.
-(Related policy: [Private endpoint should be enabled for MariaDB servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0a1302fb-a631-4106-9753-f3d494733990)).
-
-**Severity**: Medium
-
 ### Private endpoint should be enabled for MySQL servers
 
 **Description**: Private endpoint connections enforce secure communication by enabling private connectivity to Azure Database for MySQL.
@@ -538,13 +521,6 @@ Configure a private endpoint connection to enable access to traffic coming only 
 
 **Description**: This policy audits any Cognitive Services account in your environment with public network access enabled. Public network access should be disabled so that only connections from private endpoints are allowed.
 (Related policy: [Public network access should be disabled for Cognitive Services accounts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0725b4dd-7e76-479c-a735-68e7ee23d5ca)).
-
-**Severity**: Medium
-
-### Public network access should be disabled for MariaDB servers
-
-**Description**: Disable the public network access property to improve security and ensure your Azure Database for MariaDB can only be accessed from a private endpoint. This configuration strictly disables access from any public address space outside of Azure IP range, and denies all logins that match IP or virtual network-based firewall rules.
-(Related policy: [Public network access should be disabled for MariaDB servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ffdccbe47-f3e3-4213-ad5d-ea459b2fa077)).
 
 **Severity**: Medium
 
@@ -622,6 +598,9 @@ Configure a private endpoint connection to enable access to traffic coming only 
 
 **Description**: Audit requirement of Microsoft Entra ID (Microsoft Entra ID) to authorize requests for your storage account. By default, requests can be authorized with either Microsoft Entra ID credentials, or by using the account access key for Shared Key authorization. Of these two types of authorization, Microsoft Entra ID provides superior security and ease of use over shared Key, and is recommended by Microsoft.
 (Related policy: [policy](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%8c6a50c6-9ffd-4ae7-986f-5fa6111f9a54))
+
+> [!NOTE]
+> Some Azure services still require Shared Key access to function. For example, Microsoft Configuration Manager (SCCM) Cloud Management Gateway (CMG) uses Shared Key-based authorization for its underlying storage accounts. Disabling Shared Key access on storage accounts used by CMG breaks CMG functionality. If you use CMG or other services that depend on Shared Key access, [exempt those storage accounts](exempt-resource.md) from this recommendation rather than applying the remediation. Keep the related Azure Policy in **Audit** mode instead of **Deny** for these accounts, and document the business justification for the exception.
 
 **Severity**: Medium
 
@@ -1941,6 +1920,30 @@ __What is require_secure_transport?__ require_secure_transport is a server-level
 __Why is it a security concern?__ If this setting is disabled (off), clients may connect over unencrypted channels, exposing sensitive data such as credentials, queries, and results to interception or manipulation.
 
 __How could attackers exploit it or how could it lead to data breaches?__ An attacker on the network could perform a man-in-the-middle attack, intercepting or altering data exchanged between the client and server if encryption is not enforced.
+
+**Severity**: High
+
+### Private endpoint should be configured for Azure Database for PostgreSQL Servers
+
+**Description**: 
+
+__What is a private endpoint?__ A private endpoint in Azure allows resources to be accessed securely over a private IP address within a virtual network. For Azure Database for PostgreSQL servers, configuring a private endpoint ensures that database traffic does not traverse the public internet.
+
+__Why is it a security concern?__ Without a private endpoint, the server may be exposed to public network access, increasing the risk of unauthorized access, data interception, and denial-of-service attacks.
+
+__How could attackers exploit it or how could it lead to data breaches?__ An attacker could scan public IP ranges to discover exposed servers and attempt brute-force or exploit-based attacks. Public exposure also increases the risk of data exfiltration via compromised clients.
+
+**Severity**: High
+
+### 'Allow access to Azure services' should be disabled for PostgreSQL Servers
+
+**Description**: 
+
+__What is 'Allow access to Azure services'?__ This setting creates a firewall rule that permits all Azure services to connect to the PostgreSQL server. While convenient, it introduces significant risk by allowing connections from any Azure subscription.
+
+__Why is it a security concern?__ Enabling this setting bypasses network isolation controls, potentially exposing the database to unauthorized access from external Azure tenants.
+
+__How could attackers exploit it or how could it lead to data breaches?__ An attacker operating from another Azure subscription could attempt brute-force attacks or exploit vulnerabilities if this rule is enabled.
 
 **Severity**: High
 

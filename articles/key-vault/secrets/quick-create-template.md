@@ -3,12 +3,11 @@ title: Azure Quickstart - Create an Azure key vault and a secret by using Azure 
 description: Quickstart showing how to create Azure key vaults, and add secrets to the vaults by using Azure Resource Manager template.
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
 ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template, sfi-image-nochange
-ms.date: 04/10/2026
+ms.date: 05/13/2026
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
 ---
@@ -21,7 +20,7 @@ ms.author: mbaldwin
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.keyvault%2Fkey-vault-create%2Fazuredeploy.json":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.keyvault%2Fkey-vault-secret-create%2Fazuredeploy.json":::
 
 ## Prerequisites
 
@@ -31,9 +30,9 @@ To complete this article:
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/key-vault-create/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/key-vault-secret-create/).
 
-:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.keyvault/key-vault-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.keyvault/key-vault-secret-create/azuredeploy.json":::
 
 Two Azure resources are defined in the template:
 
@@ -48,7 +47,7 @@ More Azure Key Vault template samples can be found in [Azure Quickstart Template
 
 1. Select the following image to sign in to Azure and open a template. The template creates a key vault and a secret.
 
-    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.keyvault%2Fkey-vault-create%2Fazuredeploy.json":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.keyvault%2Fkey-vault-secret-create%2Fazuredeploy.json":::
 
 2. Select or enter the following values.
 

@@ -8,7 +8,7 @@ ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
-ms.date: 04/10/2026
+ms.date: 05/13/2026
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure.
 ---
@@ -38,7 +38,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 Two Azure resources are defined in the template:
 
 * [**Microsoft.KeyVault/vaults**](/azure/templates/microsoft.keyvault/vaults): create an Azure key vault.
-* [**Microsoft.KeyVault/vaults/certificates**](/azure/templates/microsoft.keyvault/vaults/certificates): create a key vault certificate.
+* [**Microsoft.Resources/deployments**](/azure/templates/microsoft.resources/deployments): nested deployment that runs a deployment script ([create-kv-certificate](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/deployment-script/create-kv-certificate)) to create a self-signed certificate in the vault. Certificates are a data-plane resource and can't be created directly with an ARM resource type.
 
 The template creates the key vault with Azure RBAC authorization enabled. This means the vault uses Azure role-based access control (Azure RBAC) for data plane authorization, rather than access policies. The certificate is created as a self-signed certificate with the specified subject name.
 

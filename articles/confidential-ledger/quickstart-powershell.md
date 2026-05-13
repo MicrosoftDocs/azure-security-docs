@@ -57,7 +57,7 @@ You can view the properties associated with your newly created confidential ledg
 Get-AzConfidentialLedger -Name "<ledger-name>" -ResourceGroupName "<resource-group>"
 ```
 
-To update the properties of a confidential ledger, use do so, use the Azure PowerShell [Update-AzConfidentialLedger](/powershell/module/az.confidentialledger/update-azconfidentialledger) cmdlet. For instance, to update your ledger to change your role to "Reader", run:
+To update the properties of a confidential ledger, use the Azure PowerShell [Update-AzConfidentialLedger](/powershell/module/az.confidentialledger/update-azconfidentialledger) cmdlet. For instance, to update your ledger to change your role to "Reader", run:
 
 ```azurepowershell
 Update-AzConfidentialLedger -Name "<ledger-name>" -ResourceGroupName "<resource-group>" -Location "EastUS" -LedgerType "Public" -AadBasedSecurityPrincipal @{ LedgerRoleName="Reader"; PrincipalId="<principal-id>"; }

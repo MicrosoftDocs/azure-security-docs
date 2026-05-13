@@ -3,12 +3,11 @@ title: Configure cryptographic key auto-rotation in Azure Key Vault
 description: Use this guide to learn how to configure automated the rotation of a key in Azure Key Vault
 services: key-vault
 author: msmbaldwin
-tags: 'rotation'
 ms.custom: devx-track-arm-template, sfi-image-nochange, copilot-scenario-highlight
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: how-to
-ms.date: 04/09/2026
+ms.date: 04/10/2026
 ms.author: mbaldwin
 ---
 

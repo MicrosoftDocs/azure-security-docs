@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 04/10/2026
+ms.date: 05/13/2026
 ms.author: mbaldwin
 ---
 # Azure Key Vault developer's guide
@@ -199,7 +199,7 @@ When developing applications that use Key Vault, consider the following performa
 
 ## Monitoring and logging
 
-Enable logging and monitoring for security, compliance, and troubleshooting. Configure diagnostic settings, Event Grid notifications, and alerts for critical events. For detailed guidance, see [Monitor Azure Key Vault](monitor-key-vault.md), [Azure Key Vault logging](logging.md), [Monitoring Key Vault with Azure Event Grid](event-grid-overview.md), and [Secure your Azure Key Vault: Logging and Threat Detection](secure-key-vault.md#logging-and-threat-detection).
+Enable logging and monitoring for security, compliance, and troubleshooting. Configure diagnostic settings, Event Grid notifications, and alerts for critical events. For detailed guidance, see [Monitor Azure Key Vault](monitor-key-vault.md), [Azure Key Vault logging](logging.md), [Monitoring Key Vault with Azure Event Grid](event-grid-overview.md), and [Secure your Azure Key Vault: Logging and monitoring](secure-key-vault.md#logging-and-monitoring).
 
 ## Common parameters and request patterns
 

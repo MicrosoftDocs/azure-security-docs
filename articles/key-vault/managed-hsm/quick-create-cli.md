@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: quickstart
-ms.date: 03/30/2026
+ms.date: 04/14/2026
 ms.author: mbaldwin
 ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
@@ -31,11 +31,7 @@ You also need:
 
 ## Create a resource group
 
-A resource group is a logical container into which you deploy and manage Azure resources. The following example creates a resource group named `<resource-group>` in the `<location>` location.
-
-```azurecli-interactive
-az group create --name "<resource-group>" --location <location>
-```
+[!INCLUDE [Create a resource group](~/reusable-content/ce-skilling/azure/includes/create-resource-group-cli.md)]
 
 ## Create a Managed HSM
 
@@ -48,15 +44,20 @@ Creating a Managed HSM is a two-step process:
 Use the `az keyvault create` command to create a Managed HSM. This script has three mandatory parameters: a resource group name, an HSM name, and the geographic location.
 
 To create a Managed HSM resource, provide the following inputs:
-- A resource group where you place the Managed HSM in your subscription.
-- An Azure location.
+- Managed HSM name: A string of 3 to 24 characters that can contain only numbers (0-9), letters (a-z, A-Z), and hyphens (-).
+
+  > [!Important]
+  > Each Managed HSM must have a unique name. Replace `<hsm-name>` with your own unique Managed HSM name in the following examples.
+
+- Resource group name: **myResourceGroup**.
+- Location: **EastUS**.
 - A list of initial administrators.
 
-The following example creates an HSM named `<hsm-name>` in the resource group `<resource-group>`, residing in the specified location, with **the current signed in user** as the only administrator, and a **7-day retention period** for soft-delete. You continue to pay for the Managed HSM until it's purged in a **soft-delete period**. For more information, see [Managed HSM soft-delete and purge protection](recovery.md#what-are-soft-delete-and-purge-protection) and read more about [Managed HSM soft-delete](soft-delete-overview.md).
+The following example creates an HSM named `<hsm-name>` in the resource group *myResourceGroup*, residing in the *EastUS* location, with **the current signed in user** as the only administrator, and a **7-day retention period** for soft-delete. You continue to pay for the Managed HSM until it's purged in a **soft-delete period**. For more information, see [Managed HSM soft-delete and purge protection](recovery.md#what-are-soft-delete-and-purge-protection) and read more about [Managed HSM soft-delete](soft-delete-overview.md).
 
 ```azurecli-interactive
 oid=$(az ad signed-in-user show --query id -o tsv)
-az keyvault create --hsm-name "<hsm-name>" --resource-group "<resource-group>" --location "<location>" --administrators $oid --retention-days 7
+az keyvault create --hsm-name "<hsm-name>" --resource-group "myResourceGroup" --location "EastUS" --administrators $oid --retention-days 7
 ```
 
 > [!NOTE]
@@ -90,13 +91,7 @@ az keyvault security-domain download --hsm-name <hsm-name> --sd-wrapping-keys ./
 
 ## Clean up resources
 
-Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
-
-When no longer needed, you can use the [az group delete](/cli/azure/group) command to remove the resource group, and all related resources. You can delete the resources as follows:
-
-```azurecli-interactive
-az group delete --name <resource-group>
-```
+[!INCLUDE [Delete resource group](~/reusable-content/ce-skilling/azure/includes/delete-resource-group-cli.md)]
 [!INCLUDE [Managed HSM cleanup warning](~/reusable-content/ce-skilling/azure/includes/managed-hsm/cleanup-warning.md)]
 
 ## Next steps

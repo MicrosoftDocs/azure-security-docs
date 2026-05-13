@@ -3,7 +3,7 @@ title: Alerts for AI services
 description: This article lists the security alerts for AI services visible in Microsoft Defender for Cloud.
 ms.topic: reference
 ms.custom: linux-related-content
-ms.date: 03/25/2026
+ms.date: 04/16/2026
 ai-usage: ai-assisted
 ms.author: elkrieger
 author: Elazark
@@ -175,16 +175,6 @@ This article lists the security alerts you might get for AI from Microsoft Defen
 
 **Severity**: Low
 
-### (Preview) Suspicious sensitive data mentioned by your Azure AI resource
-
-(AI.Azure_SensitiveDataAnomaly)
-
-**Description**: This alert studies the sensitive data usage patterns of AI resources and aims to detect when an AI application is discussing sensitive data out of pattern. The alert is looking for sensitive info types that have not been previously passed in the model responses, to detect suspicious behavior or intent deviation of the application or data exfiltration. Since this alert is designed to detect anomalies it will not trigger for new resources or newly onboarded subscriptions for a certain period of time.
-
-**[MITRE tactics](alerts-reference.md#mitre-attck-tactics)**: Collection
-
-**Severity**: Medium
-
 ### (Preview) LLM Reconnaissance Attempt Detected
 
 (AI.Azure_LLMReconnaissance)
@@ -321,8 +311,9 @@ Severity: High 
 
 **Severity:** Low 
 
-### Malicious content detected in uploaded AI model
+## Alerts for AI models
 
+### (Preview) Malicious content detected in uploaded AI model
 (Ai.AIModelScan_MalwareDetected)
 
 **Description:** A user-uploaded machine learning model was scanned and found to contain malware. The detection indicates the file may execute malicious code if loaded, posing a threat to account integrity, data confidentiality, and the compute environment.

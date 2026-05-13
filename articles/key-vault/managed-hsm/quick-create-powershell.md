@@ -3,7 +3,7 @@ title: Create and retrieve attributes of a managed key in Azure Key Vault – Az
 description: Quickstart showing how to set and retrieve a managed key from Azure Key Vault using Azure PowerShell
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 03/30/2026
+ms.date: 04/14/2026
 ms.topic: quickstart
 ms.service: azure-key-vault
 ms.subservice: keys
@@ -22,11 +22,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create a resource group
 
-A resource group is a logical container into which you deploy and manage Azure resources. Use the Azure PowerShell [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet to create a resource group named `<resource-group>` in the `<location>` location. 
-
-```azurepowershell-interactive
-New-AzResourceGroup -Name "<resource-group>" -Location "<location>"
-```
+[!INCLUDE [Create a resource group](~/reusable-content/ce-skilling/azure/includes/create-resource-group-powershell.md)]
 
 ## Get your principal ID
 
@@ -53,12 +49,12 @@ Use the Azure PowerShell [New-AzKeyVaultManagedHsm](/powershell/module/az.keyvau
   > [!Important]
   > Each Managed HSM must have a unique name. Replace `<hsm-name>` with your own unique Managed HSM name in the following examples.
 
-- Resource group name: `<resource-group>`.
-- Location: Your selected location.
+- Resource group name: *myResourceGroup*.
+- Location: *EastUS* (or your selected location).
 - Your principal ID: Pass the Microsoft Entra principal ID that you obtained in the last section to the "Administrator" parameter. 
 
 ```azurepowershell-interactive
-New-AzKeyVaultManagedHsm -Name "<hsm-name>" -ResourceGroupName "<resource-group>" -Location "<location>" -Administrator "<principal-id>" -SoftDeleteRetentionInDays "<retention-days>"
+New-AzKeyVaultManagedHsm -Name "<hsm-name>" -ResourceGroupName "myResourceGroup" -Location "EastUS" -Administrator "<principal-id>" -SoftDeleteRetentionInDays "<retention-days>"
 ```
 > [!NOTE]
 > The create command can take a few minutes. When it returns successfully, you're ready to activate your HSM.
