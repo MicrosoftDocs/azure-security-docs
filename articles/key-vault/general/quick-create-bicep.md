@@ -126,6 +126,8 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 ---
 
+[!INCLUDE [Soft-delete note](~/reusable-content/ce-skilling/azure/includes/key-vault/key-vault-cleanup-soft-delete-note.md)]
+
 ## Next steps
 
 In this quickstart, you created a key vault using Bicep and then validated the deployment. To learn more about Key Vault and Bicep, continue on to the articles below.

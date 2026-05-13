@@ -8,7 +8,7 @@ ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.author: mbaldwin
-ms.date: 04/10/2026
+ms.date: 05/13/2026
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
 ---
 
@@ -212,6 +212,8 @@ Write-Host "Press [ENTER] to continue..."
 ```
 
 ---
+
+[!INCLUDE [Soft-delete note](~/reusable-content/ce-skilling/azure/includes/key-vault/key-vault-cleanup-soft-delete-note.md)]
 
 ## Next steps
 

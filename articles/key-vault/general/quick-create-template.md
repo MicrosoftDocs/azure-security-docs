@@ -130,6 +130,8 @@ Remove-AzResourceGroup -Name $resourceGroupName
 
 ---
 
+[!INCLUDE [Soft-delete note](~/reusable-content/ce-skilling/azure/includes/key-vault/key-vault-cleanup-soft-delete-note.md)]
+
 ## More Key Vault Resource Manager templates
 
 Other quickstarts walk through populating a key vault with secrets, keys, or certificates:

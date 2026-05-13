@@ -164,6 +164,8 @@ Write-Host "Press [ENTER] to continue..."
 
 ---
 
+[!INCLUDE [Soft-delete note](~/reusable-content/ce-skilling/azure/includes/key-vault/key-vault-cleanup-soft-delete-note.md)]
+
 ## Next steps
 
 In this quickstart, you created a key vault and a secret using an ARM template, and validated the deployment. To learn more about Key Vault and Azure Resource Manager, continue on to the articles below.
