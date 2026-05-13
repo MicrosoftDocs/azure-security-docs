@@ -7,7 +7,7 @@ ms.custom: devx-track-arm-template
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 04/10/2026
+ms.date: 05/13/2026
 ms.author: mbaldwin 
 #Customer intent: As a security admin who's new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
 ---
@@ -98,7 +98,7 @@ There are other Resource Manager templates available for Key Vault objects:
 
 | Secrets | Keys | Certificates |
 |--|--|--|
-|<ul><li>[Quickstart](../secrets/quick-create-template.md)<li>[Reference](/azure/templates/microsoft.keyvault/vaults/secrets)|N/A|N/A|
+|<ul><li>[ARM template quickstart](../secrets/quick-create-template.md)</li><li>[Bicep quickstart](../secrets/quick-create-bicep.md)</li><li>[Reference](/azure/templates/microsoft.keyvault/vaults/secrets)</li></ul>|<ul><li>[ARM template quickstart](../keys/quick-create-template.md)</li><li>[Bicep quickstart](../keys/quick-create-bicep.md)</li><li>[Reference](/azure/templates/microsoft.keyvault/vaults/keys)</li></ul>|<ul><li>[ARM template quickstart](../certificates/quick-create-template.md)</li></ul>|
 
 You can find more Key Vault templates here: [Key Vault Resource Manager reference](/azure/templates/microsoft.keyvault/allversions).
 
