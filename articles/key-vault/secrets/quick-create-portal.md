@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.date: 01/30/2026
+ms.date: 05/14/2026
 
 ms.author: mbaldwin
 ms.custom: sfi-image-nochange
@@ -55,7 +55,7 @@ By clicking "Show Secret Value" button in the right pane, you can see the hidden
 
 :::image type="content" source="../media/quick-create-portal/current-version-shown.png" alt-text="Secret value appeared":::
 
-You can also use [Azure CLI](), or [Azure PowerShell]() to retrieve previously created secret.
+You can also use [Azure CLI](quick-create-cli.md), or [Azure PowerShell](quick-create-powershell.md) to retrieve previously created secret.
 
 ## Clean up resources
 
