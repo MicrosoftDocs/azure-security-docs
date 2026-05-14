@@ -8,7 +8,7 @@ ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.author: mbaldwin
-ms.date: 05/13/2026
+ms.date: 05/14/2026
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
 ---
 
@@ -27,7 +27,7 @@ To complete this article:
 
 ## Review the Bicep file
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/key-vault-key-create/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://learn.microsoft.com/samples/azure/azure-quickstart-templates/key-vault-key-create/).
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.keyvault/key-vault-key-create/main.bicep":::
 
