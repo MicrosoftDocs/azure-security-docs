@@ -63,11 +63,10 @@ Other Key Vault quickstarts and tutorials build upon this quickstart. If you pla
 When no longer needed, delete the resource group, which deletes the Key Vault and related resources. To delete the resource group through the portal:
 
 1. Enter the name of your resource group in the Search box at the top of the portal. When you see the resource group used in this quickstart in the search results, select it.
-2. Select **Delete resource group**.
-3. In the **TYPE THE RESOURCE GROUP NAME:** box type in the name of the resource group and select **Delete**.
+1. Select **Delete resource group**.
+1. In the **TYPE THE RESOURCE GROUP NAME:** box type in the name of the resource group and select **Delete**.
 
-> [!NOTE]
-> It is important to notice that once a secret, key, certificate, or key vault is deleted, it will remain recoverable for a configurable period of 7 to 90 calendar days. If no configuration is specified the default recovery period will be set to 90 days. This provides users with sufficient time to notice an accidental secret deletion and respond. For more information about deleting and recovering key vaults and key vault objects, see [Azure Key Vault soft-delete overview](../general/soft-delete-overview.md)
+[!INCLUDE [Soft-delete note](~/reusable-content/ce-skilling/azure/includes/key-vault/key-vault-cleanup-soft-delete-note.md)]
 
 ## Next steps
 

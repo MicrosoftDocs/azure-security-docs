@@ -75,6 +75,34 @@ More Azure Key Vault template samples can be found in [Azure Quickstart Template
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
+## Assign a Key Vault RBAC role
+
+The key vault created by this Bicep file uses Azure RBAC for authorization. To access keys through the data plane (for example, by using the Azure CLI or Azure PowerShell), you need to assign yourself an appropriate role.
+
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+echo "Enter your key vault name:" &&
+read keyVaultName &&
+az role assignment create --role "Key Vault Crypto Officer" \
+    --assignee-object-id $(az ad signed-in-user show --query id -o tsv) \
+    --scope $(az keyvault show --name $keyVaultName --query id -o tsv)
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+$keyVaultName = Read-Host -Prompt "Enter your key vault name"
+$kvId = (Get-AzKeyVault -VaultName $keyVaultName).ResourceId
+$userId = (Get-AzADUser -SignedIn).Id
+New-AzRoleAssignment -ObjectId $userId -RoleDefinitionName "Key Vault Crypto Officer" -Scope $kvId
+```
+
+---
+
+> [!NOTE]
+> Role assignments might take a minute or two to propagate.
+
 ## Review deployed resources
 
 You can use the Azure portal to check the key vault and the key. Alternatively, use the following Azure CLI or Azure PowerShell script to list the key created.
