@@ -3,7 +3,7 @@ title: Quickstart -  Azure Key Vault certificate client library for JavaScript (
 description: Learn how to create, retrieve, and delete certificates from an Azure key vault using the JavaScript client library with either JavaScript or TypeScript
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 04/10/2026
+ms.date: 05/12/2026
 ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: quickstart
@@ -153,6 +153,8 @@ This code uses the following [Key Vault Certificate classes and methods](/javasc
 ::: zone pivot="programming-language-javascript"
 
 * Create new text file and paste the following code into the **index.js** file. 
+
+    [!INCLUDE [self-signed-certificate-note.md](~/reusable-content/ce-skilling/azure/includes/key-vault/self-signed-certificate-note.md)]
 
     ```javascript
     const { CertificateClient, DefaultCertificatePolicy } = require("@azure/keyvault-certificates");
