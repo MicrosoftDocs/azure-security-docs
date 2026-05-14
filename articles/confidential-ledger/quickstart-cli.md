@@ -61,7 +61,7 @@ The returned JSON object displays the ledger's properties, including your role:
 "ledgerRoleName": "Administrator",
 ```
 
-To update the properties of a confidential ledger, use do so, use the Azure CLI [az confidentialledger update](/cli/azure/confidentialledger#az-confidentialledger-update) command. For instance, to update your ledger to change your role to "Reader", run:
+To update the properties of a confidential ledger, use the Azure CLI [az confidentialledger update](/cli/azure/confidentialledger#az-confidentialledger-update) command. For instance, to update your ledger to change your role to "Reader", run:
 
 ```azurecli
 az confidentialledger update --name "<ledger-name>" --resource-group "<resource-group>" --ledger-type "Public" --aad-based-security-principals ledger-role-name="Reader" principal-id="<principal-id>" 

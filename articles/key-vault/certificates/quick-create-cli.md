@@ -6,7 +6,7 @@ ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli, mode-api
-ms.date: 03/26/2026
+ms.date: 05/12/2026
 
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
@@ -38,6 +38,8 @@ In this quickstart, you create a key vault in Azure Key Vault with Azure CLI. Az
 To add a certificate to the vault, you just need to take a couple of additional steps. This certificate could be used by an application. 
 
 Type the commands below to create a self-signed certificate with default policy called **ExampleCertificate** :
+
+[!INCLUDE [self-signed-certificate-note.md](~/reusable-content/ce-skilling/azure/includes/key-vault/self-signed-certificate-note.md)]
 
 ```azurecli
 az keyvault certificate create --vault-name "<vault-name>" -n ExampleCertificate -p "$(az keyvault certificate get-default-policy)"

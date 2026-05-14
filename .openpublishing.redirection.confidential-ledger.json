@@ -19,6 +19,11 @@
       "source_path_from_root": "/articles/confidential-ledger/simple-user-defined-function.md",
       "redirect_url": "/azure/confidential-ledger/user-defined-functions",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/confidential-ledger/quickstart-ledger-explorer.md",
+      "redirect_url": "/azure/confidential-ledger/ledger-explorer",
+      "redirect_document_id": false
     }
   ]
 }
