@@ -27,7 +27,7 @@ To complete this article:
 
 ## Review the Bicep file
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://learn.microsoft.com/samples/azure/azure-quickstart-templates/key-vault-key-create/).
+The template used in this quickstart is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/key-vault-key-create/).
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.keyvault/key-vault-key-create/main.bicep":::
 

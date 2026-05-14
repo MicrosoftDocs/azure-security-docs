@@ -31,7 +31,7 @@ To complete this article:
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://learn.microsoft.com/samples/azure/azure-quickstart-templates/key-vault-certificate-create/).
+The template used in this quickstart is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/key-vault-certificate-create/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.keyvault/key-vault-certificate-create/azuredeploy.json":::
 

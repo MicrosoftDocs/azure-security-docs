@@ -25,7 +25,7 @@ ai-usage: ai-assisted
 
 ## Review the Bicep file
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://learn.microsoft.com/samples/azure/azure-quickstart-templates/key-vault-certificate-create/).
+The template used in this quickstart is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/key-vault-certificate-create/).
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.keyvault/key-vault-certificate-create/main.bicep":::
 
