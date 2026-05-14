@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: quickstart
 ms.custom: mvc, mode-ui, sfi-image-nochange
-ms.date: 05/12/2026
+ms.date: 05/13/2026
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
@@ -34,10 +34,11 @@ Sign in to the [Azure portal](https://portal.azure.com).
     - **Subscription**: Choose a subscription.
     - Under **Resource Group**, choose **Create new** and enter a resource group name.
     - In the **Location** pull-down menu, choose a location.
+    - On the **Recovery options** tab, select **Enable purge protection**.
     - Leave the other options to their defaults.
 
     > [!NOTE]
-    > The default settings for the **Access configuration** tab enable Azure role-based access control (RBAC), and the default settings for the **Recovery options** tab enable soft-delete (with a 90-day retention period) but *not* purge protection. For an explanation of these and other recommended settings, see [Secure your Azure Key Vault](secure-key-vault.md).
+    > The default settings for the **Recovery options** tab don't enable purge protection; this quickstart enables it as a [Key Vault security best practice](secure-key-vault.md). Purge protection can't be disabled after it's enabled.
 
 1. Select **Create**.
 
@@ -58,6 +59,8 @@ When no longer needed, delete the resource group, which deletes the Key Vault an
 1. Enter the name of your resource group in the Search box at the top of the portal. When you see the resource group used in this quickstart in the search results, select it.
 1. Select **Delete resource group**.
 1. In the **TYPE THE RESOURCE GROUP NAME:** box type in the name of the resource group and select **Delete**.
+
+[!INCLUDE [Soft-delete note](~/reusable-content/ce-skilling/azure/includes/key-vault/key-vault-cleanup-soft-delete-note.md)]
 
 ## Next steps
 

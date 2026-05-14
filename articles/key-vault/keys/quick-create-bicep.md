@@ -8,7 +8,7 @@ ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.author: mbaldwin
-ms.date: 04/10/2026
+ms.date: 05/14/2026
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
 ---
 
@@ -27,85 +27,9 @@ To complete this article:
 
 ## Review the Bicep file
 
-```bicep
-@description('The name of the key vault to be created.')
-param vaultName string
+The template used in this quickstart is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/key-vault-key-create/).
 
-@description('The name of the key to be created.')
-param keyName string
-
-@description('The location of the resources')
-param location string = resourceGroup().location
-
-@description('The SKU of the vault to be created.')
-@allowed([
-  'standard'
-  'premium'
-])
-param skuName string = 'standard'
-
-@description('The JsonWebKeyType of the key to be created.')
-@allowed([
-  'EC'
-  'EC-HSM'
-  'RSA'
-  'RSA-HSM'
-])
-param keyType string = 'RSA'
-
-@description('The permitted JSON web key operations of the key to be created.')
-param keyOps array = []
-
-@description('The size in bits of the key to be created.')
-param keySize int = 2048
-
-@description('The JsonWebKeyCurveName of the key to be created.')
-@allowed([
-  ''
-  'P-256'
-  'P-256K'
-  'P-384'
-  'P-521'
-])
-param curveName string = ''
-
-resource vault 'Microsoft.KeyVault/vaults@2024-11-01' = {
-  name: vaultName
-  location: location
-  properties: {
-    accessPolicies:[]
-    enableRbacAuthorization: true
-    enableSoftDelete: true
-    softDeleteRetentionInDays: 90
-    enablePurgeProtection: true
-    enabledForDeployment: false
-    enabledForDiskEncryption: false
-    enabledForTemplateDeployment: false
-    tenantId: subscription().tenantId
-    sku: {
-      name: skuName
-      family: 'A'
-    }
-    networkAcls: {
-      defaultAction: 'Allow'
-      bypass: 'AzureServices'
-    }
-  }
-}
-
-resource key 'Microsoft.KeyVault/vaults/keys@2024-11-01' = {
-  parent: vault
-  name: keyName
-  properties: {
-    kty: keyType
-    keyOps: keyOps
-    keySize: keySize
-    curveName: curveName
-  }
-}
-
-output proxyKey object = key.properties
-```
+:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.keyvault/key-vault-key-create/main.bicep":::
 
 Two resources are defined in the Bicep file:
 
@@ -150,6 +74,34 @@ More Azure Key Vault template samples can be found in [Azure Quickstart Template
     > Replace **`<vault-name>`** with the name of the key vault. Replace **`<vault-name>`** with the name of the key vault, and replace **`<key-name>`** with the name of the key.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
+
+## Assign a Key Vault RBAC role
+
+The key vault created by this Bicep file uses Azure RBAC for authorization. To access keys through the data plane (for example, by using the Azure CLI or Azure PowerShell), you need to assign yourself an appropriate role.
+
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+echo "Enter your key vault name:" &&
+read keyVaultName &&
+az role assignment create --role "Key Vault Crypto Officer" \
+    --assignee-object-id $(az ad signed-in-user show --query id -o tsv) \
+    --scope $(az keyvault show --name $keyVaultName --query id -o tsv)
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+$keyVaultName = Read-Host -Prompt "Enter your key vault name"
+$kvId = (Get-AzKeyVault -VaultName $keyVaultName).ResourceId
+$userId = (Get-AzADUser -SignedIn).Id
+New-AzRoleAssignment -ObjectId $userId -RoleDefinitionName "Key Vault Crypto Officer" -Scope $kvId
+```
+
+---
+
+> [!NOTE]
+> Role assignments might take a minute or two to propagate.
 
 ## Review deployed resources
 
@@ -212,6 +164,8 @@ Write-Host "Press [ENTER] to continue..."
 ```
 
 ---
+
+[!INCLUDE [Soft-delete note](~/reusable-content/ce-skilling/azure/includes/key-vault/key-vault-cleanup-soft-delete-note.md)]
 
 ## Next steps
 
