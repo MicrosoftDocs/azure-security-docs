@@ -33,6 +33,11 @@ items:
     displayName: DefaultAzureCredential, az role assignment create
   - name: Spring
     href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates
+  - name: ARM template
+    displayName: Resource Manager
+    href: quick-create-template.md
+  - name: Bicep
+    href: quick-create-bicep.md
 - name: Samples
   items:
   - name: Key Vault Code Samples

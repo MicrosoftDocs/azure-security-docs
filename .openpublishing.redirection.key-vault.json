@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/key-vault/general/vault-create-template.md",
+      "redirect_url": "/azure/key-vault/general/quick-create-template",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/key-vault/general/how-to-azure-key-vault-network-security.md",
       "redirect_url": "/azure/key-vault/general/network-security",
       "redirect_document_id": false
@@ -528,7 +533,7 @@
     {
       "source_path_from_root": "/articles/key-vault/vs-key-vault-aspnet-core-get-started.md",
       "redirect_url": "/visualstudio/azure/vs-key-vault-add-connected-service",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/key-vault/vs-key-vault-aspnet-core-what-happened.md",
