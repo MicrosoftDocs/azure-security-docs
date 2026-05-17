@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: how-to
 ms.custom: devx-track-js
-ms.date: 04/14/2025
+ms.date: 05/14/2026
 
 ms.author: mbaldwin
 #Customer intent: As a JavaScript developer who is new to Azure, I want to find or list a secret from the Key Vault with the SDK.
@@ -80,7 +80,7 @@ This method returns the [SecretProperties](/javascript/api/@azure/keyvault-secre
 
 ## List deleted secrets
 
-To list all deleted secrets in Azure Key Vault, use the [listDeletedSecrets]() method. 
+To list all deleted secrets in Azure Key Vault, use the [listDeletedSecrets](/javascript/api/@azure/keyvault-secrets/secretclient#@azure-keyvault-secrets-secretclient-listdeletedsecrets) method. 
 
 ```javascript
 // 5 secrets per page

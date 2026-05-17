@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.date: 03/26/2026
+ms.date: 05/13/2026
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli, mode-api
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
@@ -56,6 +56,8 @@ Now, you've created a Key Vault, stored a key, and retrieved it.
 ## Clean up resources
 
 [!INCLUDE [Clean up resources](~/reusable-content/ce-skilling/azure/includes/delete-resource-group-cli.md)]
+
+[!INCLUDE [Soft-delete note](~/reusable-content/ce-skilling/azure/includes/key-vault/key-vault-cleanup-soft-delete-note.md)]
 
 ## Next steps
 
