@@ -47,7 +47,7 @@ The following table lists prerequisites for using BYOK in Azure Key Vault:
 
 | Requirement | More information |
 | --- | --- |
-| An Azure subscription |To create a key vault in Azure Key Vault, you need an Azure subscription. [Sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/). |
+| An Azure subscription |To create a key vault in Azure Key Vault, you need an Azure subscription. [Sign up for a free trial](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). |
 | A Key Vault Premium or Managed HSM to import HSM-protected keys |For more information about the service tiers and capabilities in Azure Key Vault, see [Key Vault Pricing](https://azure.microsoft.com/pricing/details/key-vault/). |
 | An HSM from the supported HSMs list and a BYOK tool and instructions provided by your HSM vendor | You must have permissions for an HSM and basic knowledge of how to use your HSM. See [Supported HSMs](#supported-hsms). |
 | Azure CLI version 2.1.0 or later | See [Install the Azure CLI](/cli/azure/install-azure-cli).|
