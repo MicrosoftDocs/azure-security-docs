@@ -36,7 +36,7 @@ In this tutorial, you:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure Cloud HSM resource that you deployed, initialized, and configured. For information, refer to the [Azure Cloud HSM onboarding guide](onboarding-guide.md).
 
 ## Set up and configure operation event logs

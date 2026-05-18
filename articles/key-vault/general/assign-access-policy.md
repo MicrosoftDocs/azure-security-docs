@@ -8,7 +8,7 @@ ms.custom: devx-track-azurecli, has-azure-ad-ps-ref, sfi-image-nochange
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 03/26/2026
+ms.date: 05/12/2026
 ms.author: mbaldwin
 #Customer intent: As someone new to Key Vault, I'm trying to learn basic concepts that can help me understand Key Vault documentation.
 ---
@@ -16,6 +16,9 @@ ms.author: mbaldwin
 # Assign a Key Vault access policy (legacy)
 
 [!INCLUDE [contributor-role-warning.md](~/reusable-content/ce-skilling/azure/includes/key-vault/key-vault-contributor-role-warning.md)]
+
+> [!IMPORTANT]
+> Access policies are a legacy authorization model for Azure Key Vault. For new deployments, use Azure role-based access control (RBAC) instead. See [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](rbac-guide.md) and [Secure your Azure Key Vault](secure-key-vault.md).
 
 A Key Vault access policy determines whether a given security principal, namely a user, application or user group, can perform different operations on Key Vault [secrets](../secrets/index.yml), [keys](../keys/index.yml), and [certificates](../certificates/index.yml). You can assign access policies using the Azure portal, the Azure CLI, or Azure PowerShell.
 
