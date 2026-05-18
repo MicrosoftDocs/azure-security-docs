@@ -5,7 +5,7 @@ services: confidential-ledger
 author: msmbaldwin
 ms.service: azure-confidential-ledger
 ms.topic: overview
-ms.date: 04/14/2025
+ms.date: 04/23/2026
 ms.author: shusinha
 
 
@@ -118,3 +118,5 @@ Data is automatically replicated to Azure regional pairs for disaster recovery. 
 - [Quickstart: Azure portal](quickstart-portal.md)
 - [Quickstart: Python](quickstart-python.md)
 - [Quickstart: Azure Resource Manager (ARM) template](quickstart-template.md)
+- [Use the Azure portal ledger explorer to verify transactions](ledger-explorer.md)
+- [Inspect ledger data with Ledger Explorer (Offline)](ledger-explorer-offline.md)

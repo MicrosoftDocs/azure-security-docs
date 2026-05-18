@@ -107,7 +107,7 @@ The Azure confidential ledger SDKs use Azure Identity client library, which allo
 
 In this scenario, an application was sent a Microsoft Entra access token for some arbitrary resource managed by the application, and it uses that token to acquire a new Microsoft Entra access token for the Azure confidential ledger resource so that the application could access the confidential ledger on behalf of the principal indicated by the original Microsoft Entra access token.
 
-This flow is called the[OAuth2 token exchange flow](https://tools.ietf.org/html/draft-ietf-oauth-token-exchange-04). It generally requires multiple configuration steps with Microsoft Entra ID, and in some cases(depending on the Microsoft Entra tenant configuration) might require special consent from the administrator of the Microsoft Entra tenant.
+This flow is called the [OAuth2 token exchange flow](https://tools.ietf.org/html/draft-ietf-oauth-token-exchange-04). It generally requires multiple configuration steps with Microsoft Entra ID, and in some cases (depending on the Microsoft Entra tenant configuration) might require special consent from the administrator of the Microsoft Entra tenant.
 
 ## Next steps
 

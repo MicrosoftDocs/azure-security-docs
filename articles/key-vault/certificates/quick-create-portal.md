@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: mvc, mode-ui, sfi-image-nochange
-ms.date: 04/10/2026
+ms.date: 05/12/2026
 
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure
@@ -29,6 +29,8 @@ Sign in to the [Azure portal](https://portal.azure.com).
 ## Add a certificate to Key Vault
 
 To add a certificate to the vault, you just need to take a couple of additional steps. In this case, you add a self-signed certificate that could be used by an application. The certificate is called **ExampleCertificate**.
+
+[!INCLUDE [self-signed-certificate-note.md](~/reusable-content/ce-skilling/azure/includes/key-vault/self-signed-certificate-note.md)]
 
 1. On the Key Vault properties pages, select **Certificates**.
 2. Select **Generate/Import**.
