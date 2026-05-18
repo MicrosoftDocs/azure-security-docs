@@ -120,4 +120,4 @@ If your main goal is query flexibility, start with tags and add more collection 
 
 - [Overview of Microsoft Azure confidential ledger](overview.md)
 - [User defined functions in Azure confidential ledger](server-side-programming.md)
-- [API reference documentation](https://azuresdkdocs.z19.web.core.windows.net/python/azure-confidentialledger/latest/azure.confidentialledger.html) 
+- [API reference documentation](/python/api/overview/azure/confidential-ledger)

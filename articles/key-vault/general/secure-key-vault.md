@@ -33,15 +33,15 @@ Azure Key Vault has unique security considerations related to vault architecture
 
 - **Use one Key Vault per tenant in multitenant solutions**: For multitenant SaaS solutions, use a separate Key Vault for each tenant to maintain data isolation. This is the recommended approach for secure isolation of customer data and workloads. See [Multitenancy and Azure Key Vault](/azure/architecture/guide/multitenant/service/key-vault).
 
-### Object Storage in Key Vault
+### Object storage in Key Vault
 
-- **Do not use Key Vault as a data storage to store customer configurations or service configurations**:  Services should use [Azure Storage with encryption at rest](/azure/storage/common/storage-service-encryption) or [Azure configuration manager](/mem/configmgr/core/understand/introduction). Storage is more performant for such scenarios.
+- **Do not use Key Vault as a data storage to store customer configurations or service configurations**:  Services should use [Azure Storage with encryption at rest](/azure/storage/common/storage-service-encryption) or [Azure App Configuration](/azure/azure-app-configuration/overview). These options are more performant for such scenarios.
 
 - **Do not store certificates (customer or service owned) as secrets**:  Service-owned certificates should be stored as Key Vault certificates and configured for autorotation. For more information, see [Azure key vault: Certificates](../certificates/about-certificates.md) and [Understanding autorotation in Azure Key Vault](autorotation.md).
 
     - **Customer content (excluding secrets and certificates) should not be stored in Key Vault**: Key Vault is not a data store and not built to scale like a data store. Instead use a proper data store like [Cosmos DB](/azure/cosmos-db/introduction) or [Azure Storage](/azure/storage/common/storage-introduction). Customers have the option of BYOK (Bring Your Own Key) for encryption at rest. This key can be stored in Azure Key Vault to encrypt the data in Azure Storage.
 
-## Network Security
+## Network security
 
 Reducing network exposure is critical to protecting Azure Key Vault from unauthorized access. Configure network restrictions based on your organization's requirements and use case. For detailed information and step-by-step configuration instructions, see [Configure network security for Azure Key Vault](network-security.md).
 
@@ -75,8 +75,7 @@ Azure Key Vault uses Microsoft Entra ID for authentication. Access is controlled
 
     - **Do not use legacy access policies**: Legacy access policies have known security vulnerabilities and lack support for Privileged Identity Management (PIM), and should not be used for critical data and workloads. Azure RBAC mitigates potential unauthorized Key Vault access risks. See [Azure role-based access control (Azure RBAC) vs. access policies (legacy)](rbac-access-policy.md).
 
-    > [!IMPORTANT]
-    > RBAC permission model allows vault-level role assignments for persistent access and eligible (JIT) assignments for privileged operations. Object-scope assignments only support read operations; administrative operations like network access control, monitoring, and object management require vault-level permissions. For secure isolation across application teams, use one Key Vault per application.
+    The RBAC permission model allows vault-level role assignments for persistent access and eligible (JIT) assignments for privileged operations. Object-scope assignments only support read operations; administrative operations like network access control, monitoring, and object management require vault-level permissions. For secure isolation across application teams, use one Key Vault per application.
 
 - **Assign just-in-time (JIT) privileged roles**: Use Azure Privileged Identity Management (PIM) to assign eligible JIT Azure RBAC roles for administrators and operators of Key Vault. See [Privileged Identity Management (PIM) overview](/entra/id-governance/privileged-identity-management/pim-configure) for details.
 
@@ -85,25 +84,19 @@ Azure Key Vault uses Microsoft Entra ID for authentication. Access is controlled
 
 - **Enable Microsoft Entra Conditional Access Policies**: Key Vault supports Microsoft Entra Conditional Access policies to apply access controls based on conditions such as user location or device. For more information, see [Conditional Access overview](/entra/identity/conditional-access/overview).
 
-- **Apply the principle of least privilege**: Limit the number of users with administrative roles and ensure users are granted only the minimum permissions required for their role. See [Enhance security with the principle of least privilege](/entra/identity-platform/secure-least-privileged-access)
+- **Apply the principle of least privilege**: Limit the number of users with administrative roles and ensure users are granted only the minimum permissions required for their role. See [Enhance security with the principle of least privilege](/entra/identity-platform/secure-least-privileged-access).
 
-## Data Protection
+## Data protection
 
 Protecting data stored in Azure Key Vault requires enabling soft delete, purge protection, and implementing automated rotation of cryptographic materials.
 
 - **Turn on soft delete**: Ensure that soft delete is enabled so that deleted Key Vault objects can be recovered within a 7 to 90-day retention period. See [Azure Key Vault soft-delete overview](soft-delete-overview.md).
 
-- **Turn on purge protection**: Enable purge protection to protect against accidental or malicious deletion of Key Vault objects even after soft delete is enabled. See [Azure Key Vault soft-delete overview: Purge Protection](soft-delete-overview.md#purge-protection)
+- **Turn on purge protection**: Enable purge protection to protect against accidental or malicious deletion of Key Vault objects even after soft delete is enabled. See [Azure Key Vault soft-delete overview: Purge Protection](soft-delete-overview.md#purge-protection).
 
 - **Implement autorotation for cryptographic assets**: Configure automatic rotation of keys, secrets, and certificates to minimize the risk of compromise and ensure compliance with security policies. Regular rotation of cryptographic materials is a critical security practice. See [Understanding autorotation in Azure Key Vault](autorotation.md), [Configure key autorotation](../keys/how-to-configure-key-rotation.md), [Configure certificate autorotation](../certificates/tutorial-rotate-certificates.md), [Automate secret rotation for resources with one set of authentication credentials](../secrets/tutorial-rotation.md), and [Automate secret rotation for resources with two sets of authentication credentials](../secrets/tutorial-rotation-dual.md).
 
-## Compliance and governance
-
-Regular compliance audits and governance policies ensure your Key Vault deployment adheres to security standards and organizational requirements.
-
-- **Use Azure Policy to enforce configuration**: Configure Azure Policy to audit and enforce secure configurations for Azure Key Vault and set up alerts for deviations from policy. See [Azure Policy Regulatory Compliance controls for Azure Key Vault](../security-controls-policy.md).
-
-## Logging and Threat Detection
+## Logging and monitoring
 
 Comprehensive logging and monitoring enable detection of suspicious activities and compliance with audit requirements.
 
@@ -115,7 +108,13 @@ Comprehensive logging and monitoring enable detection of suspicious activities a
 
 - **Monitor and alert**: Integrate Key Vault with Event Grid to receive notifications on changes to keys, certificates, or secrets. For details, see [Monitoring Key Vault with Azure Event Grid](event-grid-overview.md).
 
-## Backup and Recovery
+## Compliance and governance
+
+Regular compliance audits and governance policies ensure your Key Vault deployment adheres to security standards and organizational requirements.
+
+- **Use Azure Policy to enforce configuration**: Configure Azure Policy to audit and enforce secure configurations for Azure Key Vault and set up alerts for deviations from policy. See [Azure Policy Regulatory Compliance controls for Azure Key Vault](../security-controls-policy.md).
+
+## Backup and recovery
 
 Regular backups ensure business continuity and protect against data loss from accidental or malicious deletion.
 
@@ -137,7 +136,6 @@ For security best practices specific to keys, secrets, and certificates, see:
 
 ## Next steps
 
-- [Azure Key Vault security baseline](/security/benchmark/azure/baselines/key-vault-security-baseline)
 - [Secure your Azure Managed HSM deployment](../managed-hsm/secure-managed-hsm.md)
 - [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md)
 - [Azure RBAC: Built-in roles](/azure/role-based-access-control/built-in-roles)

@@ -3,7 +3,7 @@ title: Quickstart – Azure Key Vault Go client library - Manage certificates
 description: Learn how to create, retrieve, and delete certificates from an Azure key vault using the Go client library
 author: Duffney
 ms.author: jduffney
-ms.date: 03/30/2026
+ms.date: 05/12/2026
 ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: quickstart
@@ -61,6 +61,8 @@ go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
 ## Create the sample code
 
 Create a file named `main.go` and copy the following code into the file:
+
+[!INCLUDE [self-signed-certificate-note.md](~/reusable-content/ce-skilling/azure/includes/key-vault/self-signed-certificate-note.md)]
 
 ```go
 package main

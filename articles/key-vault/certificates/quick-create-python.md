@@ -3,7 +3,7 @@ title: Quickstart – Azure Key Vault Python client library – manage certifica
 description: Learn how to create, retrieve, and delete certificates from an Azure key vault using the Python client library
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 03/30/2026
+ms.date: 05/12/2026
 
 ms.service: azure-key-vault
 ms.subservice: certificates
@@ -98,6 +98,8 @@ This quickstart uses the Azure Identity library with Azure CLI or Azure PowerShe
 The Azure Key Vault certificate client library for Python allows you to manage certificates. The following code sample demonstrates how to create a client, set a certificate, retrieve a certificate, and delete a certificate.
 
 Create a file named *kv_certificates.py* that contains this code.
+
+[!INCLUDE [self-signed-certificate-note.md](~/reusable-content/ce-skilling/azure/includes/key-vault/self-signed-certificate-note.md)]
 
 ```python
 import os
