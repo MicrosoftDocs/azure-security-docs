@@ -3,7 +3,7 @@ title: Diagnose private links configuration issues on Azure Key Vault
 description: Resolve common private links issues with Key Vault and deep dive into the configuration
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 04/10/2026
+ms.date: 05/19/2026
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
@@ -59,7 +59,7 @@ This guide does NOT apply to Microsoft-managed services that access your Key Vau
 - Azure Data Factory accessing credentials stored in Key Vault
 - Azure Pipelines retrieving secrets from Key Vault
 
-For these scenarios, you must verify whether the specific Azure service supports accessing Key Vaults with firewalls enabled. Many services use the [Trusted Services](overview-vnet-service-endpoints.md#trusted-services) feature to securely access your Key Vault despite firewall restrictions. However, not all Azure services appear on the trusted services list due to various architectural reasons.
+For these scenarios, you must verify whether the specific Azure service supports accessing Key Vaults with firewalls enabled. Many services use the [Trusted Services](overview-vnet-service-endpoints.md#microsoft-services-known-to-bypass-the-firewall-today) feature to securely access your Key Vault despite firewall restrictions. However, not all Azure services appear on the trusted services list due to various architectural reasons.
 
 If you're having issues with a specific Azure service accessing your Key Vault, consult that service's documentation or contact its support team for specific guidance.
 

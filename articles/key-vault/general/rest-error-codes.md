@@ -7,7 +7,7 @@ ms.author: mbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: reference
-ms.date: 04/10/2026
+ms.date: 05/19/2026
 ---
  
 # Azure Key Vault REST API Error Codes
@@ -138,7 +138,7 @@ After logging is turned on, you can determine if the 403 is due to access policy
 
 "Client address (00.00.00.00) is not authorized and caller is not a trusted service"
 
-There is a limited list of "Azure Trusted Services". Azure Web Sites are **not** a Trusted Azure Service. For more information, see the blog post [Trusted services](/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services).
+There is a limited list of "Azure Trusted Services". Azure Web Sites are **not** a Trusted Azure Service. For more information, see the blog post [Trusted services](/azure/key-vault/general/overview-vnet-service-endpoints#microsoft-services-known-to-bypass-the-firewall-today).
 
 You must add the IP address of the Azure Web Site to the Key Vault in order for it to work.
 
