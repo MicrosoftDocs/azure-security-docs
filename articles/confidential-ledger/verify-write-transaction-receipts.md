@@ -3,7 +3,7 @@ title: Verify Azure Confidential Ledger write transaction receipts
 description: Verify Azure Confidential Ledger write transaction receipts
 author: andpiccione
 ms.author: apiccione
-ms.date: 11/07/2022
+ms.date: 04/23/2026
 ms.service: azure-confidential-ledger
 ms.topic: how-to
 
@@ -505,5 +505,7 @@ def verify_openssl_certificate(
 ## Next steps
 
 * [Azure Confidential Ledger write transaction receipts](write-transaction-receipts.md)
+* [Use the Azure portal ledger explorer to verify transactions](ledger-explorer.md)
+* [Inspect ledger data with Ledger Explorer (Offline)](ledger-explorer-offline.md)
 * [Overview of Microsoft Azure confidential ledger](overview.md)
 * [Azure confidential ledger architecture](architecture.md)

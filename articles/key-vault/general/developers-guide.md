@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 04/10/2026
+ms.date: 05/13/2026
 ms.author: mbaldwin
 ---
 # Azure Key Vault developer's guide
@@ -55,7 +55,7 @@ The following table lists SDKs and quickstarts for managing Key Vault resources 
 
 | Azure CLI | PowerShell | REST API | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[Reference](/cli/azure/keyvault)<br>[Quickstart](quick-create-cli.md)|[Reference](/powershell/module/az.keyvault)<br>[Quickstart](quick-create-powershell.md)|[Reference](/rest/api/keyvault/)|[Reference](/azure/templates/microsoft.keyvault/vaults)<br>[Quickstart](./vault-create-template.md)|[Reference](/dotnet/api/microsoft.azure.management.keyvault)|[Reference](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)|[Reference](/java/api/overview/azure/resourcemanager-keyvault-readme)|[Reference](/javascript/api/@azure/arm-keyvault)|
+|[Reference](/cli/azure/keyvault)<br>[Quickstart](quick-create-cli.md)|[Reference](/powershell/module/az.keyvault)<br>[Quickstart](quick-create-powershell.md)|[Reference](/rest/api/keyvault/)|[Reference](/azure/templates/microsoft.keyvault/vaults)<br>[Quickstart](./quick-create-template.md)|[Reference](/dotnet/api/microsoft.azure.management.keyvault)|[Reference](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)|[Reference](/java/api/overview/azure/resourcemanager-keyvault-readme)|[Reference](/javascript/api/@azure/arm-keyvault)|
 
 ## Authenticate to Key Vault in code
 
@@ -199,7 +199,7 @@ When developing applications that use Key Vault, consider the following performa
 
 ## Monitoring and logging
 
-Enable logging and monitoring for security, compliance, and troubleshooting. Configure diagnostic settings, Event Grid notifications, and alerts for critical events. For detailed guidance, see [Monitor Azure Key Vault](monitor-key-vault.md), [Azure Key Vault logging](logging.md), [Monitoring Key Vault with Azure Event Grid](event-grid-overview.md), and [Secure your Azure Key Vault: Logging and Threat Detection](secure-key-vault.md#logging-and-threat-detection).
+Enable logging and monitoring for security, compliance, and troubleshooting. Configure diagnostic settings, Event Grid notifications, and alerts for critical events. For detailed guidance, see [Monitor Azure Key Vault](monitor-key-vault.md), [Azure Key Vault logging](logging.md), [Monitoring Key Vault with Azure Event Grid](event-grid-overview.md), and [Secure your Azure Key Vault: Logging and monitoring](secure-key-vault.md#logging-and-monitoring).
 
 ## Common parameters and request patterns
 

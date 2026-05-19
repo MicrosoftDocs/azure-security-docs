@@ -3,7 +3,7 @@ title: Quickstart - Azure Key Vault certificates client library for .NET
 description: Learn how to create, retrieve, and delete certificates from an Azure key vault using the .NET client library
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 03/26/2026
+ms.date: 05/12/2026
 
 ms.service: azure-key-vault
 ms.subservice: certificates
@@ -144,6 +144,8 @@ var client = new CertificateClient(new Uri(kvUri), new DefaultAzureCredential())
 ### Save a certificate
 
 In this example, for simplicity you can use self-signed certificate with default issuance policy. For this task, use the [StartCreateCertificateAsync](/dotnet/api/azure.security.keyvault.certificates.certificateclient.startcreatecertificateasync) method. The method's parameters accepts a certificate name and the [certificate policy](/dotnet/api/azure.security.keyvault.certificates.certificatepolicy).
+
+[!INCLUDE [self-signed-certificate-note.md](~/reusable-content/ce-skilling/azure/includes/key-vault/self-signed-certificate-note.md)]
 
 ```csharp
 var operation = await client.StartCreateCertificateAsync("myCertificate", CertificatePolicy.Default);
