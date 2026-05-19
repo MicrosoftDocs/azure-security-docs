@@ -15,7 +15,7 @@ ai-usage: ai-assisted
 
 The virtual network service endpoints for Azure Key Vault allow you to restrict access to a specified virtual network. The endpoints also allow you to restrict access to a list of IPv4 (internet protocol version 4) address ranges. Any user connecting to your key vault from outside those sources is denied access.
 
-There is one important exception to this restriction. If you opt in to allow trusted Microsoft services, connections from a fixed allowlist of Microsoft services—such as Microsoft 365 Exchange Online, Microsoft 365 SharePoint Online, Azure Resource Manager, and Azure Backup—are allowed through the firewall. The complete allowlist is in the [Trusted services](#trusted-services) section later in this article. Microsoft services that aren't in that table don't bypass the firewall, even when the option is enabled. Allowlisted services still need to present a valid Microsoft Entra token, and must have permissions (configured as Azure RBAC role assignments or access policies) to perform the requested operation. For more information, see [Virtual network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview).
+There is one important exception to this restriction. If you opt in to allow trusted Microsoft services, Key Vault honors a trusted-mode claim that certain first-party Microsoft services—such as Microsoft 365 Exchange Online, Microsoft 365 SharePoint Online, Azure Resource Manager, and Azure Backup—include in their managed identity tokens. Services that present this claim bypass the firewall when the option is enabled. The [Trusted services](#trusted-services) section later in this article lists the services that currently use this mechanism; Microsoft services that aren't in that table don't bypass the firewall today, even when the option is enabled. Services that do bypass the firewall still need to present a valid Microsoft Entra token, and must have permissions (configured as Azure RBAC role assignments or access policies) to perform the requested operation. For more information, see [Virtual network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview).
 
 ## Usage scenarios
 
@@ -42,17 +42,17 @@ When you grant access to trusted Azure services, you grant the following types o
 * Trusted access to resources based on a managed identity. 
 * Trusted access across tenants using a Federated Identity Credential 
 
-The bypass applies only to services listed in the [Trusted services](#trusted-services) table. Other Microsoft services—including services that authenticate with a Microsoft-managed identity but aren't on the allowlist—aren't admitted by this option and need a firewall IP rule, a virtual network rule, or a private endpoint to reach the vault.
+The bypass is determined by the caller's identity, not by a static list maintained inside Key Vault. When a first-party Microsoft service calls Key Vault, Key Vault inspects the caller's managed identity token. If the token carries a trusted-mode claim asserting that the caller is part of the Azure trusted subsystem, and you have enabled **Allow trusted Microsoft services to bypass this firewall**, the call is admitted. Services that don't request this claim—including Microsoft services that authenticate with a managed identity but haven't onboarded the trusted-mode claim—aren't admitted by this option and need a firewall IP rule, a virtual network rule, or a private endpoint to reach the vault.
 
 How the bypass behaves under each `publicNetworkAccess` setting:
 
-* `Enabled` (firewall on, selected networks): allowlisted services bypass the firewall.
-* `Disabled` (public access disabled): allowlisted services still bypass and don't require a private endpoint to reach the vault. Services that aren't on the allowlist are blocked.
-* `SecuredByPerimeter` (vault associated with a Network Security Perimeter in Enforced mode): the bypass is overridden, and even allowlisted services are blocked unless an explicit perimeter access rule admits them. For details, see [Network security perimeter](network-security.md#network-security-perimeter).
+* `Enabled` (firewall on, selected networks): services that present the trusted-mode claim bypass the firewall.
+* `Disabled` (public access disabled): services that present the trusted-mode claim still bypass and don't require a private endpoint to reach the vault. Other services are blocked.
+* `SecuredByPerimeter` (vault associated with a Network Security Perimeter in Enforced mode): the bypass is overridden, and even trusted services are blocked unless an explicit perimeter access rule admits them. For details, see [Network security perimeter](network-security.md#network-security-perimeter).
 
 ### Trusted services
 
-The following table is the complete allowlist of trusted services that can access a key vault when the **Allow trusted services** option is enabled. Services that don't appear in this table aren't bypassed by the option, regardless of how they authenticate.
+The following table lists the Microsoft services that currently bypass the Key Vault firewall when the **Allow trusted services** option is enabled. Services that don't appear in this table don't bypass the firewall today.
 
 |Trusted service|Supported usage scenarios|
 | --- | --- |
