@@ -50,9 +50,9 @@ How the bypass behaves under each `publicNetworkAccess` setting:
 * `Disabled` (public access disabled): services that present the trusted-mode claim still bypass and don't require a private endpoint to reach the vault. Other services are blocked.
 * `SecuredByPerimeter` (vault associated with a Network Security Perimeter in Enforced mode): the bypass is overridden, and even trusted services are blocked unless an explicit perimeter access rule admits them. For details, see [Network security perimeter](network-security.md#network-security-perimeter).
 
-### Trusted services
+### Microsoft services known to bypass the firewall today
 
-The following table lists the Microsoft services that currently bypass the Key Vault firewall when the **Allow trusted services** option is enabled. Services that don't appear in this table don't bypass the firewall today.
+The following table is an informational snapshot of Microsoft services that currently request the trusted-mode claim and therefore bypass the Key Vault firewall when the **Allow trusted services** option is enabled. The list is maintained based on team reports and might lag behind actual behavior; membership is determined by which services request the claim, not by Key Vault. If a service you're using doesn't appear here, check that service's own documentation for guidance on accessing Key Vault behind a firewall, or use a firewall rule, virtual network rule, or private endpoint.
 
 |Trusted service|Supported usage scenarios|
 | --- | --- |
