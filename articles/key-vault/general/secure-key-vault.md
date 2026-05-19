@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: general
 ms.custom: horz-security
 ms.topic: best-practice
-ms.date: 05/04/2026
+ms.date: 05/19/2026
 ms.author: mbaldwin
 ai-usage: ai-assisted
 #CustomerIntent: As a key vault administrator, I want to learn how to secure my key vaults
@@ -49,11 +49,11 @@ These network security features are listed from most restricted to least restric
 
 - **Disable public network access and use Private Endpoints only**: Deploy Azure Private Link to establish a private access point from a virtual network to Azure Key Vault and prevent exposure to the public internet. Disabling public access blocks data-plane connections; the vault's public DNS records remain resolvable by design (see [Public DNS visibility of a private key vault](private-link-service.md#public-dns-visibility-of-a-private-key-vault)). For implementation steps, see [Integrate Key Vault with Azure Private Link](private-link-service.md).
 
-    - Some customer scenarios require trusted Microsoft services to bypass the firewall, in such cases the vault might need to be configured to allow Trusted Microsoft Services. For full details, see [Configure network security: Key Vault Firewall Enabled (Trusted Services Only)](network-security.md#key-vault-firewall-enabled-trusted-services-only).
+    - Some customer scenarios require trusted Microsoft services to bypass the firewall, in such cases the vault might need to be configured to allow Trusted Microsoft Services. Only services in the allowlist bypass the firewall; for the complete list, see [Trusted services](overview-vnet-service-endpoints.md#trusted-services). The bypass continues to apply when public access is disabled. For step-by-step guidance, see [Configure network security: Key Vault Firewall Enabled (Trusted Services Only)](network-security.md#key-vault-firewall-enabled-trusted-services-only).
 
 - **Enable Key Vault Firewall**: Limit access to public static IP addresses or your virtual networks. For full details, see [Configure network security: Firewall settings](network-security.md#firewall-settings).
 
-    - Some customer scenarios require trusted Microsoft services to bypass the firewall, in such cases the vault might need to be configured to allow Trusted Microsoft Services.
+    - Some customer scenarios require trusted Microsoft services to bypass the firewall, in such cases the vault might need to be configured to allow Trusted Microsoft Services. Only services in the [Trusted services](overview-vnet-service-endpoints.md#trusted-services) allowlist are admitted by this option; Microsoft services that aren't on the list (for example, Azure DevOps) still need a firewall IP rule, a virtual network rule, or a private endpoint.
 
 - **Use Network Security Perimeter**: Define a logical network isolation boundary for PaaS resources (for example, Azure Key Vault, Azure Storage and SQL Database) that are deployed outside your organization's virtual network perimeter and/or public static IP addresses. For full details, see [Configure network security: Network Security Perimeter](network-security.md#network-security-perimeter).
 
