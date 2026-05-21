@@ -46,7 +46,7 @@ When **Allow trusted Microsoft services to bypass this firewall** is enabled, se
 
 ### Trusted services
 
-The following table lists the Microsoft services *known* to bypass the Key Vault firewall when the **Allow trusted services** option is enabled. This table is maintained manually and may not be exhaustive — other Microsoft services might also bypass the firewall. If a service you're using doesn't appear here, check that service's documentation for guidance on accessing Key Vault behind a firewall, or use a firewall rule, virtual network rule, or private endpoint.
+The following table lists the Microsoft services known to bypass the Key Vault firewall when the **Allow trusted services** option is enabled. This table is not exhaustive and other Microsoft services may also bypass the firewall.
 
 |Trusted service|Supported usage scenarios|
 | --- | --- |
