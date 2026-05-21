@@ -65,7 +65,7 @@ az network private-dns link vnet create --resource-group <resource-group> --virt
 When the firewall is turned on, all access to the HSM from any location that is not using a private endpoints connection is denied, including public Internet and Azure services. Use `--bypass AzureServices` option if you want to allow Microsoft services to access your keys in your Managed HSM. The individual entities (such as an Azure Storage account or an Azure SQL Server) still need to have specific role assignments in place to be able to access a key.
 
 > [!NOTE]
-> Only specific trusted services usage scenarios are supported. For more information, refer to the [list of trusted services usage scenarios](../general/overview-vnet-service-endpoints.md#microsoft-services-known-to-bypass-the-firewall-today).
+> Only specific trusted services usage scenarios are supported. For more information, refer to the [list of trusted services usage scenarios](../general/overview-vnet-service-endpoints.md#trusted-services).
 
 ```azurecli
 az keyvault update-hsm --hsm-name <hsm-name> -g <resource-group> --default-action deny --bypass AzureServices

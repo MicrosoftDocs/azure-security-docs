@@ -70,7 +70,7 @@ Key Vault authentication occurs as part of every request operation on Key Vault.
 1. Key Vault Firewall checks the following criteria. If any criterion is met, the call is allowed. Otherwise the call is blocked and a forbidden response is returned.
 
     * The firewall is disabled and the public endpoint of Key Vault is reachable from the public internet.
-    * The caller is a [Key Vault Trusted Service](./overview-vnet-service-endpoints.md#microsoft-services-known-to-bypass-the-firewall-today), allowing it to bypass the firewall.
+    * The caller is a [Key Vault Trusted Service](./overview-vnet-service-endpoints.md#trusted-services), allowing it to bypass the firewall.
     * The caller is listed in the firewall by IP address, virtual network, or service endpoint.
     * The caller can reach Key Vault over a configured private link connection.    
 
