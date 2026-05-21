@@ -75,7 +75,7 @@ Symmetric (oct-HSM / AES) keys aren't supported in Key Vault. For supported AES 
 
 [!INCLUDE [Key operations](../includes/key-operations.md)]
 
-In addition to the operations listed in the include, Key Vault (vaults) supports:
+In addition to the operations listed above, Key Vault (vaults) supports:
 
 - **Rotate**: Rotates an existing key by generating a new version of the key. This operation is available only on Key Vault resources (not on Managed HSM).
 
@@ -92,7 +92,7 @@ Set key auto-rotation by configuring the key auto-rotation policy. This feature 
 
 [!INCLUDE [Key attributes](../includes/key-attributes.md)]
 
-In addition to the attributes in the include, Key Vault keys expose:
+In addition to the attributes listed above, Key Vault keys expose:
 
 - *hsmPlatform*: string, optional. The underlying HSM platform that protects a key.
     - A `hsmPlatform` value of `2` means the key is protected by the latest FIPS 140-3 Level 3 validated HSM platform.
