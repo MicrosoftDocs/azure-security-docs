@@ -41,7 +41,7 @@ For details on supported algorithms, operations, attributes, and tags, see [Key 
 
 ## Compliance
 
-All keys in Managed HSM are HSM-protected by **FIPS 140-3 Level 3** validated hardware. There is a single protection tier; Managed HSM doesn't expose multiple HSM platforms or a software-protected option.
+All keys in Managed HSM are HSM-protected by **FIPS 140-3 Level 3** validated hardware. There is a single protection tier; Managed HSM doesn't expose multiple HSM platforms or a software-protected option. For the full set of controls and certifications, see the [Azure Key Vault Managed HSM security baseline](/security/benchmark/azure/baselines/key-vault-managed-hsm-security-baseline).
 
 ## Quantum-resistant cryptography
 
@@ -57,7 +57,7 @@ Managed HSM can attest that a key was generated and resides inside an HSM that M
 |--|--|
 | Azure server-side data encryption with customer-managed keys | [Server-side encryption using customer-managed keys in Azure Key Vault](/azure/security/fundamentals/encryption-models#server-side-encryption-using-customer-managed-keys-in-azure-key-vault) |
 | Client-side data encryption | [Client-Side Encryption with Azure Key Vault](/azure/storage/common/storage-client-side-encryption?tabs=dotnet) |
-| Keyless TLS | Use the key [Client Libraries](../general/client-libraries.md#client-libraries-per-language-and-object) |
+| Keyless TLS | [Azure Managed HSM TLS Offload Library](tls-offload-library.md) |
 
 ## Related content
 
