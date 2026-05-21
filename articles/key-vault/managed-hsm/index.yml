@@ -28,7 +28,7 @@ landingContent:
           - text: REST API overview
             url: ../general/about-keys-secrets-certificates.md
           - text: Supported keys and algorithms
-            url: ../keys/about-keys.md
+            url: about-keys.md
 
   # Card
   - title: Concept
