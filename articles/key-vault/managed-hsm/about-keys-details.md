@@ -99,8 +99,9 @@ For throughput numbers per AES key size and operation, see [Managed HSM scaling 
 
 For more information, see [Key operations in the Key Vault REST API reference](/rest/api/keyvault).
 
-> [!NOTE]
-> Managed HSM doesn't support automated key rotation policy operations; auto-rotation is available only on Key Vault resources. To rotate a key in Managed HSM, generate a new key version manually. For lifecycle guidance, see [How to migrate key workloads](../general/migrate-key-workloads.md).
+### Rotate
+
+Managed HSM supports automated key rotation. You can set a rotation policy per key to generate a new key version at a specified frequency, or rotate a key on demand. For details, see [Configure key autorotation in Azure Managed HSM](key-rotation.md). For broader lifecycle guidance, see [How to migrate key workloads](../general/migrate-key-workloads.md).
 
 ## Key attributes
 
@@ -117,7 +118,7 @@ You can attach application-specific metadata in the form of tags. Up to 15 tags 
 
 ## Access control
 
-Managed HSM uses a local, role-based access control (RBAC) model that's separate from Azure RBAC at the management plane. You assign built-in roles such as **Managed HSM Crypto User**, **Managed HSM Crypto Officer**, and **Managed HSM Administrator** at the HSM-instance or per-key scope. For details, see [Managed HSM local RBAC built-in roles](built-in-roles.md) and [Managed HSM access control](access-control.md).
+Managed HSM uses a local, role-based access control (RBAC) model at the data plane that's separate from Azure RBAC at the management plane. Built-in roles such as **Managed HSM Crypto User** and **Managed HSM Crypto Officer** govern key operations and can be assigned at the HSM-wide or per-key scope; broader administrative roles such as **Managed HSM Administrator** govern security domain, backup/restore, and role management rather than key operations. For details, see [Managed HSM local RBAC built-in roles](built-in-roles.md) and [Managed HSM access control](access-control.md).
 
 ## Related content
 

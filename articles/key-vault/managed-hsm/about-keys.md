@@ -35,7 +35,7 @@ The base JWK/JWA specifications are extended to enable key types unique to the M
 | **EC-HSM** — Elliptic Curve key | P-256, P-256K (secp256k1), P-384, P-521 |
 | **oct-HSM** — Symmetric (AES) key | 128-bit, 192-bit, 256-bit |
 
-You can generate keys directly in a Managed HSM instance, or import RSA, EC, or symmetric keys in soft form or by exporting them from a supported HSM device. To securely transport key material into Managed HSM, use the method described in the [BYOK (bring your own key) specification](../keys/byok-specification.md). For more information, see [Import HSM-protected keys to Managed HSM](hsm-protected-keys-byok.md).
+You can generate keys directly in a Managed HSM instance, import RSA or EC keys from a PEM file, or securely transport keys (RSA, EC, or oct-HSM) from a supported on-premises HSM by using the [BYOK (bring your own key) specification](../keys/byok-specification.md). For more information, see [Manage keys in Managed HSM](key-management.md) and [Import HSM-protected keys to Managed HSM (BYOK)](hsm-protected-keys-byok.md).
 
 For details on supported algorithms, operations, attributes, and tags, see [Key types, algorithms, and operations](about-keys-details.md).
 
