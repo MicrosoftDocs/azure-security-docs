@@ -41,7 +41,7 @@ For details on supported algorithms, operations, attributes, and tags, see [Key 
 
 ## Compliance
 
-All keys in Managed HSM are HSM-protected by **FIPS 140-3 Level 3** validated hardware. There is a single protection tier; Managed HSM doesn't expose multiple HSM platforms or a software-protected option. For the full set of controls and certifications, see the [Azure Key Vault Managed HSM security baseline](/security/benchmark/azure/baselines/key-vault-managed-hsm-security-baseline).
+All keys in Managed HSM are HSM-protected by **FIPS 140-3 Level 3** validated hardware. There is a single protection tier; Managed HSM doesn't expose multiple HSM platforms or a software-protected option. For details on the hardware environment, validated standards (FedRAMP-High, PCI, SOC 1/2/3, ISO 270x), and the broader Azure compliance program, see [Managed HSM technical details](managed-hsm-technical-details.md#managed-hsm-hardware-environment).
 
 ## Quantum-resistant cryptography
 
