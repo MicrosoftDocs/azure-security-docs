@@ -1,5 +1,5 @@
 ---
-title: Configure agentless code scanning (Preview)
+title: Configure agentless code scanning
 description: Learn how to configure agentless code scanning in Microsoft Defender for Cloud to detect code and dependency risks across Azure DevOps and GitHub repositories.
 ms.author: elkrieger
 author: ElazarK
@@ -10,7 +10,7 @@ ms.custom: references_regions
 #customer intent: As a security professional, I want to learn how agentless code scanning in Microsoft Defender for Cloud can help identify vulnerabilities in my code and IaC configurations.
 ---
 
-# Configure agentless code scanning (Preview)
+# Configure agentless code scanning
 
 Agentless code scanning in Microsoft Defender for Cloud offers fast and scalable security coverage for all repositories in Azure DevOps and GitHub. It automatically scans code, open-source dependencies, and infrastructure-as-code (IaC) to identify vulnerabilities and misconfigurations. You don't need to change build or deployment pipelines. This approach simplifies setup and maintenance with a single Azure DevOps or GitHub connector and provides broad coverage, continuous insights, and actionable security findings. It lets security and development teams focus on fixing risks without interrupting development workflows.
 
