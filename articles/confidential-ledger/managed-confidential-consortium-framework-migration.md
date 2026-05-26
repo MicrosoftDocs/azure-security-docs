@@ -34,5 +34,5 @@ Explore the following resources to get started with Azure confidential ledger:
 - [Azure confidential ledger product page](https://azure.microsoft.com/products/azure-confidential-ledger)
 - [Azure confidential ledger overview](overview.md)
 - [Azure confidential ledger architecture](architecture.md)
-- [Quickstart: Azure CLI]( quickstart-cli.md)
-- [Quickstart: Azure PowerShell]( quickstart-powershell.md)
+- [Quickstart: Azure CLI](quickstart-cli.md)
+- [Quickstart: Azure PowerShell](quickstart-powershell.md)

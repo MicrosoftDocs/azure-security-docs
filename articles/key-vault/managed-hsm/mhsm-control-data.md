@@ -33,7 +33,7 @@ Secure key management is essential to protect and control data in the cloud. Azu
 - **Azure Key Vault Premium** encrypts by using keys protected by [FIPS 140 validated HSMs](/azure/key-vault/keys/about-keys#compliance).
 - **Azure Key Vault Managed HSM** is a fully managed service that encrypts by using single-tenant, customer-controlled, FIPS 140-3 Level 3 HSM-protected keys.
 
-For added assurance, in Azure Key Vault Premium and Azure Key Vault Managed HSM, you can [bring your own key (BYOK)](../keys/hsm-protected-keys-byok.md) and import HSM-protected keys from an on-premises HSM.
+For added assurance, in Azure Key Vault Premium and Azure Key Vault Managed HSM, you can [bring your own key (BYOK)](hsm-protected-keys-byok.md) and import HSM-protected keys from an on-premises HSM.
 
 ## Portfolio of Azure key management products
 
@@ -58,7 +58,7 @@ Key Vault supports two types of containers:
 
   - Managed HSM supports only HSM-backed keys.
 
-For more information, see [Azure Key Vault Concepts](../general/basic-concepts.md) and [Azure Key Vault REST API overview](/rest/api/keyvault/).
+For more information, see [What is Azure Key Vault Managed HSM?](overview.md), [About keys in Managed HSM](about-keys.md), and the [Azure Key Vault REST API overview](/rest/api/keyvault/).
 
 ## What is Azure Key Vault Managed HSM?
 
