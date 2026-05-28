@@ -14,7 +14,7 @@ ms.custom:
 
 This profile outlines claims for an [Intel® Trust Domain Extensions (TDX)](https://www.intel.com/content/www/us/en/developer/tools/trust-domain-extensions/overview.html) attestation result generated as an Entity Attestation Token (EAT) by Azure Attestation.
 
-The profile includes claims from the IETF [JWT](https://datatracker.ietf.org/doc/html/rfc7519) specification, the [EAT](https://datatracker.ietf.org/doc/html/draft-ietf-rats-eat-21)) specification,  Intel's TDX specification and Microsoft specific claims.
+The profile includes claims from the IETF [JWT](https://datatracker.ietf.org/doc/html/rfc7519) specification, the [EAT](https://datatracker.ietf.org/doc/rfc9711/) specification,  Intel's TDX specification and Microsoft specific claims.
 
 ## JWT claims
 

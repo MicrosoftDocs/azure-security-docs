@@ -1,11 +1,11 @@
 ---
-title: Tutorial - Use Azure Key Vault with a virtual machine in JavaScript | Microsoft Docs
+title: Tutorial - Use Azure Key Vault with a virtual machine in JavaScript
 description: In this tutorial, you configure a virtual machine a JavaScript application to read a secret from your key vault.
 author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 04/16/2025
+ms.date: 04/10/2026
 ms.author: mbaldwin
 ms.devlang: javascript
 ms.custom: mvc, devx-track-js, devx-track-azurecli, devx-track-azurepowershell
@@ -22,7 +22,7 @@ In this tutorial, you set up a Node.js application to read information from Azur
 > * Create a key vault
 > * Store a secret in Key Vault
 > * Create an Azure Linux virtual machine
-> * Enable a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) for the virtual machine
+> * Enable a [managed identity](/entra/identity/managed-identities-azure-resources/overview) for the virtual machine
 > * Grant the required permissions for the console application to read data from Key Vault
 > * Retrieve a secret from Key Vault
 
@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 For Windows, Mac, and Linux:
   * [Git](https://git-scm.com/downloads)
-  * This tutorial requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0.4 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+  * This tutorial requires that you run the Azure CLI locally. You must have a recent version of the Azure CLI installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Log in to Azure
 
@@ -66,7 +66,7 @@ To create a Linux VM using the Azure CLI, use the [az vm create](/cli/azure/vm) 
 
 ```azurecli-interactive
 az vm create \
-  --resource-group myResourceGroup \
+  --resource-group <resource-group> \
   --name myVM \
   --image Ubuntu2204 \
   --admin-username azureuser \
@@ -80,7 +80,7 @@ Note the value of `publicIpAddress` in the output.
 Create a system-assigned identity for the virtual machine by using the Azure CLI [az vm identity assign](/cli/azure/vm/identity#az-vm-identity-assign) command:
 
 ```azurecli
-az vm identity assign --name "myVM" --resource-group "myResourceGroup"
+az vm identity assign --name "myVM" --resource-group "<resource-group>"
 ```
 
 Note the system-assigned identity that's displayed in the following code. The output of the preceding command would be: 
@@ -97,7 +97,7 @@ Note the system-assigned identity that's displayed in the following code. The ou
 Now you can assign the previously created identity permissions to your key vault by running the following command:
 
 ```azurecli
-az keyvault set-policy --name "<your-unique-keyvault-name>" --object-id "<systemAssignedIdentity>" --secret-permissions get list
+az role assignment create --role "Key Vault Secrets User" --assignee "<system-assigned-identity>" --scope /subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<vault-name>
 ```
 
 ## Log in to the VM
@@ -105,10 +105,10 @@ az keyvault set-policy --name "<your-unique-keyvault-name>" --object-id "<system
 To sign in to the virtual machine, follow the instructions in [Connect and sign in to an Azure virtual machine running Linux](/azure/virtual-machines/linux-vm-connect) or [Connect and sign in to an Azure virtual machine running Windows](/azure/virtual-machines/windows/connect-logon).
 
 
-To log into a Linux VM, you can use the ssh command with the \<publicIpAddress\> given in the [Create a virtual machine](#create-a-virtual-machine) step:
+To log into a Linux VM, you can use the ssh command with the `<public-ip-address>` given in the [Create a virtual machine](#create-a-virtual-machine) step:
 
 ```terminal
-ssh azureuser@<PublicIpAddress>
+ssh azureuser@<public-ip-address>
 ```
 
 ## Install Node.js and npm libraries on the VM
@@ -118,7 +118,7 @@ On the virtual machine, install the two npm libraries we'll be using in our Java
 1. In the SSH terminal, install Node.js and npm with the following commands:
 
     ```bash
-    curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash - && \
+    curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash - && \
         sudo apt-get install -y nodejs
     ```
 
@@ -148,7 +148,7 @@ On the virtual machine, install the two npm libraries we'll be using in our Java
     nano index.js
     ```
 
-1. Copy the following code, replacing \<your-unique-keyvault-name\> with the name of your key vault, and paste into the Nano editor:
+1. Copy the following code, replacing `<vault-name>` with the name of your key vault, and paste into the Nano editor:
 
     ```javascript
     // index.js
@@ -157,7 +157,7 @@ On the virtual machine, install the two npm libraries we'll be using in our Java
     const { DefaultAzureCredential } = require("@azure/identity");
     
     // Your Azure Key Vault name and secret name
-    const keyVaultName = "<your-unique-keyvault-name>";
+    const keyVaultName = "<vault-name>";
     const keyVaultUri = `https://${keyVaultName}.vault.azure.net`;
     const secretName = "mySecret";
     
@@ -189,7 +189,7 @@ Lastly, run **index.js**. If all has gone well, it should return the value of yo
 ```bash
 node index.js
 
-The value of secret 'mySecret' in '<your-unique-keyvault-name>' is: 'Success!'
+The value of secret 'mySecret' in '<vault-name>' is: 'Success!'
 ```
 
 ## Clean up resources
@@ -197,7 +197,7 @@ The value of secret 'mySecret' in '<your-unique-keyvault-name>' is: 'Success!'
 When they are no longer needed, delete the virtual machine and your key vault.  You can do this quickly by simply deleting the resource group to which they belong:
 
 ```azurecli
-az group delete -g myResourceGroup
+az group delete -g "myResourceGroup"
 ```
 
 ## Next steps

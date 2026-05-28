@@ -6,15 +6,14 @@ author: msmbaldwin
 
 ms.service: azure-key-vault
 ms.subservice: certificates
-ms.topic: conceptual
-ms.date: 04/14/2025
+ms.topic: how-to
+ms.date: 03/26/2026
 
 ms.author: mbaldwin
 
 ---
 
 # Monitor and manage certificate creation
-Applies To: Azure
 
 The scenarios / operations outlined in this article are:
 
@@ -48,7 +47,7 @@ The following examples require an object named "mydigicert" to already be availa
     },
     "issuer": {
       "name": "mydigicert",
-      "cty": "OV-SSL",
+      "cty": "OV-SSL"
     }
   }
 }
@@ -96,7 +95,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 {
   "id": “https://mykeyvault.vault.azure.net/certificates/mycert1/pending",
   "issuer": {
-    "name": "{issuer-name}"
+    "name": "mydigicert"
   },
   "csr": "MIICq......DD5Lp5cqXg==",
   "cancellation_requested": false,
@@ -128,7 +127,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 {
   "id": “https://mykeyvault.vault.azure.net/certificates/mycert1/pending",
   "issuer": {
-    "name": "{issuer-name}"
+    "name": "mydigicert"
   },
   "csr": "MIICq......DD5Lp5cqXg==",
   "cancellation_requested": false,
@@ -160,7 +159,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 {
   "id": “https://mykeyvault.vault.azure.net/certificates/mycert1/pending",
   "issuer": {
-    "name": "{issuer-name}"
+    "name": "mydigicert"
   },
   "csr": "MIICq......DD5Lp5cqXg==",
   "cancellation_requested": false,
@@ -168,8 +167,8 @@ StatusCode: 200, ReasonPhrase: 'OK'
   "status_details": "",
   "request_id": "a76827a18b63421c917da80f28e9913d",
   "error": {
-    "code": "<errorcode>",
-    "message": "<message>"
+    "code": "Certificate issuer error",
+    "message": "The issuer encountered an error processing the certificate request."
   }
 }
 
@@ -310,7 +309,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 {
   "id": “https://mykeyvault.vault.azure.net/certificates/mycert1/pending",
   "issuer": {
-    "name": "{issuer-name}"
+    "name": "mydigicert"
   },
   "csr": "MIICq......DD5Lp5cqXg==",
   "cancellation_requested": true,
@@ -343,7 +342,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 {
   "id": “https://mykeyvault.vault.azure.net/certificates/mycert1/pending",
   "issuer": {
-    "name": "{issuer-name}"
+    "name": "mydigicert"
   },
   "csr": "MIICq......DD5Lp5cqXg==",
   "cancellation_requested": false,
@@ -410,7 +409,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 |Element name|Required|Type|Version|Description|
 |------------------|--------------|----------|-------------|-----------------|
-|x5c|Yes|array|\<introducing version>|X509 certificate chain as base 64 string array.|
+|x5c|Yes|array|\<introducing-version>|X509 certificate chain as base 64 string array.|
 
 ### Response
 

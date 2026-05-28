@@ -3,7 +3,7 @@ title: Quickstart - Azure Key Vault certificates client library for .NET
 description: Learn how to create, retrieve, and delete certificates from an Azure key vault using the .NET client library
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 04/14/2025
+ms.date: 05/12/2026
 
 ms.service: azure-key-vault
 ms.subservice: certificates
@@ -98,16 +98,16 @@ The application obtains the key vault name from an environment variable called `
 
 Windows
 ```cmd
-set KEY_VAULT_NAME=<your-key-vault-name>
+set KEY_VAULT_NAME=<vault-name>
 ````
 Windows PowerShell
 ```powershell
-$Env:KEY_VAULT_NAME="<your-key-vault-name>"
+$Env:KEY_VAULT_NAME="<vault-name>"
 ```
 
 macOS or Linux
 ```bash
-export KEY_VAULT_NAME=<your-key-vault-name>
+export KEY_VAULT_NAME=<vault-name>
 ```
 
 ## Object model
@@ -130,9 +130,9 @@ using Azure.Security.KeyVault.Certificates;
 
 Application requests to most Azure services must be authorized. Using the [DefaultAzureCredential](/dotnet/azure/sdk/authentication#defaultazurecredential) class provided by the [Azure Identity client library](/dotnet/api/overview/azure/identity-readme) is the recommended approach for implementing passwordless connections to Azure services in your code. `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code. 
 
-In this quickstart, `DefaultAzureCredential` authenticates to key vault using the credentials of the local development user logged into the Azure CLI. When the application is deployed to Azure, the same `DefaultAzureCredential` code can automatically discover and use a managed identity that is assigned to an App Service, Virtual Machine, or other services. For more information, see [Managed Identity Overview](/azure/active-directory/managed-identities-azure-resources/overview).
+In this quickstart, `DefaultAzureCredential` authenticates to key vault using the credentials of the local development user logged into the Azure CLI. When the application is deployed to Azure, the same `DefaultAzureCredential` code can automatically discover and use a managed identity that is assigned to an App Service, Virtual Machine, or other services. For more information, see [Managed Identity Overview](/entra/identity/managed-identities-azure-resources/overview).
 
-In this example, the name of your key vault is expanded to the key vault URI, in the format `https://<your-key-vault-name>.vault.azure.net`. For more information about authenticating to key vault, see [Developer's Guide](/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
+In this example, the name of your key vault is expanded to the key vault URI, in the format `https://<vault-name>.vault.azure.net`. For more information about authenticating to key vault, see [Developer's Guide](/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
 
 ```csharp
 string keyVaultName = Environment.GetEnvironmentVariable("KEY_VAULT_NAME");
@@ -144,6 +144,8 @@ var client = new CertificateClient(new Uri(kvUri), new DefaultAzureCredential())
 ### Save a certificate
 
 In this example, for simplicity you can use self-signed certificate with default issuance policy. For this task, use the [StartCreateCertificateAsync](/dotnet/api/azure.security.keyvault.certificates.certificateclient.startcreatecertificateasync) method. The method's parameters accepts a certificate name and the [certificate policy](/dotnet/api/azure.security.keyvault.certificates.certificatepolicy).
+
+[!INCLUDE [self-signed-certificate-note.md](~/reusable-content/ce-skilling/azure/includes/key-vault/self-signed-certificate-note.md)]
 
 ```csharp
 var operation = await client.StartCreateCertificateAsync("myCertificate", CertificatePolicy.Default);
@@ -251,3 +253,4 @@ To learn more about Key Vault and how to integrate it with your apps, see the fo
 - See an [Access Key Vault from Virtual Machine Tutorial](../general/tutorial-net-virtual-machine.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
 - Review the [Key Vault security overview](../general/secure-key-vault.md)
+- Review [certificates-specific security best practices](secure-certificates.md)

@@ -3,7 +3,7 @@ title: Comprehensive Guide to Key Management in Azure Cloud HSM
 description: Learn best practices and recommendations for key management in Azure Cloud HSM, including storage limits, key wrapping security, and caching strategies.
 author: msmbaldwin
 ms.service: azure-cloud-hsm
-ms.topic: conceptual
+ms.topic: best-practice
 ms.date: 03/20/2025
 ms.author: mbaldwin
 
@@ -27,6 +27,11 @@ To avoid exceeding Azure Cloud HSM service limits, consider using one or more of
 
 > [!NOTE]
 > Wait 24 hours after you create a key to ensure that synchronization and backups within your Azure Cloud HSM deployment are complete.
+
+> [!CAUTION]
+> If a key exists on only one node and that node fails without a backup, you can be permanently locked out of your encrypted data with no recovery option. Always verify that keys are synchronized across all nodes and maintain regular backups.
+>
+> When creating users, it is the customer's responsibility to ensure users are present on all nodes of the Azure Cloud HSM cluster. For more information, see [Ensure your HSM users are available on all nodes of your cluster](user-management.md#ensure-your-hsm-users-are-available-on-all-nodes-of-your-cluster). For steps on synchronizing missing keys, see [Synchronize users and keys across Azure Cloud HSM nodes](synchronize-users-keys.md).
 
 ## Manage key wrapping
 

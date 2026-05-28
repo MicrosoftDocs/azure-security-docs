@@ -21,10 +21,10 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/confidential-ledger/authenticate-ledger-nodes.md",
-      "redirect_url": "/azure/confidential-ledger/overview",
+      "source_path_from_root": "/articles/confidential-ledger/quickstart-ledger-explorer.md",
+      "redirect_url": "/azure/confidential-ledger/ledger-explorer",
       "redirect_document_id": false
-    }    
+    }
   ]
 }
 

@@ -4,7 +4,7 @@ description: How to organize data in Azure Confidential Ledger.
 author: musabbir
 ms.author: musabbirkhan
 ms.service: azure-confidential-ledger
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/15/2025
 ---
 # Data Organization
@@ -103,9 +103,21 @@ for entry in list_result:
     print(f"Contents: {entry['contents']}")
 ```
 
+## Sample Scenarios
+
+The following scenarios can help you decide when to use collection IDs versus Tags.
+
+| Scenario | Recommended approach | Why |
+|--|--|--|
+| You write general records and mostly read by transaction ID or latest entry. | Use the default collection ID (`subledger-0`). | This approach keeps data organization simple and avoids managing many collection IDs. |
+| You need strict logical separation of data sets, such as tenant-specific or workload-specific isolation. | Use dedicated collection IDs for each logical group. | Group-level collection IDs make it easier to isolate and list records by boundary. |
+| You need query-oriented lookups at a finer granularity, including per-entry categorization. | Prefer tags within a shared collection before creating a unique collection ID per entry. | You can achieve similar query outcomes without creating and managing a unique collection ID for every entry. |
+
+If your main goal is query flexibility, start with tags and add more collection IDs only when clear isolation boundaries are required.
+
 
 ## Next steps
 
 - [Overview of Microsoft Azure confidential ledger](overview.md)
 - [User defined functions in Azure confidential ledger](server-side-programming.md)
-- [API reference documentation](https://azuresdkdocs.z19.web.core.windows.net/python/azure-confidentialledger/latest/azure.confidentialledger.html) 
+- [API reference documentation](/python/api/overview/azure/confidential-ledger)

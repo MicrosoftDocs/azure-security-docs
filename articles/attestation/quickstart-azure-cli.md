@@ -68,13 +68,13 @@ Here are commands you can use to create and manage the attestation provider:
 1. Run the [az attestation create](/cli/azure/attestation#az-attestation-create) command to create an attestation provider without policy signing requirement:
 
    ```azurecli
-   az attestation create --name "myattestationprovider" --resource-group "MyResourceGroup" --location westus
+   az attestation create --name "<attestation-provider-name>" --resource-group "<resource-group>" --location westus
    ```
    
 1. Run the [az attestation show](/cli/azure/attestation#az-attestation-show) command to retrieve attestation provider properties such as status and AttestURI:
 
    ```azurecli
-   az attestation show --name "myattestationprovider" --resource-group "MyResourceGroup"
+   az attestation show --name "<attestation-provider-name>" --resource-group "<resource-group>"
    ```
 
    This command displays values like the following output:
@@ -94,7 +94,7 @@ Here are commands you can use to create and manage the attestation provider:
 You can delete an attestation provider by using the [az attestation delete](/cli/azure/attestation#az-attestation-delete) command:
 
 ```azurecli
-az attestation delete --name "myattestationprovider" --resource-group "sample-resource-group"
+az attestation delete --name "<attestation-provider-name>" --resource-group "<resource-group>"
 ```
 
 ## Policy management
@@ -104,7 +104,7 @@ Use the commands described here to provide policy management for an attestation 
 The [az attestation policy show](/cli/azure/attestation/policy#az-attestation-policy-show) command returns the current policy for the specified TEE:
 
 ```azurecli
-az attestation policy show --name "myattestationprovider" --resource-group "MyResourceGroup" --attestation-type SGX-IntelSDK
+az attestation policy show --name "<attestation-provider-name>" --resource-group "<resource-group>" --attestation-type SGX-IntelSDK
 ```
 
 > [!NOTE]
@@ -127,7 +127,7 @@ az attestation policy set --name testatt1 --resource-group testrg --attestation-
 To set policy in JWT format for a given kind of attestation type using file path:
 
 ```azurecli
-az attestation policy set --name "myattestationprovider" --resource-group "MyResourceGroup" \
+az attestation policy set --name "<attestation-provider-name>" --resource-group "<resource-group>" \
 --attestation-type SGX-IntelSDK -f "{file_path}" --policy-format JWT
 ```
 

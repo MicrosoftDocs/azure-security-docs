@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 04/15/2025
+ms.date: 04/10/2026
 ms.author: mbaldwin
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-dotnet
@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-dotnet
 
 # Tutorial: Use a managed identity to connect Key Vault to an Azure web app in .NET
 
-[Azure Key Vault](./overview.md) provides a way to store credentials and other secrets with increased security. But your code needs to authenticate to Key Vault to retrieve them. [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview) help to solve this problem by giving Azure services an automatically managed identity in Microsoft Entra ID. You can use this identity to authenticate to any service that supports Microsoft Entra authentication, including Key Vault, without having to display credentials in your code.
+[Azure Key Vault](./overview.md) provides a way to store credentials and other secrets with increased security. But your code needs to authenticate to Key Vault to retrieve them. [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview) help to solve this problem by giving Azure services an automatically managed identity in Microsoft Entra ID. You can use this identity to authenticate to any service that supports Microsoft Entra authentication, including Key Vault, without having to display credentials in your code.
 
 In this tutorial, you'll create and deploy Azure web application to [Azure App Service](/azure/app-service/overview). You'll  use a managed identity to authenticate your Azure web app with an Azure key vault using [Azure Key Vault secret client library for .NET](/dotnet/api/overview/azure/key-vault) and the [Azure CLI](/cli/azure/get-started-with-azure-cli). The same basic principles apply when you use the development language of your choice, Azure PowerShell, and/or the Azure portal.
 
@@ -29,7 +29,7 @@ For more information about Azure App service web applications and deployment pre
 To complete this tutorial, you need:
 
 * An Azure subscription. [Create one for free.](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
-* The [.NET Core 3.1 SDK (or later)](https://dotnet.microsoft.com/download/dotnet-core/3.1).
+* The [.NET 8.0 SDK (or later)](https://dotnet.microsoft.com/download/dotnet/8.0).
 * A [Git](https://www.git-scm.com/downloads) installation of version 2.28.0 or greater.
 * The [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/).
 * [Azure Key Vault.](./overview.md) You can create a key vault by using the [Azure portal](quick-create-portal.md), the [Azure CLI](quick-create-cli.md), or [Azure PowerShell](quick-create-powershell.md).
@@ -99,7 +99,7 @@ Record your user name and password so you can use it to deploy your web apps.
 A resource group is a logical container into which you deploy Azure resources and manage them. Create a resource group to contain both your key vault and your web app by using the [az group create](/cli/azure/group?#az-group-create) command:
 
 ```azurecli-interactive
-az group create --name "myResourceGroup" -l "EastUS"
+az group create --name "<resource-group>" -l "EastUS"
 ```
 
 ### Create an App Service plan
@@ -107,7 +107,7 @@ az group create --name "myResourceGroup" -l "EastUS"
 Create an [App Service plan](/azure/app-service/overview-hosting-plans) by using the Azure CLI [az appservice plan create](/cli/azure/appservice/plan) command. This following example creates an App Service plan named `myAppServicePlan` in the `FREE` pricing tier:
 
 ```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
+az appservice plan create --name myAppServicePlan --resource-group <resource-group> --sku FREE
 ```
 
 When the App Service plan is created, the Azure CLI displays information similar to what you see here:
@@ -118,7 +118,7 @@ When the App Service plan is created, the Azure CLI displays information similar
   "appServicePlanName": "myAppServicePlan",
   "geoRegion": "West Europe",
   "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/0000-0000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan",
+  "id": "/subscriptions/0000-0000/resourceGroups/&lt;resource-group&gt;/providers/Microsoft.Web/serverfarms/myAppServicePlan",
   "kind": "app",
   "location": "West Europe",
   "maximumNumberOfWorkers": 1,
@@ -136,12 +136,12 @@ For more information, see [Manage an App Service plan in Azure](/azure/app-servi
 
 Create an [Azure web app](/azure/app-service/overview) in the `myAppServicePlan` App Service plan. 
 
-> [!Important]
-> Like a key vault, an Azure web app must have a unique name. Replace `<your-webapp-name>` with the name of your web app in the following examples.
+> [!IMPORTANT]
+> Like a key vault, an Azure web app must have a unique name. Replace `<webapp-name>` with the name of your web app in the following examples.
 
 
 ```azurecli-interactive
-az webapp create --resource-group "myResourceGroup" --plan "myAppServicePlan" --name "<your-webapp-name>" --deployment-local-git
+az webapp create --resource-group "<resource-group>" --plan "myAppServicePlan" --name "<webapp-name>" --deployment-local-git
 ```
 
 When the web app is created, the Azure CLI shows output similar to what you see here:
@@ -163,28 +163,28 @@ Local git is configured with url of 'https://&lt;username&gt;@&lt;your-webapp-na
 }
 </pre>
 
-The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, in the format `https://<username>@<your-webapp-name>.scm.azurewebsites.net/<your-webapp-name>.git`. Save this URL. You'll need it later.
+The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, in the format `https://<username>@<webapp-name>.scm.azurewebsites.net/<webapp-name>.git`. Save this URL. You'll need it later.
 
 Now configure your web app to deploy from the `main` branch:
 
 ```azurecli-interactive
- az webapp config appsettings set -g MyResourceGroup --name "<your-webapp-name>" --settings deployment_branch=main
+ az webapp config appsettings set -g MyResourceGroup --name "<webapp-name>" --settings deployment_branch=main
 ```
 
-Go to your new app by using the following command. Replace `<your-webapp-name>` with your app name.
+Go to your new app by using the following command. Replace `<webapp-name>` with your app name.
 
 ```bash
-https://<your-webapp-name>.azurewebsites.net
+https://<webapp-name>.azurewebsites.net
 ```
 
 You'll see the default webpage for a new Azure web app.
 
 ### Deploy your local app
 
-Back in the local terminal window, add an Azure remote to your local Git repository. In the following command, replace `<deploymentLocalGitUrl-from-create-step>` with the URL of the Git remote that you saved in the [Create a web app](#create-a-web-app) section.
+Back in the local terminal window, add an Azure remote to your local Git repository. In the following command, replace `<deployment-url>` with the URL of the Git remote that you saved in the [Create a web app](#create-a-web-app) section.
 
 ```bash
-git remote add azure <deploymentLocalGitUrl-from-create-step>
+git remote add azure <deployment-url>
 ```
 
 Use the following command to push to the Azure remote to deploy your app. When Git Credential Manager prompts you for credentials, use the credentials you created in the [Configure the local Git deployment](#configure-the-local-git-deployment) section.
@@ -224,7 +224,7 @@ To https://&lt;your-webapp-name&gt;.scm.azurewebsites.net:443/&lt;your-webapp-na
 Go to (or refresh) the deployed application by using your web browser:
 
 ```bash
-http://<your-webapp-name>.azurewebsites.net
+http://<webapp-name>.azurewebsites.net
 ```
 
 You'll see the "Hello World!" message you saw earlier when you visited `http://localhost:5000`.
@@ -237,12 +237,12 @@ In this section, you'll configure web access to Key Vault and update your applic
 
 ### Create and assign access to a managed identity
 
-In this tutorial, we'll use [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) to authenticate to Key Vault. Managed identity automatically manages application credentials.
+In this tutorial, we'll use [managed identity](/entra/identity/managed-identities-azure-resources/overview) to authenticate to Key Vault. Managed identity automatically manages application credentials.
 
 In the Azure CLI, to create the identity for the application, run the [az webapp-identity assign](/cli/azure/webapp/identity?#az-webapp-identity-assign) command:
 
 ```azurecli-interactive
-az webapp identity assign --name "<your-webapp-name>" --resource-group "myResourceGroup"
+az webapp identity assign --name "<webapp-name>" --resource-group "<resource-group>"
 ```
 
 The command will return this JSON snippet:
@@ -295,9 +295,9 @@ SecretClientOptions options = new SecretClientOptions()
             Mode = RetryMode.Exponential
          }
     };
-var client = new SecretClient(new Uri("https://<your-unique-key-vault-name>.vault.azure.net/"), new DefaultAzureCredential(),options);
+var client = new SecretClient(new Uri("https://<vault-name>.vault.azure.net/"), new DefaultAzureCredential(),options);
 
-KeyVaultSecret secret = client.GetSecret("<mySecret>");
+KeyVaultSecret secret = client.GetSecret("<secret-name>");
 
 string secretValue = secret.Value;
 ```
@@ -334,7 +334,7 @@ git push azure main
 ## Go to your completed web app
 
 ```bash
-http://<your-webapp-name>.azurewebsites.net
+http://<webapp-name>.azurewebsites.net
 ```
 
 Where before you saw "Hello World!", you should now see the value of your secret displayed.
@@ -342,6 +342,6 @@ Where before you saw "Hello World!", you should now see the value of your secret
 ## Next steps
 
 - [Use Azure Key Vault with applications deployed to a virtual machine in .NET](./tutorial-net-virtual-machine.md)
-- Learn more about [managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview)
+- Learn more about [managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview)
 - View the [Developer's Guide](./developers-guide.md)
 - [Secure access to a key vault](./secure-key-vault.md)

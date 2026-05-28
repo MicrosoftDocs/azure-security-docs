@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 06/20/2025
+ms.date: 01/30/2026
 ms.author: mbaldwin
 
 ---
@@ -33,16 +33,16 @@ Set up a virtual environment and install the required Python packages from `requ
 # [Windows](#tab/windows)
 
 ```sh
-python3 –m venv attestation
+python3 -m venv attestation
 attestation\Scripts\activate.bat
-pip3 install –r requirements.txt
+pip3 install -r requirements.txt
 cd src/
 ```
 
 # [Linux](#tab/linux)
 
 ```sh
-python3 –m venv attestation
+python3 -m venv attestation
 source attestation/bin/activate 
 pip3 install -r requirements.txt
 cd src/
@@ -57,36 +57,36 @@ Get attestation data for a specific key from the HSM using the Azure CLI [az key
 Usage:
 
 ```sh
-az keyvault key get-attestation --hsm-name <poolname> --name <keyname> --version <keyversion> --file <filename>.json
+az keyvault key get-attestation --hsm-name <hsm-name> --name <key-name> --version <key-version> --file <output-file>.json
 ```
 or
 
 ```sh
-az keyvault key get-attestation --id https://<poolname>.managedhsm.azure.net/keys/<keyname>/<keyversion> --file <filename>.json
+az keyvault key get-attestation --id https://<hsm-name>.managedhsm.azure.net/keys/<key-name>/<key-version> --file <output-file>.json
 ```
 
 Examples:
 
-- For a key named `contosokey` in HSM named `contoso`:
+- For a key named `<key-name>` in HSM named `<hsm-name>`:
 
     ```sh
-    az keyvault key get-attestation --hsm-name contoso --name contosokey --file attestation.json
+    az keyvault key get-attestation --hsm-name <hsm-name> --name <key-name> --file attestation.json
     ```
     or
 
   ```sh
-    az keyvault key get-attestation --id https://contoso.managedhsm.azure.net/keys/contosokey --file attestation.json
+    az keyvault key get-attestation --id https://<hsm-name>.managedhsm.azure.net/keys/<key-name> --file attestation.json
     ```
 
-- For a key named `contosokey` in HSM named `contoso`, with a specific key version `48293232e672449b9008602b80618`:
+- For a key named `<key-name>` in HSM named `<hsm-name>`, with a specific key version `<key-version>`:
 
     ```sh
-    az keyvault key get-attestation --hsm-name contoso --name contosokey --version 48293232e672449b9008602b80618 --file attestation.json
+    az keyvault key get-attestation --hsm-name <hsm-name> --name <key-name> --version <key-version> --file attestation.json
     ```
     or
 
    ```sh
-    az keyvault key get-attestation --id https://contoso.managedhsm.azure.net/keys/contosokey/48293232e672449b9008602b80618 --file attestation.json
+    az keyvault key get-attestation --id https://<hsm-name>.managedhsm.azure.net/keys/<key-name>/<key-version> --file attestation.json
     ```
 
 ## Validate the attestation data

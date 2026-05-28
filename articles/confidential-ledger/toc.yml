@@ -34,6 +34,8 @@ items:
       href: authentication-azure-ad.md
   - name: Verifying your Ledger Data
     items:
+    - name: Ledger Explorer concepts
+      href: ledger-explorer-concepts.md
     - name: Write transaction receipts
       href: write-transaction-receipts.md
   - name: User defined functions (UDFs)
@@ -64,10 +66,14 @@ items:
     items:
     - name: Verify write transaction receipts
       href: verify-write-transaction-receipts.md
+    - name: Authenticate ledger nodes
+      href: authenticate-ledger-nodes.md
     - name: Establish trust on Azure confidential ledger
       href: verify-node-quotes.md
-    - name: Upload, view and list ledger data with the Azure ledger explorer
-      href: quickstart-ledger-explorer.md
+    - name: Use the Azure portal ledger explorer
+      href: ledger-explorer.md
+    - name: Inspect ledger data with Ledger Explorer (Offline)
+      href: ledger-explorer-offline.md
   - name: Applications using Confidential Ledger 
     items: 
     - name: Store your data securely in SQL Server with Ledger

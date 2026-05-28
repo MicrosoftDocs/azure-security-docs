@@ -3,8 +3,8 @@ title: User Management Best Practices in Azure Cloud HSM
 description: Learn best practices for managing user identities, securing credentials, implementing redundancy, and restricting user permissions in Azure Cloud HSM.
 author: msmbaldwin
 ms.service: azure-cloud-hsm
-ms.topic: conceptual
-ms.date: 03/20/2025
+ms.topic: best-practice
+ms.date: 03/31/2026
 ms.author: mbaldwin
 
 #customer intent: As a security administrator, I need to manage user identities and permissions in Azure Cloud HSM so that I can ensure security and compliance.
@@ -40,6 +40,23 @@ Incorporate a mix of uppercase and lowercase letters, numbers, and special chara
 Protecting your HSM user credentials is paramount, because these credentials grant access to perform cryptographic and management operations on your HSM.
 
 Azure Cloud HSM does not retain access to your HSM user credentials. If you lose access to your credentials, Microsoft can't help.
+
+## Protect your partition owner certificate
+
+The partition owner certificate (`PO.crt`) is a critical component that you upload during HSM initialization. After you upload the partition owner certificate, you can't change it. If you upload an incorrect certificate, you must delete the Azure Cloud HSM resource and deploy again.
+
+Store the partition owner certificate and its corresponding private key (`PO.key`) securely. Keep the private key offline whenever possible, because it's required only for initial signing and cryptography officer (CO) password resets. For more information about the partition owner private key, see [Secure your Azure Cloud HSM deployment](secure-cloud-hsm.md).
+
+## Ensure your HSM users are available on all nodes of your cluster
+
+When you create a user, the user is created on all three nodes of the Cloud HSM cluster if all nodes are available. However, unlike keys, Azure Cloud HSM service does not perform backend user synchronization. User management is fully customer managed.
+
+> [!CAUTION]
+> If a user exists on only one node and that node fails, you can be permanently locked out with no recovery option. Always verify that users are synchronized across all nodes.
+
+If user creation fails on one or more nodes (for example, due to a node being unavailable), you must recreate the user on the missing nodes after they recover and are healthy again. To do this, rerun the user create command with identical credentials, which forces an update on any missing nodes. After recreating the user, sign in as that cryptography user (CU) and confirm connectivity to all three cluster nodes.
+
+For information on user creation commands, see the [Azure Cloud HSM onboarding guide](onboarding-guide.md). For detailed steps on identifying and synchronizing missing users, see [Synchronize users and keys across Azure Cloud HSM nodes](synchronize-users-keys.md).
 
 ## Implement secondary admins for lockout prevention
 
