@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 04/10/2026
+ms.date: 05/04/2026
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -255,6 +255,9 @@ To enhance network security, you can configure your vault to disable public acce
 
 For complete Private Link setup instructions, see [Integrate Key Vault with Azure Private Link](./private-link-service.md).
 
+> [!NOTE]
+> **What's still publicly visible after disabling public access.** The key vault FQDN (`<vault-name>.vault.azure.net` and its CNAME into `privatelink.vaultcore.azure.net`) continues to resolve from public DNS resolvers. This behavior is by design and is required for the Private Link DNS overlay model that every Azure PaaS service uses. A `dig` or `nslookup` from the public internet returns the public regional ingress IP for Key Vault, and that ingress refuses every request when public access is disabled. Public DNS resolution doesn't disclose whether a private endpoint exists, the private IP of the endpoint, the vault's network rules, or any data-plane content. For more information, see [Public DNS visibility of a private key vault](private-link-service.md#public-dns-visibility-of-a-private-key-vault) and [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns).
+
 To disable public access after configuring Private Link:
 
 # [Portal](#tab/azure-portal)
@@ -284,7 +287,7 @@ Update-AzKeyVault -ResourceGroupName "myresourcegroup" -VaultName "mykeyvault" -
 ---
 
 > [!IMPORTANT]
-> After disabling public access, the key vault is only accessible through private endpoints. Ensure your private endpoint configuration is complete before disabling public access.
+> After disabling public access, the key vault is only accessible through private endpoints. Ensure your private endpoint configuration is complete before disabling public access. Disabling public access blocks data-plane connections; it doesn't remove the vault's public DNS records, which remain resolvable by design.
 
 ### Network security perimeter
 

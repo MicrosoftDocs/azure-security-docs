@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurepowershell, mode-api
-ms.date: 03/30/2026
+ms.date: 05/13/2026
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
@@ -74,6 +74,8 @@ When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/modu
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name "myResourceGroup"
 ```
+
+[!INCLUDE [Soft-delete note](~/reusable-content/ce-skilling/azure/includes/key-vault/key-vault-cleanup-soft-delete-note.md)]
 
 ## Next steps
 

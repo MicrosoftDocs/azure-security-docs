@@ -5,10 +5,16 @@ items:
   items:
   - name: About Managed HSM
     href: overview.md
+  - name: About keys
+    href: about-keys.md
+  - name: Key types, algorithms, and operations
+    href: about-keys-details.md
 
 - name: Quickstarts
   expanded: true
   items:
+  - name: Portal
+    href: quick-create-portal.md
   - name: CLI
     href: quick-create-cli.md
   - name: PowerShell
