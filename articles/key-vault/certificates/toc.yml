@@ -21,7 +21,7 @@ items:
     href: quick-create-net.md
   - name: JavaScript
     href: quick-create-node.md?tabs=azure-cli%2Cwindows&pivots=programming-language-javascript
-    displayName: az ad sp create-for-rbac, az keyvault set-policy
+    displayName: DefaultAzureCredential, az role assignment create
   - name: Python
     href: quick-create-python.md
   - name: Go
@@ -30,9 +30,14 @@ items:
     href: quick-create-java.md
   - name: TypeScript
     href: quick-create-node.md?tabs=azure-cli%2Cwindows&pivots=programming-language-typescript
-    displayName: az ad sp create-for-rbac, az keyvault set-policy
+    displayName: DefaultAzureCredential, az role assignment create
   - name: Spring
     href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates
+  - name: ARM template
+    displayName: Resource Manager
+    href: quick-create-template.md
+  - name: Bicep
+    href: quick-create-bicep.md
 - name: Samples
   items:
   - name: Key Vault Code Samples
@@ -113,6 +118,6 @@ items:
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=key-vault
   - name: Blog
-    href: /archive/blogs/kv/
+    href: https://techcommunity.microsoft.com/tag/azure-key-vault
   - name: Product Feedback
     href: https://feedback.azure.com/d365community/forum/285c5ae0-f524-ec11-b6e6-000d3a4f0da0

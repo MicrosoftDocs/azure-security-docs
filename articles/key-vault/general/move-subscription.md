@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault moving a vault to a different subscription | Microsoft Docs
+title: Azure Key Vault moving a vault to a different subscription
 description: Guidance on moving a key vault to a different subscription.
 services: key-vault
 author: msmbaldwin
@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 04/17/2025
+ms.date: 04/10/2026
 ms.author: mbaldwin 
 ms.custom: devx-track-azurepowershell
 # Customer intent: As a key vault administrator, I want to move my vault to another subscription.
@@ -24,7 +24,7 @@ ms.custom: devx-track-azurepowershell
 > Make sure you understand the impact of this change and follow the guidance in this article carefully before deciding to move key vault to a new subscription.
 > If you are using Managed Service Identities (MSI), read the post-move instructions at the end of the document. 
 
-[Azure Key Vault](overview.md) is automatically tied to the default [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) tenant ID for the subscription in which it is created. You can find tenant ID associated with your subscription by following this [guide](/azure/active-directory-b2c/tenant-management-read-tenant-name). All access policy entries and roles assignments are also tied to this tenant ID. If you move your Azure subscription from tenant A to tenant B, your existing key vaults are inaccessible by the service principals (users and applications) in tenant B. To fix this issue, you need to:
+[Azure Key Vault](overview.md) is automatically tied to the default [Microsoft Entra ID](/entra/fundamentals/whatis) tenant ID for the subscription in which it is created. You can find tenant ID associated with your subscription by following this [guide](/entra/fundamentals/how-to-find-tenant). All access policy entries and roles assignments are also tied to this tenant ID. If you move your Azure subscription from tenant A to tenant B, your existing key vaults are inaccessible by the service principals (users and applications) in tenant B. To fix this issue, you need to:
 
 > [!NOTE]
 > If Key Vault is created through [Azure Lighthouse](/azure/lighthouse/overview), it is tied to managing tenant ID instead. Azure Lighthouse only supports the vault access policy permission model.
@@ -36,8 +36,8 @@ ms.custom: devx-track-azurepowershell
 
 For more information about Azure Key Vault and Microsoft Entra ID, see:
 - [About Azure Key Vault](overview.md)
-- [What is Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis)
-- [How to find tenant ID](/azure/active-directory-b2c/tenant-management-read-tenant-name)
+- [What is Microsoft Entra ID](/entra/fundamentals/whatis)
+- [How to find tenant ID](/entra/fundamentals/how-to-find-tenant)
 
 ## Limitations
 
@@ -59,13 +59,13 @@ You can check existing roles using the [Azure portal](/azure/role-based-access-c
 ## Moving a key vault to a new subscription
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Navigate to your [key vault](overview.md)
-3. Select on the "Overview" tab
-4. Select the "Move" button
-5. Select "Move to another subscription" from the dropdown options
-6. Select the resource group where you want to move your key vault
-7. Acknowledge the warning regarding moving resources
-8. Select "OK"
+1. Navigate to your [key vault](overview.md)
+1. Select on the "Overview" tab
+1. Select the "Move" button
+1. Select "Move to another subscription" from the dropdown options
+1. Select the resource group where you want to move your key vault
+1. Acknowledge the warning regarding moving resources
+1. Select "OK"
 
 ## Additional steps when subscription is in a new tenant
 
@@ -74,7 +74,7 @@ If you moved your subscription containing the key vault to a new tenant, you nee
 ### Update tenant ID in a key vault
 
 ```azurepowershell
-Select-AzSubscription -SubscriptionId <your-subscriptionId>                # Select your Azure Subscription
+Select-AzSubscription -SubscriptionId <subscription-id>                # Select your Azure Subscription
 $vaultResourceId = (Get-AzKeyVault -VaultName myvault).ResourceId          # Get your key vault's Resource ID 
 $vault = Get-AzResource -ResourceId $vaultResourceId -ExpandProperties     # Get the properties for your key vault
 $vault.Properties.TenantId = (Get-AzContext).Tenant.TenantId               # Change the Tenant that your key vault resides in
@@ -88,7 +88,7 @@ Connect-AzAccount                                                          #Log 
 ````
 
 ```azurecli
-az account set -s <your-subscriptionId>                                    # Select your Azure Subscription
+az account set -s <subscription-id>                                    # Select your Azure Subscription
 tenantId=$(az account show --query tenantId)                               # Get your tenantId
 az keyvault update -n myvault --remove Properties.accessPolicies           # Remove the access policies
 az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Update the key vault tenantId
@@ -101,9 +101,7 @@ az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Upd
 Now that your vault is associated with the correct tenant ID and old access policy entries or role assignments are removed, set new access policy entries or role assignments.
 
 For assigning policies, see:
-- [Assign an access policy using Portal](assign-access-policy-portal.md)
-- [Assign an access policy using Azure CLI](assign-access-policy-cli.md)
-- [Assign an access policy using PowerShell](assign-access-policy-powershell.md)
+- [Assign a Key Vault access policy](assign-access-policy.md)
 
 For adding role assignments, see:
 - [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal)
@@ -113,11 +111,11 @@ For adding role assignments, see:
 
 ### Update managed identities
 
-If you are transferring entire subscription and using a managed identity for Azure resources, you will need to update it to the new Microsoft Entra tenant as well. For more information on managed identities, [Managed identity overview](/azure/active-directory/managed-identities-azure-resources/overview).
+If you are transferring entire subscription and using a managed identity for Azure resources, you will need to update it to the new Microsoft Entra tenant as well. For more information on managed identities, [Managed identity overview](/entra/identity/managed-identities-azure-resources/overview).
 
 If you are using managed identity, you'll also have to update the identity because the old identity will no longer be in the correct Microsoft Entra tenant. See the following documents to help resolve this issue. 
 
-* [Updating MSI](/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories)
+* [Updating MSI](/entra/identity/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories)
 * [Transfer Subscription to New Directory](/azure/role-based-access-control/transfer-subscription)
 
 ## Next steps

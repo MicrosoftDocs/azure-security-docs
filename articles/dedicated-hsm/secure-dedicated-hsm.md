@@ -4,7 +4,7 @@ description: Learn the best practices for securing Azure Dedicated HSM, includin
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: azure-dedicated-hsm
-ms.topic: conceptual
+ms.topic: best-practice
 ms.date: 09/26/2025
 ms.custom: horz-security
 ---

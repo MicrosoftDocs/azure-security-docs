@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: quickstart
-ms.date: 04/17/2025
+ms.date: 05/13/2026
 ms.author: mbaldwin
 ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
@@ -20,7 +20,7 @@ Azure Key Vault is a cloud service that provides a secure store for [keys](../ke
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
- - This quickstart requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+ - This quickstart requires a recent version of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
@@ -33,6 +33,8 @@ Azure Key Vault is a cloud service that provides a secure store for [keys](../ke
 ## Clean up resources
 
 [!INCLUDE [Clean up resources](~/reusable-content/ce-skilling/azure/includes/delete-resource-group-cli.md)]
+
+[!INCLUDE [Soft-delete note](~/reusable-content/ce-skilling/azure/includes/key-vault/key-vault-cleanup-soft-delete-note.md)]
 
 ## Next steps
 

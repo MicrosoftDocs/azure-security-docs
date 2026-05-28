@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 04/16/2025
+ms.date: 04/10/2026
 ms.author: mbaldwin
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp, devx-track-azurepowershell, devx-track-azurecli, devx-track-dotnet
@@ -26,7 +26,7 @@ The tutorial shows you how to:
 > * Add a secret to the key vault.
 > * Retrieve a secret from the key vault.
 > * Create an Azure virtual machine.
-> * Enable a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) for the Virtual Machine.
+> * Enable a [managed identity](/entra/identity/managed-identities-azure-resources/overview) for the Virtual Machine.
 > * Assign permissions to the VM identity.
 
 Before you begin, read [Key Vault basic concepts](basic-concepts.md).
@@ -37,7 +37,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 For Windows, Mac, and Linux:
   * [Git](https://git-scm.com/downloads)
-  * The [.NET Core 3.1 SDK or later](https://dotnet.microsoft.com/download/dotnet-core/3.1).
+  * The [.NET 8.0 SDK or later](https://dotnet.microsoft.com/download/dotnet/8.0).
   * [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
 
 ## Create resources and assign permissions
@@ -65,7 +65,7 @@ Connect-AzAccount
 
 ## Populate your key vault with a secret
 
-[!INCLUDE [Create a secret](../includes/key-vault-create-secret.md)]
+[!INCLUDE [Create a secret](~/reusable-content/ce-skilling/azure/includes/key-vault/create-secret.md)]
 
 ## Create a virtual machine
 Create a Windows or Linux virtual machine using one of the following methods:
@@ -81,7 +81,7 @@ Create a system-assigned identity for the virtual machine with the following exa
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
-az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
+az vm identity assign --name <vm-name> --resource-group <resource-group>
 ```
 
 Note the system-assigned identity that's displayed in the following code. The output of the preceding command would be:
@@ -96,8 +96,8 @@ Note the system-assigned identity that's displayed in the following code. The ou
 # [Azure PowerShell](#tab/azurepowershell)
 
 ```azurepowershell
-$vm = Get-AzVM -Name <NameOfYourVirtualMachine>
-Update-AzVM -ResourceGroupName <YourResourceGroupName> -VM $vm -IdentityType SystemAssigned
+$vm = Get-AzVM -Name "<vm-name>"
+Update-AzVM -ResourceGroupName "<resource-group>" -VM $vm -IdentityType SystemAssigned
 ```
 
 Note the PrincipalId that's displayed in the following code. The output of the preceding command would be: 
@@ -171,8 +171,8 @@ Add these lines, updating the URI to reflect the `vaultUri` of your key vault. B
         static void Main(string[] args)
         {
             string secretName = "mySecret";
-            string keyVaultName = "<your-key-vault-name>";
-            var kvUri = "https://<your-key-vault-name>.vault.azure.net";
+            string keyVaultName = "<vault-name>";
+            var kvUri = "https://<vault-name>.vault.azure.net";
             SecretClientOptions options = new SecretClientOptions()
             {
                 Retry =

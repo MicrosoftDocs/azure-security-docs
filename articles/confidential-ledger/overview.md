@@ -5,7 +5,7 @@ services: confidential-ledger
 author: msmbaldwin
 ms.service: azure-confidential-ledger
 ms.topic: overview
-ms.date: 04/14/2025
+ms.date: 04/23/2026
 ms.author: shusinha
 
 
@@ -82,6 +82,21 @@ Confidential ledger nodes are deployed across Azure availability zones to provid
 
 Data is automatically replicated to Azure regional pairs for disaster recovery. For information about data residency considerations, see [Data residency for Azure confidential ledger](data-residency.md).
 
+### Limitations
+
+| Resource | Limit |
+|--|--|
+| Number of ledgers per subscription | 2 standard SKU ledgers |
+| Number of collection IDs per ledger | 50,000 |
+| Create entry | 1800 requests per second, 1800 transactions per second |
+| Get current entry | 3600 requests per second |
+| Get entry | 2500 requests per second |
+| Get receipt | 2400 requests per second |
+| List entries | 3300 requests per second |
+
+> [!NOTE]
+> To request higher limits or discuss limitations, reach out to the Azure Confidential Ledger team.
+
 ## Constraints
 
 - After a confidential ledger instance is created, you can't change the ledger type (private or public).
@@ -103,3 +118,5 @@ Data is automatically replicated to Azure regional pairs for disaster recovery. 
 - [Quickstart: Azure portal](quickstart-portal.md)
 - [Quickstart: Python](quickstart-python.md)
 - [Quickstart: Azure Resource Manager (ARM) template](quickstart-template.md)
+- [Use the Azure portal ledger explorer to verify transactions](ledger-explorer.md)
+- [Inspect ledger data with Ledger Explorer (Offline)](ledger-explorer-offline.md)

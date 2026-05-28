@@ -4,17 +4,17 @@ description: Learn how virtual network service endpoints for Azure Key Vault all
 services: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 11/19/2025
+ms.date: 04/10/2026
 ms.service: azure-key-vault
 ms.subservice: general
-ms.topic: conceptual
+ms.topic: feature-guide
 ---
 
 # Virtual network service endpoints for Azure Key Vault
 
 The virtual network service endpoints for Azure Key Vault allow you to restrict access to a specified virtual network. The endpoints also allow you to restrict access to a list of IPv4 (internet protocol version 4) address ranges. Any user connecting to your key vault from outside those sources is denied access.
 
-There is one important exception to this restriction. If a user has opted-in to allow trusted Microsoft services, connections from those services are let through the firewall. For example, these services include Office 365 Exchange Online, Office 365 SharePoint Online, Azure compute, Azure Resource Manager, and Azure Backup. Such users still need to present a valid Microsoft Entra token, and must have permissions (configured as access policies) to perform the requested operation. For more information, see [Virtual network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview).
+There is one important exception to this restriction. If a user has opted-in to allow trusted Microsoft services, connections from those services are allowed through the firewall. For example, these services include Microsoft 365 Exchange Online, Microsoft 365 SharePoint Online, Azure compute, Azure Resource Manager, and Azure Backup. Such users still need to present a valid Microsoft Entra token, and must have permissions (configured as Azure RBAC role assignments or access policies) to perform the requested operation. For more information, see [Virtual network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview).
 
 ## Usage scenarios
 
@@ -34,7 +34,7 @@ Here are some examples of how you might use service endpoints:
 
 You can grant access to trusted Azure services to the key vault, while maintaining network rules for other apps. These trusted services will then use strong authentication to securely connect to your key vault. 
 
-You can grant access to trusted Azure services by configuring networking settings. For step-by-step guidance, see the [networking configuration options](how-to-azure-key-vault-network-security.md) of this article. 
+You can grant access to trusted Azure services by configuring networking settings. For step-by-step guidance, see [Configure network security for Azure Key Vault](network-security.md#key-vault-firewall-enabled-trusted-services-only).
 
 When you grant access to trusted Azure services, you grant the following types of access: 
 * Trusted access for select operations to resources that are registered in your subscription. 
@@ -81,15 +81,15 @@ Here's a list of trusted services that are allowed to access a key vault if the 
 | Azure SQL Database|[Transparent Data Encryption with Bring Your Own Key support for Azure SQL Database and Azure Synapse Analytics](/azure/azure-sql/database/transparent-data-encryption-byok-overview).|
 | Azure Storage|[Storage Service Encryption using customer-managed keys in Azure Key Vault](/azure/storage/common/customer-managed-keys-configure-key-vault).|
 | Azure Synapse Analytics|[Encryption of data using customer-managed keys in Azure Key Vault](/azure/synapse-analytics/security/workspaces-encryption)|
-| Azure Virtual Machines deployment service|[Deploy certificates to VMs from customer-managed Key Vault](/archive/blogs/kv/updated-deploy-certificates-to-vms-from-customer-managed-key-vault).|
+| Azure Virtual Machines deployment service|[Deploy certificates to VMs from customer-managed Key Vault](/azure/virtual-machines/extensions/key-vault-windows).|
 |Exchange Online, SharePoint Online, M365DataAtRestEncryption | Allow access to customer managed keys for Data-At-Rest Encryption with [Customer Key](/microsoft-365/compliance/customer-key-overview?view=o365-worldwide&preserve-view=true).|
 | Microsoft PowerPlatform | [Encryption of data in Power Platform using customer-managed keys](/power-platform/admin/customer-managed-key).
 | Microsoft Purview|[Using credentials for source authentication in Microsoft Purview](/azure/purview/manage-credentials)
 
 > [!NOTE]
-> You must set up the relevant Azure RBAC for Key Vault role assignments or access policies(legacy) to allow the corresponding services to get access to Key Vault.
+> You must set up the relevant Azure RBAC for Key Vault role assignments or access policies (legacy) to allow the corresponding services to get access to Key Vault.
 
 ## Next steps
 
-- For step-by-step instructions, see [Configure Azure Key Vault firewalls and virtual networks](network-security.md)
-- see the [Azure Key Vault security overview](secure-key-vault.md)
+- For step-by-step instructions, see [Configure network security for Azure Key Vault](network-security.md).
+- For security best practices, see [Secure your Azure Key Vault](secure-key-vault.md).

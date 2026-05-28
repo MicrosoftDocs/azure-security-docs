@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: how-to
 ms.custom: devx-track-js, devx-track-azurecli
-ms.date: 04/14/2025
+ms.date: 04/09/2026
 
 ms.author: mbaldwin
 #Customer intent: As a JavaScript developer who is new to Azure, I want to know the high level steps necessary to use Key Vault keys in JavaScript.
@@ -20,16 +20,16 @@ This article shows you how to connect to Azure Key Vault by using the Azure Key 
   
 ## Prerequisites  
   
-- An Azure subscription - [create one for free](https://azure.microsoft.com/free).
-- [Azure Key Vault](../general/quick-create-cli.md) instance. Review [the access policies](../general/assign-access-policy.md) on your Key Vault to include the permissions necessary for the specific tasks performed in code.
+- An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- [Azure Key Vault](../general/quick-create-cli.md) instance. Ensure you have the appropriate [Azure RBAC role](../general/rbac-guide.md) assigned to perform the specific tasks in code.
 - [Node.js version LTS](https://nodejs.org/)  
 
 ## Set up your project
 
-1. Open a command prompt and change into your project folder. Change `YOUR-DIRECTORY` to your folder name:
+1. Open a command prompt and change into your project folder. Change `<your-directory>` to your folder name:
 
     ```bash
-    cd YOUR-DIRECTORY
+    cd <your-directory>
     ```
 
 1. If you don't have a `package.json` file already in your directory, initialize the project to create the file:
@@ -52,7 +52,7 @@ This article shows you how to connect to Azure Key Vault by using the Azure Key 
 
 ## Authorize access and connect to Key Vault
 
-Microsoft Entra ID provides the most secure connection by managing the connection identity ([**managed identity**](/azure/active-directory/managed-identities-azure-resources/overview)). This **passwordless** functionality allows you to develop an application that doesn't require any keys stored in the code.
+Microsoft Entra ID provides the most secure connection by managing the connection identity ([**managed identity**](/entra/identity/managed-identities-azure-resources/overview)). This **passwordless** functionality allows you to develop an application that doesn't require any keys stored in the code.
 
 Before programmatically authenticating to Azure to use Azure Key Vault keys, make sure you set up your environment. 
 

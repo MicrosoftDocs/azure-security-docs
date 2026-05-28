@@ -7,10 +7,10 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: tutorial
-ms.date: 04/14/2025
+ms.date: 01/30/2026
 
 ms.author: sebansal
-ms.custom: sfi-image-nochange
+ms.custom: sfi-image-nochange, copilot-scenario-highlight
 ---
 
 # Create and merge a certificate signing request in Key Vault
@@ -41,7 +41,7 @@ Follow these steps to add a certificate from CAs that aren't partnered with Key 
 1. Select the **Generate/Import** tab.
 1. On the **Create a certificate** screen, choose the following values:
     - **Method of Certificate Creation**: Generate.
-    - **Certificate Name**: ContosoManualCSRCertificate.
+    - **Certificate Name**: A unique name for your certificate.
     - **Type of Certificate Authority (CA)**: Certificate issued by a non-integrated CA.
     - **Subject**: `"CN=www.contosoHRApp.com"`.
      > [!NOTE]
@@ -68,7 +68,7 @@ The certificate request has now been successfully merged.
 
 1. Create a certificate policy. Because the CA chosen in this scenario isn't partnered, **IssuerName** is set to **Unknown** and Key Vault doesn't enroll or renew the certificate.
 
-   ```azure-powershell
+   ```azurepowershell
    $policy = New-AzKeyVaultCertificatePolicy -SubjectName "CN=www.contosoHRApp.com" -ValidityInMonths 1  -IssuerName Unknown
    ```
      > [!NOTE]
@@ -80,8 +80,8 @@ The certificate request has now been successfully merged.
 
 1. Create the CSR.
 
-   ```azure-powershell
-   $csr = Add-AzKeyVaultCertificate -VaultName ContosoKV -Name ContosoManualCSRCertificate -CertificatePolicy $policy
+   ```azurepowershell
+   $csr = Add-AzKeyVaultCertificate -VaultName "<vault-name>" -Name "<certificate-name>" -CertificatePolicy $policy
    $csr.CertificateSigningRequest
    ```
 
@@ -89,8 +89,8 @@ The certificate request has now been successfully merged.
 
 1. Merge the signed request in Key Vault. After the certificate request has been signed, you can merge it with the initial private/public key pair created in Azure Key Vault.
 
-    ```azure-powershell-interactive
-    Import-AzKeyVaultCertificate -VaultName ContosoKV -Name ContosoManualCSRCertificate -FilePath C:\test\OutputCertificateFile.cer
+    ```azurepowershell-interactive
+    Import-AzKeyVaultCertificate -VaultName "<vault-name>" -Name "<certificate-name>" -FilePath C:\test\OutputCertificateFile.cer
     ```
 
 The certificate request has now been successfully merged.
@@ -108,7 +108,7 @@ If you want to add more information when creating the CSR, define it in **Subjec
 
 Example
 
-   ```azure-powershell
+   ```azurepowershell
    SubjectName="CN = learn.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
    ```
 
@@ -139,6 +139,24 @@ Example
 
 - Error type **The CSR used to get your certificate has already been used. Please try to generate a new certificate with a new CSR.**
      Go to 'Advanced Policy' section of the certificate and check if 'reuse key on renewal' option is turned off.
+
+## Use AI to create complex certificate subject names
+
+GitHub Copilot can help you construct the correct SubjectName format for certificate signing requests, especially when dealing with complex organizational structures or special characters.
+
+```copilot-prompt
+I need to create a certificate signing request in Azure Key Vault with a complex subject name. Help me create the PowerShell command with these requirements:
+- Common Name: api.contoso.com
+- Organization: Contoso, Ltd. (note the comma in the name)
+- Organizational Unit: Cloud Services
+- City: New York
+- State: NY
+- Country: US
+Show me how to properly escape the comma in the organization name, and provide both the certificate policy and the Add-AzKeyVaultCertificate command.
+```
+
+[!INCLUDE [copilot-highlights-disclaimer](~/reusable-content/ce-skilling/azure/includes/copilot-highlights-disclaimer.md)]
+
 ---
 
 ## Next steps

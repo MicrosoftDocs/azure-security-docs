@@ -3,16 +3,18 @@ title: How to generate & transfer HSM-protected keys – BYOK – Azure Key Vaul
 description: Use this article to help you plan for, generate, and transfer your own HSM-protected keys to use with Azure Key Vault. Also known as bring your own key (BYOK).
 services: key-vault
 author: msmbaldwin
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, copilot-scenario-highlight
 
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 01/08/2026
+ms.date: 04/09/2026
 ms.author: mbaldwin
 ---
 
 # Import HSM-protected keys to Key Vault (BYOK)
+
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 For added assurance when you use Azure Key Vault, you can import or generate a key in a hardware security module (HSM); the key never leaves the HSM boundary. This scenario is often referred to as *bring your own key (BYOK)*. Key Vault uses [FIPS 140 validated HSMs](/azure/key-vault/keys/about-keys#compliance) to protect your keys.
 
@@ -45,7 +47,7 @@ The following table lists prerequisites for using BYOK in Azure Key Vault:
 
 | Requirement | More information |
 | --- | --- |
-| An Azure subscription |To create a key vault in Azure Key Vault, you need an Azure subscription. [Sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/). |
+| An Azure subscription |To create a key vault in Azure Key Vault, you need an Azure subscription. [Sign up for a free trial](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). |
 | A Key Vault Premium or Managed HSM to import HSM-protected keys |For more information about the service tiers and capabilities in Azure Key Vault, see [Key Vault Pricing](https://azure.microsoft.com/pricing/details/key-vault/). |
 | An HSM from the supported HSMs list and a BYOK tool and instructions provided by your HSM vendor | You must have permissions for an HSM and basic knowledge of how to use your HSM. See [Supported HSMs](#supported-hsms). |
 | Azure CLI version 2.1.0 or later | See [Install the Azure CLI](/cli/azure/install-azure-cli).|
@@ -58,13 +60,13 @@ The following table lists prerequisites for using BYOK in Azure Key Vault:
 |Entrust|Manufacturer,<br/>HSM as a service|<ul><li>nShield family of HSMs</li><li>nShield as a service</ul>|[nCipher new BYOK tool and documentation](https://www.entrust.com/digital-security/hsm/solutions/use-case/cloud-security/bring-your-own-key-hold-your-own-key)|
 |Fortanix|Manufacturer,<br/>HSM as a service|<ul><li>Self-Defending Key Management Service (SDKMS)</li><li>Equinix SmartKey</li></ul>|[Exporting SDKMS keys to Cloud Providers for BYOK - Azure Key Vault](https://support.fortanix.com/hc/en-us/sections/11620809297684-Fortanix-DSM-with-Azure-Key-Vault)|
 |Futurex|Manufacturer,<br/>HSM as a service|<ul><li>CryptoHub</li><li>CryptoHub Cloud</li><li>KMES Series 3</li></ul>|[Futurex Integration Guide - Azure Key Vault](https://info.futurex.com/hubfs/Web%20Resources%20(PDFs)/Uploads_05-28-24/FX_IG-Azure_BYOK-KMES_Series_3.pdf)|
-|IBM|Manufacturer|IBM 476x, CryptoExpress|[IBM Enterprise Key Management Foundation](https://www.ibm.com/security/key-management/ekmf-bring-your-own-key-azure)|
+|IBM|Manufacturer|IBM 476x, CryptoExpress|[IBM Unified Key Orchestrator for Containers](https://www.ibm.com/products/unified-key-orchestrator-for-containers)|
 |Marvell|Manufacturer|All LiquidSecurity HSMs with<ul><li>Firmware version 2.0.4 or later</li><li>Firmware version 3.2 or newer</li></ul>|[Marvell BYOK tool and documentation](https://www.marvell.com/products/security-solutions/exporting-marvell-hsm-keys-to-cloud-azure-key-vault.html)|
-|nCipher|Manufacturer,<br/>HSM as a service|<ul><li>nShield family of HSMs</li><li>nShield as a service</ul>|[nCipher new BYOK tool and documentation](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|
+|nCipher|Manufacturer,<br/>HSM as a service|<ul><li>nShield family of HSMs</li><li>nShield as a service</ul>|[nCipher new BYOK tool and documentation](https://www.entrust.com/digital-security/hsm/solutions/use-case/cloud-security/bring-your-own-key-hold-your-own-key)|
 |Securosys SA|Manufacturer,<br/>HSM as a service|Primus HSM family, Securosys Clouds HSM|[Primus BYOK tool and documentation](https://www.securosys.com/primus-azure-byok)|
 |StorMagic|ISV (Enterprise Key Management System)|Multiple HSM brands and models including<ul><li>Utimaco</li><li>Thales</li><li>nCipher</li></ul>|See [StorMagic site for details](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm). [SvKMS and Azure Key Vault BYOK](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|
 |Thales|Manufacturer|<ul><li>Luna HSM 7 family with firmware version 7.3 or newer</li></ul>| [Luna BYOK tool and documentation](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=3892db6ddb8fc45005c9143b0b961987&sysparm_article=KB0021016)|
-|Utimaco|Manufacturer,<br/>HSM as a service|u.trust Anchor, CryptoServer| Utimaco BYOK tool and Integration guide |
+|Utimaco|Manufacturer,<br/>HSM as a service|u.trust Anchor, CryptoServer|[Utimaco BYOK tool and integration guide](https://utimaco.com/integration-guides/microsoft-azure-key-vault-byok-utimaco-securityserver)|
 |Yubico|Manufacturer|YubiHSM 2| [YubiHSM 2 BYOK User Guide for Azure](https://resources.yubico.com/53ZDUYE6/at/2rsrrspcftx4xkp8fn9nsgv/YubiHSM_2_BYOK_User_Guide_for_Azure.pdf?format=pdf) |
 ||||
 
@@ -106,25 +108,25 @@ Use the [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create)
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import --vault-name ContosoKeyVaultHSM
+az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import --vault-name <vault-name>
 ```
 
 For Managed HSM:
 
 ```azurecli
-az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import --hsm-name ContosoKeyVaultHSM
+az keyvault key create --kty RSA-HSM --size 4096 --name KEKforBYOK --ops import --hsm-name <hsm-name>
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Add-AzKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'KEKforBYOK' -Destination 'HSM' -Size 4096 -KeyOps 'import'
+Add-AzKeyVaultKey -VaultName "<vault-name>" -Name "KEKforBYOK" -Destination "HSM" -Size 4096 -KeyOps "import"
 ```
 
 For Managed HSM:
 
 ```azurepowershell
-Add-AzKeyVaultKey -HsmName 'ContosoKeyVaultHSM' -Name 'KEKforBYOK' -Destination 'HSM' -Size 4096 -KeyOps 'import'
+Add-AzKeyVaultKey -HsmName "<hsm-name>" -Name "KEKforBYOK" -Destination "HSM" -Size 4096 -KeyOps "import"
 ```
 
 ---
@@ -136,25 +138,25 @@ Use [az keyvault key download](/cli/azure/keyvault/key#az-keyvault-key-download)
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az keyvault key download --name KEKforBYOK --vault-name ContosoKeyVaultHSM --file KEKforBYOK.publickey.pem
+az keyvault key download --name KEKforBYOK --vault-name <vault-name> --file KEKforBYOK.publickey.pem
 ```
 
 For Managed HSM:
 
 ```azurecli
-az keyvault key download --name KEKforBYOK --hsm-name ContosoKeyVaultHSM --file KEKforBYOK.publickey.pem
+az keyvault key download --name KEKforBYOK --hsm-name <hsm-name> --file KEKforBYOK.publickey.pem
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Get-AzKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -KeyName 'KEKforBYOK' -OutFile 'KEKforBYOK.publickey.pem'
+Get-AzKeyVaultKey -VaultName "<vault-name>" -KeyName "KEKforBYOK" -OutFile "KEKforBYOK.publickey.pem"
 ```
 
 For Managed HSM:
 
 ```azurepowershell
-Get-AzKeyVaultKey -HsmName 'ContosoKeyVaultHSM' -KeyName 'KEKforBYOK' -OutFile 'KEKforBYOK.publickey.pem'
+Get-AzKeyVaultKey -HsmName "<hsm-name>" -KeyName "KEKforBYOK" -OutFile "KEKforBYOK.publickey.pem"
 ```
 
 ---
@@ -183,24 +185,24 @@ To import an RSA key, use the following command. The `--kty` parameter is option
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok
+az keyvault key import --vault-name <vault-name> --name <key-name> --byok-file KeyTransferPackage-<key-name>.byok
 ```
 
 For Managed HSM:
 
 ```azurecli
-az keyvault key import --hsm-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok
+az keyvault key import --hsm-name <hsm-name> --name <key-name> --byok-file KeyTransferPackage-<key-name>.byok
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Add-AzKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -KeyName 'ContosoFirstHSMkey' -KeyFilePath 'KeyTransferPackage-ContosoFirstHSMkey.byok'
+Add-AzKeyVaultKey -VaultName "<vault-name>" -KeyName "<key-name>" -KeyFilePath "KeyTransferPackage-<key-name>.byok"
 ```
 For Managed HSM:
 
 ```azurepowershell
-Add-AzKeyVaultKey -HsmName 'ContosoKeyVaultHSM' -KeyName 'ContosoFirstHSMkey' -KeyFilePath 'KeyTransferPackage-ContosoFirstHSMkey.byok'
+Add-AzKeyVaultKey -HsmName "<hsm-name>" -KeyName "<key-name>" -KeyFilePath "KeyTransferPackage-<key-name>.byok"
 ```
 
 ---
@@ -210,30 +212,44 @@ To import an EC key, you must specify the key type and the curve name.
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az keyvault key import --vault-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --kty EC-HSM --curve-name "P-256" --byok-file KeyTransferPackage-ContosoFirstHSMkey.byok
+az keyvault key import --vault-name <vault-name> --name <key-name> --kty EC-HSM --curve-name "P-256" --byok-file KeyTransferPackage-<key-name>.byok
 ```
 
 For Managed HSM:
 
 ```azurecli
-az keyvault key import --hsm-name ContosoKeyVaultHSM --name ContosoFirstHSMkey --byok-file --kty EC-HSM --curve-name "P-256" KeyTransferPackage-ContosoFirstHSMkey.byok
+az keyvault key import --hsm-name <hsm-name> --name <key-name> --kty EC-HSM --curve-name "P-256" --byok-file KeyTransferPackage-<key-name>.byok
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Add-AzKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -KeyName 'ContosoFirstHSMkey' -KeyType EC -CurveName P-256  -KeyFilePath 'KeyTransferPackage-ContosoFirstHSMkey.byok'
+Add-AzKeyVaultKey -VaultName "<vault-name>" -KeyName "<key-name>" -KeyType EC -CurveName P-256  -KeyFilePath "KeyTransferPackage-<key-name>.byok"
 ```
 
 For Managed HSM:
 
 ```azurepowershell
-Add-AzKeyVaultKey -HsmName 'ContosoKeyVaultHSM' -KeyName 'ContosoFirstHSMkey' -KeyType EC -CurveName P-256  -KeyFilePath 'KeyTransferPackage-ContosoFirstHSMkey.byok'
+Add-AzKeyVaultKey -HsmName "<hsm-name>" -KeyName "<key-name>" -KeyType EC -CurveName P-256  -KeyFilePath "KeyTransferPackage-<key-name>.byok"
 ```
 
 ---
 
 If the upload is successful, Azure CLI displays the properties of the imported key.
+
+## Use AI to troubleshoot BYOK key transfers
+
+GitHub Copilot can help you troubleshoot issues with the BYOK key transfer process and generate the correct commands for your specific HSM vendor.
+
+```copilot-prompt
+I'm trying to import an HSM-protected key to Azure Key Vault using BYOK. I have a Thales Luna HSM and I'm getting an error during the key transfer. Help me with:
+1. The correct sequence of commands to generate a KEK in Azure Key Vault
+2. How to download and verify the KEK public key
+3. The Azure CLI command to import the wrapped key file
+My key vault name is "mycompany-prod-kv" and I want to import an RSA 4096-bit key named "encryption-master-key".
+```
+
+[!INCLUDE [copilot-highlights-disclaimer](~/reusable-content/ce-skilling/azure/includes/copilot-highlights-disclaimer.md)]
 
 ## Next steps
 

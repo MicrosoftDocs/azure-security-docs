@@ -3,7 +3,7 @@ title: Quickstart - Azure Key Vault secrets client library for .NET
 description: Learn how to create, retrieve, and delete secrets from an Azure key vault using the .NET client library
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 12/03/2025
+ms.date: 03/26/2026
 ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: quickstart
@@ -123,16 +123,16 @@ This application is using key vault name as an environment variable called `KEY_
 
 Windows
 ```cmd
-set KEY_VAULT_NAME=<your-key-vault-name>
+set KEY_VAULT_NAME=<vault-name>
 ````
 Windows PowerShell
 ```powershell
-$Env:KEY_VAULT_NAME="<your-key-vault-name>"
+$Env:KEY_VAULT_NAME="<vault-name>"
 ```
 
 macOS or Linux
 ```bash
-export KEY_VAULT_NAME=<your-key-vault-name>
+export KEY_VAULT_NAME=<vault-name>
 ```
 
 ## Object model
@@ -151,9 +151,9 @@ Add the following directives to the top of *Program.cs*:
 
 Application requests to most Azure services must be authorized. Using the [DefaultAzureCredential](/dotnet/azure/sdk/authentication#defaultazurecredential) class provided by the [Azure Identity client library](/dotnet/api/overview/azure/identity-readme) is the recommended approach for implementing passwordless connections to Azure services in your code. `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code. 
 
-In this quickstart, `DefaultAzureCredential` authenticates to key vault using the credentials of the local development user logged into the Azure CLI. When the application is deployed to Azure, the same `DefaultAzureCredential` code can automatically discover and use a managed identity that is assigned to an App Service, Virtual Machine, or other services. For more information, see [Managed Identity Overview](/azure/active-directory/managed-identities-azure-resources/overview).
+In this quickstart, `DefaultAzureCredential` authenticates to key vault using the credentials of the local development user logged into the Azure CLI. When the application is deployed to Azure, the same `DefaultAzureCredential` code can automatically discover and use a managed identity that is assigned to an App Service, Virtual Machine, or other services. For more information, see [Managed Identity Overview](/entra/identity/managed-identities-azure-resources/overview).
 
-In this example, the name of your key vault is expanded to the key vault URI, in the format `https://<your-key-vault-name>.vault.azure.net`. For more information about authenticating to key vault, see [Developer's Guide](/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
+In this example, the name of your key vault is expanded to the key vault URI, in the format `https://<vault-name>.vault.azure.net`. For more information about authenticating to key vault, see [Developer's Guide](/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
 
 [!code-csharp[](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=authenticate)]
 
@@ -260,13 +260,13 @@ A variation of the following output appears:
 
 ```console
 Input the value of your secret > mySecretPassword
-Creating a secret in <your-unique-keyvault-name> called 'mySecret' with the value 'mySecretPassword' ... done.
+Creating a secret in <vault-name> called 'mySecret' with the value 'mySecretPassword' ... done.
 Forgetting your secret.
 Your secret is ''.
-Retrieving your secret from <your-unique-keyvault-name>.
+Retrieving your secret from <vault-name>.
 Your secret is 'mySecretPassword'.
-Deleting your secret from <your-unique-keyvault-name> ... done.    
-Purging your secret from <your-unique-keyvault-name> ... done.
+Deleting your secret from <vault-name> ... done.    
+Purging your secret from <vault-name> ... done.
 ```
 
 ## Next steps
@@ -278,3 +278,4 @@ To learn more about Key Vault and how to integrate it with your apps, see the fo
 - See an [Access Key Vault from Virtual Machine Tutorial](../general/tutorial-net-virtual-machine.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
 - Review the [Key Vault security overview](../general/secure-key-vault.md)
+- Review [secrets-specific security best practices](secure-secrets.md)

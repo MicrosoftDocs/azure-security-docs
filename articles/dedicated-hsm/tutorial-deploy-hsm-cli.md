@@ -104,7 +104,7 @@ After you configure your network, use these Azure CLI commands to provision your
 1. To see a current HSM, run the [az dedicated-hsm show](/cli/azure/dedicated-hsm#az-dedicated-hsm-show) command:
 
    ```azurecli
-   az dedicated-hsm show --resource group myRG --name hsm1
+   az dedicated-hsm show --resource-group myRG --name hsm1
    ```
 
 1. Provision the second HSM by using this command:

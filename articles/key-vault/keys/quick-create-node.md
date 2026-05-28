@@ -3,7 +3,7 @@ title: Quickstart -  Azure Key Vault key client library for JavaScript (version 
 description: Learn how to create, retrieve, and delete keys from an Azure key vault using the JavaScript client library with either JavaScript or TypeScript.
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 05/01/2025
+ms.date: 04/09/2026
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: quickstart
@@ -84,7 +84,7 @@ Create a Node.js application that uses your key vault.
 
 ## Install Key Vault packages
 
-1. Using the terminal, install the Azure Key Vault secrets client library, [@azure/keyvault-keys](https://www.npmjs.com/package/@azure/keyvault-keys) for Node.js.
+1. Using the terminal, install the Azure Key Vault keys client library, [@azure/keyvault-keys](https://www.npmjs.com/package/@azure/keyvault-keys) for Node.js.
 
     ```terminal
     npm install @azure/keyvault-keys
@@ -108,20 +108,20 @@ This application is using key vault endpoint as an environment variable called `
 ### [Windows](#tab/windows)
 
 ```cmd
-set KEY_VAULT_URL=<your-key-vault-endpoint>
+set KEY_VAULT_URL=<key-vault-endpoint>
 ````
 
 ### [PowerShell](#tab/powershell)
 
 Windows PowerShell
 ```powershell
-$Env:KEY_VAULT_URL="<your-key-vault-endpoint>"
+$Env:KEY_VAULT_URL="<key-vault-endpoint>"
 ```
 
 ### [macOS or Linux](#tab/linux)
 
 ```cmd
-export KEY_VAULT_URL=<your-key-vault-endpoint>
+export KEY_VAULT_URL=<key-vault-endpoint>
 ```
 ---
 
@@ -129,15 +129,15 @@ export KEY_VAULT_URL=<your-key-vault-endpoint>
 
 Application requests to most Azure services must be authorized. Using the [DefaultAzureCredential](/javascript/api/@azure/identity/#@azure-identity-getdefaultazurecredential) method provided by the [Azure Identity client library](/javascript/api/@azure/identity) is the recommended approach for implementing passwordless connections to Azure services in your code. `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code. 
 
-In this quickstart, `DefaultAzureCredential` authenticates to key vault using the credentials of the local development user logged into the Azure CLI. When the application is deployed to Azure, the same `DefaultAzureCredential` code can automatically discover and use a managed identity that is assigned to an App Service, Virtual Machine, or other services. For more information, see [Managed Identity Overview](/azure/active-directory/managed-identities-azure-resources/overview).
+In this quickstart, `DefaultAzureCredential` authenticates to key vault using the credentials of the local development user logged into the Azure CLI. When the application is deployed to Azure, the same `DefaultAzureCredential` code can automatically discover and use a managed identity that is assigned to an App Service, Virtual Machine, or other services. For more information, see [Managed Identity Overview](/entra/identity/managed-identities-azure-resources/overview).
 
-In this code, the endpoint of your key vault is used to create the key vault client. The endpoint format looks like `https://<your-key-vault-name>.vault.azure.net` but may change for sovereign clouds. For more information about authenticating to key vault, see [Developer's Guide](/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
+In this code, the endpoint of your key vault is used to create the key vault client. The endpoint format looks like `https://<vault-name>.vault.azure.net` but may change for sovereign clouds. For more information about authenticating to key vault, see [Developer's Guide](/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
 
 ## Code example
 
-The code samples below will show you how to create a client, set a secret, retrieve a secret, and delete a secret. 
+The code samples below will show you how to create a client, set a key, retrieve a key, and delete a key. 
 
-This code uses the following [Key Vault Secret classes and methods](/javascript/api/overview/azure/keyvault-keys-readme):
+This code uses the following [Key Vault Key classes and methods](/javascript/api/overview/azure/keyvault-keys-readme):
     
 * [DefaultAzureCredential class](/javascript/api/@azure/identity/#@azure-identity-getdefaultazurecredential)
 * [KeyClient class](/javascript/api/@azure/keyvault-keys/keyclient)
@@ -163,10 +163,9 @@ This code uses the following [Key Vault Secret classes and methods](/javascript/
     
     async function main() {
 
-        // DefaultAzureCredential expects the following three environment variables:
-        // - AZURE_TENANT_ID: The tenant ID in Azure Active Directory
-        // - AZURE_CLIENT_ID: The application (client) ID registered in the AAD tenant
-        // - AZURE_CLIENT_SECRET: The client secret for the registered application
+        // DefaultAzureCredential automatically uses managed identity in Azure environments.
+        // For local development, it uses credentials from Azure CLI, Azure PowerShell, or environment variables.
+        // See: https://learn.microsoft.com/javascript/api/@azure/identity/defaultazurecredential
         const credential = new DefaultAzureCredential();
         
         const keyVaultUrl = process.env["KEY_VAULT_URL"];
@@ -238,31 +237,31 @@ This code uses the following [Key Vault Secret classes and methods](/javascript/
     ```JSON
     "key":  {
       "key": {
-        "kid": "https://YOUR-KEY-VAULT-ENDPOINT/keys/YOUR-KEY-NAME/YOUR-KEY-VERSION",
-        "kty": "YOUR-KEY-TYPE",
-        "keyOps": [ ARRAY-OF-VALID-OPERATIONS ],
+        "kid": "https://<your-key-vault-name>.vault.azure.net/keys/<your-key-name>/<key-version>",
+        "kty": "RSA",
+        "keyOps": [ "encrypt", "decrypt", "sign", "verify", "wrapKey", "unwrapKey" ],
         ... other properties based on key type
       },
-      "id": "https://YOUR-KEY-VAULT-ENDPOINT/keys/YOUR-KEY-NAME/YOUR-KEY-VERSION",
-      "name": "YOUR-KEY-NAME",
-      "keyOperations": [ ARRAY-OF-VALID-OPERATIONS ],
-      "keyType": "YOUR-KEY-TYPE",
+      "id": "https://<your-key-vault-name>.vault.azure.net/keys/<your-key-name>/<key-version>",
+      "name": "<your-key-name>",
+      "keyOperations": [ "encrypt", "decrypt", "sign", "verify", "wrapKey", "unwrapKey" ],
+      "keyType": "RSA",
       "properties": {
         "tags": undefined,
         "enabled": true,
         "notBefore": undefined,
         "expiresOn": undefined,
-        "createdOn": 2021-11-29T18:29:11.000Z,
-        "updatedOn": 2021-11-29T18:29:11.000Z,
+        "createdOn": 2025-11-29T18:29:11.000Z,
+        "updatedOn": 2025-11-29T18:29:11.000Z,
         "recoverableDays": 90,
         "recoveryLevel": "Recoverable+Purgeable",
         "exportable": undefined,
         "releasePolicy": undefined,
-        "vaultUrl": "https://YOUR-KEY-VAULT-ENDPOINT",
-        "version": "YOUR-KEY-VERSION",
-        "name": "YOUR-KEY-VAULT-NAME",
+        "vaultUrl": "https://<your-key-vault-name>.vault.azure.net",
+        "version": "<key-version>",
+        "name": "<your-key-name>",
         "managed": undefined,
-        "id": "https://YOUR-KEY-VAULT-ENDPOINT/keys/YOUR-KEY-NAME/YOUR-KEY-VERSION"
+        "id": "https://<your-key-vault-name>.vault.azure.net/keys/<your-key-name>/<key-version>"
       }
     }
     ```
@@ -292,31 +291,31 @@ This code uses the following [Key Vault Secret classes and methods](/javascript/
     ```JSON
     "key":  {
       "key": {
-        "kid": "https://YOUR-KEY-VAULT-ENDPOINT/keys/YOUR-KEY-NAME/YOUR-KEY-VERSION",
-        "kty": "YOUR-KEY-TYPE",
-        "keyOps": [ ARRAY-OF-VALID-OPERATIONS ],
+        "kid": "https://<your-key-vault-name>.vault.azure.net/keys/<your-key-name>/<key-version>",
+        "kty": "RSA",
+        "keyOps": [ "encrypt", "decrypt", "sign", "verify", "wrapKey", "unwrapKey" ],
         ... other properties based on key type
       },
-      "id": "https://YOUR-KEY-VAULT-ENDPOINT/keys/YOUR-KEY-NAME/YOUR-KEY-VERSION",
-      "name": "YOUR-KEY-NAME",
-      "keyOperations": [ ARRAY-OF-VALID-OPERATIONS ],
-      "keyType": "YOUR-KEY-TYPE",
+      "id": "https://<your-key-vault-name>.vault.azure.net/keys/<your-key-name>/<key-version>",
+      "name": "<your-key-name>",
+      "keyOperations": [ "encrypt", "decrypt", "sign", "verify", "wrapKey", "unwrapKey" ],
+      "keyType": "RSA",
       "properties": {
         "tags": undefined,
         "enabled": true,
         "notBefore": undefined,
         "expiresOn": undefined,
-        "createdOn": 2021-11-29T18:29:11.000Z,
-        "updatedOn": 2021-11-29T18:29:11.000Z,
+        "createdOn": 2025-11-29T18:29:11.000Z,
+        "updatedOn": 2025-11-29T18:29:11.000Z,
         "recoverableDays": 90,
         "recoveryLevel": "Recoverable+Purgeable",
         "exportable": undefined,
         "releasePolicy": undefined,
-        "vaultUrl": "https://YOUR-KEY-VAULT-ENDPOINT",
-        "version": "YOUR-KEY-VERSION",
-        "name": "YOUR-KEY-VAULT-NAME",
+        "vaultUrl": "https://<your-key-vault-name>.vault.azure.net",
+        "version": "<key-version>",
+        "name": "<your-key-name>",
         "managed": undefined,
-        "id": "https://YOUR-KEY-VAULT-ENDPOINT/keys/YOUR-KEY-NAME/YOUR-KEY-VERSION"
+        "id": "https://<your-key-vault-name>.vault.azure.net/keys/<your-key-name>/<key-version>"
       }
     }
     ```
@@ -335,5 +334,6 @@ In this quickstart, you created a key vault, stored a key, and retrieved that ke
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - Read an [Overview of Azure Key Vault Keys](about-keys.md)
 - How to [Secure access to a key vault](../general/secure-key-vault.md)
+- Review [keys-specific security best practices](secure-keys.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
 - Review the [Key Vault security overview](../general/secure-key-vault.md)

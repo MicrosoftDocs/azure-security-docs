@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 01/08/2026
+ms.date: 05/13/2026
 ms.author: mbaldwin
 ---
 # Azure Key Vault developer's guide
@@ -55,11 +55,11 @@ The following table lists SDKs and quickstarts for managing Key Vault resources 
 
 | Azure CLI | PowerShell | REST API | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[Reference](/cli/azure/keyvault)<br>[Quickstart](quick-create-cli.md)|[Reference](/powershell/module/az.keyvault)<br>[Quickstart](quick-create-powershell.md)|[Reference](/rest/api/keyvault/)|[Reference](/azure/templates/microsoft.keyvault/vaults)<br>[Quickstart](./vault-create-template.md)|[Reference](/dotnet/api/microsoft.azure.management.keyvault)|[Reference](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)|[Reference](/java/api/overview/azure/resourcemanager-keyvault-readme)|[Reference](/javascript/api/@azure/arm-keyvault)|
+|[Reference](/cli/azure/keyvault)<br>[Quickstart](quick-create-cli.md)|[Reference](/powershell/module/az.keyvault)<br>[Quickstart](quick-create-powershell.md)|[Reference](/rest/api/keyvault/)|[Reference](/azure/templates/microsoft.keyvault/vaults)<br>[Quickstart](./quick-create-template.md)|[Reference](/dotnet/api/microsoft.azure.management.keyvault)|[Reference](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)|[Reference](/java/api/overview/azure/resourcemanager-keyvault-readme)|[Reference](/javascript/api/@azure/arm-keyvault)|
 
 ## Authenticate to Key Vault in code
 
-Key Vault uses Microsoft Entra authentication, which requires a Microsoft Entra security principal to grant access. A Microsoft Entra security principal can be a user, an application service principal, a [managed identity for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview), or a group of any of these types.
+Key Vault uses Microsoft Entra authentication, which requires a Microsoft Entra security principal to grant access. A Microsoft Entra security principal can be a user, an application service principal, a [managed identity for Azure resources](/entra/identity/managed-identities-azure-resources/overview), or a group of any of these types.
 
 ### Authentication best practices
 
@@ -75,7 +75,7 @@ For more information about the Azure Identity client library, see:
 |--|--|--|--|
 |[Azure Identity SDK .NET](/dotnet/api/overview/azure/identity-readme)|[Azure Identity SDK Python](/python/api/overview/azure/identity-readme)|[Azure Identity SDK Java](/java/api/overview/azure/identity-readme)|[Azure Identity SDK JavaScript](/javascript/api/overview/azure/identity-readme)|     
 
-> [!Note]
+> [!NOTE]
 > We recommended [App Authentication library](/dotnet/api/overview/azure/service-to-service-authentication) for Key Vault .NET SDK version 3, but it's now deprecated. To migrate to Key Vault .NET SDK version 4, follow the [AppAuthentication to Azure.Identity migration guidance](/dotnet/api/overview/azure/app-auth-migration).
 
 For tutorials on how to authenticate to Key Vault in applications, see:
@@ -85,7 +85,7 @@ For tutorials on how to authenticate to Key Vault in applications, see:
 
 ## Manage keys, certificates, and secrets
 
-> [!Note]
+> [!NOTE]
 > SDKs for .NET, Python, Java, JavaScript, PowerShell, and the Azure CLI are part of the Key Vault feature release process through public preview and general availability with Key Vault service team support. Other SDK clients for Key Vault are available, but they are built and supported by individual SDK teams over GitHub and released in their teams schedule. For the latest SDK versions and installation packages, see [Client libraries](client-libraries.md).
 
 The data plane controls access to keys, certificates, and secrets. You can use [Azure RBAC with Key Vault](rbac-guide.md) for access control through the data plane.
@@ -103,7 +103,7 @@ The following table lists SDKs and quickstarts for working with keys (data plane
 ##### Cryptography client for Key Vault and Managed HSM
 This module provides a cryptography client for the [Azure Key Vault Keys client module for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/azkeys).
 
-> [!Note]
+> [!NOTE]
 > This project is not supported by the Azure SDK team, but does align with the cryptography clients in other supported languages.
 
 | Language | Reference |
@@ -182,11 +182,11 @@ The following services and scenarios use or integrate with Key Vault:
 - Key Vault integration with [Azure Event Grid](/azure/event-grid/event-schema-key-vault) allows users to be notified when the status of a secret stored in Key Vault has changed. You can distribute new versions of secrets to applications or rotate near-expiration secrets to prevent outages.
 - Protect your [Azure DevOps](/azure/devops/pipelines/release/azure-key-vault) secrets from unwanted access in Key Vault.
 - Use secrets stored in Key Vault to [connect to Azure Storage from Azure Databricks](./integrate-databricks-blob-storage.md).
-- Configure and run the Azure Key Vault provider for the [Secrets Store CSI driver](./key-vault-integrate-kubernetes.md) on Kubernetes. 
+- Configure and run the Azure Key Vault provider for the [Secrets Store CSI driver](/azure/aks/csi-secrets-store-driver) on Kubernetes. 
 
 ## Disaster recovery and business continuity
 
-Key Vault provides built-in disaster recovery with automatic regional replication. For production deployments, enable soft delete and purge protection, and implement regular backups. For more information, see [Azure Key Vault availability and redundancy](disaster-recovery-guidance.md), [Azure Key Vault recovery management](key-vault-recovery.md), and [Azure Key Vault backup](backup.md).
+Key Vault provides built-in disaster recovery with automatic regional replication. For production deployments, enable soft delete and purge protection, and implement regular backups. For more information, see [Azure Key Vault availability and redundancy](/azure/reliability/reliability-key-vault), [Azure Key Vault recovery management](key-vault-recovery.md), and [Azure Key Vault backup](backup.md).
 
 ## Performance and scalability
 
@@ -199,15 +199,14 @@ When developing applications that use Key Vault, consider the following performa
 
 ## Monitoring and logging
 
-Enable logging and monitoring for security, compliance, and troubleshooting. Configure diagnostic settings, Event Grid notifications, and alerts for critical events. For detailed guidance, see [Monitor Azure Key Vault](monitor-key-vault.md), [Azure Key Vault logging](logging.md), [Monitoring Key Vault with Azure Event Grid](event-grid-overview.md), and [Secure your Azure Key Vault: Logging and Threat Detection](secure-key-vault.md#logging-and-threat-detection).
+Enable logging and monitoring for security, compliance, and troubleshooting. Configure diagnostic settings, Event Grid notifications, and alerts for critical events. For detailed guidance, see [Monitor Azure Key Vault](monitor-key-vault.md), [Azure Key Vault logging](logging.md), [Monitoring Key Vault with Azure Event Grid](event-grid-overview.md), and [Secure your Azure Key Vault: Logging and monitoring](secure-key-vault.md#logging-and-monitoring).
 
 ## Common parameters and request patterns
 
 When working with the Key Vault REST API, understanding common parameters and request/response patterns is helpful:
 
 - **API versions**: Key Vault uses versioned APIs. Always specify the API version in your requests.
-- **Common headers**: Learn about required and optional HTTP headers for Key Vault requests. For more information, see [Azure Key Vault common parameters and headers](common-parameters-and-headers.md).
-- **Authentication requests**: Understand how authentication tokens are acquired and used. For more information, see [Authentication, requests, and responses](authentication-requests-and-responses.md).
+- **Authentication requests**: Understand how authentication tokens are acquired and used, including common request headers and response formats. For more information, see [Authentication, requests, and responses](authentication-requests-and-responses.md).
 - **Error codes**: Familiarize yourself with common REST API error codes to handle failures gracefully. For more information, see [Azure Key Vault REST API error codes](rest-error-codes.md).
 
 ## Troubleshooting
@@ -234,7 +233,6 @@ For comprehensive security guidance including identity and access management, da
 
 ### Management and operations
 
-- [Manage Key Vault using Azure CLI](manage-with-cli2.md) - Command-line management operations.
 - [Monitor Azure Key Vault](monitor-key-vault.md) - Set up monitoring and diagnostics.
 - [Azure Key Vault logging](logging.md) - Enable and analyze Key Vault logs.
 

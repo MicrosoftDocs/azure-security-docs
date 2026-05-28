@@ -3,7 +3,7 @@ title: Quickstart – Azure Key Vault Python client library – manage keys
 description: Learn how to create, retrieve, and delete keys from an Azure key vault using the Python client library
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 11/19/2025
+ms.date: 03/30/2026
 
 ms.service: azure-key-vault
 ms.subservice: keys
@@ -87,7 +87,7 @@ This quickstart is using the Azure Identity library with Azure CLI or Azure Powe
 
 ### Set the KEY_VAULT_NAME environmental variable
 
-[!INCLUDE [Set the KEY_VAULT_NAME environmental variable](../includes/key-vault-set-environmental-variables.md)]
+[!INCLUDE [Set the KEY_VAULT_NAME environmental variable](~/reusable-content/ce-skilling/azure/includes/key-vault/set-environmental-variables.md)]
 
 ### Grant access to your key vault
 
@@ -139,7 +139,7 @@ Make sure the code in the previous section is in a file named *kv_keys.py*. Then
 python kv_keys.py
 ```
 
-Rerunning the code with the same key name may produce the error, "(Conflict) Key \<name\> is currently in a deleted but recoverable state." Use a different key name.
+Rerunning the code with the same key name may produce the error, "(Conflict) Key `<name>` is currently in a deleted but recoverable state." Use a different key name.
 
 ## Code details
 
@@ -147,9 +147,9 @@ Rerunning the code with the same key name may produce the error, "(Conflict) Key
 
 Application requests to most Azure services must be authorized. Using the [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) class provided by the [Azure Identity client library](/python/api/overview/azure/identity-readme) is the recommended approach for implementing passwordless connections to Azure services in your code. `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code. 
 
-In this quickstart, `DefaultAzureCredential` authenticates to key vault using the credentials of the local development user logged into the Azure CLI. When the application is deployed to Azure, the same `DefaultAzureCredential` code can automatically discover and use a managed identity that is assigned to an App Service, Virtual Machine, or other services. For more information, see [Managed Identity Overview](/azure/active-directory/managed-identities-azure-resources/overview).
+In this quickstart, `DefaultAzureCredential` authenticates to key vault using the credentials of the local development user logged into the Azure CLI. When the application is deployed to Azure, the same `DefaultAzureCredential` code can automatically discover and use a managed identity that is assigned to an App Service, Virtual Machine, or other services. For more information, see [Managed Identity Overview](/entra/identity/managed-identities-azure-resources/overview).
 
-In the example code, the name of your key vault is expanded using the value of the `KVUri` variable, in the format: "https://\<your-key-vault-name>.vault.azure.net".
+In the example code, the name of your key vault is expanded using the value of the `KVUri` variable, in the format: `https://<vault-name>.vault.azure.net`.
 
 ```python
 credential = DefaultAzureCredential()
@@ -204,13 +204,13 @@ Otherwise, when you're finished with the resources created in this article, use 
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group delete --resource-group myResourceGroup
+az group delete --resource-group "myResourceGroup"
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Remove-AzResourceGroup -Name myResourceGroup
+Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
 ---
@@ -219,6 +219,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 - [Overview of Azure Key Vault](../general/overview.md)
 - [Secure access to a key vault](../general/secure-key-vault.md)
+- [Keys-specific security best practices](secure-keys.md)
 - [RBAC Guide](../general/rbac-guide.md)
 - [Azure Key Vault developer's guide](../general/developers-guide.md)
 - [Authenticate with Key Vault](../general/authentication.md)
