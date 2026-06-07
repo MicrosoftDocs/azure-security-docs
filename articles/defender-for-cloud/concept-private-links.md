@@ -15,6 +15,7 @@ With private endpoints, all security-related traffic from your workloads travers
 
 > [!NOTE]
 > Microsoft Security Private Link isn't supported in sovereign cloud regions, such as Azure Government and Azure operated by 21Vianet.
+> Microsoft Security Private Link only supports defender for containers scenarios at this moment. 
 
 ## Supported scenarios
 
