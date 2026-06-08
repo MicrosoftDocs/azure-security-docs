@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: how-to
-ms.date: 05/19/2026
+ms.date: 02/10/2026
 ms.author: mbaldwin 
 ---
 
