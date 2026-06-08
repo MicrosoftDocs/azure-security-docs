@@ -1,16 +1,19 @@
 ---
 title: Enable Defender for open-source relational databases on Amazon Web Services (AWS)
-description: Learn how to enable Microsoft Defender for open-source relational databases to detect potential security threats on AWS environments.
-ms.date: 06/30/2025
+description: Enable Defender for open-source relational databases on AWS RDS to detect suspicious activity and protect supported database engines.
+ms.date: 06/02/2026
 ms.topic: how-to
 ms.author: elkrieger
-author: Elazark
+author: ElazarK
 #customer intent: As a reader, I want to learn how to configure Microsoft Defender for open-source relational databases to enhance the security of my AWS databases.
 ---
 
-# Enable Defender for open-source relational databases on Amazon Web Services (AWS) (Preview)
+# Enable Defender for open-source relational databases on Amazon Web Services (AWS)
 
-The Defender for open-source relational databases plan in Microsoft Defender for Cloud helps you detect and investigate unusual activity in your AWS RDS databases. This plan supports the following database instance types:
+> [!IMPORTANT]
+> On June 1, 2026, Microsoft Defender for Open-Source Relational Databases for AWS RDS transitioned to General Availability, and billing started. If you had the plan enabled before June 1, 2026 you continue to receive database threat protection and sensitive data discovery capabilities for supported AWS RDS databases. No action is required if you want to keep the protection enabled. To opt out, follow the instructions in [Disable the plan](#disable-the-plan).
+
+The Defender for open-source relational databases plan in Microsoft Defender for Cloud helps you detect and investigate unusual activity in your AWS Relational Database Service (RDS) databases. This plan supports the following database instance types:
 
 - Aurora PostgreSQL
 - Aurora MySQL
@@ -36,7 +39,9 @@ Learn more about this Microsoft Defender plan in [Overview of Microsoft Defender
 
 ## Enable Defender for open-source relational databases
 
-1. Sign in to [the Azure portal](https://portal.azure.com)
+To enable Defender for open-source relational databases on AWS:
+
+1. Sign in to [the Azure portal](https://portal.azure.com).
 
 1. Search for and select **Microsoft Defender for Cloud**.
 
@@ -46,18 +51,18 @@ Learn more about this Microsoft Defender plan in [Overview of Microsoft Defender
 
 1. Locate the **Databases** plan and select **Settings**.
 
-    :::image type="content" source="media/enable-defender-for-databases-aws/databases-settings.png" alt-text="Screenshot of the AWS environment settings page that shows where the settings button is located." lightbox="media/enable-defender-for-databases-aws/databases-settings.png":::
+    :::image type="content" source="media/enable-defender-for-databases-aws/databases-settings.png" alt-text="Screenshot of the AWS environment settings page that shows where to select Settings." lightbox="media/enable-defender-for-databases-aws/databases-settings.png":::
 
-1. Toggle open-source relational databases to **On**.  
+1. Toggle open-source relational databases to **On**.
 
-    :::image type="content" source="media/enable-defender-for-databases-aws/toggle-open-source-on.png" alt-text="Screenshot that shows how to toggle the open-source relational databases to on." lightbox="media/enable-defender-for-databases-aws/toggle-open-source-on.png":::
+    :::image type="content" source="media/enable-defender-for-databases-aws/toggle-open-source-on.png" alt-text="Screenshot that shows how to turn on open-source relational databases protection." lightbox="media/enable-defender-for-databases-aws/toggle-open-source-on.png":::
 
     > [!NOTE]
-    > Turning on Open-source relational databases also enables Sensitive data discovery, a shared feature with Defender CSPM for relational database service (RDS) resources.
+    > Turning on open-source relational databases also enables sensitive data discovery, a shared feature with Defender CSPM for RDS resources.
     >
     > :::image type="content" source="media/enable-defender-for-databases-aws/cspm-shared.png" alt-text="Screenshot that shows the settings page for Defender CSPM and the sensitive data turned on with the protected resources." lightbox="media/enable-defender-for-databases-aws/cspm-shared.png":::
     >
-    > Learn more about [sensitive data discovery in AWS RDS instances](concept-data-security-posture-prepare.md#discover-and-scan-aws-rds-instances).
+    > For more information, see [Discover and scan AWS RDS instances](concept-data-security-posture-prepare.md#discover-and-scan-aws-rds-instances).
 
 1. Select **Configure access**.
 
@@ -65,7 +70,7 @@ Learn more about this Microsoft Defender plan in [Overview of Microsoft Defender
 
 1. Follow the instructions to update the stack in AWS. This process creates or updates the CloudFormation template with the [required permissions](#required-permissions-for-defenderforcloud-datathreatprotectiondb-role).
 
-1. Check the box confirming the CloudFormation template was updated on AWS environment (Stack).
+1. Select the checkbox to confirm that the CloudFormation template was updated in your AWS environment (stack).
 
 1. Select **Review and generate**.
 
@@ -73,12 +78,12 @@ Learn more about this Microsoft Defender plan in [Overview of Microsoft Defender
 
 Defender for Cloud then automatically [updates the relevant parameter and option group settings](#affected-parameter-and-option-group-settings).
 
-### Required permissions for DefenderForCloud-DataThreatProtectionDB Role
+### Required permissions for DefenderForCloud-DataThreatProtectionDB role
 
-The following permissions are required for the role that’s created or updated when you download the CloudFormation template and update the AWS stack. These permissions allow Defender for Cloud to manage auditing configuration and collect database activity logs from your AWS RDS instances.
+The following permissions are required for the role that is created or updated when you download the CloudFormation template and update the AWS stack. These permissions allow Defender for Cloud to configure auditing and collect database activity logs from your AWS RDS instances.
 
 | Permission | Description |
-|--|--|
+| -- | -- |
 | rds:AddTagsToResource | Adds tags on option and parameter groups created by the plan. |
 | rds:DescribeDBClusterParameters | Describes parameters inside the cluster group. |
 | rds:CreateDBParameterGroup | Creates a database parameter group. |
@@ -100,26 +105,26 @@ The following permissions are required for the role that’s created or updated 
 
 ## Affected parameter and option group settings
 
-When you enable Defender for open-source relational databases, Defender for Cloud automatically configures auditing parameters in your RDS instances to consume and analyze access patterns. You don’t need to modify these settings manually; they’re listed here for reference
+When you enable Defender for open-source relational databases, Defender for Cloud automatically configures auditing parameters in your RDS instances to consume and analyze access patterns. You don't need to modify these settings manually. They're listed here for reference.
 
 | Type | Parameter | Value |
-|--|--|--|
-| PostgreSQL and Aurora PostgreSQL | log_connections | 1|
+| -- | -- | -- |
+| PostgreSQL and Aurora PostgreSQL | log_connections | 1 |
 | PostgreSQL and Aurora PostgreSQL | log_disconnections | 1 |
 | Aurora MySQL cluster parameter group | server_audit_logging | 1 |
 | Aurora MySQL cluster parameter group | server_audit_events | - If it exists, expand the value to include CONNECT, QUERY, <br> - If it doesn't exist, add it with the value CONNECT, QUERY. |
 | Aurora MySQL cluster parameter group | server_audit_excl_users | If it exists, expand it to include rdsadmin. |
-| Aurora MySQL cluster parameter group | server_audit_incl_users | - If it exists with a value and rdsadmin as part of the included, then it isn't present in SERVER_AUDIT_EXCL_USER, and the value of include is empty. |
+| Aurora MySQL cluster parameter group | server_audit_incl_users | If this setting exists and includes rdsadmin, remove rdsadmin from SERVER_AUDIT_EXCL_USER and leave this setting empty. |
 
-An option group is required for MySQL and MariaDB with the following options for the `MARIADB_AUDIT_PLUGIN`.  
+An option group is required for MySQL and MariaDB with the following options for the `MARIADB_AUDIT_PLUGIN`.
 
 If the option doesn’t exist, add it; if it exists, expand the values as needed.
 
 | Option name | Value |
-|--|--|
+| -- | -- |
 | SERVER_AUDIT_EVENTS | If it exists, expand the value to include CONNECT <br> If it doesn't exist, add it with value CONNECT. |
 | SERVER_AUDIT_EXCL_USER | If it exists, expand it to include rdsadmin. |
-| SERVER_AUDIT_INCL_USERS | If it exists with a value and rdsadmin is part of the included, then it isn't present in SERVER_AUDIT_EXCL_USER, and the value of include is empty. |
+| SERVER_AUDIT_INCL_USERS | If this setting exists and includes rdsadmin, remove rdsadmin from SERVER_AUDIT_EXCL_USER and leave this setting empty. |
 
 > [!IMPORTANT]
 > You might need to reboot your instances to apply these changes.
@@ -130,18 +135,35 @@ If the option doesn’t exist, add it; if it exists, expand the values as needed
 
 > [!NOTE]
 >
-> - If a parameter group already exists, it's updated accordingly.
+> - If a parameter group already exists, Defender for Cloud updates it.
 >
-> - `MARIADB_AUDIT_PLUGIN` is supported in MariaDB 10.2 and higher, MySQL 8.0.25 and higher 8.0 versions, and All MySQL 5.7 versions.
+> - `MARIADB_AUDIT_PLUGIN` is supported in MariaDB 10.2 and later, MySQL 8.0.25 and later, and all MySQL 5.7 versions.
 >
 > - Changes that Defender for Cloud makes to the `MARIADB_AUDIT_PLUGIN` for MySQL instances are applied during the next maintenance window. For more information, see [MARIADB_AUDIT_PLUGIN for MySQL instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MySQL.Options.AuditPlugin.html#Appendix.MySQL.Options.AuditPlugin.Add).
 
+## Disable the plan
+
+To disable Defender for open-source relational databases on AWS RDS:
+
+1. Sign in to [the Azure portal](https://portal.azure.com).
+
+1. Search for and select **Microsoft Defender for Cloud** > **Environment settings**.
+
+1. Select the relevant AWS account.
+
+1. Locate the Databases plan and select **Settings**.
+
+1. Toggle open-source relational databases to **Off**.
+
+1. Select **Save**.
+
 ## Related content
 
-- [What's supported in Sensitive Data Discovery](concept-data-security-posture-prepare.md#whats-supported)
+- [What is supported in sensitive data discovery](concept-data-security-posture-prepare.md#whats-supported)
 - [Discovering sensitive data on AWS RDS instances](concept-data-security-posture-prepare.md#discover-and-scan-aws-rds-instances)
 
 ## Next step
 
 > [!div class="nextstepaction"]
 > [Respond to Defender open-source database alerts](defender-for-databases-usage.md)
+
