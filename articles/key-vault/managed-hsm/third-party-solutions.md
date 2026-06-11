@@ -30,5 +30,5 @@ Several vendors have worked closely with Microsoft to integrate their solutions 
 
 ## Next steps
 * [Managed HSM overview](overview.md)
-* [Secure your Azure Managed HSM deployment](secure-managed-hsm.md)
+* [Secure your Managed HSM deployment](secure-managed-hsm.md)
 

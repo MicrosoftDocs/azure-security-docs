@@ -15,7 +15,7 @@ ms.custom: sfi-ga-nochange
 
 # Access control for Managed HSM
 
-Azure Key Vault Managed HSM is a cloud service that safeguards encryption keys. Because this data is sensitive and critical to your business, you need to secure your managed hardware security modules (HSMs) by allowing only authorized applications and users to access the data.
+Azure Key Vault Managed HSM is a cloud service that safeguards encryption keys. Because this data is sensitive and critical to your business, you need to secure your Managed HSM instances by allowing only authorized applications and users to access the data.
 
 This article provides an overview of the Managed HSM access control model. It explains authentication and authorization, and describes how to secure access to your managed HSMs. For practical implementation guidance, see [Secure access to your managed HSMs](how-to-secure-access.md).
 

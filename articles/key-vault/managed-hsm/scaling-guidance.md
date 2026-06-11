@@ -1,5 +1,5 @@
 ---
-title: Azure Managed HSM Scaling Guidance
+title: Azure Key Vault Managed HSM Scaling Guidance
 description: Learn about capacity planning for Azure Key Vault Managed HSM, including benchmark performance numbers for cryptographic operations.
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
@@ -10,9 +10,9 @@ ms.date: 12/03/2025
 
 ---
 
-# Azure Managed HSM Scaling Guidance
+# Azure Key Vault Managed HSM Scaling Guidance
 
-This document describes how to correctly plan capacity for Azure Managed HSM. 
+This document describes how to correctly plan capacity for Managed HSM. 
 
 ## Common customer scenarios for capacity planning
 
@@ -30,7 +30,7 @@ Each Managed HSM instance constitutes three load balanced HSM partitions. The th
 
 For scaling the encryption of large amounts of data, we recommend using a key hierarchy where only the Key Encryption Key is stored in Managed HSM and it is used to wrap lower level keys. For more information, see [Azure Data Encryption-at-Rest: Envelope Encryption with a Key Hierarchy](/azure/security/fundamentals/encryption-atrest#envelope-encryption-with-a-key-hierarchy)
 
-The benchmark numbers were calculated from internal performance testing one key operation a time on our current hardware with its current firmware. Each key operation was run against a single-partition MHSM pool, using the same key for each request. The numbers shown are the average number of operations per second, sustained over 5 minutes.
+The benchmark numbers were calculated from internal performance testing one key operation a time on our current hardware with its current firmware. Each key operation was run against a single-partition Managed HSM pool, using the same key for each request. The numbers shown are the average number of operations per second, sustained over 5 minutes.
 
 These numbers assume that one single key is being used to achieve maximum throughput. For example, if a single RSA-2048 key is used, the maximum throughput is 900 sign operations. If you use 900 different keys with one transaction per second each, they will not be able to achieve the same throughput.
 
@@ -92,4 +92,4 @@ Throughput limits for Wrap/Unwrap apply to AES-KW algorithm.
 |-----------|------------------------------------------------|
 | Full HSM Backup/Restore<br>(only one concurrent backup or restore operation per HSM instance supported) | 1 |
 
-For Azure Managed HSM service limits, see [Managed HSM service limits](service-limits.md).
+For Managed HSM service limits, see [Managed HSM service limits](service-limits.md).

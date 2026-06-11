@@ -230,7 +230,7 @@ The following sections answer questions related to offloading of Secure Sockets 
 
 ### Does the OpenSSL engine for Azure Cloud HSM support PKCS#11 for SSL/TLS offloading?
 
-No. The OpenSSL engine for Azure Cloud HSM doesn't support PKCS#11 for SSL/TLS offloading. Customers who require PKCS#11 for SSL/TLS offloading must use the [TLS Offload library for Azure Managed HSM](https://github.com/microsoft/AzureManagedHsmTLSOffload).
+No. The OpenSSL engine for Azure Cloud HSM doesn't support PKCS#11 for SSL/TLS offloading. Customers who require PKCS#11 for SSL/TLS offloading must use the [TLS Offload library for Managed HSM](https://github.com/microsoft/AzureManagedHsmTLSOffload).
 
 ### Why am I getting the error message "Failed to connect socket, LIQUIDSECURITY: Daemon socket connection error" when running azcloudhsm_util?
 
@@ -442,7 +442,7 @@ No. A SQL Server EKM provider for Azure Cloud HSM supports only Windows Server.
 
 ### Does a SQL Server EKM provider for Azure Cloud HSM support SQL Server SaaS/PaaS?
 
-No. Azure Cloud HSM is infrastructure as a service (IaaS) only. Software as a service (SaaS) or platform as a service (PaaS) customers should use Azure Managed HSM, which supports transparent data encryption for Azure SQL Database and Azure SQL Managed Instance.
+No. Azure Cloud HSM is infrastructure as a service (IaaS) only. Software as a service (SaaS) or platform as a service (PaaS) customers should use Managed HSM, which supports transparent data encryption for Azure SQL Database and Azure SQL Managed Instance.
 
 ### Does a SQL Server EKM provider for Azure Cloud HSM support multiple sign-ins, credentials, and connections?
 

@@ -208,7 +208,7 @@ Adjust permissions for your managed HSM based on your specific requirements. In 
 - For more information about usage logging for Managed HSM logging, see [Managed HSM logging](logging.md).
 - To learn about managing roles in Managed HSM, see [Managed HSM local RBAC](role-management.md).
 - Learn about [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-configure).
-- Review [Secure your Azure Managed HSM deployment](secure-managed-hsm.md).
+- Review [Secure your Managed HSM deployment](secure-managed-hsm.md).
 - See [Azure RBAC documentation](/azure/role-based-access-control/overview).
 - See [Azure RBAC: Built-in roles](/azure/role-based-access-control/built-in-roles).
 - See [Manage Azure RBAC with Azure CLI](/azure/role-based-access-control/role-assignments-cli).

@@ -22,4 +22,4 @@ For more information, see:
 
 - [Azure Dedicated HSM overview](overview.md)
 - [Azure ExpressRoute documentation](/azure/expressroute/expressroute-about-virtual-network-gateways)
-- [Migrate from Azure Dedicated HSM to Azure Managed HSM or Azure Cloud HSM](migration-guide.md).
+- [Migrate from Azure Dedicated HSM to Managed HSM or Azure Cloud HSM](migration-guide.md).

@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Azure Key Vault Managed HSM client library for .NET
-description: Learn how to access keys in Azure Managed HSM using the .NET client library
+description: Learn how to access keys in Azure Key Vault Managed HSM using the .NET client library
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 03/30/2026
