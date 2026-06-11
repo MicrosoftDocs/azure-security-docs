@@ -7,7 +7,7 @@
     },
     {
       "source_path_from_root": "/articles/confidential-ledger/programmability.md",
-      "redirect_url": "/azure/confidential-ledger/advanced-user-defined-function",
+      "redirect_url": "/azure/confidential-ledger/user-defined-endpoints",
       "redirect_document_id": false
     },
     {
