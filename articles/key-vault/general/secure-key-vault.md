@@ -136,6 +136,6 @@ For security best practices specific to keys, secrets, and certificates, see:
 
 ## Next steps
 
-- [Secure your Azure Managed HSM deployment](../managed-hsm/secure-managed-hsm.md)
+- [Secure your Managed HSM deployment](../managed-hsm/secure-managed-hsm.md)
 - [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md)
 - [Azure RBAC: Built-in roles](/azure/role-based-access-control/built-in-roles)

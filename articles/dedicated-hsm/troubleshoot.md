@@ -24,7 +24,7 @@ Dedicated HSM is a valuable resource that delivers baremetal HSM capabilities in
 
 ### Getting access to Dedicated HSM
 
-First, verify that your use cases cannot be addressed by [Azure Key Vault](../key-vault/general/overview.md) or [Azure Managed HSM](../key-vault/managed-hsm/overview.md). If then you believe only Dedicated HSM meets your key storage requirements, then contact your Microsoft Account Manager or Microsoft Customer Support for further guidance to request access. Outline your application and use cases, the regions you would like HSMs and the volume of HSMs you desire.
+First, verify that your use cases cannot be addressed by [Azure Key Vault](../key-vault/general/overview.md) or [Managed HSM](../key-vault/managed-hsm/overview.md). If then you believe only Dedicated HSM meets your key storage requirements, then contact your Microsoft Account Manager or Microsoft Customer Support for further guidance to request access. Outline your application and use cases, the regions you would like HSMs and the volume of HSMs you desire.
 
 ## HSM Provisioning
 

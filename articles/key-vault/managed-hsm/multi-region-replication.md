@@ -1,6 +1,6 @@
 ---
-title: Enable multi-region replication on Azure Managed HSM
-description: Enable Multi-Region Replication on Azure Managed HSM
+title: Enable multi-region replication on Azure Key Vault Managed HSM
+description: Enable Multi-Region Replication on Azure Key Vault Managed HSM
 services: key-vault
 author: msmbaldwin
 ms.service: azure-key-vault
@@ -12,7 +12,7 @@ ms.author: nkondamudi
 ms.custom: references_regions
 ai-usage: ai-assisted
 ---
-# Enable multi-region replication on Azure Managed HSM
+# Enable multi-region replication on Azure Key Vault Managed HSM
 
 Multi-region replication allows you to extend a managed HSM pool from one Azure region (called the primary region) to one additional Azure region (called an extended region). Extension is supported to a single additional region only. Once configured, both regions are active, able to serve requests and, with automated replication, share the same key material, roles, and permissions. The closest available region to the application receives and fulfills the request, maximizing read throughput and latency. While regional outages are rare, multi-region replication enhances the availability of mission critical cryptographic keys should one region become unavailable. When multi-region replication is enabled, the SLA for the primary and extension pools combined increases to 99.99. For more information on SLA, visit [SLA for Azure Key Vault Managed HSM](https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/).
 
@@ -52,14 +52,14 @@ If a region reports an unhealthy status to the Traffic Manager, future requests 
 
 ## Azure region support
 
-All Azure Managed HSM regions are supported as primary regions (regions where you can replicate a Managed HSM pool from).
+All Managed HSM regions are supported as primary regions (regions where you can replicate a Managed HSM pool from).
 
 > [!NOTE]
 > US East, Canada East, West Europe, Qatar Central, Poland Central, and West India cannot be extended regions at this time. Other regions may be unavailable for extension due to capacity limitations in the region.
 
 ## Billing
 
-Multi-region replication into an extended region incurs extra billing (x2), as a new HSM pool is consumed in an extended region. For more information, see  [Azure Managed HSM pricing](https://azure.microsoft.com/pricing/details/key-vault).
+Multi-region replication into an extended region incurs extra billing (x2), as a new HSM pool is consumed in an extended region. For more information, see  [Managed HSM pricing](https://azure.microsoft.com/pricing/details/key-vault).
 
 ## Soft-delete behavior
 

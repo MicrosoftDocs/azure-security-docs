@@ -103,7 +103,7 @@ conceptualContent:
           text: What is managed HSM?
         - url: ./managed-hsm/secure-managed-hsm.md
           itemType: overview
-          text: Secure your Azure Managed HSM deployment
+          text: Secure your Managed HSM deployment
         - url: ./managed-hsm/quick-create-cli.md
           itemType: quickstart
           text: Provision and activate a managed HSM

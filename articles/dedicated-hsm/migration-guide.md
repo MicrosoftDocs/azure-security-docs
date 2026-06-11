@@ -1,6 +1,6 @@
 ---
-title: Transition from Azure Dedicated HSM to Azure Managed HSM or Azure Cloud HSM
-description: Guidance on transitioning from Azure Dedicated HSM to Azure Managed HSM or Azure Cloud HSM, including restrictions, onboarding steps, and best practices.
+title: Transition from Azure Dedicated HSM to Azure Key Vault Managed HSM or Azure Cloud HSM
+description: Guidance on transitioning from Azure Dedicated HSM to Azure Key Vault Managed HSM or Azure Cloud HSM, including restrictions, onboarding steps, and best practices.
 author: msmbaldwin
 ms.author: mbaldwin
 ms.topic: how-to
@@ -9,22 +9,22 @@ services: dedicated-hsm
 ms.service: azure-dedicated-hsm
 ---
 
-# Migrate from Azure Dedicated HSM to Azure Managed HSM or Azure Cloud HSM
+# Migrate from Azure Dedicated HSM to Azure Key Vault Managed HSM or Azure Cloud HSM
 
-[Azure Dedicated HSM is being retired](https://azure.microsoft.com/updates?id=499214). Microsoft will fully support existing Dedicated HSM customers until July 31, 2028, but no new customer onboardings are accepted. Customers must transition to [Azure Cloud HSM](../cloud-hsm/overview.md) or [Azure Managed HSM](../key-vault/managed-hsm/overview.md).
+[Azure Dedicated HSM is being retired](https://azure.microsoft.com/updates?id=499214). Microsoft will fully support existing Dedicated HSM customers until July 31, 2028, but no new customer onboardings are accepted. Customers must transition to [Azure Cloud HSM](../cloud-hsm/overview.md) or [Managed HSM](../key-vault/managed-hsm/overview.md).
 
-This article provides guidance for Azure Dedicated HSM customers who need to transition to Azure Cloud HSM or Azure Managed HSM. This transition involves creating new keys and updating applications to use the new services.
+This article provides guidance for Azure Dedicated HSM customers who need to transition to Azure Cloud HSM or Managed HSM. This transition involves creating new keys and updating applications to use the new services.
 
 > [!WARNING]
-> Customers cannot migrate existing key materials from Azure Dedicated HSM to Azure Cloud HSM or Azure Managed HSM due to known restrictions of the Thales Luna HSM. You must create new keys in Azure Cloud HSM or Azure Managed HSM when transitioning off Azure Dedicated HSM.
+> Customers cannot migrate existing key materials from Azure Dedicated HSM to Azure Cloud HSM or Managed HSM due to known restrictions of the Thales Luna HSM. You must create new keys in Azure Cloud HSM or Managed HSM when transitioning off Azure Dedicated HSM.
 
-Microsoft doesn't have access to Dedicated HSMs allocated to customers because devices are allocated within the customers' private IP address space. Customers are responsible for coordinating with their internal teams to create new keys in Azure Cloud HSM or Azure Managed HSM, update their applications to use the new keys, and test to ensure a smooth transition.
+Microsoft doesn't have access to Dedicated HSMs allocated to customers because devices are allocated within the customers' private IP address space. Customers are responsible for coordinating with their internal teams to create new keys in Azure Cloud HSM or Managed HSM, update their applications to use the new keys, and test to ensure a smooth transition.
 
 ## Thales Luna HSM restrictions
 
-Exporting HSM-protected keys from a Thales Luna HSM to Azure Cloud HSM or Azure Managed HSM is not possible if the default partition policy setting, "key export," is disabled. This mode prevents private keys from existing outside of a trusted Luna HSM in the designated cloning domain.
+Exporting HSM-protected keys from a Thales Luna HSM to Azure Cloud HSM or Managed HSM is not possible if the default partition policy setting, "key export," is disabled. This mode prevents private keys from existing outside of a trusted Luna HSM in the designated cloning domain.
 
-Azure Dedicated HSM customers using High-Availability (HA) Groups to support their BCDR across multiple devices typically have "cloning mode on" enabled and "key export" disabled. As a result, existing key materials cannot be transitioned, and new keys must be created in Azure Cloud HSM or Azure Managed HSM.
+Azure Dedicated HSM customers using High-Availability (HA) Groups to support their BCDR across multiple devices typically have "cloning mode on" enabled and "key export" disabled. As a result, existing key materials cannot be transitioned, and new keys must be created in Azure Cloud HSM or Managed HSM.
 
 Thales Luna HSMs with "cloning mode on" and "key export" disabled cannot export keys.
 
@@ -51,34 +51,34 @@ Creating keys in Azure Cloud HSM is straightforward. You can learn how to create
 
 Azure Cloud HSM is a cloud service that safeguards encryption keys. As these keys are sensitive and business critical, make sure to secure access to your Cloud HSMs by allowing only authorized applications and users. The [best practices](/azure/cloud-hsm/secure-cloud-hsm) article, along with [key management and security](/azure/cloud-hsm/key-management) and [user management](/azure/cloud-hsm/user-management), provides an overview of the access model. It explains authentication, authorization, and role-based access control that you should follow.
 
-## Transitioning to Azure Managed HSM
+## Transitioning to Managed HSM
 
 Customers can quickly provision and activate a Managed HSM using the QuickStart reference guides below:
 
 ### Provision and activate a Managed HSM
 
-To begin using Azure Managed HSM, you need to provision and activate it. Use the following guides for step-by-step instructions.
+To begin using Managed HSM, you need to provision and activate it. Use the following guides for step-by-step instructions.
 
-- [Overview of Azure Managed HSM](../key-vault/managed-hsm/overview.md)
+- [Overview of Managed HSM](../key-vault/managed-hsm/overview.md)
 - [Provision and activate a Managed HSM using Azure CLI](../key-vault/managed-hsm/quick-create-cli.md)
 - [Provision and activate a Managed HSM using PowerShell](../key-vault/managed-hsm/quick-create-powershell.md)
 - [Provision and activate a Managed HSM using Azure Resource Manager Template](../key-vault/managed-hsm/quick-create-template.md)
 
-### Create keys in Azure Managed HSM
+### Create keys in Managed HSM
 
-Creating keys in Azure Managed HSM is essential for securing your data. Refer to the following resources for detailed instructions.
+Creating keys in Managed HSM is essential for securing your data. Refer to the following resources for detailed instructions.
 
-- [Manage keys in an Azure Managed HSM using the Azure CLI](../key-vault/managed-hsm/key-management.md)
+- [Manage keys in a Managed HSM using the Azure CLI](../key-vault/managed-hsm/key-management.md)
 
-### Read best practices using Azure Managed HSM
+### Read best practices using Managed HSM
 
-Azure Managed HSM is a cloud service that safeguards encryption keys. As these keys are sensitive and business critical, make sure to secure access to your managed HSMs by allowing only authorized applications and users. Our [Best Practices](/azure/key-vault/managed-hsm/best-practices) and article about [Managed HSM Access Control](/azure/key-vault/managed-hsm/access-control) provides an overview of the access model. It explains authentication and authorization, and role-based access control that you will want to adhere to.
+Managed HSM is a cloud service that safeguards encryption keys. As these keys are sensitive and business critical, make sure to secure access to your managed HSMs by allowing only authorized applications and users. Our [Best Practices](/azure/key-vault/managed-hsm/best-practices) and article about [Managed HSM Access Control](/azure/key-vault/managed-hsm/access-control) provides an overview of the access model. It explains authentication and authorization, and role-based access control that you will want to adhere to.
 
 ## Frequently asked questions
 
 **Can customers migrate Dedicated HSM keys to Cloud HSM or Managed HSM?**
 
-No, existing keys cannot be migrated due to restrictions in the Thales Luna HSM. Customers must create new keys in Azure Cloud HSM or Azure Managed HSM.
+No, existing keys cannot be migrated due to restrictions in the Thales Luna HSM. Customers must create new keys in Azure Cloud HSM or Managed HSM.
 
 **Can customers change partition policies on Dedicated HSM to enable key export?**
 
@@ -86,10 +86,10 @@ No. Changing partition policies for key cloning or key export is a destructive p
 
 ## Next steps
 
-To learn more about Azure Cloud HSM and Azure Managed HSM, explore the following resources:
+To learn more about Azure Cloud HSM and Managed HSM, explore the following resources:
 
 - [Azure Cloud HSM Overview](../cloud-hsm/overview.md): Learn about the features and capabilities of Azure Cloud HSM.
-- [Azure Managed HSM Overview](../key-vault/managed-hsm/overview.md): Understand the benefits and use cases of Azure Managed HSM.
+- [Managed HSM Overview](../key-vault/managed-hsm/overview.md): Understand the benefits and use cases of Managed HSM.
 - [Azure Cloud HSM Onboarding Guide](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/OnboardingGuides/Azure%20Cloud%20HSM%20Onboarding.pdf): Step-by-step instructions for getting started with Azure Cloud HSM.
-- [Azure Managed HSM Quickstart](../key-vault/managed-hsm/quick-create-cli.md): Quickstart guide for provisioning and activating Azure Managed HSM.
+- [Managed HSM Quickstart](../key-vault/managed-hsm/quick-create-cli.md): Quickstart guide for provisioning and activating Managed HSM.
 - [Azure Cloud HSM FAQ](../cloud-hsm/faq.yml): Explore usage scenarios and best practices for Azure Cloud HSM.

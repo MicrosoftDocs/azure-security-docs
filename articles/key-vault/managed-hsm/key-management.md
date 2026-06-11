@@ -14,7 +14,7 @@ ms.author: mbaldwin
 ai-usage: ai-assisted
 ---
 
-# Manage keys in an Azure Managed HSM
+# Manage keys in an Azure Key Vault Managed HSM
 
 > [!NOTE]
 > Key Vault supports two types of resources: vaults and managed HSMs. This article is about **Managed HSM**. If you want to learn how to manage a vault, see [Quickstart: Create a key vault using the Azure CLI](../general/quick-create-cli.md).
@@ -452,4 +452,4 @@ To import a key from your on-premises HSM to managed HSM, see [Import HSM-protec
 - For programming references, see [the Azure Key Vault developer's guide](../general/developers-guide.md).
 - To access keys using Azure SDKs, see: [.NET](quickstart-dotnet.md), [Python](quickstart-python.md), [JavaScript](quickstart-javascript.md).
 - To learn more about Managed HSM role management, see [Managed HSM role management](role-management.md).
-- To learn more about securing your Azure Managed HSM deployment, see [Secure your Azure Managed HSM deployment](secure-managed-hsm.md).
+- To learn more about securing your Managed HSM deployment, see [Secure your Managed HSM deployment](secure-managed-hsm.md).

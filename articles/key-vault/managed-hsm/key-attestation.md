@@ -1,6 +1,6 @@
 ---
-title: Validate Azure Managed HSM keys with key attestation
-description: Validate cryptographic key integrity in Azure Managed HSM with key attestation, ensuring compliance and protection against unauthorized access.
+title: Validate Azure Key Vault Managed HSM keys with key attestation
+description: Validate cryptographic key integrity in Azure Key Vault Managed HSM with key attestation, ensuring compliance and protection against unauthorized access.
 services: key-vault
 author: msmbaldwin
 ms.service: azure-key-vault
@@ -11,9 +11,9 @@ ms.author: mbaldwin
 
 ---
 
-# Validate Azure Managed HSM keys with key attestation
+# Validate Azure Key Vault Managed HSM keys with key attestation
 
-Key attestation is a functionality of Azure Managed HSM. It lets you validate the integrity and authenticity of cryptographic keys stored within the hardware security module (HSM). It lets organizations verify that keys are generated and stored within a trusted, FIPS 140-3 Level 3 certified HSM without ever leaving the FIPS boundary. By providing cryptographic proof that the keys are securely handled, key attestation enhances trust in key management processes, enabling compliance with stringent security standards and regulations. This feature is especially valuable in scenarios where customers need assurance that their keys are protected from unauthorized access, even from cloud providers.
+Key attestation is a functionality of Managed HSM. It lets you validate the integrity and authenticity of cryptographic keys stored within the hardware security module (HSM). It lets organizations verify that keys are generated and stored within a trusted, FIPS 140-3 Level 3 certified HSM without ever leaving the FIPS boundary. By providing cryptographic proof that the keys are securely handled, key attestation enhances trust in key management processes, enabling compliance with stringent security standards and regulations. This feature is especially valuable in scenarios where customers need assurance that their keys are protected from unauthorized access, even from cloud providers.
 
 ## Prerequisites
 
@@ -119,5 +119,5 @@ You can validate the certificates we use with `/src/vendor/marvell/marvell_valid
 
 ## Next steps
 
-- [Azure Managed HSM overview](overview.md)
+- [Managed HSM overview](overview.md)
 

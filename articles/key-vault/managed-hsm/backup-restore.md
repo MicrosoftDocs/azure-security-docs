@@ -1,5 +1,5 @@
 ---
-title: Full backup/restore and selective restore for Azure Managed HSM
+title: Full backup/restore and selective restore for Azure Key Vault Managed HSM
 description: This document explains full backup/restore and selective restore.
 services: key-vault
 author: msmbaldwin
@@ -48,7 +48,7 @@ To execute a full backup, provide the following information:
    ```azurecli-interactive
    az keyvault create --hsm-name <hsm-name> -l <location> --retention-days 7 --administrators "<initial-admin>" --mi-user-assigned "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<managed-identity-name>" 
    ```
- If you have an existing Managed HSM, associate the managed identity by updating the MHSM with the following command. 
+ If you have an existing Managed HSM, associate the managed identity by updating the Managed HSM with the following command. 
   ```azurecli-interactive
    az keyvault update-hsm --hsm-name <hsm-name> --mi-user-assigned "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<managed-identity-name>" 
    ```
