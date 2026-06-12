@@ -2,11 +2,9 @@
 title: TPM attestation overview for Azure
 description: This article provides an overview of Trusted Platform Module (TPM) attestation and capabilities supported by Azure Attestation.
 services: attestation
-author: prsriva
 ms.service: azure-attestation
 ms.topic: overview
 ms.date: 04/05/2022
-ms.author: prsriva
 ms.custom: TPM Attestation overview complete, linux-related-content
 ---
 

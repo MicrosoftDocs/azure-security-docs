@@ -2,11 +2,9 @@
 title: How to author an Azure Attestation policy
 description: An explanation of how to author an attestation policy.
 services: attestation
-author: msmbaldwin
 ms.service: azure-attestation
 ms.topic: overview
 ms.date: 04/15/2025
-ms.author: mbaldwin
 
 
 ---

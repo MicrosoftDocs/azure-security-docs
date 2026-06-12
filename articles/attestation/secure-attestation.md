@@ -1,8 +1,6 @@
 ---
 title: Secure Azure Attestation
 description: Learn how to secure Azure Attestation, with best practices for network security, identity management, and access control.
-author: msmbaldwin
-ms.author: mbaldwin
 ms.service: security
 ms.topic: best-practice
 ms.custom: horz-security

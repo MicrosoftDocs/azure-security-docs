@@ -8,8 +8,6 @@ metadata:
   description: Learn how Azure Cloud HSM offers cryptographic key storage within the Azure environment as a dedicated HSM service.
   ms.service: azure-cloud-hsm
   ms.topic: landing-page # Required
-  author: keithp
-  ms.author: keithp
   ms.date: 03/20/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new

@@ -1,11 +1,9 @@
 ﻿---
 title: Overview of Azure Cloud HSM
 description: Learn how Azure Cloud HSM offers cryptographic key storage within the Azure environment as a dedicated HSM service.
-author: keithp
 ms.service: azure-cloud-hsm
 ms.topic: overview
 ms.date: 03/31/2026
-ms.author: keithp
 
 #customer intent: As an IT pro decision-maker, I'm looking for key storage capability within the Azure cloud platform that meets FIPS 140-3 Level 3 certification and that gives me exclusive access to a dedicated hardware security module.
 

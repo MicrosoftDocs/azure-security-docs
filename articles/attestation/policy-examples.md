@@ -2,11 +2,9 @@
 title: Examples of an Azure SGX Attestation policy
 description: Examples of Azure Attestation policy.
 services: attestation
-author: msmbaldwin
 ms.service: azure-attestation
 ms.topic: overview
 ms.date: 04/15/2025
-ms.author: mbaldwin
 
 
 ---
