@@ -4,8 +4,6 @@ description: Learn about capacity planning for Azure Key Vault Managed HSM, incl
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: concept-article
-author: msmbaldwin
-ms.author: mbaldwin
 ms.date: 12/03/2025
 
 ---

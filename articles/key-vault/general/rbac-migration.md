@@ -2,12 +2,10 @@
 title: Migrate to Azure role-based access control
 description: Learn how to migrate from vault access policies to Azure roles.
 services: key-vault
-author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 04/10/2026
-ms.author: mbaldwin
 ms.custom: sfi-image-nochange
 ---
 # Migrate to Azure RBAC from access policies

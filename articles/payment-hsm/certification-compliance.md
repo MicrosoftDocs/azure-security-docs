@@ -2,12 +2,10 @@
 title: Azure Payment HSM certification and compliance
 description: Information on Azure Payment HSM certification and compliance
 services: payment-hsm
-author: msmbaldwin
 
 ms.service: azure-payment-hsm
 ms.topic: concept-article
 ms.date: 04/14/2025
-ms.author: mbaldwin
 ---
 
 # Certification and compliance

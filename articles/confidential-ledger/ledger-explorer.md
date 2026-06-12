@@ -1,8 +1,6 @@
 ---
 title: Use the Azure portal ledger explorer to verify transactions
 description: Learn how to use the Azure portal ledger explorer to list, view, create, and verify the integrity of data stored in Azure Confidential Ledger.
-author: taicchoumsft
-ms.author: tachou
 ms.date: 04/23/2026
 ms.service: azure-confidential-ledger
 ms.topic: how-to

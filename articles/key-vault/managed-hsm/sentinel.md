@@ -2,8 +2,6 @@
 title: Setting up Microsoft Sentinel for Azure Key Vault Managed HSM
 description: Learn how to set up Microsoft Sentinel to monitor and detect suspicious activity in your Azure Key Vault Managed HSM.
 services: key-vault
-author: msmbaldwin
-ms.author: mbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial

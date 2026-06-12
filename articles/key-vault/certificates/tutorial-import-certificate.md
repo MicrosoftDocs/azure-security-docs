@@ -2,7 +2,6 @@
 title: Tutorial - Import a certificate in Key Vault using Azure portal
 description: Tutorial showing how to import a certificate in Azure Key Vault
 services: key-vault
-author: msmbaldwin
 
 ms.service: azure-key-vault
 ms.subservice: certificates
@@ -10,7 +9,6 @@ ms.topic: tutorial
 ms.custom: mvc, sfi-image-nochange
 ms.date: 04/10/2026
 
-ms.author: sebansal
 ms.devlang: azurecli
 ---
 # Tutorial: Import a certificate in Azure Key Vault

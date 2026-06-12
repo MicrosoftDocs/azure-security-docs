@@ -3,13 +3,11 @@ metadata:
   title: Azure Key Vault certificate FAQ
   description: Frequently asked questions about Azure Key Vault certificates
   services: key-vault
-  author: msmbaldwin
-    
+      
   ms.service: azure-key-vault
   ms.subservice: certificates
   ms.topic: overview
   ms.date: 04/10/2026
-  ms.author: mbaldwin
 title: Importing Azure Key Vault certificates FAQ
 summary: This article answers frequently asked questions about Azure Key Vault certificates.
 

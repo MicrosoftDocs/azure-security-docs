@@ -2,14 +2,12 @@
 title: Configure key autorotation in Azure Key Vault Managed HSM
 description: Use this guide to learn how to configure automated the rotation of a key in Azure Key Vault Managed HSM
 services: key-vault
-author: msmbaldwin
 tags: 'rotation'
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 04/28/2026
 
-ms.author: mbaldwin
 ai-usage: ai-assisted
 ---
 # Configure key autorotation in Azure Key Vault Managed HSM

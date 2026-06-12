@@ -2,11 +2,9 @@
 title: Microsoft Entra authentication with Azure confidential ledger
 description: Microsoft Entra authentication with Azure confidential ledger
 services: confidential-ledger
-author: msmbaldwin
 ms.service: azure-confidential-ledger
 ms.topic: overview
 ms.date: 04/14/2025
-ms.author: mbaldwin
 
 ---
 # Azure confidential ledger authentication with Microsoft Entra ID

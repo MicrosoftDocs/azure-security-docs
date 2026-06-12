@@ -2,7 +2,6 @@
 title: What to do if there's an Azure service disruption that affects Managed HSM - Azure Key Vault | Microsoft Docs
 description: Learn what to do if there's an Azure service disruption that affects Managed HSM.
 services: key-vault
-author: msmbaldwin
 
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
@@ -10,7 +9,6 @@ ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 04/28/2026
 ai-usage: ai-assisted
-ms.author: mbaldwin
 ---
 
 # Managed HSM disaster recovery

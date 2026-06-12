@@ -2,12 +2,10 @@
 title: Register the Azure Payment HSM resource providers
 description: Register the Azure Payment HSM resource providers
 services: payment-hsm
-author: msmbaldwin
 ms.service: azure-payment-hsm
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: overview
 ms.date: 04/10/2025
-ms.author: mbaldwin
 ---
 # Register the Azure Payment HSM resource providers and resource provider features
 

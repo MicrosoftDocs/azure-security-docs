@@ -5,8 +5,6 @@ ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
-ms.author: mbaldwin
-author: msmbaldwin
 ms.date: 04/28/2026
 ai-usage: ai-assisted
 

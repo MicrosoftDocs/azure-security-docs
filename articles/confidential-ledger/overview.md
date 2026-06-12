@@ -2,13 +2,9 @@
 title: Azure Confidential Ledger Overview
 description: An overview of Azure confidential ledger, which is a highly secure service for managing sensitive data records with traceability, auditability, and integrity.
 services: confidential-ledger
-author: msmbaldwin
 ms.service: azure-confidential-ledger
 ms.topic: overview
 ms.date: 04/23/2026
-ms.author: shusinha
-
-
 ---
 # Azure confidential ledger
 

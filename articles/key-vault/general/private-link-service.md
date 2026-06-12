@@ -1,8 +1,6 @@
 ---
 title: Integrate Key Vault with Azure Private Link
 description: Learn how to integrate Azure Key Vault with Azure Private Link Service
-author: msmbaldwin
-ms.author: mbaldwin
 ms.date: 05/04/2026
 ms.service: azure-key-vault
 ms.subservice: general

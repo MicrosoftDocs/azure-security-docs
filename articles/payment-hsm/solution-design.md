@@ -2,12 +2,10 @@
 title: Solution design for Azure Payment HSM
 description: Learn about topologies and constraints for Azure Payment HSM
 services: payment-hsm
-author: msmbaldwin
 
 ms.service: azure-payment-hsm
 ms.topic: concept-article
 ms.date: 04/10/2025
-ms.author: mbaldwin
 ---
 
 # Azure Payment HSM solution design

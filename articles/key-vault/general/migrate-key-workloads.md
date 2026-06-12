@@ -1,8 +1,6 @@
 ---
 title: How to migrate key workloads 
 description: How to migrate key workloads
-author: msmbaldwin
-ms.author: mbaldwin
 services: key-vault
 ms.subservice: general
 ms.topic: upgrade-and-migration-article

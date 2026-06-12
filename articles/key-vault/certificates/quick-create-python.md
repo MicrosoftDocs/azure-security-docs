@@ -1,8 +1,6 @@
 ---
 title: Quickstart – Azure Key Vault Python client library – manage certificates
 description: Learn how to create, retrieve, and delete certificates from an Azure key vault using the Python client library
-author: msmbaldwin
-ms.author: mbaldwin
 ms.date: 05/12/2026
 
 ms.service: azure-key-vault

@@ -1,8 +1,6 @@
 ---
 title: Quickstart – Microsoft Azure confidential ledger Python client library
 description: Learn to use the Microsoft Azure confidential ledger client library for Python
-author: msmbaldwin
-ms.author: mbaldwin
 ms.date: 04/14/2025
 ms.service: azure-confidential-ledger
 ms.topic: quickstart

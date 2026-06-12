@@ -1,12 +1,10 @@
 ﻿---
 title: Deploy Azure Cloud HSM by Using Azure PowerShell
 description: Learn how to deploy Azure Cloud HSM into an existing virtual network by using Azure PowerShell.
-author: keithp
 manager: keithp
 ms.service: azure-cloud-hsm
 ms.topic: quickstart
 ms.date: 03/26/2026
-ms.author: keithp
 
 #customer intent: As an IT pro decision-maker, I'm looking for key storage capability within the Azure cloud platform that meets FIPS 140-3 Level 3 certification and that gives me exclusive access to a dedicated hardware security module.
 

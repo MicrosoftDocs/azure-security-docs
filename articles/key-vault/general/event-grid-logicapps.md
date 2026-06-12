@@ -2,13 +2,11 @@
 title: Email when Key Vault status of the secret changes
 description: Guide to use Logic Apps to respond to Key Vault secrets changes
 services: key-vault
-author: msmbaldwin
 
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 04/10/2026
-ms.author: mbaldwin
 ms.custom: sfi-image-nochange
 ---
 # Use Logic Apps to receive email about status changes of key vault secrets

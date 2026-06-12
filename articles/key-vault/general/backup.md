@@ -2,13 +2,11 @@
 title: Back up a secret, key, or certificate stored in Azure Key Vault
 description: Use this document to help back up a secret, key, or certificate stored in Azure Key Vault.
 services: key-vault
-author: msmbaldwin
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, sfi-image-nochange
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 04/20/2026
-ms.author: mbaldwin
 #Customer intent: As an Azure Key Vault administrator, I want to back up a secret, key, or certificate in my key vault.
 ---
 # Azure Key Vault backup and restore

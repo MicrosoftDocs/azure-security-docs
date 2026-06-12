@@ -2,12 +2,10 @@
 title: Validate Azure Key Vault Managed HSM keys with key attestation
 description: Validate cryptographic key integrity in Azure Key Vault Managed HSM with key attestation, ensuring compliance and protection against unauthorized access.
 services: key-vault
-author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 01/30/2026
-ms.author: mbaldwin
 
 ---
 

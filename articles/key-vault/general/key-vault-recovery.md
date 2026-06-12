@@ -5,8 +5,6 @@ ms.service: azure-key-vault
 ms.subservice: general
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, sfi-image-nochange
 ms.topic: how-to
-ms.author: mbaldwin
-author: msmbaldwin
 ms.date: 04/10/2026
 ---
 

@@ -2,11 +2,9 @@
 title: Azure Attestation Basic Concepts
 description: Basic concepts of Azure Attestation.
 services: attestation
-author: msmbaldwin
 ms.service: azure-attestation
 ms.topic: overview
 ms.date: 04/15/2025
-ms.author: mbaldwin
 ms.custom: references_regions
 ---
 

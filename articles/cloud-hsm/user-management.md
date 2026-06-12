@@ -1,11 +1,9 @@
 ---
 title: User Management Best Practices in Azure Cloud HSM
 description: Learn best practices for managing user identities, securing credentials, implementing redundancy, and restricting user permissions in Azure Cloud HSM.
-author: msmbaldwin
 ms.service: azure-cloud-hsm
 ms.topic: best-practice
 ms.date: 03/31/2026
-ms.author: mbaldwin
 
 #customer intent: As a security administrator, I need to manage user identities and permissions in Azure Cloud HSM so that I can ensure security and compliance.
 

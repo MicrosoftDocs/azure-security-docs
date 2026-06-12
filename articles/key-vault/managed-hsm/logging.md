@@ -2,8 +2,6 @@
 title: Azure Key Vault Managed HSM logging
 description: Use this tutorial to help you get started with Managed HSM logging.
 services: key-vault
-author: msmbaldwin
-ms.author: mbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial

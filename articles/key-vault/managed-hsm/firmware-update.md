@@ -2,12 +2,10 @@
 title: HSM Firmware update for Azure Key Vault Managed HSM and Azure Key Vault Premium for enhanced security and compliance
 description: Updating Azure Key Vault Managed HSM firmware to FIPS 140-3 level 3 enhances security and compliance, ensuring seamless transitions and continued support for users globally.
 services: azure-key-vault
-author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 05/30/2025
-ms.author: mbaldwin
 ---
 
 # HSM Firmware update for Azure Key Vault Managed HSM and Azure Key Vault Premium

@@ -2,13 +2,11 @@
 title: Authentication, requests, and responses
 description: Learn how Azure Key Vault uses JSON-formatted requests and responses and about required authentication for using a key vault.
 services: key-vault
-author: msmbaldwin
 
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: concept-article
 ms.date: 04/10/2026
-ms.author: mbaldwin
 
 ---
 

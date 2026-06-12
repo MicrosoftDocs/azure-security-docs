@@ -2,11 +2,9 @@
 metadata:  
   title: Frequently Asked Questions (FAQ) About Azure Cloud HSM
   description: Find answers to common questions about Microsoft Azure Cloud HSM, such as general information, customer onboarding, billing, interoperability, security and compliance, and support.  
-  author: msmbaldwin  
   ms.service: azure-cloud-hsm 
   ms.topic: faq  
   ms.date: 03/31/2026 
-  ms.author: mbaldwin  
 title: FAQ about Azure Cloud HSM
 summary: Find answers to common questions about Microsoft Azure Cloud HSM.  
 sections:  

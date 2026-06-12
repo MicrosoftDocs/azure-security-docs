@@ -4,8 +4,6 @@ description: This article contains important reference material you need when yo
 ms.date: 04/23/2025
 ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
-author: msmbaldwin
-ms.author: mbaldwin
 ms.service: azure-key-vault
 ---
 # Azure Key Vault monitoring data reference

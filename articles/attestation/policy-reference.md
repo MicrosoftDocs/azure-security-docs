@@ -4,8 +4,6 @@ description: Lists Azure Policy built-in policy definitions for Azure Attestatio
 ms.date: 04/15/2025
 ms.topic: reference
 ms.service: azure-attestation
-author: msmbaldwin
-ms.author: mbaldwin
 ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in definitions for Azure Attestation

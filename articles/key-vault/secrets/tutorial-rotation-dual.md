@@ -2,13 +2,11 @@
 title: Rotation tutorial for resources with two sets of credentials
 description: Use this tutorial to learn how to automate the rotation of a secret for resources that use two sets of authentication credentials.
 services: key-vault
-author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 04/10/2026
 
-ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, sfi-image-nochange, copilot-scenario-highlight
 ---
 # Automate the rotation of a secret for resources that have two sets of authentication credentials

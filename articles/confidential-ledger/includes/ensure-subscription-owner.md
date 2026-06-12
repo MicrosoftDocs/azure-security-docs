@@ -1,9 +1,7 @@
 ---
-author: tachou
 ms.service: azure-confidential-ledger
 ms.topic: include
 ms.date: 11/28/2023
-ms.author: tachou
 
 # Subscription owneer prerequisite that applies to all Confidential Ledger quickstarts
 ---

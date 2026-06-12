@@ -2,11 +2,9 @@
 title: Azure Attestation overview
 description: An overview of Microsoft Azure Attestation, a solution for attesting Trusted Execution Environments (TEEs)
 services: attestation
-author: msmbaldwin
 ms.service: azure-attestation
 ms.topic: overview
 ms.date: 04/15/2025
-ms.author: mbaldwin
 ms.custom: references_regions
 
 ---

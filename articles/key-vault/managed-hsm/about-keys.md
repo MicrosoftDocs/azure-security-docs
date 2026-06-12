@@ -2,13 +2,11 @@
 title: About keys - Azure Key Vault Managed HSM
 description: Overview of cryptographic keys in Azure Key Vault Managed HSM, including supported key types, sizes, compliance, and protection.
 services: azure-key-vault
-author: msmbaldwin
 
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: overview
 ms.date: 05/21/2026
-ms.author: mbaldwin
 ai-usage: ai-assisted
 ---
 

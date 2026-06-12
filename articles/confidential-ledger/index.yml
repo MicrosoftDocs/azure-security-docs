@@ -7,8 +7,6 @@ metadata:
   description: Learn how to use Azure confidential ledger.
   ms.service: azure-confidential-ledger
   ms.topic: landing-page
-  author: msmbaldwin
-  ms.author: mbaldwin
   ms.date: 01/30/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new

@@ -2,8 +2,6 @@
 title: Configure Managed HSM alerts
 description: Learn how to configure alerts for Azure Key Vault Managed HSM to monitor its health and performance.
 services: key-vault
-author: msmbaldwin
-ms.author: mbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial

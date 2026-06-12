@@ -2,8 +2,6 @@
 title: REST API error codes - Azure Key Vault
 description: An operation on an Azure Key Vault web service may return the following error codes.
 services: key-vault
-author: msmbaldwin
-ms.author: mbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: reference

@@ -2,14 +2,12 @@
 title: Import keys using Azure Key Vault keys with JavaScript
 description: Import keys using Azure Key Vault keys with JavaScript. 
 services: key-vault
-author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: how-to
 ms.custom: devx-track-js
 ms.date: 04/14/2025
 
-ms.author: mbaldwin
 #Customer intent: As a JavaScript developer who is new to Azure, I want to import a key to the Key Vault with the SDK.
 ---
 

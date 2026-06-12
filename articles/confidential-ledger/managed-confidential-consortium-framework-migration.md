@@ -3,9 +3,7 @@ title: Migrating from Azure Managed Confidential Consortium Framework to Microso
 description: This article explains the deprecation of Azure Managed Confidential Consortium Framework and provides guidance for migrating to Microsoft Azure confidential ledger. All previous Managed CCF documentation now redirects here.
 ms.service: azure-confidential-ledger
 ms.topic: overview
-author: msmbaldwin
 ms.date: 07/31/2025
-ms.author: mbaldwin
 
 ---
 

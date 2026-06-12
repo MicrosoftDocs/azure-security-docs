@@ -3,8 +3,6 @@ title: Use your browser to access the payShield manager for your Azure Payment H
 description: Use your browser to access the payShield manager for your Azure Payment HSM
 services: payment-hsm
 ms.service: azure-payment-hsm
-author: msmbaldwin
-ms.author: mbaldwin
 ms.topic: quickstart
 ms.devlang: azurecli
 ms.custom: sfi-image-nochange

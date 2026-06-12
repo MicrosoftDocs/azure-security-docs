@@ -2,11 +2,9 @@
 title: 'Quickstart: Create an Azure Dedicated HSM with Azure PowerShell'
 description: Create an Azure Dedicated HSM with Azure PowerShell
 services: dedicated-hsm
-author: msmbaldwin
 ms.topic: quickstart
 ms.service: azure-dedicated-hsm
 ms.date: 04/15/2025
-ms.author: mbaldwin
 ms.devlang: azurepowershell
 ms.custom: devx-track-azurepowershell, mode-api
 ---

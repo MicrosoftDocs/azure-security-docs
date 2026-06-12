@@ -1,8 +1,6 @@
 ---
 title: Data Organization in Azure Confidential Ledger
 description: How to organize data in Azure Confidential Ledger.
-author: musabbir
-ms.author: musabbirkhan
 ms.service: azure-confidential-ledger
 ms.topic: concept-article
 ms.date: 06/15/2025

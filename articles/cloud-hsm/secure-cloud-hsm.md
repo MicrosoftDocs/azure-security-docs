@@ -1,13 +1,11 @@
 ---
 title: Secure your Azure Cloud HSM deployment
 description: Learn best practices for securing Azure Cloud HSM to help protect cryptographic keys and sensitive workloads.
-author: msmbaldwin
 ms.service: azure-cloud-hsm
 ms.topic: article
 ms.date: 04/08/2026
 ai-usage: ai-assisted
 ms.custom: horz-security
-ms.author: mbaldwin
 
 #customer intent: As a Cloud HSM administrator, I want to learn how to secure and optimize my Cloud HSM deployment.
 ---

@@ -2,8 +2,6 @@
 title: Azure Key Vault secure key release policy grammar
 description: Azure Key Vault secure key release policy grammar
 services: key-vault
-author: msmbaldwin
-ms.author: mbaldwin
 
 ms.service: azure-key-vault
 ms.subservice: keys

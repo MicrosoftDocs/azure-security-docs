@@ -2,11 +2,9 @@
 title: Set up Azure Attestation with Azure PowerShell
 description: How to set up and configure an attestation provider using Azure PowerShell.
 services: attestation
-author: msmbaldwin
 ms.service: azure-attestation
 ms.topic: overview
 ms.date: 04/15/2025
-ms.author: mbaldwin 
 ms.custom: devx-track-azurepowershell
 
 

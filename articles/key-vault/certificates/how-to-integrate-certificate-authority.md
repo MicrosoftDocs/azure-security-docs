@@ -2,13 +2,11 @@
 title: Integrating Key Vault with DigiCert certificate authority
 description: This article describes how to integrate Key Vault with DigiCert certificate authority so you can provision, manage, and deploy certificates for your network.
 services: key-vault
-author: msmbaldwin
 
 ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: how-to
 ms.date: 05/12/2026
-ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell, sfi-image-nochange
 ---
 

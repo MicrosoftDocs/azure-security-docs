@@ -2,11 +2,9 @@
 title: Set up Azure Attestation with Azure CLI
 description: How to set up and configure an attestation provider using Azure CLI.
 services: attestation
-author: msmbaldwin
 ms.service: azure-attestation
 ms.topic: quickstart
 ms.date: 04/15/2025
-ms.author: mbaldwin
 ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
 ---

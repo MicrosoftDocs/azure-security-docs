@@ -2,7 +2,6 @@
 title: Export certificates from Azure Key Vault
 description: Learn how to export certificates from Azure Key Vault.
 services: key-vault
-author: msmbaldwin
 
 ms.service: azure-key-vault
 ms.subservice: certificates
@@ -10,7 +9,6 @@ ms.topic: how-to
 ms.custom: mvc, sfi-image-nochange
 ms.date: 03/26/2026
 
-ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure.
 ---
 # Export certificates from Azure Key Vault

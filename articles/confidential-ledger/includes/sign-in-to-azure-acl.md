@@ -1,9 +1,7 @@
 ---
-author: tachou
 ms.service: azure-confidential-ledger
 ms.topic: include
 ms.date: 1/24/2023
-ms.author: tachou
 
 # Sign in to Azure from the CLI or PowerShell
 ---

@@ -2,11 +2,9 @@
 title: Create a Microsoft Azure confidential ledger by using Azure Resource Manager template
 description: Learn how to create a Microsoft Azure confidential ledger by using Azure Resource Manager template.
 services: azure-resource-manager
-author: msmbaldwin
 ms.service: azure-confidential-ledger
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
-ms.author: mbaldwin
 ms.date: 04/14/2025
 ---
 

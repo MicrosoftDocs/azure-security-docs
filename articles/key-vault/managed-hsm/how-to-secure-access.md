@@ -2,13 +2,11 @@
 title: How to secure access to your managed HSMs
 description: Learn how to implement access control for Managed HSM using Azure RBAC and Managed HSM local RBAC.
 services: key-vault
-author: msmbaldwin
 ms.custom: devx-track-azurecli
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: how-to
 ms.date: 03/30/2026
-ms.author: mbaldwin
 # Customer intent: As a managed HSM administrator, I want to set access control and configure the Managed HSM, so that I can ensure it's secure and auditors can properly monitor all activities for this Managed HSM.
 ---
 

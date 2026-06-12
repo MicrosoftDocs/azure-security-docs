@@ -2,8 +2,6 @@
 title: Azure Quickstart - Create an Azure Payment HSM using an Azure Resource Manager template
 description: Quickstart showing how to create Azure Payment HSM using Resource Manager template
 services: payment-hsm
-author: msmbaldwin
-ms.author: mbaldwin
 ms.date: 04/10/2025
 ms.topic: quickstart
 ms.service: azure-payment-hsm

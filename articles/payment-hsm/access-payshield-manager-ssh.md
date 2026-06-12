@@ -3,8 +3,6 @@ title: Use SSH to access the payShield manager for your payment HSM
 description: Learn how to use SSH to access the payShield manager for your Azure Payment HSM.
 services: payment-hsm
 ms.service: azure-payment-hsm
-author: msmbaldwin
-ms.author: mbaldwin
 ms.topic: tutorial
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, sfi-image-nochange

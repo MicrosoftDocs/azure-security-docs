@@ -1,8 +1,6 @@
 ---
 title: Transition from Azure Dedicated HSM to Azure Key Vault Managed HSM or Azure Cloud HSM
 description: Guidance on transitioning from Azure Dedicated HSM to Azure Key Vault Managed HSM or Azure Cloud HSM, including restrictions, onboarding steps, and best practices.
-author: msmbaldwin
-ms.author: mbaldwin
 ms.topic: how-to
 ms.date: 07/28/2025
 services: dedicated-hsm

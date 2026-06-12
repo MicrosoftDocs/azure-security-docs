@@ -1,8 +1,6 @@
 ---
 title: Data Ingress and Egress from Azure Confidential Ledger by Using a Power Automate Connector
 description: Learn to ingress and egress data from Azure confidential ledger by using a Power Automate connector.
-author: ryazhang
-ms.author: ryazhang
 ms.date: 10/21/2025
 ms.service: azure-confidential-ledger
 ms.topic: overview
