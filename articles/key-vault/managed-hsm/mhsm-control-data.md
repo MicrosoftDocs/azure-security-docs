@@ -4,8 +4,6 @@ description: Get an overview of the safeguards and technical measures that help 
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: concept-article
-author: nkondamudi
-ms.author: nkondamudi
 ms.date: 04/07/2026
 ---
 

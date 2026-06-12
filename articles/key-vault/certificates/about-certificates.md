@@ -2,14 +2,12 @@
 title: About Azure Key Vault certificates
 description: Get an overview of the Azure Key Vault REST interface and certificates.
 services: key-vault
-author: msmbaldwin
 
 ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: overview
 ms.date: 04/10/2026
 
-ms.author: mbaldwin
 ms.custom: sfi-image-nochange
 ---
 

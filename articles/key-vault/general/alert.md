@@ -2,13 +2,11 @@
 title: Configure Azure Key Vault alerts
 description: Learn how to create alerts to monitor the health of your key vault.
 services: key-vault
-author: msmbaldwin
 
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 04/10/2026
-ms.author: mbaldwin
 ms.custom: sfi-image-nochange
 # Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults.
 ---

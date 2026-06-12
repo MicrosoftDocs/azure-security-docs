@@ -2,8 +2,6 @@
 title: Monitor Azure Key Vault Managed HSM
 description: Learn how to monitor Azure Key Vault Managed HSM using Azure Monitor.
 services: key-vault
-author: msmbaldwin
-ms.author: mbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial

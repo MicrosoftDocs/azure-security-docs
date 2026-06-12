@@ -1,8 +1,6 @@
 ---
 title: Integrate Azure Key Vault with Azure Policy
 description: Learn how to integrate Azure Key Vault with Azure Policy
-author: msmbaldwin
-ms.author: mbaldwin
 ms.date: 04/10/2026
 ms.service: azure-key-vault
 ms.subservice: general

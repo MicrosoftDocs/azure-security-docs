@@ -2,13 +2,11 @@
 title: Azure Quickstart - Create an Azure key vault using Bicep | Microsoft Docs
 description: Quickstart showing how to create an Azure key vault using Bicep.
 services: key-vault
-author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-bicep
 ms.date: 05/14/2026
-ms.author: mbaldwin
 ai-usage: ai-assisted
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys, secrets, and certificates in Azure.
 ---

@@ -5,8 +5,6 @@ ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: reference
 ms.date: 07/20/2025
-author: msmbaldwin
-ms.author: mbaldwin
 ---
 # Azure Key Vault service limits
 

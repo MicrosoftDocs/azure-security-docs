@@ -2,13 +2,11 @@
 title: Key types, algorithms, and operations - Azure Key Vault Managed HSM
 description: Supported key types, algorithms, attributes, and operations in Azure Key Vault Managed HSM.
 services: azure-key-vault
-author: msmbaldwin
 
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: concept-article
 ms.date: 05/21/2026
-ms.author: mbaldwin
 ai-usage: ai-assisted
 ---
 

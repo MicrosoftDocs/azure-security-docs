@@ -1,8 +1,6 @@
 ---
 title: Diagnose private links configuration issues on Azure Key Vault
 description: Resolve common private links issues with Key Vault and deep dive into the configuration
-author: msmbaldwin
-ms.author: mbaldwin
 ms.date: 04/10/2026
 ms.service: azure-key-vault
 ms.subservice: general

@@ -2,13 +2,11 @@
 title: What is Azure Key Vault?
 description: Learn how Azure Key Vault safeguards cryptographic keys and secrets that cloud applications and services use.
 services: key-vault
-author: msmbaldwin
 
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: concept-article
 ms.date: 04/10/2026
-ms.author: mbaldwin
 
 #Customer intent: As someone new to Key Vault, I'm trying to learn basic concepts that can help me understand Key Vault documentation.
 ---

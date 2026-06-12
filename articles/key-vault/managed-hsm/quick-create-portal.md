@@ -2,12 +2,10 @@
 title: Quickstart - Provision and activate an Azure Key Vault Managed HSM using the Azure portal
 description: Quickstart showing how to provision and activate a managed HSM using the Azure portal
 services: key-vault
-author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: quickstart
 ms.date: 04/28/2026
-ms.author: mbaldwin
 ai-usage: ai-assisted
 #Customer intent: As a security admin who is new to Azure, I want to provision and activate a managed HSM using the portal
 ---

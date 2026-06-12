@@ -2,14 +2,12 @@
 title: Store a multiline secret in Azure Key Vault
 description: Tutorial showing how to set multiline secrets from Azure Key Vault using Azure CLI and PowerShell
 services: key-vault
-author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli, devx-track-azurepowershell, mode-other
 ms.date: 03/26/2026
 
-ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
 # Store a multi-line secret in Azure Key Vault

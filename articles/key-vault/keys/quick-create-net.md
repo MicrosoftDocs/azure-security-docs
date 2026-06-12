@@ -1,8 +1,6 @@
 ---
 title: Quickstart - Azure Key Vault keys client library for .NET
 description: Learn how to create, retrieve, and delete keys from an Azure key vault using the .NET client library
-author: msmbaldwin
-ms.author: mbaldwin
 ms.date: 03/26/2026
 
 ms.service: azure-key-vault

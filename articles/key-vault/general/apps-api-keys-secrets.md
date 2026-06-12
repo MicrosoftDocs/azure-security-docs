@@ -2,12 +2,10 @@
 title: Apps, API Keys, and Azure Key Vault Secrets
 description: Overview of configuring apps to use Azure Key Vault for API secrets.
 services: key-vault
-author: orin-thomas
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: overview
 ms.date: 04/10/2026
-ms.author: orthomas
 ---
 
 # Apps, API Keys, and Azure Key Vault secrets

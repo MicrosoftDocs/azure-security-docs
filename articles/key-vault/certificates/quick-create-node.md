@@ -1,8 +1,6 @@
 ---
 title: Quickstart -  Azure Key Vault certificate client library for JavaScript (version 4)
 description: Learn how to create, retrieve, and delete certificates from an Azure key vault using the JavaScript client library with either JavaScript or TypeScript
-author: msmbaldwin
-ms.author: mbaldwin
 ms.date: 05/12/2026
 ms.service: azure-key-vault
 ms.subservice: certificates

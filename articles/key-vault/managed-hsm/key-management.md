@@ -2,7 +2,6 @@
 title: Manage keys in a Managed HSM 
 description: Use this article to manage keys in a managed HSM
 services: key-vault
-author: msmbaldwin
 
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
@@ -10,7 +9,6 @@ ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 04/28/2026
 
-ms.author: mbaldwin
 ai-usage: ai-assisted
 ---
 

@@ -1,8 +1,6 @@
 ---
 title: Create and retrieve attributes of a managed key in Azure Key Vault – Azure PowerShell
 description: Quickstart showing how to set and retrieve a managed key from Azure Key Vault using Azure PowerShell
-author: msmbaldwin
-ms.author: mbaldwin
 ms.date: 04/14/2026
 ms.topic: quickstart
 ms.service: azure-key-vault

@@ -4,8 +4,6 @@ description: Start here to learn how to monitor Azure Key Vault by using Azure M
 ms.date: 01/30/2026
 ms.custom: horz-monitor, subject-monitoring
 ms.topic: feature-guide
-author: msmbaldwin
-ms.author: mbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 # Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults.

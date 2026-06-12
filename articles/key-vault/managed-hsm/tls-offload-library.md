@@ -2,14 +2,12 @@
 title: Azure Key Vault Managed HSM TLS Offload Library
 description: Azure Key Vault Managed HSM TLS Offload Library
 services: key-vault
-author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.custom: devx-track-azurecli
 ms.topic: get-started
 ms.date: 03/26/2026
 
-ms.author: mbaldwin
 ---
 
 # Azure Key Vault Managed HSM TLS Offload Library

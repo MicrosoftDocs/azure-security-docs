@@ -2,12 +2,10 @@
 title: Network security for Azure Key Vault Managed HSM
 description: Learn about network security configurations and firewall settings for Azure Key Vault Managed HSM
 services: key-vault
-author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: feature-guide
 ms.date: 02/10/2026
-ms.author: mbaldwin 
 ---
 
 # Network security for Azure Key Vault Managed HSM

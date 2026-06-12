@@ -1,8 +1,6 @@
 ---
 title: Secure your Azure Key Vault Managed HSM deployment
 description: Learn how to enhance the security of your Azure Key Vault Managed HSM deployment using best practices in identity, network, data protection, and access control.
-author: msmbaldwin
-ms.author: mbaldwin
 ms.service: security
 ms.topic: best-practice
 ms.date: 03/31/2026

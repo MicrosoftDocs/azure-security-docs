@@ -2,13 +2,11 @@
 title: Get started with Key Vault certificates
 description: Get started with Key Vault certificates management.
 services: key-vault
-author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: get-started
 ms.date: 04/10/2026
 
-ms.author: mbaldwin
 ms.custom: sfi-image-nochange
 ai-usage: ai-assisted
 ---

@@ -1,13 +1,11 @@
 ---
 title: Secure your Azure Key Vault keys
 description: Learn how to secure Azure Key Vault keys, with best practices specific to cryptographic key management.
-author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: best-practice
 ms.custom: horz-security
 ms.date: 04/21/2026
-ms.author: mbaldwin
 ai-usage: ai-assisted
 # Customer intent: As a developer using Key Vault keys, I want to implement key-specific security best practices.
 ---

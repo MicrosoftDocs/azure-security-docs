@@ -1,10 +1,8 @@
 ---
-author: msmbaldwin
 ms.service: azure-key-vault
 ms.topic: include
 ms.date: 03/26/2026
 
-ms.author: mbaldwin
 ---
 
 This article documents a simplified EBNF grammar for secure key release policy, which itself is modeled on [Azure Policy](/azure/governance/policy/). For a complete example of a secure key release policy, see the [confidential VM key release policy](https://raw.githubusercontent.com/Azure/confidential-computing-cvm/main/cvm_deployment/key/skr-policy.json).

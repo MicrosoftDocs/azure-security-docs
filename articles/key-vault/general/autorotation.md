@@ -2,8 +2,6 @@
 title: Understanding autorotation in Azure Key Vault
 description: Learn about autorotation concepts for keys, secrets, and certificates in Azure Key Vault
 services: key-vault
-author: msmbaldwin
-ms.author: mbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: concept-article
