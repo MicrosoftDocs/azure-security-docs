@@ -2,12 +2,10 @@
 title: Getting started with Azure Payment HSM
 description: Information to begin using Azure Payment HSM
 services: payment-hsm
-author: msmbaldwin
 
 ms.service: azure-payment-hsm
 ms.topic: get-started
 ms.date: 04/14/2025
-ms.author: mbaldwin
 ms.custom: references_regions
 ---
 

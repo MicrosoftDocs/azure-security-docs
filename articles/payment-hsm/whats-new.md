@@ -2,8 +2,6 @@
 title: What's new for Azure Payment HSM
 description: Recent updates for Azure Payment HSM
 ms.service: azure-payment-hsm
-author: msmbaldwin
-ms.author: mbaldwin
 ms.topic: tutorial
 ms.date: 04/10/2025
 ---

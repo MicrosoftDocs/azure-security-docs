@@ -2,11 +2,9 @@
 metadata:
   title: Frequently asked questions - Azure Payment HSM
   description: Find answers to common questions about Azure Payment Hardware Security Module, such as basic information, getting started, and support.
-  author: msmbaldwin
   ms.service: azure-payment-hsm
   ms.topic: faq
   ms.date: 03/10/2023
-  ms.author: mbaldwin
 title: Frequently asked questions (FAQ)
 summary: Find answers to common questions about Microsoft Azure Payment HSM.
 

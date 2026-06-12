@@ -2,11 +2,9 @@
 title: Azure Dedicated HSM physical security
 description: Information about Azure Dedicated HSM devices' physical security in data centers
 services: dedicated-hsm
-author: msmbaldwin
 ms.topic: concept-article
 ms.service: azure-dedicated-hsm
 ms.date: 04/15/2025
-ms.author: mbaldwin
 ---
 # Azure Dedicated HSM physical security
 

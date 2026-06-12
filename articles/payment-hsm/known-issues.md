@@ -2,12 +2,10 @@
 title: Azure Payment HSM known issues
 description: Azure Payment HSM known issues
 services: payment-hsm
-author: msmbaldwin
 
 ms.service: azure-payment-hsm
 ms.topic: troubleshooting-known-issue
 ms.date: 04/10/2025
-ms.author: mbaldwin
 ---
 
 # Azure Payment HSM known issues

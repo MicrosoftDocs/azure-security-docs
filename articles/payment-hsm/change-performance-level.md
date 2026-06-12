@@ -2,11 +2,9 @@
 title: How to change the performance level of an Azure Payment HSM
 description: How to change the performance level of an Azure Payment HSM
 services: payment-hsm
-author: msmbaldwin
 ms.service: azure-payment-hsm
 ms.topic: overview
 ms.date: 04/14/2025
-ms.author: mbaldwin
 
 ---
 # How to change the performance level of a payment HSM

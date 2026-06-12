@@ -3,8 +3,6 @@ title: Quickstart - Create an Azure Payment HSM with Azure PowerShell
 description: Create, show, list, update, and delete Azure Payment HSMs by using Azure PowerShell
 services: payment-hsm
 ms.service: azure-payment-hsm
-author: msmbaldwin
-ms.author: mbaldwin
 ms.date: 04/10/2025
 ms.topic: quickstart
 ms.devlang: azurepowershell

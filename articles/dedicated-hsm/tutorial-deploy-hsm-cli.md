@@ -2,12 +2,10 @@
 title: Tutorial deploys into an existing virtual network using the Azure CLI - Azure Dedicated HSM | Microsoft Docs
 description: Tutorial showing how to deploy a dedicated HSM using the CLI into an existing virtual network
 services: dedicated-hsm
-author: msmbaldwin
 ms.topic: tutorial
 ms.custom: mvc, devx-track-azurecli, sfi-image-nochange
 ms.service: azure-dedicated-hsm
 ms.date: 04/15/2025
-ms.author: mbaldwin
 ---
 
 # Tutorial: Deploying HSMs into an existing virtual network using the Azure CLI
