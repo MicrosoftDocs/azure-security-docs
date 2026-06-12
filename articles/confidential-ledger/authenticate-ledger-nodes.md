@@ -1,8 +1,6 @@
 ---
 title: Authenticating Azure confidential ledger nodes
 description: Learn how to authenticate Azure confidential ledger nodes to establish trust before exchanging data, including TLS certificate verification and Intel SGX attestation.
-author: msmbaldwin
-ms.author: mbaldwin
 ms.date: 04/01/2026
 ms.service: azure-confidential-ledger
 ms.topic: how-to

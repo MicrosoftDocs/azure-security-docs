@@ -1,8 +1,6 @@
 ---
 title: Ledger Explorer concepts for Azure Confidential Ledger
 description: Understand the Ledger Explorer tools for Azure Confidential Ledger, including the Azure portal experience and the Ledger Explorer (Offline) web tool, and learn when to use each one.
-author: shubhras
-ms.author: shusinha
 ms.service: azure-confidential-ledger
 ms.topic: conceptual
 ms.date: 04/23/2026

@@ -1,8 +1,6 @@
 ---
 title: Establish trust on Azure confidential ledger
 description: Learn how to establish trust on Azure confidential ledger by verifying the node quote
-author: settiy
-ms.author: settiy
 ms.date: 08/18/2023
 ms.service: azure-confidential-ledger
 ms.custom:

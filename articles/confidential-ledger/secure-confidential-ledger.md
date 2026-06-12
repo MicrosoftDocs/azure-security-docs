@@ -1,8 +1,6 @@
 ---
 title: Secure your Azure confidential ledger deployment
 description: Learn how to secure Azure confidential ledger, with best practices for authentication, data integrity, and access controls.
-author: msmbaldwin
-ms.author: mbaldwin
 ms.service: azure-confidential-ledger
 ms.topic: best-practice
 ms.custom: horz-security

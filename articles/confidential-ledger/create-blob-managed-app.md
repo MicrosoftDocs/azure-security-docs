@@ -1,8 +1,6 @@
 ---
 title: Create a Managed Application to Store Blob Digests
 description: Learn how to create a managed application that stores blob digests to Azure confidential ledger.
-author: pallabpaul
-ms.author: pallabpaul
 ms.date: 10/26/2023
 ms.service: azure-confidential-ledger
 ms.topic: how-to

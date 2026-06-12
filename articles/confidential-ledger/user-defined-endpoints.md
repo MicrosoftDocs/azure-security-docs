@@ -1,8 +1,6 @@
 ---
 title: Advanced user defined functions in Azure confidential ledger
 description: Learn how to execute custom code in Azure confidential ledger
-author: settiy
-ms.author: settiy
 ms.date: 03/12/2025
 ms.service: azure-confidential-ledger
 ms.topic: how-to

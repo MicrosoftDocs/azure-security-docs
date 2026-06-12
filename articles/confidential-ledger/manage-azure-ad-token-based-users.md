@@ -1,8 +1,6 @@
 ---
 title: Manage Microsoft Entra token-based users in Azure confidential ledger
 description: Learn how to manage Microsoft Entra token-based users in Azure confidential ledger
-author: settiy
-ms.author: settiy
 ms.date: 02/09/2023
 ms.service: azure-confidential-ledger
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-python, devx-track-ts

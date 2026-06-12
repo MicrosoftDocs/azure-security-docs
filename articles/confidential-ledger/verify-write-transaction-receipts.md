@@ -1,12 +1,9 @@
 ---
 title: Verify Azure Confidential Ledger write transaction receipts
 description: Verify Azure Confidential Ledger write transaction receipts
-author: andpiccione
-ms.author: apiccione
 ms.date: 04/23/2026
 ms.service: azure-confidential-ledger
 ms.topic: how-to
-
 ---
 
 # Verify Azure Confidential Ledger write transaction receipts
