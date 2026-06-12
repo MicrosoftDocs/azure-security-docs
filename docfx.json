@@ -136,6 +136,8 @@
         "author": {
           "articles/attestation/**/*.md": "garrodonnell",
           "articles/attestation/**/*.yml": "garrodonnell",
+          "articles/cloud-hsm/**/*.md": "garrodonnell",
+          "articles/cloud-hsm/**/*.yml": "garrodonnell",
           "articles/confidential-ledger/**/*.md": "garrodonnell",
           "articles/confidential-ledger/**/*.yml": "garrodonnell",
           "articles/dedicated-hsm/**/*.md": "garrodonnell",
@@ -150,6 +152,8 @@
         "ms.author": {
           "articles/attestation/**/*.md": "godonnell",
           "articles/attestation/**/*.yml": "godonnell",
+          "articles/cloud-hsm/**/*.md": "godonnell",
+          "articles/cloud-hsm/**/*.yml": "godonnell",
           "articles/confidential-ledger/**/*.md": "godonnell",
           "articles/confidential-ledger/**/*.yml": "godonnell",
           "articles/dedicated-hsm/**/*.md": "godonnell",
