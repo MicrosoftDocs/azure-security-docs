@@ -333,4 +333,4 @@ az group delete --resource-group <resource-group>
 ## Next steps
 
 - [Overview of Microsoft Azure confidential ledger](overview.md)
-- [Verify Azure Confidential Ledger write transaction receipts](verify-write-transaction-receipts.md)
+- [Verify Azure confidential ledger write transaction receipts](verify-write-transaction-receipts.md)

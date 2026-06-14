@@ -1,95 +1,103 @@
 items:
-- name: Azure confidential ledger 
+- name: Confidential Computing Ledger
   href: index.yml
-- name: Overview
+- name: Azure confidential ledger
   items:
   - name: About Azure confidential ledger
     href: overview.md
-- name: Quickstarts
-  expanded: true
-  items:
-  - name: Portal
-    href: quickstart-portal.md
-  - name: CLI
-    href: quickstart-cli.md
-  - name: PowerShell
-    href: quickstart-powershell.md
-  - name: Python
-    href: quickstart-python.md
-  - name: .NET
-    href: quickstart-net.md
-  - name: ARM template
-    href: quickstart-template.md 
-  - name: Terraform
-    href: quickstart-terraform.md
-- name: Concepts
-  items:
-  - name: Architecture
-    href: architecture.md
-  - name: Data organization
-    href: data-organization.md
-  - name: User Authentication and authorization 
+  - name: Quickstarts
+    expanded: true
     items:
-    - name: Authentication with Microsoft Entra ID
+    - name: Portal
+      href: quickstart-portal.md
+    - name: CLI
+      href: quickstart-cli.md
+    - name: PowerShell
+      href: quickstart-powershell.md
+    - name: Python
+      href: quickstart-python.md
+    - name: .NET
+      href: quickstart-net.md
+    - name: ARM template
+      href: quickstart-template.md
+    - name: Terraform
+      href: quickstart-terraform.md
+  - name: Concepts
+    items:
+    - name: Architecture
+      href: architecture.md
+    - name: Data organization
+      href: data-organization.md
+    - name: User authentication and authorization
       href: authentication-azure-ad.md
-  - name: Verifying your Ledger Data
+    - name: Verifying your ledger data
+      items:
+      - name: Ledger Explorer concepts
+        href: ledger-explorer-concepts.md
+      - name: Write transaction receipts
+        href: write-transaction-receipts.md
+    - name: User defined functions (UDFs)
+      items:
+      - name: UDF overview
+        href: server-side-programming.md
+      - name: Simple UDFs
+        href: user-defined-functions.md
+      - name: Advanced UDFs
+        href: user-defined-endpoints.md
+  - name: How-to guides
     items:
-    - name: Ledger Explorer concepts
-      href: ledger-explorer-concepts.md
-    - name: Write transaction receipts
-      href: write-transaction-receipts.md
-  - name: User defined functions (UDFs)
-    items:
-    - name: UDF overview
-      href: server-side-programming.md
-    - name: Simple UDFs
-      href: user-defined-functions.md
-    - name: Advanced UDFs
-      href: user-defined-endpoints.md
-- name: How To Guides
+    - name: Manage your ledger
+      items:
+      - name: Register the confidential ledger resource provider
+        href: register-ledger-resource-provider.md
+      - name: Register an ACL app with Microsoft Entra ID
+        href: register-application.md
+    - name: Manage users
+      items:
+      - name: Manage Microsoft Entra token-based users
+        href: manage-azure-ad-token-based-users.md
+      - name: Manage certificate-based users
+        href: manage-certificate-based-users.md
+      - name: Create a client certificate
+        href: create-client-certificate.md
+    - name: Verifying your ledger data
+      items:
+      - name: Verify write transaction receipts
+        href: verify-write-transaction-receipts.md
+      - name: Use the Azure portal ledger explorer
+        href: ledger-explorer.md
+      - name: Inspect ledger data with Ledger Explorer (Offline)
+        href: ledger-explorer-offline.md
+    - name: Applications using Azure confidential ledger
+      items:
+      - name: Store your data securely in SQL Server with Ledger
+        href: /sql/relational-databases/security/ledger/ledger-overview
+      - name: Create a managed application to store blob digests
+        href: create-blob-managed-app.md
+      - name: Data ingress and egress from Azure confidential ledger using Power Automate Connector
+        href: create-power-automate-workflow.md
+- name: Microsoft's Signing Transparency Ledger
   items:
-  - name: Manage your Ledger
-    items:
-    - name: Register the confidential ledger resource provider
-      href: register-ledger-resource-provider.md  
-    - name: Register an ACL app with Microsoft Entra ID
-      href: register-application.md
-  - name: Manage users
-    items:  
-    - name: Manage Microsoft Entra token-based users
-      href: manage-azure-ad-token-based-users.md
-    - name: Manage certificate-based users
-      href: manage-certificate-based-users.md
-    - name: Create a client certificate
-      href: create-client-certificate.md
-  - name: Verifying your data with Confidential Ledger
-    items:
-    - name: Verify write transaction receipts
-      href: verify-write-transaction-receipts.md
-    - name: Authenticate ledger nodes
-      href: authenticate-ledger-nodes.md
-    - name: Establish trust on Azure confidential ledger
-      href: verify-node-quotes.md
-    - name: Use the Azure portal ledger explorer
-      href: ledger-explorer.md
-    - name: Inspect ledger data with Ledger Explorer (Offline)
-      href: ledger-explorer-offline.md
-  - name: Applications using Confidential Ledger 
-    items: 
-    - name: Store your data securely in SQL Server with Ledger
-      href: /sql/relational-databases/security/ledger/ledger-overview?branch=sql
-    - name: Create a managed application to store blob digests
-      href: create-blob-managed-app.md
-    - name: Data Ingress and Egress from Azure confidential ledger using Power Automate Connector
-      href: create-power-automate-workflow.md
+  - name: About Microsoft's Signing Transparency Ledger
+    href: about-microsoft-signing-transparency-ledger.md
+  - name: Concepts
+    href: microsoft-signing-transparency-concepts.md
+  - name: 'Usage: payloads, claims, and auditing'
+    href: microsoft-signing-transparency-usage.md
+  - name: Verify ledger integrity and inspect entries
+    href: microsoft-signing-transparency-verify-signatures.md
+  - name: Troubleshooting
+    href: microsoft-signing-transparency-troubleshoot.md
 - name: Security
   items:
-  - name: Secure Confidential Ledger
-    items:
-    - name: Secure your Confidential Ledger 
-      href: secure-confidential-ledger.md
-    - name: Data residency
-      href: data-residency.md
+  - name: Secure Confidential Computing Ledger
+    href: secure-confidential-ledger.md
+  - name: Authenticate ledger nodes
+    href: authenticate-ledger-nodes.md
+  - name: Establish trust on Azure confidential ledger
+    href: verify-node-quotes.md
+  - name: Data residency
+    href: data-residency.md
 - name: References
   items:
   - name: FAQ
@@ -99,7 +107,7 @@ items:
   - name: Azure MCP Server for confidential ledger
     href: /azure/developer/azure-mcp-server/tools/azure-confidential-ledger
   - name: .NET client library
-    href: /dotnet/api/overview/azure/confidentialledger 
+    href: /dotnet/api/overview/azure/confidentialledger
   - name: JavaScript client library
     href: /javascript/api/overview/azure/azure-confidential-ledger
   - name: Java client library
