@@ -271,5 +271,5 @@ For step-by-step details on the quote verification process, see [Establish trust
 - [Establish trust with SGX quote verification](verify-node-quotes.md)
 - [Azure confidential ledger authentication with Microsoft Entra ID](authentication-azure-ad.md)
 - [Azure confidential ledger architecture](architecture.md)
-- [Azure Confidential Ledger write transaction receipts](write-transaction-receipts.md)
+- [Azure confidential ledger write transaction receipts](write-transaction-receipts.md)
 - [Verify write transaction receipts](verify-write-transaction-receipts.md)

@@ -1,6 +1,8 @@
 ---
 title: Quickstart - Azure confidential ledger client library for .NET 
-description: Learn how to use Azure Confidential Ledger using the client library for .NET
+description: Learn how to use Azure confidential ledger using the client library for .NET
+author: msmbaldwin
+ms.author: mbaldwin
 ms.date: 04/14/2025
 ms.service: azure-confidential-ledger
 ms.topic: quickstart
@@ -48,7 +50,7 @@ You also need a running confidential ledger, and a registered user with the `Adm
 
 ### Install the package
 
-Install the Confidential Ledger client library for .NET with [NuGet][client_nuget_package]:
+Install the Azure confidential ledger client library for .NET with [NuGet][client_nuget_package]:
 
 ```dotnetcli
 dotnet add package Azure.Security.ConfidentialLedger --version 1.0.0
