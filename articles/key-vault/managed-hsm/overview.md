@@ -56,6 +56,12 @@ The term "Managed HSM instance" is synonymous with "Managed HSM pool". To avoid 
 
 - Generate HSM-protected keys in your on-premises HSM and import them securely into Managed HSM.
 
+### Build artifact transparency through Microsoft's Signing Transparency
+
+Managed HSM is integrated with Microsoft's Signing Transparency (MST), allowing customers to independently inspect and validate its build artifacts. MST enforces that only authenticated and trusted Managed HSM identities can register production build artifacts in an immutable, tamper-evident ledger. This delivers cryptographically verifiable, SCITT-aligned and IETF/COSE-compliant receipts that provide clear visibility into Managed HSM's deployments—strengthening trust, auditability, and regulatory compliance.
+
+For more information about MST, see [About Microsoft's Signing Transparency Ledger](../../confidential-ledger/about-microsoft-signing-transparency-ledger.md). To validate build artifacts, see [Verify signatures in the ledger](../../confidential-ledger/microsoft-signing-transparency-verify-signatures.md).
+
 ## Next steps
 - [Key management in Azure](/azure/security/fundamentals/key-management)
 - For technical details, see [How Managed HSM implements key sovereignty, availability, performance, and scalability without tradeoffs](managed-hsm-technical-details.md)
