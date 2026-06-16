@@ -31,7 +31,7 @@ When you enable the Key Vault Firewall, you are given an option to 'Allow Truste
 
 To determine if a service you are trying to use is on the trusted service list, see [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md#trusted-services). Services that aren't in that table are blocked by the firewall whether or not the bypass option is enabled.
 
-The bypass continues to apply to trusted services when you set [`publicNetworkAccess` to `Disabled`](#public-access-disabled-private-endpoint-only); those services don't require a private endpoint to reach the vault. However, when the vault is associated with a [Network Security Perimeter](#network-security-perimeter) in Enforced mode, the bypass is overridden and even trusted services are blocked unless an explicit perimeter access rule admits them.
+The bypass continues to apply to trusted services when you set [`publicNetworkAccess` to `Disabled`](#public-access-disabled-private-endpoint-only); those services don't require a private endpoint to reach the vault. However, when public network access is set to **Secure by perimeter** (via association with a [Network Security Perimeter](#network-security-perimeter)), the bypass is overridden and even trusted services are blocked unless an explicit perimeter access rule admits them.
 
 To allow trusted services to bypass the firewall:
 

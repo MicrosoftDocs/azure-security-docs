@@ -42,7 +42,7 @@ When you grant access to trusted Azure services, you grant the following types o
 * Trusted access to resources based on a managed identity. 
 * Trusted access across tenants using a Federated Identity Credential 
 
-When **Allow trusted Microsoft services to bypass this firewall** is enabled, services listed in the [Trusted services](#trusted-services) table can reach the vault. The bypass continues to apply when public access is disabled, so listed services don't require a private endpoint to connect. If the vault is associated with a [Network Security Perimeter](network-security.md#network-security-perimeter) in Enforced mode, the bypass is overridden and even trusted services are blocked unless an explicit perimeter access rule admits them.
+When **Allow trusted Microsoft services to bypass this firewall** is enabled, services listed in the [Trusted services](#trusted-services) table can reach the vault. The bypass continues to apply when public access is disabled, so listed services don't require a private endpoint to connect. If public network access is set to **Secure by perimeter** (via association with a [Network Security Perimeter](network-security.md#network-security-perimeter)), the bypass is overridden and even trusted services are blocked unless an explicit perimeter access rule admits them.
 
 ### Trusted services
 
