@@ -12,9 +12,6 @@ items:
   - name: Dedicated HSM
     tocHref: /azure/dedicated-hsm/
     topicHref: /azure/dedicated-hsm/
-  - name: Defender for Cloud
-    tocHref: /azure/defender-for-cloud/
-    topicHref: /azure/defender-for-cloud/
   - name: Key Vault
     tocHref: /azure/key-vault/
     topicHref: /azure/key-vault/
