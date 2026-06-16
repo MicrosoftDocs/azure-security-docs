@@ -2,17 +2,20 @@
 title: Virtual network service endpoints for Azure Key Vault
 description: Learn how virtual network service endpoints for Azure Key Vault allow you to restrict access to a specified virtual network, including usage scenarios.
 services: key-vault
-ms.date: 04/10/2026
+author: msmbaldwin
+ms.author: mbaldwin
+ms.date: 06/16/2026
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: feature-guide
+ai-usage: ai-assisted
 ---
 
 # Virtual network service endpoints for Azure Key Vault
 
 The virtual network service endpoints for Azure Key Vault allow you to restrict access to a specified virtual network. The endpoints also allow you to restrict access to a list of IPv4 (internet protocol version 4) address ranges. Any user connecting to your key vault from outside those sources is denied access.
 
-There is one important exception to this restriction. If a user has opted-in to allow trusted Microsoft services, connections from those services are allowed through the firewall. For example, these services include Microsoft 365 Exchange Online, Microsoft 365 SharePoint Online, Azure compute, Azure Resource Manager, and Azure Backup. Such users still need to present a valid Microsoft Entra token, and must have permissions (configured as Azure RBAC role assignments or access policies) to perform the requested operation. For more information, see [Virtual network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview).
+There is one important exception to this restriction. If you opt in to allow trusted Microsoft services, certain Microsoft services bypass the firewall and can reach the vault. The [Trusted services](#trusted-services) section later in this article lists the services that bypass the firewall today; services that aren't in that table need a firewall IP rule, a virtual network rule, or a private endpoint to reach the vault. Services that bypass the firewall still need to present a valid Microsoft Entra token and must have permissions (configured as Azure RBAC role assignments or access policies) to perform the requested operation. For more information, see [Virtual network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview).
 
 ## Usage scenarios
 
@@ -39,9 +42,11 @@ When you grant access to trusted Azure services, you grant the following types o
 * Trusted access to resources based on a managed identity. 
 * Trusted access across tenants using a Federated Identity Credential 
 
+When **Allow trusted Microsoft services to bypass this firewall** is enabled, services listed in the [Trusted services](#trusted-services) table can reach the vault. The bypass continues to apply when public access is disabled, so listed services don't require a private endpoint to connect. If public network access is set to **Secure by perimeter** (via association with a [Network Security Perimeter](network-security.md#network-security-perimeter)), the bypass is overridden and even trusted services are blocked unless an explicit perimeter access rule admits them.
+
 ### Trusted services
 
-Here's a list of trusted services that are allowed to access a key vault if the **Allow trusted services** option is enabled.
+The following table lists the Microsoft services known to bypass the Key Vault firewall when the **Allow trusted services** option is enabled. This table reflects services known at the time of publication; newly onboarded services may not yet appear here.
 
 |Trusted service|Supported usage scenarios|
 | --- | --- |

@@ -68,7 +68,7 @@ Authentication and Identity (Microsoft Entra ID) is a global service and can fai
 
 - [Configure network security for Azure Key Vault](network-security.md)
 - [Secure your Azure Key Vault](secure-key-vault.md)
-- [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md)
+- [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md#trusted-services)
 - [Integrate Key Vault with Azure Private Link](private-link-service.md)
 - [Authentication in Azure Key Vault](authentication.md)
 - If you have questions about Key Vault, visit the [Microsoft Q&A question page for Azure Key Vault](/answers/topics/azure-key-vault.html).

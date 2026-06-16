@@ -44,7 +44,7 @@ To allow an entire Azure service through the managed HSM firewall, use the list 
 
 When you enable the Managed HSM Firewall, you can select the option to **Allow Trusted Microsoft Services to bypass this firewall**. The trusted services list doesn't cover every single Azure service. For example, Azure DevOps isn't on the trusted services list. This limitation doesn't imply that services that don't appear on the trusted services list are untrusted or insecure. The trusted services list includes services where Microsoft controls all of the code that runs on the service. Since users can write custom code in Azure services such as Azure DevOps, Microsoft doesn't provide the option to create a blanket approval for the service. Furthermore, just because a service appears on the trusted service list, it doesn't mean it's allowed for all scenarios.
 
-To determine if a service you're trying to use is on the trusted service list, see [Virtual network service endpoints for Azure Key Vault](../general/overview-vnet-service-endpoints.md). For a how-to guide, follow the instructions for Portal, Azure CLI, and PowerShell.
+To determine if a service you're trying to use is on the trusted service list, see [Virtual network service endpoints for Azure Key Vault](../general/overview-vnet-service-endpoints.md#trusted-services). For a how-to guide, follow the instructions for Portal, Azure CLI, and PowerShell.
 
 ### Managed HSM Firewall Enabled (Private Link)
 
@@ -59,7 +59,7 @@ To enhance network security, you can configure your managed HSM to disable publi
 
 ## Restrictions & Considerations
 
-- Setting Public Network Access to Disable can still allow trusted services.
+- Disabling public access doesn't suppress the trusted services bypass; trusted services continue to reach the managed HSM without a private endpoint. For details, see [Managed HSM Firewall Enabled (Trusted Services)](#managed-hsm-firewall-enabled-trusted-services).
 - Azure Key Vault Managed HSM firewall rules only apply to data plane operations. Control plane operations aren't subject to the restrictions specified in firewall rules.
 - To access data by using tools such as the Azure portal, you must be on a machine within the trusted boundary that you establish when configuring network security rules.
 

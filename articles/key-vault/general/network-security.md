@@ -5,7 +5,9 @@ services: key-vault
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 05/04/2026
+ai-usage: ai-assisted
+ms.date: 06/16/2026
+ms.author: mbaldwin
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -27,7 +29,9 @@ By default, when you create a new key vault, the Azure Key Vault firewall is dis
 
 When you enable the Key Vault Firewall, you are given an option to 'Allow Trusted Microsoft Services to bypass this firewall.' The trusted services list does not cover every single Azure service. For example, Azure DevOps isn't on the trusted services list. **This does not imply that services that do not appear on the trusted services list are not trusted or are insecure.** The trusted services list encompasses services where Microsoft controls all of the code that runs on the service. Since users can write custom code in Azure services such as Azure DevOps, Microsoft does not provide the option to create a blanket approval for the service. Furthermore, just because a service appears on the trusted service list, doesn't mean it is allowed for all scenarios.
 
-To determine if a service you are trying to use is on the trusted service list, see [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md#trusted-services).
+To determine if a service you are trying to use is on the trusted service list, see [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md#trusted-services). Services that aren't in that table are blocked by the firewall whether or not the bypass option is enabled.
+
+The bypass continues to apply to trusted services when you set [`publicNetworkAccess` to `Disabled`](#public-access-disabled-private-endpoint-only); those services don't require a private endpoint to reach the vault. However, when public network access is set to **Secure by perimeter** (via association with a [Network Security Perimeter](#network-security-perimeter)), the bypass is overridden and even trusted services are blocked unless an explicit perimeter access rule admits them.
 
 To allow trusted services to bypass the firewall:
 
@@ -250,6 +254,8 @@ Remove-AzKeyVaultNetworkRule -VaultName "mykeyvault" -IpAddressRange "16.17.18.0
 ### Public access disabled (private endpoint only)
 
 To enhance network security, you can configure your vault to disable public access. This denies all public configurations and allows only connections through private endpoints.
+
+Disabling public access doesn't suppress the [trusted services bypass](#key-vault-firewall-enabled-trusted-services-only): trusted services continue to reach the vault and don't require a private endpoint. Microsoft services that aren't on the trusted services list (for example, Azure DevOps) are blocked and need to connect through a private endpoint.
 
 For complete Private Link setup instructions, see [Integrate Key Vault with Azure Private Link](./private-link-service.md).
 
