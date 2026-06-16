@@ -6,7 +6,7 @@ ms.service: azure-key-vault
 ms.subservice: general
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, sfi-image-nochange, copilot-scenario-highlight
 ms.topic: how-to
-ms.date: 04/10/2026
+ms.date: 06/16/2026
 ---
 
 # Provide access to Key Vault keys, certificates, and secrets with Azure role-based access control
@@ -111,7 +111,7 @@ To manage role assignments, you must have `Microsoft.Authorization/roleAssignmen
 ### Enable Azure RBAC permissions on Key Vault
 
 > [!NOTE]
-> Changing the permission model requires unrestricted 'Microsoft.Authorization/roleAssignments/write' permission, which is part of the [Owner](/azure/role-based-access-control/built-in-roles#owner) and [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) roles. Classic subscription administrator roles like 'Service Administrator' and 'Co-Administrator', or restricted 'Key Vault Data Access Administrator' cannot be used to change permission model.
+> Changing the permission model requires unrestricted 'Microsoft.Authorization/roleAssignments/write' permission, which is part of the [Owner](/azure/role-based-access-control/built-in-roles#owner) and [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) roles. If using the latter, you also need 'Microsoft.KeyVault/vaults/write' permission, which is part of the [Key Vault Contributor](/azure/role-based-access-control/built-in-roles/security#key-vault-contributor) role. Classic subscription administrator roles like 'Service Administrator' and 'Co-Administrator', or restricted 'Key Vault Data Access Administrator' cannot be used to change permission model.
 
 1. Enable Azure RBAC permissions on new key vault:
 
