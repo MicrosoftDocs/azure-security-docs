@@ -1,6 +1,6 @@
 ---
-title: Verify Azure Confidential Ledger write transaction receipts
-description: Verify Azure Confidential Ledger write transaction receipts
+title: Verify Azure confidential ledger write transaction receipts
+description: Verify Azure confidential ledger write transaction receipts
 author: andpiccione
 ms.author: apiccione
 ms.date: 04/23/2026
@@ -9,11 +9,11 @@ ms.topic: how-to
 
 ---
 
-# Verify Azure Confidential Ledger write transaction receipts
+# Verify Azure confidential ledger write transaction receipts
 
-An Azure Confidential Ledger write transaction receipt represents a cryptographic Merkle proof that the corresponding write transaction has been globally committed by the CCF network. Azure Confidential Ledger users can get a receipt over a committed write transaction at any point in time to verify that the corresponding write operation was successfully recorded into the immutable ledger.
+An Azure confidential ledger write transaction receipt represents a cryptographic Merkle proof that the corresponding write transaction has been globally committed by the CCF network. Azure confidential ledger users can get a receipt over a committed write transaction at any point in time to verify that the corresponding write operation was successfully recorded into the immutable ledger.
 
-For more information about Azure Confidential Ledger write transaction receipts, see the [dedicated article](write-transaction-receipts.md).
+For more information about Azure confidential ledger write transaction receipts, see the [dedicated article](write-transaction-receipts.md).
 
 ## Receipt verification steps
 
@@ -21,7 +21,7 @@ A write transaction receipt can be verified following a specific set of steps ou
 
 ### Leaf node computation
 
-The first step is to compute the SHA-256 hash of the leaf node in the Merkle Tree corresponding to the committed transaction. A leaf node is composed of the ordered concatenation of the following fields that can be found in an Azure Confidential Ledger receipt, under `leafComponents`:
+The first step is to compute the SHA-256 hash of the leaf node in the Merkle Tree corresponding to the committed transaction. A leaf node is composed of the ordered concatenation of the following fields that can be found in an Azure confidential ledger receipt, under `leafComponents`:
 
 1. `writeSetDigest`
 2. SHA-256 digest of `commitEvidence`
@@ -70,7 +70,7 @@ After computing each single claim digest, it's necessary to concatenate all the 
 
 ### More resources
 
-For more information about the content of an Azure Confidential Ledger write transaction receipt and explanation of each field, see the [dedicated article](write-transaction-receipts.md#write-transaction-receipt-content). The [CCF documentation](https://microsoft.github.io/CCF) also contains more information about receipt verification and other related resources at the following links:
+For more information about the content of an Azure confidential ledger write transaction receipt and explanation of each field, see the [dedicated article](write-transaction-receipts.md#write-transaction-receipt-content). The [CCF documentation](https://microsoft.github.io/CCF) also contains more information about receipt verification and other related resources at the following links:
 
 * [Receipt Verification](https://microsoft.github.io/CCF/main/use_apps/verify_tx.html#receipt-verification)
 * [CCF Glossary](https://microsoft.github.io/CCF/main/overview/glossary.html)
@@ -84,13 +84,13 @@ For more information about the content of an Azure Confidential Ledger write tra
 
 ### Receipt verification utilities
 
-The [Azure Confidential Ledger client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/confidentialledger/azure-confidentialledger) provides utility functions to verify write transaction receipts and compute the claims digest from a list of application claims. For more information on how to use the Data Plane SDK and the receipt-specific utilities, see [this section](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/confidentialledger/azure-confidentialledger#verify-write-transaction-receipts) and [this sample code](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/confidentialledger/azure-confidentialledger/samples/get_and_verify_receipt.py).
+The [Azure confidential ledger client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/confidentialledger/azure-confidentialledger) provides utility functions to verify write transaction receipts and compute the claims digest from a list of application claims. For more information on how to use the Data Plane SDK and the receipt-specific utilities, see [this section](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/confidentialledger/azure-confidentialledger#verify-write-transaction-receipts) and [this sample code](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/confidentialledger/azure-confidentialledger/samples/get_and_verify_receipt.py).
 
 ### Setup and prerequisites
 
-For reference purposes, we provide sample code in Python to fully verify Azure Confidential Ledger write transaction receipts following the steps outlined in the previous section.
+For reference purposes, we provide sample code in Python to fully verify Azure confidential ledger write transaction receipts following the steps outlined in the previous section.
 
-To run the full verification algorithm, the current service network certificate and a write transaction receipt from a running Confidential Ledger resource are required. Refer to [this article](write-transaction-receipts.md#get-write-transaction-receipts) for details on how to fetch a write transaction receipt and the service certificate from a Confidential Ledger instance.
+To run the full verification algorithm, the current service network certificate and a write transaction receipt from a running Azure confidential ledger resource are required. Refer to [this article](write-transaction-receipts.md#get-write-transaction-receipts) for details on how to fetch a write transaction receipt and the service certificate from an Azure confidential ledger instance.
 
 ### Code walkthrough
 
@@ -504,7 +504,7 @@ def verify_openssl_certificate(
 
 ## Next steps
 
-* [Azure Confidential Ledger write transaction receipts](write-transaction-receipts.md)
+* [Azure confidential ledger write transaction receipts](write-transaction-receipts.md)
 * [Use the Azure portal ledger explorer to verify transactions](ledger-explorer.md)
 * [Inspect ledger data with Ledger Explorer (Offline)](ledger-explorer-offline.md)
 * [Overview of Microsoft Azure confidential ledger](overview.md)

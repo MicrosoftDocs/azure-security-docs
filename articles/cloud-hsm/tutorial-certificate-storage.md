@@ -1,12 +1,10 @@
 ---
 title: Tutorial - Azure Cloud HSM Certificate Storage
 description: Step-by-step guide to configure certificate storage for Azure Cloud HSM using PKCS#11 APIs, including prerequisites, Azure Blob Storage setup, and Managed Identity configuration.
-author: keithp
 manager: keithp
 ms.service: azure-cloud-hsm
 ms.topic: tutorial
 ms.date: 03/26/2026
-ms.author: keithp
 ms.custom: certificate-storage, pkcs11, azure-blob-storage, managed-identity
 
 #Customer Intent: As an IT pro, I want to set up and use certificate storage for Azure Cloud HSM to help ensure security and compliance.

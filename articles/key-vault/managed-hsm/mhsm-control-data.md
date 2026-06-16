@@ -4,8 +4,6 @@ description: Get an overview of the safeguards and technical measures that help 
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: concept-article
-author: nkondamudi
-ms.author: nkondamudi
 ms.date: 04/07/2026
 ---
 
@@ -28,7 +26,7 @@ Azure Key Vault services provide encryption and key management solutions that sa
 Secure key management is essential to protect and control data in the cloud. Azure offers various solutions that you can use to manage and control access to encryption keys so that you have choice and flexibility to meet stringent data protection and compliance needs.
 
 - **Azure platform encryption** is a *platform-managed* encryption solution that encrypts by using host-level encryption. Platform-managed keys are encryption keys that are generated, stored, and managed entirely by Azure.
-- **Customer-managed keys (CMK)** is a key management control model in which the customer creates, rotates, and manages the key encryption key (KEK) lifecycle. Azure services use these customer-owned keys to wrap and unwrap their data encryption keys. Customer-managed keys can be stored in Azure Key Vault or Azure Managed HSM.
+- **Customer-managed keys (CMK)** is a key management control model in which the customer creates, rotates, and manages the key encryption key (KEK) lifecycle. Azure services use these customer-owned keys to wrap and unwrap their data encryption keys. Customer-managed keys can be stored in Azure Key Vault or Managed HSM.
 - **Azure Key Vault Standard** encrypts by using a software key and is FIPS 140-2 Level 1 compliant.
 - **Azure Key Vault Premium** encrypts by using keys protected by [FIPS 140 validated HSMs](/azure/key-vault/keys/about-keys#compliance).
 - **Azure Key Vault Managed HSM** is a fully managed service that encrypts by using single-tenant, customer-controlled, FIPS 140-3 Level 3 HSM-protected keys.
@@ -54,7 +52,7 @@ Key Vault supports two types of containers:
 
   - Standard tier: Vaults support storing secrets, certificates, and software-backed keys.
   - Premium tier: Vaults support storing secrets, certificates, software-backed keys, and HSM-backed keys.
-- Managed hardware security module (HSM)
+- Managed HSM
 
   - Managed HSM supports only HSM-backed keys.
 

@@ -2,13 +2,11 @@
 title: About keys - Azure Key Vault Managed HSM
 description: Overview of cryptographic keys in Azure Key Vault Managed HSM, including supported key types, sizes, compliance, and protection.
 services: azure-key-vault
-author: msmbaldwin
 
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: overview
 ms.date: 05/21/2026
-ms.author: mbaldwin
 ai-usage: ai-assisted
 ---
 
@@ -49,7 +47,7 @@ All keys in Managed HSM are HSM-protected by **FIPS 140-3 Level 3** validated ha
 
 ## Key attestation
 
-Managed HSM can attest that a key was generated and resides inside an HSM that Microsoft operates. Asymmetric keys receive both public and private key attestation; symmetric (oct-HSM) keys receive private key attestation only. For more information, see [Validate Azure Managed HSM keys with key attestation](key-attestation.md).
+Managed HSM can attest that a key was generated and resides inside an HSM that Microsoft operates. Asymmetric keys receive both public and private key attestation; symmetric (oct-HSM) keys receive private key attestation only. For more information, see [Validate Managed HSM keys with key attestation](key-attestation.md).
 
 ## Usage scenarios
 
@@ -57,7 +55,7 @@ Managed HSM can attest that a key was generated and resides inside an HSM that M
 |--|--|
 | Azure server-side data encryption with customer-managed keys | [Server-side encryption using customer-managed keys in Azure Key Vault](/azure/security/fundamentals/encryption-models#server-side-encryption-using-customer-managed-keys-in-azure-key-vault) |
 | Client-side data encryption | [Client-Side Encryption with Azure Key Vault](/azure/storage/common/storage-client-side-encryption?tabs=dotnet) |
-| Keyless TLS | [Azure Managed HSM TLS Offload Library](tls-offload-library.md) |
+| Keyless TLS | [Managed HSM TLS Offload Library](tls-offload-library.md) |
 
 ## Related content
 

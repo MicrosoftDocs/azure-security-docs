@@ -1,9 +1,7 @@
 ---
-title: Azure Managed HSM logging
+title: Azure Key Vault Managed HSM logging
 description: Use this tutorial to help you get started with Managed HSM logging.
 services: key-vault
-author: msmbaldwin
-ms.author: mbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
@@ -214,13 +212,13 @@ The Log Analytics workspace that you provide stores Managed HSM logs. You can us
 
 ## Use Azure Monitor logs
 
-Use the Key Vault solution in Azure Monitor logs to review Managed HSM AuditEvent logs. In Azure Monitor logs, use log queries to analyze data and get the information you need. For more information, including how to set it up, see [Monitor Azure Managed HSM](logging-azure-monitor.md).
+Use the Key Vault solution in Azure Monitor logs to review Managed HSM AuditEvent logs. In Azure Monitor logs, use log queries to analyze data and get the information you need. For more information, including how to set it up, see [Monitor Managed HSM](logging-azure-monitor.md).
 
 To learn how to analyze logs, see [Sample Kusto log queries](../general/monitor-key-vault.md#analyzing-logs).
 
-If you send your logs to a Log Analytics workspace, you can use Microsoft Sentinel to automatically detect suspicious activity. See [Microsoft Sentinel for Azure Managed HSM](sentinel.md).
+If you send your logs to a Log Analytics workspace, you can use Microsoft Sentinel to automatically detect suspicious activity. See [Microsoft Sentinel for Managed HSM](sentinel.md).
 
 ## Next steps
 
-- Learn about [Secure your Azure Managed HSM deployment](secure-managed-hsm.md) to provision and use a managed HSM.
+- Learn about [Secure your Managed HSM deployment](secure-managed-hsm.md) to provision and use a managed HSM.
 - Learn about how to [Backup and Restore](backup-restore.md) a Managed HSM.

@@ -1,9 +1,7 @@
 ---
-author: msmbaldwin
 ms.service: azure-key-vault
 ms.topic: include
 ms.date: 03/30/2026
-ms.author: msmbaldwin
 
 # Used by Python quickstarts for secrets, keys, and certificates
 

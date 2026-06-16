@@ -4,7 +4,7 @@ description: Learn how virtual network service endpoints for Azure Key Vault all
 services: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 05/19/2026
+ms.date: 06/16/2026
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: feature-guide

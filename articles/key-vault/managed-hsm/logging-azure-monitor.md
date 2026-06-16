@@ -1,18 +1,16 @@
 ---
-title: Monitor Azure Managed HSM
-description: Learn how to monitor Azure Managed HSM using Azure Monitor.
+title: Monitor Azure Key Vault Managed HSM
+description: Learn how to monitor Azure Key Vault Managed HSM using Azure Monitor.
 services: key-vault
-author: msmbaldwin
-ms.author: mbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 12/03/2025
 
-#Customer intent: As a security administrator, I want to enable and configure logging for Azure Managed HSM using Azure Monitor so I can monitor and audit the security and usage of my managed hardware security modules.
+#Customer intent: As a security administrator, I want to enable and configure logging for Managed HSM using Azure Monitor so I can monitor and audit the security and usage of my Managed HSM instances.
 ---
 
-# Monitor Azure Managed HSM
+# Monitor Azure Key Vault Managed HSM
 
 This article describes:
 
@@ -259,7 +257,7 @@ The following list contains some suggested alert rules for managed HSM. These al
 - Managed HSM Latency is greater than 1000 ms (Static Threshold)
 - Total Error Codes higher than average (Dynamic Threshold)
 
-For more information, see [Alerting for Azure Managed HSM](configure-alerts.md).
+For more information, see [Alerting for Managed HSM](configure-alerts.md).
 
 ## Advisor recommendations
 

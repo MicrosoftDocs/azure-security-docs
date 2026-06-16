@@ -1,11 +1,9 @@
 ---
 title: Comprehensive Guide to Key Management in Azure Cloud HSM
 description: Learn best practices and recommendations for key management in Azure Cloud HSM, including storage limits, key wrapping security, and caching strategies.
-author: msmbaldwin
 ms.service: azure-cloud-hsm
 ms.topic: best-practice
 ms.date: 03/20/2025
-ms.author: mbaldwin
 
 #customer intent: As a security administrator, I need to understand key management in Azure Cloud HSM so that I can ensure optimal performance, security, and efficiency.
 ---

@@ -1,8 +1,6 @@
 ---
 title: How to migrate key workloads 
 description: How to migrate key workloads
-author: msmbaldwin
-ms.author: mbaldwin
 services: key-vault
 ms.subservice: general
 ms.topic: upgrade-and-migration-article
@@ -12,9 +10,9 @@ ms.date: 04/10/2026
 
 # How to migrate key workloads
 
-Azure Key Vault and Azure Managed HSM do not allow the export of keys, to protect the key material and ensure that the HSM properties of the keys can't be changed.
+Azure Key Vault and Managed HSM do not allow the export of keys, to protect the key material and ensure that the HSM properties of the keys can't be changed.
 
-If you want a key to be highly portable, it is best to create it in a supported HSM and import it into Azure Key Vault or Azure Managed HSM.
+If you want a key to be highly portable, it is best to create it in a supported HSM and import it into Azure Key Vault or Managed HSM.
 
 > [!NOTE]
 > The only exception to the no-export rule is when you create a key with a specific [key release policy](../keys/policy-grammar.md). This policy allows the key to be exported only to trusted confidential computing environments (secure enclaves) that you explicitly define. This limited export capability is designed for specific secure computing scenarios and is not the same as a general-purpose key export.
@@ -22,7 +20,7 @@ If you want a key to be highly portable, it is best to create it in a supported 
 There are several scenarios that require the migration of key workloads:
 - Switching security boundaries, such as when switching between subscriptions, resource groups, or owners.
 - Moving regions due to compliance boundaries or risks in a given region.
-- You are changing to a new offering, such as from Azure Key Vault to [Azure Managed HSM](../managed-hsm/overview.md), which offers greater security, isolation, and compliance than Key Vault Premium.
+- You are changing to a new offering, such as from Azure Key Vault to [Managed HSM](../managed-hsm/overview.md), which offers greater security, isolation, and compliance than Key Vault Premium.
 
 Below we discuss several methods for migrating workloads to use a new key, either into a new vault or into a new managed HSM.
 
@@ -31,7 +29,7 @@ Below we discuss several methods for migrating workloads to use a new key, eithe
 For most workloads that use keys in Key Vault, the most effective way to migrate a key into a new location (a new managed HSM or new key vault in a different subscription or region) is to:
 
 1. Create a new key in the new vault or managed HSM.
-1. Grant your workload access to the new key by assigning the workload's managed identity to the appropriate Azure RBAC role in [Azure Key Vault](rbac-guide.md) or the appropriate Managed HSM local RBAC role in [Azure Managed HSM](../managed-hsm/access-control.md).
+1. Grant your workload access to the new key by assigning the workload's managed identity to the appropriate Azure RBAC role in [Azure Key Vault](rbac-guide.md) or the appropriate Managed HSM local RBAC role in [Managed HSM](../managed-hsm/access-control.md).
 1. Update the workload to use the new key as the customer managed encryption key.
 1. Retain the old key until you no longer want the backups of the workload data that they key originally protected.
 
@@ -73,7 +71,7 @@ To use the same key material across these boundaries:
 
 1. **Use Bring Your Own Key (BYOK) to import the key into each Key Vault or Managed HSM you need.** Repeat the import process for every vault or managed HSM in each region where your workload requires the key:
    - For Azure Key Vault, follow the [Azure Key Vault BYOK specification](../keys/byok-specification.md).
-   - For Azure Managed HSM, follow the [Import HSM-protected keys to Managed HSM (BYOK)](../managed-hsm/hsm-protected-keys-byok.md) guide.
+   - For Managed HSM, follow the [Import HSM-protected keys to Managed HSM (BYOK)](../managed-hsm/hsm-protected-keys-byok.md) guide.
 
    > [!IMPORTANT]
    > Each vault or managed HSM will have a **different key URI**, even though the underlying key material is the same. You must track which URI corresponds to each resource.

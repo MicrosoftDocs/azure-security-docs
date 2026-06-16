@@ -2,11 +2,9 @@
 metadata:  
   title: Frequently Asked Questions (FAQ) About Azure Cloud HSM
   description: Find answers to common questions about Microsoft Azure Cloud HSM, such as general information, customer onboarding, billing, interoperability, security and compliance, and support.  
-  author: msmbaldwin  
   ms.service: azure-cloud-hsm 
   ms.topic: faq  
   ms.date: 03/31/2026 
-  ms.author: mbaldwin  
 title: FAQ about Azure Cloud HSM
 summary: Find answers to common questions about Microsoft Azure Cloud HSM.  
 sections:  
@@ -37,9 +35,9 @@ sections:
         answer: |-  
           No, Microsoft oversees the firmware on the hardware. A third party (the HSM manufacturer) maintains the hardware. NIST evaluates the firmware and must sign it to ensure compliance with FIPS 140-3 Level 3 standards. For more information about hardware management, see [What is Azure Cloud HSM?](overview.md).
       - question: |-  
-          How do I decide whether to use Azure Cloud HSM or Azure Managed HSM?
+          How do I decide whether to use Azure Cloud HSM or Managed HSM?
         answer: |- 
-          Azure offers multiple solutions for cryptographic key storage and management in the cloud: Azure Key Vault (standard and premium offerings), Azure Managed HSM, Azure Cloud HSM, and Azure Payment HSM. It can be overwhelming for customers to decide which solution is best for them. A flowchart, based on common high-level requirements and key management scenarios, is available to help customers make this decision. See [How to choose the right key management solution](/azure/security/fundamentals/key-management-choose).
+          Azure offers multiple solutions for cryptographic key storage and management in the cloud: Azure Key Vault (standard and premium offerings), Managed HSM, Azure Cloud HSM, and Azure Payment HSM. It can be overwhelming for customers to decide which solution is best for them. A flowchart, based on common high-level requirements and key management scenarios, is available to help customers make this decision. See [How to choose the right key management solution](/azure/security/fundamentals/key-management-choose).
       - question: |-  
           What usage scenarios best suit Azure Cloud HSM?
         answer: |

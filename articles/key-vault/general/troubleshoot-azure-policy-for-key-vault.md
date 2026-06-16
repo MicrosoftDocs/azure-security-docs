@@ -1,8 +1,6 @@
 ---
 title: Troubleshoot issues with implementing Azure policy on Key Vault
 description: Troubleshooting issues with implementing Azure policy on Key Vault
-author: msmbaldwin
-ms.author: mbaldwin
 ms.date: 03/26/2026
 ms.service: azure-key-vault
 ms.subservice: general

@@ -1,24 +1,22 @@
 ---
-title: Azure Managed HSM TLS Offload Library
-description: Azure Managed HSM TLS Offload Library
+title: Azure Key Vault Managed HSM TLS Offload Library
+description: Azure Key Vault Managed HSM TLS Offload Library
 services: key-vault
-author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.custom: devx-track-azurecli
 ms.topic: get-started
 ms.date: 03/26/2026
 
-ms.author: mbaldwin
 ---
 
-# Azure Managed HSM TLS Offload Library
+# Azure Key Vault Managed HSM TLS Offload Library
 
-Azure Managed HSM offers a TLS Offload library, which is compliant with PKCS#11 version 2.40. Azure Managed HSM doesn't support all functions listed in the PKCS#11 specification; instead, the TLS Offload library supports a limited set of mechanisms and interface functions for SSL/TLS Offload with F5 (BigIP) and Nginx only, primarily to generate TLS server certificate keys and generate digital signatures during TLS handshakes.
+Managed HSM offers a TLS Offload library, which is compliant with PKCS#11 version 2.40. Managed HSM doesn't support all functions listed in the PKCS#11 specification; instead, the TLS Offload library supports a limited set of mechanisms and interface functions for SSL/TLS Offload with F5 (BigIP) and Nginx only, primarily to generate TLS server certificate keys and generate digital signatures during TLS handshakes.
 
-For more information, see [Azure Managed HSM TLS Offload Library GitHub](https://github.com/microsoft/AzureManagedHsmTLSOffload).
+For more information, see [Managed HSM TLS Offload Library GitHub](https://github.com/microsoft/AzureManagedHsmTLSOffload).
 
-The TLS Offload Library internally uses the Azure Key Vault REST API to interact with Azure Managed HSM.
+The TLS Offload Library internally uses the Azure Key Vault REST API to interact with Managed HSM.
 
 ## Get started
 
@@ -49,7 +47,7 @@ The key creation tool reads the service principal credentials from the environme
 
 For Managed Identities, the environment variables above are not needed. 
 - Use the `--identity` argument to enable managed identity with the mhsm_p11_create_key tool. 
-- The `client_id` of user-assigned managed identity should be cited in the MHSM configuration file (mhsm-pkcs11.conf). If the `client_id` of a user-assigned managed identity is not provided, it will consider it as system-assigned managed identity.
+- The `client_id` of user-assigned managed identity should be cited in the Managed HSM configuration file (mhsm-pkcs11.conf). If the `client_id` of a user-assigned managed identity is not provided, it will consider it as system-assigned managed identity.
 
 The key creation tool randomly generates a name for the key at the time of creation. The full Azure Key Vault key ID and the key name are printed to the console for your convenience.
 
@@ -69,12 +67,12 @@ You need the key name for any role assignment changes via the Azure CLI.
 
 ### Access control
 
-The TLS Offload Library translates the C_FindObjectsInit into an Azure Key Vault REST API call, which operates at the /keys scope. The MHSM service requires the Read permission at this scope for the TLS Offload Library User to authorize the find operation for the keys created via the key creation tool.
+The TLS Offload Library translates the C_FindObjectsInit into an Azure Key Vault REST API call, which operates at the /keys scope. The Managed HSM service requires the Read permission at this scope for the TLS Offload Library User to authorize the find operation for the keys created via the key creation tool.
 
-For more information on Azure Managed HSM local RBAC, see:
+For more information on Managed HSM local RBAC, see:
 
-- [Azure Managed HSM local RBAC built-in roles](built-in-roles.md)
-- [Azure Managed HSM role management](role-management.md)
+- [Managed HSM local RBAC built-in roles](built-in-roles.md)
+- [Managed HSM role management](role-management.md)
 
 The following section describes different approaches to implement access control for the TLS Offload Library service principal and Managed Identity.
 
@@ -101,7 +99,7 @@ Azure CLI can be used to perform tasks such as role assignment.
 
 ### Permissive approach
 
-The permissive approach is simpler, and suitable when the Azure Managed HSM is exclusively used for TLS offloading.
+The permissive approach is simpler, and suitable when the Managed HSM is exclusively used for TLS offloading.
 
 Assign the Crypto User role to TLS Offload service principal at the "/keys" scope. This gives the TLS Offload service principal the permission to generate keys and find them for TLS Offloading.
 
@@ -170,7 +168,7 @@ az keyvault role assignment create --hsm-name <hsm-name>  \
 ## Connection Caching
 
 To improve the performance of Sign calls to the Managed HSM Service, TLS Offload Library caches its TLS connections to the Managed HSM service servers. By default, TLS Offload Library caches up to 20 TLS connections.
-Connection Caching can be controlled through MHSM configuration file (mhsm-pkcs11.conf). 
+Connection Caching can be controlled through Managed HSM configuration file (mhsm-pkcs11.conf). 
 
 ```json
 "ConnectionCache": {
@@ -273,11 +271,11 @@ There are two approaches to generating a key and using the key for the Key Less 
     --assignee <service-principal-id>  \
     --scope /keys/p11-6a2155dc40c94367a0f97ab452dc216f
     ```
-1. Configure the TLS server to use the Azure Managed HSM TLS Offload Library as the PKCS#11 interface library
+1. Configure the TLS server to use the Managed HSM TLS Offload Library as the PKCS#11 interface library
 1. Configure the TLS server (for example, the nginx SSL configuration setting `ssl_certificate_key') with the key label and the TLS Offload service principal credentials
 
 ## Next steps
 
-- [Azure Managed HSM overview](overview.md)
-- [Azure Managed HSM local RBAC built-in roles](built-in-roles.md)
-- [Azure Managed HSM role management](role-management.md)
+- [Managed HSM overview](overview.md)
+- [Managed HSM local RBAC built-in roles](built-in-roles.md)
+- [Managed HSM role management](role-management.md)

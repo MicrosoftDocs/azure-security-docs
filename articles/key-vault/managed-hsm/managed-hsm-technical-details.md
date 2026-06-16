@@ -4,8 +4,6 @@ description: Read a technical description of how customer-managed key is impleme
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: concept-article
-author: davinune
-ms.author: davinune
 ms.date: 01/30/2026
 ms.custom: sfi-ga-nochange
 ---

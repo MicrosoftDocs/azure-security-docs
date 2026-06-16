@@ -4,8 +4,6 @@ description: Get an overview of the Azure Key Vault Managed HSM security domain,
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: concept-article
-author: msmbaldwin
-ms.author: mbaldwin
 ms.date: 04/02/2026
 
 ---
@@ -119,4 +117,4 @@ We highly recommend that you review [NIST Special Publication 800-57](https://cs
 
 - Read an [overview of Managed HSM](overview.md).
 - Learn about [managing your managed HSM by using the Azure CLI](key-management.md).
-- Review [Secure your Azure Managed HSM deployment](secure-managed-hsm.md).
+- Review [Secure your Managed HSM deployment](secure-managed-hsm.md).

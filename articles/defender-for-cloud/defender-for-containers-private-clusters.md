@@ -1,8 +1,6 @@
 ---
 title: Deploy Defender for Containers to private clusters (Preview)
 description: Learn how to deploy Microsoft Defender for Containers to private clusters by using preview Helm charts and the Azure Arc Preview release train.
-author: ElazarK
-ms.author: elkrieger
 ms.topic: how-to
 ms.date: 06/01/2026
 #customer intent: As a security administrator, I want to deploy Defender for Containers to private clusters so that I can protect nonpublic Kubernetes environments.
@@ -17,8 +15,20 @@ Private clusters isolate Kubernetes environments from the internet and, in this 
 Before you begin, ensure the following prerequisites are met:
 
 - Defender for Containers is enabled for your target environment.
-- If you're deploying by using **Helm**, ensure that `Helm`, `curl`, and `jq` are installed.
-- If you're deploying by using an **Azure Arc-enabled Kubernetes extension**, ensure that your cluster is connected to Azure Arc, Azure command-line interface (Azure CLI) is installed, and you're signed in.
+
+- If you're deploying by using **Helm**, make sure [`helm`](https://helm.sh/docs/intro/install/), `curl`, and [`jq`](https://jqlang.org/download/) are installed and available in your command-line environment.
+
+  To check whether the tools are available, run:
+
+  ```bash
+  helm version
+  curl --version
+  jq --version
+  ```
+
+- If you're deploying by using an **Azure Arc-enabled Kubernetes extension**, ensure that:
+    - Your cluster [connected to Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster).
+    - The Azure command-line interface (Azure CLI) is installed and you're signed in.
 
 ## Install preview components for private clusters
 

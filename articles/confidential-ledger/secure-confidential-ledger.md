@@ -1,6 +1,6 @@
 ---
-title: Secure your Azure confidential ledger deployment
-description: Learn how to secure Azure confidential ledger, with best practices for authentication, data integrity, and access controls.
+title: Secure Confidential Computing Ledger
+description: Learn how to secure Confidential Computing Ledger, with best practices for authentication, data integrity, and access controls across the Azure confidential ledger and Microsoft's Signing Transparency Ledger workloads.
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: azure-confidential-ledger
@@ -10,11 +10,11 @@ ms.date: 04/23/2026
 ai-usage: ai-assisted
 ---
 
-# Secure your Azure confidential ledger deployment
+# Secure Confidential Computing Ledger
 
-Azure confidential ledger (ACL) is a highly secure immutable data store for managing sensitive data records with traceability, auditability, and integrity. The service runs on hardware-backed secure enclaves within Azure Confidential Computing, providing a tamper-protected and tamper-evident solution for critical data that requires strong integrity guarantees.
+Confidential Computing Ledger is a highly secure, immutable data store for managing sensitive data records with traceability, auditability, and integrity. The service runs on hardware-backed secure enclaves within Azure Confidential Computing, providing a tamper-protected and tamper-evident solution for critical data that requires strong integrity guarantees.
 
-This article provides guidance on how to best secure your Azure confidential ledger deployment.
+This article provides guidance on how to best secure your Confidential Computing Ledger deployment. The guidance applies to both workloads: the customer-managed [**Azure confidential ledger**](overview.md) and the Microsoft-managed [**Microsoft's Signing Transparency Ledger**](about-microsoft-signing-transparency-ledger.md). Where guidance is specific to a single workload, the section calls that out.
 
 [!INCLUDE [Security horizontal Zero Trust statement](~/reusable-content/ce-skilling/azure/includes/security/zero-trust-security-horizontal.md)]
 
@@ -56,13 +56,13 @@ Azure confidential ledger is designed to provide strong data integrity and confi
 
 - **Choose the appropriate ledger type for your data sensitivity**: When creating a confidential ledger, select between a private (encrypted) or public (plaintext) ledger type based on your security requirements. Private ledgers encrypt data using three levels of encryption (ledger secrets, ledger secret wrapping key, and recovery key shares). Public ledgers store data in plaintext, suitable for scenarios that require transparency. This decision cannot be changed after ledger creation. For more information, see the [Azure confidential ledger overview](overview.md).
 
-- **Verify transaction integrity using receipts**: For critical transactions, retrieve and store transaction receipts, which contain cryptographic proofs that the transaction was correctly committed to the ledger. These receipts enable you to verify transaction integrity without maintaining copies of the ledger data. For implementation details, see [Azure Confidential Ledger write transaction receipts](write-transaction-receipts.md).
+- **Verify transaction integrity using receipts**: For critical transactions, retrieve and store transaction receipts, which contain cryptographic proofs that the transaction was correctly committed to the ledger. These receipts enable you to verify transaction integrity without maintaining copies of the ledger data. For implementation details, see [Azure confidential ledger write transaction receipts](write-transaction-receipts.md).
 
-- **Implement receipt verification for high-value transactions**: Establish a process to verify transaction receipts for high-value or critical data, ensuring that your records have been properly committed to the ledger and haven't been tampered with. This verification can be performed using the available verification utilities or by implementing the verification algorithm directly. For details, see [Verify Azure Confidential Ledger write transaction receipts](verify-write-transaction-receipts.md).
+- **Implement receipt verification for high-value transactions**: Establish a process to verify transaction receipts for high-value or critical data, ensuring that your records have been properly committed to the ledger and haven't been tampered with. This verification can be performed using the available verification utilities or by implementing the verification algorithm directly. For details, see [Verify Azure confidential ledger write transaction receipts](verify-write-transaction-receipts.md).
 
 - **Use collection IDs for efficient data organization**: Organize your ledger data using collection IDs (also known as subledger IDs) to improve data management and query efficiency. This approach helps maintain logical separation between different types of data while facilitating easier retrieval of specific datasets. For more information, see [Azure confidential ledger overview](overview.md).
 
-- **Consider integrating with other Azure data stores for comprehensive protection**: For relational or blob data requiring end-to-end integrity guarantees, integrate your data stores with Azure Confidential Ledger. Use the Azure SQL database's ledger feature with ACL as a Trusted Digest store, or use the Azure Marketplace application to protect blob storage integrity. See [Microsoft Azure confidential ledger overview](overview.md) for integration scenarios.
+- **Consider integrating with other Azure data stores for comprehensive protection**: For relational or blob data requiring end-to-end integrity guarantees, integrate your data stores with Azure confidential ledger. Use the Azure SQL database's ledger feature with ACL as a Trusted Digest store, or use the Azure Marketplace application to protect blob storage integrity. See [Microsoft Azure confidential ledger overview](overview.md) for integration scenarios.
 
 - **Use Azure Key Vault for key management**: When integrating Azure confidential ledger with other Azure services, use Azure Key Vault to manage cryptographic keys and secrets used in your application's authentication and data protection workflows. Key Vault provides its own data residency and compliance characteristics. For more information, see [Azure Key Vault overview](/azure/key-vault/general/overview).
 
@@ -72,11 +72,11 @@ Comprehensive logging and monitoring enable detection of suspicious activities a
 
 - **Enable diagnostic logging with Azure Monitor**: If your organization requires operational visibility into ledger activity, enable Azure Monitor diagnostic logs. Configure your Log Analytics workspace to store and analyze diagnostic data according to your retention and compliance policies. For more information, see [Azure Monitor overview](/azure/azure-monitor/overview).
 
-- **Use transaction receipts for audit trails**: Azure confidential ledger provides built-in auditability through its append-only ledger and cryptographic receipts. Use these capabilities to create audit trails for regulatory compliance and forensic analysis. Each transaction produces a Merkle tree-based proof that can be independently verified. For details, see [Azure Confidential Ledger write transaction receipts](write-transaction-receipts.md).
+- **Use transaction receipts for audit trails**: Azure confidential ledger provides built-in auditability through its append-only ledger and cryptographic receipts. Use these capabilities to create audit trails for regulatory compliance and forensic analysis. Each transaction produces a Merkle tree-based proof that can be independently verified. For details, see [Azure confidential ledger write transaction receipts](write-transaction-receipts.md).
 
 - **Monitor instance health**: Azure confidential ledger uses continuous monitoring to observe instance health and automatically initiate recovery processes when the health of the confidential instance falls below a specified threshold. Understand this behavior to complement it with your own monitoring practices.
 
-- **Store security event data in the ledger**: Consider using Azure confidential ledger as a tamper-proof repository for critical security event data, such as Microsoft Defender for Cloud alerts or operational IT security events. The immutable, append-only nature of the ledger ensures that security records can't be modified or deleted by an attacker who gains access to your environment. For more information, see [Azure confidential ledger overview](overview.md).
+- **Store security event data in the ledger**: Consider using Azure confidential ledger as a tamper-evident repository for critical security event data, such as Microsoft Defender for Cloud alerts or operational IT security events. The immutable, append-only nature of the ledger ensures that security records can't be modified or deleted by an attacker who gains access to your environment. For more information, see [About Azure confidential ledger](overview.md).
 
 - **Use ledger explorer tools for audit and verification**: Azure confidential ledger provides two explorer tools for visual verification of ledger data. The [Azure portal ledger explorer](ledger-explorer.md) lets you browse and verify transactions directly from your ledger resource. For forensic analysis of exported or local ledger data, the [Ledger Explorer (Offline)](ledger-explorer-offline.md) lets you inspect transactions, governance history, and cryptographic proofs from backup files or uploaded ledger files.
 
@@ -84,13 +84,13 @@ Comprehensive logging and monitoring enable detection of suspicious activities a
 
 Regular review of compliance posture and governance policies ensures your Azure confidential ledger deployment adheres to security standards and organizational requirements.
 
-- **Understand data residency and replication**: Azure confidential ledger automatically replicates data to Azure regional pairs for disaster recovery. You can't modify or disable this replication behavior. Ensure that both the primary and paired regions meet your compliance and regulatory requirements before creating a ledger. For more information, see [Data residency for Azure Confidential Ledger](data-residency.md).
+- **Understand data residency and replication**: Azure confidential ledger automatically replicates data to Azure regional pairs for disaster recovery. You can't modify or disable this replication behavior. Ensure that both the primary and paired regions meet your compliance and regulatory requirements before creating a ledger. For more information, see [Data residency for Azure confidential ledger](data-residency.md).
 
 - **Review integrated service compliance**: Azure confidential ledger can integrate with Azure Key Vault for key management, Azure SQL Database for ledger-backed integrity, and Azure Blob Storage for digest protection. Each integrated service has its own compliance posture and data residency characteristics. Review the compliance documentation for each service you use alongside Azure confidential ledger.
 
 - **Understand the immutability guarantee**: Azure confidential ledger provides tamper-evident, append-only storage that's ideal for meeting regulatory requirements around data integrity and audit trails. This property makes the ledger suitable for compliance scenarios where records must be protected from modification or deletion.
 
-- **Plan for service limits**: Each subscription is limited to two standard SKU confidential ledger instances, with additional limits on collection IDs and request rates. Factor these limits into your governance planning and request increases from the Azure Confidential Ledger team if needed. For current limits, see [Azure confidential ledger overview](overview.md).
+- **Plan for service limits**: Each subscription is limited to two standard SKU confidential ledger instances, with additional limits on collection IDs and request rates. Factor these limits into your governance planning and request increases from the Azure confidential ledger team if needed. For current limits, see [Azure confidential ledger overview](overview.md).
 
 ## Backup and recovery
 
@@ -98,7 +98,7 @@ Azure confidential ledger is designed with resiliency features to ensure high av
 
 - **Understand the resiliency architecture**: Azure confidential ledger nodes are deployed across Azure Availability Zones (AZ) to provide resilience against zone failures. The network automatically self-heals during zone-wide outages, helping maintain service availability. For more information, see [Azure confidential ledger architecture](architecture.md).
 
-- **Plan for business continuity**: Azure confidential ledger automatically replicates ledger files to secondary storage periodically to support disaster recovery. In the event of a region-wide outage, Microsoft might initiate a failover to the paired region to restore service availability. For more details, see [Data residency for Azure Confidential Ledger](data-residency.md).
+- **Plan for business continuity**: Azure confidential ledger automatically replicates ledger files to secondary storage periodically to support disaster recovery. In the event of a region-wide outage, Microsoft might initiate a failover to the paired region to restore service availability. For more details, see [Data residency for Azure confidential ledger](data-residency.md).
 
 - **Be aware of deletion implications**: Azure confidential ledger uses "hard delete" when a ledger is deleted, meaning your data isn't recoverable after deletion. Carefully consider any decision to delete a confidential ledger, as this action is permanent. For more information, see [Azure confidential ledger overview](overview.md).
 
@@ -108,5 +108,5 @@ Azure confidential ledger is designed with resiliency features to ensure high av
 - [Azure confidential ledger architecture](architecture.md)
 - [Authenticating Azure confidential ledger nodes](authenticate-ledger-nodes.md)
 - [Register an ACL app with Microsoft Entra ID](register-application.md)
-- [Data residency for Azure Confidential Ledger](data-residency.md)
+- [Data residency for Azure confidential ledger](data-residency.md)
 - [User defined functions in Azure confidential ledger](server-side-programming.md)

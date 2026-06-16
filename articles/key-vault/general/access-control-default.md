@@ -1,8 +1,6 @@
 ---
 title: Prepare for Key Vault API version 2026-02-01 and later - Azure RBAC as default
 description: Learn how to prepare for Azure Key Vault API version 2026-02-01 and later, which establishes Azure RBAC as the default access control model and retires earlier API versions by February 2027.
-author: msmbaldwin
-ms.author: mbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to

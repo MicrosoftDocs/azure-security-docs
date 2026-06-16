@@ -2,12 +2,10 @@
 title: What's new for Azure Key Vault
 description: Recent updates for Azure Key Vault
 services: key-vault
-author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: reference
 ms.date: 04/10/2026
-ms.author: mbaldwin
 
 #Customer intent: As an Azure Key Vault administrator, I want to react to soft-delete being turned on for all key vaults.
 

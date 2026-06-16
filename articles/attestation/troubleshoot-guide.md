@@ -2,11 +2,9 @@
 title: Azure Attestation troubleshooting guide
 description: Trouble shooting guide to the commonly observed issues
 services: attestation
-author: msmbaldwin
 ms.service: azure-attestation
 ms.topic: reference
 ms.date: 04/15/2025
-ms.author: mbaldwin 
 ms.custom:
 ---
 

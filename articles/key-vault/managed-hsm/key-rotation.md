@@ -2,17 +2,15 @@
 title: Configure key autorotation in Azure Key Vault Managed HSM
 description: Use this guide to learn how to configure automated the rotation of a key in Azure Key Vault Managed HSM
 services: key-vault
-author: msmbaldwin
 tags: 'rotation'
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 04/28/2026
 
-ms.author: mbaldwin
 ai-usage: ai-assisted
 ---
-# Configure key autorotation in Azure Managed HSM
+# Configure key autorotation in Azure Key Vault Managed HSM
 
 ## Overview
 
@@ -21,7 +19,7 @@ ai-usage: ai-assisted
 
 Automated key rotation in Managed HSM allows users to configure Managed HSM to automatically generate a new key version at a specified frequency. You can set a rotation policy to configure rotation for each individual key and optionally rotate keys on demand. Our recommendation is to rotate encryption keys at least every two years to meet cryptographic best practices. For more information and recommendations, see [NIST SP 800-57 Part 1](https://csrc.nist.gov/publications/detail/sp/800-57-part-1/rev-5/final).
 
-This feature enables end-to-end zero-touch rotation for encryption at rest for Azure services with customer-managed keys (CMK) stored in Azure Managed HSM. Refer to specific Azure service documentation to see if the service covers end-to-end rotation.
+This feature enables end-to-end zero-touch rotation for encryption at rest for Azure services with customer-managed keys (CMK) stored in Managed HSM. Refer to specific Azure service documentation to see if the service covers end-to-end rotation.
 
 ## Pricing
 

@@ -3,8 +3,6 @@ title: Create an Azure Payment HSM with host and management port with IP address
 description: Create an Azure Payment HSM with host and management port with IP addresses in different virtual networks using ARM template	
 services: payment-hsm
 ms.service: azure-payment-hsm
-author: msmbaldwin
-ms.author: mbaldwin
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell, devx-track-arm-template, devx-track-azurecli
 ms.date: 04/14/2025

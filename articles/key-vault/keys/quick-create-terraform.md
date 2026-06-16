@@ -2,12 +2,10 @@
 title: 'Quickstart: Create an Azure key vault and key using Terraform'
 description: 'In this article, you create an Azure key vault and key using Terraform'
 services: key-vault
-author: msmbaldwin
 ms.topic: quickstart
 ms.custom: devx-track-terraform
 ms.service: azure-key-vault
 ms.subservice: keys
-ms.author: mbaldwin
 ms.date: 01/08/2026
 content_well_notification: 
   - AI-contribution

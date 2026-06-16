@@ -1,12 +1,10 @@
 ---
 title: Synchronize users and keys across Azure Cloud HSM nodes
 description: Learn how to identify and fix missing users or keys across Azure Cloud HSM cluster nodes.
-author: keithp
 manager: davinune
 ms.service: azure-cloud-hsm
 ms.topic: how-to
 ms.date: 03/26/2026
-ms.author: keithp
 ---
 
 # Synchronize users and keys across Azure Cloud HSM nodes

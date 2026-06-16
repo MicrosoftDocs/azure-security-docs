@@ -1,12 +1,10 @@
 ﻿---
 title: Tutorial - Configure and Query Operation Event Logging for Azure Cloud HSM
 description: Learn how to configure and query operation event logging for Azure Cloud HSM by using a Log Analytics workspace.
-author: keithp
 manager: keithp
 ms.service: azure-cloud-hsm
 ms.topic: tutorial
 ms.date: 04/08/2026
-ms.author: keithp
 ai-usage: ai-assisted
 
 #Customer Intent: As an IT pro, I want to set up and use operation event logging for Azure Cloud HSM to help ensure security and compliance.

@@ -2,13 +2,11 @@
 title: Key types, algorithms, and operations - Azure Key Vault Managed HSM
 description: Supported key types, algorithms, attributes, and operations in Azure Key Vault Managed HSM.
 services: azure-key-vault
-author: msmbaldwin
 
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: concept-article
 ms.date: 05/21/2026
-ms.author: mbaldwin
 ai-usage: ai-assisted
 ---
 
@@ -101,7 +99,7 @@ For more information, see [Key operations in the Key Vault REST API reference](/
 
 ### Rotate
 
-Managed HSM supports automated key rotation. You can set a rotation policy per key to generate a new key version at a specified frequency, or rotate a key on demand. For details, see [Configure key autorotation in Azure Managed HSM](key-rotation.md). For broader lifecycle guidance, see [How to migrate key workloads](../general/migrate-key-workloads.md).
+Managed HSM supports automated key rotation. You can set a rotation policy per key to generate a new key version at a specified frequency, or rotate a key on demand. For details, see [Configure key autorotation in Managed HSM](key-rotation.md). For broader lifecycle guidance, see [How to migrate key workloads](../general/migrate-key-workloads.md).
 
 ## Key attributes
 

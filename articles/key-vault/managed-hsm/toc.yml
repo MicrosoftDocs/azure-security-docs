@@ -59,9 +59,9 @@ items:
     items:
     - name: Managed HSM logging
       href: logging.md
-    - name: Monitor Azure Managed HSM
+    - name: Monitor Azure Key Vault Managed HSM
       href: logging-azure-monitor.md
-    - name: Setting up Sentinel for Azure Managed HSM
+    - name: Setting up Sentinel for Azure Key Vault Managed HSM
       href: sentinel.md
     - name: Configure Managed HSM alerts
       href: configure-alerts.md
@@ -71,7 +71,7 @@ items:
     href: azure-policy.md
   - name: Authorize Azure Resource Manager
     href: authorize-azure-resource-manager.md
-  - name: Validate Azure Managed HSM keys with key Attestation
+  - name: Validate Azure Key Vault Managed HSM keys with key Attestation
     href: key-attestation.md
 
 - name: Concepts 

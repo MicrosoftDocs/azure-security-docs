@@ -5,8 +5,6 @@ ms.date: 12/03/2025
 ms.service: azure-confidential-ledger
 ms.topic: quickstart
 ms.custom: devx-track-terraform
-author: msmbaldwin
-ms.author: mbaldwin
 #customer intent: As a Terraform user, I want to see how to create and configure an Azure confidential ledger.
 content_well_notification: 
   - AI-contribution

@@ -2,12 +2,10 @@
 title: Create and retrieve attributes of a key in Azure Key Vault – Azure PowerShell
 description: Quickstart showing how to set and retrieve a key from Azure Key Vault using Azure PowerShell
 services: key-vault
-author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.date: 05/13/2026
-ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---

@@ -1,8 +1,6 @@
 ---
 title: Authenticating Azure confidential ledger nodes
 description: Learn how to authenticate Azure confidential ledger nodes to establish trust before exchanging data, including TLS certificate verification and Intel SGX attestation.
-author: msmbaldwin
-ms.author: mbaldwin
 ms.date: 04/01/2026
 ms.service: azure-confidential-ledger
 ms.topic: how-to
@@ -273,5 +271,5 @@ For step-by-step details on the quote verification process, see [Establish trust
 - [Establish trust with SGX quote verification](verify-node-quotes.md)
 - [Azure confidential ledger authentication with Microsoft Entra ID](authentication-azure-ad.md)
 - [Azure confidential ledger architecture](architecture.md)
-- [Azure Confidential Ledger write transaction receipts](write-transaction-receipts.md)
+- [Azure confidential ledger write transaction receipts](write-transaction-receipts.md)
 - [Verify write transaction receipts](verify-write-transaction-receipts.md)

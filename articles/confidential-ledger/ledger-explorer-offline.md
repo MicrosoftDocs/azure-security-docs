@@ -1,6 +1,6 @@
 ---
-title: Inspect Azure Confidential Ledger data with Ledger Explorer (Offline)
-description: Learn how to use the Ledger Explorer (Offline) web experience to load Azure Confidential Ledger backup data or local ledger files and inspect transactions, governance history, and cryptographic proofs.
+title: Inspect Azure confidential ledger data with Ledger Explorer (Offline)
+description: Learn how to use the Ledger Explorer (Offline) web experience to load Azure confidential ledger backup data or local ledger files and inspect transactions, governance history, and cryptographic proofs.
 author: shubhras
 ms.author: mbaldwin
 ms.service: azure-confidential-ledger
@@ -9,9 +9,9 @@ ms.date: 04/23/2026
 ai-usage: ai-assisted
 ---
 
-# Inspect Azure Confidential Ledger data with Ledger Explorer (Offline)
+# Inspect Azure confidential ledger data with Ledger Explorer (Offline)
 
-This article shows you how to use the [Ledger Explorer (Offline)](https://microsoft.github.io/Azure-Ledger-Explorer/) web experience to inspect transactions, governance history, and cryptographic proofs from your Azure Confidential Ledger data. Ledger Explorer (Offline) runs entirely in your browser — no data is sent to any external server.
+This article shows you how to use the [Ledger Explorer (Offline)](https://microsoft.github.io/Azure-Ledger-Explorer/) web experience to inspect transactions, governance history, and cryptographic proofs from your Azure confidential ledger data. Ledger Explorer (Offline) runs entirely in your browser — no data is sent to any external server.
 
 Ledger Explorer (Offline) provides two ways to load your ledger data:
 
@@ -28,8 +28,8 @@ For background on how Ledger Explorer (Offline) compares to the Azure portal led
 For the **Azure Ledger Backup** option:
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- An Azure Confidential Ledger instance. If you don't have one, see [Quickstart: Create a confidential ledger using the Azure portal](quickstart-portal.md).
-- Exported ledger backup files stored in Azure Blob Storage. To export your ledger data, use the backup functionality available through the Azure Confidential Ledger REST API or the Azure portal.
+- An Azure confidential ledger instance. If you don't have one, see [Quickstart: Create a confidential ledger using the Azure portal](quickstart-portal.md).
+- Exported ledger backup files stored in Azure Blob Storage. To export your ledger data, use the backup functionality available through the Azure confidential ledger REST API or the Azure portal.
 - A SAS (Shared Access Signature) URL that provides read access to the exported backup files.
 
 For the **Audit Ledger Files** option:
@@ -110,14 +110,14 @@ For any transaction, you can verify the cryptographic proof chain to confirm tha
 1. Open the proof details for that transaction.
 1. Verify that the Merkle tree proof links the transaction to the ledger root. The explorer displays the proof path and the computed root hash.
 
-This verification confirms that the transaction data hasn't been tampered with since it was committed to the ledger. For more information about how receipt verification works, see [Azure Confidential Ledger write transaction receipts](write-transaction-receipts.md).
+This verification confirms that the transaction data hasn't been tampered with since it was committed to the ledger. For more information about how receipt verification works, see [Azure confidential ledger write transaction receipts](write-transaction-receipts.md).
 
 ## Related content
 
 - [Ledger Explorer concepts](ledger-explorer-concepts.md)
 - [Use the Azure portal ledger explorer to verify transactions](ledger-explorer.md)
-- [Azure Confidential Ledger write transaction receipts](write-transaction-receipts.md)
-- [Verify Azure Confidential Ledger write transaction receipts](verify-write-transaction-receipts.md)
+- [Azure confidential ledger write transaction receipts](write-transaction-receipts.md)
+- [Verify Azure confidential ledger write transaction receipts](verify-write-transaction-receipts.md)
 - [Overview of Microsoft Azure confidential ledger](overview.md)
 - [Ledger Explorer (Offline) on GitHub](https://microsoft.github.io/Azure-Ledger-Explorer/)
 - [Provide feedback by taking a quick survey](https://aka.ms/ledger-explorer-survey)

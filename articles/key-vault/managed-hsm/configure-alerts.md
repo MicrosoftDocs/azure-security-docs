@@ -1,9 +1,7 @@
 ---
 title: Configure Managed HSM alerts
-description: Learn how to configure alerts for Azure Managed HSM to monitor its health and performance.
+description: Learn how to configure alerts for Azure Key Vault Managed HSM to monitor its health and performance.
 services: key-vault
-author: msmbaldwin
-ms.author: mbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
@@ -13,7 +11,7 @@ ms.date: 12/03/2025
 
 # Configure Managed HSM alerts
 
-After you start to use Azure Managed HSM to store your production keys, it's important to monitor the health of your HSM to make sure that your service operates as intended.
+After you start to use Managed HSM to store your production keys, it's important to monitor the health of your HSM to make sure that your service operates as intended.
 
 As you start to scale your service, the number of requests sent to your HSM rises. This rise has a potential to increase the latency of your requests. In extreme cases, it can cause your requests to be throttled and affect the performance of your service. You also need to know if your HSM is sending an unusual number of error codes, so you can quickly handle any problems with an access policy or firewall configuration.
 
@@ -165,7 +163,7 @@ Next, create a rule and configure the thresholds that trigger an alert:
 
 Use the tools that you set up in this article to actively monitor the health of your key vault:
 
-- [Monitor Azure Managed HSM](logging-azure-monitor.md)
+- [Monitor Managed HSM](logging-azure-monitor.md)
 - [Azure Key Vault monitoring data reference](../general/monitor-key-vault-reference.md)
-- [Setting up Sentinel for Azure Managed HSM](sentinel.md)
+- [Setting up Sentinel for Managed HSM](sentinel.md)
 - [Create a log query alert for an Azure resource](/azure/azure-monitor/platform/alerts-log)

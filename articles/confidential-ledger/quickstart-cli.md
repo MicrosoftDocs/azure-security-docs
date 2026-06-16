@@ -1,8 +1,6 @@
 ---
 title: Quickstart – Microsoft Azure confidential ledger with the Azure CLI
 description: Learn to use the Microsoft Azure confidential ledger through the Azure CLI
-author: msmbaldwin
-ms.author: mbaldwin
 ms.date: 04/14/2025
 ms.service: azure-confidential-ledger
 ms.custom: devx-track-azurecli

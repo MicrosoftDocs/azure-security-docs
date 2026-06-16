@@ -2,19 +2,17 @@
 title: What is Azure Key Vault?
 description: Learn how Azure Key Vault safeguards cryptographic keys and secrets that cloud applications and services use.
 services: key-vault
-author: msmbaldwin
 
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: concept-article
 ms.date: 04/10/2026
-ms.author: mbaldwin
 
 #Customer intent: As someone new to Key Vault, I'm trying to learn basic concepts that can help me understand Key Vault documentation.
 ---
 # Azure Key Vault basic concepts
 
-Azure Key Vault is a cloud service for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, or cryptographic keys. Key Vault service supports two types of containers: vaults and managed hardware security module(HSM) pools. Vaults support storing software and HSM-backed keys, secrets, and certificates. Managed HSM pools only support HSM-backed keys. See [Azure Key Vault REST API overview](about-keys-secrets-certificates.md) for complete details.
+Azure Key Vault is a cloud service for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, or cryptographic keys. Key Vault service supports two types of containers: vaults and Managed HSM pools. Vaults support storing software and HSM-backed keys, secrets, and certificates. Managed HSM pools only support HSM-backed keys. See [Azure Key Vault REST API overview](about-keys-secrets-certificates.md) for complete details.
 
 Here are other important terms:
 

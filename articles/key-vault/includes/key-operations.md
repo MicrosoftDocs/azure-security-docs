@@ -1,9 +1,7 @@
 ---
-author: msmbaldwin
 ms.service: azure-key-vault
 ms.topic: include
 ms.date: 05/21/2026
-ms.author: mbaldwin
 ---
 
 The following operations are supported on key objects:

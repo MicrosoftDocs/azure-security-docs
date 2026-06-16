@@ -2,12 +2,10 @@
 title: Azure Payment HSM Service support guide
 description: Azure Payment HSM Service support guide
 services: payment-hsm
-author: msmbaldwin
 
 ms.service: azure-payment-hsm
 ms.topic: checklist
 ms.date: 04/10/2025
-ms.author: mbaldwin
 ms.custom: references_regions metadata
 ---
 

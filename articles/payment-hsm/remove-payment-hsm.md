@@ -2,11 +2,9 @@
 title: Remove a commissioned Azure Payment HSM
 description: Remove a commissioned Azure Payment HSM
 services: payment-hsm
-author: msmbaldwin
 ms.service: azure-payment-hsm
 ms.topic: overview
 ms.date: 04/10/2025
-ms.author: mbaldwin
 
 ---
 # Tutorial: Remove a commissioned payment HSM

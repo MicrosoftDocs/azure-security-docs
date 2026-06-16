@@ -1,8 +1,6 @@
 ---
 title: Create and retrieve attributes of a managed key in Azure Key Vault – Azure PowerShell
 description: Quickstart showing how to set and retrieve a managed key from Azure Key Vault using Azure PowerShell
-author: msmbaldwin
-ms.author: mbaldwin
 ms.date: 04/14/2026
 ms.topic: quickstart
 ms.service: azure-key-vault
@@ -94,6 +92,6 @@ Export-AzKeyVaultSecurityDomain -Name "<hsm-name>" -Certificates "cert_0.cer", "
 
 In this quickstart, you created and activated a Managed HSM. To learn more about Managed HSM and how to integrate it with your applications, continue on to these articles:
 
-- Review [Secure your Azure Managed HSM deployment](secure-managed-hsm.md).
-- Read an [Overview of Azure Managed HSM](overview.md).
+- Review [Secure your Managed HSM deployment](secure-managed-hsm.md).
+- Read an [Overview of Managed HSM](overview.md).
 - See the reference for the [Azure PowerShell Key Vault cmdlets](/powershell/module/az.keyvault/).

@@ -1,15 +1,15 @@
 ---
-title: Data Organization in Azure Confidential Ledger
-description: How to organize data in Azure Confidential Ledger.
+title: Data Organization in Azure confidential ledger
+description: How to organize data in Azure confidential ledger.
 author: musabbir
 ms.author: musabbirkhan
 ms.service: azure-confidential-ledger
 ms.topic: concept-article
-ms.date: 06/15/2025
+ms.date: 06/12/2026
 ---
-# Data Organization
+# Data organization
 
-Data is structured within the Azure Confidential Ledger in two primary ways: Transaction ID, and Collection ID (or Subledger ID). Each write operation generates a unique transaction ID, which can be used to retrieve entries, obtain receipts, or perform other operations. Collection IDs are user-specified keys (optional) that help group or uniquely identify entries, allowing for more efficient data retrieval and management. This page shows examples demonstrating how to create ledger entries, retrieve entries by transaction ID, and list entries within a range or collection. 
+Data is structured within the Azure confidential ledger in two primary ways: Transaction ID, and Collection ID (or Subledger ID). Each write operation generates a unique transaction ID, which can be used to retrieve entries, obtain receipts, or perform other operations. Collection IDs are user-specified keys (optional) that help group or uniquely identify entries, allowing for more efficient data retrieval and management. This page shows examples demonstrating how to create ledger entries, retrieve entries by transaction ID, and list entries within a range or collection. 
 
 Additionally, data can be organized and queried through Tags (in Preview) that allows for improved data management within collections by acting as secondary keys. 
 

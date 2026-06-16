@@ -3,13 +3,11 @@ metadata:
   title: Frequently asked questions - Azure confidential ledger 
   description: Get answers to frequently asked questions about Azure confidential ledger
   services: confidential-ledger
-  author: msmbaldwin
   tags: azure-resource-manager
   
   ms.service: azure-confidential-ledger
   ms.topic: faq
   ms.date: 01/30/2024
-  ms.author: mbaldwin
 title: Azure confidential ledger FAQ
 summary: This article answers frequently asked questions about Azure confidential ledger.
 
@@ -55,7 +53,7 @@ sections:
       - question: |
           Where is my data stored and replicated?
         answer: |
-          Azure Confidential Ledger automatically replicates your data to Azure regional pairs for disaster recovery and high availability. When you create a ledger in a specific region (like West US), the service automatically replicates data to its paired region (like East US). This replication behavior cannot be modified or disabled. For organizations with strict data residency requirements, ensure that both the primary and paired regions meet your compliance and regulatory requirements. For more information, see [Data residency for Azure Confidential Ledger](data-residency.md).
+          Azure confidential ledger automatically replicates your data to Azure regional pairs for disaster recovery and high availability. When you create a ledger in a specific region (like West US), the service automatically replicates data to its paired region (like East US). This replication behavior cannot be modified or disabled. For organizations with strict data residency requirements, ensure that both the primary and paired regions meet your compliance and regulatory requirements. For more information, see [Data residency for Azure confidential ledger](data-residency.md).
 
   - name: User management
     questions:
@@ -83,7 +81,7 @@ additionalContent: |
   
   - [Azure confidential ledger](./overview.md)
 
-  - [Data residency for Azure Confidential Ledger](data-residency.md)
+  - [Data residency for Azure confidential ledger](data-residency.md)
   
   - [User defined functions in Azure confidential ledger](server-side-programming.md)
 

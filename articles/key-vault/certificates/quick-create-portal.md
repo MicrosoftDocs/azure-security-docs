@@ -2,14 +2,12 @@
 title: Azure Quickstart - Set and retrieve a certificate from Key Vault using Azure portal
 description: Quickstart showing how to set and retrieve a certificate from Azure Key Vault using the Azure portal
 services: key-vault
-author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: mvc, mode-ui, sfi-image-nochange
 ms.date: 05/12/2026
 
-ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure
 ---
 # Quickstart: Set and retrieve a certificate from Azure Key Vault using the Azure portal

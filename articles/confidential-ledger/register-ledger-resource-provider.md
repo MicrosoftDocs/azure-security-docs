@@ -2,11 +2,9 @@
 title: Register the Azure confidential ledger resource provider
 description: Register the confidential ledger resource provider
 services: confidential-ledger
-author: msmbaldwin
 ms.service: azure-confidential-ledger
 ms.topic: overview
 ms.date: 04/14/2025
-ms.author: mbaldwin
 
 ---
 # Register the Azure confidential ledger resource provider

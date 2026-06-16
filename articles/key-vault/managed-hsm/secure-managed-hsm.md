@@ -1,8 +1,6 @@
 ---
-title: Secure your Azure Managed HSM deployment
-description: Learn how to enhance the security of your Azure Managed HSM deployment using best practices in identity, network, data protection, and access control.
-author: msmbaldwin
-ms.author: mbaldwin
+title: Secure your Azure Key Vault Managed HSM deployment
+description: Learn how to enhance the security of your Azure Key Vault Managed HSM deployment using best practices in identity, network, data protection, and access control.
 ms.service: security
 ms.topic: best-practice
 ms.date: 03/31/2026
@@ -13,11 +11,11 @@ ai-usage: ai-assisted
 
 ---
 
-# Secure your Azure Managed HSM deployment
+# Secure your Azure Key Vault Managed HSM deployment
 
-Azure Managed HSM is a fully managed, highly available, single-tenant Hardware Security Module (HSM) service that provides FIPS 140-3 Level 3 validated cryptographic key protection for your cloud applications. Because Managed HSM safeguards your most sensitive cryptographic keys and secrets, implementing comprehensive security controls is essential to protect against threats and maintain business continuity.
+Managed HSM is a fully managed, highly available, single-tenant Hardware Security Module (HSM) service that provides FIPS 140-3 Level 3 validated cryptographic key protection for your cloud applications. Because Managed HSM safeguards your most sensitive cryptographic keys and secrets, implementing comprehensive security controls is essential to protect against threats and maintain business continuity.
 
-This article provides security recommendations to help protect your Azure Managed HSM deployment.
+This article provides security recommendations to help protect your Managed HSM deployment.
 
 [!INCLUDE [Security horizontal Zero Trust statement](~/reusable-content/ce-skilling/azure/includes/security/zero-trust-security-horizontal.md)]
 
@@ -43,7 +41,7 @@ Network security protects your Managed HSM through secure connectivity and netwo
 
 - **Enable IP Network Firewall**: Limit access to public static IP addresses when network scenarios require controlled public access. For full details, see [Network security: Managed HSM Firewall Enabled (IP Network Firewall)](network-security.md#managed-hsm-firewall-enabled-ip-network-firewall).
 
-For step-by-step configuration instructions, see [How to configure Azure Managed HSM networking settings](configure-network-security.md).
+For step-by-step configuration instructions, see [How to configure Managed HSM networking settings](configure-network-security.md).
 
 ## Identity and access management
 
@@ -75,7 +73,7 @@ Data protection safeguards cryptographic keys and sensitive data stored in Manag
 
 - **Configure appropriate soft-delete retention periods**: Set soft-delete retention periods between 7 to 90 days based on your recovery requirements and compliance needs. Longer retention periods provide more recovery time but might conflict with data residency requirements. See [Soft-delete overview](soft-delete-overview.md).
 
-- **Configure automated key rotation**: Set up automated key rotation policies to regularly generate new key versions without manual intervention. Managed HSM supports both creation-based and expiration-based rotation triggers with a minimum rotation interval of 28 days. Automated key rotation helps meet cryptographic best practices that recommend rotating encryption keys at least every two years. See [Configure key autorotation in Azure Managed HSM](key-rotation.md).
+- **Configure automated key rotation**: Set up automated key rotation policies to regularly generate new key versions without manual intervention. Managed HSM supports both creation-based and expiration-based rotation triggers with a minimum rotation interval of 28 days. Automated key rotation helps meet cryptographic best practices that recommend rotating encryption keys at least every two years. See [Configure key autorotation in Managed HSM](key-rotation.md).
 
 ## Logging and monitoring
 
@@ -83,23 +81,23 @@ Logging and monitoring provide visibility into HSM access patterns and operation
 
 - **Enable audit logging with diagnostic settings**: Configure diagnostic settings to capture all authenticated REST API requests, key operations, and security domain actions in the AzureDiagnostics table. Route logs to Azure Storage accounts, Log Analytics workspaces, or Event Hubs based on your retention and analysis requirements. See [Managed HSM logging](logging.md).
 
-- **Analyze logs with Azure Monitor and Log Analytics**: Use Azure Monitor to collect and analyze HSM logs through KQL queries that filter on ResourceProvider "MICROSOFT.KEYVAULT" and ResourceType "MANAGEDHSMS". Create custom dashboards and workbooks for security operations teams to monitor access patterns and key usage. See [Monitor Azure Managed HSM](logging-azure-monitor.md).
+- **Analyze logs with Azure Monitor and Log Analytics**: Use Azure Monitor to collect and analyze HSM logs through KQL queries that filter on ResourceProvider "MICROSOFT.KEYVAULT" and ResourceType "MANAGEDHSMS". Create custom dashboards and workbooks for security operations teams to monitor access patterns and key usage. See [Monitor Managed HSM](logging-azure-monitor.md).
 
 - **Configure alerts for critical security events**: Create Azure Monitor alert rules for events such as HSM availability drops below 100%, service API latency exceeding thresholds, unusual error code patterns, or failed authentication attempts. Configure both static threshold and dynamic threshold alerts to reduce false positives while maintaining security visibility. See [Configure Managed HSM alerts](configure-alerts.md).
 
-- **Integrate with Microsoft Sentinel for advanced threat detection**: Deploy Microsoft Sentinel to automatically detect suspicious activity using machine learning analytics and custom detection rules specific to Managed HSM operations. Create analytic rules for sensitive operations like security domain downloads, bulk key operations, or anomalous access patterns. See [Setting up Microsoft Sentinel for Azure Managed HSM](sentinel.md).
+- **Integrate with Microsoft Sentinel for advanced threat detection**: Deploy Microsoft Sentinel to automatically detect suspicious activity using machine learning analytics and custom detection rules specific to Managed HSM operations. Create analytic rules for sensitive operations like security domain downloads, bulk key operations, or anomalous access patterns. See [Setting up Microsoft Sentinel for Managed HSM](sentinel.md).
 
-- **Implement proper log retention policies**: Establish log retention periods that meet compliance requirements and support forensic investigations. Use Azure Monitor Log Analytics retention policies to manage storage costs while maintaining adequate investigation capabilities for security incidents. See [Monitor Azure Managed HSM](logging-azure-monitor.md).
+- **Implement proper log retention policies**: Establish log retention periods that meet compliance requirements and support forensic investigations. Use Azure Monitor Log Analytics retention policies to manage storage costs while maintaining adequate investigation capabilities for security incidents. See [Monitor Managed HSM](logging-azure-monitor.md).
 
 ## Compliance and governance
 
 Compliance and governance controls ensure your Managed HSM deployment meets regulatory requirements and organizational policies through automated policy enforcement and compliance monitoring.
 
-- **Implement Azure Policy for key governance**: Grant the **Managed HSM Crypto Auditor** role to the **Azure Managed HSM Key Governance Service** (App ID: a1b76039-a76c-499f-a2dd-846b4cc32627) to enable Azure Policy compliance scanning. Then, define policy rules to audit or enforce secure key configurations, including key expiration requirements, minimum RSA key sizes, and elliptic curve algorithm restrictions. Without this role assignment, Azure Policy can't evaluate your complete key inventory. See [Integrate Azure Managed HSM with Azure Policy](azure-policy.md).
+- **Implement Azure Policy for key governance**: Grant the **Managed HSM Crypto Auditor** role to the **Managed HSM Key Governance Service** (App ID: a1b76039-a76c-499f-a2dd-846b4cc32627) to enable Azure Policy compliance scanning. Then, define policy rules to audit or enforce secure key configurations, including key expiration requirements, minimum RSA key sizes, and elliptic curve algorithm restrictions. Without this role assignment, Azure Policy can't evaluate your complete key inventory. See [Integrate Managed HSM with Azure Policy](azure-policy.md).
 
-- **Configure key lifecycle and cryptographic standards**: Use built-in Azure Policy definitions to enforce key expiration dates, mandate minimum RSA key sizes for security compliance, restrict elliptic curve cryptography to approved curve names (P-256, P-256K, P-384, P-521), and ensure keys have sufficient time before expiration for rotation procedures. See [Integrate Azure Managed HSM with Azure Policy](azure-policy.md).
+- **Configure key lifecycle and cryptographic standards**: Use built-in Azure Policy definitions to enforce key expiration dates, mandate minimum RSA key sizes for security compliance, restrict elliptic curve cryptography to approved curve names (P-256, P-256K, P-384, P-521), and ensure keys have sufficient time before expiration for rotation procedures. See [Integrate Managed HSM with Azure Policy](azure-policy.md).
 
-- **Monitor compliance through Azure Policy dashboards**: Use Azure Policy compliance dashboards to track adherence to cryptographic security standards and identify non-compliant keys that require remediation. Set up both audit and deny policy effects to provide visibility and enforcement of security baselines. See [Integrate Azure Managed HSM with Azure Policy](azure-policy.md).
+- **Monitor compliance through Azure Policy dashboards**: Use Azure Policy compliance dashboards to track adherence to cryptographic security standards and identify non-compliant keys that require remediation. Set up both audit and deny policy effects to provide visibility and enforcement of security baselines. See [Integrate Managed HSM with Azure Policy](azure-policy.md).
 
 ## Backup and recovery
 
@@ -117,7 +115,7 @@ Backup and recovery protects against data loss and enables business continuity t
 
 ## Next steps
 
-- [What is Azure Managed HSM?](overview.md)
+- [What is Managed HSM?](overview.md)
 - [Security domain overview](security-domain.md)
 - [Access control](access-control.md)
 - [Managed HSM local RBAC built-in roles](built-in-roles.md)

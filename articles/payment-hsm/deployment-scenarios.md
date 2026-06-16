@@ -2,12 +2,10 @@
 title: Azure Payment HSM deployment scenarios
 description: Azure HSM deployment scenarios for high availability deployment and disaster recovery deployment
 services: payment-hsm
-author: msmbaldwin
 
 ms.service: azure-payment-hsm
 ms.topic: example-scenario
 ms.date: 04/14/2025
-ms.author: mbaldwin
 ---
 # Deployment scenarios
 

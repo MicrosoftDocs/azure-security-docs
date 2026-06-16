@@ -2,11 +2,9 @@
 title: What is Dedicated HSM? - Azure Dedicated HSM | Microsoft Docs
 description: Learn how Azure Dedicated HSM is an Azure service that provides cryptographic key storage in Azure.
 services: dedicated-hsm
-author: msmbaldwin
 ms.topic: overview
 ms.service: azure-dedicated-hsm
 ms.date: 04/14/2025
-ms.author: mbaldwin
 #Customer intent: As an IT Pro, Decision maker I am looking for key storage capability within Azure Cloud that meets FIPS 140-2 Level 3 certification and that gives me exclusive access to the hardware.
 ---
 
@@ -15,9 +13,9 @@ ms.author: mbaldwin
 > [!IMPORTANT]
 > **Azure Dedicated HSM is being retired.** Microsoft will fully support existing Dedicated HSM customers until July 31, 2028. No new customer onboardings are accepted. For full details and required actions, see the [official Azure update](https://azure.microsoft.com/updates?id=499214).
 >
-> If you are an Azure Dedicated HSM user, see [Migrate from Azure Dedicated HSM to Azure Managed HSM or Azure Cloud HSM](migration-guide.md). **[Azure Cloud HSM](../dedicated-hsm/overview.md) is now generally available and the successor to Azure Dedicated HSM.**
+> If you are an Azure Dedicated HSM user, see [Migrate from Azure Dedicated HSM to Managed HSM or Azure Cloud HSM](migration-guide.md). **[Azure Cloud HSM](../dedicated-hsm/overview.md) is now generally available and the successor to Azure Dedicated HSM.**
 >
-> New customers should evaluate and onboard to [Azure Cloud HSM](../cloud-hsm/overview.md), [Azure Managed HSM](../key-vault/managed-hsm/overview.md), or [Azure Key Vault](../key-vault/general/overview.md) based on their workload requirements. For guidance, see [How to choose the right Azure key management solution](/azure/security/fundamentals/key-management-choose).
+> New customers should evaluate and onboard to [Azure Cloud HSM](../cloud-hsm/overview.md), [Managed HSM](../key-vault/managed-hsm/overview.md), or [Azure Key Vault](../key-vault/general/overview.md) based on their workload requirements. For guidance, see [How to choose the right Azure key management solution](/azure/security/fundamentals/key-management-choose).
 
 Azure Dedicated HSM is an Azure service that provides cryptographic key storage in Azure. Dedicated HSM meets the most stringent security requirements. It's the ideal solution for customers who require FIPS 140-2 Level 3-validated devices and complete and exclusive control of the HSM appliance.
 
@@ -53,7 +51,7 @@ Microsoft recognized a specific need for a unique set of customers. It is the on
 
 ## Is Azure Dedicated HSM right for you?
 
-Azure Dedicated HSM is a specialized service that addresses unique requirements for a specific type of large-scale organization. As a result, it's expected that the bulk of Azure customers will not fit the profile of use for this service. Many find the Azure Key Vault or Azure Managed HSM service to be more appropriate and cost effective. To help you decide if it's a fit for your requirements, we've identified the following criteria.
+Azure Dedicated HSM is a specialized service that addresses unique requirements for a specific type of large-scale organization. As a result, it's expected that the bulk of Azure customers will not fit the profile of use for this service. Many find the Azure Key Vault or Managed HSM service to be more appropriate and cost effective. To help you decide if it's a fit for your requirements, we've identified the following criteria.
 
 ### Best fit
 

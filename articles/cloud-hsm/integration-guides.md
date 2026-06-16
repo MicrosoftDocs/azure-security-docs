@@ -3,12 +3,10 @@
 title: Azure Cloud HSM Integration Guides
 description: Get step-by-step integration guides for securely connecting applications and systems to Azure Cloud HSM.
 services: cloud-hsm
-author: keithp
 manager: keithp
 ms.service: azure-cloud-hsm
 ms.topic: overview
 ms.date: 03/20/2025
-ms.author: keithp
 
 #customer intent: As an IT pro decision-maker, I want detailed integration guides so that I can connect applications and systems to Azure Cloud HSM in a way that meets security requirements.
 

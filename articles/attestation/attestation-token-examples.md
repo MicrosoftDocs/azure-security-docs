@@ -2,11 +2,9 @@
 title: Examples of an Azure Attestation token
 description: Examples of Azure Attestation token
 services: attestation
-author: msmbaldwin
 ms.service: azure-attestation
 ms.topic: overview
 ms.date: 04/15/2025
-ms.author: mbaldwin
 
 
 ---

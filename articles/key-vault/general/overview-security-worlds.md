@@ -4,8 +4,6 @@ description: Azure Key Vault is a multitenant service. It uses a pool of HSMs in
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: concept-article
-author: msmbaldwin
-ms.author: mbaldwin
 ms.date: 04/10/2026
 ---
 # Azure Key Vault security worlds and geographic boundaries

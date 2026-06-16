@@ -3,8 +3,6 @@ title: Create an Azure Payment HSM with Azure Payment HSM
 description: Create an Azure Payment HSM with Azure Payment HSM
 services: payment-hsm
 ms.service: azure-payment-hsm
-author: msmbaldwin
-ms.author: mbaldwin
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 04/14/2025

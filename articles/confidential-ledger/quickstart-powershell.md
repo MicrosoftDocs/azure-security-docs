@@ -1,8 +1,6 @@
 ---
 title: Quickstart – Microsoft Azure confidential ledger with Azure PowerShell
 description: Learn to use the Microsoft Azure confidential ledger through Azure PowerShell
-author: msmbaldwin
-ms.author: mbaldwin
 ms.date: 04/14/2025
 ms.service: azure-confidential-ledger
 ms.custom: devx-track-azurepowershell

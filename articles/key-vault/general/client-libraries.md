@@ -2,13 +2,11 @@
 title: Client Libraries for Azure Key Vault
 description: Client Libraries for Azure Key Vault
 services: key-vault
-author: msmbaldwin
 
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 04/10/2026
-ms.author: mbaldwin
 
 
 ---

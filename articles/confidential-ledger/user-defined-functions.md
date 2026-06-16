@@ -1,8 +1,6 @@
 ---
 title: Simple user defined functions in Azure confidential ledger
 description: Learn about user defined functions (UDFs) in Azure confidential ledger, a simple way to run custom code in a confidential environment.
-author: andpiccione
-ms.author: apiccione
 ms.service: azure-confidential-ledger
 ms.topic: feature-guide
 ms.date: 04/10/2025

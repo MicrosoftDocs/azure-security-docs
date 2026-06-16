@@ -1,17 +1,15 @@
 ---
-title: Setting up Microsoft Sentinel for Azure Managed HSM
-description: Learn how to set up Microsoft Sentinel to monitor and detect suspicious activity in your Azure Managed HSM.
+title: Setting up Microsoft Sentinel for Azure Key Vault Managed HSM
+description: Learn how to set up Microsoft Sentinel to monitor and detect suspicious activity in your Azure Key Vault Managed HSM.
 services: key-vault
-author: msmbaldwin
-ms.author: mbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 12/03/2025
-#Customer intent: As a security administrator, I want to set up Microsoft Sentinel for Azure Managed HSM so I can monitor and detect suspicious activity effectively.
+#Customer intent: As a security administrator, I want to set up Microsoft Sentinel for Managed HSM so I can monitor and detect suspicious activity effectively.
 ---
 
-# Setting up Microsoft Sentinel for Azure Managed HSM
+# Setting up Microsoft Sentinel for Azure Key Vault Managed HSM
 
 You can use Microsoft Sentinel to automatically detect suspicious activity on your Azure resources. Microsoft Sentinel comes with many out-of-the-box connectors for Microsoft services, which integrate in real time. You can find the specific "Solution Package" for protecting Azure Key Vaults in the Microsoft Sentinel's Content Hub. You can use this for Managed HSM as well. However, there are a few key steps to take to ensure you are using it for Managed HSM properly.
 
@@ -52,11 +50,11 @@ You can use Microsoft Sentinel to automatically detect suspicious activity on yo
 
       :::image type="content" source="./media/sentinel-9.png" alt-text="A screenshot of the created rule on the analytics page." lightbox="./media/sentinel-9.png":::
 
-   1. You can test the rule by creating and deleting a key. The `KeyDelete` operation is one of the sensitive operations searched by the Analytic Rule named "Sensitive Azure Managed HSM operations".
+   1. You can test the rule by creating and deleting a key. The `KeyDelete` operation is one of the sensitive operations searched by the Analytic Rule named "Sensitive Managed HSM operations".
 
 ## Next Steps
 
-- [Monitor Azure Managed HSM](logging-azure-monitor.md)
+- [Monitor Managed HSM](logging-azure-monitor.md)
 - [Configure Managed HSM alerts](configure-alerts.md)
 - [Azure Key Vault monitoring data reference](../general/monitor-key-vault-reference.md)
 - [Create a log query alert for an Azure resource](/azure/azure-monitor/platform/alerts-log)

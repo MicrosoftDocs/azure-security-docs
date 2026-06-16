@@ -1,8 +1,6 @@
 ---
 title: User defined functions in Azure confidential ledger (preview)
 description: Run custom logic in Azure confidential ledger.
-author: andpiccione
-ms.author: apiccione
 ms.service: azure-confidential-ledger
 ms.topic: feature-guide
 ms.date: 04/18/2025

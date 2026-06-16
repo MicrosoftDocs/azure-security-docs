@@ -2,7 +2,6 @@
 title: What to do if there's an Azure service disruption that affects Managed HSM - Azure Key Vault | Microsoft Docs
 description: Learn what to do if there's an Azure service disruption that affects Managed HSM.
 services: key-vault
-author: msmbaldwin
 
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
@@ -10,7 +9,6 @@ ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 04/28/2026
 ai-usage: ai-assisted
-ms.author: mbaldwin
 ---
 
 # Managed HSM disaster recovery
@@ -129,7 +127,7 @@ For this step you need:
 - The storage account and the blob container in which the source HSM's backups are stored.
 - The folder name from where you want to restore the backup. If you create regular backups, there will be many folders inside this container.
 
-We use az keyvault restore command to the destination HSM, using the backup of the source MHSM we are trying to restore, which is in the folder name `<backup-folder>` found in the storage container `<container-name>` of the storage account `<storage-account-name>` in the following example.
+We use az keyvault restore command to the destination HSM, using the backup of the source Managed HSM we are trying to restore, which is in the folder name `<backup-folder>` found in the storage container `<container-name>` of the storage account `<storage-account-name>` in the following example.
 
 Set the `--use-managed-identity` parameter to "true":
 
@@ -143,4 +141,4 @@ Now you've completed a full disaster recovery process. The contents of the sourc
 ## Next steps
 
 - Learn more about Security Domain see [About Managed HSM Security Domain](security-domain.md)
-- Follow [Secure your Azure Managed HSM deployment](secure-managed-hsm.md)
+- Follow [Secure your Managed HSM deployment](secure-managed-hsm.md)

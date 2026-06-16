@@ -2,8 +2,6 @@
 title: Azure Quickstart - Create a Managed HSM using an Azure Resource Manager template
 description: Quickstart showing how to create Azure an Azure Key Vault Managed HSM using Resource Manager template
 services: key-vault
-author: msmbaldwin
-ms.author: mbaldwin
 ms.date: 03/30/2026
 ms.topic: quickstart
 ms.service: azure-key-vault
@@ -96,4 +94,4 @@ In this quickstart, you created a Managed HSM. This Managed HSM isn't fully func
 
 - Read an [Overview of Managed HSM](overview.md).
 - Learn about [Managing keys in a Managed HSM](key-management.md).
-- Review [Secure your Azure Managed HSM deployment](secure-managed-hsm.md).
+- Review [Secure your Managed HSM deployment](secure-managed-hsm.md).

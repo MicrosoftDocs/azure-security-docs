@@ -1,18 +1,16 @@
 ---
 title: Network security for Azure Key Vault Managed HSM
-description: Learn about network security configurations and firewall settings for Azure Managed HSM
+description: Learn about network security configurations and firewall settings for Azure Key Vault Managed HSM
 services: key-vault
-author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: feature-guide
 ms.date: 02/10/2026
-ms.author: mbaldwin 
 ---
 
-# Network security for Azure Managed HSM
+# Network security for Azure Key Vault Managed HSM
 
-This article describes different configurations for an Azure Key Vault Managed HSM firewall. For step-by-step instructions on how to configure these settings, see [How to configure Azure Managed HSM networking settings](configure-network-security.md).
+This article describes different configurations for an Azure Key Vault Managed HSM firewall. For step-by-step instructions on how to configure these settings, see [How to configure Managed HSM networking settings](configure-network-security.md).
 
 ## Firewall Settings
 
@@ -67,9 +65,9 @@ To enhance network security, you can configure your managed HSM to disable publi
 
 ## Next steps
 
-- [How to configure Azure Managed HSM networking settings](configure-network-security.md)
+- [How to configure Managed HSM networking settings](configure-network-security.md)
 - [Integrate Managed HSM with Azure Private Link](private-link.md)
-- [Secure your Azure Managed HSM deployment](secure-managed-hsm.md)
+- [Secure your Managed HSM deployment](secure-managed-hsm.md)
 - [Access control](access-control.md)
 
 ## References

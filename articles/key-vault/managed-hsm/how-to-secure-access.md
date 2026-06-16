@@ -2,13 +2,11 @@
 title: How to secure access to your managed HSMs
 description: Learn how to implement access control for Managed HSM using Azure RBAC and Managed HSM local RBAC.
 services: key-vault
-author: msmbaldwin
 ms.custom: devx-track-azurecli
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: how-to
 ms.date: 03/30/2026
-ms.author: mbaldwin
 # Customer intent: As a managed HSM administrator, I want to set access control and configure the Managed HSM, so that I can ensure it's secure and auditors can properly monitor all activities for this Managed HSM.
 ---
 
@@ -208,7 +206,7 @@ Adjust permissions for your managed HSM based on your specific requirements. In 
 - For more information about usage logging for Managed HSM logging, see [Managed HSM logging](logging.md).
 - To learn about managing roles in Managed HSM, see [Managed HSM local RBAC](role-management.md).
 - Learn about [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-configure).
-- Review [Secure your Azure Managed HSM deployment](secure-managed-hsm.md).
+- Review [Secure your Managed HSM deployment](secure-managed-hsm.md).
 - See [Azure RBAC documentation](/azure/role-based-access-control/overview).
 - See [Azure RBAC: Built-in roles](/azure/role-based-access-control/built-in-roles).
 - See [Manage Azure RBAC with Azure CLI](/azure/role-based-access-control/role-assignments-cli).

@@ -2,12 +2,10 @@
 title: Azure Payment HSM Lifecycle Management
 description: Azure Payment HSM is a bare metal service utilizing Thales payShield 10K devices in Azure data centers, providing automated allocation and deallocation, physical security management, and customer responsibility for key management and HSM monitoring.
 services: payment-hsm
-author: msmbaldwin
 
 ms.service: azure-payment-hsm
 ms.topic: concept-article
 ms.date: 04/10/2025
-ms.author: mbaldwin
 
 ---
 

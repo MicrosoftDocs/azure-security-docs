@@ -1,9 +1,7 @@
 ---
-author: msmbaldwin
 ms.service: azure-key-vault
 ms.topic: include
 ms.date: 05/21/2026
-ms.author: mbaldwin
 ---
 
 In addition to the key material, you can specify the following attributes. In a JSON request, you must include the `attributes` keyword and braces (`{` `}`) even if you don't specify any attributes.

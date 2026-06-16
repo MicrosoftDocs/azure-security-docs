@@ -2,11 +2,9 @@
 title: Examples of an Azure Attestation policy signer certificate
 description: An example of Azure Attestation policy signer certificate content.
 services: attestation
-author: msmbaldwin
 ms.service: azure-attestation
 ms.topic: overview
 ms.date: 04/15/2025
-ms.author: mbaldwin
 
 
 ---

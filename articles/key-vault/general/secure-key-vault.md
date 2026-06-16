@@ -2,12 +2,11 @@
 title: Secure your Azure Key Vault
 description: Learn how to secure Azure Key Vault, with best practices for protecting your deployment.
 services: key-vault
-author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.custom: horz-security
 ms.topic: best-practice
-ms.date: 05/19/2026
+ms.date: 06/16/2026
 ms.author: mbaldwin
 ai-usage: ai-assisted
 #CustomerIntent: As a key vault administrator, I want to learn how to secure my key vaults
@@ -136,6 +135,6 @@ For security best practices specific to keys, secrets, and certificates, see:
 
 ## Next steps
 
-- [Secure your Azure Managed HSM deployment](../managed-hsm/secure-managed-hsm.md)
+- [Secure your Managed HSM deployment](../managed-hsm/secure-managed-hsm.md)
 - [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md)
 - [Azure RBAC: Built-in roles](/azure/role-based-access-control/built-in-roles)

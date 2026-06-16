@@ -1,8 +1,6 @@
 ---
-title: Integrate Azure Managed HSM with Azure Policy
-description: Learn how to integrate Azure Managed HSM with Azure Policy
-author: msmbaldwin
-ms.author: mbaldwin
+title: Integrate Azure Key Vault Managed HSM with Azure Policy
+description: Learn how to integrate Azure Key Vault Managed HSM with Azure Policy
 ms.date: 03/26/2026
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
@@ -10,7 +8,7 @@ ms.custom: devx-track-azurecli
 ms.topic: how-to
 ---
 
-# Integrate Azure Managed HSM with Azure Policy
+# Integrate Azure Key Vault Managed HSM with Azure Policy
 
 [Azure Policy](/azure/governance/policy/) is a governance tool that gives users the ability to audit and manage their Azure environment at scale. Azure Policy lets you place guardrails on Azure resources to ensure they're compliant with assigned policy rules. It allows users to perform audit, real-time enforcement, and remediation of their Azure environment. The results of audits performed by policy are available to users in a compliance dashboard, where they'll be able to see a drill-down of which resources and components are compliant. For more information, see the [Overview of the Azure Policy service](/azure/governance/policy/overview).
 

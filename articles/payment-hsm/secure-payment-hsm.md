@@ -1,8 +1,6 @@
 ---
 title: Secure your Azure Payment HSM
 description: Learn how to secure Azure Payment HSM, with best practices for network security, identity management, monitoring, and key management.
-author: msmbaldwin
-ms.author: mbaldwin
 ms.service: azure-payment-hsm
 ms.topic: best-practice
 ms.date: 03/31/2026

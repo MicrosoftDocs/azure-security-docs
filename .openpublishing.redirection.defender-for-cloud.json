@@ -694,6 +694,41 @@
       "source_path_from_root": "/articles/defender-for-cloud/deploy-vulnerability-assessment-vm.md",
       "redirect_url": "/azure/defender-for-cloud/deploy-vulnerability-assessment-defender-vulnerability-management",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/view-and-remediate-vulnerability-assessment-findings-secure-score.md",
+      "redirect_url": "/azure/defender-for-cloud/view-and-remediate-vulnerability-registry-images",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/view-and-remediate-vulnerabilities-for-images-secure-score.md",
+      "redirect_url": "/azure/defender-for-cloud/view-and-remediate-vulnerabilities-containers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/disable-vulnerability-findings-containers-secure-score.md",
+      "redirect_url": "/azure/defender-for-cloud/disable-vulnerability-findings-containers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/subassessment-rest-api.md",
+      "redirect_url": "/azure/defender-for-cloud/agentless-vulnerability-assessment-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/transition-to-defender-vulnerability-management.md",
+      "redirect_url": "/azure/defender-for-cloud/agentless-vulnerability-assessment-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/common-questions-microsoft-defender-vulnerability-management.md",
+      "redirect_url": "/azure/defender-for-cloud/agentless-vulnerability-assessment-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/defender-for-cloud/enable-vulnerability-assessment.md",
+      "redirect_url": "/azure/defender-for-cloud/agentless-vulnerability-assessment-azure",
+      "redirect_document_id": false
     }
   ]
 }

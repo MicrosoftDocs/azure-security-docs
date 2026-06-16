@@ -5,8 +5,6 @@ ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: reference
 ms.date: 07/20/2025
-author: msmbaldwin
-ms.author: mbaldwin
 ---
 # Azure Key Vault service limits
 
@@ -20,6 +18,6 @@ The following limits apply to standard Key Vault operations including transactio
 
 ## Key Vault: Managed HSM
 
-Managed HSM provides dedicated HSM instances with different limits than standard Key Vault vaults. For detailed information about performance characteristics and capacity planning for your Managed HSM workloads, see [Azure Managed HSM scaling guidance](../managed-hsm/scaling-guidance.md).
+Managed HSM provides dedicated HSM instances with different limits than standard Key Vault vaults. For detailed information about performance characteristics and capacity planning for your Managed HSM workloads, see [Managed HSM scaling guidance](../managed-hsm/scaling-guidance.md).
 
 [!INCLUDE [Managed HSM service limits](~/reusable-content/ce-skilling/azure/includes/managed-hsm/service-limits.md)]

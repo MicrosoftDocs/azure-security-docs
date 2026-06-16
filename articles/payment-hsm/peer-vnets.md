@@ -2,13 +2,11 @@
 title: How to peer Azure Payment HSM virtual networks
 description: How to peer Azure Payment HSM virtual networks
 services: payment-hsm
-author: msmbaldwin
 
 ms.service: azure-payment-hsm
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 04/10/2025
-ms.author: mbaldwin
 ---
 
 # How to peer payment HSM virtual networks

@@ -2,12 +2,11 @@
 title: Configure network security for Azure Key Vault
 description: Learn about and configure network security for Azure Key Vault, including firewall settings, Private Link, and Network Security Perimeter.
 services: key-vault
-author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
 ai-usage: ai-assisted
-ms.date: 05/19/2026
+ms.date: 06/16/2026
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---

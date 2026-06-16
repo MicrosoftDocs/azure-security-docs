@@ -2,11 +2,9 @@
 title: Networking considerations - Azure Dedicated HSM | Microsoft Docs
 description: Overview of networking considerations applicable to Azure Dedicated HSM deployments
 services: dedicated-hsm
-author: msmbaldwin
 ms.topic: concept-article
 ms.service: azure-dedicated-hsm
 ms.date: 04/15/2025
-ms.author: mbaldwin
 ms.custom: sfi-image-nochange
 ---
 
