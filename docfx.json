@@ -130,7 +130,6 @@
     },
     "fileMetadata": {
       "adobe-target": {
-        "articles/defender-for-cloud/*": true,
         "articles/key-vault/*": true
       },
         "author": {
@@ -142,8 +141,6 @@
           "articles/confidential-ledger/**/*.yml": "garrodonnell",
           "articles/dedicated-hsm/**/*.md": "garrodonnell",
           "articles/dedicated-hsm/**/*.yml": "garrodonnell",
-          "articles/defender-for-cloud/**/*.md": "elazark",
-          "articles/defender-for-cloud/**/*.yml": "elazark",
           "articles/key-vault/**/*.md": "garrodonnell",
           "articles/key-vault/**/*.yml": "garrodonnell",
           "articles/payment-hsm/**/*.md": "garrodonnell",
@@ -158,8 +155,6 @@
           "articles/confidential-ledger/**/*.yml": "godonnell",
           "articles/dedicated-hsm/**/*.md": "godonnell",
           "articles/dedicated-hsm/**/*.yml": "godonnell",
-          "articles/defender-for-cloud/**/*.md": "elkrieger",
-          "articles/defender-for-cloud/**/*.yml": "elkrieger",
           "articles/key-vault/**/*.md": "godonnell",
           "articles/key-vault/**/*.yml": "godonnell",
           "articles/payment-hsm/**/*.md": "godonnell",
@@ -171,36 +166,21 @@
         ]
       },
       "feedback_product_url": {
-        "articles/defender-for-cloud/**/*.md": "https://feedback.azure.com/d365community/forum/0f853254-0425-ec11-b6e6-000d3a4f07b8",
-        "articles/defender-for-cloud/**/*.yml": "https://feedback.azure.com/d365community/forum/0f853254-0425-ec11-b6e6-000d3a4f07b8",
         "articles/key-vault/**/*.md": "https://feedback.azure.com/d365community/forum/285c5ae0-f524-ec11-b6e6-000d3a4f0da0"
       },
       "feedback_help_link_url": {
         "articles/confidential-ledger/**/*": "https://learn.microsoft.com/answers/tags/455/entra-id",
         "articles/dedicated-hsm/**/*": "https://learn.microsoft.com/answers/tags/144/azure-dedicated-hsm/",
-        "articles/defender-for-cloud/**/*": "https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/bd-p/MicrosoftDefenderCloud",
         "articles/key-vault/**/*": "https://learn.microsoft.com/answers/tags/5/azure-key-vault/",
         "articles/payment-hsm/**/*": "https://learn.microsoft.com/answers/tags/144/azure-dedicated-hsm"
       },
       "feedback_help_link_type": {
-        "**/*": "get-help-at-qna",
-        "articles/defender-for-cloud/**/*": "ask-the-community"
+        "**/*": "get-help-at-qna"
       },
       "learn_banner_products": {
         "articles/**/*.md": [
           "azure"
         ]
-      },
-      "manager": {
-        "articles/defender-for-cloud/*.md": "orspodek"
-      },
-      "ms.service": {
-        "articles/defender-for-cloud/*.md": "defender-for-cloud",
-        "articles/defender-for-cloud/*.yml": "defender-for-cloud"
-      },
-      "titleSuffix": {
-        "articles/defender-for-cloud/*.md": "Microsoft Defender for Cloud",
-        "articles/defender-for-cloud/*.yml": "Microsoft Defender for Cloud"
       }
     },
     "overwrite": [],
