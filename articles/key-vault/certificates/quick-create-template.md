@@ -36,7 +36,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](/sampl
 Two Azure resources are defined in the template:
 
 * [**Microsoft.KeyVault/vaults**](/azure/templates/microsoft.keyvault/vaults): create an Azure key vault.
-* [**Microsoft.Resources/deployments**](/azure/templates/microsoft.resources/deployments): nested deployment that runs a deployment script ([create-kv-certificate](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/deployment-script/create-kv-certificate)) to create a self-signed certificate in the vault. Certificates are a data-plane resource and can't be created directly with an ARM resource type.
+* [**Microsoft.Resources/deployments**](/azure/templates/microsoft.resources/deployments): nested deployment that runs a deployment script ([create-kv-certificate](https://github.com/Azure/bicep-registry-modules/tree/main/modules/deployment-scripts/create-kv-certificate)) to create a self-signed certificate in the vault. Certificates are a data-plane resource and can't be created directly with an ARM resource type.
 
 The template creates the key vault with Azure RBAC authorization enabled. This means the vault uses Azure role-based access control (Azure RBAC) for data plane authorization, rather than access policies. The certificate is created as a self-signed certificate with the specified subject name.
 
