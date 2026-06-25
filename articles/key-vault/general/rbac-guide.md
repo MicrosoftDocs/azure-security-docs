@@ -308,7 +308,7 @@ For full details, see [Assign Azure roles using Azure PowerShell](/azure/role-ba
 
       ![Create new secret](../media/rbac/image-11.png)
 
-1. Validate secret editing without "Key Vault Secret Officer" role on secret level.
+1. Validate secret editing without "Key Vault Secrets Officer" role on secret level.
 
    1. Go to previously created secret Access Control (IAM) tab
     and remove "Key Vault Secrets Officer" role assignment for
