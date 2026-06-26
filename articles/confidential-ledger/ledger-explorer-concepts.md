@@ -4,7 +4,7 @@ description: Understand the Ledger Explorer tools for Azure confidential ledger,
 author: shubhras
 ms.author: shusinha
 ms.service: azure-confidential-ledger
-ms.topic: conceptual
+ms.topic: conceptual-article
 ms.date: 04/23/2026
 ai-usage: ai-assisted
 ---
