@@ -30,7 +30,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](/sampl
 Two Azure resources are defined in the Bicep file:
 
 * [**Microsoft.KeyVault/vaults**](/azure/templates/microsoft.keyvault/vaults): create an Azure key vault with Azure RBAC authorization enabled (`enableRbacAuthorization: true`).
-* [**Microsoft.Resources/deployments**](/azure/templates/microsoft.resources/deployments): nested deployment that runs the [create-kv-certificate](https://github.com/Azure/bicep-registry-modules/tree/main/avm/ptn/deployment-script/create-kv-certificate) registry module to create a self-signed certificate in the vault. Certificates are a data-plane resource and can't be created directly with an ARM resource type.
+* [**Microsoft.Resources/deployments**](/azure/templates/microsoft.resources/deployments): nested deployment that runs the [create-kv-certificate](https://github.com/Azure/bicep-registry-modules/tree/main/modules/deployment-scripts/create-kv-certificate) registry module to create a self-signed certificate in the vault. Certificates are a data-plane resource and can't be created directly with an ARM resource type.
 
 ## Deploy the Bicep file
 
