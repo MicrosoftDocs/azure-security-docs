@@ -109,7 +109,8 @@ az keyvault role assignment create --hsm-name <hsm-name> \
 --assignee <service-principal-id>  \
 --scope /keys
 ```
-For Managed Identities,specify command arguments as follows:
+
+For Managed Identities, specify command arguments as follows:
 
 ```azurecli
 az keyvault role assignment create --hsm-name <hsm-name> \
@@ -165,10 +166,27 @@ az keyvault role assignment create --hsm-name <hsm-name>  \
 --assignee <service-principal-id>  \
 --scope /keys/p11-6a2155dc40c94367a0f97ab452dc216f
 ```
+
+## Managed Identity Connection
+
+You can control Managed Identity Connection through Managed HSM configuration file (mhsm-pkcs11.conf).
+
+```json
+"msi": {
+    "identityMSI": false,
+    "enableIMDSCache": false,
+    "MSIClientId": "<MSI CLIENT ID>"
+       }
+```
+
+- **identityMSI**: Setting as `true` will enable Azure Managed Identity (MSI).
+- **enableIMDSCache**: Cache Azure Instance Metadata Service (IMDS) Authentication tokens in memory for cross-process sharing; this won't cache any MHSM Key.
+- **MSIClientId**: MSI client id for user-assigned managed identity.
+
 ## Connection Caching
 
 To improve the performance of Sign calls to the Managed HSM Service, TLS Offload Library caches its TLS connections to the Managed HSM service servers. By default, TLS Offload Library caches up to 20 TLS connections.
-Connection Caching can be controlled through Managed HSM configuration file (mhsm-pkcs11.conf). 
+Connection Caching can be controlled through Managed HSM configuration file (mhsm-pkcs11.conf).
 
 ```json
 "ConnectionCache": {
