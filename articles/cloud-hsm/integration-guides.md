@@ -2,11 +2,12 @@
 
 title: Azure Cloud HSM Integration Guides
 description: Get step-by-step integration guides for securely connecting applications and systems to Azure Cloud HSM.
-services: cloud-hsm
 manager: keithp
 ms.service: azure-cloud-hsm
+ms.author: mbaldwin
 ms.topic: overview
-ms.date: 03/20/2025
+ms.date: 07/06/2026
+ai-usage: ai-assisted
 
 #customer intent: As an IT pro decision-maker, I want detailed integration guides so that I can connect applications and systems to Azure Cloud HSM in a way that meets security requirements.
 
@@ -23,9 +24,9 @@ Microsoft Azure Cloud HSM offers a suite of integration guides to help customers
 - PKCS#11
 - SQL Server Extensible Key Management (EKM)
 - Certificate Storage
-- Offloading of Secure Sockets Layer (SSL) or Transport Layer Security (TLS) for web servers like Apache and NGINX
+- Offloading of Secure Sockets Layer (SSL) or Transport Layer Security (TLS) for web servers like Apache, NGINX, and F5 BIG-IP
 
-Each guide includes prerequisites, system requirements, configuration steps, and validation procedures tailored to a specific integration scenario. For example, the guide for SSL/TLS offloading details how to configure Apache and NGINX to use Azure Cloud HSM for cryptographic operations, to help ensure secure and efficient SSL/TLS handshakes.
+Each guide includes prerequisites, system requirements, configuration steps, and validation procedures tailored to a specific integration scenario. For example, the guide for SSL/TLS offloading details how to configure Apache, NGINX, and F5 BIG-IP to use Azure Cloud HSM for cryptographic operations, to help ensure secure and efficient SSL/TLS handshakes.
 
 To explore all available integration resources, go to the [GitHub repository](https://github.com/microsoft/MicrosoftAzureCloudHSM/tree/main/IntegrationGuides).
 
@@ -38,8 +39,11 @@ Here are the integration guides that can help you securely connect applications 
 - [Integrating OpenSSL with Azure Cloud HSM (PDF)](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20OpenSSL%20Integration%20Guide.pdf)
 - [Integrating Oracle TDE with Azure Cloud HSM (PDF)](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20Oracle%20TDE%20Integration%20Guide.pdf)
 - [Integrating PKCS#11 with Azure Cloud HSM (PDF)](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20PKCS11%20Integration%20Guide.pdf)
+- [Azure Cloud HSM certificate storage](tutorial-certificate-storage.md)
+- [PKCS#11 API for certificate storage](pkcs-api-certificate-storage.md)
 - [Integrating SQL Server EKM with Azure Cloud HSM (PDF)](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20SQL%20EKM%20Integration%20Guide.pdf)
-- [Azure Cloud HSM SSL/TLS Offloading Integration Guide (PDF)](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20SSL%20TLS%20Offloading%20Integration%20Guide.pdf)
+- [Integrating Apache or NGINX for SSL/TLS Offloading with Azure Cloud HSM (PDF)](https://github.com/microsoft/MicrosoftAzureCloudHSM/blob/main/IntegrationGuides/Azure%20Cloud%20HSM%20SSL%20TLS%20Offloading%20Integration%20Guide.pdf)
+- [Integrating F5 BIG-IP for SSL/TLS Offloading with Azure Cloud HSM](https://techdocs.f5.com/en-us/bigip-21-1-0/big-ip-system-and-net-hsm-implementation/setting-up-the-network-hsm.html#setting-up-azure-cloud-hsm-installation-and-configuration)
 
 ## Related content
 

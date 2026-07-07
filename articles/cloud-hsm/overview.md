@@ -2,14 +2,15 @@
 title: Overview of Azure Cloud HSM
 description: Learn how Azure Cloud HSM offers cryptographic key storage within the Azure environment as a dedicated HSM service.
 ms.service: azure-cloud-hsm
+ms.author: mbaldwin
 ms.topic: overview
-ms.date: 03/31/2026
+ms.date: 07/06/2026
 
 #customer intent: As an IT pro decision-maker, I'm looking for key storage capability within the Azure cloud platform that meets FIPS 140-3 Level 3 certification and that gives me exclusive access to a dedicated hardware security module.
 
 #Supported Use Cases: Azure Cloud HSM provides a secure and customer-owned HSM for storing cryptographic keys and performing cryptographic operations. It supports various applications, including PKCS#11, offloading of SSL/TLS processing, CA private key protection, and transparent data encryption. It also supports document and code signing.
 
-#Not Supported Use Cases: Azure Cloud HSM is IaaS only. It doesn't integrate with other Azure services, doesn't have a REST API, and doesn't support encryption at rest.
+#Not Supported Use Cases: Azure Cloud HSM is IaaS only. It doesn't integrate with Azure PaaS or SaaS services, doesn't have a REST API, and doesn't support encryption at rest.
 ---
 
 # What is Azure Cloud HSM?
@@ -62,7 +63,7 @@ Azure Cloud HSM supports:
 
 - PKCS#11, OpenSSL, Java Cryptography Architecture (JCA), Java Cryptography Extension (JCE), Cryptography API: Next Generation (CNG), and key storage provider (KSP).
 - Active Directory Certificate Services (AD CS).
-- SSL/TLS offloading (Apache or NGINX).
+- SSL/TLS offloading (Apache, NGINX, or F5 BIG-IP).
 - TDE (Microsoft SQL Server or Oracle).
 - Certificate Storage
 - Document, file, and code signing.
@@ -80,7 +81,7 @@ Azure Cloud HSM is most suitable for the following types of scenarios:
 - Migrating applications from on-premises to Azure Virtual Machines
 - Migrating applications from Azure Dedicated HSM or AWS Cloud HSM
 - Supporting applications that require PKCS#11
-- Running shrink-wrapped software such as Apache or NGINX SSL offloading, SQL Server or Oracle TDE, and AD CS in Azure Virtual Machines
+- Running shrink-wrapped software such as Apache, NGINX, or F5 BIG-IP SSL offloading, SQL Server or Oracle TDE, and AD CS in Azure Virtual Machines
 
 ### Not a fit
 

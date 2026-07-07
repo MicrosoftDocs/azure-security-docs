@@ -2,6 +2,7 @@
 title: Comprehensive Guide to Key Management in Azure Cloud HSM
 description: Learn best practices and recommendations for key management in Azure Cloud HSM, including storage limits, key wrapping security, and caching strategies.
 ms.service: azure-cloud-hsm
+ms.author: mbaldwin
 ms.topic: best-practice
 ms.date: 03/20/2025
 
@@ -51,7 +52,7 @@ If your application necessitates key wrapping, we advise you to use *trusted key
 | PKCS#11                 | `EXTRACTABLE`, `!WRAP_WITH_TRUSTED`             | Yes                    | Yes                                         | `0` (specified in the PKCS#11 specification, but can be set to `1` in the API) |
 | CNG/KSP               | `EXTRACTABLE`, `!WRAP_WITH_TRUSTED`             | No                     | No                                          | `1` |
 | OpenSSL engine          | `EXTRACTABLE`, `!WRAP_WITH_TRUSTED`             | No                     | No                                          | `1` |
-| JCE                     | `!EXTRACTABLE`, `!PERSISTANT`, `!WRAP_WITH_TRUSTED` | Yes                    | No                                          | `1` |
+| JCE                     | `!EXTRACTABLE`, `!PERSISTENT`, `!WRAP_WITH_TRUSTED` | Yes                    | No                                          | `1` |
 
 Keys that you create by using the Cryptography API: Next Generation (CNG) provider are always set as `EXTRACTABLE`. You can use the `CavImportKey.exe` tool to import keys from other Azure Cloud HSM tools into the CNG provider via their key handles. This import creates a key in the key storage provider (KSP) from existing key handles.
 

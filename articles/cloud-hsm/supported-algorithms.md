@@ -2,6 +2,7 @@
 title: Supported cryptographic algorithms in Azure Cloud HSM
 description: Review the cryptographic algorithms, modes, and key sizes supported by Azure Cloud HSM hardware security modules.
 ms.service: azure-cloud-hsm
+ms.author: mbaldwin
 ms.topic: reference
 ms.date: 08/14/2025
 #customer intent: As a security architect or developer, I want to know which cryptographic algorithms are supported by Azure Cloud HSM so I can plan my application integration and compliance.
@@ -14,10 +15,7 @@ Azure Cloud HSM supports various cryptographic algorithms. Only the algorithms, 
 
 For an overview of the service, see [Overview of Azure Cloud HSM](overview.md). For key management, see [Key management in Azure Cloud HSM](key-management.md). For authentication, see [Authentication in Azure Cloud HSM](authentication.md).
 
-Algorithms Supported
-Azure Cloud HSM supports various cryptographic algorithms. Only the algorithms, modes/methods, and key lengths/curves/moduli supported by its hardware security modules are listed in the following tables.
-
-## Supported Non-FIPS Algorithms
+## Supported Non-FIPS algorithms
 
 Azure Cloud HSM and its hardware security modules support the following Non-FIPS approved algorithms.
 
@@ -37,7 +35,7 @@ Azure Cloud HSM and its hardware security modules support the following Non-FIPS
 | Shamir's Key Share | Key share |
 | Triple-DES (noncompliant) | Derive unique key per transaction (DUKPT), EMV key derivation, Derive PIN from Offset, Derive Offset from PIN, PIN Verification, PVV generation and verification, CVV generation and verification, Export Symmetric key/Export Asymmetric key pair using TR31 wrapping, Import/Export using TR34, Import Decimal Table, EMV script, EMV ARQC/ARPC, Data/PIN encryption/decryption |
 
-### Non-FIPS Algorithms with Caveats
+## Supported non-FIPS algorithms with caveats
 
 | Algorithm | Caveat | Use/Function |
 |-----------|--------|--------------|
@@ -48,11 +46,12 @@ Azure Cloud HSM and its hardware security modules support the following Non-FIPS
 | SHA-1 | No security claimed per IG 2.4.A | Fingerprints |
 | Triple-DES SP 800-38B | No security claimed per IG 2.4.A | Fingerprints<br>Key Sizes<br>• 192-bit (Generation, Verify) |
 
-## Supported NIST FIPS Approved Algorithms
+## Supported NIST FIPS approved algorithms
 
 Azure Cloud HSM and its hardware security modules support the following NIST FIPS approved algorithms.
 
-> **Important Note**: All symmetric key sizes represent the key strength.
+> [!NOTE]
+> All symmetric key sizes represent the key strength.
 
 | CAVP Cert | Algorithm and Standard | Mode/Method | Description/ Key Size(s) / Key Strength(s) | Use / Function |
 |-----------|------------------------|-------------|-------------------------------------------|----------------|
@@ -117,7 +116,7 @@ Azure Cloud HSM and its hardware security modules support the following NIST FIP
 | A1948 | PBKDF (SP 800-132) | PBKDF | HMAC with SHA-1, SHA-2 256, 384, and 512<br>Uses HMAC-SHA-1 (#A1948), HMAC-SHA2-256 (#A1948), HMAC-SHA2-384 (#A1948) and HMAC-SHA2-512 (#A1948) as underlying MAC algorithm | User credentials storage. Master key derived from PBKDF is not used for deriving keys for data encryption/protection, but instead used only for storing passwords as hashes. |
 | A1948 | RSA Decryption Primitive (SP 800-56Br2) (CVL) | RSA Decryption Primitive | Modulus sizes: 2048, 3072, and 4096-bit | RSA key transport |
 | A1948 | RSA KeyGen (FIPS186-4) | RSA KeyGen (FIPS186-4) | Key generation: 2048, 3072, and 4096-bit<br>Uses Counter DRBG (SP800-90Ar1) (#A1948) as underlying Random Generator | RSA key generation |
-| A1948 | RSA SigGen (FIPS186-4) | RSA SigGen (FIPS186-4) | FIPS 186-4 PKCS #1 1.5 and PSS Sig Gen: 2048, 3096, and 4096-bit (SHA-2 256, 384, and 512)<br>Uses SHA2-256 (FIPS 180-4) (#A1948), SHA2-384 (FIPS 180-4) (#A1948), SHA2-512 (#A1948) as underlying digest algorithm<br>2048, 3072, and 4096-bit modulus providing 112, 128, and 150 bits of encryption strength respectively. | Signature generation |
+| A1948 | RSA SigGen (FIPS186-4) | RSA SigGen (FIPS186-4) | FIPS 186-4 PKCS #1 1.5 and PSS Sig Gen: 2048, 3072, and 4096-bit (SHA-2 256, 384, and 512)<br>Uses SHA2-256 (FIPS 180-4) (#A1948), SHA2-384 (FIPS 180-4) (#A1948), SHA2-512 (#A1948) as underlying digest algorithm<br>2048, 3072, and 4096-bit modulus providing 112, 128, and 150 bits of encryption strength respectively. | Signature generation |
 | A1948 | RSA SigVer (FIPS186-4) | RSA SigVer (FIPS186-4) | FIPS 186-4 PKCS #1 1.5 and PSS SigVer: 1024, 2048, 3072, and 4096-bit (SHA-1, SHA-2 256, 384, and 512)<br>Uses SHA-1 (FIPS 180-4)(#A1947) SHA2-256 (FIPS 180-4) (#A1948), SHA2-384 (FIPS 180-4) (#A1948), SHA2-512 (#A1948) as underlying digest algorithm<br>2048, 3072, and 4096-bit modulus providing 112, 128, and 150 bits of encryption strength respectively. | Signature verification<br>User authentication<br>Firmware update verification |
 | A1948 | SHA-1 (FIPS 180-4) | SHA-1 | SHA-1 | Digests, HMAC, and KDFs |
 | A1948 | SHA2-256 (FIPS 180-4) | SHA2 | SHA2-256 | Digests, HMAC, signature generation, and KDFs |
@@ -141,7 +140,7 @@ Azure Cloud HSM and its hardware security modules support the following NIST FIP
 | N/A | ENT (P) (SP 800-90B) | N/A | SP 800-90B entropy source | Entropy Source |
 | Vendor Affirmed | CKG SP 800-133Rev2 | CKG | Please refer to section 2.3.2 Algorithm Specific Information | Cryptographic Key Generation; SP 800-133Rev2 and IG D.H |
 
-## What's next?
+## Related content
 
 - [Overview of Azure Cloud HSM](overview.md)
 - [Key management in Azure Cloud HSM](key-management.md)

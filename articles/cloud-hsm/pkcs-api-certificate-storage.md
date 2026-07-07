@@ -3,7 +3,8 @@ title: PKCS#11 API for Certificate Storage in Azure Cloud HSM
 description: Learn how to use PKCS#11 APIs to manage X.509 certificates in Azure Cloud HSM, including creating, copying, deleting, and retrieving certificate attributes.
 manager: keithp
 ms.service: azure-cloud-hsm
-ms.topic: tutorial
+ms.author: mbaldwin
+ms.topic: reference
 ms.date: 03/26/2026
 ms.custom: pkcs11, certificate-management, x509-certificates, azure-cloud-hsm
 
@@ -13,7 +14,7 @@ ms.custom: pkcs11, certificate-management, x509-certificates, azure-cloud-hsm
 
 # PKCS#11 API for certificate storage
 
-Azure Cloud HSM provides robust support for certificate storage using the PKCS#11 API. This tutorial explains how to use the PKCS#11 API to manage X.509 certificates, including creating, copying, deleting, and retrieving certificate attributes. For a detailed overview of certificate storage setup, including prerequisites and configuration, refer to the [Azure Cloud HSM Certificate Storage Tutorial](tutorial-certificate-storage.md).
+Azure Cloud HSM provides robust support for certificate storage using the PKCS#11 API. This article explains how to use the PKCS#11 API to manage X.509 certificates, including creating, copying, deleting, and retrieving certificate attributes. For a detailed overview of certificate storage setup, including prerequisites and configuration, see [Azure Cloud HSM certificate storage](tutorial-certificate-storage.md).
 
 ## Using PKCS#11 API for X.509 certificate storage
 
