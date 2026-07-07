@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: overview
-ms.date: 07/06/2026
+ms.date: 07/07/2026
 ms.author: mbaldwin
 ai-usage: ai-assisted
 #Customer intent: As a security architect at an organization with strict sovereignty or regulatory requirements, I want to understand whether Azure Managed HSM external key management is the right key-management option for my workload.
@@ -81,7 +81,7 @@ The following HSM vendors support the Managed HSM external key management API sp
 | Eviden | Eviden Proteccio HSM and Eviden KMS | [Eviden Proteccio HSM](https://eviden.com/solutions/cybersecurity/data-encryption/trustway-proteccio-nethsm/) and [Eviden KMS](https://eviden.com/solutions/cybersecurity/data-encryption/trustway-dataprotect/) |
 | Fortanix | Data Security Manager | [Fortanix solutions for Microsoft Azure](https://www.fortanix.com/resources/solution-briefs/fortanix-solutions-for-microsoft-azure) |
 | Futurex | CryptoHub | [Futurex](https://www.futurex.com/solutions/microsoft-managed-hsm-external-key-management) |
-| Securosys SA | Primus HSM family and Securosys Cloud HSM | Securosys External Key Management Proxy |
+| Securosys SA | Primus HSM family and Securosys Cloud HSM | [Securosys External Key Management Proxy](https://docs.securosys.com/azure-ekm/overview) |
 | Thales | Thales Luna HSM | [Advanced encryption with comprehensive Azure key management](https://cpl.thalesgroup.com/encryption/microsoft-azure) |
 | Utimaco | Enterprise Secure Key Manager (ESKM) and Enterprise Key Manager as a Service (EKMaaS) | [Utimaco Enterprise Secure Key Manager](https://utimaco.com/key-management/enterprise-secure-key-manager) |
 
