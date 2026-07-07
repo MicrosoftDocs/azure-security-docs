@@ -5,8 +5,9 @@ services: azure-key-vault
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: overview
-ms.date: 11/19/2025
+ms.date: 07/06/2026
 ms.reviewer: nkondamudi
+ai-usage: ai-assisted
 ms.collection:
   - zerotrust-extra
 
@@ -61,6 +62,10 @@ The term "Managed HSM instance" is synonymous with "Managed HSM pool". To avoid 
 Managed HSM is integrated with Microsoft's Signing Transparency (MST), allowing customers to independently inspect and validate its build artifacts. MST enforces that only authenticated and trusted Managed HSM identities can register production build artifacts in an immutable, tamper-evident ledger. This delivers cryptographically verifiable, SCITT-aligned and IETF/COSE-compliant receipts that provide clear visibility into Managed HSM's deployments—strengthening trust, auditability, and regulatory compliance.
 
 For more information about MST, see [About Microsoft's Signing Transparency Ledger](../../confidential-ledger/about-microsoft-signing-transparency-ledger.md). To validate build artifacts, see [Verify signatures in the ledger](../../confidential-ledger/microsoft-signing-transparency-verify-signatures.md).
+
+## External key management (preview)
+
+If your workload requires that key encryption keys (KEKs) live in a hardware security module that you operate outside Microsoft infrastructure, you can use **Managed HSM external key management**. External key management lets Managed HSM delegate wrap and unwrap operations to a customer-operated EKM Proxy in front of your external HSM. External key management is currently in preview, supports wrap and unwrap only, and isn't covered by the Managed HSM SLA. For details, see [What is Managed HSM external key management?](external-key-management-overview.md).
 
 ## Next steps
 - [Key management in Azure](/azure/security/fundamentals/key-management)

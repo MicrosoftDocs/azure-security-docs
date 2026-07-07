@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 360" font-family="Segoe UI, Arial, sans-serif" font-size="14">
+  <title>Managed HSM External Key Management high-level architecture</title>
+  <desc>Left-to-right flow: an Azure service performing a customer-managed key operation calls Managed HSM. Managed HSM, acting as the EKM Proxy API client, calls the customer-operated EKM Proxy hosted in an External Data Center. Within the External Data Center the EKM Proxy calls the Key Management Service (external HSM), which performs the wrap or unwrap operation. Microsoft owns everything to the left of the External Data Center boundary; the customer owns everything inside it.</desc>
+
+  <defs>
+    <marker id="arrowPurple" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#7b3f99"/>
+    </marker>
+    <marker id="arrowOrange" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#d97706"/>
+    </marker>
+    <marker id="arrowBlack" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#222"/>
+    </marker>
+  </defs>
+
+  <!-- Microsoft side label -->
+  <text x="20" y="25" font-size="12" fill="#555" font-style="italic">Microsoft-operated</text>
+
+  <!-- Customer side label -->
+  <text x="565" y="25" font-size="12" fill="#555" font-style="italic">Customer-operated</text>
+
+  <!-- 1. Azure service (left blue box) -->
+  <g>
+    <rect x="20" y="120" width="180" height="100" rx="6" fill="#1f4e79" stroke="#163d5e" stroke-width="1.5"/>
+    <text x="110" y="160" text-anchor="middle" fill="#ffffff" font-weight="600">Azure service</text>
+    <text x="110" y="180" text-anchor="middle" fill="#dfe9f3" font-size="12">Customer-managed key</text>
+    <text x="110" y="196" text-anchor="middle" fill="#dfe9f3" font-size="12">(CMK) consumer</text>
+  </g>
+
+  <!-- Purple arrow: Azure service -> Managed HSM -->
+  <line x1="200" y1="170" x2="265" y2="170" stroke="#7b3f99" stroke-width="2" marker-end="url(#arrowPurple)"/>
+  <text x="232" y="160" text-anchor="middle" fill="#7b3f99" font-size="11">CMK call</text>
+
+  <!-- 2. Managed HSM (middle blue box) -->
+  <g>
+    <rect x="265" y="120" width="220" height="100" rx="6" fill="#1f4e79" stroke="#163d5e" stroke-width="1.5"/>
+    <text x="375" y="160" text-anchor="middle" fill="#ffffff" font-weight="600">Managed HSM</text>
+    <text x="375" y="180" text-anchor="middle" fill="#dfe9f3" font-size="12">External-key handling</text>
+    <text x="375" y="196" text-anchor="middle" fill="#dfe9f3" font-size="12">(EKM Proxy API client)</text>
+  </g>
+
+  <!-- Trust boundary (vertical dashed line) -->
+  <line x1="540" y1="50" x2="540" y2="340" stroke="#b03a2e" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="540" y="48" text-anchor="middle" fill="#b03a2e" font-size="11">Trust boundary</text>
+
+  <!-- Orange arrow: Managed HSM -> EKM Proxy (crosses the boundary) -->
+  <line x1="485" y1="170" x2="615" y2="170" stroke="#d97706" stroke-width="2" marker-end="url(#arrowOrange)"/>
+  <text x="550" y="160" text-anchor="middle" fill="#d97706" font-size="11">EKM Proxy API (mTLS)</text>
+
+  <!-- 3. External Data Center (green container) -->
+  <g>
+    <rect x="615" y="80" width="345" height="260" rx="8" fill="#e9f6ec" stroke="#3a8a4a" stroke-width="1.5"/>
+    <text x="787" y="105" text-anchor="middle" fill="#1f5b2c" font-weight="600" font-size="13">External Data Center</text>
+
+    <!-- 3.1 EKM Proxy (upper white box) -->
+    <rect x="650" y="125" width="275" height="70" rx="6" fill="#ffffff" stroke="#3a8a4a" stroke-width="1.2"/>
+    <text x="787" y="155" text-anchor="middle" fill="#1f5b2c" font-weight="600">EKM Proxy</text>
+    <text x="787" y="175" text-anchor="middle" fill="#1f5b2c" font-size="12">Customer-operated, regional</text>
+
+    <!-- 3.2 Vertical arrow between EKM Proxy and Key Management Service -->
+    <line x1="787" y1="195" x2="787" y2="240" stroke="#222" stroke-width="2" marker-end="url(#arrowBlack)"/>
+    <text x="797" y="222" fill="#222" font-size="11">Vendor SDK</text>
+
+    <!-- 3.3 Key Management Service (lower white box) -->
+    <rect x="650" y="245" width="275" height="70" rx="6" fill="#ffffff" stroke="#3a8a4a" stroke-width="1.2"/>
+    <text x="787" y="275" text-anchor="middle" fill="#1f5b2c" font-weight="600">Key Management Service</text>
+    <text x="787" y="295" text-anchor="middle" fill="#1f5b2c" font-size="12">External HSM (KEK never leaves)</text>
+  </g>
+</svg>

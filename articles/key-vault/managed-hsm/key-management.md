@@ -7,7 +7,7 @@ ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 04/28/2026
+ms.date: 07/06/2026
 
 ai-usage: ai-assisted
 ---
@@ -443,6 +443,11 @@ Add-AzKeyVaultKey -HsmName <hsm-name> -Name myrsakey -KeyFilePath ./mycert.key -
 ---
 
 To import a key from your on-premises HSM to managed HSM, see [Import HSM-protected keys to Managed HSM (BYOK)](hsm-protected-keys-byok.md).
+
+> [!NOTE]
+> External key management is in preview. Some aspects might change before general availability. For preview terms, see the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+If your workload requires that the key encryption key (KEK) lives in a hardware security module that you operate outside Microsoft infrastructure, see [Managed HSM external key management (preview)](external-key-management-overview.md). External keys have a separate lifecycle and operational model — see [External key lifecycle](external-key-management-key-lifecycle.md) for details.
 
 ## Next steps
 
