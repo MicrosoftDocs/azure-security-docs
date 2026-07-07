@@ -83,6 +83,39 @@ items:
   - name: Reliability in Azure Key Vault Managed HSM
     href: /azure/reliability/reliability-managed-hsm?toc=/azure/key-vault/managed-hsm/toc.json&bc=/azure/key-vault/managed-hsm/breadcrumb/toc.json
 
+- name: External key management (preview)
+  items:
+  - name: Overview
+    href: external-key-management-overview.md
+  - name: Architecture
+    href: external-key-management-architecture.md
+  - name: SLA and shared responsibility
+    href: external-key-management-shared-responsibility.md
+  - name: Quickstarts
+    items:
+    - name: Create your first external key (Azure CLI)
+      href: external-key-management-quickstart-cli.md
+    - name: Create your first external key (Azure portal)
+      href: external-key-management-quickstart-portal.md
+  - name: Concepts
+    items:
+    - name: Key lifecycle
+      href: external-key-management-key-lifecycle.md
+  - name: How-to
+    items:
+    - name: Configure networking and mTLS
+      href: external-key-management-networking.md
+    - name: Logging and monitoring
+      href: external-key-management-logging-monitoring.md
+    - name: Troubleshoot
+      href: external-key-management-troubleshooting.md
+    - name: Migrate workloads off external keys
+      href: external-key-management-migration.md
+  - name: FAQ
+    href: external-key-management-faq.yml
+  - name: EKM Proxy API reference
+    href: external-key-management-proxy-api-reference.md
+
 - name: Security
   items:
   - name: Secure your managed HSM

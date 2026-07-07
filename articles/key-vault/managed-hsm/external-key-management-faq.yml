@@ -1,0 +1,128 @@
+### YamlMime:FAQ
+metadata:
+  title: Managed HSM external key management FAQ (preview)
+  titleSuffix: Azure Key Vault
+  description: Frequently asked questions about Azure Key Vault Managed HSM external key management
+  author: msmbaldwin
+  ms.service: azure-key-vault
+  ms.subservice: managed-hsm
+  ms.topic: faq
+  ms.date: 07/02/2026
+  ms.author: mbaldwin
+  ai-usage: ai-assisted
+title: Azure Key Vault Managed HSM external key management frequently asked questions (preview)
+summary: |
+  Get answers to common questions about Azure Key Vault Managed HSM external key management, including how it differs from Managed HSM keys, what's covered by SLA, and what HSM vendors are supported in preview. External key management is currently in preview. For preview terms, see the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+sections:
+  - name: Overview
+    questions:
+      - question: |-
+          What is Managed HSM external key management?
+        answer: |-
+          External key management lets you keep your Key Encryption Key (KEK) in a customer-owned, customer-operated HSM that runs entirely outside Microsoft infrastructure. When an Azure service needs to wrap or unwrap a data encryption key, Managed HSM delegates that operation to your external HSM through a customer-run EKM Proxy that you or your HSM vendor operate. For a full overview, see [What is Managed HSM external key management?](external-key-management-overview.md).
+      - question: |-
+          When should I use external key management instead of Managed HSM keys?
+        answer: |-
+          Use external key management only when you have a strict regulatory or digital-sovereignty requirement that legally or contractually mandates physical control of key material outside Microsoft datacenters. External key management is a last-resort, gated option — not a general-purpose upgrade to Managed HSM keys. If your compliance framework requires that your key material never physically resides on Microsoft infrastructure, external key management is the right choice.
+      - question: |-
+          When should I not use external key management?
+        answer: |-
+          Don't use external key management if you don't have a hard legal or contractual requirement for physical key control outside Microsoft. Managed HSM keys are faster, covered by the [Managed HSM SLA](https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/), and support the full key operation set — including sign, verify, encrypt, decrypt, and Secure Key Release (SKR). External key management supports only `wrapKey` and `unwrapKey`, adds network round-trip latency to every operation, and carries no SLA for external key availability.
+
+  - name: Preview
+    questions:
+      - question: |-
+          In which regions is external key management available?
+        answer: |-
+          External key management is available in **all Azure public regions** at preview launch. Sovereign clouds (Azure Government, Azure China) are out of scope for the preview.
+      - question: |-
+          Do I need a special subscription flag to access external key management?
+        answer: |-
+          External key management is enabled at the subscription level by your Microsoft account team. Contact your account team to request enablement for your subscription.
+      - question: |-
+          Is external key management generally available?
+        answer: |-
+          No, external key management is in preview. Some aspects of this feature might change before general availability. For preview terms, see the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+      - question: |-
+          Are there restrictions that apply only during preview?
+        answer: |-
+          Yes. During preview, external key management supports `wrapKey` and `unwrapKey` operations only and must be enabled on your subscription by your Microsoft account team.
+
+  - name: Architecture and operations
+    questions:
+      - question: |-
+          What operations does external key management support?
+        answer: |-
+          External key management supports `wrapKey` and `unwrapKey` only. Sign, verify, encrypt, decrypt, and Secure Key Release (SKR) are out of scope for external key management and aren't supported for external keys.
+      - question: |-
+          What algorithms does external key management support?
+        answer: |-
+          External key management supports `RSA-OAEP`, `RSA-OAEP-256`, `A256KW`, and `A256KWP`.
+      - question: |-
+          What key types and sizes does external key management support?
+        answer: |-
+          External key management supports RSA keys at 2048, 3072, and 4096 bits, and AES-256 keys (oct, 256 bits). Key material lives in your external HSM; Managed HSM stores only the key reference called an external key identifier.
+      - question: |-
+          Can I migrate an external key to a Managed HSM key?
+        answer: |-
+          No. In external key management, a key's status as either an external key or a Managed HSM key is **immutable by design** — external key management blocks transitions in both directions at the API. Azure Key Vault and Managed HSM also don't allow key material to be exported, so external keys and Managed HSM keys can't be converted into one another by any mechanism. To switch a workload from an external key to a Managed HSM key (or vice versa), migrate the **workload** to a new key as described in [Migrate workloads off external keys](external-key-management-migration.md). The new key has a different key URI, and every consuming Azure service must be reconfigured to use it.
+      - question: |-
+          Can Microsoft access my key material?
+        answer: |-
+          No. The KEK never leaves your external HSM, and Microsoft has no path to it. Managed HSM stores only the external key identifier reference, not the key itself. The EKM Proxy operates entirely outside Microsoft infrastructure, and Microsoft has no visibility into the proxy or the external HSM.
+
+  - name: Performance and SLA
+    questions:
+      - question: |-
+          What's the latency budget for an external key management operation?
+        answer: |-
+          Each proxy round-trip must complete in 250 ms or less. Managed HSM times out and returns an error if the proxy doesn't respond within that window. For guidance on sizing and network topology to stay within budget, see [Managed HSM external key management architecture](external-key-management-architecture.md).
+      - question: |-
+          Is external key management covered by the Managed HSM SLA?
+        answer: |-
+          Partially. The [Managed HSM SLA](https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/) covers Managed HSM up to and including the point at which it calls your EKM Proxy. External key availability — the proxy and the external HSM — isn't covered by the SLA. That responsibility belongs to you or your external HSM vendor. For the full breakdown, see [SLA and shared responsibility for Managed HSM external key management](external-key-management-shared-responsibility.md).
+      - question: |-
+          What does external key management cost?
+        answer: |-
+          [Standard Managed HSM pricing](https://azure.microsoft.com/pricing/details/key-vault/) applies for the Managed HSM service. Microsoft doesn't add a per-operation surcharge for external key management. You separately bear the cost of the EKM Proxy compute and your HSM vendor's licensing.
+
+  - name: Networking and security
+    questions:
+      - question: |-
+          How does Managed HSM connect to the EKM Proxy?
+        answer: |-
+          In the initial preview release, Managed HSM connects to the proxy over the public internet on a publicly resolvable FQDN that resolves to a publicly routable IPv4 address, secured with mutual TLS (mTLS) and TLS 1.3 as the minimum version. The proxy must be configured with the subject common name and root CA of the Managed HSM client certificate to authenticate inbound requests. This is the only supported connectivity model. For step-by-step setup, see [Configure networking and mTLS for Managed HSM external key management](external-key-management-networking.md).
+      - question: |-
+          Who owns the EKM Proxy?
+        answer: |-
+          You or your HSM vendor. Microsoft doesn't ship or support the EKM Proxy as a product. You're responsible for deploying, operating, securing, and scaling the proxy.
+      - question: |-
+          How are mTLS certificates managed?
+        answer: |-
+          Managed HSM rotates its client certificate on a schedule; you must keep the proxy's trusted-issuer allow-list current. The proxy's server certificate and its root CA trust anchor are customer-rotated and must be kept synchronized with the external key management connection object in Managed HSM. For detailed certificate management guidance, see [Configure networking and mTLS for Managed HSM external key management](external-key-management-networking.md).
+
+  - name: HSM vendors and self-serve onboarding
+    questions:
+      - question: |-
+          Which HSM vendors support external key management?
+        answer: |-
+          See [HSM vendors supporting external key management](external-key-management-overview.md#hsm-vendors-supporting-external-key-management-preview) for the current list of HSM vendors that support the external key management API specification. The list is informational; Microsoft makes no representations about the compatibility or availability of any specific vendor's proxy. Each vendor is responsible for the functionality and support of its own implementation.
+      - question: |-
+          I'm an HSM vendor — how do I add external key management support?
+        answer: |-
+          Build a conformant EKM Proxy that implements the EKM Proxy API specification exactly. The specification defines four endpoints, the JSON request and response schemas, encoding rules, error model, and mTLS requirements. For the full specification and implementation details, see [EKM Proxy API reference for Managed HSM external key management](external-key-management-proxy-api-reference.md).
+      - question: |-
+          Can I run my own proxy without a vendor partner?
+        answer: |-
+          Yes. The EKM Proxy API specification is publicly available, and any organization can implement a conformant proxy without a vendor partner. See [EKM Proxy API reference for Managed HSM external key management](external-key-management-proxy-api-reference.md) for the specification and implementation details.
+
+  - name: Logging and troubleshooting
+    questions:
+      - question: |-
+          Where do I find audit logs for external key management operations?
+        answer: |-
+          Managed HSM emits an `EkmProxyOperation` record in `AzureDiagnostics` for every proxy call. Filter by `OperationName contains "Ekm"` to isolate external key management activity. The proxy and external HSM produce their own logs, which you're responsible for collecting and retaining. For log schema and query examples, see [Logging and monitoring for Managed HSM external key management](external-key-management-logging-monitoring.md).
+      - question: |-
+          What's the most common failure during preview?
+        answer: |-
+          The two most common failures are mTLS handshake errors (usually caused by certificate allow-list drift after a Managed HSM client certificate rotation) and external key identifier mismatches (where the external key identifier stored on the Managed HSM key reference doesn't exactly match the identifier registered at the proxy — external key identifiers are case-sensitive and URL-encoded). See [Troubleshoot Managed HSM external key management](external-key-management-troubleshooting.md) for the full diagnostic guide.

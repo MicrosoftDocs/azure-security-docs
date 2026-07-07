@@ -6,8 +6,9 @@ services: key-vault
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: concept-article
-ms.date: 04/27/2026
+ms.date: 07/06/2026
 ms.custom: sfi-ga-nochange
+ai-usage: ai-assisted
 # Customer intent: As the admin for managed HSMs, I want to set access policies and configure the Managed HSM, so that I can ensure it's secure and auditors can properly monitor all activities for these managed HSMs.
 ---
 
@@ -116,6 +117,11 @@ When implementing access control for Managed HSM, consider establishing these co
 These conceptual roles should each be granted only the specific permissions needed to perform their responsibilities. The implementation of separation of duties requires both control plane (Azure RBAC) and data plane (Managed HSM local RBAC) role assignments.
 
 For a detailed tutorial on implementing separation of duties with specific examples and Azure CLI commands, see [Secure access to your managed HSMs](how-to-secure-access.md).
+
+> [!NOTE]
+> External key management is in preview. Some aspects might change before general availability. For preview terms, see the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+For Managed HSM external key management (preview), you also use the **Managed HSM EKM Administrator** local RBAC role to manage external key management connections to your EKM Proxy. For details, see [What is Managed HSM external key management?](external-key-management-overview.md) and [Quickstart: Create your first external key](external-key-management-quickstart-cli.md).
 
 ## Next steps
 
