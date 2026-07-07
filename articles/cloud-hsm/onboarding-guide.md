@@ -3,6 +3,7 @@ title: Azure Cloud HSM Onboarding Guide
 description: Learn how to provision, configure, and use Azure Cloud HSM with this comprehensive onboarding guide.
 manager: keithp
 ms.service: azure-cloud-hsm
+ms.author: mbaldwin
 ms.topic: overview
 ms.date: 03/20/2025
 

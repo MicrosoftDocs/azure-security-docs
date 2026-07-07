@@ -2,6 +2,7 @@
 title: Deploy Azure Cloud HSM by Using the Azure Portal
 description: Learn how to deploy and configure Azure Cloud HSM by using the Azure portal, including managed identity setup and private endpoint configuration.
 ms.service: azure-cloud-hsm
+ms.author: mbaldwin
 ms.topic: quickstart
 ms.date: 12/03/2025
 

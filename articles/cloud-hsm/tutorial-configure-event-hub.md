@@ -3,6 +3,7 @@ title: Tutorial - Configure Event Hubs for Azure Cloud HSM
 description: Learn how to configure Azure Event Hubs as a destination for Azure Cloud HSM operation event logs for real-time streaming and downstream processing.
 manager: keithp
 ms.service: azure-cloud-hsm
+ms.author: mbaldwin
 ms.topic: tutorial
 ms.date: 04/08/2026
 ai-usage: ai-assisted

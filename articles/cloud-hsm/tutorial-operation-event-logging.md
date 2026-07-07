@@ -3,6 +3,7 @@ title: Tutorial - Configure and Query Operation Event Logging for Azure Cloud HS
 description: Learn how to configure and query operation event logging for Azure Cloud HSM by using a Log Analytics workspace.
 manager: keithp
 ms.service: azure-cloud-hsm
+ms.author: mbaldwin
 ms.topic: tutorial
 ms.date: 04/08/2026
 ai-usage: ai-assisted
@@ -15,7 +16,7 @@ ai-usage: ai-assisted
 
 Azure Cloud HSM supports operation event logging through Log Analytics workspaces. This capability enables the centralized collection, analysis, and monitoring of logs across your Cloud HSM resources.
 
-Operation event logging is crucial for the overall security of a hardware security module (HSM). It provides a transparent and immutable record of all access and operations, to help ensure accountability and traceability.
+Operation event logging is crucial for the overall security of a hardware security module (HSM). It provides a transparent and consistent record of all access and operations, to help ensure accountability and traceability.
 
 By capturing details such as user activities, key management actions, and system events, operation logs help you detect unauthorized access, investigate security incidents, and comply with regulatory requirements. They also play a vital role in identifying anomalies that could indicate potential breaches or misconfigurations. In this way, they strengthen an organization's ability to maintain the integrity and confidentiality of its cryptographic operations.
 
@@ -318,4 +319,4 @@ The following names are related to HSM operation events.
 
 - [Azure Cloud HSM overview](overview.md)
 - [Tutorial: Configure Event Hub for Azure Cloud HSM](tutorial-configure-event-hub.md)
-- [Tutorial: Deploy Azure Cloud HSM](tutorial-deploy-cloud-hsm.md)
+- [Deploy Azure Cloud HSM by using the Azure portal](quickstart-portal.md)

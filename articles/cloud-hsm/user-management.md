@@ -2,6 +2,7 @@
 title: User Management Best Practices in Azure Cloud HSM
 description: Learn best practices for managing user identities, securing credentials, implementing redundancy, and restricting user permissions in Azure Cloud HSM.
 ms.service: azure-cloud-hsm
+ms.author: mbaldwin
 ms.topic: best-practice
 ms.date: 03/31/2026
 
@@ -13,7 +14,7 @@ ms.date: 03/31/2026
 
 Effective user management is crucial for maintaining the security and integrity of Azure Cloud HSM. This article outlines best practices for managing user identities, securing credentials, implementing redundancy, and restricting user permissions to enhance security and prevent unauthorized access.
 
-## Establish a user-managed identity
+## Establish a user-assigned managed identity
 
 You can establish a user-assigned managed identity for Azure Cloud HSM. A managed identity for Azure Cloud HSM is tailored specifically for user backup and restore operations.
 

@@ -3,6 +3,7 @@ title: Troubleshoot Azure Cloud HSM
 description: Learn how to troubleshoot common Azure Cloud HSM problems and errors.
 manager: davinune
 ms.service: azure-cloud-hsm
+ms.author: mbaldwin
 ms.topic: troubleshooting-general
 ms.date: 04/08/2026
 ---
@@ -213,13 +214,13 @@ You must use the `--sensitive` and `--private` arguments when you use  open-sour
 Here's an Advanced Encryption Standard (AES) wrapping example:
 
 ```bash
-pkcs11-tool.exe --sensitive --private --module "C:\AzureCloudHSM-ClientSDK\AzureCloudHSM-ClientSDK-Windows-1.0.3.0\libs\pkcs11\azcloudhsm_pkcs11.dll" --login --login-type user --pin cu1:user1234 --keygen --key-type AES:32*
+pkcs11-tool.exe --sensitive --private --module "C:\AzureCloudHSM-ClientSDK\AzureCloudHSM-ClientSDK-Windows-<version>\libs\pkcs11\azcloudhsm_pkcs11.dll" --login --login-type user --pin cu1:user1234 --keygen --key-type AES:32*
 ```
 
 Here's an elliptic-curve cryptography (ECC) P521 example:
 
 ```bash
-pkcs11-tool.exe --sensitive --private --module "C:\AzureCloudHSM-ClientSDK\AzureCloudHSM-ClientSDK-Windows-1.0.3.0\libs\pkcs11\azcloudhsm_pkcs11.dll" --login --login-type user --pin cu1:user1234 --keypairgen --key-type EC:prime256v1 --usage-sign
+pkcs11-tool.exe --sensitive --private --module "C:\AzureCloudHSM-ClientSDK\AzureCloudHSM-ClientSDK-Windows-<version>\libs\pkcs11\azcloudhsm_pkcs11.dll" --login --login-type user --pin cu1:user1234 --keypairgen --key-type EC:prime256v1 --usage-sign
 ```
 
 ## SSL/TLS offloading for Azure Cloud HSM

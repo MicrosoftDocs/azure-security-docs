@@ -2,7 +2,8 @@
 title: Secure your Azure Cloud HSM deployment
 description: Learn best practices for securing Azure Cloud HSM to help protect cryptographic keys and sensitive workloads.
 ms.service: azure-cloud-hsm
-ms.topic: article
+ms.author: mbaldwin
+ms.topic: best-practice
 ms.date: 04/08/2026
 ai-usage: ai-assisted
 ms.custom: horz-security
@@ -50,7 +51,7 @@ Effective user management and authentication controls are crucial for maintainin
 
 - **Limit CO control over CUs**: Use the `disableUserAccess` command to prevent CO users from managing specific CUs. CO users can bypass this command with older backups. See [User management in Azure Cloud HSM](user-management.md#limit-cryptography-officer-control-over-cryptography-users).
 
-- **Configure managed identities**: Establish user-assigned managed identities for backup and restore operations and for VMs that perform administrative actions. See [User management in Azure Cloud HSM](user-management.md#establish-a-user-managed-identity).
+- **Configure managed identities**: Establish user-assigned managed identities for backup and restore operations and for VMs that perform administrative actions. See [User management in Azure Cloud HSM](user-management.md#establish-a-user-assigned-managed-identity).
 
 - **Securely store HSM credentials**: Protect stored credentials and avoid exposing them when they're not in use. Configure your environment to retrieve and set credentials automatically. See [Authentication in Azure Cloud HSM](authentication.md).
 
@@ -84,7 +85,7 @@ Proper handling of key storage limits, key wrapping security, key attributes, an
 
 ## Logging and monitoring
 
-- **Configure operation event logging**: Operation event logging is vital for HSM security. It provides an immutable record of access and operations for accountability, traceability, and regulatory compliance. It helps detect unauthorized access, investigate incidents, and identify anomalies, to help ensure the integrity and confidentiality of cryptographic operations. To maintain security and privacy, logs exclude sensitive data (such as key IDs, key names, and user details). They capture HSM operations, timestamps, and metadata, but they can't determine success or failure because the HSM operation occurs within the inner TLS channel. See [Tutorial: Operation event logging in Azure Cloud HSM](tutorial-operation-event-logging.md).
+- **Configure operation event logging**: Operation event logging is vital for HSM security. It provides a consistent record of access and operations for accountability, traceability, and regulatory compliance. It helps detect unauthorized access, investigate incidents, and identify anomalies, to help ensure the integrity and confidentiality of cryptographic operations. To maintain security and privacy, logs exclude sensitive data (such as key IDs, key names, and user details). They capture HSM operations, timestamps, and metadata, but they can't determine success or failure because the HSM operation occurs within the inner TLS channel. See [Tutorial: Operation event logging in Azure Cloud HSM](tutorial-operation-event-logging.md).
 
 - **Stream logs to Event Hub for real-time processing**: For real-time log processing and integration with downstream SIEM systems or custom analytics pipelines, configure Event Hub as an additional destination for your diagnostic settings. See [Tutorial: Configure Event Hub for Azure Cloud HSM](tutorial-configure-event-hub.md).
 

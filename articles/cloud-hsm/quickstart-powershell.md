@@ -3,6 +3,7 @@ title: Deploy Azure Cloud HSM by Using Azure PowerShell
 description: Learn how to deploy Azure Cloud HSM into an existing virtual network by using Azure PowerShell.
 manager: keithp
 ms.service: azure-cloud-hsm
+ms.author: mbaldwin
 ms.topic: quickstart
 ms.date: 03/26/2026
 
@@ -10,7 +11,7 @@ ms.date: 03/26/2026
 
 #Supported Use Cases: Azure Cloud HSM provides a secure and customer-owned HSM for storing cryptographic keys and performing cryptographic operations. It supports various applications, including PKCS#11, offload of SSL/TLS processing, CA private key protection, and transparent data encryption. It also supports document and code signing.
 
-#Not Supported Use Cases: Azure Cloud HSM is IaaS only. It doesn't integrate with other Azure services, doesn't have a REST API, and doesn't support encryption at rest.
+#Not Supported Use Cases: Azure Cloud HSM is IaaS only. It doesn't integrate with Azure PaaS or SaaS services, doesn't have a REST API, and doesn't support encryption at rest.
 ---
 
 # Quickstart: Deploy Azure Cloud HSM by using Azure PowerShell
