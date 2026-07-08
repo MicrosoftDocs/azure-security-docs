@@ -7,7 +7,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, copilot-scenario-hig
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: tutorial
-ms.date: 04/09/2026
+ms.date: 07/07/2026
 ---
 
 # Import HSM-protected keys to Key Vault (BYOK)
@@ -94,8 +94,8 @@ To generate and transfer your key to a Key Vault Premium or Managed HSM:
 Generate a KEK as an RSA key in a Key Vault Premium or Managed HSM. Use the KEK to encrypt the key you want to import (the *target* key).
 
 The KEK must be:
-- An RSA-HSM key (2,048-bit, 3,072-bit, or 4,096-bit)
-- Generated in the same key vault where you plan to import the target key
+- An RSA-HSM key (2,048-bit, 3,072-bit, or 4,096-bit).
+- Generated in the same key vault where you plan to import the target key.
 - Created with allowed key operations set to `import`
 
 > [!NOTE]

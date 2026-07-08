@@ -6,14 +6,14 @@ services: key-vault
 ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: tutorial
-ms.date: 01/30/2026
+ms.date: 07/07/2026
 
 ms.custom: sfi-image-nochange, copilot-scenario-highlight
 ---
 
 # Create and merge a certificate signing request in Key Vault
 
-Azure Key Vault supports storing digital certificates issued by any certificate authority (CA). It supports creating a certificate signing request (CSR) with a private/public key pair. The CSR can be signed by any CA (an internal enterprise CA or an external public CA). A certificate signing request (CSR) is a message that you send to a CA in order to request a digital certificate.
+Azure Key Vault can store digital certificates issued by any certificate authority (CA). It supports creating a certificate signing request (CSR) with a private/public key pair. Any CA (an internal enterprise CA or an external public CA) can sign the CSR. A CSR is a message sent to a CA to request a digital certificate.
 
 For more general information about certificates, see [Azure Key Vault certificates](./about-certificates.md).
 
@@ -57,8 +57,8 @@ Follow these steps to add a certificate from CAs that aren't partnered with Key 
 
    ![Screenshot that highlights the Download CSR button.](../media/certificates/create-csr-merge-csr/download-csr.png)
 
-1. Have the CA sign the CSR (.csr).
-1. After the request is signed, select **Merge Signed Request** on the **Certificate Operation** tab to add the signed certificate to Key Vault.
+1. Have the CA sign the CSR (`.csr` file).
+1. After the request is signed, on the **Certificate Operation** tab, select **Merge Signed Request** to add the signed certificate to Key Vault.
 
 The certificate request has now been successfully merged.
 
@@ -85,7 +85,7 @@ The certificate request has now been successfully merged.
 
 1. Have the CA sign the CSR. The `$csr.CertificateSigningRequest` is the base encoded CSR for the certificate. You can dump this blob into the issuer’s certificate request website. This step varies from CA to CA. Look up your CA’s guidelines on how to execute this step. You can also use tools such as certreq or openssl to get the CSR signed and complete the process of generating a certificate.
 
-1. Merge the signed request in Key Vault. After the certificate request has been signed, you can merge it with the initial private/public key pair created in Azure Key Vault.
+1. Merge the signed request in Key Vault. After the CA signs the request, merge it with the private/public key pair originally created in Azure Key Vault.
 
     ```azurepowershell-interactive
     Import-AzKeyVaultCertificate -VaultName "<vault-name>" -Name "<certificate-name>" -FilePath C:\test\OutputCertificateFile.cer
@@ -98,11 +98,11 @@ The certificate request has now been successfully merged.
 ## Add more information to the CSR
 
 If you want to add more information when creating the CSR, define it in **SubjectName**. You might want to add information such as:
-- Country/region
-- City/locality
-- State/province
-- Organization
-- Organizational unit
+- Country/region.
+- City/locality.
+- State/province.
+- Organization.
+- Organizational unit.
 
 Example
 
@@ -115,28 +115,29 @@ Example
 
 ## FAQs
 
-- How do I monitor or manage my CSR?
+- **How do I monitor or manage my CSR?**
 
      See [Monitor and manage certificate creation](./create-certificate-scenarios.md).
 
-- What if I see **Error type 'The public key of the end-entity certificate in the specified X.509 certificate content does not match the public part of the specified private key. Please check if certificate is valid'**?
+- **What if I see the error `The public key of the end-entity certificate in the specified X.509 certificate content does not match the public part of the specified private key. Please check if certificate is valid`?**
 
-     This error occurs if you aren't merging the signed CSR with the same CSR request you initiated. Each new CSR that you create has a private key, which has to match when you merge the signed request.
+     This error occurs when the signed CSR you're merging wasn't produced from the same CSR you initiated. Each new CSR has its own private key, which must match when you merge the signed request.
 
-- When a CSR is merged, will it merge the entire chain?
+- **When a CSR is merged, does it merge the entire chain?**
 
-     Yes, it will merge the entire chain, provided the user has brought back a .p7b file to merge.
+     Yes, provided you bring back a `.p7b` file to merge.
 
-- What if the certificate issued is in disabled status in the Azure portal?
+- **What if the issued certificate is in disabled status in the Azure portal?**
 
-     View the **Certificate Operation** tab to review the error message for that certificate.
+     View the **Certificate Operation** tab to review the error message.
 
-- What if I see **Error type 'The subject name provided is not a valid X500 name'**?
+- **What if I see the error `The subject name provided is not a valid X500 name`?**
 
-     This error might occur if **SubjectName** includes any special characters. See notes in the Azure portal and PowerShell instructions.
+     This error can occur when **SubjectName** contains special characters. See the notes in the portal and PowerShell instructions.
 
-- Error type **The CSR used to get your certificate has already been used. Please try to generate a new certificate with a new CSR.**
-     Go to 'Advanced Policy' section of the certificate and check if 'reuse key on renewal' option is turned off.
+- **The CSR used to get your certificate has already been used. Please try to generate a new certificate with a new CSR.**
+
+     Go to the **Advanced Policy** section of the certificate and check whether **Reuse Key on Renewal** is turned off.
 
 ## Use AI to create complex certificate subject names
 
@@ -144,12 +145,12 @@ GitHub Copilot can help you construct the correct SubjectName format for certifi
 
 ```copilot-prompt
 I need to create a certificate signing request in Azure Key Vault with a complex subject name. Help me create the PowerShell command with these requirements:
-- Common Name: api.contoso.com
-- Organization: Contoso, Ltd. (note the comma in the name)
-- Organizational Unit: Cloud Services
-- City: New York
-- State: NY
-- Country: US
+- Common Name: `api.contoso.com`.
+- Organization: `Contoso, Ltd.` (note the comma in the name).
+- Organizational Unit: `Cloud Services`.
+- City: `New York`.
+- State: `NY`.
+- Country: `US`.
 Show me how to properly escape the comma in the organization name, and provide both the certificate policy and the Add-AzKeyVaultCertificate command.
 ```
 
@@ -160,7 +161,7 @@ Show me how to properly escape the comma in the organization name, and provide b
 ## Next steps
 
 - [Authentication, requests, and responses](../general/authentication-requests-and-responses.md)
-- [Key Vault Developer's Guide](../general/developers-guide.md)
+- [Key Vault developer's guide](../general/developers-guide.md)
 - [Azure Key Vault REST API reference](/rest/api/keyvault)
 - [Vaults - Create or Update](/rest/api/keyvault/keyvault/vaults/create-or-update)
-- [Vaults - Update Access Policy](/rest/api/keyvault/keyvault/vaults/update-access-policy)
+- [Azure RBAC for Key Vault](../general/rbac-guide.md)
