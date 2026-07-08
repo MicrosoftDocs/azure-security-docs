@@ -5,8 +5,8 @@ services: key-vault
 
 ms.service: azure-key-vault
 ms.subservice: keys
-ms.topic: tutorial
-ms.date: 04/09/2026
+ms.topic: concept-article
+ms.date: 07/07/2026
 
 ---
 
@@ -20,7 +20,7 @@ For added assurance, when you use Azure Key Vault, you can import or generate ke
 
 ## Supported HSMs
 
-Transferring HSM-protected keys to Key Vault is supported through two different methods depending on the HSMs you use. Use the following table to determine which method you should use for your HSMs to generate, and then transfer your own HSM-protected keys to use with Azure Key Vault. 
+Transferring HSM-protected keys to Key Vault is supported through two different methods, depending on the HSMs you use. Use the following table to determine which method to use to generate and then transfer your HSM-protected keys to Azure Key Vault.
 
 |Vendor Name|Vendor Type|Supported HSM models|Supported HSM-key transfer method|
 |---|---|---|---|

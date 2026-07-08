@@ -6,16 +6,16 @@ ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: tutorial
 ms.custom: mvc, sfi-image-nochange
-ms.date: 04/10/2026
+ms.date: 07/07/2026
 
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure.
 ---
 
 # Tutorial: Configure certificate autorotation in Key Vault
 
-You can easily provision, manage, and deploy digital certificates by using Azure Key Vault. The certificates can be public and private Secure Sockets Layer (SSL)/Transport Layer Security (TLS) certificates signed by a certificate authority (CA), or a self-signed certificate. Key Vault can also request and renew certificates through partnerships with CAs, providing a robust solution for certificate lifecycle management.
+Azure Key Vault helps you provision, manage, and deploy digital certificates. Certificates can be public or private TLS/SSL certificates signed by a certificate authority (CA), or self-signed. Key Vault can also request and renew certificates through partnerships with CAs, which provides a full certificate lifecycle management solution.
 
-For a comprehensive understanding of autorotation concepts and benefits across different asset types in Azure Key Vault, see [Understanding autorotation in Azure Key Vault](../general/autorotation.md).
+For an overview of autorotation across different asset types in Azure Key Vault, see [Understanding autorotation in Azure Key Vault](../general/autorotation.md).
 
 In this tutorial, you update a certificate's validity period, autorotation frequency, and CA attributes.
 
@@ -44,24 +44,24 @@ Create a key vault using one of these three methods:
 
 ## Create a certificate in Key Vault
 
-Create a certificate or import a certificate into the key vault (see [Steps to create a certificate in Key Vault](../certificates/quick-create-portal.md). In this case, you work on a certificate called **ExampleCertificate**.
+Create a certificate or import a certificate into the key vault (see [Steps to create a certificate in Key Vault](../certificates/quick-create-portal.md)). This tutorial uses a certificate named **ExampleCertificate**.
 
 ## Update certificate lifecycle attributes
 
-In Azure Key Vault, you can update a certificate's lifecycle attributes both at the time of certificate creation or after.
+In Azure Key Vault, you can update a certificate's lifecycle attributes at the time of creation or afterward.
 
 A certificate created in Key Vault can be:
 
 - A self-signed certificate.
-- A certificate created with a CA that is partnered with Key Vault.
-- A certificate with a CA that isn't partnered with Key Vault.
+- A certificate created with a CA that's partnered with Key Vault.
+- A certificate created with a CA that isn't partnered with Key Vault.
 
-The following CAs are currently partnered providers with Key Vault:
+Key Vault currently has these partnered CAs:
 
 - DigiCert: Key Vault offers OV or EV TLS/SSL certificates.
 - GlobalSign: Key Vault offers OV or EV TLS/SSL certificates.
 
-Key Vault autorotates certificates through established partnerships with CAs. Because Key Vault automatically requests and renews certificates through the partnership, autorotation capability isn't applicable for certificates created with CAs that aren't partnered with Key Vault.
+Key Vault autorotates certificates through its CA partnerships. Because Key Vault automatically requests and renews certificates through the partnership, autorotation doesn't apply to certificates created with non-partnered CAs.
 
 > [!NOTE]
 > An account admin for a CA provider creates credentials that Key Vault uses to create, renew, and use TLS/SSL certificates.
@@ -74,14 +74,14 @@ Key Vault autorotates certificates through established partnerships with CAs. Be
 1. Select **Generate/Import**.
 1. On the **Create a certificate** screen, update the following values:
 
-   - **Validity Period**: Enter the value (in  months). Creating short-lived certificates is a recommended security practice. By default, the validity value of a newly created certificate is 12 months.
-   - **Lifetime Action Type**: Select the certificate's autorenewal and alerting action and then update **percentage lifetime** or **Number of days before expiry**. By default, a certificate's autorenewal is set at 80 percent of its lifetime. From the drop-down menu, select one of the following options.
+   - **Validity Period**: Enter the value in months. Short-lived certificates are a security best practice. By default, a newly created certificate has a 12-month validity period.
+   - **Lifetime Action Type**: Select the certificate's autorenewal and alerting action, then update **percentage lifetime** or **Number of days before expiry**. By default, autorenewal is set at 80 percent of the certificate lifetime. From the dropdown menu, select one of the following options.
 
       |  Automatically renew at a given time| Email all contacts at a given time |
       |-----------|------|
-      |Selecting this option *turns on* autorotation. | Selecting this option will *not* autorotate but will only alert the contacts.|
-      
-      You can learn about [setting up Email contact here](./overview-renew-certificate.md#get-notified-about-certificate-expiration)
+      |Turns on autorotation. | Doesn't autorotate; only alerts the contacts.|
+
+      For more information, see [Get notified about certificate expiration](./overview-renew-certificate.md#get-notified-about-certificate-expiration).
 
 1. Select **Create**.
 
@@ -91,22 +91,22 @@ Key Vault autorotates certificates through established partnerships with CAs. Be
 
 1. Select the key vault.
 1. On the Key Vault properties pages, select **Certificates**.
-1. Select the certificate you want to update. In this case, you work on a certificate called **ExampleCertificate**.
-1. Select **Issuance Policy** from the top menu bar.
+1. Select the certificate you want to update. This tutorial uses a certificate named **ExampleCertificate**.
+1. On the top menu bar, select **Issuance Policy**.
 
    ![Screenshot that highlights the Issuance Policy button.](../media/certificates/tutorial-rotate-cert/cert-issuance-policy.png)
 
 1. On the **Issuance Policy** screen, update the following values:
 
-   - **Validity Period**: Update the value (in  months).
-   - **Lifetime Action Type**: Select the certificate's autorenewal and alerting action and then update the **percentage lifetime** or **Number of days before expiry**.
+   - **Validity Period**: Update the value in months.
+   - **Lifetime Action Type**: Select the certificate's autorenewal and alerting action, then update **percentage lifetime** or **Number of days before expiry**.
 
    ![Certificate properties](../media/certificates/tutorial-rotate-cert/cert-policy-change.png)
 
 1. Select **Save**.
 
 > [!IMPORTANT]
-> Changing the Lifetime Action Type for a certificate records modifications for the existing certificates immediately.
+> Changing the **Lifetime Action Type** for a certificate applies to the existing certificate immediately.
 
 
 ### Update certificate attributes by using PowerShell
@@ -135,20 +135,19 @@ To learn more about the parameters, see [az keyvault certificate](/cli/azure/key
 
 ## Clean up resources
 
-Other Key Vault tutorials build upon this tutorial. If you plan to work with these tutorials, you might want to leave these existing resources in place.
-When you no longer need them, delete the resource group, which deletes the key vault and related resources.
+Other Key Vault tutorials build on this one. If you plan to work with them, leave the resources in place. When you no longer need them, delete the resource group. Deleting the resource group deletes the key vault and related resources.
 
-To delete the resource group by using the portal:
+To delete the resource group in the portal:
 
-1. Enter the name of your resource group in the **Search** box at the top of the portal. When the resource group used in this quickstart appears in the search results, select it.
+1. Enter the resource group name in the **Search** box at the top of the portal, and select it from the results.
 1. Select **Delete resource group**.
-1. In the **TYPE THE RESOURCE GROUP NAME:** box, type the name of the resource group and then select **Delete**.
+1. In the **TYPE THE RESOURCE GROUP NAME:** box, enter the resource group name, then select **Delete**.
 
 
 ## Next steps
 
-In this tutorial, you updated a certificate's lifecycle attributes. To learn more about Key Vault and how to integrate it with your applications, continue on to the following articles:
+In this tutorial, you updated a certificate's lifecycle attributes. To learn more about Key Vault and how to integrate it with your applications, see:
 
-- [Key Vault Overview](../general/overview.md).
-- [Managing certificate creation in Azure Key Vault](./create-certificate-scenarios.md).
+- [Key Vault Overview](../general/overview.md)
+- [Managing certificate creation in Azure Key Vault](./create-certificate-scenarios.md)
 - [Understanding autorotation in Azure Key Vault](../general/autorotation.md)

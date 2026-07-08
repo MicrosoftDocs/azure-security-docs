@@ -5,16 +5,16 @@ services: key-vault
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 04/10/2026
+ms.date: 07/07/2026
 ms.devlang: csharp
-ms.custom: mvc, devx-track-csharp, devx-track-azurepowershell, devx-track-azurecli, devx-track-dotnet
+ms.custom: devx-track-csharp, devx-track-azurepowershell, devx-track-azurecli, devx-track-dotnet
 #Customer intent: As a developer I want to use Azure Key Vault to store secrets for my app, so that they are kept secure.
 ---
 # Tutorial: Use Azure Key Vault with a virtual machine in .NET
 
-Azure Key Vault helps you to protect secrets such as API keys, the database connection strings you need to access your applications, services, and IT resources.
+Azure Key Vault helps you protect secrets such as API keys and database connection strings that your applications, services, and resources need.
 
-In this tutorial, you learn how to get a console application to read information from Azure Key Vault. Application would use virtual machine managed identity to authenticate to Key Vault. 
+In this tutorial, you configure a console application to read information from Azure Key Vault. The application uses the VM's managed identity to authenticate to Key Vault.
 
 The tutorial shows you how to:
 
@@ -44,7 +44,7 @@ Before you start coding you need to create some resources, put a secret into you
 
 ### Sign in to Azure
 
-To sign in to Azure by using following command:
+Sign in to Azure with the Azure CLI or Azure PowerShell:
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
@@ -66,16 +66,18 @@ Connect-AzAccount
 [!INCLUDE [Create a secret](~/reusable-content/ce-skilling/azure/includes/key-vault/create-secret.md)]
 
 ## Create a virtual machine
-Create a Windows or Linux virtual machine using one of the following methods:
+
+Create a Windows or Linux VM by using one of the following methods:
 
 | Windows | Linux |
 |--|--|
-| [Azure CLI](/azure/virtual-machines/windows/quick-create-cli) | [Azure CLI](/azure/virtual-machines/linux/quick-create-cli) |  
+| [Azure CLI](/azure/virtual-machines/windows/quick-create-cli) | [Azure CLI](/azure/virtual-machines/linux/quick-create-cli) |
 | [PowerShell](/azure/virtual-machines/windows/quick-create-powershell) | [PowerShell](/azure/virtual-machines/linux/quick-create-powershell) |
 | [Azure portal](/azure/virtual-machines/windows/quick-create-portal) | [Azure portal](/azure/virtual-machines/linux/quick-create-portal) |
 
 ## Assign an identity to the VM
-Create a system-assigned identity for the virtual machine with the following example:
+
+Create a system-assigned managed identity for the VM:
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
@@ -112,23 +114,21 @@ xxxxxxxx-xx-xxxxxx   xxxxxxxx-xxxx-xxxx   SystemAssigned
 
 [!INCLUDE [Using RBAC to provide access to a key vault](~/reusable-content/ce-skilling/azure/includes/key-vault/rbac/upn-secrets-user-pivot.md)]
 
-## Sign in to the virtual machine
+## Sign in to the VM
 
-To sign in to the virtual machine, follow the instructions in [Connect and sign in to an Azure Windows virtual machine](/azure/virtual-machines/windows/connect-logon) or [Connect and sign in to an Azure Linux virtual machine](/azure/virtual-machines/linux-vm-connect).
+To sign in to the VM, follow the instructions in [Connect and sign in to an Azure Windows virtual machine](/azure/virtual-machines/windows/connect-logon) or [Connect and sign in to an Azure Linux virtual machine](/azure/virtual-machines/linux-vm-connect).
 
 ## Set up the console app
 
-Create a console app and install the required packages using the `dotnet` command.
+Create a console app and install the required packages with the `dotnet` command.
 
-### Install .NET Core
+### Install .NET
 
-To install .NET Core, go to the [.NET downloads](https://dotnet.microsoft.com/download) page.
+To install .NET, go to the [.NET downloads](https://dotnet.microsoft.com/download) page.
 
 ### Create and run a sample .NET app
 
-Open a command prompt.
-
-You can print "Hello World" to the console by running the following commands:
+Open a command prompt and run:
 
 ```console
 dotnet new console -n keyvault-console-app
@@ -136,23 +136,20 @@ cd keyvault-console-app
 dotnet run
 ```
 
-### Install the package
+The app prints "Hello World" to the console.
 
-From the console window, install the Azure Key Vault Secrets client library for .NET:
+### Install the packages
+
+From the console window, install the Azure Key Vault Secrets client library and Azure Identity library:
 
 ```console
 dotnet add package Azure.Security.KeyVault.Secrets
-```
-
-For this quickstart, you will need to install the following identity package to authenticate to Azure Key Vault:
-
-```console
 dotnet add package Azure.Identity
 ```
 
 ## Edit the console app
 
-Open the *Program.cs* file and add these packages:
+Open `Program.cs` and add the following `using` directives:
 
 ```csharp
 using System;
@@ -161,7 +158,7 @@ using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 ```
 
-Add these lines, updating the URI to reflect the `vaultUri` of your key vault. Below code is using  ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential) for authentication to key vault, which is using token from application managed identity to authenticate. It is also using exponential backoff for retries in case of key vault is being throttled.
+Replace the `Main` method with the following code, updating `<vault-name>` to your key vault name. This code uses [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) to authenticate to Key Vault, which uses a token from the VM's managed identity. It also configures exponential backoff for retries in case Key Vault is throttled.
 
 ```csharp
   class Program
@@ -216,7 +213,7 @@ Add these lines, updating the URI to reflect the `vaultUri` of your key vault. B
 
 ## Clean up resources
 
-When they are no longer needed, delete the virtual machine and your key vault.
+When you no longer need them, delete the VM and the key vault.
 
 ## Next steps
 

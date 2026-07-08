@@ -5,8 +5,8 @@ services: key-vault
 
 ms.service: azure-key-vault
 ms.subservice: general
-ms.topic: tutorial
-ms.date: 04/10/2026
+ms.topic: concept-article
+ms.date: 07/07/2026
 
 
 ---
