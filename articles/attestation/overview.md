@@ -66,7 +66,7 @@ Azure Attestation is critical to Confidential Computing scenarios, as it perform
 - Manages and stores tenant-specific policies.
 - Generates and signs a token that is used by relying parties to interact with the enclave.
 
-To keep Microsoft operationally out of trusted computing base (TCB), critical operations of Azure Attestation like quote validation, token generation, policy evaluation, and token signing are moved into an SGX enclave.
+To keep Microsoft operationally out of trusted computing base (TCB), critical operations of Azure Attestation like quote validation, token generation, policy evaluation, and token signing are moved into AMD SEV-SNP based confidential containers.
 
 ## Why use Azure Attestation
 
@@ -74,7 +74,7 @@ Azure Attestation is the preferred choice for attesting TEEs as it offers the fo
 
 - Unified framework for attesting multiple environments such as TPMs, SGX enclaves, and VBS enclaves.
 - Allows creation of custom attestation providers and configuration of policies to restrict token generation.
-- Protects its data while in use with implementation in an SGX enclave or Confidential Virtual Machine based on AMD SEV-SNP.
+- Protects its data while in use with implementation in a TEE.
 - Highly available service.
 
 ## How to establish trust with Azure Attestation
