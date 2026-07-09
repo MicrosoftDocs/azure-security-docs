@@ -1,11 +1,11 @@
 ---
-title: External key lifecycle in Azure Key Vault Managed HSM external key management (preview)
-description: Learn how external keys are created, referenced, rotated, and deleted in Azure Key Vault Managed HSM external key management, and which key operations are supported
+title: Managed HSM external key management key lifecycle (preview)
+description: Learn how external keys are created, rotated, and deleted in Managed HSM external key management, and which key operations are supported.
 author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: concept-article
-ms.date: 07/06/2026
+ms.date: 07/09/2026
 ms.author: mbaldwin
 ai-usage: ai-assisted
 #Customer intent: As a security or platform engineer using Managed HSM external key management, I need to understand the full lifecycle of an external key — creation, supported operations, rotation, deletion — and the constraints (such as external key identifier immutability) so I can plan operations correctly.
@@ -18,7 +18,7 @@ ai-usage: ai-assisted
 
 ## Overview
 
-This article describes the full lifecycle of an external key in Managed HSM external key management: how you create a key reference, which operations are supported, how rotation works, and how to delete keys safely. External key lifecycle requires more planning than the Managed HSM key lifecycle because two independent systems — Managed HSM and your external HSM — must stay in sync. An operation that succeeds on one side but fails on the other can leave your environment in an inconsistent state that affects all wrap and unwrap operations.
+This article describes the full lifecycle of an external key in Managed HSM external key management: how you create a key reference, which operations are supported, how rotation works, and how to delete keys safely. External key lifecycle requires more planning than the Managed HSM key lifecycle because two independent systems - Managed HSM and your external HSM - must stay in sync. An operation that succeeds on one side but fails on the other can leave your environment in an inconsistent state that affects all wrap and unwrap operations.
 
 ## Key reference versus key material
 
@@ -65,7 +65,7 @@ For the full responsibility breakdown, see [SLA and shared responsibility for Ma
 - Server-side encryption for services that require `sign` or `encrypt` directly
 
 > [!NOTE]
-> Services that perform customer-managed key encryption using `wrapKey` and `unwrapKey` — for example, Azure Storage — work with external key management. Services that require direct `encrypt`, `sign`, or SKR don't.
+> Services that perform customer-managed key encryption using `wrapKey` and `unwrapKey` - for example, Azure Storage - work with external key management. Services that require direct `encrypt`, `sign`, or SKR don't.
 
 ## Create an external key reference
 
@@ -87,11 +87,11 @@ Managed HSM creates a key object that contains the external key identifier, the 
 For a complete walkthrough including external key management connection setup, see [Quickstart: Create your first external key using the Azure CLI](external-key-management-quickstart-cli.md).
 
 > [!IMPORTANT]
-> The external key identifier is **immutable** after the key reference is created. You can't change the external key identifier of an existing key version. If you need to point a key at a different external key, create a new key version with the new external key identifier — don't try to update the existing version.
+> The external key identifier is **immutable** after the key reference is created. You can't change the external key identifier of an existing key version. If you need to point a key at a different external key, create a new key version with the new external key identifier - don't try to update the existing version.
 
 ## Authorization
 
-All access control to external keys is enforced by Managed HSM local RBAC, exactly as it is for Managed HSM keys. The `Managed HSM EKM Administrator` role is required to create and manage external key management connections. All other key operations (wrap, unwrap, list, get) use the standard Managed HSM local RBAC roles. For details, see [Access control for Managed HSM](access-control.md).
+Managed HSM local RBAC enforces all access control to external keys, exactly as it does for Managed HSM keys. The `Managed HSM EKM Administrator` role is required to create and manage external key management connections. All other key operations (wrap, unwrap, list, get) use the standard Managed HSM local RBAC roles. For details, see [Access control for Managed HSM](access-control.md).
 
 Common roles for external key operations:
 
@@ -106,7 +106,7 @@ For role definitions and assignment commands, see [Access control for Managed HS
 
 ## Rotation
 
-External key rotation is manual and operator-driven. There's no service-managed auto-rotation for external keys. You must coordinate rotation between your external HSM and Managed HSM.
+External key rotation is manual and operator-driven. External keys have no service-managed auto-rotation. You must coordinate rotation between your external HSM and Managed HSM.
 
 The rotation sequence is:
 
@@ -124,7 +124,7 @@ The rotation sequence is:
 After you create the new version:
 
 - **New wrap operations** use the latest key version automatically.
-- **Existing ciphertext** that was wrapped under a previous version can still be unwrapped — the old versions remain active and reachable at their versioned URIs.
+- **Existing ciphertext** wrapped under a previous version can still be unwrapped - the old versions remain active and reachable at their versioned URIs.
 - **The key URI** (pool URI + key name, without a version segment) is stable across all versions. Services that reference the unversioned URI automatically pick up the new version for wrap operations.
 
 > [!WARNING]
@@ -134,21 +134,12 @@ For command syntax and a worked example, see [Quickstart: Create your first exte
 
 ## Backup and restore
 
-**Managed HSM backup** captures the key reference — the external key identifier and key metadata. Use standard Managed HSM backup commands:
-
-```azurecli
-az keyvault key backup \
-  --hsm-name <Managed HSM-name> \
-  --name <key-ref-name> \
-  --file <backup-file>
-```
-
-Restoring from a Managed HSM backup restores the key reference. If the external key that the external key identifier points to is still available, wrap and unwrap operations resume immediately after restore. If the external key is gone, the restored reference exists in Managed HSM but all operations against it fail.
+Managed HSM does not currently support backup and restore operations for external keys. Attempting to restore an external key from backup can cause the associated Managed HSM resource to enter a degraded state. To recover an external key reference, recreate the external key reference in Managed HSM rather than using restore operations.
 
 **External HSM backup** is your responsibility. Back up key material using your HSM vendor tooling, following your vendor's documented procedures. Managed HSM has no visibility into or control over external key material backup.
 
 > [!IMPORTANT]
-> Plan your external HSM backup and restore procedures before you go to production. A Managed HSM key reference that points to a lost external key can't be recovered by Microsoft.
+> Plan your external HSM backup and restore procedures before you go to production. Microsoft can't recover a Managed HSM key reference that points to a lost external key.
 
 ## Deletion
 
@@ -164,7 +155,7 @@ az keyvault key delete \
   --name <key-ref-name>
 ```
 
-**Soft-delete** is enabled by default on all Managed HSM pools. A deleted key reference moves to the deleted state and is recoverable for the configured retention period (7–90 days).
+Managed HSM enables soft-delete by default on all pools. A deleted key reference moves to the deleted state and remains recoverable for the configured retention period (7–90 days).
 
 **Purge protection**, when enabled, prevents permanent deletion until the retention period expires. Enable purge protection on any Managed HSM pool that stores production key references.
 
@@ -193,16 +184,16 @@ Deleting the key material in your external HSM is irreversible. Use your HSM ven
 
 ## Workload migration to a different key
 
-You can't migrate or convert an external key into another key — Azure Key Vault and Managed HSM don't allow key material export between security boundaries. To switch a workload from an external key to a Managed HSM key (or to a different external key), you migrate the **workload** to a new key, not the key itself. The new key has a different key URI, and every Azure service consuming the source key must be reconfigured to point at the new URI.
+You can't migrate or convert an external key into another key - Azure Key Vault and Managed HSM don't allow key material export between security boundaries. To switch a workload from an external key to a Managed HSM key (or to a different external key), you migrate the **workload** to a new key, not the key itself. The new key has a different key URI, and every Azure service consuming the source key must be reconfigured to point at the new URI.
 
 For step-by-step instructions, see [Migrate workloads off external keys](external-key-management-migration.md). For the general Azure Key Vault pattern this follows, see [Migrate key workloads](../general/migrate-key-workloads.md).
 
 ## Related content
 
-- [What is Managed HSM external key management?](external-key-management-overview.md)
-- [Managed HSM external key management architecture](external-key-management-architecture.md)
-- [SLA and shared responsibility for Managed HSM external key management](external-key-management-shared-responsibility.md)
-- [Quickstart: Create your first external key using the Azure CLI](external-key-management-quickstart-cli.md)
-- [Migrate workloads off external keys for Managed HSM external key management](external-key-management-migration.md)
-- [Access control for Managed HSM](access-control.md)
-- [Troubleshoot Managed HSM external key management](external-key-management-troubleshooting.md)
+- [What is Managed HSM external key management?](external-key-management-overview.md).
+- [Managed HSM external key management architecture](external-key-management-architecture.md).
+- [SLA and shared responsibility for Managed HSM external key management](external-key-management-shared-responsibility.md).
+- [Quickstart: Create your first external key using the Azure CLI](external-key-management-quickstart-cli.md).
+- [Migrate workloads off external keys for Managed HSM external key management](external-key-management-migration.md).
+- [Access control for Managed HSM](access-control.md).
+- [Troubleshoot Managed HSM external key management](external-key-management-troubleshooting.md).
