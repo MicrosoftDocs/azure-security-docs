@@ -1,6 +1,6 @@
 ---
-title: What is Azure Key Vault Managed HSM external key management? (preview)
-description: Learn what Managed HSM external key management is, why and when to use it, which HSM vendors support it, and the limits of the preview
+title: What is Managed HSM external key management? (preview)
+description: Learn what Managed HSM external key management is, why and when to use it, which HSM vendors support it, and the limits of the preview.
 author: msmbaldwin
 ms.service: azure-key-vault
 ms.subservice: managed-hsm
@@ -16,9 +16,9 @@ ai-usage: ai-assisted
 > [!IMPORTANT]
 > Managed HSM external key management is in **preview**. Preview features are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature might change before general availability.
 
-Managed HSM external key management lets you keep your Key Encryption Key (KEK) in a customer-owned, customer-operated HSM that runs entirely outside Microsoft infrastructure. When an Azure service needs to wrap or unwrap a data encryption key, Managed HSM delegates that operation to your external HSM through a customer-run **EKM Proxy** that you or your HSM vendor operate.
+Managed HSM external key management helps you keep your Key Encryption Key (KEK) in a customer-owned, customer-operated HSM that runs entirely outside Microsoft infrastructure. When an Azure service needs to wrap or unwrap a data encryption key, Managed HSM delegates that operation to your external HSM through a customer-run **EKM Proxy** that you or your HSM vendor operate.
 
-External key management is designed for organizations with strict regulatory or digital-sovereignty requirements that legally or contractually mandate physical control of key material outside Microsoft datacenters. It's a last-resort, gated option — not a general-purpose upgrade to Managed HSM keys.
+External key management is designed for organizations with strict regulatory or digital-sovereignty requirements that legally or contractually mandate physical control of key material outside Microsoft datacenters. It's a last-resort, gated option - not a general-purpose upgrade to Managed HSM keys.
 
 ## Why use external key management?
 
@@ -47,7 +47,7 @@ Specific reasons to choose Managed HSM keys over external key management:
 | | **External key** | **Managed HSM key** |
 |---|---|---|
 | **Key material location** | Customer-owned HSM outside Microsoft infrastructure | FIPS 140-3 Level 3 HSM inside Azure |
-| **Key ownership and sovereignty** | Customer (or your HSM vendor) — key material resides in your own HSM | Customer — sole control of key material through partition ownership; Microsoft has no access to your keys |
+| **Key ownership and sovereignty** | Customer (or your HSM vendor) - key material resides in your own HSM | Customer - sole control of key material through partition ownership; Microsoft has no access to your keys |
 | **SLA** | None (depends on your proxy and HSM) | Covered by [Managed HSM SLA](https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/) |
 | **Latency** | Higher (proxy + HSM round-trip added to each operation) | Lower (no external round-trip) |
 | **Supported operations** | `wrapKey`, `unwrapKey` only | Full key operation set |
@@ -62,7 +62,7 @@ When an Azure service performs an encryption-at-rest operation, Managed HSM iden
 
 The request flow looks like this:
 
-1. An Azure service (for example, Azure Storage) calls Managed HSM for a `wrapKey` or `unwrapKey` operation.
+1. An Azure service, such as Azure Storage, calls Managed HSM for a `wrapKey` or `unwrapKey` operation.
 1. Managed HSM identifies the key as external through its external key identifier and forwards the operation to the customer's EKM Proxy.
 1. The EKM Proxy authenticates with the external HSM over mutual TLS and submits the operation.
 1. The external HSM performs the operation and returns the result to the proxy.
@@ -97,28 +97,29 @@ Keep the following constraints in mind during the preview:
 - **Region.** Available in **all Azure public regions** at preview launch. Sovereign clouds (Azure Government, Azure China) are out of scope for the preview.
 - **Supported operations.** Wrap and unwrap only (`wrapKey`, `unwrapKey`).
 - **Supported scenarios.** Encryption-at-rest for Azure services that support customer-managed keys (CMK) with Managed HSM.
-- **No SLA.** There's no SLA for external keys, the EKM Proxy, or the external HSM.
-- **Error transparency.** Failures attributable to the proxy or external HSM are surfaced in Managed HSM logs. These failures don't count against the Managed HSM SLA.
-- **External key identifier immutability.** An external key identifier is immutable after assignment. Key rotation is achieved by creating new key versions, not by modifying an existing external key identifier.
+- **No SLA.** No SLA covers external keys, the EKM Proxy, or the external HSM.
+- **Error transparency.** Managed HSM logs surface failures attributable to the proxy or external HSM. These failures don't count against the Managed HSM SLA.
+- **External key identifier immutability.** An external key identifier is immutable after assignment. Rotate keys by creating new key versions, not by modifying an existing external key identifier.
+- **Backup and restore not supported.** Managed HSM does not currently support backup and restore operations for external keys. Attempting to restore an external key from backup can cause the associated Managed HSM resource to enter a degraded state. To recover an external key reference, recreate the external key reference in Managed HSM rather than using restore operations.
 
 ## Get started
 
 Start with the overview articles and quickstarts that match your role and tool preference.
 
-- [Managed HSM external key management architecture](external-key-management-architecture.md)
-- [SLA and shared responsibility for Managed HSM external key management](external-key-management-shared-responsibility.md)
-- [Quickstart: Create your first external key using the Azure CLI](external-key-management-quickstart-cli.md)
-- [Quickstart: Create your first external key using the Azure portal](external-key-management-quickstart-portal.md)
-- [Configure networking and mTLS for Managed HSM external key management](external-key-management-networking.md)
-- [External key lifecycle in Managed HSM external key management](external-key-management-key-lifecycle.md)
-- [Logging and monitoring for Managed HSM external key management](external-key-management-logging-monitoring.md)
-- [Troubleshoot Managed HSM external key management](external-key-management-troubleshooting.md)
-- [Migrate workloads off external keys for Managed HSM external key management](external-key-management-migration.md)
-- [Managed HSM external key management frequently asked questions](external-key-management-faq.yml)
-- [EKM Proxy API reference for Managed HSM external key management](external-key-management-proxy-api-reference.md)
+- [Managed HSM external key management architecture](external-key-management-architecture.md).
+- [SLA and shared responsibility for Managed HSM external key management](external-key-management-shared-responsibility.md).
+- [Quickstart: Create your first external key using the Azure CLI](external-key-management-quickstart-cli.md).
+- [Quickstart: Create your first external key using the Azure portal](external-key-management-quickstart-portal.md).
+- [Configure networking and mTLS for Managed HSM external key management](external-key-management-networking.md).
+- [External key lifecycle in Managed HSM external key management](external-key-management-key-lifecycle.md).
+- [Logging and monitoring for Managed HSM external key management](external-key-management-logging-monitoring.md).
+- [Troubleshoot Managed HSM external key management](external-key-management-troubleshooting.md).
+- [Migrate workloads off external keys for Managed HSM external key management](external-key-management-migration.md).
+- [Managed HSM external key management frequently asked questions](external-key-management-faq.yml).
+- [EKM Proxy API reference for Managed HSM external key management](external-key-management-proxy-api-reference.md).
 
 ## Related content
 
-- [Managed HSM overview](overview.md)
-- [Access control for Managed HSM](access-control.md)
-- [How to choose the right key management solution](/azure/security/fundamentals/key-management-choose)
+- [Managed HSM overview](overview.md).
+- [Access control for Managed HSM](access-control.md).
+- [How to choose the right key management solution](/azure/security/fundamentals/key-management-choose).
