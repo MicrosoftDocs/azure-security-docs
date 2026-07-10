@@ -6,7 +6,7 @@ services: key-vault
 ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: overview
-ms.date: 04/10/2026
+ms.date: 07/10/2026
 
 ms.custom: sfi-image-nochange
 ---
@@ -134,8 +134,12 @@ Key Vault allows for the creation of multiple issuer objects with different issu
 
 Issuer objects are created in the vault. They can be used only with Key Vault certificates in the same vault.  
 
+### Certificate transparency
+
 >[!NOTE]
 >Publicly trusted certificates are sent to CAs and certificate transparency (CT) logs outside the Azure boundary during enrollment. They're covered by the data-handling policies of those entities.
+
+The integrated certificate authority handles CT log submission as part of publicly trusted certificate issuance. Key Vault doesn't expose a CT toggle. Browsers require this behavior for publicly trusted TLS certificates. Internally issued or self-signed certificates aren't subject to CT.
 
 ## Certificate contacts
 

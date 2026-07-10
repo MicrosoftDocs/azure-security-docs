@@ -1,11 +1,13 @@
 ---
 title: Secure your Azure Key Vault keys
 description: Learn how to secure Azure Key Vault keys, with best practices specific to cryptographic key management.
+author: msmbaldwin
+ms.author: mbaldwin
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: best-practice
 ms.custom: horz-security
-ms.date: 04/21/2026
+ms.date: 07/10/2026
 ai-usage: ai-assisted
 # Customer intent: As a developer using Key Vault keys, I want to implement key-specific security best practices.
 ---
@@ -82,13 +84,11 @@ For more information about BYOK, see [Import HSM-protected keys for Key Vault](h
 
 ## Key release and attestation
 
-For scenarios requiring key release to trusted environments:
+For scenarios that release keys to trusted execution environments (Azure Confidential Computing, confidential VMs, confidential containers):
 
-- **Use key release policies**: Configure attestation-based release policies to control when keys can be released from Key Vault
-- **Verify attestation**: Ensure requesting environments provide valid attestation before releasing keys
-- **Audit key releases**: Monitor and log all key release operations
-
-For more information about key release, see [Azure Key Vault key release](../keys/about-keys.md).
+- **Use key release policies**: Attach a release policy to the key at creation time to control which attested environments can retrieve the raw key material. Key Vault evaluates policies, which use a JSON claim and condition grammar, against the attestation token the caller presents. For the policy schema, see [Azure Key Vault secure key release policy grammar](policy-grammar.md).
+- **Verify attestation**: The workload must present an attestation token from a trusted attestation service (for example, Microsoft Azure Attestation) that matches every claim in the release policy. For end-to-end conceptual guidance and end-to-end flows, see [Secure Key Release with Azure Confidential Computing](/azure/confidential-computing/concept-skr-attestation).
+- **Audit key release**: Enable diagnostic logging on the vault and monitor for the `KeyRelease` operation. Alert on unexpected principals, unexpected source IPs, or spikes in release volume. For more information, see [Azure Key Vault logging](../general/logging.md).
 
 ## Monitoring and auditing
 
@@ -114,9 +114,9 @@ Set expiration dates for keys when appropriate:
 
 ## Related security articles
 
-- [Secure your Azure Key Vault](../general/secure-key-vault.md) - Comprehensive Key Vault security guidance
-- [Secure your Azure Key Vault secrets](../secrets/secure-secrets.md) - Security best practices for secrets
-- [Secure your Azure Key Vault certificates](../certificates/secure-certificates.md) - Security best practices for certificates
+- [Secure your Azure Key Vault](../general/secure-key-vault.md): Comprehensive Key Vault security guidance.
+- [Secure your Azure Key Vault secrets](../secrets/secure-secrets.md): Security best practices for secrets.
+- [Secure your Azure Key Vault certificates](../certificates/secure-certificates.md): Security best practices for certificates.
 
 ## Next steps
 

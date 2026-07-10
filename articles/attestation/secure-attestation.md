@@ -1,72 +1,84 @@
 ---
-title: Secure Azure Attestation
+title: Secure your Azure Attestation deployment
 description: Learn how to secure Azure Attestation, with best practices for network security, identity management, and access control.
-ms.service: security
+author: msmbaldwin
+ms.author: mbaldwin
+ms.service: azure-attestation
 ms.topic: best-practice
 ms.custom: horz-security
-
-ms.date: 03/28/2025
+ms.date: 07/10/2026
+ai-usage: ai-assisted
 ---
 
-# Secure Microsoft Azure Attestation
+# Secure your Azure Attestation deployment
 
-Microsoft Azure Attestation is a service that enables you to verify the trustworthiness of platform components and applications running in Trusted Execution Environments (TEEs). It helps establish a root of trust by validating that TEEs are genuine, unmodified, and running the expected software. When using Azure Attestation for security-critical verification workflows, you must take steps to maximize the security of your attestation providers and the data processed through them.
+Microsoft Azure Attestation is a service that helps you verify the trustworthiness of platform components and applications running in Trusted Execution Environments (TEEs). Azure Attestation helps establish a root of trust by validating that TEEs are genuine, unmodified, and running the expected software. When you use Azure Attestation for security-critical verification workflows, take steps to maximize the security of your attestation providers and the data processed through them.
 
-This article provides guidance on how to best secure your Azure Attestation deployment.
+[!INCLUDE [Security horizontal Zero Trust statement](~/reusable-content/ce-skilling/azure/includes/security/zero-trust-security-horizontal.md)]
+
+This article provides security recommendations to help protect your Azure Attestation deployment.
 
 ## Network security
 
 Azure Attestation supports network security features to help protect your attestation providers and their data from unauthorized access.
 
-- **Use Azure Private Link for secure access**: Configure Azure Private Link to securely connect to Azure Attestation from your virtual network, preventing exposure of attestation endpoints to the public internet. Private Link provides a private connection that uses private IP addresses, effectively bringing Azure Attestation into your virtual network. For more details, see [Create private endpoint for Azure Attestation using PowerShell](private-endpoint-powershell.md).
+- **Use Azure Private Link for secure access**: Configure Azure Private Link to securely connect to Azure Attestation from your virtual network, preventing exposure of attestation endpoints to the public internet. Private Link provides a private connection that uses private IP addresses, effectively bringing Azure Attestation into your virtual network. For more information, see [Create private endpoint for Azure Attestation using PowerShell](private-endpoint-powershell.md).
 
-- **Disable public network access when unnecessary**: By default, Azure Attestation has public network access disabled to enhance security. Keep this setting unless your architecture specifically requires public endpoint access. This minimizes the attack surface and exposure of your attestation providers. For more information about network security, see [Azure Private Link](/azure/private-link/private-link-overview).
+- **Disable public network access when unnecessary**: Azure Attestation supports the `publicNetworkAccess` property on attestation providers. Set it to `Disabled` for providers reached exclusively through Private Link so no data-plane traffic can arrive from the public internet. For more information, see [Azure Private Link](/azure/private-link/private-link-overview).
 
-## Identity management
+## Identity and access management
 
-Proper identity management is crucial for securing access to your attestation providers and their policies.
+Proper identity and access management is crucial for securing access to your attestation providers, their policies, and their signing certificates. Azure Attestation uses Microsoft Entra ID for data-plane authentication and Azure RBAC for authorization.
 
-- **Use Microsoft Entra ID authentication**: Azure Attestation supports Microsoft Entra ID authentication for data plane access by default. Use this built-in integration to apply your organization's identity governance controls to attestation operations. This provides centralized authentication, detailed audit logs, and the ability to enforce conditional access policies. For more information, see [Role and permission requirements for policy management in Azure Attestation](quickstart-powershell.md#policy-management).
+- **Use Microsoft Entra ID authentication**: Azure Attestation authenticates data-plane callers through Microsoft Entra ID by default. Use this built-in integration to apply your organization's identity governance controls (Conditional Access, MFA, session policies) to attestation operations. For more information, see [Role and permission requirements for policy management in Azure Attestation](quickstart-powershell.md#policy-management).
 
-- **Leverage managed identities for applications**: When applications need to interact with Azure Attestation, use Azure managed identities to authenticate without storing credentials in your code. This eliminates the risk associated with hardcoded secrets and simplifies credential management. Managed identities are supported for data plane operations in Azure Attestation. For more information, see [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview).
+- **Use managed identities for applications**: When applications need to call Azure Attestation, authenticate them by using Azure managed identities so you don't store secrets or certificates in code. Azure Attestation supports managed identities for data-plane operations. For more information, see [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview).
 
-- **Implement service principals for automated processes**: For automation scenarios where managed identities aren't applicable, create dedicated service principals with least-privilege permissions to authenticate to Azure Attestation. Regularly rotate credentials for these service principals and monitor their usage patterns. For more information, see [Create an Azure service principal](/powershell/azure/create-azure-service-principal-azureps).
+- **Use service principals only when managed identities can't be used**: For automation scenarios where managed identities don't apply (for example, cross-tenant scenarios), create dedicated service principals with least-privilege permissions. Rotate credentials regularly and monitor their sign-in activity. For more information, see [Create an Azure service principal](/powershell/azure/create-azure-service-principal-azureps).
 
-## Privileged access
+- **Apply Azure RBAC with the Attestation Contributor role**: Assign the built-in **Attestation Contributor** role only to users and service principals that need to manage policies or policy-signing certificates on an attestation provider. Grant read-only access with the **Attestation Reader** role. For more information, see [Role and permission requirements for policy management in Azure Attestation](quickstart-powershell.md#policy-management).
 
-Controlling privileged access is essential to prevent unauthorized modifications to attestation policies and configurations.
-
-- **Apply role-based access control**: Use Azure RBAC to manage access to Azure Attestation data plane actions. Assign the Attestation Contributor role to users who need to perform operations like policy configuration or policy signer certificates management. For more details on role and permission requirements, see [Role and permission requirements for policy management in Azure Attestation](quickstart-powershell.md#policy-management).
-
-## Logging and threat detection
-
-Monitoring and logging are key components of a comprehensive security strategy for Azure Attestation.
-
-- **Enable diagnostic logging**: Configure Azure resource logs to capture detailed information about attestation operations. These logs can help with security investigations, compliance requirements, and operational troubleshooting. For more details, see [Azure Attestation logging](view-logs.md).
-
-- **Configure alerts for suspicious activities**: Set up alerts in Azure Monitor to notify you of unusual patterns or potential security incidents involving your attestation providers. Focus on high-risk operations like policy changes or unexpected authentication failures. For more information about setting up alerts, see [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview).
+- **Enforce PIM for privileged assignments**: Use Microsoft Entra Privileged Identity Management (PIM) to make the **Attestation Contributor** role eligible rather than permanently assigned, and require MFA plus approval on activation. For more information, see [Privileged Identity Management overview](/entra/id-governance/privileged-identity-management/pim-configure).
 
 ## Data protection
 
-Protecting data processed by Azure Attestation is critical for maintaining the integrity of your attestation workflows.
+Azure Attestation processes attestation evidence and policies whose integrity is central to establishing trust in your TEEs. Data-at-rest and data-in-transit encryption are enabled by default, and the actionable controls are around policy signing.
 
-- **Leverage automatic data encryption**: Azure Attestation automatically encrypts all data at rest using Microsoft-managed keys. This encryption helps protect attestation policies, certificates, and other stored data from unauthorized access. For more information, see [Data at Rest Encryption in Azure Attestation](basic-concepts.md#encryption-of-data-at-rest).
+- **Sign your custom attestation policies**: Use signed policies (rather than unsigned policies) when your workload requires strong provenance for policy changes. Signed policies let you verify that a policy came from a trusted policy signer and wasn't tampered with in transit. For more information, see [How to author and sign an attestation policy](author-sign-policy.md).
 
-- **Use secure transport for all communications**: All data in transit to and from Azure Attestation is automatically encrypted using TLS 1.2 or higher. Enforce the use of secure protocols in your applications that communicate with Azure Attestation endpoints. For more information about data encryption in transit, see [Azure encryption overview](/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit).
+- **Protect policy-signing certificate private keys**: Store the private keys used to sign attestation policies in Azure Key Vault (or an HSM you control) and grant access only to the identities that must sign policies. Rotate these keys on a schedule aligned with your organization's cryptographic policy. For more information, see [About Azure Key Vault](/azure/key-vault/general/overview).
+
+- **Understand default encryption behavior**: Azure Attestation automatically encrypts all data at rest by using Microsoft-managed keys, and all data in transit uses TLS 1.2 or higher. You don't need to configure anything for the default posture. Validate that your client applications negotiate TLS 1.2 or higher against the attestation endpoint. For more information, see [Encryption of data at rest](basic-concepts.md#encryption-of-data-at-rest).
+
+## Logging and monitoring
+
+Monitoring and logging are key components of a comprehensive security strategy for Azure Attestation.
+
+- **Enable diagnostic logging**: Configure Azure resource logs to capture detailed information about attestation operations. These logs support security investigations, compliance requirements, and operational troubleshooting. For more information, see [Azure Attestation logging](view-logs.md).
+
+- **Configure alerts for suspicious activities**: Set up Azure Monitor alerts to notify you of unusual patterns or potential security incidents involving your attestation providers. Focus on high-risk operations like policy changes, policy-signer certificate rotations, and unexpected authentication failures. For more information, see [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview).
+
+## Compliance and governance
+
+Governance controls help you enforce a consistent security posture across attestation providers as your estate grows.
+
+- **Enforce configuration with Azure Policy**: Use Azure Policy definitions to audit or enforce required configurations on attestation providers - for example, requiring `publicNetworkAccess: Disabled` or restricting the regions where providers can be created. For more information, see [Azure Policy built-in definitions for Azure Attestation](policy-reference.md).
+
+- **Adopt the Microsoft cloud security benchmark**: Align your attestation posture with the [Microsoft cloud security benchmark (MCSB)](/security/benchmark/azure/overview), which provides horizontal controls for network security, identity, data protection, and monitoring that also apply to Azure Attestation.
 
 ## Backup and recovery
 
-While Azure Attestation handles the underlying infrastructure, you should plan for backup and recovery of your custom attestation policies and configurations.
+Azure Attestation manages the underlying infrastructure. Your recovery responsibilities are limited to your custom attestation policies and policy-signing certificates.
 
-- **Document attestation policy configurations**: Maintain documentation of your attestation policy configurations to enable quick recovery in case of accidental deletion or corruption. Include details of policy signers, policy contents, and any custom settings.
+- **Version-control your policy artifacts**: Store your attestation policy source files (and the source used to build signed policies) in a version-controlled repository so you can recreate any deployed policy deterministically. Combined with signed policies, this approach provides an auditable recovery path.
 
-- **Implement policy backup procedures**: Regularly export your attestation policies to a secure location. This ensures you can quickly restore them if needed without disrupting your attestation workflows.
+- **Back up policy-signing certificates**: If you use signed policies, store the policy-signing certificate in an HSM-backed store such as Azure Key Vault and back it up according to your organization's key management procedures. If you lose the signing key, you can't create new signed policy versions under the same signer identity.
 
-- **Test recovery procedures regularly**: Periodically test your ability to restore attestation policies and configurations to ensure your recovery procedures work as expected and meet your business continuity requirements.
+- **Test recovery periodically**: Regularly exercise the flow of redeploying your attestation policy to a test attestation provider so a validated procedure is ready if a production policy is lost or corrupted.
 
 ## Next steps
 
-- [Learn more about Azure Attestation service](/azure/attestation/overview)
+- [Overview of Azure Attestation](/azure/attestation/overview)
 - [Set up an attestation provider using PowerShell](quickstart-powershell.md)
 - [Create private endpoints for Azure Attestation](private-endpoint-powershell.md)
-- [Explore Azure security best practices](/azure/security/fundamentals/best-practices-and-patterns)
+- [Azure security best practices](/azure/security/fundamentals/best-practices-and-patterns)
