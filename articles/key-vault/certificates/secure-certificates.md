@@ -1,11 +1,13 @@
 ---
 title: Secure your Azure Key Vault certificates
 description: Learn how to secure Azure Key Vault certificates, with best practices specific to certificate management.
+author: msmbaldwin
+ms.author: mbaldwin
 ms.service: azure-key-vault
 ms.subservice: certificates
 ms.topic: best-practice
 ms.custom: horz-security
-ms.date: 04/10/2026
+ms.date: 07/10/2026
 ai-usage: ai-assisted
 # Customer intent: As a developer using Key Vault certificates, I want to implement certificate-specific security best practices.
 ---
@@ -46,21 +48,13 @@ For more information about certificates, see [About Azure Key Vault certificates
 
 Implement proper certificate lifecycle management to prevent expiration and outages:
 
-- **Enable automatic renewal**: Configure automatic renewal for certificates issued by integrated CAs. See [Renew your Azure Key Vault certificates](overview-renew-certificate.md)
+- **Enable automatic renewal**: Configure automatic renewal for certificates issued by integrated CAs. For more information, see [Renew your Azure Key Vault certificates](overview-renew-certificate.md).
 
-- **Set renewal windows**: Configure certificates to renew before expiration:
-  - Start renewal at 80% of certificate lifetime
-  - For 1-year certificates, begin renewal at 292 days
-  - For 2-year certificates, begin renewal at 584 days
+- **Set the renewal window ahead of expiration**: Configure the certificate to renew well before it expires. A common practice is to trigger renewal at about 80% of the certificate's lifetime. Adjust this value based on your CA's issuance latency and your change-control processes.
 
-- **Monitor certificate expiration**: Use Event Grid notifications to track certificate lifecycle events:
-  - Certificate near expiry (30, 15, and 7 days before expiration)
-  - Certificate expired
-  - Certificate created or renewed
-  
-  See [Azure Key Vault as Event Grid source](/azure/event-grid/event-schema-key-vault).
+- **Monitor certificate expiration**: Use the Event Grid `Microsoft.KeyVault.CertificateNearExpiry` event, which fires 30 days before expiration, plus `Microsoft.KeyVault.CertificateExpired` and `Microsoft.KeyVault.CertificateNewVersionCreated` to track the full lifecycle. For more information, see [Azure Key Vault as Event Grid source](/azure/event-grid/event-schema-key-vault).
 
-- **Maintain certificate inventory**: Track all certificates, their purposes, and expiration dates
+- **Maintain a certificate inventory**: Track all certificates, their purposes, owning applications, and expiration dates.
 
 For more information about renewal, see [Tutorial: Configure certificate autorotation in Key Vault](tutorial-rotate-certificates.md).
 
@@ -69,9 +63,11 @@ For more information about renewal, see [Tutorial: Configure certificate autorot
 Control who can access and manage certificates:
 
 - **Separate certificate permissions**: Use Azure RBAC to grant specific certificate permissions:
-  - **Certificate User**: Read certificates and public keys
-  - **Certificate Officer**: Manage certificate lifecycle (create, import, renew, delete)
-  - **Purge Recoverer**: Recover deleted certificates
+  - **Key Vault Certificate User**: Read certificates and public keys.
+  - **Key Vault Certificates Officer**: Manage certificate lifecycle (create, import, renew, delete).
+  - **Key Vault Purge Operator**: Purge deleted certificates during the soft-delete retention period.
+
+  For the full list of built-in roles, see [Azure built-in roles for Key Vault data plane operations](../general/rbac-guide.md#azure-built-in-roles-for-key-vault-data-plane-operations).
 
 - **Limit administrative access**: Restrict certificate management operations to authorized personnel only
 
@@ -84,9 +80,9 @@ See [Provide access to Key Vault certificates with Azure RBAC](../general/rbac-g
 Configure certificate policies to enforce security requirements:
 
 - **Set appropriate validity periods**:
-  - TLS/SSL certificates: 1 year maximum (per CA/Browser Forum baseline requirements)
-  - Internal certificates: Based on organizational policy
-  - Code signing certificates: Follow industry standards
+  - **Publicly trusted TLS certificates**: Follow the current [CA/Browser Forum Baseline Requirements](https://cabforum.org/working-groups/server/baseline-requirements/documents/). Maximum public-TLS validity is reduced to 200 days (effective March 2026), and is scheduled to drop further (100 days in 2027, 47 days in 2029). Plan for shorter lifetimes and full automation of renewal.
+  - **Internal certificates**: Set validity based on organizational policy, keeping lifetimes as short as your rotation automation supports.
+  - **Code signing certificates**: Follow industry standards for the target platform.
 
 - **Use strong key algorithms**:
   - RSA: 2048-bit minimum, 4096-bit for high-security scenarios
@@ -141,9 +137,7 @@ Protect certificate availability while maintaining security:
 
 Maintain visibility into certificate issuance:
 
-- **Enable Certificate Transparency (CT) logging**: For publicly trusted certificates, ensure CT compliance
-  - CT logs provide public audit trails of certificate issuance
-  - Required for certificates to be trusted by modern browsers
+- **Understand Certificate Transparency (CT) behavior**: For publicly trusted certificates issued through Key Vault's integrated certificate authorities, the CA handles CT log submission - you don't enable it in Key Vault. Publicly trusted certificates and metadata leave the Azure boundary during enrollment and are logged by public CT logs per browser trust requirements. For more information, see the note on external CA and CT log handling in [About Azure Key Vault certificates](about-certificates.md#certificate-transparency).
 
 - **Document certificate purposes**: Maintain records of:
   - Certificate purpose and owning application
@@ -166,9 +160,9 @@ For more information about self-signed certificates, see [Create a certificate w
 
 ## Related security articles
 
-- [Secure your Azure Key Vault](../general/secure-key-vault.md) - Comprehensive Key Vault security guidance
-- [Secure your Azure Key Vault keys](../keys/secure-keys.md) - Security best practices for cryptographic keys
-- [Secure your Azure Key Vault secrets](../secrets/secure-secrets.md) - Security best practices for secrets
+- [Secure your Azure Key Vault](../general/secure-key-vault.md): Comprehensive Key Vault security guidance.
+- [Secure your Azure Key Vault keys](../keys/secure-keys.md): Security best practices for cryptographic keys.
+- [Secure your Azure Key Vault secrets](../secrets/secure-secrets.md): Security best practices for secrets.
 
 ## Next steps
 

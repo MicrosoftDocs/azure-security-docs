@@ -1,11 +1,13 @@
 ---
 title: Secure your Azure Key Vault secrets
 description: Learn how to secure Azure Key Vault secrets, with best practices specific to secrets management.
+author: msmbaldwin
+ms.author: mbaldwin
 ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: best-practice
 ms.custom: horz-security
-ms.date: 04/10/2026
+ms.date: 07/10/2026
 ai-usage: ai-assisted
 # Customer intent: As a developer using Key Vault secrets, I want to implement secrets-specific security best practices.
 ---
@@ -20,14 +22,13 @@ Azure Key Vault secrets store sensitive application credentials like passwords, 
 
 Azure Key Vault secrets are designed for storing service or application credentials. Store the following types of data as secrets:
 
-- **Application credentials**: Client application secrets, API keys, service principal credentials
-- **Connection strings**: Database connection strings, storage account connection strings
-- **Passwords**: Service passwords, application passwords
-- **Access keys**: Redis Cache keys, Azure Event Hubs keys, Azure Cosmos DB keys, Azure Storage keys
-- **SSH keys**: Private SSH keys for secure shell access
+- **Application credentials**: Client application secrets, API keys, service principal credentials.
+- **Connection strings**: Database connection strings, storage account connection strings.
+- **Passwords**: Service passwords, application passwords.
+- **Access keys**: Redis Cache keys, Azure Event Hubs keys, Azure Cosmos DB keys, Azure Storage keys.
+- **SSH keys**: Private SSH keys for secure shell access.
 
-> [!IMPORTANT]
-> Do not store configuration data in Key Vault. IP addresses, service names, feature flags, and other configuration settings should be stored in [Azure App Configuration](/azure/azure-app-configuration/overview) rather than in Key Vault. Key Vault is optimized for cryptographic secrets, not general configuration management.
+Don't store configuration data in Key Vault. IP addresses, service names, feature flags, and other configuration settings should be stored in [Azure App Configuration](/azure/azure-app-configuration/overview) rather than in Key Vault. Key Vault is optimized for cryptographic secrets, not general configuration management.
 
 For more information about secrets, see [About Azure Key Vault secrets](about-secrets.md).
 
@@ -74,9 +75,9 @@ Enable monitoring to track secret access patterns and detect potential security 
 
 ## Related security articles
 
-- [Secure your Azure Key Vault](../general/secure-key-vault.md) - Comprehensive Key Vault security guidance
-- [Secure your Azure Key Vault keys](../keys/secure-keys.md) - Security best practices for cryptographic keys
-- [Secure your Azure Key Vault certificates](../certificates/secure-certificates.md) - Security best practices for certificates
+- [Secure your Azure Key Vault](../general/secure-key-vault.md): Comprehensive Key Vault security guidance.
+- [Secure your Azure Key Vault keys](../keys/secure-keys.md): Security best practices for cryptographic keys.
+- [Secure your Azure Key Vault certificates](../certificates/secure-certificates.md): Security best practices for certificates.
 
 ## Next steps
 
