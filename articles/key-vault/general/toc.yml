@@ -94,6 +94,12 @@ items:
         href: rbac-guide.md
       - name: Vault access policies to Azure RBAC migration guide
         href: rbac-migration.md
+      - name: ABAC conditions for Key Vault role assignments (preview)
+        href: rbac-abac.md
+      - name: Add ABAC conditions with Azure CLI (preview)
+        href: howto-abac-conditions-cli.md
+      - name: Add ABAC conditions with Azure PowerShell (preview)
+        href: howto-abac-conditions-powershell.md
     - name: Assign an access policy (legacy)
       href: assign-access-policy.md
     - name: Troubleshoot access issues
