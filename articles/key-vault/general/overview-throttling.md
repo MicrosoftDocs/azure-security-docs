@@ -5,7 +5,7 @@ services: key-vault
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: best-practice
-ms.date: 04/10/2026
+ms.date: 07/15/2026
 
 ---
 
@@ -30,6 +30,7 @@ Key Vault was originally created with the limits specified in [Azure Key Vault s
 1. If you use Key Vault to store credentials for a service, check if that service supports Microsoft Entra authentication to authenticate directly. This reduces the load on Key Vault, improves resiliency, and simplifies your code since Key Vault can now use the Microsoft Entra token. Many services now use Microsoft Entra authentication. See the current list at [Services that support managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/managed-identities-status#azure-services-that-support-managed-identities-for-azure-resources).
 1. Consider staggering your load/deployment over a longer period of time to stay under the current RPS limits.
 1. If your app comprises multiple nodes that need to read one or more same secrets, then consider using a fan-out pattern, where one entity reads the secret from Key Vault, and fans out to all nodes. Cache the retrieved secrets only in memory.
+1. For high-throughput secure key release (SKR) scenarios, use [Azure Key Vault Managed HSM](../managed-hsm/overview.md) instead of Azure Key Vault vaults. The `CREATE key` and `RELEASE key` operations on a vault share the same throttling category and are limited to 10 transactions per 10 seconds for HSM-protected keys (20 for software-protected keys). Managed HSM provides dedicated HSM instances with higher limits designed for high-scale key operations. For more information, see [Managed HSM scaling guidance](../managed-hsm/scaling-guidance.md).
 
 
 ## How to throttle your app in response to service limits
