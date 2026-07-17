@@ -98,9 +98,11 @@ For more information about Azure built-in roles definitions, see [Azure built-in
 | --- | --- | --- |
 | Key Vault Data Access Administrator | Manage access to Azure Key Vault by adding or removing role assignments for the Key Vault Administrator, Key Vault Certificates Officer, Key Vault Crypto Officer, Key Vault Crypto Service Encryption User, Key Vault Crypto User, Key Vault Reader, Key Vault Secrets Officer, or Key Vault Secrets User roles. Includes an ABAC condition to constrain role assignments. | 8b54135c-b56d-4d72-a534-26097cfdc8d8 |
 
+You can further constrain any of the preceding roles with Azure attribute-based access control (Azure ABAC) conditions - for example, to limit a principal to secrets whose names match a pattern, or to specific vaults by vault name. In this preview, ABAC for Key Vault applies only to secret data actions. For supported actions, attributes, operators, and condition examples, see [Actions and attributes for Azure Key Vault ABAC conditions (preview)](rbac-abac.md).
+
 ## Using Azure RBAC secret, key, and certificate permissions with Key Vault
 
-The new Azure RBAC permission model for key vault provides alternative to the vault access policy permissions model.
+The new Azure RBAC permission model for key vault provides an alternative to the vault access policy permissions model.
 
 ### Prerequisites
 
@@ -122,7 +124,7 @@ To manage role assignments, you must have `Microsoft.Authorization/roleAssignmen
     ![Enable Azure RBAC permissions - existing vault](../media/rbac/existing-vault.png)
 
 > [!IMPORTANT]
-> Setting Azure RBAC permission model invalidates all access policies permissions. It can cause outages when equivalent Azure roles aren't assigned.
+> Setting the Azure RBAC permission model invalidates all access policies permissions. It can cause outages when equivalent Azure roles aren't assigned.
 
 ### Assign role
 
@@ -250,7 +252,7 @@ For full details, see [Assign Azure roles using Azure PowerShell](/azure/role-ba
 
 1. Open a previously created secret.
 
-1. Select the **Access control (IAM)** tab
+1. Select the **Access control (IAM)** tab.
 
     ![Role assignment - secret](../media/rbac/image-8.png)
 
@@ -405,4 +407,5 @@ No. Azure RBAC permission model allows you to assign access to individual object
 - [Azure RBAC Overview](/azure/role-based-access-control/overview)
 - [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal)
 - [Custom Roles Tutorial](/azure/role-based-access-control/tutorial-custom-role-cli)
+- [Actions and attributes for Azure Key Vault ABAC conditions (preview)](rbac-abac.md)
 - [Secure your Azure Key Vault](secure-key-vault.md)

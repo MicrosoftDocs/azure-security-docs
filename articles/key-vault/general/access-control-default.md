@@ -278,6 +278,7 @@ New-AzResource `
 - [Azure role-based access control (Azure RBAC) vs. access policies](rbac-access-policy.md)
 - [Migrate from vault access policy to an Azure role-based access control permission model](rbac-migration.md)
 - [Use Azure RBAC for managing access to Key Vault](rbac-guide.md)
+- [Actions and attributes for Azure Key Vault ABAC conditions (preview)](rbac-abac.md)
 - [Secure your key vault](secure-key-vault.md)
 - [Azure Key Vault REST API reference](/rest/api/keyvault/)
 
