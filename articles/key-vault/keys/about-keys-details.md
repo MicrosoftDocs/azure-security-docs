@@ -2,11 +2,13 @@
 title: Key types, algorithms, and operations - Azure Key Vault
 description: Supported key types, algorithms, attributes, and operations for vaults in Azure Key Vault.
 services: key-vault
+author: msmbaldwin
 
 ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: concept-article
-ms.date: 05/21/2026
+ms.date: 07/07/2026
+ms.author: mbaldwin
 ai-usage: ai-assisted
 ---
 
@@ -14,12 +16,13 @@ ai-usage: ai-assisted
 
 This article describes key types, algorithms, attributes, and operations for Azure Key Vault (vaults). For the equivalent reference for Managed HSM, see [Key types, algorithms, and operations (Managed HSM)](../managed-hsm/about-keys-details.md). For a summary of supported key types by resource, see [About keys](about-keys.md).
 
-The following table shows a summary of key types and supported algorithms in Key Vault. For symmetric (oct-HSM / AES) algorithms, see [Key types, algorithms, and operations (Managed HSM)](../managed-hsm/about-keys-details.md).
+The following table shows a summary of key types and supported algorithms in Key Vault. For full details on symmetric (oct-HSM / AES) algorithms and HMAC sign/verify, see [Symmetric key algorithms](#symmetric-key-algorithms).
 
-|Key types/sizes/curves| Encrypt/Decrypt<br>(Wrap/Unwrap) | Sign/Verify | 
+|Key types/sizes/curves| Encrypt/Decrypt<br>(Wrap/Unwrap) | Sign/Verify |
 | --- | --- | --- |
 |EC-P256, EC-P256K, EC-P384, EC-P521|NA|ES256<br>ES256K<br>ES384<br>ES512|
-|RSA 2K, 3K, 4K| RSA-OAEP-256<br>[Not recommended] RSA1_5<br>[Not recommended] RSA-OAEP|PS256<br>PS384<br>PS512<br>RS256<br>RS384<br>RS512<br>RSNULL| 
+|RSA 2K, 3K, 4K| RSA-OAEP-256<br>[Not recommended] RSA1_5<br>[Not recommended] RSA-OAEP|PS256<br>PS384<br>PS512<br>RS256<br>RS384<br>RS512<br>RSNULL|
+|oct-HSM 128, 192, 256 (Premium; preview)| AES-KW<br>AES-GCM<br>AES-CBC | HS256<br>HS384<br>HS512 | 
 
 ##  EC algorithms
  The following algorithm identifiers are supported with EC-HSM keys.
@@ -43,14 +46,14 @@ The following table shows a summary of key types and supported algorithms in Key
 
 ### WRAPKEY/UNWRAPKEY, ENCRYPT/DECRYPT
 
--  **RSA-OAEP-256** – RSAES using Optimal Asymmetric Encryption Padding with a hash function of SHA-256 and a mask generation function of MGF1 with SHA-256.
+-  **RSA-OAEP-256** - RSAES that uses Optimal Asymmetric Encryption Padding with a hash function of SHA-256 and a mask generation function of MGF1 with SHA-256.
 - [Not recommended] **RSA1_5** - RSAES-PKCS1-V1_5 [RFC3447] key encryption.  
 - [Not recommended] **RSA-OAEP** - RSAES using Optimal Asymmetric Encryption Padding (OAEP) [RFC3447], with the default parameters specified by RFC 3447 in Section A.2.1. Those default parameters are using a hash function of SHA-1 and a mask generation function of MGF1 with SHA-1.
   
 > [!WARNING]
 > Microsoft recommends using RSA_OAEP_256 or stronger algorithms for enhanced security. 
 >
-> Microsoft does **not** recommend RSA_1_5 and RSA_OAEP, which are included solely for backwards compatibility. Cryptographic standards no longer consider RSA with the PKCS#1 v1.5 padding scheme secure for encryption, while RSA_OAEP utilizes SHA1, which has known collision problems. 
+> Microsoft doesn't recommend RSA_1_5 and RSA_OAEP. These algorithms are included only for backward compatibility. Cryptographic standards no longer consider RSA with the PKCS#1 v1.5 padding scheme secure for encryption. RSA_OAEP uses SHA1, which has known collision problems.
 
 ### SIGN/VERIFY
 
@@ -63,11 +66,33 @@ The following table shows a summary of key types and supported algorithms in Key
 - **RSNULL** - See [RFC2437](https://tools.ietf.org/html/rfc2437), a specialized use-case to enable certain TLS scenarios.  
 
 > [!NOTE]
-> RSA-PSS padding mode is recommended for better performance. The server constructs the DigestInfo for Sign operations that algorithms RS256, RS384, and RS512 generate.
+> For better performance, use the RSA-PSS padding mode. The server constructs the DigestInfo for Sign operations that algorithms RS256, RS384, and RS512 generate.
 
 ##  Symmetric key algorithms
 
-Symmetric (oct-HSM / AES) keys aren't supported in Key Vault. For supported AES algorithms (AES-KW, AES-GCM, AES-CBC) and HMAC sign/verify (HS256/384/512), see [Key types, algorithms, and operations (Managed HSM)](../managed-hsm/about-keys-details.md#symmetric-aes-key-algorithms).
+> [!IMPORTANT]
+> Symmetric (oct-HSM / AES) key support in Azure Key Vault Premium is currently in **public preview**. Supported key sizes are 128-bit, 192-bit, and 256-bit. Preview features are provided as-is, with no service-level agreement, and aren't recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+The following algorithm identifiers are supported with oct-HSM (symmetric/AES) keys in Azure Key Vault Premium.
+
+### WRAPKEY/UNWRAPKEY, ENCRYPT/DECRYPT
+
+- **AES-KW** - AES key wrap, as described in [RFC3394](https://datatracker.ietf.org/doc/html/rfc3394).
+- **AES-GCM** - AES encryption in Galois Counter Mode ([NIST SP 800-38d](https://csrc.nist.gov/publications/sp800)).
+- **AES-CBC** - AES encryption in Cipher Block Chaining Mode ([NIST SP 800-38a](https://csrc.nist.gov/publications/sp800)).
+
+When used with 256-bit keys, these algorithms are quantum-resistant according to the [Commercial National Security Algorithm Suite 2.0 and Quantum Computing FAQ](https://media.defense.gov/2022/Sep/07/2003071836/-1/-1/0/CSI_CNSA_2.0_FAQ_.PDF).
+
+### SIGN/VERIFY (HMAC)
+
+- **HS256** - HMAC using SHA-256, as described in [RFC7518](https://tools.ietf.org/html/rfc7518).
+- **HS384** - HMAC using SHA-384, as described in [RFC7518](https://tools.ietf.org/html/rfc7518).
+- **HS512** - HMAC using SHA-512, as described in [RFC7518](https://tools.ietf.org/html/rfc7518).
+
+> [!NOTE]
+> The sign and verify algorithm must match the key type and size. Otherwise, the service returns a key-size-incorrect error.
+
+For symmetric (oct-HSM) key algorithm support in Managed HSM, see [Key types, algorithms, and operations (Managed HSM)](../managed-hsm/about-keys-details.md#symmetric-aes-key-algorithms).
 
 ##  Key operations
 
@@ -97,7 +122,7 @@ In addition to the attributes listed above, Key Vault keys expose:
     - A `hsmPlatform` value of `1` means the key is protected by the previous FIPS 140-2 Level 2 validated HSM platform.
     - A `hsmPlatform` value of `0` means the key is protected by a FIPS 140-2 Level 1 software cryptographic module.
 
-Keys are bound to the HSM in which you created them. New keys and key versions are seamlessly created on the latest HSM platform. You can't migrate or transfer existing keys between platforms; for guidance on moving workloads to a new key, see [How to migrate key workloads](../general/migrate-key-workloads.md).
+Keys are bound to the HSM in which you created them. Azure Key Vault automatically creates new keys and key versions on the latest HSM platform. You can't migrate or transfer existing keys between platforms. For guidance on moving workloads to a new key, see [How to migrate key workloads](../general/migrate-key-workloads.md).
 
 For more information about IntDate and other data types, see [Data types](../general/about-keys-secrets-certificates.md#data-types).
 
@@ -138,7 +163,7 @@ Vault access policy permission model permissions (legacy):
   - *release*: Release a key to a confidential compute environment, which matches the `release_policy` of the key
 
 - Permissions for rotation policy operations
-  - *rotate*: Rotate an existing key by generating new version of the key (Key Vault only) 
+  - *rotate*: Rotate an existing key by generating a new version of the key (Key Vault only) 
   - *get rotation policy*: Retrieve rotation policy configuration
   - *set rotation policy*: Set rotation policy configuration
 
