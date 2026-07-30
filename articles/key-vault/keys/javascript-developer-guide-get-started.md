@@ -14,7 +14,7 @@ ms.date: 04/09/2026
   
 This article shows you how to connect to Azure Key Vault by using the Azure Key Vault keys client library for JavaScript. Once connected, your code can operate on keys in the vault. 
 
-[API reference](/javascript/api/overview/azure/keyvault-keys-readme) | [Package (npm)](https://www.npmjs.com/package/@azure/keyvault-keys) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/keyvault-keys) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/keyvault-keys/samples/v4) | [Give feedback](https://github.com/Azure/azure-sdk-for-js/issues)
+[API reference](/javascript/api/overview/azure/keyvault-keys-readme) | [Package (npm)](https://www.npmjs.com/package/@azure/keyvault-keys) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/keyvault-keys) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/keyvault-keys/samples) | [Give feedback](https://github.com/Azure/azure-sdk-for-js/issues)
   
 ## Prerequisites  
   
@@ -155,7 +155,7 @@ if (key?.name) {
 ## See also
 
 - [Package (npm)](https://www.npmjs.com/package/@azure/keyvault-keys)
-- [Samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/keyvault-keys/samples/v4)
+- [Samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/keyvault-keys/samples)
 - [API reference](/javascript/api/overview/azure/keyvault-keys-readme)
 - [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/keyvault-keys)
 - [Give Feedback](https://github.com/Azure/azure-sdk-for-js/issues)
