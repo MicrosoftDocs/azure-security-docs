@@ -52,22 +52,7 @@ The condition version must be set to `2.0`. For the complete grammar, see [Azure
 
 ## Supported operators
 
-All string comparison operators are supported in ABAC conditions for Azure Key Vault.
-
-| Operator | Description | Case-sensitive |
-| --- | --- | --- |
-| `StringEquals` | Exact string equality. | Yes |
-| `StringNotEquals` | String inequality. | Yes |
-| `StringStartsWith` | String prefix match. | Yes |
-| `StringNotStartsWith` | String doesn't start with value. | Yes |
-| `StringLike` | Pattern match with wildcards (`*`, `?`). | Yes |
-| `StringNotLike` | Pattern doesn't match. | Yes |
-| `StringEndsWith` | String suffix match. | Yes |
-| `StringNotEndsWith` | String doesn't end with value. | Yes |
-| `StringContains` | String contains substring. | Yes |
-| `StringNotContains` | String doesn't contain substring. | Yes |
-
-For the full definition of each operator, see [String comparison operators](/azure/role-based-access-control/conditions-format#string-comparison-operators).
+Azure Key Vault ABAC conditions support all the string comparison operators defined in the Azure ABAC condition format. For the full list of operators and their behavior, see [String comparison operators](/azure/role-based-access-control/conditions-format#string-comparison-operators).
 
 > [!NOTE]
 > All string operators are case-sensitive. A condition with `StringStartsWith 'test-app'` doesn't match a secret named `Test-App-Secret`. Use consistent casing in your naming conventions.
@@ -96,6 +81,11 @@ You can apply ABAC conditions to the following Key Vault secret data actions. Ea
 | Resource attributes | Secret name |
 | Example | `!(ActionMatches{'Microsoft.KeyVault/vaults/secrets/readMetadata/action'}) OR @Resource[Microsoft.KeyVault/vaults/secrets:name] StringStartsWith 'api-'` |
 
+> [!WARNING]
+> The `readMetadata/action` covers both retrieving a single secret's properties (which carries a secret name) and listing secrets in a vault (a collection call with no per-secret name). ABAC evaluates a condition per action, not row-by-row against list results, so a secret-name condition on `readMetadata/action` fails the list call with a 403 error - the `name` attribute isn't present on the collection request and can't match. This behavior surfaces in the portal Secrets blade as a blank list.
+>
+> If you want a principal to see every secret name in the list but only open the values that match a pattern, don't gate `readMetadata/action`. Instead, grant `readMetadata/action` unconditionally and apply the secret-name condition to `getSecret/action`. See the [Restrict read access to secrets with a name prefix](#example-restrict-read-access-to-secrets-with-a-name-prefix) example.
+
 ### Set secret
 
 | Property | Value |
@@ -115,16 +105,6 @@ You can apply ABAC conditions to the following Key Vault secret data actions. Ea
 | DataAction | `Microsoft.KeyVault/vaults/secrets/update/action` |
 | Resource attributes | Secret name |
 | Example | `!(ActionMatches{'Microsoft.KeyVault/vaults/secrets/update/action'}) OR @Resource[Microsoft.KeyVault/vaults/secrets:name] StringStartsWith 'app-'` |
-
-### Rotate secret
-
-| Property | Value |
-| --- | --- |
-| Display name | Rotate secret |
-| Description | Rotates a secret based on the secret's rotation policy. |
-| DataAction | `Microsoft.KeyVault/vaults/secrets/rotate/action` |
-| Resource attributes | Secret name |
-| Example | `!(ActionMatches{'Microsoft.KeyVault/vaults/secrets/rotate/action'}) OR @Resource[Microsoft.KeyVault/vaults/secrets:name] StringStartsWith 'rotating-'` |
 
 ### Delete secret
 
@@ -212,7 +192,7 @@ Use this attribute when the secret already exists at evaluation time.
 | Attribute | `Microsoft.KeyVault/vaults/secrets:name` |
 | Attribute source | Resource |
 | Attribute type | String |
-| Applicable actions | `getSecret/action`, `readMetadata/action`, `update/action`, `rotate/action`, `delete`, `backup/action`, `recover/action`, `purge/action` |
+| Applicable actions | `getSecret/action`, `readMetadata/action`, `update/action`, `delete`, `backup/action`, `recover/action`, `purge/action` |
 
 Example conditions:
 
@@ -252,7 +232,7 @@ The following built-in roles include secret data actions and support ABAC condit
 | Key Vault Administrator | Perform all data plane operations on a key vault and all objects in it. | `00482a5a-887f-4fb3-b363-3b7fe8e74483` | Resource and Request attributes on secret operations |
 | Key Vault Secrets Officer | Perform any action on secrets. | `b86a8fe4-44ce-4948-aee5-eccb2c155cd7` | Resource attributes on read and lifecycle operations; Request attributes on `setSecret` and `restore` operations |
 | Key Vault Secrets User | Read secret contents. | `4633458b-17de-408a-b874-0445c86b69e6` | Resource attributes on secret read operations |
-| Key Vault Reader | Read metadata of vaults and their objects. | `21090545-7ca7-4776-b22c-e363652d74d2` | Resource attributes on read and list operations |
+| Key Vault Reader | Read metadata of vaults and their objects. | `21090545-7ca7-4776-b22c-e363652d74d2` | Resource attributes on `readMetadata/action` for a single secret. A secret-name condition here blocks list calls; see the warning under [Read secret metadata](#read-secret-metadata). |
 | Key Vault Certificate User | Read certificate contents. | `db79e9a7-68ee-4b58-9aeb-b90e7c24fcba` | Resource attributes on `getSecret` and `readMetadata` (certificates are retrieved through the secret endpoint - the secret name equals the certificate name) |
 | Custom roles | Any custom role definition that includes secret `dataActions` for Key Vault. | - | Depends on which secret `dataActions` are included |
 
@@ -289,20 +269,20 @@ Behavior:
 
 ### Example: Restrict access to secrets in specific vaults by vault name prefix
 
-Allow a principal to read secrets only in vaults whose names start with `kvsyn`:
+Allow a principal to read secrets only in vaults whose names start with `kv-prod`:
 
 - **Role**: Key Vault Secrets User
 - **Scope**: Subscription
 - **Condition**:
 
 ```
-@Resource[Microsoft.KeyVault/vaults:name] StringStartsWith 'kvsyn'
+@Resource[Microsoft.KeyVault/vaults:name] StringStartsWith 'kv-prod'
 ```
 
 Behavior:
 
-- Allowed: Access to `kvsynabaceuap0520`.
-- Denied: Access to `kvdenyabaceuap0520b`.
+- Allowed: Access to `kv-prod-1`.
+- Denied: Access to `test-kv`.
 
 ### Example: Restrict newly created secrets to a name prefix
 
