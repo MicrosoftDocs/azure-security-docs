@@ -114,14 +114,19 @@ When you import a certificate, ensure that the key is included in the file itsel
 
 ### Formats of merge CSR we support
 
-Azure Key Vault supports PKCS#8 encoded certificates with the following headers:
+When merging a certificate signing request (CSR), Azure Key Vault accepts input in either PKCS#8 or PKCS#7 format.
+
+- *PKCS#8:* You can provide a PKCS#8-encoded certificate directly with the following headers:
 
 -----BEGIN CERTIFICATE-----
 
 -----END CERTIFICATE-----
 
-> [!NOTE]
-> P7B (PKCS#7) signed certificate chains, commonly used by certificate authorities (CAs), are supported as long as they're base64-encoded. You can use [certutil -encode](/windows-server/administration/windows-commands/certutil#-encode) to convert to a supported format.
+- *PKCS#7 (certificate chain):* You must provide the certificate chain as a Base64-encoded string. Only the Base64-encoded content is supported:
+If your PKCS#7 file is in PEM format (for example, includes -----BEGIN PKCS7----- and -----END PKCS7----- delimiters), remove these header and footer lines and submit only the enclosed Base64 content.
+If your PKCS#7 file is in binary (DER) format, you must first convert it to Base64 encoding (for example, by using [certutil -encode](/windows-server/administration/windows-commands/certutil#-encode)). After encoding, remove any header and footer lines that may have been added, and submit only the Base64 content.
+
+Providing the data in any other format, or including headers and footers, will result in a failed merge operation.
 
 ## Creating a certificate with a CA not partnered with Key Vault  
 This method allows working with CAs other than Key Vault's partnered providers, meaning your organization can work with a CA of its choice.  
