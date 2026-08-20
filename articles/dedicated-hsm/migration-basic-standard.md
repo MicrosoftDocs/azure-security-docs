@@ -1,5 +1,5 @@
 ---
-title: Migrate Basic Public IP SKU ExpressRoute Gateways for Dedicated HSM
+title: Migrate Basic Public IP SKU ExpressRoute gateways for Dedicated HSM
 description: Learn how to migrate Azure Dedicated HSM connectivity from the ExpressRoute gateway Basic Public IP SKU to the Standard SKU before retirement.
 author: msmbaldwin
 ms.author: mbaldwin
@@ -11,7 +11,7 @@ ms.custom: references_regions
 ai-usage: ai-assisted
 ---
 
-# Migrate Basic Public IP SKU ExpressRoute Gateways for Dedicated HSM
+# Migrate Basic Public IP SKU ExpressRoute gateways for Dedicated HSM
 
 Microsoft extended support for the Basic Public IP SKU ExpressRoute gateway used by Azure Dedicated HSM until March 31, 2027. If your Dedicated HSM deployment uses the Basic Public IP SKU, complete the migration before this date to maintain connectivity.
 
