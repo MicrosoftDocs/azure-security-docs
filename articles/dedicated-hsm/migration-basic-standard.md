@@ -1,19 +1,19 @@
 ---
-title: Migrate Dedicated HSM from ExpressRoute Basic SKU
-description: Learn how to migrate Azure Dedicated HSM connectivity from the ExpressRoute gateway Basic SKU to the Standard SKU before retirement.
+title: Migrate Basic Public IP SKU ExpressRoute Gateways for Dedicated HSM
+description: Learn how to migrate Azure Dedicated HSM connectivity from the ExpressRoute gateway Basic Public IP SKU to the Standard SKU before retirement.
 author: msmbaldwin
 ms.author: mbaldwin
 ms.topic: how-to
-ms.date: 07/31/2026
+ms.date: 08/20/2026
 services: dedicated-hsm
 ms.service: azure-dedicated-hsm
 ms.custom: references_regions
 ai-usage: ai-assisted
 ---
 
-# Migrate Dedicated HSM from ExpressRoute Basic SKU
+# Migrate Basic Public IP SKU ExpressRoute Gateways for Dedicated HSM
 
-Microsoft extended support for the Basic SKU ExpressRoute gateway used by Azure Dedicated HSM until March 31, 2027. If your Dedicated HSM deployment uses the Basic SKU, complete the migration before this date to maintain connectivity.
+Microsoft extended support for the Basic Public IP SKU ExpressRoute gateway used by Azure Dedicated HSM until March 31, 2027. If your Dedicated HSM deployment uses the Basic Public IP SKU, complete the migration before this date to maintain connectivity.
 
 Azure Dedicated HSM uses an ExpressRoute gateway and a service-managed circuit to connect the Dedicated HSM virtual network interface to your virtual network. You can't migrate this gateway by using the standard [ExpressRoute gateway migration process](/azure/expressroute/gateway-migration). The standard process doesn't support a virtual network that contains a Dedicated HSM.
 
@@ -106,7 +106,7 @@ Dedicated HSM connectivity uses a service-managed ExpressRoute circuit that bind
 
 Don't take any of the following actions in the existing environment:
 
-- Don't migrate the existing gateway from Basic SKU to Standard SKU.
+- Don't migrate the existing gateway from Basic Public IP SKU to Standard SKU.
 - Don't modify the ExpressRoute gateway configuration.
 - Don't delete or re-create the ExpressRoute gateway.
 
