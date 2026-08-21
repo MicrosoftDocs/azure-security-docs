@@ -4,7 +4,7 @@ description: Learn how virtual network service endpoints for Azure Key Vault all
 services: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 06/16/2026
+ms.date: 08/20/2026
 ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: feature-guide
@@ -50,6 +50,7 @@ The following table lists the Microsoft services known to bypass the Key Vault f
 
 |Trusted service|Supported usage scenarios|
 | --- | --- |
+| Azure AI Search | [Configure customer-managed keys for Azure AI Search encrypted data](/azure/search/search-security-manage-encryption-keys) |
 | Azure API Management|[Deploy certificates for Custom Domain from Key Vault using MSI](/azure/api-management/api-management-howto-use-managed-service-identity#use-ssl-tls-certificate-from-azure-key-vault)|
 | Azure App Service|App Service is trusted only for [Deploying Azure Web App Certificate through Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html), for individual app itself, the outbound IPs can be added in Key Vault's IP-based rules|
 | Azure Application Gateway |[Using Key Vault certificates for HTTPS-enabled listeners](/azure/application-gateway/key-vault-certs)
